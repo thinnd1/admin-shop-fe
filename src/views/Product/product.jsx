@@ -23,7 +23,6 @@ let Product = function(){
      SetPageNumber(selected);
    }
 
-   console.log(CategoryFilter)
   const user_id = localStorage.getItem('user_id') ?? 'null';
   const cart_id = localStorage.getItem('cart_id') ?? 'null';
 

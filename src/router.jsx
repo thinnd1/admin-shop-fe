@@ -41,7 +41,7 @@ const ShopAdminCreate = React.lazy(() => import("./views/admin/Shop/shop_admin_c
 const ShopAdminUpdate = React.lazy(() => import("./views/admin/Shop/shop_admin_update"));
 const ShopAdminDelete = React.lazy(() => import("./views/admin/Shop/shop_admin_delete"));
 
-const Shop = React.lazy(() => import("./views/shop/shop"));
+const Shop = React.lazy(() => import("./views/Shop/shop"));
 
 const CategorieProdAdminCreate = React.lazy(() => import("./views/admin/Category/Categories_admin_create"));
 const CategorieProdAdminShow = React.lazy(() => import("./views/admin/Category/Categories_admin_show"));
