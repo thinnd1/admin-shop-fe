@@ -38,17 +38,17 @@ function ProductAdmin() {
   async function HandleAddProduct(e) {
     e.preventDefault();
     const link_api = 'http://localhost:8000/api/admin/product/create';
-    const formData = {
-      'product_image': productImage.name,
-      'Product_image_size': productImage.size,
-      'Product_image_fromat': productImage.type,
-      'name': productName,
-      'price_unit': productPrice,
-      'product_quantity': productQte,
-      'product_category': productCategory,
-      'brand_id': brandId,
-      'product_description': descriptionProduct
-    }
+
+    const formData = new FormData();
+    formData.append('product_image', productImage); // productImage là đối tượng file được chọn từ input[type="file"]
+    formData.append('Product_image_size', productImage.size);
+    formData.append('Product_image_format', productImage.type);
+    formData.append('name', productName);
+    formData.append('price_unit', productPrice);
+    formData.append('product_quantity', productQte);
+    formData.append('product_category', productCategory);
+    formData.append('brand_id', brandId);
+    formData.append('product_description', descriptionProduct);
     try {
       await axios.post(link_api, formData).then(response => {
         console.log(response.data);
