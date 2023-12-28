@@ -1,0 +1,41 @@
+@import '../../../../assets/styles/_import';
+.key-code {
+	&-title {
+		border-bottom: 1px solid #d7d7d7;
+		color: #3d7eb6;
+    line-height: 1.5;
+	}
+	&-form {
+	}
+  &-intro {
+    color: #333;
+  }
+  &-table {
+    max-width: 680px;
+    margin: 0 auto;
+    th,td {
+      border: none;
+    }
+    th {
+      width: 10rem;
+      line-height: 33px;
+    }
+  }
+}
+
+//@media (max-width: 767px)
+@include media-breakpoint-down(sm) {
+	.key-code {
+    &-table {
+      th,td {
+        padding: .25rem;
+        width: 100%;
+        display: block;
+      }
+      tr + tr th {
+        padding-top: 1rem;
+      }
+    }
+	}
+}
+

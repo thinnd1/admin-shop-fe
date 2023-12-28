@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="./aigis_assets/css/highlight/okadia.css" rel="stylesheet">
+    <link href="./aigis_assets/css/theme.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+  </head>
+<body>
+  <div class="aigis-container">
+    <div class="aigis-sidemenu">
+  <header class="aigis-header">
+    <a href="./index.html">Styleguide</a>
+  </header>
+  <h2 class="aigis-sidemenu__heading">Category</h2>
+  <nav class="aigis-categoryList">
+    <ul data-path-depth="0"><li data-path-depth="0"><a href="category/Base">Base</a><ul data-path-depth="1"><li data-path-depth="1"><a href="category/Base/Components">Components</a><ul data-path-depth="2"><li data-path-depth="2"><a href="category/Base/Components/col-sub">col-sub</a></li><li data-path-depth="2"><a href="category/Base/Components/header">header</a></li><li data-path-depth="2"><a href="category/Base/Components/image-cropper">image-cropper</a></li><li data-path-depth="2"><a href="category/Base/Components/info-panel">info-panel</a></li><li data-path-depth="2"><a href="category/Base/Components/page-head">page-head</a></li><li data-path-depth="2"><a href="category/Base/Components/settings-panel">settings-panel</a></li><li data-path-depth="2"><a href="category/Base/Components/side-menu">side-menu</a></li><li data-path-depth="2"><a href="category/Base/Components/visitor-header">visitor-header</a></li></ul></li><li data-path-depth="1"><a href="category/Base/Images">Images</a><ul data-path-depth="2"><li data-path-depth="2"><a href="category/Base/Images/avatar">avatar</a></li></ul></li><li data-path-depth="1"><a href="category/Base/Layout">Layout</a><ul data-path-depth="2"><li data-path-depth="2"><a href="category/Base/Layout/1column">1column</a></li><li data-path-depth="2"><a href="category/Base/Layout/2column">2column</a></li><li data-path-depth="2"><a href="category/Base/Layout/3column">3column</a></li></ul></li><li data-path-depth="1"><a href="category/Base/Link">Link</a></li><li data-path-depth="1"><a href="category/Base/Loader">Loader</a></li><li data-path-depth="1"><a href="category/Base/Typography">Typography</a></li></ul></li><li data-path-depth="0"><a href="category/Bootstrap">Bootstrap</a><ul data-path-depth="1"><li data-path-depth="1"><a href="category/Bootstrap/Buttons">Buttons</a></li><li data-path-depth="1"><a href="category/Bootstrap/Colors">Colors</a></li><li data-path-depth="1"><a href="category/Bootstrap/Forms">Forms</a></li><li data-path-depth="1"><a href="category/Bootstrap/Layout">Layout</a><ul data-path-depth="2"><li data-path-depth="2"><a href="category/Bootstrap/Layout/Breakpoints">Breakpoints</a></li><li data-path-depth="2"><a href="category/Bootstrap/Layout/Grid">Grid</a></li></ul></li><li data-path-depth="1"><a href="category/Bootstrap/Navs">Navs</a><ul data-path-depth="2"><li data-path-depth="2"><a href="category/Bootstrap/Navs/Multi-Level-Dropdown">Multi Level Dropdown</a></li><li data-path-depth="2"><a href="category/Bootstrap/Navs/Reponsive-tab">Reponsive tab</a></li><li data-path-depth="2"><a href="category/Bootstrap/Navs/Tab">Tab</a></li></ul></li><li data-path-depth="1"><a href="category/Bootstrap/Pagination">Pagination</a></li><li data-path-depth="1"><a href="category/Bootstrap/Tables">Tables</a></li><li data-path-depth="1"><a href="category/Bootstrap/Tooltips">Tooltips</a></li><li data-path-depth="1"><a href="category/Bootstrap/Typography">Typography</a><ul data-path-depth="2"><li data-path-depth="2"><a href="category/Bootstrap/Typography/Copy">Copy</a></li><li data-path-depth="2"><a href="category/Bootstrap/Typography/Headings">Headings</a></li></ul></li></ul></li><li data-path-depth="0"><a href="category/Plugins">Plugins</a><ul data-path-depth="1"><li data-path-depth="1"><a href="category/Plugins/Select2">Select2</a></li></ul></li></ul>
+  </nav>
+  <h2 class="aigis-sidemenu__heading">Tag</h2>
+  <nav class="aigis-tags aigis-tagList">
+    
+      <a class="aigis-tags__item aigis-tags__item--Base" href="./tag/Base/index.html">Base</a>
+    
+      <a class="aigis-tags__item aigis-tags__item--Bootstrap" href="./tag/Bootstrap/index.html">Bootstrap</a>
+    
+      <a class="aigis-tags__item aigis-tags__item--Plugins" href="./tag/Plugins/index.html">Plugins</a>
+    
+      <a class="aigis-tags__item aigis-tags__item--latest" href="./tag/latest/index.html">latest</a>
+    
+  </nav>
+  <h2 class="aigis-sidemenu__heading"><a href="./color.html">All Colors</a></h2>
+</div>
+
+    <div class="aigis-contents">
+      <div class="aigis-contents__body">
+        
+  <h1 id="styleguide">Styleguide</h1>
+<p><br/></p>
+<h2 id="usage">Usage</h2>
+<hr>
+<p>Running aigis
+<code>$ ./node_modules/.bin/aigis run -c ./aigis_config.yml</code></p>
+<hr>
+<p>Edit <code>css/style.scss</code></p>
+<hr>
+<p>Rules</p>
+<table>
+<thead>
+<tr>
+<th  ></th>
+<th  ></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td  ><strong>文字コード</strong></td>
+<td  >UTF-8</td>
+</tr>
+<tr>
+<td  ><strong>インデント</strong></td>
+<td  >半角スペース2つ</td>
+</tr>
+<tr>
+<td  ><strong>命名規則</strong></td>
+<td  >bootstrapよりのBEM</td>
+</tr>
+<tr>
+<td  ><strong>idセレクタ</strong></td>
+<td  >セレクタ優先順位の計算が面倒になるので id での指定は避ける</td>
+</tr>
+<tr>
+<td  ><strong>インラインスタイル</strong></td>
+<td  >インラインスタイルは使用不可</td>
+</tr>
+<tr>
+<td  ><strong>フォントサイズ</strong></td>
+<td  >単位はremを指定する</td>
+</tr>
+<tr>
+<td  ><strong>!importantルール</strong></td>
+<td  >!importantの指定は避ける</td>
+</tr>
+<tr>
+<td  ><strong>要素型（タイプ）セレクタ</strong></td>
+<td  >あとからの修正に弱いので要素型セレクタの指定は控える</td>
+</tr>
+<tr>
+<td  ><strong>ネストの深さ</strong></td>
+<td  >可搬性が下がるので、ネストの深さは3階層程度に収める</td>
+</tr>
+<tr>
+<td  ><strong>重複</strong></td>
+<td  >同じ名前で、全く別のstyleを指定しない</td>
+</tr>
+<tr>
+<td  ><strong>数値</strong></td>
+<td  >小数点以下は最初の0を省略できる。ただし、animation/transition プロパティでは省略しない</td>
+</tr>
+<tr>
+<td  ><strong>計算</strong></td>
+<td  >相対的な値など、算出する値はプリプロセッサの function を使う。もしくは計算過程をコメントで残す</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>Language</p>
+<ul>
+<li><a href="../i18n/en.json" title="null">en</a></li>
+<li><a href="../i18n/ja.json" title="null">ja</a></li>
+</ul>
+
+
+
+        <footer class="aigis-footer">Last update at 2017/09/05 18:05</footer>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

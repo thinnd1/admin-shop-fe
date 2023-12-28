@@ -1,0 +1,9 @@
+{
+  "mailWhenNewPost": true,
+  "mailWhenMentioned": true,
+  "mailWhenNewPostLeftUnread": true,
+  "mailWhenVisit": false,
+  "desktopWhenNewPost": true,
+  "desktopWhenMentioned": false,
+  "desktopWhenNewPostLeftUnread": false
+}

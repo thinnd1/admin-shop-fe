@@ -1,0 +1,224 @@
+{
+  "page": "0",
+  "users": [{
+      "_id": "59b793588254ed2b3caa7e21",
+      "userId": "user0001",
+      "avatar": "image.png",
+      "firstName": "Nhat",
+      "lastName": "Tran",
+      "officeName": "Ominext",
+      "statusVisit": false,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e2",
+      "userId": "user0002",
+      "avatar": "image.png",
+      "firstName": "Nam",
+      "lastName": "DH",
+      "officeName": "Ominext",
+      "statusVisit": true,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e3",
+      "userId": "user0003",
+      "avatar": "image.png",
+      "firstName": "Tung",
+      "lastName": "HV",
+      "officeName": "Ominext",
+      "statusVisit": false,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e4",
+      "userId": "user0004",
+      "avatar": "image.png",
+      "firstName": "Tuyen",
+      "lastName": "Tran",
+      "officeName": "Ominext",
+      "statusVisit": false,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e5",
+      "userId": "user0005",
+      "avatar": "image.png",
+      "firstName": "Quang",
+      "lastName": "HA",
+      "officeName": "Ominext",
+      "statusVisit": true,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e6",
+      "userId": "32323",
+      "avatar": "image.png",
+      "firstName": "Nhat",
+      "lastName": "Tran",
+      "officeName": "Ominext",
+      "statusVisit": false,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e7",
+      "userId": "12121",
+      "avatar": "image.png",
+      "firstName": "Nam",
+      "lastName": "DH",
+      "officeName": "Ominext",
+      "statusVisit": true,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e8",
+      "userId": "user055545003",
+      "avatar": "image.png",
+      "firstName": "Tung",
+      "lastName": "HV",
+      "officeName": "Ominext",
+      "statusVisit": false,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e9",
+      "userId": "user32330004",
+      "avatar": "image.png",
+      "firstName": "Tuyen",
+      "lastName": "Tran",
+      "officeName": "Ominext",
+      "statusVisit": false,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e10",
+      "userId": "user0555005",
+      "avatar": "image.png",
+      "firstName": "Quang",
+      "lastName": "HA",
+      "officeName": "Ominext",
+      "statusVisit": true,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e11",
+      "userId": "user00444401",
+      "avatar": "image.png",
+      "firstName": "Nhat",
+      "lastName": "Tran",
+      "officeName": "Ominext",
+      "statusVisit": false,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e12",
+      "userId": "user00444302",
+      "avatar": "image.png",
+      "firstName": "Nam",
+      "lastName": "DH",
+      "officeName": "Ominext",
+      "statusVisit": true,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e13",
+      "userId": "user00333303",
+      "avatar": "image.png",
+      "firstName": "Tung",
+      "lastName": "HV",
+      "officeName": "Ominext",
+      "statusVisit": false,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e14",
+      "userId": "user00888804",
+      "avatar": "image.png",
+      "firstName": "Tuyen",
+      "lastName": "Tran",
+      "officeName": "Ominext",
+      "statusVisit": false,
+      "statusPin": true,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e15",
+      "userId": "user008805",
+      "avatar": "image.png",
+      "firstName": "Quang",
+      "lastName": "HA",
+      "officeName": "Ominext",
+      "statusVisit": true,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e16",
+      "userId": "user000881",
+      "avatar": "image.png",
+      "firstName": "Nhat",
+      "lastName": "Tran",
+      "officeName": "Ominext",
+      "statusVisit": false,
+      "statusPin": true,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e17",
+      "userId": "user000245423",
+      "avatar": "image.png",
+      "firstName": "Nam",
+      "lastName": "DH",
+      "officeName": "Ominext",
+      "statusVisit": true,
+      "statusPin": true,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e18",
+      "userId": "user00034354454",
+      "avatar": "image.png",
+      "firstName": "Tung",
+      "lastName": "HV",
+      "officeName": "Ominext",
+      "statusVisit": false,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e19",
+      "userId": "user000545454",
+      "avatar": "image.png",
+      "firstName": "Tuyen",
+      "lastName": "Tran",
+      "officeName": "Ominext",
+      "statusVisit": false,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e40",
+      "userId": "user00054543543",
+      "avatar": "image.png",
+      "firstName": "Quang",
+      "lastName": "HA",
+      "officeName": "Ominext",
+      "statusVisit": true,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    }
+  ]
+}

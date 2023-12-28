@@ -1,0 +1,264 @@
+<div class="drjoy-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+
+      <div class="row">
+
+        <div class="col col-main">
+          <div class="row">
+
+            <div class="col">
+
+              <div class="page-head">
+                <app-page-head [title]="roomName.length > 20?roomName.substring(0, 20)+'...':roomName" [isChatPage]="true" [showSetting]="!notJoined" [showNotificationIcon]="!allowNotify" [typePopup]="'list_members'" (_clickRoomName)="showPopupOnChat($event)" [pageHeadOptions]="{
+                  already: {
+                    isShow : false,
+                    isDisabled: true
+                  },
+                  groupEdit: {
+                    isShow : false
+                  },
+                  csvDownload: {
+                    isShow : false
+                  },
+                  notificationMail: {
+                    isShow : false,
+                    status: false
+                  },
+                  roomEdit: {
+                    isShow : isAdmin && roomType !== 'CUSTOMER'
+                  },
+                  attachedFiles: {
+                    isShow : true
+                  },
+                  listMembers: {
+                    isShow : true
+                  },
+                  notificationSound: {
+                    isShow : true,
+                    status: allowNotify
+                  },
+                  logout: {
+                    isShow : false
+                  },
+                  leaveRoom: {
+                    isShow : true
+                  }
+                }"
+                               (clickEditRoom)="redirectEditRoom($event)"
+                               (clickAttachedFiles)="attachedFilesChatRoom($event)"
+                               (clickNotificationSound)="notificationSound($event)"
+                               (clickLeaveRoom)="leaveRoomChat($event)"
+                ></app-page-head>
+              </div>
+
+              <div *ngIf="notJoined; else chat_content">
+                <div class="invited text-center fs18">
+                  <p class="mb-5" *ngFor="let mes of listMessages;">{{mes.text}}</p>
+                  <div class="buttom-invited">
+                    <button type="button" class="btn btn-lg btn-primary mr-2 fs18 bg-edit" (click)="onJoinRoom(true)">参加</button>
+                    <button type="button" class="btn btn-lg btn-secondary fs18 mr-2" data-dismiss="modal" aria-label="Close" (click)="onJoinRoom(false)">拒否</button>
+                  </div>
+                </div>
+              </div>
+              <ng-template #chat_content>
+                <!--S:Chat-room-->
+                <div class="chat-room fs16">
+                  <div class="chat-room-content infinite-scroll" id="infinite-scroll" [ngClass]="{'invisible': !scrollDone}">
+                    <div class="row infinite-scroll-content">
+                      <div class="col-lg-12">
+                        <div class="load-msg" *ngIf="listMessages.length > 0">
+                          <div *ngFor="let message of listMessages" [id]="message.id">
+                            <div class="date-separator-area text-center" *ngIf="message.firstOfDay">
+                              <p class="m-0 d-inline-block px-4 py-1 my-1 fs14 day-time">
+                                {{message.dateToString}}</p>
+                            </div>
+                            <div class="date-separator-area text-center" *ngIf="message.id === firstUnseenMessage">
+                              <p class="m-0 d-inline-block px-4 py-1 my-1 fs14 day-time">{{'MSG.CH.MARK_UNREAD' | translate}}</p>
+                            </div>
+                            <div *ngIf="!message.chatMessage;else chat_message">
+                              <div class="date-separator-area text-center" [id]="message.id">
+                                <p class="m-0 d-inline-block px-4 py-1 my-1 fs14 day-time-01">{{message.text}}</p>
+                              </div>
+                            </div>
+                            <ng-template #chat_message>
+                              <div [ngClass]="message.owner?'coment-user':'coment-owner'" class="clearfix usercommentarea mt-3 mb-4">
+                                <div class="ownerimg  d-inline-block wpx-60 pr-2 align-text-top" *ngIf="!message.owner">
+                                  <div *ngIf="message.firstOfBlock" (click)="showUserDetailPopup($event, message.officeUserId)" class="cursor-pointer">
+                                    <app-face-icon [iconSize]="55" [userInfo]="message"></app-face-icon>
+                                  </div>
+                                </div>
+                                <section class="d-inline-block w-75 align-text-top {{message.owner?' float-right mr-2':''}}">
+                                  <div class="emergency-icon-area" *ngIf="!message.owner && message.firstOfBlock">
+                                    <span class="name" *ngIf="!message.invalid">{{message.displayName}}</span>
+                                    <span *ngIf="message.invalid" class="name text-gray">{{'MSG.GR.DEFAULT_NAME_DELETED_ACCOUNT' | translate}}</span>
+                                  </div>
+                                  <div *ngIf="(message.type === 2 && message.fileType !== null) || message.type === 1 || message.type === 0">
+                                    <div [ngClass]="message.isImageOrVideo || message.type === 1?'stamp':''">
+                                      <div class="{{message.isNotMessageNext? 'message': 'message-next'}} {{message.isImageOrVideo || message.type === 1? 'p-0 border-0':'p-2'}} {{message.owner?'float-right':'float-left'}} d-flex align-items-center">
+                                        <ng-container [ngSwitch]="true">
+                                          <ng-container *ngSwitchCase="message.type === 0">
+                                            <div class="break-word linebreak" appLinky [textHyperlink]="message.text"></div>
+                                          </ng-container>
+                                          <ng-container *ngSwitchCase="message.type === 1">
+                                            <div class="img-data stamp-frame">
+                                              <img [alt]="" class="avatar-img w-100" appImgPreloader [targetSource]="message.stampUrl">
+                                            </div>
+                                          </ng-container>
+                                          <ng-container *ngSwitchCase="message.type === 2">
+                                            <ng-container [ngSwitch]="message.fileType">
+                                              <ng-container *ngSwitchCase="'image'">
+                                                <div class="img-data" (click)="filePreviewOpen($event, message.attachment)"
+                                                     [style.width] = "message.attachment.width + 'px'"
+                                                     [style.height] = "message.attachment.height + 'px'">
+                                                  <img class="avatar-img w-100" appImgPreloader [targetSource]="message.attachment?.url">
+                                                </div>
+                                              </ng-container>
+                                              <ng-container *ngSwitchCase="'video'">
+                                                <div class="support-file position-relative" (click)="filePreviewOpen($event, message.attachment)">
+                                                  <div id="play-btn-wrap" class="position-absolute" #playBtn>
+                                                    <div class="play-btn cursor-pointer">
+                                                      <span id="play"><i class="fa fa-play fs-16 text-muted" aria-hidden="true"></i></span>
+                                                    </div>
+                                                  </div>
+                                                  <div class="img-data" [style.width]="message.attachment.width + 'px'"
+                                                       [style.height]="message.attachment.height + 'px'">
+                                                    <img class="avatar-img w-100" appImgPreloader [targetSource]="message.attachment?.url">
+                                                  </div>
+                                                </div>
+                                              </ng-container>
+                                              <ng-container *ngSwitchCase="''">
+                                              <span class="file d-inline-block align-middle mr-2">
+                                                <i class="fa fs36 text-warning" [ngClass]="'fa-file-o'" aria-hidden="true"></i>
+                                              </span>
+                                                <span class="file-info d-inline-block align-middle cursor-pointer" (click)="downloadFile($event, message.attachment)"> {{message.attachment.name}}<br>{{message.size}}</span>
+                                              </ng-container>
+                                              <ng-container *ngSwitchDefault>
+                                              <span class="file d-inline-block align-middle mr-2">
+                                                <i class="fa fs36 text-warning" [ngClass]="'fa-file-' + message.fileType + '-o'" aria-hidden="true"></i>
+                                              </span>
+                                                <span class="file-info d-inline-block align-middle cursor-pointer" (click)="downloadFile($event, message.attachment)">{{message.attachment.name}}<br>{{message.size}}</span>
+                                              </ng-container>
+                                            </ng-container>
+                                          </ng-container>
+                                        </ng-container>
+                                        <div class="timeKizoku fs12">
+                                        <span [ngClass]="message.owner?'text-right':'text-left'" class="star d-block" *ngIf="!isPrApp">
+                                          <i class="fa fa-star" [ngClass]="message.starred?'text-warning':'text-muted'" aria-hidden="true" (click)="onStarMessage(message)"></i>
+                                        </span>
+                                          <span [ngClass]="message.owner?'text-right':'text-left'" class="read d-block text-warning" *ngIf="message.owner && message.seen_cnt">{{'MSG.CH.ALREADY_READ' | translate}}{{message.showSeenCount?message.seen_cnt:''}}</span>
+                                          <span class="time">{{message.ts | timePipe: 'HH:mm' }}</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </section>
+                              </div>
+                            </ng-template>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="chat-room-message" [style.bottom.px]="footer.offsetHeight">
+                    <div *ngIf="newestMessage" class="note-chat-01 fs12 p-2 cursor-pointer" (click)="onClickNewestMsg($event)">
+                      <span class="text-ellipsis"><span
+                        *ngIf="newestMessage.type === 0">{{newestMessage.fullName}}：</span>{{newestMessage.text}}</span>
+                    </div>
+                    <div class="note-chat fs12 p-2" *ngIf="inactiveMessage">
+                      {{inactiveMessage}}
+                    </div>
+
+                    <div class="clearfix position-relative">
+                      <div class="typing-loading position-relative clearfix d-inline-block"
+                           *ngFor="let typingUser of typingUsers;">
+                        <app-face-icon [iconSize]="30"
+                                       [imageUrl]="'img/staff/face/'+typingUser.officeId+'/'+ typingUser.user"></app-face-icon>
+                        <div class="spinner spinner-1"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <app-stamp (clickSelectStamp)="onSelectStamp($event)" (close)="closeStampPreview()"
+                             [open]="openStamp" *ngIf="!isPrApp"></app-stamp>
+                  <div class="chat-fotter {{!isActive?'inactive':''}}" #footer>
+                    <div class="chat-fotter-content">
+                      <div class="form-artical">
+                        <div class="my-2">
+                          <textarea #typingSpace class="form-control border-0 form-control-textarea" placeholder="{{'MSG.CH.CHAT_INPUT_PLACEHOLDER' | translate }}" [(ngModel)]="messageSetting.text"
+                                    (keydown)="changeFields($event)" (ngModelChange)="changeMessageText($event)"></textarea>
+                        </div>
+                        <div class="chat-form mt-2 border-left-0 border-right-0 border-bottom-0 fs24">
+                          <div class="row m-0">
+                            <div class="col-5 col-lg-4 d-flex p-0" (click)="openStampPreview()" *ngIf="!isPrApp">
+                              <button type="button" class="btn btn-secondary d-flex justify-content-center align-items-center btn-block border-top-0 border-left-0 btn-bod border-bottom-0 text-gray-dark font-weight-bold">
+                              <span class="sticker">
+                                <i class="fa fa-smile-o pr-1 text-warning" aria-hidden="true"></i>
+                              </span>{{'MSG.CH.STAMP' | translate}}
+                              </button>
+                            </div>
+                            <div class="col-7 col-md-6 {{isPrApp?'col-lg-6':'col-lg-4'}} d-flex border-top-0 btn-bod p-0">
+                              <label class="custom-control custom-file d-flex justify-content-center align-items-center btn-block px-0 m-0 selecting-file">
+                              <span class="btn py-1 px-0 text-gray-dark font-weight-bold">
+                                <i class="fa fa-paperclip pr-1 text-warning"></i>{{'MSG.CH.UPLOAD_FILE_BTN' | translate}}
+                                <input type="file" class="custom-file-input" ng2FileSelect [uploader]="uploader" (change)="onFileSelected($event)">
+                              </span>
+                              </label>
+                            </div>
+                            <div class="col-12 col-md-12 {{isPrApp?'col-lg-6':'col-lg-4'}} d-flex p-0">
+                              <button type="button" class="btn btn-primary btn-block btn-bod-radius font-weight-bold" (click)="onApplyMessage($event)">{{'BTN.SEND' | translate}}</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--E:Chat-room-->
+              </ng-template>
+              <!--uploading-popup-->
+              <div class="modal" id="upload-file-popup" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
+                   data-backdrop="static" data-keyboard="false">
+                <div class="modal-dialog modal-dialog-centered h-100 my-0 d-flex justify-content-center align-items-center" role="document">
+                  <div class="modal-content">
+                    <div class="progress-content w-250">
+                      <p class="text-center fs16 my-2">{{'MSG.CH.LOADING' | translate}}</p>
+                      <div class="progress">
+                        <div class="progress-bar progress-bar-info progress-bar-striped progress-bar-success" role="progressbar" id="progress-bar-upload"
+                             aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                          <!--<span class="sr-only">20% Complete</span>-->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

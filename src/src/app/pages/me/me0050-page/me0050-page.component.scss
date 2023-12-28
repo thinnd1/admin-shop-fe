@@ -1,0 +1,86 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+
+.info-setting {
+  .location {
+    width:12rem;
+  }
+  .table-setting {
+    th, td {
+      vertical-align: middle;
+    }
+    .tbl-checkBox {
+      width:4rem;
+    }
+    .tbl-request {
+      width:10rem;
+    }
+  }
+}
+.check-box {
+  .btn-primary-fist {
+    background: #99b4cc;
+    color: #fff;
+  }
+  .btn-primary-active {
+    background: #00447f;
+  }
+  .btn {
+    &:first-of-type {
+      border-radius: 0.25rem 0 0 0.25rem;
+    }
+    &:last-child {
+      border-radius: 0 0.25rem 0.25rem 0;
+    }
+  }
+}
+.select-row {
+  position: relative;
+  .select-popup {
+    position: relative;
+    cursor: pointer;
+    .select-sort {
+      position: absolute;
+      right: 7px;
+      top: 5px;
+    }
+  }
+  .select-wrap {
+    display: none;
+    z-index: 100;
+    position: absolute;
+    background-color: #fff;
+    width: 96%;
+    max-width: 800px;
+    top: 32px;
+    left: 8px;
+    border:1px solid #ccc;
+    border-radius:0.25rem;
+    padding:1rem;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    .select-wrap-check {
+      li {
+        list-style: none;
+      }
+    }
+  }
+}
+
+// @media (max-width: 767px) { ... }
+@include media-breakpoint-down(sm) {
+  .info-setting {
+    .table-setting {
+      tr {
+        display:block;
+        width:100%;
+        margin-bottom:1rem;
+      }
+      th, td {
+        display:block;
+        width:100% !important;
+        border-left:1px solid #D7D7D7 !important;
+        border-right:1px solid #D7D7D7 !important;
+      }
+    }
+  }
+}

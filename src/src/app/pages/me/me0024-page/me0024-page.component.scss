@@ -1,0 +1,306 @@
+@import '../../../../assets/styles/_import';
+.controlTop-btn {
+  position: relative;
+  .btn {
+    padding: 0.35rem 0.7rem;
+  }
+  .control-calendar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+  .control-btn-group {
+    .control-btn-prev {
+      border-radius: 0.25rem 0 0 0.25rem;
+    }
+    .control-btn-next {
+      border-radius: 0 00.25rem 0.25rem 0;
+      border-left: none;
+    }
+  }
+}
+
+.table-title {
+  .table-title-text {
+  }
+  .sort-arrow {
+    width: 1.8rem;
+    .arrow {
+      cursor: pointer;
+      color: #A6A6A6;
+      &.up {
+        letter-spacing: -4px;
+      }
+      &.down {
+        letter-spacing: -2px;
+      }
+      &.active {
+        color: #333;
+      }
+    }
+  }
+}
+.user-name {
+  margin-left:0.5rem;
+}
+.table {
+  th {
+    vertical-align: middle;
+  }
+}
+.table-total-visit {
+  .table-col-1 {
+    min-width: 15rem;
+  }
+  tr:hover {
+    background: #fcf8e3;
+    cursor: pointer;
+  }
+}
+
+.table-daily {
+  th,
+  td {
+    padding: 0.5rem 0.4rem;
+    vertical-align: middle;
+  }
+  .table-col-1,
+  .table-col-2 {
+    width: 5rem;
+    white-space: nowrap;
+  }
+  .table-col-3 {
+    width: 8rem;
+  }
+  .table-col-4,
+  .table-col-5 {
+    min-width: 11.5rem;
+  }
+  .table-col-6
+  {
+    min-width: 14rem;
+  }
+  .table-col-8 {
+    width: 10rem;
+  }
+  .table-col-7,
+  .table-col-9 {
+    width: 5rem;
+  }
+  tr:hover {
+    background: #fcf8e3;
+  }
+}
+
+.table-download {
+  .table-col-1 {
+    width: 12rem;
+  }
+  .table-col-3 {
+    width: 9rem;
+  }
+}
+
+.data-calendar-wrap {
+  width: 85%;
+  margin: 0 auto;
+  label {
+    min-width: 3.5rem;
+  }
+  input.form-control {
+    width: auto;
+  }
+}
+
+.table-theme-detail {
+  .table-col-1 {
+    width: 9rem;
+  }
+  .table-col-4 {
+    min-width: 18rem
+  }
+  .table-col-5 {
+    width: 6.2rem;
+  }
+  tr:hover {
+    background: #fcf8e3;
+  }
+}
+
+.table-total-staff {
+  .table-col-1 {
+    width: 9rem;
+  }
+  .table-col-3,
+  .table-col-4 {
+    width: 9rem;
+  }
+  .table-col-5 {
+    width: 12.7rem;
+  }
+  tr:hover {
+    background: #fcf8e3;
+    cursor: pointer;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .table-theme {
+    white-space: nowrap;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .controlTop-btn {
+    .control-calendar {
+      position: relative;
+      top: inherit;
+      left: inherit;
+      clear: both;
+      padding-top: 0.5rem;
+    }
+  }
+}
+
+.btn-secondary.custom-calendar:hover {
+	background-color: #e6e5e5 !important;
+	box-shadow: none;
+}
+
+input.mb-5 {
+  position: absolute;
+  top: 10px;
+  width: 42px;
+  z-index: -1;
+  border: none;
+  background: transparent;
+}
+.custom-csv{
+  border-radius: 0px;
+  border: 1px solid #555555;
+}
+
+//@media (max-width: 575px)
+@include media-breakpoint-down(xs) {
+  .table {
+    tbody {
+      td:nth-child(2) {
+        border-left: none;
+      }
+    }
+    tr {
+      &:before,
+      &:after {
+        content: "";
+        display: block;
+        height: 3rem;
+        background: $white;
+      }
+    }
+    th,
+    td {
+      display: block;
+      width: 100% !important;
+      border-left: none;
+      border-right: none;
+    }
+    th {
+      background: #EEE;
+    }
+    td {
+      padding-bottom: 1rem;
+      background: #FBFBFB;
+      border-top: none;
+    }
+  }
+  .data-calendar-wrap {
+    .data-calendar {
+      width: 100%;
+    }
+  }
+}
+
+@media print {
+
+  body {
+    margin: 0px;
+    font-size: 12pt;
+    -webkit-print-color-adjust: exact;
+  }
+  .table {
+    th, td {
+      padding:0.5rem 0.5rem;
+      font-size: 0.6rem !important;
+    }
+  }
+  .page-head, .print-left {
+    display: none;
+  }
+  .table-theme {
+    overflow: hidden !important;
+  }
+  .control-calendar {
+    position: static !important;
+  }
+  .table-theme {
+    overflow: inherit !important;
+    white-space: inherit !important;
+    width: 100%;
+    th {
+      font-size: 13px;
+      background: #EEE !important;
+    }
+    td {
+      font-size: 12px;
+    }
+    .table-daily {
+      .table-col-3 {
+        min-width:4.5rem
+      }
+      .table-col-4,
+      .table-col-5 {
+        min-width:8rem !important;
+      }
+      .table-col-6 {
+        min-width:7rem !important;
+      }
+    }
+    .table-total-visit {
+      .table-col-1 {
+        min-width: 9rem;
+      }
+    }
+    .table-theme-detail {
+      .table-col-1{
+        width:5.5rem !important;
+        min-width:5.5rem !important;
+      }
+      .table-col-2
+      .table-col-3 {
+        width:6rem !important;
+        min-width:6rem !important;
+      }
+      .table-col-4 {
+        min-width:6rem !important;
+      }
+      .table-col-5,
+      .table-col-6 {
+        width:4rem !important;
+        min-width:4rem !important;
+      }
+    }
+    .table-total-staff {
+      .table-col-2 {
+        min-width: 6rem;
+      }
+    }
+  }
+  .table tbody td:nth-child(2) {
+    white-space: inherit;
+  }
+  .soft-arrow {
+    margin-top:-6px !important;
+  }
+}

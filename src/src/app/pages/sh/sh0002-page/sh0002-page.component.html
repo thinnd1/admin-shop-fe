@@ -1,0 +1,2113 @@
+
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+  <main class="content-wrap ml-0">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner unspecified-width">
+            <div class="row">
+              <!--contents-->
+              <!--contents SH0002-->
+
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'RE0010.PAGE_TITLE' | translate"></app-page-head>
+                </div>
+                <div class="control-top">
+                	<div class="control-left float-left mb-3">
+                		<button class="btn btn-primary mr-2">今週</button>
+                		<div class="d-inline-block btn-group mr-2">
+                			<button class="btn btn-secondary float-left"><i class="fa fa-angle-left"></i></button>
+                			<button class="btn btn-secondary float-left"><i class="fa fa-angle-right"></i></button>
+                		</div>
+                		<div class="d-inline-block btn-group mr-1">
+                			<button class="btn btn-secondary float-left">月</button>
+                			<button class="btn btn-secondary float-left">週</button>
+                		</div>
+                	</div>
+                	<div class="control-right float-right mb-3">
+                		<button class="btn btn-info mr-2" data-toggle="modal" data-target="#modal-duty">勤務の合計</button>
+                		<button class="btn btn-success mr-2">シフト希望を提出</button>
+                		<select class="select form-control d-inline-block mr-2">
+                			<option>所属を選択</option>
+                		</select>
+                		<button class="btn btn-secondary"><i class="fa fa-print"></i></button>
+                	</div>
+                </div>
+                <div class="table-shift mb-5 pb-5">
+	                <table class="table table-bordered table-calendar text-center mb-0">
+	                	<thead class="thead-inverse">
+	                		<tr class="date-number">
+	                			<th class="col-title hiden-th"></th>
+	                			<th class="hiden-th"></th>
+	                			<th class="clr-ext">
+	                				<span class="date">27</span> 
+	                				<span class="day saturday">土	</span>
+	                			</th>
+	                			<th class="clr-ext">
+	                				<span class="date">28</span> 
+	                				<span class="day sunday">日	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">3/1</span> 
+	                				<span class="day">月	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">2</span> 
+	                				<span class="day">火</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">3</span> 
+	                				<span class="day">水</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">4</span> 
+	                				<span class="day">木	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">5</span> 
+	                				<span class="day">金	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">6</span> 
+	                				<span class="day saturday">土	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">7</span> 
+	                				<span class="day sunday">日	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">8</span> 
+	                				<span class="day">月	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">9</span> 
+	                				<span class="day">火	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">10</span> 
+	                				<span class="day">水	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">11</span> 
+	                				<span class="day">木	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">12</span> 
+	                				<span class="day">金	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">13</span> 
+	                				<span class="day saturday">土	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">14</span> 
+	                				<span class="day sunday">日	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">15</span> 
+	                				<span class="day">月	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">16</span> 
+	                				<span class="day">火	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">17</span> 
+	                				<span class="day">水	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">18</span> 
+	                				<span class="day">木	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">19</span> 
+	                				<span class="day">金	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">20</span> 
+	                				<span class="day saturday">土	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">21</span> 
+	                				<span class="day sunday">日	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">22</span> 
+	                				<span class="day">月	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">23</span> 
+	                				<span class="day">火	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">24</span> 
+	                				<span class="day">水	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">25</span> 
+	                				<span class="day">木	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">26</span> 
+	                				<span class="day">金	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">27</span> 
+	                				<span class="day saturday">土	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">28</span> 
+	                				<span class="day sunday">日	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">29</span> 
+	                				<span class="day">月	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">30</span> 
+	                				<span class="day">火	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">31</span> 
+	                				<span class="day">水</span>
+	                			</th>
+	                			<th class="clr-ext">
+	                				<span class="date">4/1</span> 
+	                				<span class="day">木</span>
+	                			</th>
+	                			<th class="clr-ext">
+	                				<span class="date">2</span> 
+	                				<span class="day">金	</span>
+	                			</th>
+	                		</tr>
+	                	</thead>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title" rowspan="3">
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	                				</div>
+	                				<p class="mb-0">大内 真希</p>
+	                				<span class="name-dpm fs12 d-block"><i class="fa fa-caret-right"></i> 耳鼻咽喉科</span>
+	                			</th>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext stt-pink">病棟</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext stt-purple">外勤</td>
+	                			<td class="clr-ext stt-pink">病棟</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext stt-purple">外勤</td>
+	                			<td class="clr-ext stt-green">F</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午後</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext stt-purple">当直</td>
+	                		</tr>
+	                	</tbody>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title" rowspan="3">
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">相沢 勇気</p>
+	                				</div>
+	                				<p class="mb-0">大内 真希</p>
+	                			</th>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext stt-pink">病棟</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext stt-purple">外勤</td>
+	                			<td class="clr-ext stt-pink">病棟</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext stt-purple">外勤</td>
+	                			<td class="clr-ext stt-green">F</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午後</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext stt-purple">当直</td>
+	                		</tr>
+	                	</tbody>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title" rowspan="3">
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">坂本 誠</p>
+	                				</div>
+	                				<p class="mb-0">大内 真希</p>
+	                			</th>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext stt-pink">病棟</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext stt-purple">外勤</td>
+	                			<td class="clr-ext stt-pink">病棟</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext stt-purple">外勤</td>
+	                			<td class="clr-ext stt-green">F</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午後</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext stt-purple">当直</td>
+	                		</tr>
+	                	</tbody>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title" rowspan="3">
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">スキル名</p>
+	                				</div>
+	                				<p class="mb-0">高内 健</p>
+	                			</th>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext stt-pink">病棟</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext stt-purple">外勤</td>
+	                			<td class="clr-ext stt-pink">病棟</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext stt-purple">外勤</td>
+	                			<td class="clr-ext stt-green">F</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午後</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext stt-purple">当直</td>
+	                		</tr>
+	                	</tbody>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title" rowspan="3">
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">スキル名</p>
+	                				</div>
+	                				<p class="mb-0">櫻井 翔</p>
+	                			</th>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext stt-pink">病棟</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext stt-purple">外勤</td>
+	                			<td class="clr-ext stt-pink">病棟</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext stt-purple">外勤</td>
+	                			<td class="clr-ext stt-green">F</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午後</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext stt-purple">当直</td>
+	                		</tr>
+	                	</tbody>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title" rowspan="3">
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">スキル名</p>
+	                				</div>
+	                				<p class="mb-0">伊坂 幸一郎</p>
+	                			</th>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext stt-pink">病棟</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext stt-purple">外勤</td>
+	                			<td class="clr-ext stt-pink">病棟</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext stt-purple">外勤</td>
+	                			<td class="clr-ext stt-green">F</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午後</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext stt-purple">当直</td>
+	                		</tr>
+	                	</tbody>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title" rowspan="3">
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">スキル名</p>
+	                				</div>
+	                				<p class="mb-0">渡辺 優子</p>
+	                			</th>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext stt-pink">病棟</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext stt-purple">外勤</td>
+	                			<td class="clr-ext stt-pink">病棟</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext stt-purple">外勤</td>
+	                			<td class="clr-ext stt-green">F</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午後</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext stt-purple">当直</td>
+	                		</tr>
+	                	</tbody>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title" rowspan="3">
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">スキル名</p>
+	                				</div>
+	                				<p class="mb-0">松本 美樹</p>
+	                			</th>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext stt-pink">病棟</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext stt-purple">外勤</td>
+	                			<td class="clr-ext stt-pink">病棟</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext stt-purple">外勤</td>
+	                			<td class="clr-ext stt-green">F</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午後</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext stt-purple">当直</td>
+	                		</tr>
+	                	</tbody>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title" rowspan="3">
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">スキル名</p>
+	                				</div>
+	                				<p class="mb-0">鈴木 太郎</p>
+	                			</th>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext stt-pink">病棟</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext stt-purple">外勤</td>
+	                			<td class="clr-ext stt-pink">病棟</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext stt-purple">外勤</td>
+	                			<td class="clr-ext stt-green">F</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午後</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext stt-purple">当直</td>
+	                		</tr>
+	                	</tbody>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title" rowspan="3">
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">スキル名</p>
+	                				</div>
+	                				<p class="mb-0">村井 藤吾</p>
+	                			</th>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext stt-pink">病棟</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-green">F</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext stt-purple">外勤</td>
+	                			<td class="clr-ext stt-pink">病棟</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="clr-ext stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-pink">外勤</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-green">F</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="">休</td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-pink">病棟</td>
+	                			<td class="stt-orange">外来</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext stt-purple">外勤</td>
+	                			<td class="clr-ext stt-green">F</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午後</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-grey">外勤</td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-purple">当直</td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext stt-purple">当直</td>
+	                		</tr>
+	                	</tbody>
+	                </table>
+	                <table class="table table-calendar table-explain table-bordered text-center">
+	                	<thead class="thead-inverse">
+	                		<tr>
+	                			<th class="col-title hiden-th bg-white"></th>
+	                			<th class="hiden-th"></th>
+	                			<th colspan="35">合計</th>
+	                		</tr>
+	                	</thead>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title text-center" rowspan="4">午前</th>
+	                			<td class="hourly stt-pink">病棟</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly stt-orange">病棟</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly stt-grey">病棟</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly stt-purple">病棟</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                	</tbody>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title text-center" rowspan="4">午後</th>
+	                			<td class="hourly stt-pink">病棟</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly stt-orange">病棟</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly stt-grey">病棟</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly stt-purple">病棟</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                	</tbody>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title text-center" rowspan="4">夜間</th>
+	                			<td class="hourly stt-pink">病棟</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly stt-orange">病棟</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly stt-grey">病棟</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly stt-purple">病棟</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                	</tbody>
+	                </table>
+              	</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--<div class="col-12 col-lg-3 col-sub">-->
+        <!--<app-col-sub></app-col-sub>-->
+        <!--</div>-->
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>
+
+<!-- Modal Notes -->
+<div class="modal fade" id="modal-duty" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header pb-0">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+      	<h4 class="modal-title text-center pb-4">勤務の合計 (2017年3月)</h4>
+    		
+			  <div class="control-top">
+        	<div class="control-left float-left mb-3">
+        		<button class="btn btn-primary mr-2">今週</button>
+        		<div class="d-inline-block btn-group mr-2">
+        			<button class="btn btn-secondary float-left"><i class="fa fa-angle-left"></i></button>
+        			<button class="btn btn-secondary float-left"><i class="fa fa-angle-right"></i></button>
+        		</div>
+        	</div>
+        	<div class="control-right float-right mb-3">
+        		<button class="btn btn-secondary"><i class="fa fa-print"></i></button>
+        	</div>
+        </div>
+        <table class="table table-striped table-bordered">
+        	<thead class="thead-inverse">
+				    <tr>
+				      <th></th>
+				      <th></th>
+				      <th>日勤</th>
+				      <th>夜間</th>
+				      <th>外勤</th>
+				      <th>公休</th>
+				      <th>有休</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				  	<tr>
+					  	<td>
+					  		<div class="shift-row d-flex">
+	      					<div class="shift-icon">
+	      						<span class="icon-inner bg-green d-block">大内</span>
+	      					</div>
+	      					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	      				</div>
+					  	</td>
+					  	<td>大内 真希</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+				  	</tr>
+				  	<tr>
+					  	<td>
+					  		<div class="shift-row d-flex">
+	      					<div class="shift-icon">
+	      						<span class="icon-inner bg-green d-block">大内</span>
+	      					</div>
+	      					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	      				</div>
+					  	</td>
+					  	<td>相沢 勇気</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+				  	</tr>
+				  	<tr>
+					  	<td>
+					  		<div class="shift-row d-flex">
+	      					<div class="shift-icon">
+	      						<span class="icon-inner bg-green d-block">大内</span>
+	      					</div>
+	      					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	      				</div>
+					  	</td>
+					  	<td>坂本 誠</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+				  	</tr>
+				  	<tr>
+					  	<td>
+					  		<div class="shift-row d-flex">
+        					<div class="shift-icon">
+        						<span class="icon-inner bg-purple d-block">高内</span>
+        					</div>
+        					<p class="shift-text d-inline-block mb-0">スキル名</p>
+        				</div>
+					  	</td>
+					  	<td>高内 健</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+				  	</tr>
+				  	<tr>
+					  	<td>
+					  		<div class="shift-row d-flex">
+        					<div class="shift-icon">
+        						<span class="icon-inner bg-purple d-block">高内</span>
+        					</div>
+        					<p class="shift-text d-inline-block mb-0">スキル名</p>
+        				</div>
+					  	</td>
+					  	<td>櫻井 翔</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+				  	</tr>
+				  	<tr>
+					  	<td>
+					  		<div class="shift-row d-flex">
+        					<div class="shift-icon">
+        						<span class="icon-inner bg-purple d-block">高内</span>
+        					</div>
+        					<p class="shift-text d-inline-block mb-0">スキル名</p>
+        				</div>
+					  	</td>
+					  	<td>伊坂 幸一郎</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+				  	</tr>
+				  	<tr>
+					  	<td>
+					  		<div class="shift-row d-flex">
+        					<div class="shift-icon">
+        						<span class="icon-inner bg-orange d-block">渡T</span>
+        					</div>
+        					<p class="shift-text d-inline-block mb-0">スキル名</p>
+        				</div>
+					  	</td>
+					  	<td>松本 美樹</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+				  	</tr>
+				  	<tr>
+					  	<td>
+					  		<div class="shift-row d-flex">
+        					<p class="shift-text d-inline-block mb-0">スキル名</p>
+        				</div>
+					  	</td>
+					  	<td>鈴木 太郎</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+				  	</tr>
+				  	<tr>
+					  	<td>
+					  		<div class="shift-row d-flex">
+        					<p class="shift-text d-inline-block mb-0">スキル名 </p>
+        				</div>
+					  	</td>
+					  	<td>村井 藤吾</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+					  	<td>0</td>
+				  	</tr>
+				  </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">とじる</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

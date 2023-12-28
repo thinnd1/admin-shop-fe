@@ -1,0 +1,69 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents CM0016-->
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'CM0016.TITLE' | translate"></app-page-head>
+                </div>
+
+                <ng-container *ngIf="dataList && dataList.length">
+                  <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="10" (scrolled)="onScroll($event)">
+                    <table #tableData class="table table-borderless table-curation">
+                      <tbody>
+                      <tr *ngFor="let data of dataList">
+                        <th class="table-curation-th text-nowrap">
+                          <div class="table-curation-date">{{ data.date }}</div>
+                          <div class="table-curation-read text-muted font-weight-normal mt-2" *ngIf="data.read">{{'CM0012.ALREADY' | translate}}</div>
+                        </th>
+                        <td class="table-curation-td">
+                          <div class="preline-text">{{data.title}}</div>
+                          <div [innerHTML]="data.body"></div>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="infinite-scroll-loader text-center mb-3" [hidden]="isLoading">
+                    <i class="fa fa-spinner fa-pulse fa-fw infinite-scroll-loader-icon"></i>
+                    <span class="infinite-scroll-loader-text fs14">{{'INFINITE_SCROLL.LOADING' | translate}}...</span>
+                  </div>
+                </ng-container>
+
+                <ng-container *ngIf="!isAllLoading() && (!dataList || !dataList.length)">
+                  <p class="text-center fs18">{{ 'NO_DATA_MESSAGE' | translate }}</p>
+                </ng-container>
+
+              </div>
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

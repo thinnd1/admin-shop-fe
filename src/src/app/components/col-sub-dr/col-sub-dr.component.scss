@@ -1,0 +1,19 @@
+// import common setting
+@import './../../../assets/styles/import';
+
+.banner-item {
+  padding: 0 0 $base-layout-padding;
+  max-width: $side-col-width;
+  a:hover {
+    @include transition(all 0.2s ease-in-out);
+    opacity: .5;
+  }
+}
+
+//@media (max-width: 991px)
+@include media-breakpoint-down(md) {
+  .banner-item {
+    max-width: none;
+    padding: 0 8px $base-layout-padding;
+  }
+}

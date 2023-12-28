@@ -1,0 +1,32 @@
+@import '../../../../assets/styles/_import';
+
+.title-page {
+	border-bottom:2px solid #ccc;
+	color: #3fa9f5; 
+}
+.content-02{
+	display: none;
+}
+.border-red{
+	border: 1px solid #D21D29!important;
+}
+.text-danger{
+	text-align: left;
+}
+.card-img{
+	text-align: center;
+}
+.card-img img{
+	height: 230px;
+}
+.card-wrap {
+	background-color: #EEE;
+	max-width:640px;
+	margin:0 auto;
+	.card-img {
+		max-width: 400px;
+		background-color: #fff;
+		padding:0.5rem;
+		margin:0 auto;
+	}
+}

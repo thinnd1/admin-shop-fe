@@ -1,0 +1,163 @@
+{
+  "allowHolidayVisitUser":true,
+  "allowHolidayVisitOffice":false,
+  "hospitalSetting": {
+    "lastName": "aa",
+    "firstName": "bb",
+    "date": "2017-11-03T09:03:09",
+    "settingDayList": [
+      {
+        "day": 1,
+        "settingType": "SET_TIME",
+        "settingTimeList": [
+          {
+            "start": "08:00",
+            "end": "09:00"
+          }
+        ]
+      },
+      {
+        "day": 0,
+        "settingType": "NONE",
+        "settingTimeList": [
+          {
+            "start": "08:00",
+            "end": "09:00"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "settingType": "NONE",
+        "settingTimeList": [
+          {
+            "start": "08:00",
+            "end": "09:00"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "settingType": "DISALLOW_ALL_DAY",
+        "settingTimeList": [
+          {
+            "start": "08:00",
+            "end": "09:00"
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "settingType": "DISALLOW_ALL_DAY",
+        "settingTimeList": [
+          {
+            "start": "08:00",
+            "end": "09:00"
+          }
+        ]
+      },
+      {
+        "day": 5,
+        "settingType": "SET_TIME",
+        "settingTimeList": [
+          {
+            "start": "08:00",
+            "end": "09:00"
+          }
+        ]
+      },
+      {
+        "day": 6,
+        "settingType": "SET_TIME",
+        "settingTimeList": [
+          {
+            "start": "04:00",
+            "end": "05:00"
+          },
+          {
+            "start": "00:00",
+            "end": "03:00"
+          }
+        ]
+      }
+    ]
+  },
+  "selfSetting": {
+    "settingDayList": [
+      {
+        "day": 1,
+        "settingType": "SET_TIME",
+        "settingTimeList": [
+          {
+            "start": "08:00",
+            "end": "09:00"
+          }
+        ]
+      },
+      {
+        "day": 0,
+        "settingType": "NONE",
+        "settingTimeList": [
+          {
+            "start": "08:00",
+            "end": "09:00"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "settingType": "NONE",
+        "settingTimeList": [
+          {
+            "start": "08:00",
+            "end": "09:00"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "settingType": "SET_TIME",
+        "settingTimeList": [
+          {
+            "start": "08:00",
+            "end": "09:00"
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "settingType": "DISALLOW_ALL_DAY",
+        "settingTimeList": [
+          {
+            "start": "08:00",
+            "end": "09:00"
+          }
+        ]
+      },
+      {
+        "day": 5,
+        "settingType": "SET_TIME",
+        "settingTimeList": [
+          {
+            "start": "08:00",
+            "end": "09:00"
+          }
+        ]
+      },
+      {
+        "day": 6,
+        "settingType": "SET_TIME",
+        "settingTimeList": [
+          {
+            "start": "04:00",
+            "end": "05:00"
+          },
+          {
+            "start": "00:00",
+            "end": "03:00"
+          }
+        ]
+      }
+    ]
+  }
+}

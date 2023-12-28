@@ -1,0 +1,54 @@
+{
+  "requestInfo": {
+    "acceptedEndTime": "2017-10-06T00:25:00",
+    "acceptedStartTime": "2017-10-06T00:25:00",
+    "candidateTimes": [
+      {
+        "startTime": "2017-10-09T09:25:00",
+        "endTime": "2017-10-09T10:25:00"
+      },
+      {
+        "startTime": "2017-10-09T11:40:00",
+        "endTime": "2017-10-09T11:25:00"
+      }
+    ],
+    "comment": "。ハイフール製品の大谷です。先日はお忙しいところ時間を取って頂きありがとうございます。  お話があった、◯◯◯◯◯◯◯◯の件につきまして、詳しくご説明させていただきたく思います。  当日は資料をお持ちしまして、◯◯◯◯◯◯◯◯の専門の◯◯と二名で伺う予定です。何卒よろしくお願い致します。お話があった、◯◯◯◯◯◯◯◯の件につきまして、詳しくご説明させていただきたく思います。  当日は資料をお持ちしまして、◯◯◯◯◯◯◯◯の専門の◯◯と二名で伺う予定です。何卒よろしくお願い致します。 ハーフール製品 大谷",
+    "drInfo": {
+      "name": "伊藤 大輝",
+      "officeUserId": "ofu34534534",
+      "specializedDepartment": "大谷"
+    },
+    "drugList": [
+      {
+        "id": "drug3454",
+        "name": "dl−メチルエフェドリン塩酸塩"
+      },
+      {
+        "id": "drug3ds454",
+        "name": "ネオラミン・マルチV"
+      },
+      {
+        "id": "drug344354",
+        "name": "ラタノプロストPF"
+      }
+    ],
+    "mediator": null,
+    "mrInfo": {
+      "companyName": "SFGDE製薬",
+      "firstName": "伊藤",
+      "lastName": "大輝",
+      "officeId":"office_id",
+      "userId":"user"
+    },
+    "numVisitors": "8",
+    "place": "場所20文字まで場所20文字まで場所20",
+    "productName": "ネオラミン・マルチV",
+    "purposeId": "pu54rtg",
+    "purposeName": "PMDAからの注意喚起（イエロー/ブルーレター）",
+    "receiveFlag": 0,
+    "direction":0,
+    "requestId": "001",
+    "requestStatus": 1,
+    "flagRequest": 1
+  }
+}

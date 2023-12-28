@@ -1,0 +1,10 @@
+{
+  "birthDate": "2004/03/12",
+  "genderType": "female",
+  "mailAddress": "asa@ebv.net",
+  "password": "aaaaaaaaaaaa",
+  "specializedDepartment": {
+    "type": "t8",
+    "field": "f2"
+  }
+}

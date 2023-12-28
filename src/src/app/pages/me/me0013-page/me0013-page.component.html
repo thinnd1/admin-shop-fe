@@ -1,0 +1,134 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'ME0013.TITLE' | translate"></app-page-head>
+                </div>
+
+                <div role="tabpanel" class="tab-pane">
+                  <div class="row">
+                    <div class="col-lg-8">
+                      <div class="search">
+                        <form>
+                          <input ngui-auto-complete [source]="searchDoctorAuto.bind(this)"
+                                 autocomplete="off"
+                                 min-chars="1"
+                                 [auto-select-first-item]="true"
+                                 [list-formatter]="autoCompleteListFormatter" value-property-name="officeUserId"
+                                 [value-formatter]="valueFormatterSearch"
+                                 no-match-found-text="&nbsp;{{'ME0013.SEARCH_OFFICE.NO_RESULT_FOUND' | translate }}"
+                                 (valueChanged)="searchUser($event)" class="form-control"
+                                 (keyup.enter)="searchUser({id: '', officeName: $event.target.value})"
+                                 (change)="changeValueSearch($event.target.value)"
+                                 placeholder="{{'ME0013.SEARCH_OFFICE.PLACE_HOLDER_SEARCH' | translate }}" id="searchDoctorAuto"/>
+                          <button (click)="searchUser({id: '', officeName: keyword})" class="search-btn">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-5 text-center" *ngIf="firstLoad">
+                  <h3>{{'ME0013.CONTENT_NONE' | translate}}</h3>
+                </div>
+                <div class="mt-5 text-center" *ngIf="!firstLoad && modelPIC?.currentPic?.length === 0 && modelPIC?.historyPic?.length === 0">
+                  <h3>{{'ME0013.NO_RESULT_FOUND' | translate}}</h3>
+                </div>
+                <div class="table-staff-invite tbl-content-02 mt-4" *ngIf="!firstLoad && (modelPIC?.currentPic?.length > 0 || modelPIC?.historyPic?.length > 0)">
+                  <table class="table">
+                    <thead class="thead-inverse hidden-sm-down">
+                      <tr>
+                        <th class="align-middle tbl-name">{{'ME0013.TABLE_NAME' | translate}}</th>
+                        <th class="align-middle tbl-phone">{{'ME0013.TABLE_PHONE' | translate}}</th>
+                        <th class="align-middle tbl-started">{{'ME0013.TABLE_START' | translate}}</th>
+                        <th class="align-middle tbl-charge">{{'ME0013.TABLE_END' | translate}}</th>
+                        <th class="align-middle tbl-block">{{'ME0013.TABLE_ACTION' | translate}}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let user of modelPIC.currentPic | convertUserInfo">
+                        <!--{{user | json}}-->
+                        <th class="hidden-md-up align-middle">{{'ME0013.TABLE_NAME' | translate}}</th>
+                        <td class="align-middle tbl-name">
+                          <app-mini-profile [profileOptions]="{iconSize: 55, nameKana: false}" [userInfo]="user">
+                          </app-mini-profile>
+                        </td>
+                        <th class="hidden-md-up align-middle">{{'ME0013.TABLE_PHONE' | translate}}</th>
+                        <td class="align-middle tbl-phone">{{user.phoneNo}}</td>
+                        <th class="hidden-md-up align-middle">{{'ME0013.TABLE_START' | translate}}</th>
+                        <td class="align-middle tbl-started">{{convertDateTime(user.start)}}</td>
+                        <th class="hidden-md-up align-middle">{{'ME0013.TABLE_END' | translate}}</th>
+                        <td class="align-middle tbl-charge">ー</td>
+                        <th class="hidden-md-up align-middle">{{'ME0013.TABLE_ACTION' | translate}}</th>
+                        <td class="align-middle tbl-block text-center text-md-left" *ngIf="user.blocked === true">
+                          <button [disabled]="statusButton" (click)="unBlockUser(user)" type="button" class="btn btn-secondary ml-md-3 ml-0">{{'ME0013.ACTION_UNLOCK' | translate}}</button>
+                        </td>
+                        <td class="align-middle tbl-block text-center text-md-left" *ngIf="user.blocked === false">
+                          <button [disabled]="statusButton" (click)="blockUser(user)" type="button" class="btn btn-danger ml-md-3 ml-0">{{'ME0013.ACTION_BLOCK' | translate}}</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <thead class="thead-inverse hidden-sm-down">
+                      <tr>
+                        <th class="align-middle">{{'ME0013.TABLE_NAME_1' | translate}}</th>
+                        <th class="align-middle">{{'ME0013.TABLE_PHONE' | translate}}</th>
+                        <th class="align-middle">{{'ME0013.TABLE_START' | translate}}</th>
+                        <th class="align-middle">{{'ME0013.TABLE_END' | translate}}</th>
+                        <th class="align-middle">{{'ME0013.TABLE_ACTION' | translate}}</th>
+                      </tr>
+                    </thead>
+                    <tbody class="tbody-box">
+                      <tr *ngFor="let user of modelPIC.historyPic | convertUserInfo">
+                        <th class="hidden-md-up align-middle">{{'ME0013.TABLE_NAME_1' | translate}}</th>
+                        <td class="align-middle">
+                          <div class="d-flex align-items-center">
+                            <app-mini-profile [profileOptions]="{iconSize: 55}" [userInfo]="user"></app-mini-profile>
+                          </div>
+                        </td>
+                        <th class="hidden-md-up align-middle">{{'ME0013.TABLE_PHONE' | translate}}</th>
+                        <td class="align-middle" *ngIf="!user.invalid">{{user.phoneNo}}</td>
+                        <td class="align-middle" *ngIf="user.invalid">ー</td>
+                        <th class="hidden-md-up align-middle">{{'ME0013.TABLE_START' | translate}}</th>
+                        <td class="align-middle">{{ convertDateTime(user.start)}}</td>
+                        <th class="hidden-md-up align-middle">{{'ME0013.TABLE_END' | translate}}</th>
+                        <td class="align-middle">{{convertDateTime(user.end)}}</td>
+                        <th class="hidden-md-up align-middle">{{'ME0013.TABLE_ACTION' | translate}}</th>
+                        <td class="align-middle text-center">&nbsp;</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

@@ -1,0 +1,6 @@
+<div class="form-inline count-up-input-wrap mb-3" [ngClass]="{'has-danger':isError}">
+  <div class="input-group mr-0 mr-sm-3">
+    <input type="{{countUpInputOptions.type}}" class="form-control" [ngClass]="{'form-control-danger':isError}" name="{{countUpInputOptions.name}}" id="{{countUpInputOptions.id}}" [(ngModel)]="countUpInput" placeholder="{{countUpInputOptions.placeholder}}" maxlength="{{countUpInputOptions.maximumInputLength}}" (keyup)="changeFields($event)" (keydown)="changeFields($event)">
+  </div>
+  <span class="count-up-input-counter text-right" [ngClass]="{'text-danger':isError}">{{conter}}/{{countUpInputOptions.maximumInputLength}}</span>
+</div>

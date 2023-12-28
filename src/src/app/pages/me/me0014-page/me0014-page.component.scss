@@ -1,0 +1,79 @@
+@import '../../../../assets/styles/_import';
+.tbl-content-info {
+  color: #3d7eb6;
+}
+.modal-me0014{
+  height: 100%;
+}
+
+.modal-dialog:target {
+  display:block;
+}
+.tbl-content-gray {
+  color: #777;
+}
+
+.tbody-box {
+  background-color: #eee;
+}
+
+.w-300 {
+  width: 300px;
+}
+.gallery {
+  img {
+    max-width: 100%;
+  }
+}
+.search{
+  padding-right: 0px;
+}
+
+// Small devices (landscape phones, 画面サイズ767px以下)
+// @media (max-width: 767px) { ... }
+@include media-breakpoint-down(sm) {
+  .table-staff-invite {
+    tr {
+      &:before,
+      &:after {
+        content: "";
+        display: block;
+        height: 3rem;
+        background: $white;
+      }
+      th {
+        background: #eee;
+      }
+      th,
+      td {
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+}
+
+.customs-select14 {
+  background-color: transparent;
+}
+
+.popover-header {
+  padding: 8px 14px;
+  margin-bottom: 0;
+  font-size: 1rem;
+  color: inherit;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #ebebeb;
+  border-top-left-radius: calc(.3rem - 1px);
+  border-top-right-radius: calc(.3rem - 1px);
+}
+
+.popover-body {
+  padding: 9px 14px;
+  color: #212529;
+}
+
+.bs-popover-top .arrow,
+.bs-popover-bottom .arrow {
+  left: 75%;
+}

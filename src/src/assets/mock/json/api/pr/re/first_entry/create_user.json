@@ -1,0 +1,25 @@
+{
+  "medicalOfficeId": "string",
+  "officeName": "string",
+  "branchAddress": "string",
+  "branchPhoneNo": "string",
+  "branchDepartment": "string",
+  "mobileNo": "string",
+  "industryType": "string",
+  "firstName": "string",
+  "firstNameKana": "string",
+  "lastName": "string",
+  "lastNameKana": "string",
+  "gender": "string",
+  "birthDate": "string",
+  "password": "string",
+  "mailAddress": "string",
+  "experiences": "string",
+  "pharmacyGraduation": false,
+  "specializedDepartment": [
+    {
+      "fieldId": "string",
+      "typeId": "string"
+    }
+  ]
+}

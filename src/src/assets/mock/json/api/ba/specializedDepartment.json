@@ -1,0 +1,23 @@
+{
+  "fieldIds": [
+    {"id": "f1","name": "Field 1" },
+    {"id": "f2","name": "Field 2" },
+    {"id": "f3","name": "Field 3" },
+    {"id": "f4","name": "Field 4" },
+    {"id": "f5","name": "Field 5" },
+    {"id": "f6","name": "Field 6" }
+  ],
+  "typeIds": [
+    {"id": "t1","field_id": "f5","name": "Type 1" },
+    {"id": "t2","field_id": "f5","name": "Type 2" },
+    {"id": "t3","field_id": "f3","name": "Type 3" },
+    {"id": "t4","field_id": "f3","name": "Type 4" },
+    {"id": "t5","field_id": "f4","name": "Type 5" },
+    {"id": "t6","field_id": "f1","name": "Type 6" },
+    {"id": "t7","field_id": "f1","name": "Type 7" },
+    {"id": "t8","field_id": "f2","name": "Type 8" },
+    {"id": "t9","field_id": "f2","name": "Type 9" },
+    {"id": "t10","field_id": "f5","name": "一般内科" },
+    {"id": "t11","field_id": "f3","name": "Type 11" }
+  ]
+}

@@ -1,0 +1,88 @@
+<div class="attached-files">
+  <figure class="thumb-default mt-3 text-center" *ngIf="count === 0">
+    <img src="/assets/img/attached-files.png" alt="">
+  </figure>
+  <div class="loader-wrap loader-wrap-bg" [ngClass]="{'loader-show': isFirstLoading}">
+    <div class="loader-overlay"></div>
+    <div class="loader">
+      <i class="fa fa-spinner fa-pulse fa-2x fa-fw loader-icon"></i>
+      <p class="loader-text">{{'LOADING' | translate }}...</p>
+    </div>
+  </div>
+  <div class="row content-wrapper" *ngIf="count !== 0">
+    <virtual-scroll [items]="itemData" (update)="viewPortItems = $event"
+                    (change)="onListChange($event)" [childHeight]="50" class="col-8">
+      <table class="table table-hover attached-files-table mb-0">
+        <tbody class="attached-files-tbody">
+         <ng-template ngFor let-item [ngForOf]="viewPortItems">
+           <tr (click)="previewShow(item)" [ngClass]="{'table-active': selectItem(item)}">
+             <td class="fs14">
+               <div class="attached-files-names">
+                 <ng-container [ngSwitch]="item.type">
+                   <ng-container *ngSwitchCase="''">
+                     <i class="fa fa-file-o" aria-hidden="true"></i>
+                   </ng-container>
+                   <ng-container *ngSwitchDefault>
+                     <i class="fa" [ngClass]="'fa-file-' + item.type + '-o'" aria-hidden="true"></i>
+                   </ng-container>
+                 </ng-container>
+                 {{item.name}} ({{item.size | formatSizeUnits}})
+               </div>
+             </td>
+             <td>
+               <ul class="attached-files-menu list-inline mb-0">
+                 <li class="list-inline-item">
+                   <button type="button" class="btn btn-secondary btn-sm" (click)="forward($event, item)">
+                     <i class="fa fa-share" aria-hidden="true"></i>
+                   </button>
+                 </li>
+                 <li class="list-inline-item">
+                   <button type="button" class="btn btn-secondary btn-sm" (click)="download($event, item)">
+                     <i class="fa fa-download" aria-hidden="true"></i>
+                   </button>
+                 </li>
+                 <li class="list-inline-item" [ngClass]="{'attached-files-hidden': item?.owner !== officeUserId}">
+                   <button type="button" class="btn btn-secondary btn-sm" (click)="delete($event, item)">
+                     <i class="fa fa-trash" aria-hidden="true"></i>
+                   </button>
+                 </li>
+               </ul>
+             </td>
+           </tr>
+         </ng-template>
+        </tbody>
+      </table>
+      <div class="infinite-scroll-loader text-center" *ngIf="isLoadMore">
+        <i class="fa fa-spinner fa-pulse fa-fw infinite-scroll-loader-icon"></i>
+        <span class="infinite-scroll-loader-text fs14">{{'INFINITE_SCROLL.LOADING' | translate}}...</span>
+      </div>
+    </virtual-scroll>
+    <div class="col-4 attached-files-detail">
+      <div *ngIf="preViewItem">
+        <div class="mb-3 text-center">
+          <ng-container [ngSwitch]="preViewItem.type">
+            <ng-container *ngSwitchCase="'image'">
+              <img appImgPreloader [title]="preViewItem?.name" [targetSource]="preViewItem?.thumb_url" class="rounded img-fluid">
+            </ng-container>
+            <ng-container *ngSwitchCase="''">
+              <i class="fa attached-files-preview-icon fa-file-o" aria-hidden="true"></i>
+            </ng-container>
+            <ng-container *ngSwitchDefault>
+              <i class="fa attached-files-preview-icon" [ngClass]="'fa-file-' + preViewItem.type + '-o'" aria-hidden="true"></i>
+            </ng-container>
+          </ng-container>
+        </div>
+        <div>
+          <dl class="attached-files-dl">
+            <dt class="fs13 text-left">{{'ATTACHED_FILES.FILE_NAME'|translate}}</dt>
+            <dd class="fs12 text-left">{{preViewItem?.name}} ({{preViewItem?.size | formatSizeUnits}})</dd>
+            <dt class="fs13 text-left">{{'ATTACHED_FILES.UPLOAD_USER'|translate}}</dt>
+            <dd class="fs12 text-left">{{(contributorInfo$ | async)?.fullName}}</dd>
+            <dt class="fs13 text-left">{{'ATTACHED_FILES.UPLOAD_DATE'|translate}}</dt>
+            <dd class="fs12 text-left">{{dateConvert(preViewItem?.createdAt)}}</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

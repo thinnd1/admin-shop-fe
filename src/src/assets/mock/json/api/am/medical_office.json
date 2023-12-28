@@ -1,0 +1,5 @@
+{
+  "keyCode": "string",
+  "loginId": "string",
+  "temporaryPassword": "string"
+}

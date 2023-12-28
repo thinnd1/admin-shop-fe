@@ -1,0 +1,75 @@
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="tab-content2">
+    <div class="setting mb-5" *ngIf="!userSession.personalFlag">
+      <h2>{{'CA0008.HOSPITAL_IN_GROUP' | translate }}</h2>
+      <div class="row row-mg" *ngFor="let listCalendarInGroup of listCalendarInGroups; let index = index">
+        <div class="col-lg-5">
+          <div class="setting-bg">
+                          <span [ngStyle]="{'background': listCalendarInGroup.colorString }" class="box-bg"
+                                id="{{ listCalendarInGroup.color }}"></span>
+            <span class="setting-txt-title">{{ listCalendarInGroup.groupName }}</span>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="setting-button fs18">
+            <button type="button" class="btn btn-outline-warning"
+                    (click)="getDisplayPopUpColorCalendar($event, listCalendarInGroup)">
+              {{'CA0008.BTN_CHANGE_DISPLAY_COLOR' | translate }}
+            </button>
+            <button type="button" class="btn btn-success" *ngIf="listCalendarInGroup.visible"
+                    (click)="changeVisible(listCalendarInGroup)">
+              {{'CA0008.BTN_SHOWING' | translate }}
+            </button>
+            <button type="button" class="btn btn-secondary" *ngIf="listCalendarInGroup.visible === false"
+                    (click)="changeVisible(listCalendarInGroup)">
+              {{'CA0006.BTN_HIDDEN' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="setting mb-5">
+      <h2 *ngIf="!userSession.personalFlag">{{'CA0008.HOSPITAL_OUT_GROUP' | translate }}</h2>
+      <h2 *ngIf="userSession.personalFlag">{{'CA0008.GROUP' | translate }}</h2>
+      <div class="row row-mg"
+           *ngFor="let listCalendarOutGroup of listCalendarOutGroups; let index = index">
+        <div class="col-lg-5">
+          <div class="setting-bg">
+                          <span [ngStyle]="{'background': listCalendarOutGroup.colorString }" class="box-bg"
+                                id="{{ listCalendarOutGroup.color }}"></span>
+            <span class="setting-txt-title">{{ listCalendarOutGroup.groupName }}</span>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="setting-button fs18">
+            <button type="button" class="btn btn-outline-warning"
+                    (click)="getDisplayPopUpColorCalendar($event, listCalendarOutGroup)">
+              {{'CA0008.BTN_CHANGE_DISPLAY_COLOR' | translate }}
+            </button>
+            <button type="button" class="btn btn-success" *ngIf="listCalendarOutGroup.visible"
+                    (click)="changeVisible(listCalendarOutGroup)">
+              {{'CA0008.BTN_SHOWING' | translate }}
+            </button>
+            <button type="button" class="btn btn-secondary" *ngIf="listCalendarOutGroup.visible === false"
+                    (click)="changeVisible(listCalendarOutGroup)">
+              {{'CA0006.BTN_HIDDEN' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="my-4">
+      <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center form-inline">
+          <button type="submit" class="btn btn-primary" (click)="postSettingsSelfSettings()">
+            {{'COMMON_BTN.SAVE' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-option-color [calendarReferent]="calendarReferent" [optionEventColor]="optionEventColor"></app-option-color>
+

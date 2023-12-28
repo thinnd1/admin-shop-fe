@@ -1,0 +1,106 @@
+<div id="entry-card">
+  <div class="entry-sub-3 entry-receipt" style="margin: 20px auto;width: 960px;">
+    <div *ngIf="type === 'invoice'">
+      <p class="receipt-date fs14">{{'ME5002.INVOICE.RECEIPT_DATE' | translate}}：{{(paymentNewest?.createdDate) ? (paymentNewest?.createdDate | timePipe:
+        'YYYY年MM月DD日') : ''}}</p>
+    </div>
+    <div *ngIf="type === 'receipt'">
+      <p class="receipt-date fs14">{{'ME5002.INVOICE.CREATED' | translate}}：{{(paymentNewest?.receiptDate) ? (paymentNewest?.receiptDate  | timePipe:
+        'YYYY年MM月DD日') : ''}}</p>
+    </div>
+    <h1 *ngIf="type === 'invoice'" class="receipt-ttl pb-2 mb-3 text-center">{{'ME5002.INVOICE.TITLE' | translate}}</h1>
+    <h1 *ngIf="type === 'receipt'" class="receipt-ttl pb-2 mb-3 text-center">{{'ME5002.RECEIPT.TITLE' | translate}}</h1>
+    <div class="clearfix mb-4">
+      <h2 class="sub-ttl float-left">{{paymentNewest?.paymentName}} {{'ME5002.CARD_ADDR.MR' | translate}}</h2>
+      <div *ngIf="type === 'receipt'">
+        <p class="invoice-nber float-right">{{'ME5002.INVOICE.PAYMENT_NO_RECEIPT' | translate}}：{{paymentNewest?.paymentNo}}</p>
+      </div>
+      <div *ngIf="type === 'invoice'">
+        <p class="invoice-nber float-right">{{'ME5002.INVOICE.PAYMENT_NO_INVOICE' | translate}}：{{paymentNewest?.paymentNo}}</p>
+      </div>
+    </div>
+    <div class="box-price mb-5">
+      <p class="mb-0" *ngIf="type === 'invoice'">{{'ME5002.INVOICE.NOTICE.BOX_PRICE' | translate}}</p>
+      <div class="price-cont clearfix py-1 px-3 fs24 mb-1 font-weight-bold">
+        <div class="name float-left">
+          <div *ngIf="type === 'invoice'; then invoice_billed else receipt_billed"></div>
+          <ng-template #invoice_billed>{{'ME5002.INVOICE.BILLED' | translate}}</ng-template>
+          <ng-template #receipt_billed>{{'ME5002.RECEIPT.BILLED' | translate}}</ng-template>
+          <span class="fs11 align-middle">{{'ME5002.INVOICE.BILLED_NOTICE' | translate}}</span>
+        </div>
+        <span class="price float-right">¥{{paymentTotal | number}}-</span>
+      </div>
+      <p *ngIf="type === 'invoice'" class="text-center mb-0">{{'ME5002.INVOICE.RECEIPT_LIMIT_DATE' |
+        translate}}：{{paymentNewest?.receiptLimitDate | timePipe: 'YYYY年MM月DD日'}}</p>
+      <p *ngIf="type === 'receipt'" class="text-center mb-0">{{'ME5002.RECEIPT.NOTICE' | translate}}</p>
+    </div>
+    <h2 *ngIf="type === 'invoice'" class="sub-ttl">{{'ME5002.INVOICE.REPORT' | translate}}</h2>
+    <h2 *ngIf="type === 'receipt'" class="sub-ttl">{{'ME5002.RECEIPT.REPORT' | translate}}</h2>
+    <div class="table-price">
+      <div class="row">
+        <div class="col-12 tbl-price-ttl border-left border-right fs14">{{'ME5002.INVOICE.EXPENSE' | translate}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4 border-left">{{'ME5002.INVOICE.PRICE' | translate}}</div>
+        <div class="col-4">¥{{paymentNewest?.price | number}}{{'ME5002.INVOICE.TAX_EXCLUDED' | translate}}
+        </div>
+        <div class="col-4 text-right border-right">¥{{(paymentNewest?.price + tax) | number}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-8 border-left">{{'ME5002.INVOICE.POSTAGE' | translate}}</div>
+        <div class="col-4 text-right border-right">¥{{paymentNewest?.postage | number}}</div>
+      </div>
+      <div class="row mb-4">
+        <div class="col-7 border-none"></div>
+        <div class="col-2 tbl-price-ttl border-left border-bottom fs14">{{'ME5002.INVOICE.TOTAL' | translate}}
+        </div>
+        <div class="col-3 text-right border-right border-bottom">¥{{paymentTotal | number}}</div>
+      </div>
+
+    </div>
+
+    <div class="mb-3 receipt-info" *ngIf="type === 'invoice'">
+      <h3 style="font-size: 18px">{{'ME5002.INVOICE.TRANFER_ACC.TITLE' | translate}}</h3>
+      <table class="fs14">
+        <tbody>
+        <tr>
+          <th>{{'ME5002.INVOICE.TRANFER_ACC.BANK_NAME.TITLE' | translate}}</th>
+          <td>{{'ME5002.INVOICE.TRANFER_ACC.BANK_NAME.INFO' | translate}}</td>
+        </tr>
+        <tr>
+          <th>{{'ME5002.INVOICE.TRANFER_ACC.BRANCH_NAME.TITLE' | translate}}</th>
+          <td>{{'ME5002.INVOICE.TRANFER_ACC.BRANCH_NAME.INFO' | translate}}</td>
+        </tr>
+        <tr>
+          <th>{{'ME5002.INVOICE.TRANFER_ACC.TYPE.TITLE' | translate}}</th>
+          <td>{{'ME5002.INVOICE.TRANFER_ACC.TYPE.INFO' | translate}}</td>
+        </tr>
+        <tr>
+          <th>{{'ME5002.INVOICE.TRANFER_ACC.ACC_NUM.TITLE' | translate}}</th>
+          <td>{{'ME5002.INVOICE.TRANFER_ACC.ACC_NUM.INFO' | translate}}</td>
+        </tr>
+        <tr>
+          <th>{{'ME5002.INVOICE.TRANFER_ACC.NAME.TITLE' | translate}}</th>
+          <td>{{'ME5002.INVOICE.TRANFER_ACC.NAME.INFO' | translate}}</td>
+        </tr>
+        <tr>
+          <th>{{'ME5002.INVOICE.TRANFER_ACC.TRANFER_PERSON_NAME.TITLE' | translate}}</th>
+          <td>{{'ME5002.INVOICE.TRANFER_ACC.TRANFER_PERSON_NAME.INFO' | translate}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="documents-transfer-box-foot">
+        {{'ME5002.INVOICE.TRANFER_ACC.NOTE' | translate}}
+      </div>
+    </div>
+    <p class="fs14 mb-3" *ngIf="type === 'invoice'">
+      {{'ME5002.INVOICE.NOTICE.ROW1_1' | translate}}<br>
+      {{'ME5002.INVOICE.NOTICE.ROW2_1' | translate}}</p>
+    <div class="text-right mb-4">
+      <img src="assets/img/me/image-invoice-me5002.png" alt="">
+    </div>
+    <!-- //entry-receipt -->
+  </div>
+</div>

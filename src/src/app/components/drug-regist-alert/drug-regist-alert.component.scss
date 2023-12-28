@@ -1,0 +1,33 @@
+// import common setting
+@import '../../../assets/styles/_import';
+
+.drug-regist-alert {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.drug-regist-alert__wrap {
+  display: block;
+  border-radius: 10px 10px 0 0;
+  background: #f08c00;
+  //padding: 20px;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  &:hover {
+    background: #f4c887;
+  }
+}
+
+.drug-regist-alert__ttl {
+  font-size: _rem(18px);
+  //margin-bottom: 10px;
+}
+
+.drug-regist-alert__txt {
+  font-size: _rem(14px);
+}
+
+

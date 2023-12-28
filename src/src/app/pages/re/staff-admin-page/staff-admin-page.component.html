@@ -1,0 +1,178 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+  <main class="content-wrap" data-effect="push">
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'RE0014.RESIST_TITLE' | translate"></app-page-head>
+                </div>
+                <div class="staff-admin col">
+                  <p class="mb-0">{{ 'RE0014.TITLE_TOP' | translate }}</p>
+                  <div class="mb-4">
+                    <div class="select-department mb-4">
+                      <app-department-select [value]="(userSession.managementAuthority === 'MP_1') ? '' : userSession.deptId" [index]="0" (departmentSelect)="searchDepartment($event)" [authority]="authority"
+                      [limitNumChars]="90"></app-department-select>
+                    </div>
+                    <div class="search fs16">
+                      <form>
+                        <input class="search-input" type="text"  placeholder="{{ 'RE0014.SEARCH_NAME' | translate }}" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" maxlength="100">
+                        <button (click)="searchUser(name)" class="search-btn">
+                          <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                  <form>
+                    <div class="table-staff-admin" infiniteScroll [infiniteScrollDistance]="1" (scrolled)="onScrollDown()">
+                      <table class="table table-user table-striped table-bordered table-hover" >
+                        <thead class="thead-inverse hidden-md-down">
+                          <tr>
+                            <th class="align-middle table-name">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{ 'RE0014.TABLE_NAME' | translate }}</div>
+                                <div class="sort-arrow" (click)="orderBy('lastName')">
+                                  <span class="arrow float-right down {{sort == '+lastName' ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{sort == '-lastName' ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <th class="align-middle table-profession text-nowrap">
+                              {{ 'RE0014.TABLE_JOB' | translate }}
+                            </th>
+                            <th class="align-middle table-affiliation text-nowrap">
+                              {{ 'RE0014.TABLE_DEPARTMENT' | translate }}
+                            </th>
+                            <th class="table-manager align-middle">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{ 'RE0014.TABLE_ROLE_MAIN' | translate }}</div>
+                                <div class="sort-arrow" (click)="orderBy('managementAuthority')">
+                                  <span class="arrow float-right down {{sort == '+managementAuthority' ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{sort == '-managementAuthority' ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <th class="table-title-width align-middle">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{ 'RE0014.TABLE_ROLE_OTHER' | translate }}</div>
+                                <div class="sort-arrow" (click)="orderBy('funcAuthority')">
+                                  <span class="arrow float-right down {{sort == '+funcAuthority' ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{sort == '-funcAuthority' ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <th class="table-title-button"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="infinite-scroll-item" *ngFor="let staff of dataAll; let i = index" class="{{staff.accountStatus.isLocking == true ? 'disable-row' : ''}}" (click)="detailStaff($event, staff.userId)">
+                            <th class="align-middle hidden-lg-up">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{ 'RE0014.TABLE_NAME' | translate }}</div>
+                                <div class="sort-arrow" (click)="orderBy('lastName')">
+                                  <span class="arrow float-right down {{sort == '+lastName' ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{sort == '-lastName' ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                          </th>
+                          <td class="align-middle table-name">
+                            <div class="table-user-item d-flex">
+                              <div class="user-item d-flex">
+                                <div class="table-user-info">
+                                  <app-mini-profile
+                                    [userInfo]="staff"
+                                    [profileOptions]="{
+                                  iconSize: 55,
+                                  nameKana: true,
+                                  nameHonorific: false,
+                                  officeName: false,
+                                  departmentName: false,
+                                  isLink: false,
+                                  isContent: {
+                                    top: {
+                                      content: null,
+                                      class: null
+                                    },
+                                    right: {
+                                      content: null,
+                                      class: null
+                                    },
+                                    bottom: {
+                                      content: null,
+                                      class: null
+                                      }
+                                    }
+                                   }"
+                                    ></app-mini-profile>
+                                    <div class="table-user-link d-inline-block text-center py-1 px-0 fs14" *ngIf="staff.accountStatus.isProvisional == true">{{ 'RE0014.TABLE_PROVISIONAL' | translate }}</div>
+                                  </div>
+                                </div>
+                                <div class="icon-lock d-flex">
+                                  <a class="text-danger" *ngIf="staff.accountStatus.isLocking == true" data-toggle="tooltip" data-placement="top" title="{{ 'RE0014.TABLE_KEY' | translate }}" (mouseenter)="displayTooltip($event)">
+                                    <i class="fa fa-key" aria-hidden="true"></i>
+                                  </a>
+                                </div>
+                              </div>
+                            </td>
+                            <th class="align-middle hidden-lg-up">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{ 'RE0014.TABLE_JOB' | translate }}</div>
+                                <div class="sort-arrow" (click)="orderBy('jobType')">
+                                  <span class="arrow float-right down {{sort == '+jobType' ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{sort == '-jobType' ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <td class="align-middle table-profession">{{staff.jobName}}</td>
+                            <th class="align-middle hidden-lg-up">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{ 'RE0014.TABLE_DEPARTMENT' | translate }}</div>
+                                <div class="sort-arrow" (click)="orderBy('department')">
+                                  <span class="arrow float-right down {{sort == '+department' ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{sort == '-department' ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <td class="align-middle table-affiliation">
+                              <div [innerHtml]="showTextDepartment(i)"></div>
+                            </td>
+                            <th class="align-middle hidden-lg-up">{{ 'RE0014.TABLE_ROLE_MAIN' | translate }}</th>
+                            <td class="align-middle table-manager" [ngSwitch]="staff.stuffAuthority">{{'AUTHORITY.ADMIN_AUTHORITY.' + staff.managementAuthority | translate}}</td>
+                            <th class="align-middle hidden-lg-up">{{ 'RE0014.TABLE_ROLE_OTHER' | translate }}</th>
+                            <td class="align-middle table-title-width">{{'AUTHORITY.FUNCTION_AUTHORITY.' + staff.funcAuthoritySet | translate}}</td>
+                            <td class="table-title-button align-middle text-center">
+                              <button (click)="detailStaff($event, staff.userId)" class="btn btn-outline-warning">{{ 'RE0014.TABLE_DETAIL' | translate }}</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div id="test"></div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

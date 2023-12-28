@@ -1,0 +1,130 @@
+{
+  "group": {
+    "id": "string",
+    "name": "string",
+    "type": "OFFICIAL",
+    "users": [
+      {
+      "userId": "user0001",
+      "authority": "MEMBER",
+      "inviteFlg": "APPROVED"
+      },
+      {
+        "userId": "user0002",
+        "authority": "ADMIN",
+        "inviteFlg": "APPROVED"
+      },
+      {
+        "userId": "user0007",
+        "authority": "ADMIN",
+        "inviteFlg": "APPROVED"
+      },
+      {
+        "userId": "user0006",
+        "authority": "MEMBER",
+        "inviteFlg": "APPROVED"
+      },
+      {
+        "userId": "user0008",
+        "authority": "MEMBER",
+        "inviteFlg": "APPROVED"
+      }
+    ]
+  },
+  "departments": [
+    {
+      "id": "dept0001",
+      "displayName": "Department 1",
+      "children": [
+        {
+          "id": "dept0003",
+          "displayName": "Department 3",
+          "children": [
+            {
+              "id": "dept0009",
+              "displayName": "Department 9",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dept0005",
+      "displayName": "Department 5",
+      "children": [
+        {
+          "id": "dept0008",
+          "displayName": "Department 8",
+          "children": []
+        }
+      ]
+    }
+  ],
+  "departmentUsers": [
+    {
+      "userId": "user0001",
+      "deptId": "dept0001",
+      "lastName": "user0001",
+      "firstName": "桃子",
+      "lastNameKana": "られる",
+      "firstNameKana": "ばべ"
+    },
+    {
+      "userId": "user0002",
+      "deptId": "dept0001",
+      "lastName": "user0002",
+      "firstName": "長谷川",
+      "lastNameKana": "かさ",
+      "firstNameKana": "さかな"
+    },
+    {
+      "userId": "user0003",
+      "deptId": "dept0003",
+      "lastName": "user0003",
+      "firstName": "firstName",
+      "lastNameKana": "ひふ",
+      "firstNameKana": "しす"
+    },
+    {
+      "userId": "user0004",
+      "deptId": "dept0005",
+      "lastName": "user0004",
+      "firstName": "firstName",
+      "lastNameKana": "きれい",
+      "firstNameKana": "こども"
+    },
+    {
+      "userId": "user0005",
+      "deptId": "dept0005",
+      "lastName": "user0005",
+      "firstName": "firstName",
+      "lastNameKana": "はな",
+      "firstNameKana": "み"
+    },
+    {
+      "userId": "user0006",
+      "deptId": "dept0009",
+      "lastName": "user0006",
+      "firstName": "firstName",
+      "lastNameKana": "はな",
+      "firstNameKana": "み"
+    },
+    {
+      "userId": "user0007",
+      "deptId": "dept0001",
+      "lastName": "user0007",
+      "firstName": "firstName",
+      "lastNameKana": "はな",
+      "firstNameKana": "み"
+    },
+    {
+      "userId": "user0008",
+      "deptId": "dept0001",
+      "lastName": "user0008",
+      "firstName": "firstName",
+      "lastNameKana": "はな",
+      "firstNameKana": "み"
+    }
+  ]
+}

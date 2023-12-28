@@ -1,0 +1,195 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid infinite-scroll">
+      <div class="row infinite-scroll-content" [infiniteScrollDistance]="1" [infiniteScrollThrottle]="20" infinite-scroll [scrollWindow]="true" (scrolled)="onScrollDown()">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents ME0005-->
+
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'ME0032.TITLE' | translate"></app-page-head>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-8 col-md-8 col-lg-8">
+                    <div class="search">
+                      <form>
+                        <input class="search-input" type="text" placeholder="{{'ME0032.SEARCH_TEXT' | translate}}"
+                               [(ngModel)]="searchConditions.keyword" name="searchKeyword">
+                        <button type="submit" class="search-btn" (click)="searchDoctor()">
+                          <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 col-md-4 d-flex align-items-center col-lg-4">
+                    <div class="text-detail-search fs18">
+                      <a class="text-Dropdown" role="button" data-toggle="collapse"
+                         data-parent="#accordion" href="#collapseOne" aria-expanded="true"
+                         aria-controls="collapseOne"
+                         (click)="showSearchAdvance()">{{'ME0032.ADVANCE_SEARCH' | translate}}<i
+                        class="fa pl-2 fs24" [ngClass]="{'fa-angle-down': !searchAdvance, 'fa-angle-up': searchAdvance}"
+                        aria-hidden="true"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="panel-body mt-3">
+                    <div><label>{{'ME0032.JOB' | translate}}</label></div>
+                    <label class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" checked [(ngModel)]="searchConditions.flagDoctor" (ngModelChange)="searchDoctor()">
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description fs18">{{'JOB_TYPES.J0001' | translate}}</span>
+                    </label>
+                    <label class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" checked [(ngModel)]="searchConditions.flagPharmacy" (ngModelChange)="searchDoctor()">
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description fs18">{{'JOB_TYPES.J0029' | translate}}</span>
+                    </label>
+                    <label class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" checked [(ngModel)]="searchConditions.flagOther" (ngModelChange)="searchDoctor()">
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description fs18">{{'ME0032.JOB_ARTHER' | translate}}</span>
+                    </label>
+
+                    <div class="row select-group">
+                      <div class="col-sm-6 col-md-6 col-lg-4">
+                        <div class="">
+                          <label>{{'ME0032.SEARCH_OFFICE' | translate}}</label>
+                          <select multiple class="form-control" [(ngModel)]="searchConditions.officeIds" (ngModelChange)="searchDoctor()">
+                            <option value=""></option>
+                            <option *ngFor="let office of listOfficeDoctor" [value]="office.officeId">{{office.officeName}}</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-md-6 col-lg-4">
+                        <div class="select-col">
+                          <label>{{'ME0032.SEARCH_TYPE_ID' | translate}}</label>
+                          <select multiple class="form-control" [(ngModel)]="searchConditions.fieldIds" (ngModelChange)="searchDoctor()">
+                            <option value=""></option>
+                            <option *ngFor="let field of specialtyAreasList" [value]="field.id">{{field.specialtyAreaName}}</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="txt mt-3" *ngIf="model?.totalNumber > 0">{{'ME0032.RESULT_SEARCH.MSG1' | translate}}{{ model.totalNumber }}{{'ME0032.RESULT_SEARCH.MSG2' | translate}} 1{{'ME0032.RESULT_SEARCH.MSG3' | translate}}〜{{ dataAll.length }}{{'ME0032.RESULT_SEARCH.MSG4' | translate}}</div>
+                <div class="table-tbl" [ngClass]="{'mt-3': model?.totalNumber === 0}">
+                  <table class="table table-bordered table-striped table-hover">
+                    <thead class="thead-inverse hidden-md-down">
+                      <tr>
+                        <th class="align-middle tbl-col-1">{{'ME0032.LBL_NAME' | translate}}</th>
+                        <th class="align-middle tbl-col-2">{{'ME0032.SEARCH_TYPE_ID' | translate}}</th>
+                        <th class="align-middle tbl-col-3">{{'ME0032.LBL_DETAIL' | translate}}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let doctor of dataAll" (click)="showProfileDoctor(doctor)">
+                        <th class="hidden-lg-up align-middle">{{'ME0032.LBL_NAME' | translate}}</th>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <div class="mr-1">
+                              <app-face-icon [iconSize]="55" [userInfo]="{imageUrl: doctor.image,firstName: doctor.firstName,lastName: doctor.lastName}"></app-face-icon>
+                            </div>
+                            <div class="txt-name fs12 py-2">
+                              <p class="txt-name-fl mb-0 pointer d-inline-block">
+                                <span class="font-weight-bold" data-animation="false" data-toggle="tooltip" data-placement="top" [attr.data-original-title]="'MSG.SHOW_PROFILE' | translate" (mouseover)="displayTooltip()">{{doctor.lastName + ' ' + doctor.firstName}}</span><span class="pl-3 fs12"><span class="text-muted" *ngIf="doctor.temporaryRegister">{{'MSG.ME.TEMPORARY_REGISTER' | translate}}</span><span *ngIf="doctor.temporaryRegister && doctor.mediator">／</span><span class="text-warning" *ngIf="doctor.mediator">{{'MSG.ME.MEDIATOR' | translate}}</span></span>
+                              </p>
+                              <p class="txt-name-fl mb-0">{{doctor.officeName}}</p>
+                            </div>
+                            <div class="pin-tack d-flex align-items-center">
+                              <span *ngIf="doctor.pinned" class="mr-2 ml-3 pt-1 d-flex-lock fs24 text-warning" data-animation="false"
+                                    data-toggle="tooltip" data-placement="top" [attr.data-original-title]="'MSG.PIN_OFF' | translate" (click)="pinCustomer($event, doctor.userId, doctor.officeId, doctor.pinned)">
+                                 <i class="fa fa-thumb-tack cursor-pointer" aria-hidden="true" (mouseover)="displayTooltip()"></i>
+                              </span>
+                              <span *ngIf="!doctor.pinned" class="mr-2 ml-3 pt-1 d-flex-lock fs24" data-animation="false"
+                                    data-toggle="tooltip" data-placement="top" [attr.data-original-title]="'MSG.PIN_ON' | translate" (click)="pinCustomer($event, doctor.userId, doctor.officeId, doctor.pinned)">
+                                <i class="fa fa-thumb-tack cursor-pointer" aria-hidden="true" (mouseover)="displayTooltip()"></i>
+                              </span>
+                            </div>
+                          </div>
+                        </td>
+                        <th class="hidden-lg-up align-middle">{{'ME0032.SEARCH_TYPE_ID' | translate}}</th>
+                        <td>
+                          <div class="custom-pin">
+                            <p class="mb-0">{{doctor.jobType}}</p>
+                            <p class="mb-0">{{doctor.specializeDepartment.nameField}}</p>
+                          </div>
+                        </td>
+                        <th class="hidden-lg-up align-middle">{{'ME0032.LBL_DETAIL' | translate}}</th>
+                        <td>
+                          <button type="button" class="btn btn-sm btn-secondary mr-1 requestMeeting" [disabled]="!doctor.meetingDemandStatus" (click)="showAspirationRequestMeeting(doctor, $event, 'requestMeeting')">{{'ME0032.LBL_MEETING' | translate}}</button>
+                          <button type="button" class="btn btn-sm btn-secondary mt-xs-2 mr-1 requestMeetingRule" [disabled]="!doctor.meetingRuleStatus" (click)="showAspirationRequestMeeting(doctor, $event, 'requestMeetingRule')">{{'ME0032.LBL_MEETING_RULE' | translate}}</button>
+                          <button type="button" class="btn btn-sm btn-success mt-xs-2" (click)="requestMeetingDoctor($event, doctor.userId, doctor.officeId)">{{'ME0032.LBL_MEETING_REQUEST' | translate}}</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="d-flex justify-content-center mt-4" *ngIf="dataAll.length === 0 && callApi">{{ 'ME0032.SEARCH_ZERO_RECORD' | translate }}</div>
+              </div>
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div class="popover popover-bottom fs16 popover-position-right" [ngClass]="{'popover-bottom': (!showTop), 'popover-top': (showTop)}" id="requestMeetingRule" (clickOutside)="hideRequestMeetingRule()">
+    <div class="popover-title px-2 py-2">
+      <h3 class="mb-0 pt-1">{{'ME0032.LBL_MEETING_RULE' | translate}}</h3>
+      <div class="popover-close fs14"><i class="fa fa-close" (click)="hideRequestMeetingRule()"></i></div>
+    </div>
+
+    <div class="arrow"></div>
+    <div class="popover-tab support-content-txt">
+      <div class="px-2 py-2 break-line">{{meetingRule}}</div>
+    </div>
+  </div>
+
+  <div class="popover popover-bottom fs16 popover-position-right" [ngClass]="{'popover-bottom': (!showTop), 'popover-top': (showTop)}" id="requestMeeting" (clickOutside)="hideAspirationList()">
+    <div class="popover-title px-2 py-2">
+      <h3 class="mb-0 pt-1">{{'ME0032.LBL_MEETING' | translate}}</h3>
+      <div class="popover-close fs14"><i class="fa fa-close" (click)="hideAspirationList()"></i></div>
+    </div>
+    <div class="arrow"></div>
+    <div class="popover-tab">
+      <div class="px-2 popover-tbl">
+        <table class="table">
+          <tbody>
+          <tr id="htmlDemandList">
+          </tr>
+          <tr class="support-content-txt ">
+            <td><strong>{{'ME0032.LBL_DETAIL' | translate}}</strong></td>
+            <td colspan="2" class="break-line">{{details}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

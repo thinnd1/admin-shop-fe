@@ -1,0 +1,18 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+
+.tab-content {
+  input::-ms-clear,
+  input::-ms-reveal {
+    visibility:hidden
+  }
+  .toggle-cell {
+    cursor: pointer;
+  }
+  .table-settings-menu-edit {
+    td:first-child,
+    td:last-child {
+      width: 1rem;
+    }
+  }
+}

@@ -1,0 +1,81 @@
+// import common setting
+@import './../../../../assets/styles/import';
+
+.search-results {
+  color: #777;
+  &-icon {
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 5px;
+    &-img {
+      background: $white;
+    }
+  }
+  &-info {
+    display: table-cell;
+    vertical-align: middle;
+    &-main {
+      font-size: _rem(18px);
+      margin-bottom: 0;
+      color: $black;
+    }
+    &-sub {
+      font-size: _rem(12px);
+    }
+    &-main + &-sub {
+      margin-top: 0;
+    }
+    &-content {
+      &-bottom {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.search-results-category {
+  .badge-search-results-count {
+    color: $orange;
+  }
+  .btn-primary:focus {
+    color: $white;
+  }
+}
+
+.search-results-list {
+  border: 1px solid #E1E0DF;
+  @include border-radius(5px);
+  cursor: pointer;
+  &-top {
+    @include border-radius(5px 5px 0 0/5px 5px 0 0);
+    background: #F7F7F7;
+    &-date {
+      color: #777;
+      float: right;
+    }
+  }
+  &-hit-keyword {
+    color: $orange;
+    background: #FCF8E3;
+    font-weight: bold;
+  }
+}
+
+:host ::ng-deep .search-results-list-hit-keyword {
+  color: $orange;
+  background: #FCF8E3;
+  font-weight: bold;
+}
+
+  //@media (max-width: 991px)
+@include media-breakpoint-down(md) {
+  .search-results-list {
+    &-top {
+      &-date {
+        float: none;
+        display: block;
+        text-align: right;
+      }
+    }
+  }
+}

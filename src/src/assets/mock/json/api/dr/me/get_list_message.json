@@ -1,0 +1,28 @@
+{
+  "messageList": [
+    {
+      "message": "string1 お世話になっております。先日の面会にてお話があった講演会の件ですが 持ち時間はおひとり20分で決定致しました。",
+      "messageId": "messageId1",
+      "time": "2017-10-06T00:25:00",
+      "userId": "userId1"
+    },
+    {
+      "message": "string2 お世話になっております。先日の面会にてお話があった講演会の件ですが 持ち時間はおひとり20分で決定致しました。",
+      "messageId": "messageId2",
+      "time": "2017-10-06T00:25:00",
+      "userId": "string2"
+    },
+    {
+      "message": "string3 お世話になっております。先日の面会にてお話があった講演会の件ですが 持ち時間はおひとり20分で決定致しました。",
+      "messageId": "messageId3",
+      "time": "2017-10-06T00:25:00",
+      "userId": "string3"
+    },
+    {
+      "message": "string4 お世話になっております。先日の面会にてお話があった講演会の件ですが 持ち時間はおひとり20分で決定致しました。",
+      "messageId": "messageId4 ",
+      "time": "2017-10-06T00:25:00",
+      "userId": "string4"
+    }
+  ]
+}

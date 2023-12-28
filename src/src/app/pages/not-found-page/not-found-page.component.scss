@@ -1,0 +1,36 @@
+// import common setting
+@import './../../../assets/styles/import';
+
+app-header-drjoy-visitor,
+app-header-prjoy-visitor {
+  width: 100%;
+  align-items: center;
+}
+
+//media (min-width: 992px)
+@include media-breakpoint-up(lg) {
+  app-header-drjoy-visitor,
+  app-header-prjoy-visitor {
+    display: flex;
+  }
+}
+
+.drjoy-color {
+  .st0,
+  .st1 {
+    fill: $drjoy-symbol-color;
+  }
+  .page-not-found {
+    color: $drjoy-symbol-color;;
+  }
+}
+
+.prjoy-color {
+  .st0,
+  .st1 {
+    fill: $prjoy-symbol-color;
+  }
+  .page-not-found {
+    color: $prjoy-symbol-color;;
+  }
+}

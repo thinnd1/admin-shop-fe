@@ -1,0 +1,101 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents CM0013-->
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'CM0013.TITLE' | translate"></app-page-head>
+                </div>
+
+                <div class="search mb-3">
+                  <form>
+                    <input class="search-input" type="text" placeholder="{{'SIDE_MENU.SEARCH' | translate }}" [(ngModel)]="searchKeyword" [ngModelOptions]="{standalone: true}">
+                    <button type="submit" class="search-btn" (click)="searchAll()">
+                      <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                  </form>
+                </div>
+
+                <ng-container *ngIf="searchResultData">
+                  <div *ngIf="searchResultData.resultCounts">
+                    <ul class="list-unstyled list-inline search-results-category">
+                      <ng-container *ngFor="let list of searchResultData.resultCounts">
+                        <li class="list-inline-item mb-2" *ngIf="list.count > 0">
+                          <a class="btn btn-sm" [ngClass]="searchTarget === list.searchTarget ? 'btn-primary':'btn-link'" href="javascript:void(0);" (click)="clickSearchResultsCategory($event,list.searchTarget)" role="button">
+                            <span [innerHtml]="getCategoryName(list.searchTarget)"></span><span class="badge badge-search-results-count">({{list.count}})</span>
+                          </a>
+                        </li>
+                      </ng-container>
+                    </ul>
+                  </div>
+
+                  <div class="search-results-wrap" *ngIf="!searchResultData.results.length">
+                    <p class="no-result-found text-center">{{'CM0013.NO_RESULT_FOUND' | translate}}</p>
+                  </div>
+
+                  <div class="search-results-wrap" *ngIf="searchResultData.results.length" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="10" [scrollWindow]="true" (scrolled)="onScroll($event)">
+                    <ul class="list-unstyled" #ulData>
+                      <li class="search-results-list mb-2" *ngFor="let item of searchResultData.results" (click)="clickSearchResultsList(item)">
+                        <div class="search-results-list-top p-2">
+                          <span class="search-results-list-top-date fs12">{{dataConvert(item.updateTime)}}</span>
+                          <div class="search-results">
+                            <div class="search-results-icon">
+                              <app-face-icon [faceImgId]="item.officeUserId" [officeUserId]="item.userId" [iconSize]="40"></app-face-icon>
+                            </div>
+                            <div class="search-results-info pl-3">
+                              <p class="search-results-info-main mb-0">
+                                <span class="search-results-info-name" [innerHTML]="item.officeUserName"></span>
+                                <span class="search-results-info-name-honorific">{{'HONORIFIC' | translate}}</span>
+                              </p>
+                              <p class="search-results-info-sub mb-0" *ngIf="item.indexType === 'group_message' || item.indexType === 'chat_message'">
+                                <span class="search-results-info-content-bottom" [innerHTML]="getTitle(item.indexType, item.title)"></span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="search-results-list-bottom p-2">
+                          <p class="mb-0 fs12" *ngIf="item.indexType === 'group_message' || item.indexType === 'chat_message'" [innerHTML]="item.body"></p>
+                          <p class="mb-0 fs12" *ngIf="item.indexType === 'user_profile'">{{'CM0013.MOBILE' | translate}} : {{item.mobileNo}}</p>
+                          <p class="mb-0 fs12" *ngIf="item.indexType === 'user_profile'">PHS : {{item.phsNo}}</p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="infinite-scroll-loader text-center mb-3" [hidden]="isLoading">
+                    <i class="fa fa-spinner fa-pulse fa-fw infinite-scroll-loader-icon"></i>
+                    <span class="infinite-scroll-loader-text fs14">{{'INFINITE_SCROLL.LOADING' | translate}}...</span>
+                  </div>
+                </ng-container>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

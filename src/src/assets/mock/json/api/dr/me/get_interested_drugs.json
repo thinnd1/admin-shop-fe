@@ -1,0 +1,109 @@
+{
+  "drugs": [
+    {
+      "categoryId": "stringA",
+      "categoryName": "stringA123",
+      "allSelected": false,
+      "items": [
+        {
+          "drugId": "stringA1",
+          "drugName": "カスタムチェックボックス",
+          "selected": true
+        },
+        {
+          "drugId": "stringA2",
+          "drugName": "カスタムチェックボックス",
+          "selected": false
+        },
+        {
+          "drugId": "stringA3",
+          "drugName": "カスタムチェックボックス",
+          "selected": true
+        },
+        {
+          "drugId": "stringA4",
+          "drugName": "カスタムチェックボックス",
+          "selected": true
+        }
+      ]
+    },
+    {
+      "categoryId": "stringB",
+      "categoryName": "stringB123",
+      "allSelected": false,
+      "items": [
+        {
+          "drugId": "stringB1",
+          "drugName": "カスタムチェックボックス",
+          "selected": false
+        },
+        {
+          "drugId": "stringB2",
+          "drugName": "カスタムチェックボックス",
+          "selected": true
+        }
+      ]
+    },
+    {
+      "categoryId": "stringC",
+      "categoryName": "stringC123",
+      "allSelected": true,
+      "items": [
+        {
+          "drugId": "stringC1",
+          "drugName": "カスタムチェックボックス",
+          "selected": true
+        }
+      ]
+    },
+    {
+      "categoryId": "stringD",
+      "categoryName": "stringD123",
+      "allSelected": false,
+      "items": [
+        {
+          "drugId": "stringD1",
+          "drugName": "stringD12343456",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "categoryId": "stringE",
+      "categoryName": "stringE123",
+      "allSelected": false,
+      "items": [
+        {
+          "drugId": "stringE1",
+          "drugName": "カスタムチェックボックス",
+          "selected": false
+        },
+        {
+          "drugId": "stringE2",
+          "drugName": "カスタムチェックボックス",
+          "selected": false
+        },
+        {
+          "drugId": "stringE3",
+          "drugName": "カスタムチェックボックス",
+          "selected": false
+        },
+        {
+          "drugId": "stringE4",
+          "drugName": "カスタムチェックボックス",
+          "selected": false
+        },
+        {
+          "drugId": "stringE5",
+          "drugName": "カスタムチェックボックス",
+          "selected": false
+        }
+      ]
+    }
+  ],
+  "id": "string",
+  "firstName": "string",
+  "lastName": "string",
+  "officeId": "string",
+  "userId": "string"
+}

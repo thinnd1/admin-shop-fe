@@ -1,0 +1,78 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+
+.data-setting {
+  .table-data {
+    th, td {
+      vertical-align: middle;
+    }
+    .tbl-checkBox {
+      width:4rem;
+    }
+    .tbl-request {
+      width:10rem;
+    }
+  }
+  .question {
+    line-height: 20px;
+  }
+}
+.check-box {
+  .btn-primary-fist {
+    background: #99b4cc;
+    color: #fff;
+  }
+  .btn-primary-active {
+    background: #00447f;
+  }
+  .btn {
+    &:first-of-type {
+      border-radius: 0.25rem 0 0 0.25rem;
+    }
+    &:last-child {
+      border-radius: 0 0.25rem 0.25rem 0;
+    }
+  }
+}
+.wrap-conten {
+  background-color: #f8f8f8;
+  padding: 0.5rem 1rem;
+}
+@include media-breakpoint-down(lg) {
+  .tbl-wrap {
+    white-space: nowrap;
+    overflow-x: scroll;
+  }
+}
+// @media (max-width: 767px) { ... }
+@include media-breakpoint-down(sm) {
+  .data-setting {
+    .table-data {
+      tr {
+        display:block;
+        width:100%;
+        margin-bottom:1rem;
+      }
+      th, td {
+        display:block;
+        width:100% !important;
+        border-left:1px solid #D7D7D7 !important;
+        border-right:1px solid #D7D7D7 !important;
+      }
+    }
+  }
+}
+@include media-breakpoint-down(xs) {
+  .data-setting {
+    .control-btn {
+      .btn {
+        width:100%;
+        margin-bottom:0.5rem;
+      }
+    }
+  }
+  .tbl-wrap {
+    white-space: normal;
+    overflow-x: normal;
+  }
+}

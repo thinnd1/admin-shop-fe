@@ -1,0 +1,8 @@
+<l-select2
+  class="form-control border-0 p-0"
+  [(ngModel)]="selected"
+  [data]="data"
+  [options]="remoteOptions"
+  [disabled]="false"
+  (ngModelChange)="changeFields($event)"
+></l-select2>

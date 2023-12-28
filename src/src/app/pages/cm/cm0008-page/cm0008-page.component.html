@@ -1,0 +1,173 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents CM0008-->
+              <div class="col">
+                <!-- CM0008 top -->
+                <div *ngIf="currentPage === pageStatus.Top">
+                  <div class="page-head">
+                    <app-page-head [title]="'CM0008.TOP.TITLE' | translate"></app-page-head>
+                  </div>
+                  <div class="mb-3">
+                    <div class="row">
+                      <div class="col-12 col-lg-6">
+                        <div class="search">
+                          <form #searchForm="ngForm" (ngSubmit)="onSearch()">
+                            <input class="search-input" type="text" placeholder="{{'COMMON_LABEL.LBL_SEARCH' | translate}}" name="keyword" [(ngModel)]="searchOptions.keyword"  ngModel autocomplete="off">
+                            <button type="submit" class="search-btn">
+                              <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <ng-container *ngIf="dataList && dataList.length">
+                    <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="10" (scrolled)="onScroll($event)">
+                      <div class="row">
+                        <div class="col">
+                          <table #tableData class="table table-data table-striped table-bordered table-hover">
+                            <thead class="thead-inverse hidden-sm-down">
+                              <tr>
+                                <th class="align-middle">{{ 'CM0008.TOP.THEAD1' | translate }}</th>
+                                <th class="align-middle">{{ 'CM0008.TOP.THEAD2' | translate }}</th>
+                                <th class="align-middle">{{ 'CM0008.TOP.THEAD3' | translate }}</th>
+                                <th class="align-middle">{{ 'CM0008.TOP.THEAD4' | translate }}</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <ng-container *ngFor="let data of dataList">
+                                <tr (click)="gotoDetail(data.id)" [ngClass]="{unread : !data.read}">
+                                  <td class="align-middle">{{ dateConvert(data.date) }}</td>
+                                  <td class="align-middle">{{ data.fromOffice }}</td>
+                                  <td class="align-middle">{{ data.signature }}</td>
+                                  <td class="align-middle">{{ data.title }}</td>
+                                </tr>
+                              </ng-container>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="infinite-scroll-loader text-center mb-3" [hidden]="isLoading">
+                      <i class="fa fa-spinner fa-pulse fa-fw infinite-scroll-loader-icon"></i>
+                      <span class="infinite-scroll-loader-text fs14">{{'INFINITE_SCROLL.LOADING' | translate}}...</span>
+                    </div>
+                  </ng-container>
+                  <ng-container *ngIf="!isAllLoading() && (!dataList || !dataList.length)">
+                    <p class="text-center fs18">{{ 'NO_DATA_MESSAGE' | translate }}</p>
+                  </ng-container>
+                </div>
+                <!-- /CM0008 top -->
+
+                <!-- CM0008 detail -->
+                <div *ngIf="currentPage === pageStatus.Detail && detailData">
+                  <div class="page-head">
+                    <app-page-head [title]="'CM0008.DETAIL.TITLE' | translate"></app-page-head>
+                  </div>
+
+                  <div class="mb-3">
+                    <div class="d-flex justify-content-end align-items-center text-right">
+                      <div class="datetime fs12">{{ dateConvert(detailData.date) }}</div>
+                    </div>
+                  </div>
+
+                  <table class="table table-bordered table-notice">
+                    <tbody class="tbody-inverse">
+                      <tr>
+                        <th scope="row" class="table-notice-label">{{ 'CM0008.DETAIL.INFO.TITLE3' | translate }}</th>
+                        <td class="table-notice-content">{{ detailData.title }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="table-notice-label">{{ 'CM0008.DETAIL.INFO.TITLE1' | translate }}</th>
+                        <td class="table-notice-content">{{ detailData.fromOffice }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="table-notice-label">{{ 'CM0008.DETAIL.INFO.TITLE2' | translate }}</th>
+                        <td class="table-notice-content">{{ detailData.signature }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="table-notice-label">{{ 'CM0008.DETAIL.INFO.TITLE4' | translate }}</th>
+                        <td class="table-notice-content preline-text">{{ detailData.body }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="table-notice-label">{{ 'CM0008.DETAIL.INFO.TITLE5' | translate }}</th>
+                        <td class="table-notice-content">
+                          <!-- imgを表示させる -->
+                          <ng-container *ngIf="detailAttachmentsImageFlag">
+                            <div class="row">
+                              <div class="col">
+                                <ul class="list-unstyled attachment-img-list">
+                                  <ng-container *ngFor="let detailAttachment of detailAttachments">
+                                    <ng-container *ngIf="checkDetailImage(detailAttachment)">
+                                      <li class="text-center">
+                                        <!--<a href="#" class="d-inline-block">-->
+                                        <img [src]="detailAttachment.path" class="mw-100">
+                                        <!--</a>-->
+                                      </li>
+                                    </ng-container>
+                                  </ng-container>
+                                </ul>
+                              </div>
+                            </div>
+                          </ng-container>
+                          <!-- /imgを表示させる -->
+
+                          <!-- そのほかを表示させる -->
+                          <ng-container *ngIf="checkDetailEtcCount()">
+                            <div class="row">
+                              <div class="col">
+                                <div class="file-box mb-3">
+                                  <ul class="list-unstyled mb-0">
+                                    <ng-container *ngFor="let detailAttachment of detailAttachments">
+                                      <ng-container *ngIf="checkDetailEtc(detailAttachment)">
+                                        <li>
+                                          <a href="javascript:void(0);" (click)="downloadDetailImage(detailAttachment.meta.customMetadata.name, detailAttachment.path)">{{ detailAttachment.meta.customMetadata.name }}</a>
+                                        </li>
+                                      </ng-container>
+                                    </ng-container>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </ng-container>
+                          <!-- /そのほかを表示させる -->
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /CM0008 detail -->
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

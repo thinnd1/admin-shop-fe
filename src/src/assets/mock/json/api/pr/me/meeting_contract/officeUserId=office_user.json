@@ -1,0 +1,32 @@
+{
+    "zipCode": "000-0000",
+    "address": "東京都渋谷区渋谷１−１",
+    "address2": "渋谷マンション103",
+    "name": "名字 名前 様",
+    "status": "VALID",
+    "effectiveDate": "2018-04-26",
+    "histories": [
+      {
+        "paymentNo": "2017000121",
+        "paymentName": "塩野義製薬 若林豪 様",
+        "price": 5000,
+        "tax": 400,
+        "postage": 360,
+        "receiptDate": "2017-02-28",
+        "receiptLimitDate": "2017-03-06",
+        "contractStartDate": "2017-03-01",
+        "contractEndDate": "2017-03-06"
+      },
+      {
+        "paymentNo": "2017000121",
+        "paymentName": "塩野義製薬 若林豪 様",
+        "price": 0,
+        "tax": 0,
+        "postage": 0,
+        "receiptDate": "2017-02-28",
+        "receiptLimitDate": "2017-02-28",
+        "contractStartDate": "2017-02-28",
+        "contractEndDate": "2017-03-01"
+      }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+  "errorList": [
+    "aaa@gmail.com",
+    "bbb@gmail.com",
+    "ccc@gmail.com"
+  ],
+  "successList": [
+    "ddd@gmail.com",
+    "eee@gmail.com",
+    "fff@gmail.com",
+    "ggg@gmail.com"
+  ]
+}

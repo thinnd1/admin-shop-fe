@@ -1,0 +1,286 @@
+{
+  "doctors": [
+    {
+      "avatar": "avatar1",
+      "firstAreName": "123",
+      "firstName": "1",
+      "firstNameKana": "456",
+      "lastName": "user",
+      "lastNameKana": "123",
+      "officeUserId": "string",
+      "officeId": "1111",
+      "userId": "1111",
+      "department": "dep1"
+    },
+    {
+      "avatar": "avatar",
+      "firstAreName": "string",
+      "firstName": "2",
+      "firstNameKana": "456",
+      "lastName": "user",
+      "lastNameKana": "123",
+      "officeUserId": "string",
+      "officeId": "1111",
+      "userId": "1111",
+      "department": "dep1"
+    },
+    {
+      "avatar": "avatar",
+      "firstAreName": "string",
+      "firstName": "3",
+      "firstNameKana": "456",
+      "lastName": "user",
+      "lastNameKana": "123",
+      "officeUserId": "string",
+      "officeId": "1111",
+      "userId": "1111",
+      "department": "dep1"
+    },
+    {
+      "avatar": "avatar",
+      "firstAreName": "string",
+      "firstName": "4",
+      "firstNameKana": "890",
+      "lastName": "user",
+      "lastNameKana": "678",
+      "officeUserId": "string",
+      "officeId": "1111",
+      "userId": "1111",
+      "department": "dep1"
+    },
+    {
+      "avatar": "avatar",
+      "firstAreName": "string",
+      "firstName": "14",
+      "firstNameKana": "234",
+      "lastName": "user",
+      "lastNameKana": "111",
+      "officeUserId": "string",
+      "officeId": "1111",
+      "userId": "1111",
+      "department": "dep1"
+    },
+    {
+      "avatar": "avatar",
+      "firstAreName": "string",
+      "firstName": "5",
+      "firstNameKana": "aaa",
+      "lastName": "user",
+      "lastNameKana": "bbbb",
+      "officeUserId": "string",
+      "officeId": "1111",
+      "userId": "1111",
+      "department": "dep1"
+    },
+    {
+      "avatar": "avatar",
+      "firstAreName": "string",
+      "firstName": "6",
+      "firstNameKana": "string",
+      "lastName": "user",
+      "lastNameKana": "string",
+      "officeUserId": "string",
+      "officeId": "1111",
+      "userId": "1111",
+      "department": "dep1"
+    },
+    {
+      "avatar": "avatar",
+      "firstAreName": "string",
+      "firstName": "7",
+      "firstNameKana": "string",
+      "lastName": "user",
+      "lastNameKana": "string",
+      "officeUserId": "string",
+      "officeId": "1111",
+      "userId": "1111",
+      "department": "dep1"
+    },
+    {
+      "avatar": "avatar",
+      "firstAreName": "string",
+      "firstName": "8",
+      "firstNameKana": "string",
+      "lastName": "user",
+      "lastNameKana": "string",
+      "officeUserId": "string",
+      "officeId": "1111",
+      "userId": "1111",
+      "department": "dep1"
+    },
+    {
+      "avatar": "avatar",
+      "firstAreName": "string",
+      "firstName": "9",
+      "firstNameKana": "string",
+      "lastName": "user",
+      "lastNameKana": "string",
+      "officeUserId": "string",
+      "officeId": "1111",
+      "userId": "1111",
+      "department": "dep1"
+    },
+    {
+      "avatar": "avatar",
+      "firstAreName": "string",
+      "firstName": "10",
+      "firstNameKana": "string",
+      "lastName": "user",
+      "lastNameKana": "string",
+      "officeUserId": "string",
+      "officeId": "1111",
+      "userId": "1111",
+      "department": "dep1"
+    },
+    {
+      "avatar": "avatar",
+      "firstAreName": "string",
+      "firstName": "11",
+      "firstNameKana": "string",
+      "lastName": "user",
+      "lastNameKana": "string",
+      "officeUserId": "string",
+      "officeId": "1111",
+      "userId": "1111",
+      "department": "dep1"
+    }
+  ],
+  "masterMeetingPurposeResponse": {
+    "groups": [
+      {
+        "groupName": "薬剤の情報提供",
+        "inputNameFlag": true,
+        "purposes": [
+          {
+            "purposeId": "1",
+            "purposeName": "製品全般の情報提供"
+          },
+          {
+            "purposeId": "2",
+            "purposeName": "専門医の処方実態等の情報提供"
+          },
+          {
+            "purposeId": "3",
+            "purposeName": "説明会の依頼"
+          }
+        ]
+      },
+      {
+        "groupName": "その他の情報提供",
+        "inputNameFlag": false,
+        "purposes": [
+          {
+            "purposeId": "11",
+            "purposeName": "学会、研究会、講演会、セミナーの情報提供"
+          },
+          {
+            "purposeId": "12",
+            "purposeName": "文献の依頼"
+          },
+          {
+            "purposeId": "13",
+            "purposeName": "ガイドライン アップデートの情報提供"
+          }
+        ]
+      },
+      {
+        "groupName": "協力依頼、相談、打ち合わせ",
+        "inputNameFlag": false,
+        "purposes": [
+          {
+            "purposeId": "21",
+            "purposeName": "執筆、講演会、学会等の打ち合わせ"
+          },
+          {
+            "purposeId": "22",
+            "purposeName": "治験・市販後調査の打ち合わせ"
+          },
+          {
+            "purposeId": "23",
+            "purposeName": "院内行事の案内、打ち合わせ"
+          }
+        ]
+      },
+      {
+        "groupName": "紹介依頼",
+        "inputNameFlag": false,
+        "purposes": [
+          {
+            "purposeId": "31",
+            "purposeName": "MSL、学術担当の紹介依頼"
+          },
+          {
+            "purposeId": "32",
+            "purposeName": "医療従事者の紹介依頼"
+          },
+          {
+            "purposeId": "33",
+            "purposeName": "医療関連業者の紹介依頼"
+          }
+        ]
+      }
+    ],
+    "userType": "DR"
+  },
+  "meetingRequest": {
+    "meetingRequests": [{
+      "comment": "string",
+      "numVisitors": "string",
+      "place": "string",
+      "productName": "",
+      "drugList": [
+        {
+          "drugId": "string",
+          "name": "string"
+        },
+        {
+          "drugId": "string",
+          "name": "string"
+        },
+        {
+          "drugId": "string",
+          "name": "string"
+        }
+      ],
+      "purposeName": "string",
+      "requestId": "string",
+      "candidacyTime": [
+        {
+          "endTime": "2017-12-22T00:00:00+0000",
+          "startTime": "2017-12-22T00:00:00+0000"
+        },
+        {
+          "endTime": "2017-12-22T00:00:00+0000",
+          "startTime": "2017-12-22T00:00:00+0000"
+        }
+      ],
+      "mr": {
+        "avatar": "string",
+        "companyName": "ABC製薬",
+        "firstName": "string",
+        "lastName": "string",
+        "officeId": "1111",
+        "userId": "1111",
+        "industryType": "I0001"
+      },
+      "dr": {
+        "avatar": "string",
+        "companyName": "ABC製薬",
+        "firstName": "string",
+        "lastName": "string",
+        "officeId": "1111",
+        "userId": "1111",
+        "industryType": "I0001"
+      }
+    }]
+  },
+  "receiverRequest": {
+    "avatar": "string",
+    "companyName": "ABC製薬",
+    "firstName": "string",
+    "lastName": "string",
+    "officeId": "1111",
+    "userId": "1111",
+    "industryType": "I0001"
+  }
+}

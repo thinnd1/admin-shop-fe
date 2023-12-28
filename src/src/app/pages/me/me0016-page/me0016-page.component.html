@@ -1,0 +1,479 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents ME0016-->
+
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'ME0016.MEETING_SETTING' | translate"></app-page-head>
+                </div>
+                <div class="mb-4" *ngIf="staffSettingMeeting">
+                  <div class="col-7">
+                    <div class="row">
+                      <app-mini-profile [officeUserId]="staff.userId" [profileOptions]="{departmentName : true, iconSize:'40'}"></app-mini-profile>
+                    </div>
+                  </div>
+
+                </div>
+
+                <ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
+                  <li class="nav-item" [ngClass]="{'active' : tapActive === 1, 'prev' : tapActive === 2}" (click)="setTapActive(1)">
+                    <a class="nav-link" href="#tab-content1" role="tab" data-toggle="tab" aria-expanded="true" [ngClass]="{'active' : tapActive === 1}">
+                      <span class="text">{{'ME0016.TITLE' | translate}}</span>
+                    </a>
+                  </li>
+                  <li class="nav-item" [ngClass]="{'active' : tapActive === 2, 'next' : tapActive === 1, 'prev' : tapActive === 4}" (click)="setTapActive(2)">
+                    <a class="nav-link" href="#tab-content2" role="tab" data-toggle="tab" [ngClass]="{'active' : tapActive === 2}">
+                      <span class="text">{{'ME0018.TITLE' | translate}}</span>
+                    </a>
+                  </li>
+                  <!--<li class="nav-item" [ngClass]="{'active' : tapActive === 3}" (click)="setTapActive(3)">-->
+                    <!--<a class="nav-link" href="#tab-content3" role="tab" data-toggle="tab" [ngClass]="{'active': tapActive === 3}">-->
+                      <!--<span class="text">自動承認設定</span>-->
+                    <!--</a>-->
+                  <!--</li>-->
+                  <li class="nav-item" [ngClass]="{'active' : tapActive === 4, 'next' : tapActive === 2}" (click)="setTapActive(4)">
+                    <a class="nav-link" href="#tab-content4" role="tab" data-toggle="tab" [ngClass]="{'active' : tapActive === 4}">
+                      <span class="text">{{'ME0021.TAB' | translate}}</span>
+                    </a>
+                  </li>
+                </ul>
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane" id="tab-content1" [ngClass]="{'active': tapActive === 1}">
+                    <div class="d-flex align-items-center">
+                      <div class="mr-auto">
+                        <h2 class="pt-3">{{'ME0016.LABEL_1' | translate}}</h2>
+                      </div>
+                      <div class="text-right">
+                        <span class="align-middle text-warning fs22" role="button" (click)="gotoHelp()">
+                          <i class="fa fa-question-circle" aria-hidden="true"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <label class="custom-control custom-checkbox mt-3" *ngIf="!allowHolidayVisitOffice">
+                      <input type="checkbox" class="custom-control-input" [(ngModel)]="allowHolidayVisitUser" (change)="confirmUpdateHolidaySettings()">
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description">{{'ME0016.LABEL_2' | translate}}</span>
+                    </label>
+                    <span class="custom-control-description" *ngIf="allowHolidayVisitOffice">{{'ME0016.LABEL_3' | translate}}</span>
+                    <div class="tbl-table mt-3">
+                      <p class="mb-1">{{'ME0016.SETTING_SELF' | translate}}</p>
+                      <div class="tab-calendar">
+                        <table class="table table-bordered" id="settingTime">
+                          <thead class="thead-inverse hidden-sm-down">
+                          <tr>
+                            <th class="text-center align-middle">{{'DAY.MON' | translate}}</th>
+                            <th class="text-center align-middle">{{'DAY.TUE' | translate}}</th>
+                            <th class="text-center align-middle">{{'DAY.WED' | translate}}</th>
+                            <th class="text-center align-middle">{{'DAY.THU' | translate}}</th>
+                            <th class="text-center align-middle">{{'DAY.FRI' | translate}}</th>
+                            <th class="text-center align-middle calendar-day">{{'DAY.SAT' | translate}}</th>
+                            <th class="text-center align-middle calendar-day">{{'DAY.SUN' | translate}}</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngIf="selfSetting?.settingDayList.length > 0">
+                            <th class="hidden-md-up text-center align-middle">{{'DAY.MON' | translate}}</th>
+                            <td class="text-center align-middle" *ngIf="selfSetting.settingDayList[1]"
+                                (click)="settingTimeMeeting(selfSetting.settingDayList[1], 1, $event)"
+                                [ngClass]="{'tab-calendar-fl': !isEditSettingMeeting(1)}">
+                              <ul class="p-0 mb-0" *ngIf="selfSetting.settingDayList[1].settingType !== SettingType.SET_TIME">
+                                <li class="py-2">
+                                  <span *ngIf="convertSettingType(selfSetting.settingDayList[1].settingType, 1) === SettingType.NONE">◯</span>
+                                  <span *ngIf="convertSettingType(selfSetting.settingDayList[1].settingType, 1) === SettingType.DISALLOW_ALL_DAY">✕</span>
+                                </li>
+                              </ul>
+                              <ul class="p-0 mb-0" *ngIf="convertSettingType(selfSetting.settingDayList[1].settingType, 1) === SettingType.SET_TIME">
+                                <li class="py-2" [ngClass]="{'tbl-Blue': isEditSettingMeeting(1)}" *ngFor="let time of selfSetting.settingDayList[1].settingTimeList; let i = index">
+                                  {{time.start}}<br>&#124;<br>{{time.end}}
+                                  <span class="txt-calendar d-block" *ngIf="(i === (selfSetting.settingDayList[1].settingTimeList.length - 1)) &&
+                                  (selfSetting.settingDayList[1].settingType === SettingType.NONE)">{{'ME0016.SETTING.LABEL_NONE' | translate}}</span>
+                                </li>
+                              </ul>
+                            </td>
+
+                            <th class="hidden-md-up text-center align-middle">{{'DAY.TUE' | translate}}</th>
+                            <td class="text-center align-middle" *ngIf="selfSetting.settingDayList[2]"
+                                (click)="settingTimeMeeting(selfSetting.settingDayList[2], 2, $event)"
+                                [ngClass]="{'tab-calendar-fl': !isEditSettingMeeting(2)}">
+                              <ul class="p-0 mb-0" *ngIf="selfSetting.settingDayList[2].settingType !== SettingType.SET_TIME">
+                                <li class="py-2">
+                                  <span *ngIf="convertSettingType(selfSetting.settingDayList[2].settingType, 2) === SettingType.NONE">◯</span>
+                                  <span *ngIf="convertSettingType(selfSetting.settingDayList[2].settingType, 2) === SettingType.DISALLOW_ALL_DAY">✕</span>
+                                </li>
+                              </ul>
+                              <ul class="p-0 mb-0" *ngIf="convertSettingType(selfSetting.settingDayList[2].settingType, 2) === SettingType.SET_TIME">
+                                <li class="py-2" [ngClass]="{'tbl-Blue': isEditSettingMeeting(2)}" *ngFor="let time of selfSetting.settingDayList[2].settingTimeList; let i = index">
+                                  {{time.start}}<br>&#124;<br>{{time.end}}
+                                  <span class="txt-calendar d-block" *ngIf="(i === (selfSetting.settingDayList[2].settingTimeList.length - 1)) &&
+                                  (selfSetting.settingDayList[2].settingType === SettingType.NONE)">{{'ME0016.SETTING.LABEL_NONE' | translate}}</span>
+                                </li>
+                              </ul>
+                            </td>
+
+                            <th class="hidden-md-up text-center align-middle">{{'DAY.WED' | translate}}</th>
+                            <td class="text-center align-middle" *ngIf="selfSetting.settingDayList[3]"
+                                (click)="settingTimeMeeting(selfSetting.settingDayList[3], 3, $event)"
+                                [ngClass]="{'tab-calendar-fl': !isEditSettingMeeting(3)}">
+                              <ul class="p-0 mb-0" *ngIf="selfSetting.settingDayList[3].settingType !== SettingType.SET_TIME">
+                                <li class="py-2">
+                                  <span *ngIf="convertSettingType(selfSetting.settingDayList[3].settingType, 3) === SettingType.NONE">◯</span>
+                                  <span *ngIf="convertSettingType(selfSetting.settingDayList[3].settingType, 3) === SettingType.DISALLOW_ALL_DAY">✕</span>
+                                </li>
+                              </ul>
+                              <ul class="p-0 mb-0" *ngIf="convertSettingType(selfSetting.settingDayList[3].settingType, 3) === SettingType.SET_TIME">
+                                <li class="py-2" [ngClass]="{'tbl-Blue': isEditSettingMeeting(3)}" *ngFor="let time of selfSetting.settingDayList[3].settingTimeList; let i = index">
+                                  {{time.start}}<br>&#124;<br>{{time.end}}
+                                  <span class="txt-calendar d-block" *ngIf="(i === (selfSetting.settingDayList[3].settingTimeList.length - 1)) &&
+                                  (selfSetting.settingDayList[3].settingType === SettingType.NONE)">{{'ME0016.SETTING.LABEL_NONE' | translate}}</span>
+                                </li>
+                              </ul>
+                            </td>
+
+                            <th class="hidden-md-up text-center align-middle">{{'DAY.THU' | translate}}</th>
+                            <td class="text-center align-middle" *ngIf="selfSetting.settingDayList[4]"
+                                (click)="settingTimeMeeting(selfSetting.settingDayList[4], 4, $event)"
+                                [ngClass]="{'tab-calendar-fl': !isEditSettingMeeting(4)}">
+                              <ul class="p-0 mb-0" *ngIf="selfSetting.settingDayList[4].settingType !== SettingType.SET_TIME">
+                                <li class="py-2">
+                                  <span *ngIf="convertSettingType(selfSetting.settingDayList[4].settingType, 4) === SettingType.NONE">◯</span>
+                                  <span *ngIf="convertSettingType(selfSetting.settingDayList[4].settingType, 4) === SettingType.DISALLOW_ALL_DAY">✕</span>
+                                </li>
+                              </ul>
+                              <ul class="p-0 mb-0" *ngIf="convertSettingType(selfSetting.settingDayList[4].settingType, 4) === SettingType.SET_TIME">
+                                <li class="py-2" [ngClass]="{'tbl-Blue': isEditSettingMeeting(4)}" *ngFor="let time of selfSetting.settingDayList[4].settingTimeList; let i = index">
+                                  {{time.start}}<br>&#124;<br>{{time.end}}
+                                  <span class="txt-calendar d-block" *ngIf="(i === (selfSetting.settingDayList[4].settingTimeList.length - 1)) &&
+                                  (selfSetting.settingDayList[4].settingType === SettingType.NONE)">{{'ME0016.SETTING.LABEL_NONE' | translate}}</span>
+                                </li>
+                              </ul>
+                            </td>
+
+                            <th class="hidden-md-up text-center align-middle">{{'DAY.FRI' | translate}}</th>
+                            <td class="text-center align-middle" *ngIf="selfSetting.settingDayList[5]"
+                                (click)="settingTimeMeeting(selfSetting.settingDayList[5], 5, $event)"
+                                [ngClass]="{'tab-calendar-fl': !isEditSettingMeeting(5)}">
+                              <ul class="p-0 mb-0" *ngIf="selfSetting.settingDayList[5].settingType !== SettingType.SET_TIME">
+                                <li class="py-2">
+                                  <span *ngIf="convertSettingType(selfSetting.settingDayList[5].settingType, 5) === SettingType.NONE">◯</span>
+                                  <span *ngIf="convertSettingType(selfSetting.settingDayList[5].settingType, 5) === SettingType.DISALLOW_ALL_DAY">✕</span>
+                                </li>
+                              </ul>
+                              <ul class="p-0 mb-0" *ngIf="convertSettingType(selfSetting.settingDayList[5].settingType, 5) === SettingType.SET_TIME">
+                                <li class="py-2" [ngClass]="{'tbl-Blue': isEditSettingMeeting(5)}" *ngFor="let time of selfSetting.settingDayList[5].settingTimeList; let i = index">
+                                  {{time.start}}<br>&#124;<br>{{time.end}}
+                                  <span class="txt-calendar d-block" *ngIf="(i === (selfSetting.settingDayList[5].settingTimeList.length - 1)) &&
+                                  (selfSetting.settingDayList[5].settingType === SettingType.NONE)">{{'ME0016.SETTING.LABEL_NONE' | translate}}</span>
+                                </li>
+                              </ul>
+                            </td>
+
+                            <th class="hidden-md-up text-center align-middle calendar-day">{{'DAY.SAT' | translate}}</th>
+                            <td class="text-center align-middle" *ngIf="selfSetting.settingDayList[6]"
+                                (click)="settingTimeMeeting(selfSetting.settingDayList[6], 6, $event)"
+                                [ngClass]="{'tab-calendar-fl': !isEditSettingMeeting(6)}">
+                              <ul class="p-0 mb-0" *ngIf="selfSetting.settingDayList[6].settingType !== SettingType.SET_TIME">
+                                <li class="py-2">
+                                  <span *ngIf="convertSettingType(selfSetting.settingDayList[6].settingType, 6) === SettingType.NONE">◯</span>
+                                  <span *ngIf="convertSettingType(selfSetting.settingDayList[6].settingType, 6) === SettingType.DISALLOW_ALL_DAY">✕</span>
+                                </li>
+                              </ul>
+                              <ul class="p-0 mb-0" *ngIf="convertSettingType(selfSetting.settingDayList[6].settingType, 6) === SettingType.SET_TIME">
+                                <li class="py-2" [ngClass]="{'tbl-Blue': isEditSettingMeeting(6)}" *ngFor="let time of selfSetting.settingDayList[6].settingTimeList; let i = index">
+                                  {{time.start}}<br>&#124;<br>{{time.end}}
+                                  <span class="txt-calendar d-block" *ngIf="(i === (selfSetting.settingDayList[6].settingTimeList.length - 1)) &&
+                                  (selfSetting.settingDayList[6].settingType === SettingType.NONE)">{{'ME0016.SETTING.LABEL_NONE' | translate}}</span>
+                                </li>
+                              </ul>
+                            </td>
+
+                            <th class="hidden-md-up text-center align-middle calendar-day">{{'DAY.SUN' | translate}}</th>
+                            <td class="text-center align-middle" *ngIf="selfSetting.settingDayList[0]"
+                                (click)="settingTimeMeeting(selfSetting.settingDayList[0], 0, $event)"
+                                [ngClass]="{'tab-calendar-fl': !isEditSettingMeeting(0)}">
+                              <ul class="p-0 mb-0" *ngIf="selfSetting.settingDayList[0].settingType !== SettingType.SET_TIME">
+                                <li class="py-2">
+                                  <span *ngIf="convertSettingType(selfSetting.settingDayList[0].settingType, 0) === SettingType.NONE">◯</span>
+                                  <span *ngIf="convertSettingType(selfSetting.settingDayList[0].settingType, 0) === SettingType.DISALLOW_ALL_DAY">✕</span>
+                                </li>
+                              </ul>
+                              <ul class="p-0 mb-0" *ngIf="convertSettingType(selfSetting.settingDayList[0].settingType, 0) === SettingType.SET_TIME">
+                                <li class="py-2" [ngClass]="{'tbl-Blue': isEditSettingMeeting(0)}" *ngFor="let time of selfSetting.settingDayList[0].settingTimeList; let i = index">
+                                  {{time.start}}<br>&#124;<br>{{time.end}}
+                                  <span class="txt-calendar d-block" *ngIf="(i === (selfSetting.settingDayList[0].settingTimeList.length - 1)) &&
+                                  (selfSetting.settingDayList[0].settingType === SettingType.NONE)">{{'ME0016.SETTING.LABEL_NONE' | translate}}</span>
+                                </li>
+                              </ul>
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="tbl-table tbl-table-bod pt-3 mt-3">
+                      <p class="mb-1">{{'ME0016.SETTING_OFFICE' | translate}}</p>
+                      <div class="tab-calendar">
+                        <table class="table table-bordered">
+                          <thead class="thead-inverse hidden-sm-down">
+                          <tr>
+                            <th class="text-center align-middle">{{'DAY.MON' | translate}}</th>
+                            <th class="text-center align-middle">{{'DAY.TUE' | translate}}</th>
+                            <th class="text-center align-middle">{{'DAY.WED' | translate}}</th>
+                            <th class="text-center align-middle">{{'DAY.THU' | translate}}</th>
+                            <th class="text-center align-middle">{{'DAY.FRI' | translate}}</th>
+                            <th class="text-center align-middle calendar-day">{{'DAY.SAT' | translate}}</th>
+                            <th class="text-center align-middle calendar-day">{{'DAY.SUN' | translate}}</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngIf="hospitalSetting?.settingDayList.length > 0">
+
+                            <th class="hidden-md-up text-center align-middle">{{'DAY.MON' | translate}}</th>
+                            <td class="text-center align-middle tab-calendar-fl" *ngIf="hospitalSetting.settingDayList[1]">
+                              <ul class="p-0 mb-0" *ngIf="hospitalSetting.settingDayList[1].settingType !== SettingType.SET_TIME">
+                                <li class="py-2">
+                                  <span *ngIf="hospitalSetting.settingDayList[1].settingType === SettingType.NONE">◯</span>
+                                  <span *ngIf="hospitalSetting.settingDayList[1].settingType === SettingType.DISALLOW_ALL_DAY">✕</span>
+                                </li>
+                              </ul>
+                              <ul class="p-0 mb-0" *ngIf="hospitalSetting.settingDayList[1].settingType === SettingType.SET_TIME">
+                                <li class="py-2" *ngFor="let time of hospitalSetting.settingDayList[1].settingTimeList">
+                                  {{time.start}}<br>&#124;<br>{{time.end}}
+                                </li>
+                              </ul>
+                            </td>
+
+                            <th class="hidden-md-up text-center align-middle">{{'DAY.TUE' | translate}}</th>
+                            <td class="text-center align-middle tab-calendar-fl" *ngIf="hospitalSetting.settingDayList[2]">
+                              <ul class="p-0 mb-0" *ngIf="hospitalSetting.settingDayList[2].settingType !== SettingType.SET_TIME">
+                                <li class="py-2">
+                                  <span *ngIf="hospitalSetting.settingDayList[2].settingType === SettingType.NONE">◯</span>
+                                  <span *ngIf="hospitalSetting.settingDayList[2].settingType === SettingType.DISALLOW_ALL_DAY">✕</span>
+                                </li>
+                              </ul>
+                              <ul class="p-0 mb-0" *ngIf="hospitalSetting.settingDayList[2].settingType === SettingType.SET_TIME">
+                                <li class="py-2" *ngFor="let time of hospitalSetting.settingDayList[2].settingTimeList">
+                                  {{time.start}}<br>&#124;<br>{{time.end}}
+                                </li>
+                              </ul>
+                            </td>
+
+                            <th class="hidden-md-up text-center align-middle">{{'DAY.WED' | translate}}</th>
+                            <td class="text-center align-middle tab-calendar-fl" *ngIf="hospitalSetting.settingDayList[3]">
+                              <ul class="p-0 mb-0" *ngIf="hospitalSetting.settingDayList[3].settingType !== SettingType.SET_TIME">
+                                <li class="py-2">
+                                  <span *ngIf="hospitalSetting.settingDayList[3].settingType === SettingType.NONE">◯</span>
+                                  <span *ngIf="hospitalSetting.settingDayList[3].settingType === SettingType.DISALLOW_ALL_DAY">✕</span>
+                                </li>
+                              </ul>
+                              <ul class="p-0 mb-0" *ngIf="hospitalSetting.settingDayList[3].settingType === SettingType.SET_TIME">
+                                <li class="py-2" *ngFor="let time of hospitalSetting.settingDayList[3].settingTimeList">
+                                  {{time.start}}<br>&#124;<br>{{time.end}}
+                                </li>
+                              </ul>
+                            </td>
+
+                            <th class="hidden-md-up text-center align-middle">{{'DAY.THU' | translate}}</th>
+                            <td class="text-center align-middle tab-calendar-fl" *ngIf="hospitalSetting.settingDayList[4]">
+                              <ul class="p-0 mb-0" *ngIf="hospitalSetting.settingDayList[4].settingType !== SettingType.SET_TIME">
+                                <li class="py-2">
+                                  <span *ngIf="hospitalSetting.settingDayList[4].settingType === SettingType.NONE">◯</span>
+                                  <span *ngIf="hospitalSetting.settingDayList[4].settingType === SettingType.DISALLOW_ALL_DAY">✕</span>
+                                </li>
+                              </ul>
+                              <ul class="p-0 mb-0" *ngIf="hospitalSetting.settingDayList[4].settingType === SettingType.SET_TIME">
+                                <li class="py-2" *ngFor="let time of hospitalSetting.settingDayList[4].settingTimeList">
+                                  {{time.start}}<br>&#124;<br>{{time.end}}
+                                </li>
+                              </ul>
+                            </td>
+
+                            <th class="hidden-md-up text-center align-middle">{{'DAY.FRI' | translate}}</th>
+                            <td class="text-center align-middle tab-calendar-fl" *ngIf="hospitalSetting.settingDayList[5]">
+                              <ul class="p-0 mb-0" *ngIf="hospitalSetting.settingDayList[5].settingType !== SettingType.SET_TIME">
+                                <li class="py-2">
+                                  <span *ngIf="hospitalSetting.settingDayList[5].settingType === SettingType.NONE">◯</span>
+                                  <span *ngIf="hospitalSetting.settingDayList[5].settingType === SettingType.DISALLOW_ALL_DAY">✕</span>
+                                </li>
+                              </ul>
+                              <ul class="p-0 mb-0" *ngIf="hospitalSetting.settingDayList[5].settingType === SettingType.SET_TIME">
+                                <li class="py-2" *ngFor="let time of hospitalSetting.settingDayList[5].settingTimeList">
+                                  {{time.start}}<br>&#124;<br>{{time.end}}
+                                </li>
+                              </ul>
+                            </td>
+
+                            <th class="hidden-md-up text-center align-middle calendar-day">{{'DAY.SAT' | translate}}</th>
+                            <td class="text-center align-middle tab-calendar-fl" *ngIf="hospitalSetting.settingDayList[6]">
+                              <ul class="p-0 mb-0" *ngIf="hospitalSetting.settingDayList[6].settingType !== SettingType.SET_TIME">
+                                <li class="py-2">
+                                  <span *ngIf="hospitalSetting.settingDayList[6].settingType === SettingType.NONE">◯</span>
+                                  <span *ngIf="hospitalSetting.settingDayList[6].settingType === SettingType.DISALLOW_ALL_DAY">✕</span>
+                                </li>
+                              </ul>
+                              <ul class="p-0 mb-0" *ngIf="hospitalSetting.settingDayList[6].settingType === SettingType.SET_TIME">
+                                <li class="py-2" *ngFor="let time of hospitalSetting.settingDayList[6].settingTimeList">
+                                  {{time.start}}<br>&#124;<br>{{time.end}}
+                                </li>
+                              </ul>
+                            </td>
+
+                            <th class="hidden-md-up text-center align-middle calendar-day">{{'DAY.SUN' | translate}}</th>
+                            <td class="text-center align-middle tab-calendar-fl" *ngIf="hospitalSetting.settingDayList[0]">
+                              <ul class="p-0 mb-0" *ngIf="hospitalSetting.settingDayList[0].settingType !== SettingType.SET_TIME">
+                                <li class="py-2">
+                                  <span *ngIf="hospitalSetting.settingDayList[0].settingType === SettingType.NONE">◯</span>
+                                  <span *ngIf="hospitalSetting.settingDayList[0].settingType === SettingType.DISALLOW_ALL_DAY">✕</span>
+                                </li>
+                              </ul>
+                              <ul class="p-0 mb-0" *ngIf="hospitalSetting.settingDayList[0].settingType === SettingType.SET_TIME">
+                                <li class="py-2" *ngFor="let time of hospitalSetting.settingDayList[0].settingTimeList">
+                                  {{time.start}}<br>&#124;<br>{{time.end}}
+                                </li>
+                              </ul>
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    <p class="fs16 form-inline justify-content-end" *ngIf="model?.meetingRuleUpdated">
+                      {{'ME0017.UPDATE' | translate}}{{model.meetingRuleUpdated | timePipe: 'YYYY/MM/DD'}} {{model.meetingRuleUpdated | timePipe: 'HH:mm:ss'}}
+                    </p>
+                  </div>
+                  <div role="tabpanel" class="tab-pane" id="tab-content2" [ngClass]="{'active': tapActive === 2}">
+                    <app-me0018-page></app-me0018-page>
+                  </div>
+                  <!--<div role="tabpanel" class="tab-pane" id="tab-content3" [ngClass]="{'active': tapActive === 3}">-->
+                    <!--3-->
+                  <!--</div>-->
+                  <div role="tabpanel" class="tab-pane" id="tab-content4" [ngClass]="{'active': tapActive === 4}">
+                    <app-me0021-page ></app-me0021-page>
+                  </div>
+                </div>
+
+              </div>
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+
+  <!--popover setting-->
+  <div class="meeting-possible-overlay" [hidden]="!showPopoverSetting"></div>
+  <!--popover setting-->
+  <div class="popover popover-bottom fs16" id="popoverSetting" [hidden]="!showPopoverSetting"
+       [ngClass]="{'popover-position-left': (showLeft), 'popover-position-right': (showRight)}">
+    <div class="popover-title px-2 py-2">
+      <h3 class="mb-0 pt-1">{{'ME0016.SETTING.TITLE' | translate}}</h3>
+      <div class="popover-close fs14" (click)="confirmClosePopupEditSetting()"><i class="fa fa-close"></i></div>
+    </div>
+    <div class="arrow"></div>
+    <div class="popover-tab">
+      <div class="px-4 py-3">
+        <div>
+          <label class="custom-control custom-radio">
+            <input [(ngModel)]="modelSettingType" type="radio" class="custom-control-input" name="settingType" [value]="SettingType.NONE"
+                   [checked]="modelSettingType === SettingType.NONE" (click)="displaySettingType(SettingType.NONE)">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description"><strong>{{'ME0016.SETTING.NONE' | translate}}</strong><br>{{'ME0016.SETTING.LABEL_NONE' | translate}}</span>
+          </label>
+        </div>
+        <div>
+          <label class="custom-control custom-radio">
+            <input [(ngModel)]="modelSettingType" type="radio" class="custom-control-input" name="settingType" [value]="SettingType.DISALLOW_ALL_DAY"
+                   [checked]="modelSettingType === SettingType.DISALLOW_ALL_DAY" (click)="displaySettingType(SettingType.DISALLOW_ALL_DAY)">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description"><strong>{{'ME0016.SETTING.DIS_ALLOW_ALL_DAY' | translate}}</strong><br>{{'ME0016.SETTING.LABEL_DIS_ALLOW_ALL_DAY' | translate}}</span>
+          </label>
+        </div>
+        <div>
+          <label class="custom-control custom-radio">
+            <input [(ngModel)]="modelSettingType" type="radio" class="custom-control-input" name="settingType" [value]="SettingType.SET_TIME"
+                   [checked]="modelSettingType === SettingType.SET_TIME" (click)="displaySettingType(SettingType.SET_TIME)">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description"><strong>{{'ME0016.SETTING.TIME' | translate}}</strong></span>
+          </label>
+        </div>
+        <div class="group-from" [ngClass]="{'group-from-fl': (modelSettingType !== SettingType.SET_TIME)}">
+          <div class="d-flex mt-2" *ngFor="let time of me0016Model.oldSetting; let i = index">
+            <a href="#" class="fs24 mr-2 ml-4" [ngClass]="{'disabled': (modelSettingType !== SettingType.SET_TIME)}" (click)="removeTimeOldMeeting(i, $event)">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </a>
+            <span class="mt-2">{{time.start}}</span>
+            <span class="mt-2 px-4">〜</span>
+            <span class="mt-2">{{time.end}}</span>
+          </div>
+          <p class="fs14 col-form-label ml-4 mt-3 text-danger" *ngIf="errorSettingTime">{{errorSettingTime}}</p>
+          <div class="mt-2" *ngFor="let time of me0016Model.settingTimeList; let i = index" [ngClass]="{'disabled': !me0016Model.time}">
+
+            <div class="mb-0 ml-5 text-danger" *ngIf="errorValidate[i].date">
+              <p class="fs14 col-form-label">{{errorValidate[i].date}}</p>
+            </div>
+            <div class="d-flex align-items-end">
+              <a href="#" class="fs24 mr-2 ml-4" [ngClass]="{'disabled': (modelSettingType !== SettingType.SET_TIME)}" (click)="removeTimeMeeting(i, $event)">
+                <i class="fa fa-times" aria-hidden="true"></i>
+              </a>
+              <!--<div class="input-group mb-0 has-danger"><input class="form-control" type="text" placeholder="開始時刻" [(ngModel)]="time.start"></div>-->
+              <div class="input-group mb-0 flex-wrap" [ngClass]="{'has-danger': errorValidate[i].start || errorValidate[i].date}">
+                <div class="mb-0 ml-0 text-danger w-100" *ngIf="errorValidate[i].start">
+                <p class="fs14 col-form-label">{{errorValidate[i].start}}</p>
+                </div>
+                <select class="form-control" [(ngModel)]="time.start" placeholder="開始時刻" [disabled]="modelSettingType !== SettingType.SET_TIME"
+                        [ngClass]="{'disabled': (modelSettingType !== SettingType.SET_TIME)}">
+                  <option *ngFor="let item of timePicker" [value]="item">{{item}}</option>
+                </select>
+              </div>
+              <span class="px-2 mt-2">〜</span>
+              <!--<div class="input-group mb-0 has-danger"><input class="form-control" type="text" placeholder="終了時刻" [(ngModel)]="time.end"></div>-->
+
+              <div class="input-group mb-0 flex-wrap" [ngClass]="{'has-danger': errorValidate[i].end || errorValidate[i].date}">
+                <div class="mb-0 ml-0 text-danger w-100" *ngIf="errorValidate[i].end">
+                  <p class="fs14 col-form-label">{{errorValidate[i].end}}</p>
+                </div>
+                <select class="form-control" [(ngModel)]="time.end" placeholder="終了時刻" [disabled]="modelSettingType !== SettingType.SET_TIME"
+                        [ngClass]="{'disabled': (modelSettingType !== SettingType.SET_TIME)}">
+                  <option *ngFor="let item of timePicker" [value]="item">{{item}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="ml-4 mt-3">
+            <a href="#" class="add-link" [ngClass]="{'disabled': (modelSettingType !== SettingType.SET_TIME)}" (click)="addTimeMeeting($event)">
+              <i class="fa fa-plus-square" aria-hidden="true"></i>{{'ME0016.ADD' | translate}}</a>
+          </div>
+        </div>
+      </div>
+      <div class="popover-footer px-2 py-2">
+        <button type="button" class="btn btn-sm btn-primary" (click)="checkSettingType()">{{'MSG.SAVE' | translate}}</button>
+      </div>
+    </div>
+  </div>
+  <!--popover setting-->
+</div>

@@ -1,0 +1,11 @@
+<router-outlet>
+  <app-modal></app-modal>
+  <div class="loader-wrap loader-wrap-bg" [ngClass]="{'loader-show':dialogService.isLoaderVisible()}">
+    <div class="loader-overlay"></div>
+    <div class="loader">
+      <i class="fa fa-spinner fa-pulse fa-2x fa-fw loader-icon"></i>
+      <p class="loader-text">{{'LOADING' | translate }}...</p>
+    </div>
+  </div>
+  <app-drug-regist-alert></app-drug-regist-alert>
+</router-outlet>

@@ -1,0 +1,163 @@
+@import '../../../../assets/styles/_import';
+
+#entry-card {
+  .table-entry-card {
+    .table-label {
+      width: 180px;
+      white-space: nowrap;
+    }
+    .tbl-card-addr {
+      margin-top: -1%;
+      th, td {
+        border: none;
+        background: none;
+        font-weight: normal;
+        padding: 0.5rem 0;
+      }
+      td {
+        padding-left: 1rem;;
+      }
+    }
+  }
+  .table-bordered {
+    border: 1px solid #D7D7D7!important;
+  }
+  .table-receipt {
+    .label-usage {
+      width: 40%;
+    }
+    .label-amount {
+      width: 15%;
+    }
+    .label-payment {
+      width: 22%;
+    }
+    .label-receipt {
+      width: 22%;
+    }
+  }
+  .entry-info {
+    .photo {
+      width: 185px;
+    }
+    .entry-info-txt {
+      width: calc(100% - 205px);
+      margin-right: 20px;
+    }
+  }
+  .entry-receipt {
+    .receipt-ttl {
+      border-bottom: 1px solid #000;
+    }
+    .box-price {
+      max-width: 500px;
+      margin: 0 auto;
+      .price-cont {
+        background-color: #e5e5e5;
+      }
+    }
+    .table-price {
+      .row {
+
+        > div {
+          padding: 0.4rem 0.75rem;
+          border-bottom: 1px solid #D7D7D7;
+        }
+        .tbl-price-ttl {
+          background-color: #bdbdbd;
+          color: #fff;
+        }
+        .border-left {
+          border-left: 1px solid #D7D7D7;
+        }
+        .border-right {
+          border-right: 1px solid #D7D7D7;
+        }
+        .border-none {
+          border: none;
+        }
+      }
+    }
+    .receipt-info {
+      display: inline-block;
+      border: 1px solid #222;
+      th, td {
+        padding: 0.25rem;
+      }
+      th {
+        font-weight: normal;
+        padding-right: 1.5rem;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  #entry-card {
+    .table-receipt {
+      border: none;
+      tr {
+        display: block;
+        margin-bottom: 1rem;
+        th, td {
+          width: 100%;
+          display: block;
+          border-left: none;
+          border-right: none;
+        }
+      }
+    }
+    .entry-info {
+      .photo {
+        width: 100%;
+        text-align: center;
+      }
+      .entry-info-txt {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  #entry-card {
+    .table-entry-card {
+      border: none;
+      tr {
+        display: block;
+        th, td {
+          width: 100%;
+          display: block;
+          border-left: none;
+          border-right: none;
+        }
+      }
+    }
+  }
+}
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+  }
+}
+
+.reception-cards-invoice-caution {
+  border: 1px solid #dedede;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.reception-cards-invoice-caution-ttl {
+  font-size: 16px;
+  font-weight: bold;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #dedede;
+}
+.reception-cards-invoice-caution-box {
+  padding-top: 15px;
+}
+.reception-cards-invoice-caution-box > p:first-child {
+  padding-top: 0;
+}

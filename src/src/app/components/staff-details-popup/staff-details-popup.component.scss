@@ -1,0 +1,48 @@
+// import common setting
+@import './../../../assets/styles/import';
+
+.staff-details-popup-profile{
+  text-align: left;
+  display: inline-block;
+}
+
+.staff-details-popup-col{
+  width: 25%;
+}
+.mr-3{
+  width: 45%;
+}
+
+.staff-details-popup-data{
+  border-bottom: 1px solid #D7D7D7;
+  th{
+    width:1rem;
+    white-space: nowrap;
+    &:after{
+      content: ' : ';
+      display: inline-block;
+    }
+  }
+}
+.lst-tpt {
+  li {
+    list-style-position: inside;
+  }
+}
+
+//@media (max-width: 575px)
+@include media-breakpoint-down(xs) {
+  .staff-details-popup-data {
+    tr {
+      th,
+      td {
+        display: block;
+        width: auto;
+      }
+      td {
+        border-top: none;
+        padding-top: 0;
+      }
+    }
+  }
+}

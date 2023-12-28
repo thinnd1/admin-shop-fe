@@ -1,0 +1,55 @@
+{
+  "DOC_TITLE": {
+    "GR0006": "グループ作成",
+    "GR0007": "グループ編集",
+    "GR0008": "グループ承認"
+  },
+  "SIDE_MENU": {
+    "OUTSIDE_GROUP": "グループ"
+  },
+  "RE0001": {
+    "MENU": {
+      "GR0016": "グループ"
+    }
+  },
+  "MENU": {
+    "ITEM": {
+      "GR0006": "グループを作成する",
+      "GR0007": "グループを編集する"
+    }
+  },
+  "GR0014": {
+    "OUTSIDE_GROUP": "グループ"
+  },
+  "CA0008": {
+    "HOSPITAL_OUT_GROUP": "グループ"
+  },
+  "CA004": {
+    "SHARE_OUTSIDE_HOSPITAL": {
+      "VALUE_DEFAULT": "グループ"
+    },
+    "ERROR_VALIDATE": {
+      "OUTSIDE_GROUP": "グループを選択してください"
+    }
+  },
+  "CA0007": {
+    "SHARE_OPTION": {
+      "GROUP_OUTSIDE_HOSPITAL": "グループ"
+    },
+    "ERROR_VALIDATE": {
+      "OUTSIDE_GROUP": "グループを選択してください"
+    }
+  },
+  "GR0013": {
+    "GROUP_OUTSIDE_LBL": "グループ"
+  },
+  "CM0006": {
+    "OUTSIDE_GROUP": "グループ"
+  },
+  "CM0013": {
+    "CATEGORY": {
+      "OUTSIDE_GROUP": "グループ"
+    }
+  }
+}
+

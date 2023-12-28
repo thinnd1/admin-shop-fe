@@ -1,0 +1,224 @@
+// import common setting
+@import './../../../assets/styles/import';
+
+.navbar-brand {
+  padding: 0;
+  .navbar-brand-logo {
+    height: 34px;
+    max-width: 174px;
+    vertical-align: middle;
+    path {
+      fill: $white;
+    }
+  }
+}
+.navbar-nav {
+  .nav-link {
+    position: relative;
+    &.active {
+      background-color: $white;
+      color: $drjoy-symbol-color;
+    }
+    .fa{
+      font-size: _rem(20px);
+    }
+  }
+}
+.nav-link-action-logo {
+  border: 1px solid $white;
+  padding: 2px 4px 1px;
+  text-align: center;
+  line-height: 1;
+  display: inline-block;
+  margin-right: 2px;
+}
+.nav-link-action-point {
+  font-size: _rem(14px);
+}
+.nav-link-info {
+  &-badge {
+    font-size: _rem(10px);
+    position: absolute;
+    bottom: .5rem;
+    white-space: nowrap;
+  }
+}
+.navbar-toggler {
+  padding: 2px 6px 3px;
+  z-index: 999;
+  right: 6px;
+}
+.navbar-btn-side-menu-toggle {
+  position: absolute;
+  left: 0;
+  font-size: _rem(22px);
+  background: transparent;
+  border-width: 0;
+  color: $white;
+  outline: 0;
+  z-index: 998;
+  padding-left: .5rem;
+  .fa {
+    color: $white;
+  }
+}
+.navbar-btn-info-panel-toggle{
+  position: absolute;
+  right: 60px;
+  background: transparent;
+  border-width: 0;
+  color: $white;
+  outline: 0;
+  z-index: 998;
+  padding: 0 2px;
+  .fa {
+    font-size: _rem(30px);
+  }
+  .navbar-btn-info-panel-badge {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: $red;
+    border-radius: 50%;
+    padding: 1px;
+    font-size: _rem(10px);
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    text-align: center;
+    white-space: nowrap;
+  }
+}
+.hospital-dropdown-item .fa {
+  display: none;
+}
+.support-dropdown-item .fa {
+  display: none;
+}
+.nav-link-checklist-label {
+  display: none;
+}
+.nav-link-info-label {
+  display: none;
+}
+.settings-dropdown-item {
+  display: none;
+}
+.logout-item .fa {
+  display: none;
+}
+.dropdown-item-active {
+  color: $drjoy-symbol-color;
+}
+
+//@media (min-width: 992px)
+@include media-breakpoint-up(lg) {
+  .navbar-brand {
+    padding: 0;
+    .navbar-brand-logo {
+      height: 30px;
+    }
+  }
+  .navbar-nav {
+    .nav-link {
+      padding: 0.8em 1em;
+    }
+    .dropdown-menu {
+      left: 50%;
+      right: auto;
+      transform: translate(-50%, 0);
+      :before,
+      :after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+      }
+      :before {
+        top: -9px;
+        margin-left: -9px;
+        border-width: 0 9px 9px 9px;
+        border-color: transparent transparent $white transparent;
+        z-index: 0;
+      }
+      :after {
+        top: -10px;
+        margin-left: -10px;
+        border-width: 0 10px 10px 10px;
+        border-color: transparent transparent rgba(0, 0, 0, 0.05) transparent;
+        z-index: -1;
+      }
+    }
+  }
+  .navbar-btn-side-menu-toggle {
+    display: none;
+  }
+  .navbar-btn-info-panel-toggle {
+    display: none;
+  }
+}
+
+//@media (max-width: 991px)
+@include media-breakpoint-down(md) {
+  .navbar-brand {
+    position: absolute;
+    left: _rem(50px);
+    margin: 0;
+    z-index: 997;
+  }
+  .navbar-nav {
+    border-top: 1px solid $white;
+    overflow-y: auto;
+    $nav-item-height: 40px;
+    $nav-item-length: 6;
+    $navbar-nav-border-height: 2px;
+    margin-top: 44px;
+    .nav-item {
+      padding: 0 1rem;
+    }
+  }
+  .nav-link .fa {
+    margin-right: _rem(10px);
+  }
+  .nav-link-action-logo {
+    margin-left: _rem(2px);
+    margin-right: _rem(14px);
+  }
+  .hospital-dropdown-item .fa {
+    display: inline-block;
+  }
+  .support-dropdown-item .fa {
+    display: inline-block;
+  }
+  .nav-link-checklist-label {
+    display: inline-block;
+  }
+  .nav-link-info-label {
+    display: inline-block;
+  }
+  .logout-item .fa {
+    display: inline-block;
+  }
+  .info-panel-item {
+    display: none;
+  }
+  .settings-panel-item {
+    display: none;
+  }
+  .settings-dropdown-item {
+    display: block;
+  }
+  .fa-star {
+    &:before {
+      font-size: 1rem;
+    }
+    &-o {
+      &:before {
+        font-size: 1rem;
+      }
+    }
+  }
+}

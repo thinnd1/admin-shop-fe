@@ -1,0 +1,204 @@
+{
+  "page": "0",
+  "user": [{
+      "firstName": "山田",
+      "lastName": "村山",
+      "firstNameKana": "やまだ",
+      "lastNameKana": "むらき",
+      "jobType": "J0001",
+      "department": {
+        "id": "1",
+        "name": "Root1",
+        "displayName": "Root1",
+        "children": [{
+          "id": "9",
+          "name": "Root1-Sub1",
+          "displayName": "Root1-Sub1",
+          "children": [{
+            "id": "10",
+            "name": "Root11-Sub1",
+            "displayName": "Root1-Sub2",
+            "children": [{
+              "id": "11",
+              "name": "Root1-Sub3",
+              "displayName": "Root1-Sub3",
+              "children": [{
+                "id": "12",
+                "name": "Root1-Sub4",
+                "displayName": "Root1-Sub4"
+              }]
+            }]
+          }]
+        }]
+      },
+      "accountStatus": 0,
+      "managementAuthority": "MP_1",
+      "funcAuthoritySet": "FPS_2",
+      "mailAddress": "newEmail0001",
+      "mobileNo": "0123456789101112",
+      "phsNo": "1234567890123456",
+      "loginId": "123456abcdvn",
+      "image": "https://anhhotgirlviet.files.wordpress.com/2014/11/anh-hot-girl-midu-phan1-pic-5.jpg",
+      "userId": "user0001",
+      "funcAuthority": {
+        "fp_1": false,
+        "fp_3": false,
+        "fp_6": false,
+        "fp_5": false,
+        "fp_7": false,
+        "fp_2": false,
+        "fp_4": false
+      }
+    },
+    {
+      "firstName": "山田",
+      "lastName": "村山",
+      "firstNameKana": "やまだ",
+      "lastNameKana": "むらき",
+      "jobType": "J0001",
+      "department": {
+        "id": "1",
+        "name": "Root1",
+        "displayName": "Root1",
+        "children": [{
+          "id": "9",
+          "name": "Root1-Sub1",
+          "displayName": "Root1-Sub1",
+          "children": [{
+            "id": "10",
+            "name": "Root11-Sub1",
+            "displayName": "Root1-Sub2",
+            "children": [{
+              "id": "11",
+              "name": "Root1-Sub3",
+              "displayName": "Root1-Sub3",
+              "children": [{
+                "id": "12",
+                "name": "Root1-Sub4",
+                "displayName": "Root1-Sub4"
+              }]
+            }]
+          }]
+        }]
+      },
+      "accountStatus": 2,
+      "managementAuthority": "MP_2",
+      "funcAuthoritySet": "FPS_2",
+      "mailAddress": "newEmail0001",
+      "mobileNo": "0123456789101112",
+      "phsNo": "1234567890123456",
+      "loginId": "123456abcdvn",
+      "image": "https://anhhotgirlviet.files.wordpress.com/2014/11/anh-hot-girl-midu-phan1-pic-5.jpg",
+      "userId": "user0001",
+      "funcAuthority": {
+        "fp_1": false,
+        "fp_3": false,
+        "fp_6": false,
+        "fp_5": false,
+        "fp_7": false,
+        "fp_2": false,
+        "fp_4": false
+      }
+    },
+    {
+      "firstName": "山田",
+      "lastName": "村山",
+      "firstNameKana": "やまだ",
+      "lastNameKana": "むらき",
+      "jobType": "J0001",
+      "department": {
+        "id": "1",
+        "name": "Root1",
+        "displayName": "Root1",
+        "children": [{
+          "id": "9",
+          "name": "Root1-Sub1",
+          "displayName": "Root1-Sub1",
+          "children": [{
+            "id": "10",
+            "name": "Root11-Sub1",
+            "displayName": "Root1-Sub2",
+            "children": [{
+              "id": "11",
+              "name": "Root1-Sub3",
+              "displayName": "Root1-Sub3",
+              "children": [{
+                "id": "12",
+                "name": "Root1-Sub4",
+                "displayName": "Root1-Sub4"
+              }]
+            }]
+          }]
+        }]
+      },
+      "accountStatus": 3,
+      "managementAuthority": "MP_2",
+      "funcAuthoritySet": "FPS_2",
+      "mailAddress": "newEmail0001",
+      "mobileNo": "0123456789101112",
+      "phsNo": "1234567890123456",
+      "loginId": "123456abcdvn",
+      "image": "https://anhhotgirlviet.files.wordpress.com/2014/11/anh-hot-girl-midu-phan1-pic-5.jpg",
+      "userId": "user0001",
+      "funcAuthority": {
+        "fp_1": false,
+        "fp_3": false,
+        "fp_6": false,
+        "fp_5": false,
+        "fp_7": false,
+        "fp_2": false,
+        "fp_4": false
+      }
+    },
+    {
+      "firstName": "山田",
+      "lastName": "村山",
+      "firstNameKana": "やまだ",
+      "lastNameKana": "むらき",
+      "jobType": "J0001",
+      "department": {
+        "id": "1",
+        "name": "Root1",
+        "displayName": "Root1",
+        "children": [{
+          "id": "9",
+          "name": "Root1-Sub1",
+          "displayName": "Root1-Sub1",
+          "children": [{
+            "id": "10",
+            "name": "Root11-Sub1",
+            "displayName": "Root1-Sub2",
+            "children": [{
+              "id": "11",
+              "name": "Root1-Sub3",
+              "displayName": "Root1-Sub3",
+              "children": [{
+                "id": "12",
+                "name": "Root1-Sub4",
+                "displayName": "Root1-Sub4"
+              }]
+            }]
+          }]
+        }]
+      },
+      "accountStatus": 3,
+      "managementAuthority": "MP_2",
+      "funcAuthoritySet": "FPS_2",
+      "mailAddress": "newEmail0001",
+      "mobileNo": "0123456789101112",
+      "phsNo": "1234567890123456",
+      "loginId": "123456abcdvn",
+      "image": "https://anhhotgirlviet.files.wordpress.com/2014/11/anh-hot-girl-midu-phan1-pic-5.jpg",
+      "userId": "user0001",
+      "funcAuthority": {
+        "fp_1": false,
+        "fp_3": false,
+        "fp_6": false,
+        "fp_5": false,
+        "fp_7": false,
+        "fp_2": false,
+        "fp_4": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'RE0019.TITLE' | translate"></app-page-head>
+                </div>
+                <form [formGroup]="changePasswordForm" (ngSubmit)="putPrPasswordSettings()">
+                  <table class="table table-bordered table-password">
+                    <tbody class="tbody-inverse">
+                    <tr>
+                      <th scope="row" class="table-password-label">{{'COMMON_LABEL.CURRENT_PASSWORD' | translate}}</th>
+                      <td [class.has-danger]="formMessagesError.currentPassword" class="table-password-content">
+                        <span class="col-form-label text-danger fs12" *ngIf="formMessagesError.currentPassword">{{ formMessagesError.currentPassword}}</span>
+                        <input formControlName="currentPassword" type="password" class="form-control col-xl-6" id="currentPassword"
+                               placeholder="{{'RE0019.CHANGE_PASSWORD.MEG_PASSWORD' | translate}}">
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="table-password-label">{{'COMMON_LABEL.LBL_NEW_PASSWORD' | translate}}</th>
+                      <td [class.has-danger]="formMessagesError.newPassword" class="table-password-content">
+                        <span class="col-form-label text-danger fs12" *ngIf="formMessagesError.newPassword">{{ formMessagesError.newPassword}}</span>
+                        <input formControlName="newPassword" type="password" class="form-control col-xl-6" id="newPassword" placeholder="{{'RE0019.CHANGE_PASSWORD.MEG_PASSWORD' | translate}}">
+                    </tr>
+                    <tr>
+                      <th scope="row" class="table-password-label">{{'COMMON_LABEL.LBL_CONFIRM_PASSWORD' | translate}}</th>
+                      <td [class.has-danger]="formMessagesError.newPasswordConfirm" class="table-password-content">
+                        <span class="col-form-label text-danger fs12" *ngIf="formMessagesError.newPasswordConfirm">{{ formMessagesError.newPasswordConfirm}}</span>
+                        <input formControlName="newPasswordConfirm" type="password" class="form-control col-xl-6"
+                               id="newPasswordConfirm" placeholder="{{'RE0019.CHANGE_PASSWORD.MEG_PASSWORD' | translate}}">
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <div class="d-flex justify-content-center">
+                    <button class="btn btn-primary" type="submit" >{{'COMMON_BTN.CHANGE' | translate}}
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

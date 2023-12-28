@@ -1,0 +1,5 @@
+<ng-container [ngSwitch]="sideMenuType">
+  <app-side-menu-drjoy *ngSwitchCase="1"></app-side-menu-drjoy>
+  <app-side-menu-prjoy *ngSwitchCase="2"></app-side-menu-prjoy>
+  <app-side-menu-drjoy *ngSwitchDefault></app-side-menu-drjoy>
+</ng-container>

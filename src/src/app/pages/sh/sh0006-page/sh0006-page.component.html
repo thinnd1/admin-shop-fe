@@ -1,0 +1,2275 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+  <main class="content-wrap ml-0">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner unspecified-width">
+            <div class="row">
+              <!--contents-->
+              <!--contents SH0002-->
+
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'RE0010.PAGE_TITLE' | translate"></app-page-head>
+                </div>
+                <div class="control-top">
+                	<div class="control-left float-left mb-3">
+                		<div class="d-inline-block btn-group mr-2">
+                			<button class="btn btn-secondary float-left"><i class="fa fa-angle-left"></i></button>
+                			<button class="btn btn-secondary float-left"><i class="fa fa-angle-right"></i></button>
+                		</div>
+                		<div class="d-inline-block mr-2">
+                			<select class="form-control select-stt">
+                				<option>[非公開] シフト募集中</option>
+                			</select>
+                		</div>
+                		<button class="btn btn-success mr-2">確定して公開</button>
+                		<span class="d-inline-block">変更内容をすべて保存しました</span>
+                	</div>
+                	<div class="control-right float-right mb-3">
+                		<button class="btn btn-info mr-2" data-toggle="modal" data-target="#modal-duty">勤務の合計</button>
+                		<div class="d-inline-block dropdown navbar-right">
+                			<button class="btn btn-secondary mr-2" data-toggle="dropdown" id="menu-bars"><i class="fa fa-bars"></i></button>
+                			<ul class="dropdown-menu menu-sub" aria-labelledby="menu-bars">
+                				<li><a href="#"><i class="fa fa-rotate-left"></i> 編集ログCSVダウンロード</a></li>
+                				<li><a href="#" data-toggle="modal" data-target="#modal-file"><i class="fa fa-file-o"></i> 他の月から複製</a></li>
+                				<li><a href="#" data-toggle="modal" data-target="#modal-offer"><i class="fa fa-info"></i> 募集内容</a></li>
+                			</ul>
+                		</div>
+                		<button class="btn btn-secondary"><i class="fa fa-print"></i></button>
+                	</div>
+                </div>
+                <div class="table-shift mb-5 pb-5">
+	                <table class="table table-bordered table-calendar text-center mb-0">
+	                	<thead class="thead-inverse">
+	                		<tr class="date-number">
+	                			<th class="col-title hiden-th"></th>
+	                			<th class="hiden-th"></th>
+	                			<th class="clr-ext">
+	                				<span class="date">27</span> 
+	                				<span class="day saturday">土	</span>
+	                			</th>
+	                			<th class="clr-ext">
+	                				<span class="date">28</span> 
+	                				<span class="day sunday">日	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">3/1</span> 
+	                				<span class="day">月	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">2</span> 
+	                				<span class="day">火</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">3</span> 
+	                				<span class="day">水</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">4</span> 
+	                				<span class="day">木	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">5</span> 
+	                				<span class="day">金	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">6</span> 
+	                				<span class="day saturday">土	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">7</span> 
+	                				<span class="day sunday">日	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">8</span> 
+	                				<span class="day">月	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">9</span> 
+	                				<span class="day">火	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">10</span> 
+	                				<span class="day">水	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">11</span> 
+	                				<span class="day">木	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">12</span> 
+	                				<span class="day">金	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">13</span> 
+	                				<span class="day saturday">土	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">14</span> 
+	                				<span class="day sunday">日	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">15</span> 
+	                				<span class="day">月	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">16</span> 
+	                				<span class="day">火	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">17</span> 
+	                				<span class="day">水	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">18</span> 
+	                				<span class="day">木	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">19</span> 
+	                				<span class="day">金	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">20</span> 
+	                				<span class="day saturday">土	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">21</span> 
+	                				<span class="day sunday">日	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">22</span> 
+	                				<span class="day">月	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">23</span> 
+	                				<span class="day">火	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">24</span> 
+	                				<span class="day">水	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">25</span> 
+	                				<span class="day">木	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">26</span> 
+	                				<span class="day">金	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">27</span> 
+	                				<span class="day saturday">土	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">28</span> 
+	                				<span class="day sunday">日	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">29</span> 
+	                				<span class="day">月	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">30</span> 
+	                				<span class="day">火	</span>
+	                			</th>
+	                			<th>
+	                				<span class="date">31</span> 
+	                				<span class="day">水</span>
+	                			</th>
+	                			<th class="clr-ext">
+	                				<span class="date">4/1</span> 
+	                				<span class="day">木</span>
+	                			</th>
+	                			<th class="clr-ext">
+	                				<span class="date">2</span> 
+	                				<span class="day">金	</span>
+	                			</th>
+	                		</tr>
+	                	</thead>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title" rowspan="3">
+	                				<div class="shift-row d-flex mb-3" data-toggle="tooltip" data-placement="top" title="指導者、およびリーダースキル">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	                				</div>
+	                				<div class="mb-2 text-blue fs16">大内 真希</div>
+	                				<div>
+	                					<span class="d-inline-block fs-13 text-blue">希望内訳</span>
+	                					<span class="name-dpm fs11 d-inline-block"><i class="fa fa-caret-right"></i> 耳鼻咽喉科</span>
+	                				</div>
+	                			</th>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class="stt-green dpm-1"><div class="square"><div class="inner">F</div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-orange"><div class="square"><div class="inner">外来</div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="dpm-1"><div class="square"><div class="inner">休</div></div></td>
+	                			<td class=""></td>
+	                			<td class="dpm-2"><div class="square"><div class="inner"></div></div></td>
+	                			<td class="dpm-2"><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class="stt-pink"><div class="square"><div class="inner">病棟</div></div></td>
+	                			<td class="stt-grey"><div class="square"><div class="inner">外勤<br>119</div></div></td>
+	                			<td class=""></td>
+	                			<td class="stt-pink dpm-1"><div class="square"><div class="inner">病棟</div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext stt-orange dpm-1"><div class="square"><div class="inner">外来</div></div></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-orange"><div class="square"><div class="inner">外来</div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="dpm-1"><div class="square"><div class="inner">休</div></div></td>
+	                			<td class=""></td>
+	                			<td class="dpm-2"><div class="square"><div class="inner"></div></div></td>
+	                			<td class="dpm-2"><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class="stt-orange"><div class="square"><div class="inner">外来</div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="text-danger dpm-2"><div class="square"><div class="inner">希望<br>休</div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td cclas="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext stt-pink"><div class="square"><div class="inner">病棟</div></div></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-orange"><div class="square"><div class="inner">病棟</div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="dpm-1"><div class="square"><div class="inner">休</div></div></td>
+	                			<td class=""></td>
+	                			<td class="dpm-2"><div class="square"><div class="inner"></div></div></td>
+	                			<td class="dpm-2"><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class="stt-grey"><div class="square"><div class="inner">外勤<br>119</div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="text-danger dpm-2"><div class="square"><div class="inner">希望<br>休</div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td cclas="clr-ext"></td>
+	                		</tr>
+	                	</tbody>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title" rowspan="3">
+	                				<div class="shift-row d-flex mb-3">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	                				</div>
+	                				<div class="mb-2 text-blue fs16">相沢 勇気</div>
+	                				<div>
+	                					<span class="d-inline-block fs-13 text-blue">希望内訳</span>
+	                				</div>
+	                			</th>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext text-danger"><div class="square"><div class="inner">希望<br>休</div></div></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class="stt-green dpm-1"><div class="square"><div class="inner">F</div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="text-danger"><div class="square" data-toggle="tooltip" data-placement="top" title="[希望休] 有給休暇 歯医者で治療のため"><div class="inner">希望<br>休</div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="dpm-1"><div class="square"><div class="inner">休</div></div></td>
+	                			<td class=""></td>
+	                			<td class="dpm-2"><div class="square"><div class="inner"></div></div></td>
+	                			<td class="dpm-2"><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class="text-muted"><div class="square"><div class="inner">外勤<br>渋谷</div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-pink dpm-1"><div class="square"><div class="inner">病棟</div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="stt-yellow dpm-3" data-toggle="tooltip" data-placement="top" title="このシフト項目は削除されました"><div class="square"><div class="inner">削除<br>項目</div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="text-success"><div class="square"><div class="inner">その<br>他</div></div></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext text-danger"><div class="square"><div class="inner">希望<br>休</div></div></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class="stt-green dpm-1"><div class="square"><div class="inner">F</div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="text-danger"><div class="square"><div class="inner">希望<br>休</div></div></td>
+	                			<td class=""></td>
+	                			<td class="dpm-1"><div class="square"><div class="inner">休</div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="text-muted"><div class="square"><div class="inner">外勤<br>渋谷</div></div></td>
+	                			<td class="text-muted"><div class="square"><div class="inner">外勤<br>渋谷</div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="text-success"><div class="square"><div class="inner">その<br>他</div></div></td>
+	                			<td class="text-danger"><div class="square"><div class="inner">希望<br>休</div></div></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext text-danger"><div class="square"><div class="inner">希望<br>休</div></div></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""><div class="square"><div class="inner">希望<br>休</div></div></td>
+	                			<td class="text-info"><div class="square"><div class="inner">夜勤<br>NG</div></div></td>
+	                			<td class="text-warning"><div class="square"><div class="inner">夜勤<br>希望</div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="text-muted"><div class="square"><div class="inner">外勤<br>渋谷</div></div></td>
+	                			<td class=""></td>
+	                			<td class="text-danger"><div class="square"><div class="inner">希望<br>休</div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="text-muted"><div class="square"><div class="inner">外勤<br>渋谷</div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext text-success"><div class="square"><div class="inner">その<br>他</div></div></td>
+	                		</tr>
+	                	</tbody>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title" rowspan="3">
+	                				<div class="shift-row d-flex mb-3">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	                				</div>
+	                				<div class="mb-2 text-blue fs16">坂本 誠</div>
+	                				<div>
+	                					<span class="d-inline-block fs-13 text-danger">未提出</span>
+	                				</div>
+	                			</th>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                	</tbody>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title" rowspan="3">
+	                				<div class="shift-row d-flex mb-3">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">スキル名</p>
+	                				</div>
+	                				<div class="mb-2 text-blue fs16">高内 健</div>
+	                				<div>
+	                					<span class="d-inline-block fs-13 text-danger">未提出</span>
+	                				</div>
+	                			</th>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                	</tbody>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title stt-pink" rowspan="3">
+	                				<div class="shift-row d-flex mb-3">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">スキル名</p>
+	                					<span id="popAlert" class="pl-1"><i class="fa fa-exclamation-triangle text-danger"></i></span>
+	                				</div>
+	                				<div class="mb-2 text-blue fs16">櫻井 翔</div>
+	                				<div>
+	                					<span class="d-inline-block fs-13 text-danger">未提出</span>
+	                				</div>
+	                			</th>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                	</tbody>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title" rowspan="3">
+	                				<div class="shift-row d-flex mb-3">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">スキル名</p>
+	                				</div>
+	                				<div class="mb-2 text-blue fs16">伊坂 幸一郎</div>
+	                				<div>
+	                					<span class="d-inline-block fs-13 text-danger">未提出</span>
+	                				</div>
+	                			</th>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                	</tbody>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title" rowspan="3">
+	                				<div class="shift-row d-flex mb-3">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T </span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">スキル名</p>
+	                				</div>
+	                				<div class="mb-2 text-blue fs16">渡辺 優子</div>
+	                				<div>
+	                					<span class="d-inline-block fs-13 text-blue">希望内訳</span>
+	                				</div>
+	                			</th>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                	</tbody>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title" rowspan="3">
+	                				<div class="shift-row d-flex mb-3">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T </span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">スキル名</p>
+	                				</div>
+	                				<div class="mb-2 text-blue fs16">松本 美樹</div>
+	                				<div>
+	                					<span class="d-inline-block fs-13 text-blue">希望内訳</span>
+	                				</div>
+	                			</th>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                	</tbody>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title" rowspan="3">
+	                				<div class="shift-row d-flex mb-3">
+	                					
+	                					<p class="shift-text d-inline-block mb-0">スキル名</p>
+	                				</div>
+	                				<div class="mb-2 text-blue fs16">鈴木 太郎</div>
+	                				<div>
+	                					<span class="d-inline-block fs-13 text-blue">希望内訳</span>
+	                				</div>
+	                			</th>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                	</tbody>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title" rowspan="3">
+	                				<div class="shift-row d-flex mb-3">
+	                					
+	                					<p class="shift-text d-inline-block mb-0">スキル名</p>
+	                				</div>
+	                				<div class="mb-2 text-blue fs16">村井 藤吾</div>
+	                				<div>
+	                					<span class="d-inline-block fs-13 text-danger">未提出</span>
+	                				</div>
+	                			</th>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly">午前</td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""><div class="square"><div class="inner"></div></div></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class=""></td>
+	                			<td class="clr-ext"></td>
+	                			<td class="clr-ext"></td>
+	                		</tr>
+	                	</tbody>
+	                </table>
+	                <table class="table table-calendar table-explain table-bordered text-center">
+	                	<thead class="thead-inverse">
+	                		<tr>
+	                			<th class="col-title hiden-th bg-white"></th>
+	                			<th class="hiden-th"></th>
+	                			<th colspan="35">合計</th>
+	                		</tr>
+	                	</thead>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title text-center" colpan="2">希望休</th>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                		<tr>
+	                			<th class="col-title text-center" colpan="2">夜勤NG</th>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                		<tr>
+	                			<th class="col-title text-center" colpan="2">外勤予定</th>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                		<tr>
+	                			<th class="col-title text-center" colpan="2">その他の予定 (学会・…</th>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                		<tr>
+	                			<th class="col-title text-center" rowspan="4">午前</th>
+	                			<td class="hourly stt-pink">病棟</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly stt-orange">病棟</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly stt-grey">病棟</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly stt-purple">病棟</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                	</tbody>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title text-center" rowspan="4">午後</th>
+	                			<td class="hourly stt-pink">病棟</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly stt-orange">病棟</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly stt-grey">病棟</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly stt-purple">病棟</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                	</tbody>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="col-title text-center" rowspan="4">夜間</th>
+	                			<td class="hourly stt-pink">病棟</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly stt-orange">病棟</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly stt-grey">病棟</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                		<tr>
+	                			<td class="hourly stt-purple">病棟</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td>0</td>
+	                			<td class="clr-ext">0</td>
+	                			<td class="clr-ext">0</td>
+	                		</tr>
+	                	</tbody>
+	                </table>
+              	</div>
+              </div>
+            </div>
+          </div>
+          <div class="popover fs16 popover-bottom mb-5" id="popup-pallet">
+				    <div class="popover-content">
+				    	<div class="pallet-wrap">
+				    		<div class="form-group d-flex">
+			    				<label class="col-label">内勤</label>
+							    <div class="col-pallet">
+							      <ul class="lst-pallet pl-0 clearfix">
+							      	<li class="rounded stt-pink">病棟</li>
+							      	<li class="rounded stt-orange">外来</li>
+							      	<li class="rounded stt-green">F</li>
+							      	<li class="rounded stt-purple">当直</li>
+							      	<li class="rounded stt-pink">病棟</li>
+							      	<li class="rounded stt-orange">外来</li>
+							      	<li class="rounded stt-green">F</li>
+							      	<li class="rounded stt-purple">当直</li>
+							      	<li class="rounded stt-pink">病棟</li>
+							      	<li class="rounded stt-orange">外来</li>
+							      	<li class="rounded stt-green">F</li>
+							      	<li class="rounded stt-purple">当直</li>
+							      	<li class="rounded stt-pink">病棟</li>
+							      	<li class="rounded stt-orange">外来</li>
+							      	<li class="rounded stt-green">F</li>
+							      	<li class="rounded stt-purple">当直</li>
+							      	<li class="rounded stt-pink">病棟</li>
+							      	<li class="rounded stt-orange">外来</li>
+							      	<li class="rounded stt-green">F</li>
+							      	<li class="rounded stt-purple">当直</li>
+							      	<li class="rounded stt-pink">病棟</li>
+							      	<li class="rounded stt-orange">外来</li>
+							      	<li class="rounded stt-green">F</li>
+							      	<li class="rounded stt-purple">当直</li>
+							      </ul>
+							    </div>
+			    			</div>
+			    			<div class="form-group d-flex">
+			    				<label class="col-label fs16">外勤</label>
+							    <div class="col-pallet">
+							      <ul class="lst-pallet pl-0 clearfix">
+							      	<li class="rounded stt-grey">119</li>
+							      	<li class="rounded stt-grey">渋谷</li>
+							      	<li class="rounded stt-grey">坂上</li>
+							      	<li class="rounded stt-grey">関東</li>
+							      	<li class="rounded stt-grey">119</li>
+							      	<li class="rounded stt-grey">渋谷</li>
+							      	<li class="rounded stt-grey">坂上</li>
+							      	<li class="rounded stt-grey">関東</li>
+							      	<li class="rounded stt-grey">119</li>
+							      	<li class="rounded stt-grey">渋谷</li>
+							      	<li class="rounded stt-grey">坂上</li>
+							      	<li class="rounded stt-grey">関東</li>
+							      	<li class="rounded stt-grey">119</li>
+							      	<li class="rounded stt-grey">渋谷</li>
+							      	<li class="rounded stt-grey">坂上</li>
+							      	<li class="rounded stt-grey">関東</li>
+							      	<li class="rounded stt-grey">119</li>
+							      	<li class="rounded stt-grey">渋谷</li>
+							      	<li class="rounded stt-grey">坂上</li>
+							      	<li class="rounded stt-grey">関東</li>
+							      	<li class="rounded stt-grey">119</li>
+							      	<li class="rounded stt-grey">渋谷</li>
+							      	<li class="rounded stt-grey">坂上</li>
+							      	<li class="rounded stt-grey">関東</li>
+							      </ul>
+							    </div>
+			    			</div>
+				    	</div>
+				    </div>
+				    <div class="popover-footer px-2 py-2"><button type="button" class="fs14 btn btn-sm btn-secondary mx-2">クリア</button></div>
+			    </div>
+			    <div class="popover fs16 popover-top" id="popover-content-popAlert">
+				    <div class="popover-content">
+				    	<p class="mb-4">このスタッフは下記のいずれかの状態です。</p>
+				    	<p>
+				    		・アカウントが削除された<br>
+								・アカウントがロックされた<br>
+								・シフト管理対象から外れた (他の所属へ移籍など)<br>
+								・スタッフ設定にて「シフトに含む」をOFFに変更された
+				    	</p>
+				    </div>
+				    <div class="popover-footer px-2 py-2"><button type="button" class="fs14 btn btn-sm btn-secondary mx-2">とじる</button></div>
+			    </div>
+        </div>
+        <!--<div class="col-12 col-lg-3 col-sub">-->
+        <!--<app-col-sub></app-col-sub>-->
+        <!--</div>-->
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>
+
+<!-- Modal file -->
+<div class="modal fade" id="modal-file" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header pb-0">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+      	<h4 class="modal-title text-center pb-4">他の月から複製</h4>
+    		<div class="form-group row">
+			    <label for="example-text-input" class="col-3 col-form-label">月を選択：</label>
+			    <div class="col-5">
+			      <select class="form-control">
+			      	<option>2017年6月</option>
+			      	<option>32017年7月</option>
+			      	<option>2017年8月</option>
+			      </select>
+			    </div>
+			  </div>
+			  <div class="form-group row">
+			    <label for="example-text-input" class="col-3 col-form-label">複製の基準：</label>
+			    <div class="col-9">
+			      <label class="custom-control custom-radio">
+						  <input id="radio1" name="radio" type="radio" class="custom-control-input">
+						  <span class="custom-control-indicator"></span>
+						  <span class="custom-control-description">日付</span>
+						</label>
+						<label class="custom-control custom-radio">
+						  <input id="radio2" name="radio" type="radio" class="custom-control-input">
+						  <span class="custom-control-indicator"></span>
+						  <span class="custom-control-description">曜日</span>
+						</label>
+			    </div>
+			  </div>
+      </div>
+      <div class="modal-footer">
+      	<button type="button" class="btn btn-primary">複製</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">とじる</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal file -->
+<div class="modal fade" id="modal-offer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header pb-0">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+      	<h4 class="modal-title text-center pb-4">募集内容</h4>
+    		<div class="form-group row mb-4">
+			    <label class="col-2 col-form-label">募集期間：</label>
+			    <div class="col-9">2017年3月1日～4月31日</div>
+			  </div>
+			  <div class="form-group row mb-4">
+			    <label class="col-2 col-form-label">提出期限：</label>
+			    <div class="col-9">2017年2月1日 19/00まで</div>
+			  </div>
+			  <div class="form-group row mb-4">
+			    <label class="col-2 col-form-label">募集項目：</label>
+			    <div class="col-9">希望休、夜勤NG、夜勤希望、外勤予定、その他の予定 (学会・研修等)</div>
+			  </div>
+			  <div class="form-group row">
+			    <label class="col col-form-label">備考：</label>
+			    <div class="col-12">備考の文章が入る備考の文章が入る備考の文章が入る備考の文章が入る備考の文章が入る備考の文章が入る</div>
+			  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">とじる</button>
+      </div>
+    </div>
+  </div>
+</div>
+

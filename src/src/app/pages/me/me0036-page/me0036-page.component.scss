@@ -1,0 +1,36 @@
+@import '../../../../assets/styles/_import';
+#me0036 {
+  table {
+    tr {
+      th {
+        width:12rem;
+      }
+      th,td {
+        border: none;
+        background: transparent;
+        border-bottom: 1px solid #D7D7D7;
+      }
+    }
+  }
+}
+
+//@media (max-width: 575px)
+@include media-breakpoint-down(xs) {
+  #me0036 {
+    table {
+      border-bottom: 1px solid #D7D7D7;
+      tr {
+        th,
+        td {
+          display: block;
+          width: auto;
+          border-bottom: none;
+        }
+        th {
+          border-top: 1px solid #D7D7D7;
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}

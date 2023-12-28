@@ -1,0 +1,17 @@
+.list-unstyled {
+	position: relative;
+	padding-right:26px;
+	height: 55px;
+	overflow: hidden;
+	li {
+		margin-bottom:0.25rem; 
+		&.show-all-member {
+			position: absolute;
+	    right: 0;
+	    top: 0;
+	    .btn {
+				height: 55px;
+			}
+		}
+	}
+}

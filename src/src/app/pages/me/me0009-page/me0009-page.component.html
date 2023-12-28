@@ -1,0 +1,223 @@
+<div class="page-wrap" *ngIf="this.acticeMessageScreen">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header [type]="'drjoy-visitor'"></app-header>
+  </nav>
+  <main class="visitor-content-wrap">
+    <div class="container">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <div class="col">
+                <div class="mt-2">
+                  <p class="text-center mb-3" *ngIf="this.errorCode === 'ME.ERR_EXPIRE'">
+                    {{'MSG.ME0009.E001_3A' | translate }}<br>{{ 'MSG.ME0009.E001_3B' | translate }}</p>
+                  <p class="text-center mb-3" *ngIf="this.errorCode === 'ME.ERR_AUTHORITY'">
+                    {{ 'MSG.ME0009.E001_4A' | translate }}<br>{{ 'MSG.ME0009.E001_4B' | translate }}</p>
+                  <div class="d-flex justify-content-center">
+                    <button type="button" class="fs18 px-3 btn btn-primary mb-3 mt-4" (click)="routeLogin()">{{
+                      'ME0009.GO_LOGIN_SCREEN' | translate }}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="page-wrap" *ngIf="this.acticeMessageScreen === false">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header [type]="'drjoy-visitor'"></app-header>
+  </nav>
+  <main class="visitor-content-wrap">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner mx-auto">
+            <div class="row">
+
+              <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="form-content-wrap rounded p-4 pt-5 mt-5 mb-3">
+                  <div class="lock-icon-wrap">
+                    <div class="lock-icon rounded-circle">
+                      <i class="fa fa-lock fa-2x" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <form *ngIf="!this.isLogin" name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+                    <p class="text-warning">{{'ME0009.LOGIN_FORM.HEAD_TEXT' | translate}}</p>
+
+                    <div class="form-group" [ngClass]="f.submitted && !username.valid ? 'form-group has-danger text-danger' : 'form-group'">
+                      <span class="col-form-label fs13 text-danger" *ngIf="f.submitted && !username.valid">{{ 'VALIDATION_REQUIRED' | translate:{value:'USERNAME'|translate} }}</span>
+                      <input type="text" class="form-control mb-3" placeholder="{{'ID_PLACEHOLDER' | translate}}" name="username" id="username" [(ngModel)]="userInfo.username" #username="ngModel" required>
+                    </div>
+                    <div class="form-group" [ngClass]="f.submitted && !password.valid ? 'form-group has-danger text-danger' : 'form-group'">
+                      <span class="col-form-label fs13 text-danger" *ngIf="f.submitted && !password.valid">{{ 'VALIDATION_REQUIRED' | translate:{value:'PASSWORD'|translate} }}</span>
+                      <input [type]="showPassword ? 'text' : 'password'" class="form-control mb-3" placeholder="{{'PASSWORD_PLACEHOLDER' | translate}}" name="password" id="password" maxlength="64" [(ngModel)]="userInfo.password" #password="ngModel" required>
+                    </div>
+
+                    <div class="form-group fs14">
+                      <label class="custom-control custom-checkbox mb-0">
+                        <input type="checkbox" name="show-password" class="custom-control-input" [(ngModel)]="showPassword">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">{{'ME0009.LOGIN_FORM.SHOW_PASSWORD' | translate}}</span>
+                      </label>
+                      <label class="custom-control custom-checkbox mb-4">
+                        <input type="checkbox" class="form-control custom-control-input mb-3" name="saveLoginVal" id="saveLoginVal" [(ngModel)]="userInfo.saveLoginVal" #saveLoginVal="ngModel">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">{{'ME0009.LOGIN_FORM.SAVE_LOGIN' | translate}}</span>
+                      </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block mb-3">{{'LOGIN' | translate}}</button>
+
+                    <div class="text-center fs14">
+                      <p class="mb-0"><a href="https://www.drjoy.jp/" target="_blank">{{'ME0009.LOGIN_FORM.HP' | translate}}</a></p>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+
+              <div class="col-12 col-sm-12 col-md-8 col-lg-8">
+                <div class="d-flex justify-content-end mb-3">
+                  <button class="btn btn-secondary" (click)="printPage()"><i class="fa fa-print"></i></button>
+                </div>
+
+                <div class="row mb-4">
+                  <div class="col-12 col-sm-12 col-md-6 col-xl-6">
+                    <dl class="meeting-dl m-0">
+                      <!-- 申請者 -->
+                      <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{ 'MSG.ME.LBL_SENDER_REQUEST' | translate }}</dt>
+                      <dd class="pl-3 py-1 pr-1 mb-4">
+                        <div class="d-flex">
+                          <div class="mr-auto">
+                            <div class="mini-profile mini-profile-76">
+                              <div class="mini-profile-avatar">
+                                <app-face-icon [imageUrl]="meetingRequest.mrInfo.image" [iconSize]="76" [tooltipOptions]="{isShow: false}"></app-face-icon>
+                              </div>
+                              <div class="mini-profile-userinfo pl-3">
+                                <p class="mini-profile-userinfo-main mb-0">
+                                  <span  class="mini-profile-userinfo-name font-weight-bold">{{ meetingRequest.mrInfo.lastName }} {{ meetingRequest.mrInfo.firstName }}</span>
+                                </p>
+                                <p class="mini-profile-userinfo-sub mb-0">
+                                  <span class="mini-profile-userinfo-office-name">{{ meetingRequest.mrInfo.officeName }}</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </dd>
+
+                      <!-- リクエスト先 -->
+                      <ng-container *ngIf="isMediator">
+                        <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{ 'MSG.ME.LBL_RECEIVER_REQUEST' | translate }}</dt>
+                        <dd class="pl-3 py-1 pr-1 mb-4">
+                          <div class="d-flex">
+                            <div class="mr-auto">
+                              <div class="mini-profile mini-profile-76">
+                                <div class="mini-profile-avatar">
+                                  <app-face-icon [imageUrl]="meetingRequest.drInfo.image" [iconSize]="76" [tooltipOptions]="{isShow: false}"></app-face-icon>
+                                </div>
+                                <div class="mini-profile-userinfo pl-3">
+                                  <p class="mini-profile-userinfo-main mb-0">
+                                    <span  class="mini-profile-userinfo-name font-weight-bold">{{ meetingRequest.drInfo.lastName }} {{ meetingRequest.drInfo.firstName }}</span>
+                                  </p>
+                                  <p class="mini-profile-userinfo-sub mb-0">
+                                    <span class="mini-profile-userinfo-office-name">{{ meetingRequest.drInfo.officeName }}</span>
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </dd>
+                      </ng-container>
+
+                      <!-- 目的 -->
+                      <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{ 'ME0009.PURPOSE' | translate }}</dt>
+                      <dd class="pl-3 py-1 pr-1 mb-4">{{this.meetingRequest?.purposeName}}</dd>
+
+                      <!-- 薬剤名・製品名 -->
+                      <ng-container *ngIf="this.drugList?.length > 0">
+                        <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{ 'ME0009.DRUG_NAME_PRODUCT_NAME' | translate }}</dt>
+                        <dd class="pl-3 py-1 pr-1 mb-4">
+                          <p class="mb-1" *ngFor="let drug of this.drugList">{{ drug.name }}</p>
+                        </dd>
+                      </ng-container>
+
+                      <ng-container *ngIf="this.optionTimes?.length > 0">
+                        <!-- 日程 -->
+                        <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{ 'ME0009.SCHEDULE' | translate }}</dt>
+                        <dd class="pl-3 py-1 pr-1 mb-4">
+                          <div class="form-inline check-radio-wrap mb-sm-1 mb-3" *ngFor="let date of this.optionTimes; let i = index">
+                            <div class="date-check mr-4">
+                              <label class="custom-control custom-radio">
+                                <input [checked]='indexSelectedTime === i'
+                                       (click)='enableOption(i)'
+                                       id="radio_{{i}}"
+                                       name="radio" type="radio" class="custom-control-input" [hidden]="this.optionTimes?.length === 1" >
+                                <span class="custom-control-indicator" [hidden]="this.optionTimes?.length === 1"></span>
+                                <span class="custom-control-description">{{ dateMeetings[i].dateFormat |timePipe : 'M月D日(date)' }} </span>
+                              </label>
+                            </div>
+                            <div class="input-group pl-sm-0 pl-0">
+                              <select name="optionStartDate" id="startDate_{{i}}" class="form-control" (change)="changeStart(i)"
+                                      [disabled]="indexSelectedTime !== i">
+                                <option *ngFor='let start of startDateOptions[i]' [ngValue]="start">{{start}}</option>
+                              </select>
+                            </div>
+                            <span class="px-sm-2 px-2">〜</span>
+                            <div class="input-group pl-sm-0 pl-0">
+                              <select name="optionEndDate" id="endDate_{{i}}" class="form-control" (change)="changeEnd(i)"
+                                      [disabled]="indexSelectedTime !== i">
+                                <option *ngFor='let end of endDateOptions[i]' [selected]="endDates[i].time === end"
+                                        [ngValue]="end">{{end}}
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                        </dd>
+
+                        <!-- 場所 -->
+                        <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{ 'ME0009.PLACE' | translate }}</dt>
+                        <dd class="pl-3 py-1 pr-1 mb-4">
+                          <input type="text" [(ngModel)]="place" maxlength="20" class="form-control" placeholder="20文字以内">
+                        </dd>
+
+                        <!-- 訪問人数 -->
+                        <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{ 'ME0009.NUMBER_OF_VISITORS' | translate }}</dt>
+                        <dd class="pl-3 py-1 pr-1 mb-4">{{this.visitorNumber}}人</dd>
+                      </ng-container>
+
+                    </dl>
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-6 col-xl-6">
+                    <dl class="meeting-dl m-0">
+                      <!-- 取引先からのコメント -->
+                      <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{ 'ME0009.COMMENTS_BUSINESS_PARTNERS' | translate }}</dt>
+                      <dd class="pl-3 py-1 pr-1 mb-4">{{this.mrComment}}</dd>
+                    </dl>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <div class="d-flex justify-content-center form-inline">
+                    <button class="btn btn-primary m-1" (click)="alertAcceptMeeting()">{{ 'ME0009.ACCEPT' | translate }}</button>
+                    <button class="btn btn-secondary m-1" (click)="alertRejectMeeting()">
+                      {{ (optionTimes && optionTimes?.length === 1? 'BTN.REJECT' : 'ME0009.REFUSE_ALL_THE_DATES') | translate }}
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>

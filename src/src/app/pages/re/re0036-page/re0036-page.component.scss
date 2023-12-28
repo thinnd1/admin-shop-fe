@@ -1,0 +1,18 @@
+@import '../../../../assets/styles/_import';
+
+.table-publish {
+  th {
+    width: 16rem;
+    white-space: nowrap;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .table-publish {
+    th, td {
+      display: block;
+      width: 100%;
+      border-right-style: solid;
+    }
+  }
+}

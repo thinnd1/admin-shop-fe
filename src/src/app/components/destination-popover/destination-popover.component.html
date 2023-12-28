@@ -1,0 +1,59 @@
+<div class="destination-popover-wrap" (click)="toggleDestinationPopover($event)" (clickOutside)="p.close()">
+  <ng-template #popContent>
+    <div class="destination-popover py-2">
+      <div class="search mb-1">
+        <input class="search-input" type="text" placeholder="{{'DESTINATION_POPOVER.MEMBER_SEARCH' | translate}}"
+               (keyup)="memberListSearch($event)" (keydown)="memberListSearch($event)" (blur)="memberListSearch($event)"
+               [(ngModel)]="memberListSearchVal">
+        <button type="button" class="search-btn" disabled="disabled">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+      </div>
+      <ul class="list-inline mb-0">
+        <li class="list-inline-item mb-1" *ngFor="let button of narrowDownButtons">
+          <button type="button" class="btn btn-secondary btn-sm btn-narrow-down" [ngClass]="{'active':button.isActive}"
+                  (click)="narrowDownButtonClick($event,button)">{{button.label}}
+          </button>
+        </li>
+      </ul>
+      <div class="mb-1">
+        <button type="button" class="btn btn-sm btn-link btn-destination-popover-all p-0" (click)="memberAll(true)">
+          {{'DESTINATION_POPOVER.ALL_SELECT' | translate}}
+        </button>
+        <span class="fs12">/</span>
+        <button type="button" class="btn btn-sm btn-link btn-destination-popover-all p-0" (click)="memberAll(false)">
+          {{'DESTINATION_POPOVER.ALL_REMOVE' | translate}}
+        </button>
+      </div>
+      <virtual-scroll [items]="buildArrMemberList" (update)="viewPortItems = $event"
+                      class="destination-popover-table-wrap">
+        <div *ngFor="let member of viewPortItems" class="destination-popover-table-td float-left d-flex"
+             [ngClass]="{'destination-popover-table-td-selected':member.isSelected}" (click)="toggleMember(member)">
+          <div class="destination-popover-radio-wrap pl-1">
+            <label class="custom-control custom-radio destination-popover-radio mr-0 mb-0">
+              <input type="radio" id="radio-{{member.id}}" name="radio-{{member.id}}" class="custom-control-input"
+                     [checked]="member.isSelected" (click)="toggleMember(member)">
+              <span class="custom-control-indicator"></span>
+            </label>
+          </div>
+          <div class="destination-popover-profile-wrap">
+            <div class="mini-profile mini-profile-30">
+              <div class="mini-profile-avatar">
+                <app-face-icon [iconSize]="30" [userInfo]="member"
+                               [tooltipOptions]="{isShow: true, isShowOfficeName: isGroupOutside}"></app-face-icon>
+              </div>
+              <div class="mini-profile-userinfo pl-1">
+                <p class="mini-profile-userinfo-main mb-0 d-flex">
+                  <span class="mini-profile-userinfo-name font-weight-bold text-concat">{{member.fullName}}</span>
+                </p>
+              </div>
+            </div>
+            <!--<app-mini-profile [userInfo]="member" [profileOptions]="{iconSize:30}" [tooltipOptions]="{isShow: true, isShowOfficeName: isGroupOutside}"></app-mini-profile>-->
+          </div>
+        </div>
+      </virtual-scroll>
+    </div>
+  </ng-template>
+  <a href="javascript:void(0);" class="btn btn-sm btn-secondary btn-to" [ngbPopover]="popContent" #p="ngbPopover"
+     placement="top"><span>TO</span><span>{{'DESTINATION_POPOVER.TO' | translate}}</span></a>
+</div>

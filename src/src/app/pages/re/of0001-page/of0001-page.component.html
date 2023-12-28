@@ -1,0 +1,64 @@
+<div class="login-page">
+  <h4 class="text-center mb-3 font-weight-bold text-white">{{'OF0001.OF0001_1' | translate}}</h4>
+  <div class="clearfix mb-3">
+    <input class="form-control" type="text" placeholder="{{'OF0001.OF0001_2' | translate}}" [ngModel]="medicalSelected?.name" (input)="searchMedicalOffices(keyWord.value)" #keyWord>
+  </div>
+  <div class="search-offices-box"  *ngIf="isOpen" [ngStyle]="{'height':'200px'}" (clickOutside)="hideDropdown($event)">
+    <div class="populate placeholder" *ngIf="listMedical?.length === 0">
+      {{'MSG.RE0012.NO_RESULT' | translate}}
+    </div>
+    <div *ngIf="listMedical?.length > 0" class="infinite-scroll-content" infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="infiniteScrollOptions.size" [scrollWindow]="false" (scrolled)="onScrollDown()">
+      <ng-container *ngFor="let item of listMedical">
+        <div class="infinite-scroll-item" (click)="selectedMedical(item)"> {{item.name}}</div>
+      </ng-container>
+    </div>
+    <div class="infinite-scroll-loader text-center" [hidden]="!isLoading">
+      <i class="fa fa-spinner fa-pulse fa-fw infinite-scroll-loader-icon"></i>
+      <span class="infinite-scroll-loader-text fs14">{{'INFINITE_SCROLL.LOADING' | translate}}...</span>
+    </div>
+  </div>
+  <div class="area-info-regit p-3 mb-2 rounded area-cmn clearfix">
+    <h5 class="text-center font-weight-bold mb-3">{{'OF0001.OF0001_3' | translate}}</h5>
+      <ng-container *ngFor="let data of listIndustry">
+       <p class="mb-1">{{data.industryName}} : {{data.total.companies}}社 / {{data.total.people}}名</p>
+      </ng-container>
+  </div>
+
+  <div class="area-info-regit p-3 mb-3 rounded area-cmn clearfix">
+    <table class="tbl-regit mb-2 fs14">
+      <tbody>
+      <tr *ngIf="checkCode === true">
+        <th>InviteCode</th>
+        <td><input class="form-control" type="text"  [(ngModel)]="model.invitationCode"></td>
+      </tr>
+      <tr>
+        <th>Name</th>
+        <td><input class="form-control" type="text"   [(ngModel)]="model.name"></td>
+      </tr>
+      <tr>
+        <th>ID</th>
+        <td><input class="form-control" type="text"  [(ngModel)]="model.loginId"></td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="text-center">
+      <label class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" [checked]="checkCode" (click)="ischeckCode(checkCode)" />
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description">Have code invite</span>
+      </label> <br/>
+      <label class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" [checked]="checkAccept" (click)="ischeckAccept(checkAccept)" />
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description"><span class="text-info">{{'OF0001.OF0001_4' | translate}}</span>{{'OF0001.OF0001_5' | translate}}</span>
+      </label>
+      <label class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" [checked]="checkPharmacist" (click)="ischeckPharmacist(checkPharmacist)" />
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description">{{'OF0001.OF0001_6' | translate}}</span>
+      </label>
+    </div>
+  </div>
+  <p class="text-center mb-3"><button class="btn btn-success" (click)="addData()" [disabled]="disabledButton === true">{{'OF0001.OF0001_7' | translate}}</button></p>
+  <p class="mb-0 fs12 text-center text-white">{{'OF0001.OF0001_8' | translate}}</p>
+</div>

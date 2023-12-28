@@ -1,0 +1,53 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header [title]="'DOC_TITLE.RE0032' | translate"></app-header>
+
+  </nav>
+
+	<main class="visitor-content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="row">
+            <!--contents-->
+            <!--contents RE0032-->
+            <div class="col">
+              <h2 class="title-page text-center mb-5 pb-1 pt-4">{{'RE0032.TITLE' | translate}}</h2>
+              <div class="content-01 text-center mb-5">
+              	<p class="mb-4" [innerHtml]="'RE0032.NOT_CONFIRM_IDENTITY' | translate"></p>
+              	<div class="d-flex justify-content-center">
+                  <label class="custom-control custom-file">
+                      <span class="btn btn-outline-warning">{{'RE0032.SELECT_CARD_IMAGE' | translate}}<input type="file" accept=".jpg,.jpeg,.png,.gif" class="custom-file-input" (change)="uploadImage($event)">
+                      </span>
+                </label>
+                </div>
+              </div>
+              <div class="content-02 text-center mb-5">
+              	<p class="mb-4">{{'RE0032.CHECK_STATUS' | translate}}</p>
+              	<div class="card-wrap p-3 mb-3" >
+                    <div [ngClass]="{'border-red has-danger': errorImage}">
+              		<div class="card-img mb-3"><img src="/assets/img/business-card-sample-ok.png" class="figure-img img-fluid" alt="{{fileName?fileName:'見本'}}"></div>
+              		<p class="info text-left mb-0"><span class="font-weight-bold">{{'ATTACHED_FILES.FILE_NAME' | translate}}</span><span class="pl-4">{{fileName?fileName:''}}</span></p>
+                    </div>
+                    <div class="col-form-label confirm-identity text-danger" *ngIf="errorImage">{{errorImage}}</div>
+                </div>
+
+              	<div class="d-flex justify-content-center">
+              		<label class="custom-control custom-file">
+                        <span class="btn btn-outline-warning">{{'RE0032.RE_SELECTION' | translate}}<input type="file" accept=".jpg,.jpeg,.png,.gif" class="custom-file-input" (change)="uploadImage($event)">
+                        </span>
+                    </label>
+                  <button type="button" (click)="uploadToFirebase()"  class="btn btn-primary ml-1">{{'REGISTER' | translate}}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+
+
+</div>

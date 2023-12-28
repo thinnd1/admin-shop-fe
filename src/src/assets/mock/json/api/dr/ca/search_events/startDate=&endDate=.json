@@ -1,0 +1,655 @@
+{
+  "items": [
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-13T00:00:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-13T00:00:00",
+      "title": " allDay",
+      "calendarType": 0
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-14T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-14T14:30:00",
+      "title": "multiDay",
+      "calendarType": 5
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-29T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-29T14:30:00",
+      "title": "my allDay",
+      "calendarType": 5
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-29T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-29T14:30:00",
+      "title": "my",
+      "calendarType": 5
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-30T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-29T14:30:00",
+      "title": "my calendar multiDay all",
+      "calendarType": 0
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-30T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-29T14:30:00",
+      "title": "HOLIDAY multiDay",
+      "calendarType": 10
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-27T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-27T14:30:00",
+      "title": "HOLIDAY",
+      "calendarType": 10
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-09-28T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-09-27T14:30:00",
+      "title": "HOLIDAY",
+      "calendarType": 10
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-09-27T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-09-27T14:30:00",
+      "title": "HOLIDAY",
+      "calendarType": 10
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-23T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-23T14:30:00",
+      "title": "day 1",
+      "calendarType": 3
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-23T15:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-23T14:30:00",
+      "title": "day 2",
+      "calendarType": 5
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-01T15:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-01T14:30:00",
+      "title": "HOLIDAY multiDay",
+      "calendarType": 5
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-01T15:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-01T14:30:00",
+      "title": "HOLIDAY multiDay",
+      "calendarType": 5
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-23T18:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-23T15:30:00",
+      "title": "day3",
+      "calendarType": 11
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-23T22:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-23T15:30:00",
+      "title": "day4",
+      "calendarType": 11
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-23T15:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-23T11:30:00",
+      "title": "day0",
+      "calendarType": 11
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-24T15:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-23T15:30:00",
+      "title": "multiDay1",
+      "calendarType": 11
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-24T15:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-23T15:30:00",
+      "title": "multiDay allDay",
+      "calendarType": 11
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-23T15:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-23T15:30:00",
+      "title": "all day",
+      "calendarType": 11
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-24T17:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-23T15:30:00",
+      "title": "multiDay2",
+      "calendarType": 11
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-23T15:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-23T15:30:00",
+      "title": "allDay",
+      "calendarType": 11
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-23T15:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-22T15:30:00",
+      "title": "all day multi",
+      "calendarType": 11
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-24T15:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-24T15:30:00",
+      "title": "all day multi",
+      "calendarType": 11
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-24T19:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-24T17:30:00",
+      "title": "all day multi",
+      "calendarType": 11
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 47002,
+      "end": "2017-11-02T19:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-02T17:30:00",
+      "title": "all day multi",
+      "calendarType": 11
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 47002,
+      "end": "2017-10-02T19:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-02T17:30:00",
+      "title": "all day multi",
+      "calendarType": 11
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-25T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-25T14:30:00",
+      "title": "multiDay",
+      "calendarType": 5
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-26T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-25T14:30:00",
+      "title": "multiDay test",
+      "calendarType": 1
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-26T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-25T14:30:00",
+      "title": "multiDay allDay",
+      "calendarType": 1
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-26T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-25T14:30:00",
+      "title": "multiDay",
+      "calendarType": 1
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-25T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-25T14:30:00",
+      "title": "my calendar",
+      "calendarType": 1
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-10-25T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-25T11:30:00",
+      "title": "multiDay",
+      "calendarType": 1
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-11-05T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-03T11:30:00",
+      "title": "multiDay allday",
+      "calendarType": 1
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-11-05T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-03T11:30:00",
+      "title": "multiDay",
+      "calendarType": 1
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 11510120,
+      "end": "2017-11-05T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-05T11:30:00",
+      "title": "test",
+      "calendarType": 0
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-10-10T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-09T11:30:00",
+      "title": "mulltiDay + test pass",
+      "calendarType": 1
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-10-09T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-08T11:30:00",
+      "title": "pass",
+      "calendarType": 1
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-10-11T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-08T11:30:00",
+      "title": "mulltiDay + allDay + test pass",
+      "calendarType": 1
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-10-09T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-09T11:30:00",
+      "title": "pass",
+      "calendarType": 1
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-10-08T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-10-08T11:30:00",
+      "title": "pass",
+      "calendarType": 1
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-08T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-08T11:30:00",
+      "title": "visit",
+      "calendarType": 8
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-08T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-08T11:30:00",
+      "title": "my",
+      "calendarType": 0
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-08T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-08T11:30:00",
+      "title": "staff",
+      "calendarType": 1
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-08T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-08T11:30:00",
+      "title": "holiday",
+      "calendarType": 10
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-08T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-08T11:30:00",
+      "title": "inside group",
+      "calendarType": 2
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-08T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-08T11:30:00",
+      "title": "out group",
+      "calendarType": 3
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-08T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-08T11:30:00",
+      "title": "khung meeting",
+      "calendarType": 5
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-08T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-08T11:30:00",
+      "title": "meeting",
+      "calendarType": 4
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-09T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-09T11:30:00",
+      "title": "visit",
+      "calendarType": 8
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-09T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-09T11:30:00",
+      "title": "my",
+      "calendarType": 0
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-09T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-09T11:30:00",
+      "title": "staff",
+      "calendarType": 1
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-09T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-09T11:30:00",
+      "title": "holiday",
+      "calendarType": 10
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-09T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-09T11:30:00",
+      "title": "inside group",
+      "calendarType": 2
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-09T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-09T11:30:00",
+      "title": "out group",
+      "calendarType": 3
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-09T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-09T11:30:00",
+      "title": "khung meeting",
+      "calendarType": 5
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-09T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-09T11:30:00",
+      "title": "meeting",
+      "calendarType": 4
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-08T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-08T11:30:00",
+      "title": "visit",
+      "calendarType": 8
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-08T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-08T11:30:00",
+      "title": "my",
+      "calendarType": 0,
+      "shareStatus": 1
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-08T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-08T11:30:00",
+      "title": "staff",
+      "calendarType": 1
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-08T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-08T11:30:00",
+      "title": "holiday",
+      "calendarType": 10
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-08T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-08T11:30:00",
+      "title": "inside group",
+      "type": 2
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-08T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-08T11:30:00",
+      "title": "out group",
+      "calendarType": 3
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-08T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-08T11:30:00",
+      "title": "khung meeting",
+      "calendarType": 5
+    },
+    {
+      "allDay": true,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-08T14:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-08T11:30:00",
+      "title": "meeting",
+      "calendarType": 4
+    },
+    {
+      "allDay": false,
+      "calendarId": "1",
+      "color": 16742075,
+      "end": "2017-11-07T08:35:00",
+      "id": "59ddbe93752857b3590a9645",
+      "start": "2017-11-07T07:30:00",
+      "title": "meeting",
+      "calendarType": 4
+    }
+  ]
+}

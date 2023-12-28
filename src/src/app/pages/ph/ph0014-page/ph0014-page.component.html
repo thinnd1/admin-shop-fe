@@ -1,0 +1,131 @@
+  <div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents PH0005-->
+
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'DOC_TITLE.PH0014' | translate"></app-page-head>
+                </div>
+                <div class="tracing-report">
+                  <div class="control-btn clearfix mb-3">
+                    <div *ngIf="showView">
+                      <div class="float-left pt-2"><span class="d-inline-block pr-5"><h3><b>{{model.medicalOfficeName}}</b></h3></span>
+                        <span class="d-inline-block"><h3><b>{{'PH0015.OK' | translate}}</b></h3></span></div>
+                    </div>
+                    <div class="float-right">
+                      <button type="button" class="btn btn-lg btn-secondary px-2 ml-2 no-print" data-toggle="tooltip" data-trigger="hover"
+                              data-placement="top" title="{{'PHARMACY.COMMON.PRINT' | translate}}" (click)="printPage()">
+                        <i class="fa fa-print pt-1" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <table class="table table-bordered table-select mb-2 table-layout-trarp">
+                    <tbody class="tbody-inverse">
+                    <tr>
+                      <th class="td-col1">{{'PH0015.OFFICE_NAME' | translate}}</th>
+                      <td class="td-col2">{{model.drugStoreOfficeName}}</td>
+                      <th class="td-col3">{{'PH0015.PHONE_NUMBER' | translate}}</th>
+                      <td class="td-col4">{{model.phoneNumber}}</td>
+                    </tr>
+                    <tr>
+                      <th class="td-col1">{{'PH0015.PHARMACY_NAME' | translate}}</th>
+                      <td class="td-col2">{{model.pharmacistName}}</td>
+                      <th class="td-col3">{{'PH0015.UPDATED' | translate}}</th>
+                      <td class="td-col4">{{model.prescriptionIssuedDate | timePipe : 'YYYY/MM/DD'}}</td>
+                    </tr>
+                    <tr>
+                      <th class="td-col1">{{'PH0015.PATIENT_NAME' | translate}}</th>
+                      <td class="td-col2">{{model.patientName}}</td>
+                      <th class="td-col3">{{'PH0015.PATIENT_CODE' | translate}}</th>
+                      <td class="td-col4">{{model.patientCode}}</td>
+                    </tr>
+                    <tr>
+                      <th class="td-col1">{{'PH0015.DEPARTMENT_NAME' | translate}}</th>
+                      <td class="td-col2">{{model.departmentName}}</td>
+                      <th class="td-col3">{{'PH0015.OFFICE_USER_ID' | translate}}</th>
+                      <td class="td-col4">{{model.doctorName}} <span class ="show-right">{{'PHARMACY.TRACING_REPORT.DOCTOR' | translate}}</span></td>
+                    </tr>
+                    <tr>
+                      <th class="td-col1">{{'PH0015.PRESCRIPTION_UPDATE_REASON' | translate}}</th>
+                      <td class="td-col2">{{prescriptionUpdateReasonText}}</td>
+                      <th class="td-col1">{{'PH0015.PROTOCOL' | translate}}</th>
+                      <td class="td-col2" >{{protocolsText}}</td>
+
+
+                    </tr>
+                    <tr class="hidden-md-down">
+                      <td colspan="2" class="text-center td-col1">{{'PH0015.BEFORE_CHANGE_DRUG_NAME' | translate}}</td>
+                      <td colspan="2" class="text-center td-col1">{{'PH0015.AFTER_CHANGE_DRUG_NAME' | translate}}</td>
+                    </tr>
+                    <tr *ngFor="let drug of model.updateDetails">
+                      <td colspan="2" class="text-center td-col1"> <span [ngbTooltip]="drug.beforeChangeDrugName"><div class="ellipsis">{{drug.beforeChangeDrugName}}</div></span></td>
+                      <td colspan="2" class="text-center td-col1"><span [ngbTooltip]="drug.afterChangeDrugName"><div class="ellipsis">{{drug.afterChangeDrugName}}</div></span></td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <ul class="user-lst clearfix pl-0">
+                    <li class="d-flex p-2 mb-1">
+                      <div class="select-user-img" *ngIf="userInfo">
+                        <a href="#" (click)="showUserInfo($event,userInfo)">
+                          <app-face-icon [tooltipOptions]="{
+                         isShow: true,
+                         isShowOfficeName: true
+                         }" [userInfo]="userInfo" [iconSize]="55"></app-face-icon>
+                        </a>
+                      </div>
+
+                      <div class="select-user-name pl-2">
+                        <div class="row fs15 mb-4 mt-3">
+                          <div class="col-md-7 col-lg-7 text-muted col-xs-5">
+                            <h4>
+                              <a *ngIf="accountStatuses == false" href="#" (click)="showUserInfo($event,userInfo)">{{model.lastName+' '+model.firstName}} （{{model.drugStoreOfficeName}}）</a>
+                              <a *ngIf="accountStatuses == true" href="#" (click)="showUserInfo($event,userInfo)">{{'PHARMACY.COMMON.DEFAULT_NAME_DELETED_ACCOUNT' | translate}} （{{model.drugStoreOfficeName}}）</a>
+                            </h4>
+                          </div>
+                          <div class="col-md-5 col-lg-5 text-right col-xs-5">
+                            <span class="fs14">{{model.created | timePipe: 'YYYY年MM月DD日(date)'}}{{model.created | timePipe: 'HH:mm' }}</span>
+                          </div>
+                        </div>
+                        <div class="clearfix mb-2" *ngIf="model.content || listAttachments.length > 0">
+                          <app-attachment-text-box-contents [contents]="{attachments: listAttachments, contents: model.content}"
+                                                            [isEdit]="true"
+                          ></app-attachment-text-box-contents>
+                          <app-report-file-display [path]="path" [comment]="model"></app-report-file-display>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

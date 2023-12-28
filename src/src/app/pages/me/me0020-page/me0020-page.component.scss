@@ -1,0 +1,21 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+.content-box {
+	background: #eee;
+	@include border-radius(0.25rem);
+}
+.box-checkbox {
+	border: solid 1px #ccc;
+	.head-checkbox {
+		background: #eee;
+	}
+}
+.checkbox-invite {
+	height: 320px;
+	overflow-y: scroll;
+	.checkbox-invite-box {
+		&:nth-of-type(2n+2){
+			background: #f6f6f6;
+		}
+	}
+}

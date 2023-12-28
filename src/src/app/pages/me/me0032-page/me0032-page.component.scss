@@ -1,0 +1,148 @@
+@import '../../../../assets/styles/_import';
+.w-min {
+	min-width: 300px;
+}
+.txt-color {
+	color: #d6d6d6;
+}
+.text-color {
+	color: #959595;
+}
+#requestMeeting, #requestMeetingRule {
+  width: 560px;
+  .popover-tab {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+}
+.text-detail-search {
+	line-height: 24px;
+}
+.table-tbl {
+  tr {
+    td {
+      .d-flex-txt-col {
+        color: #75ca2c;
+      }
+      .d-flex-lock {
+        color: #d6d6d6;
+      }
+    }
+  }
+}
+.tbl-col-1 {
+	width:40%
+}
+.tbl-col-2 {
+	width:40%
+}
+.tbl-col-3 {
+	width:400px;
+	min-width:380px;
+}
+.text-muted {
+	opacity:0.5;
+}
+.txt-name {
+	width:80%;
+}
+
+.custom-pin span i{
+  cursor: pointer;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.disabledScroll {
+  overflow: hidden;
+}
+.select-group {
+  .form-comp {
+    padding:0 1.5%;
+  }
+  .form-control {
+    height: 112px;
+  }
+}
+
+
+/*POPOVER COMMON*/
+.popover {
+	max-width: 565px;
+	position: relative;
+	.popover-close {
+		position: absolute;
+		top:12px;
+		right: 10px;
+		cursor: pointer;
+	}
+}
+.popover.popover-top:after {
+	border-bottom-color: #fff;
+}
+
+.popover.popover-position-right::after, .popover.popover-position-right::before{
+  left: 75%;
+}
+
+.popover-title {
+	background: #f7f7f7;
+  box-shadow: 0px 1px 0px #ebebeb;
+}
+.popover-tbl {
+	tr {
+		td {
+			border: none;
+			&:first-of-type {
+				white-space: nowrap;
+				width: 1rem;
+			}
+		}
+	}
+}
+.table-tbl tr td,
+.table-tbl tr th {
+	vertical-align: middle;
+}
+.select-col {
+	padding: 0 1.5%;
+}
+
+.support-content-txt .break-line {
+  white-space: pre-wrap;
+}
+
+@include media-breakpoint-down(lg) {
+	.tbl-col-1 {
+		min-width:300px;
+	}
+	.tbl-col-2 {
+		min-width:250px;
+	}
+	.tbl-col-3 {
+		min-width:380px;
+	}
+	.select-col {
+		padding: 0;
+	}
+}
+// Medium devices (tablets, 画面サイズ991px以下)
+// @media (max-width: 991px) { ... }
+@include media-breakpoint-down(md) {
+  .table-tbl {
+    tr {
+      display: block;
+      margin-bottom: 3rem;
+      th {
+        background: #eee;
+      }
+      th,
+      td {
+        width: 100%;
+        display: block;;
+      }
+    }
+  }
+}

@@ -1,0 +1,185 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid infinite-scroll">
+      <div class="row infinite-scroll-content" infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="20" [scrollWindow]="true" (scrolled)="onScrollDown()">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents ME0005-->
+
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'ME0005.TITLE' | translate"></app-page-head>
+                </div>
+                <div class="row">
+                  <div class="col-xl-7 mb-2">
+                    <div class="search">
+                      <form>
+                        <input class="search-input" type="text" placeholder="{{ 'ME0005.SEARCH_PLACEHOLDER' | translate}}" [(ngModel)]="searchConditions.keyword"
+                          [ngModelOptions]="{standalone: true}">
+                        <button type="submit" class="search-btn" (click)="searchUserMR()">
+                          <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="col-xl-5 mb-2">
+                    <div class="text-detail-search fs18 float-left">
+                      <a (click)="showSearchAdvance()" class="text-Dropdown" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                        aria-expanded="true" aria-controls="collapseOne">{{ 'ME0005.SEARCH_ADVANCE' | translate}}<i
+                        [ngClass]="{'fa-angle-down': !searchAdvance, 'fa-angle-up': searchAdvance}"
+                        class="fa pl-2 fs24" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                    <div class="ml-3 float-left">
+                      <button class="btn btn-lg px-3 btn-outline-warning" *ngIf="sendMessage" [routerLink]="['/cm/cm0005']" routerLinkActive="nav-link-active">{{ 'ME0005.SEND_MESSAGE' | translate }}</button>
+                    </div>
+                  </div>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="panel-body">
+                    <div class="row mb-3">
+                      <div class="col-xl-3">
+                        <div>
+                          <label>{{ 'COMMON_LABEL.GENDER' | translate}}</label>
+                        </div>
+                        <label class="custom-control custom-checkbox mb-0">
+                          <input type="checkbox" class="custom-control-input" checked [(ngModel)]="searchConditions.checkedMale" (ngModelChange)="searchUserMR()">
+                          <span class="custom-control-indicator"></span>
+                          <span class="custom-control-description fs18">{{ 'COMMON_LABEL.MALE' | translate}}</span>
+                        </label>
+                        <label class="custom-control custom-checkbox mb-0">
+                          <input type="checkbox" class="custom-control-input" checked [(ngModel)]="searchConditions.checkedFeMale" (ngModelChange)="searchUserMR()">
+                          <span class="custom-control-indicator"></span>
+                          <span class="custom-control-description fs18">{{ 'COMMON_LABEL.FEMALE' | translate}}</span>
+                        </label>
+                      </div>
+                      <div class="col-xl-9 d-block d-lg-flex align-items-center justify-content-end">
+                        <button class="btn btn-secondary ml-3 my-1" [routerLink]="['/me/me0003']" routerLinkActive="nav-link-active" *ngIf="visitorRecordVisible">{{ 'ME0005.GOTO_ME0003' | translate }}</button>
+                        <button class="btn btn-info ml-3 my-1" [routerLink]="['/me/me0013']" routerLinkActive="nav-link-active">{{'ME0005.ME0013' | translate}}</button>
+                        <button class="btn btn-info ml-3 my-1" [routerLink]="['/me/me0012']" routerLinkActive="nav-link-active">{{'ME0005.ME0012' | translate}}</button>
+                        <span class="ml-3 my-1 align-middle text-warning fs24" role="button" (click)="goToHelp()" *ngIf="visitorRecordVisible">
+                          <i class="fa fa-question-circle" aria-hidden="true"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="row select-group">
+                      <div class="col-lg-4">
+                        <div class="form-group">
+                          <label>{{ 'ME0005.SEARCH_INDUSTRY' | translate}}</label>
+                          <select multiple class="form-control" [(ngModel)]="selectIndustry" (ngModelChange)="searchUserMR(true)">
+                            <option value=""></option>
+                            <option *ngFor="let item of listIndustry" [value]="item.id">{{item.jobName}}</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-lg-4">
+                        <div class="form-group form-comp">
+                          <label>{{ 'ME0005.SEARCH_OFFICE' | translate}}</label>
+                          <select multiple class="form-control" [(ngModel)]="searchConditions.selectedOffice" (ngModelChange)="searchUserMR()">
+                            <option value=""></option>
+                            <option *ngFor="let item of customerOfficesList" [value]="item.officeId">{{ item.officeName }}</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-lg-4">
+                        <div class="form-group">
+                          <label>{{ 'ME0005.SEARCH_FIELD' | translate}}</label>
+                          <select [disabled]="selectedIndustryI0001" [ngClass]="{'disabledScroll': selectedIndustryI0001}" multiple class="form-control" [(ngModel)]="searchConditions.selectedField" (ngModelChange)="searchUserMR()">
+                            <option value=""></option>
+                            <option *ngFor="let item of listFieldID" [value]="item.fieldId">{{ item.getFieldName }}</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="txt mt-3" *ngIf="model.totalNumber > 0">{{'ME0005.RESULT_SEARCH.MSG1' | translate}}{{ model.totalNumber }}{{'ME0005.RESULT_SEARCH.MSG2' | translate}} 1{{'ME0005.RESULT_SEARCH.MSG3' | translate}}〜{{ dataAll.length }}{{'ME0005.RESULT_SEARCH.MSG4' | translate}}</div>
+                <div class="table-staff-invite">
+                  <table class="table table-tbl table-striped table-hover">
+                    <thead class="thead-inverse hidden-md-down">
+                      <tr>
+                        <th class="align-middle w-min-60">{{ 'ME0005.TABLE_NAME' | translate }}</th>
+                        <th class="align-middle w-min-40">{{ 'ME0005.TABLE_PR' | translate }}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <ng-container *ngFor="let item of dataAll; let i = index">
+                        <tr (click)="showInfoDetailMr(item.userId, item.officeId)">
+                          <th class="hidden-lg-up align-middle">{{ 'ME0005.TABLE_NAME' | translate }}</th>
+                          <td class="align-middle">
+                            <div class="row">
+                              <div class="col-sm-12 col-md-6 col-lg-5">
+                                <div class="d-flex">
+                                  <div class="mr-1 d-flex align-items-center">
+                                    <app-face-icon [iconSize]="55" [userInfo]="{imageUrl: item.avatar, firstName: item.firstName, lastName: item.lastName}"></app-face-icon>
+                                  </div>
+                                  <div class="txt-name fs12 py-2">
+                                    <p class="txt-name-fl mb-0 pointer font-weight-bold" data-animation="false" data-toggle="tooltip" data-placement="top"
+                                       [attr.data-original-title]="'MSG.SHOW_PROFILE' | translate" (mouseover)="displayTooltip()">{{ item.lastName }} {{ item.firstName }}</p>
+                                    <p class="txt-name-fl mb-0">{{ item.companyName }}</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-7 d-flex align-items-center">
+                                <div class="col-4 col-md-4 col-lg-4 px-0">
+                                    <div class="d-flex align-items-center justify-content-end custom-pin ">
+                                      <span class="d-flex-txt-col pt-1 fs14" *ngIf="item.visitingStatus">{{ 'ME0005.LIVE_VISIT' | translate }}</span>
+                                      <span *ngIf="item.pined" class="text-warning mr-2 ml-3 pt-1 d-flex-lock fs24 cursor-pointer" data-animation="false"
+                                            data-toggle="tooltip" data-placement="top" [attr.data-original-title]="'MSG.PIN_OFF' | translate" (click)="pinCustomer($event, item.userId, item.officeId, item.pined)">
+                                        <i class="fa fa-thumb-tack" aria-hidden="true" (mouseover)="displayTooltip()"></i>
+                                      </span>
+                                      <span *ngIf="!item.pined" class="mr-2 ml-3 pt-1 d-flex-lock fs24 cursor-pointer" data-animation="false"
+                                            data-toggle="tooltip" data-placement="top" [attr.data-original-title]="'MSG.PIN_ON' | translate" (click)="pinCustomer($event, item.userId, item.officeId, item.pined)">
+                                        <i class="fa fa-thumb-tack" aria-hidden="true" (mouseover)="displayTooltip()"></i>
+                                      </span>
+                                    </div>
+                                  </div>
+                                <div class="col-8 col-md-8 col-lg-8 pr-0">
+                                    <div class="d-flex justify-content-start">
+                                      <button type="button" class="btn btn-sm btn-outline-warning" *ngIf="authorityRequestMeeting" (click)="goToME0006($event, item.userId, item.officeId)">{{ 'ME0005.VISIT_REQUEST' | translate }}</button>
+                                      <button type="button" class="btn btn-sm btn-outline-warning ml-3" (click)="goToCH0002($event, item.officeUserId)">{{ 'ME0005.GOTO_CHAT' | translate }}</button>
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </td>
+                          <th class="hidden-lg-up align-middle">{{ 'ME0005.TABLE_PR' | translate }}</th>
+                          <td class="align-middle table-txt">
+                            <div class="text-pr py-1" *ngIf="item.selfPR" id="selfPR{{i}}">{{item.selfPR}}</div>
+                            <div class="text-pr py-1" *ngIf="!item.selfPR">ー</div>
+                          </td>
+                        </tr>
+                      </ng-container>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="d-flex justify-content-center mt-4" *ngIf="dataAll.length === 0 && callApi">{{ 'ME0005.SEARCH_ZERO_RECORD' | translate }}</div>
+              </div>
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

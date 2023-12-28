@@ -1,0 +1,181 @@
+<div class="img-user p-3" *ngIf="modelInput === ModelInput.CHANG_TIME">
+  <h4 class="text-center text-muted mb-3 fs19">{{'MSG.ME.MEETING_REQUEST.REQUEST_CHANGE_TIME' | translate}}</h4>
+
+  <p class="d-flex">
+    <span class="d-inline-block title-sub">{{'MSG.ME.MEETING_REQUEST.TIME' | translate}}：</span>
+
+    <span *ngIf="originalRequest?.candidacyTime?.length > 0; then candidacyTime else meetingFixed"></span>
+    <ng-template #candidacyTime>
+      <span class="d-inline-block">
+        <span *ngFor="let time of originalRequest.candidacyTime; let i = index">
+          {{time.start | timePipe: 'M月D日(date)'}}{{time | hoursMinutesStartEnd}}
+          <br *ngIf="i !== originalRequest.candidacyTime.length - 1">
+        </span>
+      </span>
+    </ng-template>
+    <ng-template #meetingFixed>
+      <span class="d-inline-block">
+        <span>
+          {{originalRequest?.fixedStart | timePipe: 'M月D日(date)'}}{{originalRequest?.fixedStart | timePipe : 'HH:mm'}}〜{{originalRequest?.fixedEnd | timePipe : 'HH:mm'}}
+        </span>
+      </span>
+    </ng-template>
+  </p>
+  <p class="d-flex">
+    <span class="d-inline-block title-sub">{{'MSG.ME.MEETING_REQUEST.PURPOSE' | translate}}：</span>
+    <span class="d-inline-block">
+      <span>{{originalRequest.purposeName}}</span>
+      <span *ngIf="stringNameProduct">
+        <br>
+        <span>{{stringNameProduct}}</span>
+      </span>
+    </span>
+  </p>
+  <p class="d-flex">
+    <span class="d-inline-block title-sub">{{'MSG.ME.MEETING_REQUEST.PLACE' | translate}}：</span>
+    <span class="d-inline-block break-line-comment" *ngIf="originalRequest.place"><span>{{originalRequest.place}}</span></span>
+    <span class="d-inline-block" *ngIf="!originalRequest.place"><span>ー</span></span>
+  </p>
+  <span>
+    <span class="d-block">{{'MSG.ME.MEETING_REQUEST.MSG' | translate}}：</span>
+    <span class="break-line-comment" *ngIf="originalRequest.comments.length > 0 && originalRequest.comments[originalRequest.comments.length - 1].comment">{{originalRequest.comments[originalRequest.comments.length - 1].comment}}</span>
+    <span class="break-line-comment" *ngIf="!(originalRequest.comments.length > 0 && originalRequest.comments[originalRequest.comments.length - 1].comment)">ー</span>
+  </span>
+</div>
+
+<div class="form-date mt-3 fs16" *ngIf="formCreateMeeting">
+  <div class="header mb-3">
+    <div class="row">
+      <div class="col-12 text-danger mb-3" *ngIf="modelInput === ModelInput.PASS">{{'ME0029.REQUEST_PASS' | translate}}</div>
+      <div class="col-2 pr-0">{{'MSG.ME.MEETING_REQUEST.TIME' | translate}}</div>
+      <div class="col-10 text-danger pl-0">
+        <span *ngIf="modelInput === ModelInput.FUTURE || modelInput === ModelInput.CHANG_TIME">
+          ※{{'MSG.ME.MEETING_REQUEST.TIME_SELECT_5' | translate}}<br>
+          {{'MSG.ME.MEETING_REQUEST.TIME_SELECT_EXAMPLE' | translate}}
+        </span>
+        <span *ngIf="modelInput === ModelInput.PASS">※{{'MSG.ME.MEETING_REQUEST.TIME_SELECT_1' | translate}}</span>
+        <span *ngIf="modelInput === ModelInput.DOCUMENT">{{'MSG.ME.MEETING_REQUEST.TIME_DOCUMENT' | translate}}<br>
+                                    {{'MSG.ME.MEETING_REQUEST.DOCUMENT_1' | translate}}<br>
+                                    {{'MSG.ME.MEETING_REQUEST.DOCUMENT_2' | translate}}</span>
+      </div>
+    </div>
+  </div>
+  <span class="text-danger d-block fs12"
+        *ngIf="errorValidateForm.date">{{errorValidateForm.date}}</span>
+  <div class="seclect-date mb-3" *ngIf="formCreateMeeting.date.length > 0">
+    <table class="col">
+      <tbody>
+      <tr *ngFor="let obj of formCreateMeeting.date; let i = index">
+        <td colspan="5"  class="align-items-center d-flex">
+          <div class="close-date w-25 d-flex align-items-center">
+            <a href="#" (click)="removeTimeMeeting(i, $event)"><i
+              class="fa fa-times text-primary" aria-hidden="true"></i></a>
+            <div class="title mx-1" *ngIf="obj.dateStart">
+              {{obj.dateStart | timePipe: 'M月D日(date)'}}
+            </div>
+          </div>
+
+          <div class="select-gruopt w-75">
+            <div class="validator text-danger fs12"  *ngIf="errorValidateForm.listDate[i]">
+              {{errorValidateForm.listDate[i]}}
+            </div>
+            <div class=" d-flex align-items-center">
+              <div class="seclext-1 w-46">
+                <select class="form-control date-time px-1" [(ngModel)]="obj.startTime" onmousedown="this.focus()"
+                        name="startTimeMeeting{{i}}" (change)="changeTimeStartMeeting(i)"
+                        [class.form-control-danger]="errorValidateForm.listDate[i]">
+                  <option *ngFor="let item of timePickerStart" [value]="item">{{item}}</option>
+                </select>
+              </div>
+              <div class="text-center mx-2">
+                ~
+              </div>
+              <div class="select-1 w-46">
+                <select class="form-control date-time px-1" [(ngModel)]="obj.endTime" onmousedown="this.focus()"
+                        (ngModelChange)="changeTimeEndMeeting(i, $event)" [class.form-control-danger]="errorValidateForm.listDate[i]">
+                  <option *ngFor="let item of timePickerEnd" [selected]="item == obj.endTime" [value]="item" >{{item}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="form-group mb-3" *ngIf="modelInput === ModelInput.PASS">
+    <label>{{'MSG.ME.MEETING_REQUEST.FROM_REQUEST' | translate}}</label>
+    <select class="form-control exampleSelect3 font-weight-bold" onmousedown="this.focus()" (change)="changeRequester()"
+            [(ngModel)]="formCreateMeeting.request" name="request">
+      <option value="DOCTOR">{{'MSG.ME.MEETING_REQUEST.REQUEST_DOCTOR' | translate}}</option>
+      <option value="MR">{{'MSG.ME.MEETING_REQUEST.REQUEST_MR_ME0029' | translate}}</option>
+    </select>
+  </div>
+  <div class="form-group mb-3" *ngIf="modelInput !== ModelInput.CHANG_TIME">
+    <label>{{'MSG.ME.MEETING_REQUEST.PURPOSE' | translate}}</label>
+    <span class="text-danger d-block fs12" *ngIf="errorValidateForm.purposeId">{{errorValidateForm.purposeId}}</span>
+    <select class="form-control exampleSelect3 font-weight-bold" [(ngModel)]="formCreateMeeting.purposeId" name="purpose" onmousedown="this.focus()"
+            [ngClass]="{'form-control-danger': errorValidateForm.purposeId}" [ngModelOptions]="{standalone: true}" (change)="changePurpose()">
+      <option value="">{{'MSG.ME.MEETING_REQUEST.PURPOSE_SELECT' | translate}}</option>
+      <optgroup *ngFor="let masterPurposes of groupPurposes; let i = index" [label]="masterPurposes.groupName">
+        <option *ngFor="let purposes of masterPurposes.purposes" [value]="purposes.purposeCode" >
+          {{purposes.purposeName}}
+        </option>
+      </optgroup>
+    </select>
+    <div class="mt-3" *ngIf="(productType === 'DRUG') && isPharmaceuticalCompany()">
+      <app-infinitive-select [source]="listDrug"
+                             [(ngModel)]="formCreateMeeting.drugList"
+                             [ngModelOptions]="{standalone: true}"
+                             [infiniteScrollOptions]="infiniteScrollOptions"
+                             (scrollDown)="scrollDown($event)"
+                             (keywordChanged)="textChanged($event, obj)">
+      </app-infinitive-select>
+    </div>
+    <div class="mt-3" *ngIf="(productType === 'PRODUCT') && !isPharmaceuticalCompany()" [ngClass]="{'has-danger':errorValidateForm.productName}">
+      <span class="text-danger d-block fs12" *ngIf="errorValidateForm.productName">{{errorValidateForm.productName}}</span>
+      <input type="text" class="form-control fs16"
+             placeholder="{{'MSG.ME.MEETING_REQUEST.PRODUCT' | translate}}"
+             [(ngModel)]="formCreateMeeting.productName" name="productName">
+    </div>
+  </div>
+  <div class="form-group mb-3" *ngIf="modelInput === ModelInput.DOCUMENT" [ngClass]="{'has-danger': errorValidateForm.place}">
+    <label>{{'MSG.ME.MEETING_REQUEST.PLACE' | translate}}</label>
+    <span class="text-danger d-block fs12" *ngIf="errorValidateForm.place">{{errorValidateForm.place}}</span>
+    <input type="text" class="form-control fs16 exampleInputEmail1"
+           placeholder="{{'MSG.ME.MEETING_REQUEST.PLACE_SELECT' | translate}}"
+           [(ngModel)]="formCreateMeeting.place" name="place">
+  </div>
+  <div class="form-group mb-3">
+    <label *ngIf="modelInput === ModelInput.PASS">{{'MSG.ME.MEETING_REQUEST.VISIT_LABEL_PASS' | translate}}</label>
+    <label *ngIf="modelInput !== ModelInput.PASS">{{'ME0029.VISIT_LABEL' | translate}}</label>
+    <span class="text-danger d-block fs12" *ngIf="errorValidateForm.numberVisitors">{{errorValidateForm.numberVisitors}}</span>
+    <select class="form-control exampleSelect3 font-weight-bold" onmousedown="this.focus()"
+            [(ngModel)]="formCreateMeeting.numberVisitors" name="numberVisitors"
+            [ngClass]="{'form-control-danger': errorValidateForm.numberVisitors}">
+      <option value="0">{{'ME0029.VISIT_SELECT' | translate}}</option>
+      <option *ngFor="let number of maxNumberVisit; let i = index" [value]="i + 1">{{i + 1 + '人'}}</option>
+    </select>
+  </div>
+  <div class="form-group mb-3" *ngIf="modelInput === ModelInput.PASS" [ngClass]="{'has-danger': errorValidateForm.place}">
+    <label>{{'MSG.ME.MEETING_REQUEST.PLACE' | translate}}</label>
+    <span class="text-danger d-block fs12" *ngIf="errorValidateForm.place">{{errorValidateForm.place}}</span>
+    <input type="text" class="form-control fs16 exampleInputEmail1"
+           placeholder="{{'MSG.ME.MEETING_REQUEST.PLACE_SELECT' | translate}}"
+           [(ngModel)]="formCreateMeeting.place" name="place"
+    >
+  </div>
+  <div class="form-group mb-5" *ngIf="modelInput !== ModelInput.PASS"  [ngClass]="{'has-danger': errorValidateForm.note}">
+    <label>{{'MSG.ME.MEETING_REQUEST.COMMENT' | translate}}</label>
+    <span class="text-danger d-block fs12" *ngIf="errorValidateForm.note">{{errorValidateForm.note}}</span>
+    <textarea class="form-control" rows="6" placeholder=" {{'MSG.ME.COMMENT_PLACEHOLDER' | translate}}"
+              [(ngModel)]="formCreateMeeting.note" name="note"
+    ></textarea>
+  </div>
+</div>
+<div class="d-flex justify-content-center">
+  <button class="btn btn-primary" type="button" (click)="checkAcceptRequest()">
+    {{'MSG.ME.MEETING_REQUEST.REQUEST_BTN' | translate}}
+  </button>
+</div>

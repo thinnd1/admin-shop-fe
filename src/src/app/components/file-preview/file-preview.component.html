@@ -1,0 +1,36 @@
+<div class="file-preview">
+  <div class="file-preview-head">
+    <p class="text-left">{{previewItem?.name}}</p>
+  </div>
+  <div class="file-preview-body">
+    <div class="file-preview-cont d-flex justify-content-center align-items-center">
+      <ng-container [ngSwitch]="getFileType(previewItem)">
+        <ng-container *ngSwitchCase="'image'">
+          <img class="file-preview-image" [src]="previewItem?._thumb ? previewItem?._thumb:previewItem.url">
+        </ng-container>
+        <ng-container *ngSwitchCase="'video'">
+          <video class="file-preview-video" [poster]="previewItem.url" controls="controls" autobuffer="true" [src]="previewItem?.original_url"></video>
+        </ng-container>
+        <ng-container *ngSwitchCase="'audio'">
+          <audio controls="controls" [src]="previewItem.url"></audio>
+        </ng-container>
+        <ng-container *ngSwitchCase="''">
+          <i class="fa file-preview-ico" [ngClass]="'fa-file-o'" aria-hidden="true"></i>
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+          <i class="fa file-preview-ico" [ngClass]="'fa-file-' + previewItem.type + '-o'" aria-hidden="true"></i>
+        </ng-container>
+      </ng-container>
+    </div>
+    <div class="file-preview-next" *ngIf="countMax">
+      <button type="button" class="btn btn-link" (click)="viewNext()">
+        <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="file-preview-prev" *ngIf="countMax">
+      <button type="button" class="btn btn-link" (click)="viewPrev()">
+        <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</div>

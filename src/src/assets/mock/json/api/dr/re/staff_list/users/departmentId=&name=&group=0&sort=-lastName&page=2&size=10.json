@@ -1,0 +1,215 @@
+{
+  "page": 1,
+  "user": [
+    {
+      "id": "1",
+      "firstName": "nguyen",
+      "lastName": "lan",
+      "firstNameKana": "name kana1",
+      "lastNameKana": "last name kana 1",
+      "jobType": "J0001",
+      "department": {
+        "departmentID": "1",
+        "name": "Departmen 1",
+        "children": [{
+          "departmentID": "2",
+          "name": "Room 2",
+          "children": [{
+            "departmentID": "3",
+            "name": "Room 3",
+            "children": [{
+              "departmentID": "4",
+              "name": "Room 4",
+              "children": [{
+                "departmentID": "5",
+                "name": "Room 5",
+                "children": []
+              }]
+            }]
+          }]
+        }]
+      },
+      "accountStatus": "3",
+      "stuffAuthority": "1",
+      "otherAuthority": "0",
+      "mailAddress": "yen@mail",
+      "mobileNo": "mobileNo1",
+      "phsNo": "phsNo1"
+    },
+    {
+      "id": "2",
+      "firstName": "tran",
+      "lastName": "lan",
+      "firstNameKana": "name kana1",
+      "lastNameKana": "last name kana 1",
+      "jobType": "J0001",
+      "department": {
+        "departmentID": "1",
+        "name": "Departmen 1",
+        "children": [{
+          "departmentID": "2",
+          "name": "Room 2",
+          "children": [{
+            "departmentID": "3",
+            "name": "Room 3",
+            "children": [{
+              "departmentID": "4",
+              "name": "Room 4",
+              "children": [{
+                "departmentID": "5",
+                "name": "Room 5",
+                "children": []
+              }]
+            }]
+          }]
+        }]
+      },
+      "accountStatus": "3",
+      "stuffAuthority": "1",
+      "otherAuthority": "0",
+      "mailAddress": "yen@mail",
+      "mobileNo": "mobileNo1",
+      "phsNo": "phsNo1"
+    },
+    {
+      "id": "3",
+      "firstName": "name1",
+      "lastName": "last name 1",
+      "firstNameKana": "name kana1",
+      "lastNameKana": "last name kana 1",
+      "jobType": "J0001",
+      "department": {
+        "departmentID": "1",
+        "name": "Departmen 1",
+        "children": [{
+          "departmentID": "2",
+          "name": "Room 2",
+          "children": [{
+            "departmentID": "3",
+            "name": "Room 3",
+            "children": [{
+              "departmentID": "4",
+              "name": "Room 4",
+              "children": [{
+                "departmentID": "5",
+                "name": "Room 5",
+                "children": []
+              }]
+            }]
+          }]
+        }]
+      },
+      "accountStatus": "3",
+      "stuffAuthority": "1",
+      "otherAuthority": "0",
+      "mailAddress": "hoan@mail",
+      "mobileNo": "mobileNo1",
+      "phsNo": "phsNo1"
+    },
+    {
+      "id": "4",
+      "firstName": "name1",
+      "lastName": "last name 1",
+      "firstNameKana": "name kana1",
+      "lastNameKana": "last name kana 1",
+      "jobType": "J0002",
+      "department": {
+        "departmentID": "1",
+        "name": "Departmen 1",
+        "children": [{
+          "departmentID": "2",
+          "name": "Room 2",
+          "children": [{
+            "departmentID": "3",
+            "name": "Room 3",
+            "children": [{
+              "departmentID": "4",
+              "name": "Room 4",
+              "children": [{
+                "departmentID": "5",
+                "name": "Room 5",
+                "children": []
+              }]
+            }]
+          }]
+        }]
+      },
+      "accountStatus": "3",
+      "stuffAuthority": "1",
+      "otherAuthority": "0",
+      "mailAddress": "nguyen@mail",
+      "mobileNo": "mobileNo1",
+      "phsNo": "phsNo1"
+    },
+    {
+      "id": "5",
+      "firstName": "name1",
+      "lastName": "last name 1",
+      "firstNameKana": "name kana1",
+      "lastNameKana": "last name kana 1",
+      "jobType": "J0005",
+      "department": {
+        "departmentID": "1",
+        "name": "Departmen 1",
+        "children": [{
+          "departmentID": "2",
+          "name": "Room 2",
+          "children": [{
+            "departmentID": "3",
+            "name": "Room 3",
+            "children": [{
+              "departmentID": "4",
+              "name": "Room 4",
+              "children": [{
+                "departmentID": "5",
+                "name": "Room 5",
+                "children": []
+              }]
+            }]
+          }]
+        }]
+      },
+      "accountStatus": "3",
+      "stuffAuthority": "1",
+      "otherAuthority": "0",
+      "mailAddress": "cha@mail",
+      "mobileNo": "mobileNo1",
+      "phsNo": "phsNo1"
+    },
+    {
+      "id": "6",
+      "firstName": "nguyen",
+      "lastName": "mai",
+      "firstNameKana": "name kana1",
+      "lastNameKana": "last name kana 1",
+      "jobType": "J0006",
+      "department": {
+        "departmentID": "1",
+        "name": "Departmen 1",
+        "children": [{
+          "departmentID": "2",
+          "name": "Room 2",
+          "children": [{
+            "departmentID": "3",
+            "name": "Room 3",
+            "children": [{
+              "departmentID": "4",
+              "name": "Room 4",
+              "children": [{
+                "departmentID": "5",
+                "name": "Room 5",
+                "children": []
+              }]
+            }]
+          }]
+        }]
+      },
+      "accountStatus": "3",
+      "stuffAuthority": "1",
+      "otherAuthority": "0",
+      "mailAddress": "hoan@mail",
+      "mobileNo": "mobileNo1",
+      "phsNo": "phsNo1"
+    }
+  ]
+}

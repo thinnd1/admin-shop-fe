@@ -1,0 +1,403 @@
+{
+  "page": 1,
+  "user": [
+    {
+      "id": 1,
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "firstNameKana": "しょうじ",
+      "lastNameKana": "てつや",
+      "jobType": "J0001",
+      "department": {
+        "id": "1",
+        "name": "Root1",
+        "displayName": "Root1",
+        "children": [
+          {
+            "id": "9",
+            "name": "Root1-Sub1",
+            "displayName": "Root1-Sub1",
+            "children": [
+              {
+                "id": "10",
+                "name": "Root11-Sub1",
+                "displayName": "Root1-Sub2",
+                "children": [{
+                  "id": "11",
+                  "name": "Root1-Sub3",
+                  "displayName": "Root1-Sub3",
+                  "children": [{
+                    "id": "12",
+                    "name": "Root1-Sub4",
+                    "displayName": "Root1-Sub4"
+                  }]
+                }]
+              }
+            ]
+          }
+        ]
+      },
+      "loginId": "LG009",
+      "temporaryPassword": "abcAdmin123"
+    },
+    {
+      "id": 2,
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "firstNameKana": "しょうじ",
+      "lastNameKana": "てつや",
+      "jobType": "J0001",
+      "department": {
+        "id": "1",
+        "name": "Root1",
+        "displayName": "Root1",
+        "children": [
+          {
+            "id": "9",
+            "name": "Root1-Sub1",
+            "displayName": "Root1-Sub1",
+            "children": [
+              {
+                "id": "10",
+                "name": "Root11-Sub1",
+                "displayName": "Root1-Sub2",
+                "children": [{
+                  "id": "11",
+                  "name": "Root1-Sub3",
+                  "displayName": "Root1-Sub3",
+                  "children": [{
+                    "id": "12",
+                    "name": "Root1-Sub4",
+                    "displayName": "Root1-Sub4"
+                  }]
+                }]
+              }
+            ]
+          }
+        ]
+      },
+      "loginId": "LG009",
+      "temporaryPassword": "abcAdmin123"
+    },
+    {
+      "id": 3,
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "firstNameKana": "しょうじ",
+      "lastNameKana": "てつや",
+      "jobType": "J0001",
+      "department": {
+        "id": "1",
+        "name": "Root1",
+        "displayName": "Root1",
+        "children": [
+          {
+            "id": "9",
+            "name": "Root1-Sub1",
+            "displayName": "Root1-Sub1",
+            "children": [
+              {
+                "id": "10",
+                "name": "Root11-Sub1",
+                "displayName": "Root1-Sub2",
+                "children": [{
+                  "id": "11",
+                  "name": "Root1-Sub3",
+                  "displayName": "Root1-Sub3",
+                  "children": [{
+                    "id": "12",
+                    "name": "Root1-Sub4",
+                    "displayName": "Root1-Sub4"
+                  }]
+                }]
+              }
+            ]
+          }
+        ]
+      },
+      "loginId": "LG009",
+      "temporaryPassword": "abcAdmin123"
+    },
+    {
+      "id": 4,
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "firstNameKana": "しょうじ",
+      "lastNameKana": "てつや",
+      "jobType": "J0001",
+      "department": {
+        "id": "1",
+        "name": "Root1",
+        "displayName": "Root1",
+        "children": [
+          {
+            "id": "9",
+            "name": "Root1-Sub1",
+            "displayName": "Root1-Sub1",
+            "children": [
+              {
+                "id": "10",
+                "name": "Root11-Sub1",
+                "displayName": "Root1-Sub2",
+                "children": [{
+                  "id": "11",
+                  "name": "Root1-Sub3",
+                  "displayName": "Root1-Sub3",
+                  "children": [{
+                    "id": "12",
+                    "name": "Root1-Sub4",
+                    "displayName": "Root1-Sub4"
+                  }]
+                }]
+              }
+            ]
+          }
+        ]
+      },
+      "loginId": "LG009",
+      "temporaryPassword": "abcAdmin123"
+    },
+    {
+      "id": 5,
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "firstNameKana": "しょうじ",
+      "lastNameKana": "てつや",
+      "jobType": "J0001",
+      "department": {
+        "id": "1",
+        "name": "Root1",
+        "displayName": "Root1",
+        "children": [
+          {
+            "id": "9",
+            "name": "Root1-Sub1",
+            "displayName": "Root1-Sub1",
+            "children": [
+              {
+                "id": "10",
+                "name": "Root11-Sub1",
+                "displayName": "Root1-Sub2",
+                "children": [{
+                  "id": "11",
+                  "name": "Root1-Sub3",
+                  "displayName": "Root1-Sub3",
+                  "children": [{
+                    "id": "12",
+                    "name": "Root1-Sub4",
+                    "displayName": "Root1-Sub4"
+                  }]
+                }]
+              }
+            ]
+          }
+        ]
+      },
+      "loginId": "LG009",
+      "temporaryPassword": "abcAdmin123"
+    },
+    {
+      "id": 6,
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "firstNameKana": "しょうじ",
+      "lastNameKana": "てつや",
+      "jobType": "J0001",
+      "department": {
+        "id": "1",
+        "name": "Root1",
+        "displayName": "Root1",
+        "children": [
+          {
+            "id": "9",
+            "name": "Root1-Sub1",
+            "displayName": "Root1-Sub1",
+            "children": [
+              {
+                "id": "10",
+                "name": "Root11-Sub1",
+                "displayName": "Root1-Sub2",
+                "children": [{
+                  "id": "11",
+                  "name": "Root1-Sub3",
+                  "displayName": "Root1-Sub3",
+                  "children": [{
+                    "id": "12",
+                    "name": "Root1-Sub4",
+                    "displayName": "Root1-Sub4"
+                  }]
+                }]
+              }
+            ]
+          }
+        ]
+      },
+      "loginId": "LG009",
+      "temporaryPassword": "abcAdmin123"
+    },
+    {
+      "id": 7,
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "firstNameKana": "しょうじ",
+      "lastNameKana": "てつや",
+      "jobType": "J0001",
+      "department": {
+        "id": "1",
+        "name": "Root1",
+        "displayName": "Root1",
+        "children": [
+          {
+            "id": "9",
+            "name": "Root1-Sub1",
+            "displayName": "Root1-Sub1",
+            "children": [
+              {
+                "id": "10",
+                "name": "Root11-Sub1",
+                "displayName": "Root1-Sub2",
+                "children": [{
+                  "id": "11",
+                  "name": "Root1-Sub3",
+                  "displayName": "Root1-Sub3",
+                  "children": [{
+                    "id": "12",
+                    "name": "Root1-Sub4",
+                    "displayName": "Root1-Sub4"
+                  }]
+                }]
+              }
+            ]
+          }
+        ]
+      },
+      "loginId": "LG009",
+      "temporaryPassword": "abcAdmin123"
+    },
+    {
+      "id": 8,
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "firstNameKana": "しょうじ",
+      "lastNameKana": "てつや",
+      "jobType": "J0001",
+      "department": {
+        "id": "1",
+        "name": "Root1",
+        "displayName": "Root1",
+        "children": [
+          {
+            "id": "9",
+            "name": "Root1-Sub1",
+            "displayName": "Root1-Sub1",
+            "children": [
+              {
+                "id": "10",
+                "name": "Root11-Sub1",
+                "displayName": "Root1-Sub2",
+                "children": [{
+                  "id": "11",
+                  "name": "Root1-Sub3",
+                  "displayName": "Root1-Sub3",
+                  "children": [{
+                    "id": "12",
+                    "name": "Root1-Sub4",
+                    "displayName": "Root1-Sub4"
+                  }]
+                }]
+              }
+            ]
+          }
+        ]
+      },
+      "loginId": "LG009",
+      "temporaryPassword": "abcAdmin123"
+    },
+    {
+      "id": 9,
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "firstNameKana": "しょうじ",
+      "lastNameKana": "てつや",
+      "jobType": "J0001",
+      "department": {
+        "id": "1",
+        "name": "Root1",
+        "displayName": "Root1",
+        "children": [
+          {
+            "id": "9",
+            "name": "Root1-Sub1",
+            "displayName": "Root1-Sub1",
+            "children": [
+              {
+                "id": "10",
+                "name": "Root11-Sub1",
+                "displayName": "Root1-Sub2",
+                "children": [{
+                  "id": "11",
+                  "name": "Root1-Sub3",
+                  "displayName": "Root1-Sub3",
+                  "children": [{
+                    "id": "12",
+                    "name": "Root1-Sub4",
+                    "displayName": "Root1-Sub4"
+                  }]
+                }]
+              }
+            ]
+          }
+        ]
+      },
+      "loginId": "LG009",
+      "temporaryPassword": "abcAdmin123"
+    },
+    {
+      "id": 10,
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "firstNameKana": "しょうじ",
+      "lastNameKana": "てつや",
+      "jobType": "J0001",
+      "department": {
+        "id": "1",
+        "name": "Root1",
+        "displayName": "Root1",
+        "children": [
+          {
+            "id": "9",
+            "name": "Root1-Sub1",
+            "displayName": "Root1-Sub1",
+            "children": [
+              {
+                "id": "10",
+                "name": "Root11-Sub1",
+                "displayName": "Root1-Sub2",
+                "children": [{
+                  "id": "11",
+                  "name": "Root1-Sub3",
+                  "displayName": "Root1-Sub3",
+                  "children": [{
+                    "id": "12",
+                    "name": "Root1-Sub4",
+                    "displayName": "Root1-Sub4"
+                  }]
+                }]
+              }
+            ]
+          }
+        ]
+      },
+      "loginId": "LG009",
+      "temporaryPassword": "abcAdmin123"
+    }
+  ],
+  "hospitalOther": [
+    {"officeId": "6","officeName": "Japanese Red Cross l","otherHandling": true },
+    {"officeId": "7","officeName": "Japanese Red ","otherHandling": true },
+    {"officeId": "8","officeName": "Meijo Hospital","otherHandling": true },
+    {"officeId": "9","officeName": "Meitetsu Hospital","otherHandling": true },
+    {"officeId": "10","officeName": "Nagoya City East","otherHandling": true },
+    {"officeId": "11","officeName": "Nagoya City ","otherHandling": true }
+  ]
+}

@@ -1,0 +1,16 @@
+// import common setting
+@import './../../../assets/styles/import';
+
+.tel-input-wrap {
+  .form-control-tel {
+    width: 4.3rem;
+  }
+  :first-child {
+    .form-control-tel {
+      width: 4.8rem;
+    }
+    .form-control-mobile {
+      width: 3.8rem;
+    }
+  }
+}

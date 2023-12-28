@@ -1,0 +1,280 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents PH0016-->
+
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'RE0010.PAGE_TITLE' | translate"></app-page-head>
+                </div>
+                <ul class="nav nav-tabs" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#aaa" role="tab">薬剤</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#bbb">医療機関・資材</a>
+                  </li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="aaa" role="tabpanel">
+                    <div class="recruit-drug">
+                      <div class="control-bar clearfix mb-3">
+                        <div class="control-bar-left form-inline float-left">
+                          <div class="clearfix pr-0 pr-sm-2 search-bar mb-2 mb-xs-2">
+                            <label class="mb-0 justify-content-start">製品名</label>
+                            <div class="search">
+                              <form>
+                                <input class="search-input" type="text" placeholder="検索">
+                                <button type="submit" class="search-btn">
+                                  <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                          <div class="clearfix select-business pr-0 pr-sm-2 mb-2 mb-xs-2">
+                            <label class="mb-0 justify-content-start">企業名</label>
+                            <select class="form-control w-100">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                            </select>
+                          </div>
+                          <div class="clearfix pt-0 pt-sm-3">
+                            <div>
+                              <label class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">採用製品のみ表示</span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="control-bar-right float-right text-center">
+                          <p class="mb-0 d-none d-sm-block">&nbsp;</p>
+                          <div>
+                            <button class="btn btn-secondary btn-sm px-3 py-2">インポート</button>
+                            <button class="btn btn-secondary btn-sm px-3 py-2">ダウンロード</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="clearfix btn-control mb-3">
+                        <div class="float-left btn-lst d-sm-flex d-block mb-3">
+                          <button class="btn btn-secondary text-primary">あ</button>
+                          <button class="btn btn-secondary text-primary">か</button>
+                          <button class="btn btn-secondary text-primary">さ</button>
+                          <button class="btn btn-secondary text-primary">た</button>
+                          <button class="btn btn-secondary text-primary">な</button>
+                          <button class="btn btn-secondary text-primary">は</button>
+                          <button class="btn btn-secondary text-primary">ま</button>
+                          <button class="btn btn-secondary text-primary">や</button>
+                          <button class="btn btn-secondary text-primary">ら</button>
+                          <button class="btn btn-secondary text-primary">わ</button>
+                          <button class="btn btn-secondary text-primary">他</button>
+                        </div>
+                        <div class="float-right btn-all mb-3"><button class="btn btn-primary">保存</button></div>
+                      </div>
+                    </div>
+                    <table class="table table-striped table-bordered tabl-recruit">
+                      <thead class="thead-inverse hidden-md-down">
+                        <tr>
+                          <th class="tbl-check">採用薬</th>
+                          <th class="tbl-name">製品名</th>
+                          <th class="tbl-comp">企業名企</th>
+                          <th class="tbl-code">YJコード</th>
+                          <th class="tbl-use">採用区分</th>
+                          <th class="tbl-date">採用日</th>
+                          <th class="tbl-endDate">終了日</th>
+                        </tr>
+                      </thead>
+                      <tbody class="tbody-inverse">
+                        <tr>
+                          <th class="hidden-lg-up">採用薬</th>
+                          <td class="tbl-check text-left text-md-center">
+                            <label class="custom-control custom-checkbox mb-0 mr-0">
+                              <input type="checkbox" class="custom-control-input">
+                              <span class="custom-control-indicator"></span>
+                              <span class="custom-control-description"></span>
+                            </label>
+                          </td>
+                          <th class="hidden-lg-up">製品名</th>
+                          <td class="tbl-name">製品名製品名製品名製品名 200mg</td>
+                          <th class="hidden-lg-up">企業名企</th>
+                          <td class="tbl-comp">ABC企業名企</td>
+                          <th class="hidden-lg-up">YJコード</th>
+                          <td class="tbl-code">6142001F2038</td>
+                          <th class="hidden-lg-up">採用区分</th>
+                          <td class="tbl-use">
+                          	<select class="form-control" id="exampleSelect1">
+												      <option>採用1</option>
+												      <option>採用2</option>
+												      <option>採用3</option>
+												      <option>採用4</option>
+												      <option>採用5</option>
+												    </select>
+                          </td>
+                          <th class="hidden-lg-up">採用日</th>
+                          <td class="tbl-date">2018/03/01</td>
+                          <th class="hidden-lg-up">終了日</th>
+                          <td class="tbl-endDate">-</td>
+                        </tr>
+                        <tr>
+                          <td class="tbl-check text-left text-md-center">
+                            <label class="custom-control custom-checkbox mb-0 mr-0">
+                              <input type="checkbox" class="custom-control-input">
+                              <span class="custom-control-indicator"></span>
+                              <span class="custom-control-description"></span>
+                            </label>
+                          </td>
+                          <th class="hidden-lg-up">製品名</th>
+                          <td class="tbl-name">製品名製品名製品名製品名 200mg</td>
+                          <th class="hidden-lg-up">企業名企</th>
+                          <td class="tbl-comp">ABC企業名企</td>
+                          <th class="hidden-lg-up">YJコード</th>
+                          <td class="tbl-code">6142001F2038</td>
+                          <th class="hidden-lg-up">採用区分</th>
+                          <td class="tbl-use">
+                          	<select class="form-control" id="exampleSelect1">
+												      <option>採用1</option>
+												      <option>採用2</option>
+												      <option>採用3</option>
+												      <option>採用4</option>
+												      <option>採用5</option>
+												    </select>
+                          </td>
+                          <th class="hidden-lg-up">採用日</th>
+                          <td class="tbl-date">2018/03/01</td>
+                          <th class="hidden-lg-up">終了日</th>
+                          <td class="tbl-endDate">2018/03/01</td>
+                        </tr>
+                        <tr>
+                          <td class="tbl-check text-left text-md-center">
+                            <label class="custom-control custom-checkbox mb-0 mr-0">
+                              <input type="checkbox" class="custom-control-input">
+                              <span class="custom-control-indicator"></span>
+                              <span class="custom-control-description"></span>
+                            </label>
+                          </td>
+                          <th class="hidden-lg-up">製品名</th>
+                          <td class="tbl-name">製品名製品名製品名製品名 200mg</td>
+                          <th class="hidden-lg-up">企業名企</th>
+                          <td class="tbl-comp">ABC企業名企</td>
+                          <th class="hidden-lg-up">YJコード</th>
+                          <td class="tbl-code">6142001F2038</td>
+                          <th class="hidden-lg-up">採用区分</th>
+                          <td class="tbl-use">
+                          	<select class="form-control" id="exampleSelect1">
+											      <option>採用1</option>
+											      <option>採用2</option>
+											      <option>採用3</option>
+											      <option>採用4</option>
+											      <option>採用5</option>
+											    </select>
+                          </td>
+                          <th class="hidden-lg-up">採用日</th>
+                          <td class="tbl-date">2018/03/01</td>
+                          <th class="hidden-lg-up">終了日</th>
+                          <td class="tbl-endDate">-</td>
+                        </tr>
+                        <tr>
+                          <td class="tbl-check text-left text-md-center">
+                            <label class="custom-control custom-checkbox mb-0 mr-0">
+                              <input type="checkbox" class="custom-control-input">
+                              <span class="custom-control-indicator"></span>
+                              <span class="custom-control-description"></span>
+                            </label>
+                          </td>
+                          <th class="hidden-lg-up">製品名</th>
+                          <td class="tbl-name">製品名製品名製品名製品名 200mg</td>
+                          <th class="hidden-lg-up">企業名企</th>
+                          <td class="tbl-comp">ABC企業名企</td>
+                          <th class="hidden-lg-up">YJコード</th>
+                          <td class="tbl-code">6142001F2038</td>
+
+                          <th class="hidden-lg-up">採用区分</th>
+                          <td class="tbl-use">
+                          	<select class="form-control" id="exampleSelect1">
+											      <option>採用1</option>
+											      <option>採用2</option>
+											      <option>採用3</option>
+											      <option>採用4</option>
+											      <option>採用5</option>
+											    </select>
+                          </td>
+
+                          <th class="hidden-lg-up">採用日</th>
+                          <td class="tbl-date">2018/03/01</td>
+                          <th class="hidden-lg-up">終了日</th>
+                          <td class="tbl-endDate">2018/03/01</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="tab-pane tab-selec-drug" id="bbb" role="tabpanel">
+                    <div class="select-content mb-4">
+                      <p class="text-center">採用薬を公開する範囲をチェックしてください</p>
+                      <div class="select-container select-dr-pr mb-4">
+                        <div class="select-search p-2">
+                          <div class="search">
+                            <input class="search-input" type="text" placeholder="事業所名を検索">
+                            <button type="button" class="search-btn">
+                              <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                        </div><!-- //select-search-->
+                        <div class="select-container-drag pt-3 pb-1">
+                          <ul class="lst-drug px-3">
+                            <li>
+                              <label class="custom-control custom-checkbox mb-0">
+                                <input type="checkbox" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">メンバーを一括選択</span>
+                              </label>
+                            </li>
+                            <li>
+                              <label class="custom-control custom-checkbox mb-0">
+                                <input type="checkbox" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">メンバーを</span>
+                              </label>
+                            </li>
+                          </ul>
+                        </div><!-- //select-container-drag -->
+                      </div><!-- //select-dr-pr -->
+                      <div class="text-center"><button class="btn btn-primary">保存</button></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-xl-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

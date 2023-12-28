@@ -1,0 +1,45 @@
+{
+  "statistical": [{
+      "staffId": "45egeagra",
+      "staffName": "山田 真由子",
+      "department": {
+        "departmentID": "59fc998a03a287147845ce6b",
+        "departmentName": "Khoa xét nghiệm",
+        "parentDepartmentName": null,
+        "path": "/Khoa răng hàm mặt/",
+        "listChildren": null
+      },
+      "countMettings": 464,
+      "countTimeMettings": 3456654,
+      "countStaff": 24457
+    },
+    {
+      "staffId": "45egeagra",
+      "staffName": "山田 真由子",
+      "department": {
+        "departmentID": "59fc998a03a287147845ce6b",
+        "departmentName": "Khoa xét nghiệm",
+        "parentDepartmentName": null,
+        "path": "/Khoa xét nghiệm/",
+        "listChildren": null
+      },
+      "countMettings": 25464,
+      "countTimeMettings": 1654,
+      "countStaff": 885457
+    },
+    {
+      "staffId": "45egeagra",
+      "staffName": "山田 真由子",
+      "department": {
+        "departmentID": "59fc998a03a287147845ce6b",
+        "departmentName": "Khoa xét nghiệm",
+        "parentDepartmentName": null,
+        "path": "/Khoa xét nghiệm/",
+        "listChildren": null
+      },
+      "countMettings": 256264,
+      "countTimeMettings": 645654,
+      "countStaff": 454527
+    }
+  ]
+}

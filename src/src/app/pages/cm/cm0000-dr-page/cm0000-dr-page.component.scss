@@ -1,0 +1,29 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+
+.title-head {
+  .logo {
+    width: 172px;
+    fill: #f18d00;
+    height: 35px;
+  }
+}
+
+.regulation-content {
+  background: #eee;
+  padding: 20px 20px 10px;
+  .regulation-content-txt {
+    background: #fff;
+    white-space: pre-line;
+    overflow-y: auto;
+    max-height: calc(100vh - 350px);
+  }
+}
+
+.custom-control-indicator.has-danger {
+  border: 1px solid #d21d29;
+}
+
+span.border-red {
+  border: 1px solid #D21D29;
+}

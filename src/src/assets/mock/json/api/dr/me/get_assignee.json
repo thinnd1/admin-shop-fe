@@ -1,0 +1,67 @@
+{
+  "addressDrugs": "addressDrugs",
+  "avatar": "avatar",
+  "blockStatus": false,
+  "companyName": "companyName",
+  "department": "department テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテテキストテキストテキストテキストテキストテキストテテキストテキストテキストテキストテキストテキストテテキストテキストテキストテキストテキストテキストテ",
+  "emergencyContact": "emergencyContact || 000-000-000",
+  "firstName": "修三",
+  "firstNameKana": "しゅうぞう",
+  "genderType": 0,
+  "handleDrugs": [
+    "handleDrugs",
+    "テキスト1",
+    "テキスト2",
+    "テキスト3",
+    "テキスト4",
+    "テキスト5",
+    "テキスト6"
+  ],
+  "handleFields": [
+    "テキスト1",
+    "テキスト2",
+    "テキスト3",
+    "テキスト4",
+    "テキスト5",
+    "テキスト6",
+    "テキスト7"
+  ],
+  "handleOffices": [
+    {
+      "medicalOfficeId": "handleOffices1",
+      "medicalOfficeName": "handleOffices1"
+    },
+    {
+      "medicalOfficeId": "handleOffices2",
+      "medicalOfficeName": "テキスト2"
+    },
+    {
+      "medicalOfficeId": "handleOffices3",
+      "medicalOfficeName": "テキスト3"
+    },
+    {
+      "medicalOfficeId": "handleOffices4",
+      "medicalOfficeName": "テキスト4"
+    },
+    {
+      "medicalOfficeId": "handleOffices5",
+      "medicalOfficeName": "テキスト5"
+    },
+    {
+      "medicalOfficeId": "handleOffices6",
+      "medicalOfficeName": "テキスト6"
+    }
+  ],
+  "hobby": "hobby この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、",
+  "industryType": "industryType 製薬企業(MR)",
+  "lastName": "松本",
+  "lastNameKana": "まつもと",
+  "numYearExperience": 4,
+  "officeAddress": "officeAddress テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテテキストテキストテキストテキストテキストテキストテ",
+  "officeName": "officeName テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテテキストテキストテキストテキストテキストテキストテ",
+  "pharmacyGraduated": false,
+  "phoneOffice": "000-000-000",
+  "placeBirth": "placeBirth この文章はダミーです。文字の大",
+  "selfPR": "selfPR テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテテキストテキストテキストテキストテキストテキストテテキストテキストテキストテキストテキストテキストテテキストテキストテキストテキストテキストテキストテテキストテキストテキストテキストテキストテキストテテキストテキストテキストテキストテキストテキストテ",
+  "status": "status"
+}

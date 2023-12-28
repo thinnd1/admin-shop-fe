@@ -1,0 +1,803 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner unspecified-width">
+            <div class="row">
+
+              <div class="col">
+
+                <div class="page-head">
+                  <app-page-head [title]="'ME0025.TITLE' | translate"></app-page-head>
+
+                </div>
+                <ul class="nav nav-tabs nav-tabs-responsive mb-4" role="tablist">
+                  <li class="nav-item active" (click)="changeTab(1)">
+                    <a class="nav-link active" href="#tab-content1" role="tab" data-toggle="tab" aria-expanded="true">
+                      <span class="text">{{'ME0024.VISITING_STATUS' | translate}}</span>
+                    </a>
+                  </li>
+                  <li class="nav-item next" (click)="changeTab(2)">
+                    <a class="nav-link" href="#tab-content2" role="tab" data-toggle="tab">
+                      <span class="text">{{'ME0024.TOTAL_BY_COMPANY' | translate}}</span>
+                    </a>
+                  </li>
+                  <li class="nav-item" (click)="changeTab(3)">
+                    <a class="nav-link" href="#tab-content3" role="tab" data-toggle="tab">
+                      <span class="text">{{'ME0024.TOTAL_BY_STAFF' | translate}}</span>
+                    </a>
+                  </li>
+                  <li class="nav-item" (click)="changeTab(4)">
+                    <a class="nav-link" href="#tab-content4" role="tab" data-toggle="tab">
+                      <span class="text">{{'ME0024.DATA_DOWNLOAD' | translate}}</span>
+                    </a>
+                  </li>
+                </ul>
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane active" id="tab-content1">
+                    <div class="controlTop-btn mb-5 clearfix">
+                      <div class="control-btn-left float-left clearfix print-left">
+                        <button class="btn btn-primary float-left mr-3" (click)="getHistoryNow()" type="button">{{'INFO_PANEL.TODAY' | translate}}</button>
+                        <div class="control-btn-group float-left mr-3 clearfix">
+                          <button class="btn btn-secondary control-btn-prev float-left" (click)="getAddHistoryNow(-1)" type="button">
+                            <i class="fa fa-angle-left fs20"></i>
+                          </button>
+                          <button class="btn btn-secondary control-btn-next float-left" (click)="getAddHistoryNow(1)" type="button">
+                            <i class="fa fa-angle-right fs20"></i>
+                          </button>
+                        </div>
+                        <div class="control-btn-group float-left mr-3 clearfix" (clickOutside)="d.close()">
+                          <button class="btn btn-secondary custom-calendar" (click)="d.toggle()" type="button">
+                            <i class="fa fa-calendar fs20" aria-hidden="true"></i>
+                          </button>
+                          <div class="clearfix">
+                            <input class="mb-5" name="historyday" [(ngModel)]="historyday" (ngModelChange)="getHistoryOfDay($event)" ngbDatepicker #d="ngbDatepicker">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="control-calendar text-center fs26 clearfix">{{ dateNow | timePipe : 'YYYY年MM月DD日(date)'}}</div>
+                      <div class="control-btn-right float-right print-left">
+                        <button class="btn btn-secondary control-btn-csv font-weight-bold mr-2"
+                          (click)="exportCSVStatusMeetings(1)" type="button">csv</button>
+                        <button class="btn btn-secondary control-btn-print" (click)="printPage()"
+                          type="button">
+                          <i class="fa fa fa-print fs20"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="table-theme">
+                      <table class="table table-striped table-bordered table-daily">
+                        <thead class="thead-inverse hidden-xs-down">
+                          <tr>
+                            <th class="table-col-1 text-center">{{'ME0024.ENTRY' | translate}}</th>
+                            <th class="table-col-2 text-center">{{'ME0024.RETIRED' | translate}}</th>
+                            <th class="table-col-3 text-center">{{'ME0024.VISITING_HOURS' | translate}}</th>
+                            <th class="table-col-4 text-center">{{'ME0024.OFFICE' | translate}}</th>
+                            <th class="table-col-5 text-center">{{'ME0024.STAFF' | translate}}</th>
+                            <th class="table-col-6 text-center">{{'ME0024.PURPOSE_OF_MEETING' | translate}}</th>
+                            <th class="table-col-7 text-center">{{'ME0024.NUMBER' | translate}}</th>
+                            <th class="table-col-8 text-center">{{'ME0024.VISITING_PLACE' | translate}}</th>
+                            <!--<th class="table-col-9 text-center">報告</th>-->
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let lsHis of model['getStatusMeetingList']">
+                            <th class="hidden-sm-up">{{'ME0024.ENTRY' | translate}}</th>
+                            <td class="table-col-1">{{lsHis?.entering | timePipe : 'HH:mm'}}</td>
+                            <th class="hidden-sm-up">{{'ME0024.RETIRED' | translate}}</th>
+                            <td class="table-col-2">{{lsHis?.leaving | timePipe : 'HH:mm'}}</td>
+                            <th class="hidden-sm-up">{{'ME0024.VISITING_HOURS' | translate}}</th>
+                            <td class="table-col-3">{{lsHis?.timeMeeting}}</td>
+                            <th class="hidden-sm-up">{{'ME0024.OFFICE' | translate}}</th>
+                            <td class="align-middle table-col-4">
+                              <div class="table-user-item d-flex">
+                                <div class="user-item pr-1 d-flex">
+                                  <div class="table-user-img d-flex align-items-center mr-1">
+                                    <app-face-icon
+                                      [userInfo]="{lastName: lsHis?.visitorName, firstName:'' ,imageUrl: lsHis?.visitorImageUrl }"
+                                      [iconSize]="40"></app-face-icon>
+                                  </div>
+                                  <div class="table-user-info user-name fs12 py-1">
+                                    <p class="table-user-name-small mb-0 font-weight-bold">{{ lsHis?.visitorName }}</p>
+                                    <p class="table-user-name-big mb-0">{{ lsHis?.visitorOfficeName }}</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <th class="hidden-sm-up">スタッフ</th>
+                            <td class="align-middle table-col-5">
+                              <div class="table-user-item d-flex">
+                                <div class="user-item pr-1 d-flex">
+                                  <div class="table-user-img d-flex align-items-center mr-1">
+                                    <app-face-icon
+                                      [userInfo]="{lastName: lsHis?.staffName, firstName:'' ,imageUrl: lsHis?.staffImageUrl }"
+                                      [iconSize]="40"></app-face-icon>
+                                  </div>
+                                  <div class="table-user-info user-name fs12 py-1">
+                                    <p class="table-user-name-small mb-0 font-weight-bold">{{ lsHis?.staffName }}</p>
+                                    <p class="table-user-name-big mb-0">{{ lsHis?.staffSpecializeDepartment }}</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <th class="hidden-sm-up">{{'ME0024.PURPOSE_OF_MEETING' | translate}}</th>
+                            <td class="linebreak table-col-6">{{ lsHis?.purpose}}</td>
+                            <th class="hidden-sm-up">{{'ME0024.NUMBER' | translate}}</th>
+                            <td class="table-col-7">{{ lsHis.visitorNumber }}</td>
+                            <th class="hidden-sm-up" >{{'ME0024.VISITING_PLACE' | translate}}</th>
+                            <td class="linebreak table-col-8">{{ lsHis?.place}}</td>
+                            <!--<th class="hidden-sm-up">報告</th>-->
+                            <!--<td class="text-center">-->
+                              <!--<a href="#">-->
+                                <!--<i class="fa fa-file-text-o"></i>-->
+                              <!--</a>-->
+                            <!--</td>-->
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane" id="tab-content2">
+                    <div class="controlTop-btn mb-5 clearfix">
+                      <div class="control-btn-left float-left clearfix print-left">
+                        <button class="btn btn-primary float-left mr-3" (click)="getHistoryNow()" type="button">{{'ME0024.THIS_MONTH' | translate}}</button>
+                        <div class="control-btn-group float-left mr-3 clearfix">
+                          <button class="btn btn-secondary control-btn-prev float-left" (click)="getAddHistoryNow(-1)" type="button">
+                            <i class="fa fa-angle-left fs20"></i>
+                          </button>
+                          <button class="btn btn-secondary control-btn-next float-left" (click)="getAddHistoryNow(1)" type="button">
+                            <i class="fa fa-angle-right fs20"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="control-btn-right float-right print-left">
+                        <button class="btn btn-secondary control-btn-csv font-weight-bold mr-2" (click)="exportCSVStatusMeetings(2)" type="button">csv</button>
+                        <button class="btn btn-secondary control-btn-print" type="button" (click)="printPage()">
+                          <i class="fa fa fa-print fs20"></i>
+                        </button>
+                      </div>
+                      <div class="control-calendar text-center fs26">{{dateNow | timePipe : 'YYYY年M月'}}</div>
+                    </div>
+                    <p class="mb-3">※{{'ME0024.DATA' | translate}}</p>
+                    <div *ngIf="flagAggre" class="table-theme ">
+                      <table class="table table-bordered table-striped table-total-visit">
+                        <thead class="thead-inverse hidden-xs-down">
+                          <tr>
+                            <th class="table-col-1" (click)="orderBy('officeName')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.BUSINESS_NAME' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'officeName' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up  {{(column === 'officeName' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <th (click)="orderBy('visitorNumber')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.NUMBER_OF_VISITORS' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'visitorNumber' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'visitorNumber' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <th (click)="orderBy('meetingNumber')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.NUMBER_OF_VISIT' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'meetingNumber' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'meetingNumber' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <th (click)="orderBy('totalDuration')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.TOTAL_MEETING_HOURS' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'totalDuration' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'totalDuration' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <th (click)="orderBy('staffNumber')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.NUMBER_OF_STAFF_VISITED' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'staffNumber' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'staffNumber' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                          </tr>
+                        </thead>
+                        <!--企業別集計（月別）レスポンシブ-->
+                        <tbody>
+                          <tr *ngFor="let aggre of modelAggregation" (click)="getDetailAggregationSettings(aggre, $event)">
+                            <th class="hidden-sm-up" (click)="orderBy('officeName')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.BUSINESS_NAME' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'officeName' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up  {{(column === 'officeName' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <td>{{aggre?.officeName}}</td>
+                            <th class="hidden-sm-up" (click)="orderBy('visitorNumber')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.NUMBER_OF_VISITORS' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'visitorNumber' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'visitorNumber' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <td>{{aggre?.visitorNumber}}{{'CM0012.PEOPLE' | translate}}</td>
+                            <th class="hidden-sm-up" (click)="orderBy('meetingNumber')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.NUMBER_OF_VISIT' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'meetingNumber' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'meetingNumber' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <td>{{aggre?.meetingNumber}}{{'ME0024.TIME' | translate}}</td>
+                            <th class="hidden-sm-up" (click)="orderBy('totalDuration')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.TOTAL_MEETING_HOURS' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'totalDuration' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'totalDuration' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <td>{{aggre?.totalDuration | formatNumber}}{{'ME0024.MINUTE' | translate}}</td>
+                            <th class="hidden-sm-up" (click)="orderBy('staffNumber')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.NUMBER_OF_STAFF_VISITED' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'staffNumber' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'staffNumber' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <td>{{aggre?.staffNumber}}{{'CM0012.PEOPLE' | translate}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- <details> -->
+                    <div *ngIf="flagDetail" class="table-theme">
+                      <table class="table table-bordered table-striped table-theme-detail">
+                        <thead class="thead-inverse hidden-xs-down">
+                          <tr>
+                            <th class="table-col-1" (click)="orderBy('start')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.VISITATION_DATE' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'start' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'start' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <th class="table-col-2" (click)="orderBy('visitorName')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.COMPANY_NAME' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'visitorName' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'visitorName' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <th class="table-col-3" (click)="orderBy('staffName')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.STAFF_WHO_VISITED' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'staffName' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'staffName' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <th class="table-col-4" (click)="orderBy('meetingPurpose')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.PURPOSE_OF_MEETING' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'meetingPurpose' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'meetingPurpose' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <th class="table-col-5" (click)="orderBy('visitorNumber')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.NUMBER' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'visitorNumber' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'visitorNumber' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <th class="table-col-6" (click)="orderBy('place')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.VISITING_PLACE' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'place' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'place' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let detail of modelDetail">
+                            <th class="hidden-sm-up" (click)="orderBy('start')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.VISITATION_DATE' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'start' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'start' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <td class="align-middle table-col-1">
+                              <p class="mb-1">{{detail?.date}}</p>
+                              <p class="mb-0">{{detail?.meetingTime}}</p>
+                            </td>
+                            <th class="hidden-sm-up" (click)="orderBy('visitorName')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.COMPANY_NAME' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'visitorName' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'visitorName' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <td class="align-middle table-col-2">
+                              <div class="table-user-item d-flex">
+                                <div class="user-item pr-1 d-flex">
+                                  <div class="table-user-img d-flex align-items-center mr-1">
+                                    <app-face-icon
+                                      [userInfo]="{lastName: detail?.visitorLastName, firstName:detail?.visitorFirstName ,imageUrl: detail?.visitorImageUrl }"
+                                      [iconSize]="40"></app-face-icon>
+                                  </div>
+                                  <div class="table-user-info user-name fs12 py-1">
+                                    <p class="table-user-name-small mb-0 font-weight-bold">{{detail?.visitorLastName}} {{detail?.visitorFirstName}}</p>
+                                    <p class="table-user-name-big mb-0">{{detail?.visitorOfficeName}}</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <th class="hidden-sm-up" (click)="orderBy('staffName')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.STAFF_WHO_VISITED' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'staffName' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'staffName' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <td class="align-middle table-col-3">
+                              <div class="table-user-item d-flex">
+                                <div class="user-item pr-1 d-flex">
+                                  <div class="table-user-img d-flex align-items-center mr-1">
+                                    <app-face-icon
+                                      [userInfo]="{lastName: detail?.staffLastName, firstName:detail?.staffFirstName ,imageUrl: detail?.staffImageUrl }"
+                                      [iconSize]="40"></app-face-icon>
+                                  </div>
+                                  <div class="table-user-info user-name fs12 py-1">
+                                    <p class="table-user-name-small mb-0 font-weight-bold">{{detail?.staffLastName}} {{detail?.staffFirstName}}</p>
+                                    <p class="table-user-name-big mb-0">{{detail?.staffTypeName}}</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <th class="hidden-sm-up" (click)="orderBy('meetingPurpose')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.PURPOSE_OF_MEETING' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'meetingPurpose' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'meetingPurpose' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <td class="align-middle linebreak table-col-4" >{{detail?.meetingPurpose}}</td>
+                            <th class="hidden-sm-up" (click)="orderBy('visitorNumber')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.NUMBER' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'visitorNumber' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'visitorNumber' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <td class="align-middle table-col-5">{{detail?.visitorNumber}}</td>
+                            <th class="hidden-sm-up" (click)="orderBy('place')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.VISITING_PLACE' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'place' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'place' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <td class="align-middle linebreak table-col-6">{{detail?.place}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!--</details> -->
+                  </div>
+
+                  <div role="tabpanel" class="tab-pane" id="tab-content3">
+                    <div class="controlTop-btn mb-5 clearfix">
+                      <div class="control-btn-left float-left clearfix print-left">
+                        <button class="btn btn-primary float-left mr-3" (click)="getHistoryNow()" type="button">{{'ME0024.THIS_MONTH' | translate}}</button>
+                        <div class="control-btn-group float-left mr-3 clearfix">
+                          <button class="btn btn-secondary control-btn-prev float-left" (click)="getAddHistoryNow(-1)" type="button">
+                            <i class="fa fa-angle-left fs20"></i>
+                          </button>
+                          <button class="btn btn-secondary control-btn-next float-left" (click)="getAddHistoryNow(1)" type="button">
+                            <i class="fa fa-angle-right fs20"></i>
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="control-btn-right float-right print-left">
+                        <button class="btn btn-secondary control-btn-csv font-weight-bold mr-2" (click)="exportCSVStatusMeetings(3)" type="button">csv</button>
+                        <button class="btn btn-secondary control-btn-print" type="button" (click)="printPage()">
+                          <i class="fa fa fa-print fs20"></i>
+                        </button>
+                      </div>
+                      <div class="control-calendar text-center fs26">{{dateNow | timePipe : 'YYYY年M月'}}</div>
+                    </div>
+                    <p class="mb-3">※{{'ME0024.DATA' | translate}}</p>
+                    <div *ngIf="flagAggre" class="table-theme">
+                      <table class="table table-bordered table-striped table-total-staff">
+                        <thead class="thead-inverse hidden-xs-down">
+                          <tr>
+                            <th class="table-col-1" (click)="orderBy('staffName')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.STAFF_NAME' | translate}}</div>
+                                <div class="sort-arrow" >
+                                  <span class="arrow float-right down {{(column === 'staffName' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'staffName' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <th class="table-col-2" (click)="orderBy('department')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.BELONGS_TO' | translate}}</div>
+                                <div class="sort-arrow" >
+                                  <span class="arrow float-right down {{(column === 'department' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'department' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <th class="table-col-3" (click)="orderBy('meetingNumber')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.NUMBER_OF_VISIT' | translate}}</div>
+                                <div class="sort-arrow" >
+                                  <span class="arrow float-right down {{(column === 'meetingNumber' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'meetingNumber' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <th class="table-col-4" (click)="orderBy('totalDuration')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.TOTAL_MEETING_HOURS' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'totalDuration' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'totalDuration' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <th class="table-col-5" (click)="orderBy('visitorNumber')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.NUMBER_OF_DEALERS_VISITED' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'visitorNumber' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'visitorNumber' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                          </tr>
+                        </thead>
+                        <!--スタッフ別集計（月別）レスポンシブ-->
+                        <tbody>
+                          <tr *ngFor="let model of modelAggregation;" (click)="getDetailAggregationSettings(model)">
+                            <th class="hidden-sm-up" (click)="orderBy('staffName')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.STAFF_NAME' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'staffName' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'staffName' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <td class="table-col-1">{{model?.staffName}}</td>
+                            <th class="hidden-sm-up" (click)="orderBy('department')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.BELONGS_TO' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'department' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'department' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <td class="table-col-2">{{model?.departmentPath}}</td>
+                            <th class="hidden-sm-up" (click)="orderBy('meetingNumber')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.NUMBER_OF_VISIT' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'meetingNumber' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'meetingNumber' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <td class="table-col-3">{{model?.meetingNumber}}{{'ME0024.TIME' | translate}}</td>
+                            <th class="hidden-sm-up" (click)="orderBy('totalDuration')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.TOTAL_MEETING_HOURS' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'totalDuration' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'totalDuration' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <td class="table-col-4">{{model?.totalDuration | formatNumber}}{{'ME0024.MINUTE' | translate}}</td>
+                            <th class="hidden-sm-up" (click)="orderBy('visitorNumber')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.NUMBER_OF_DEALERS_VISITED' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'visitorNumber' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'visitorNumber' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <td class="table-col-5">{{model?.visitorNumber}}人</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div *ngIf="flagDetail" class="table-theme">
+                      <table class="table table-bordered table-striped table-theme-detail">
+                        <thead class="thead-inverse hidden-xs-down">
+                          <tr>
+                            <th class="table-col-1" (click)="orderBy('start')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.VISITATION_DATE' | translate}}</div>
+                                <div class="sort-arrow" >
+                                  <span class="arrow float-right down {{((column === 'start') && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{((column === 'start') && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <th class="table-col-2" (click)="orderBy('staffName')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.STAFF_WHO_VISITED' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'staffName' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'staffName' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <th class="table-col-3" (click)="orderBy('visitorName')">
+                              <div class="table-title d-flex align-items-center" >
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.COMPANY_NAME' | translate}}</div>
+                                <div class="sort-arrow" >
+                                  <span class="arrow float-right down {{(column === 'visitorName' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'visitorName' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <th class="table-col-4" (click)="orderBy('meetingPurpose')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.PURPOSE_OF_MEETING' | translate}}</div>
+                                <div class="sort-arrow" >
+                                  <span class="arrow float-right down {{(column === 'meetingPurpose' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'meetingPurpose' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <th class="table-col-5" (click)="orderBy('visitorNumber')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.NUMBER' | translate}}</div>
+                                <div class="sort-arrow" >
+                                  <span class="arrow float-right down {{(column === 'visitorNumber' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'visitorNumber' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <th class="table-col-6" (click)="orderBy('place')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.VISITING_PLACE' | translate}}</div>
+                                <div class="sort-arrow" >
+                                  <span class="arrow float-right down {{(column === 'place' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'place' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let detail of modelDetail">
+                            <th class="hidden-sm-up" (click)="orderBy('start')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.VISITATION_DATE' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{((column === 'start') && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{((column === 'start') && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <td class="text-center align-middle table-col-1">
+                              <p class="mb-1">{{detail?.date}}</p>
+                              <p class="mb-0">{{detail?.meetingTime}}</p>
+                            </td>
+                            <th class="hidden-sm-up" (click)="orderBy('staffName')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.STAFF_WHO_VISITED' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'staffName' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'staffName' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <td class="align-middle table-col-2">
+                              <div class="table-user-item d-flex">
+                                <div class="user-item pr-1 d-flex">
+                                  <div class="table-user-img d-flex align-items-center mr-1">
+                                    <app-face-icon
+                                      [userInfo]="{lastName: detail?.staffLastName, firstName:detail?.staffFirstName ,imageUrl: detail?.staffImageUrl }"
+                                      [iconSize]="40"></app-face-icon>
+                                  </div>
+                                  <div class="table-user-info user-name fs12 py-1">
+                                    <p class="table-user-name-small mb-0 font-weight-bold">{{detail?.staffLastName}} {{detail?.staffFirstName}}</p>
+                                    <p class="table-user-name-big mb-0">{{detail?.staffTypeName}}</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <th class="hidden-sm-up" (click)="orderBy('visitorName')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.COMPANY_NAME' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'visitorName' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'visitorName' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <td class="align-middle table-col-3">
+                              <div class="table-user-item d-flex">
+                                <div class="user-item pr-1 d-flex">
+                                  <div class="table-user-img d-flex align-items-center mr-1">
+                                    <app-face-icon
+                                      [userInfo]="{lastName: detail?.visitorLastName, firstName:detail?.visitorFirstName ,imageUrl: detail?.visitorImageUrl }"
+                                      [iconSize]="40"></app-face-icon>
+                                  </div>
+                                  <div class="table-user-info user-name fs12 py-1">
+                                    <p class="table-user-name-small mb-0 font-weight-bold">{{detail?.visitorLastName}} {{detail?.visitorFirstName}}</p>
+                                    <p class="table-user-name-big mb-0">{{detail?.visitorOfficeName}}</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <th class="hidden-sm-up" (click)="orderBy('meetingPurpose')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.PURPOSE_OF_MEETING' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'meetingPurpose' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'meetingPurpose' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <td class="align-middle linebreak table-col-4">{{detail?.meetingPurpose}}</td>
+                            <th class="hidden-sm-up" (click)="orderBy('visitorNumber')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.NUMBER' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'visitorNumber' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'visitorNumber' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <td class="text-center align-middle table-col-5">{{detail?.visitorNumber}}</td>
+                            <th class="hidden-sm-up" (click)="orderBy('place')">
+                              <div class="table-title d-flex align-items-center">
+                                <div class="table-title-text mr-auto text-nowrap">{{'ME0024.VISITING_PLACE' | translate}}</div>
+                                <div class="sort-arrow">
+                                  <span class="arrow float-right down {{(column === 'place' && !isDesc) ? 'active' : ''}}">&darr;</span>
+                                  <span class="arrow float-right up {{(column === 'place' && isDesc) ? 'active' : ''}}">&uarr;</span>
+                                </div>
+                              </div>
+                            </th>
+                            <td class="align-middle linebreak table-col-6">{{detail?.place}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane" id="tab-content4">
+                    <div class="table-theme">
+                      <table class="table table-bordered table-striped table-download">
+                        <thead class="thead-inverse hidden-xs-down">
+                          <tr>
+                            <th class="text-center table-col-1">{{'ME0024.ITEM_NAME' | translate}}</th>
+                            <th class="text-center table-col-2">{{'ME0024.PERIOD' | translate}}</th>
+                            <th class="text-center table-col-3">{{'ME0024.DOWNLOAD' | translate}}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th class="hidden-sm-up">{{'ME0024.ITEM_NAME' | translate}}</th>
+                            <td class="align-middle text-center table-col-1">{{'ME0024.VISITING_STATUS_ENTRY' | translate}}</td>
+                            <th class="hidden-sm-up">{{'ME0024.PERIOD' | translate}}</th>
+                            <td class="align-middle text-center table-col-2">
+                              <div class="form-inline data-calendar-wrap justify-content-center">
+                                <div class="data-calendar d-flex">
+                                  <label class="mr-0 mr-sm-0">{{'ME0024.START_DATE' | translate}}</label>
+                                  <div class="input-group ml-2">
+                                    <app-date-input [isDisable]="false" [date]="startDate" [dateInputOptions]="{id:'startDate',name:'startDate',outsideDays:false,weekendsDisable:false}"
+                                      (dateChanged)="startDateChanged($event)"></app-date-input>
+                                  </div>
+                                </div>
+                                <span class="p-2">〜</span>
+                                <div class="data-calendar d-flex">
+                                  <label class="mr-0 mr-sm-0">{{'ME0024.END_DATE' | translate}}</label>
+                                  <div class="input-group ml-2">
+                                    <app-date-input [isDisable]="false" [date]="endDate" [dateInputOptions]="{id:'endDate',name:'endDate',outsideDays:false,weekendsDisable:false}"
+                                      (dateChanged)="endDateChanged($event)"></app-date-input>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <th class="hidden-sm-up">{{'ME0024.DOWNLOAD' | translate}}</th>
+                            <td class="align-middle text-center table-col-3">
+                              <button class="btn btn-primary" [disabled]="!userSesson.funcAuthority.FP_3" (click)="getDownloadCsvResponse(1)">{{'ME0024.DOWNLOAD' | translate}}</button>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th class="hidden-sm-up">{{'ME0024.ITEM_NAME' | translate}}</th>
+                            <td class="align-middle text-center">{{'ME0024.CUSTOMER_LIST' | translate}}</td>
+                            <th class="hidden-sm-up">{{'ME0024.PERIOD' | translate}}</th>
+                            <td class="align-middle">
+                            </td>
+                            <th class="hidden-sm-up">{{'ME0024.DOWNLOAD' | translate}}</th>
+                            <td class="align-middle text-center">
+                              <button class="btn btn-primary" [disabled]="!userSesson.funcAuthority.FP_5" (click)="getDownloadCsvResponse(2)">{{'ME0024.DOWNLOAD' | translate}}</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div class="mt-5">{{'ME0024.CSV_DOWNLOAD' | translate}}</div>
+                      <textarea rows="11" cols="150" class="custom-csv w-100 pt-3 pl-2" style="resize: none;outline: none;" readonly="true" [(ngModel)]="modelLog">
+                      </textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

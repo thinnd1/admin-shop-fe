@@ -1,0 +1,159 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents CM0002-->
+              <div class="col">
+                <!-- CM0002 top -->
+                <div *ngIf="currentPage === pageStatus.Top">
+                  <div class="page-head">
+                    <app-page-head [title]="'CM0002.TOP.TITLE' | translate"></app-page-head>
+                  </div>
+
+                  <form (ngSubmit)="onSubmit()" [formGroup]="contactusForm">
+                    <div class="section-border pb-4 mb-5">
+                      <p>{{ 'CM0002.TOP.LEAD' | translate }}</p>
+                      <div class="card-deck">
+                        <div class="card text-center mb-3">
+                          <h4 class="card-header">{{ 'CM0002.TOP.CARD1.HEAD' | translate }}</h4>
+                          <div class="card-block d-flex align-items-center">
+                            <p class="card-text mx-auto">{{ 'CM0002.TOP.CARD1.BODY' | translate }}</p>
+                          </div>
+                        </div>
+                        <div class="card text-center mb-3">
+                          <h4 class="card-header">{{ 'CM0002.TOP.CARD2.HEAD' | translate }}</h4>
+                          <div class="card-block d-flex align-items-center">
+                            <p class="card-text mx-auto">
+                              <a href="mailto:{{ 'CM0002.TOP.CARD2.BODY' | translate }}">{{ 'CM0002.TOP.CARD2.BODY' | translate }}</a>
+                            </p>
+                          </div>
+                        </div>
+                        <div class="card text-center mb-3">
+                          <h4 class="card-header">{{ 'CM0002.TOP.CARD3.HEAD' | translate }}</h4>
+                          <div class="card-block d-flex align-items-center">
+                            <p class="card-text mx-auto preline-text">{{ 'CM0002.TOP.CARD3.BODY' | translate }}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col">
+
+                        <table class="table table-bordered table-contact-from">
+                          <tbody class="tbody-inverse">
+                            <tr>
+                              <th scope="row">{{ 'CM0002.INFO.TITLE1' | translate }}</th>
+                              <td>{{ userSession.officeName }}</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">{{ 'CM0002.INFO.TITLE2' | translate }}</th>
+                              <td>{{ userSession.lastName }} {{ userSession.firstName }} {{ 'HONORIFIC2' | translate }}</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">{{ 'CM0002.INFO.TITLE3' | translate }}<span class="text-danger">{{ 'CM0002.INFO.REQUIRED' | translate }}</span></th>
+                              <td>
+                                <div class="form-group mb-0" [ngClass]="{'has-danger':isError(contactusForm.get('replyMailAddress'))}">
+                                  <span class="col-form-label fs12 text-danger" *ngIf="showError(contactusForm.get('replyMailAddress'))">{{ showErrorMessage('replyMailAddress') }}</span>
+                                  <input type="email" class="form-control" formControlName="replyMailAddress"
+                                         placeholder="{{ 'COMMON_LABEL.INPUT_MAIL_PLACEHOLDER' | translate }}">
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th scope="row">{{ 'CM0002.INFO.TITLE4' | translate }}<span class="text-danger">{{ 'CM0002.INFO.REQUIRED' | translate }}</span></th>
+                              <td>
+                                <div class="form-group mb-0" [ngClass]="{'has-danger':isError(contactusForm.get('contents'))}">
+                                  <span class="col-form-label fs12 text-danger" *ngIf="showError(contactusForm.get('contents'))">{{ showErrorMessage('contents') }}</span>
+                                  <textarea class="form-control" rows="8" formControlName="contents"></textarea>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                        <div class="d-flex justify-content-center my-4">
+                          <button type="submit" class="btn btn-primary">{{ 'BTN.CONFIRM' | translate }}</button>
+                        </div>
+
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <!-- /CM0002 top -->
+
+                <!-- CM0002 detail -->
+                <div *ngIf="currentPage === pageStatus.Detail && detailData">
+                  <div class="page-head">
+                    <app-page-head [title]="'CM0002.DETAIL.TITLE' | translate" [backEvent]="true" (clickBackEvent)="gotoBack()"></app-page-head>
+                  </div>
+
+                  <div class="text-center mb-4">
+                    <h2 class="text-danger">{{ 'CM0002.DETAIL.LEAD' | translate }}</h2>
+                  </div>
+
+                  <div class="row">
+                    <div class="col">
+
+                      <table class="table table-bordered table-contact-from">
+                        <tbody class="tbody-inverse">
+                          <tr>
+                            <th scope="row">{{ 'CM0002.INFO.TITLE1' | translate }}</th>
+                            <td>{{ userSession.officeName }}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">{{ 'CM0002.INFO.TITLE2' | translate }}</th>
+                            <td>{{ userSession.lastName }} {{ userSession.firstName }} {{ 'HONORIFIC2' | translate }}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">{{ 'CM0002.INFO.TITLE3' | translate }}</th>
+                            <td>{{ detailData.replyMailAddress }}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">{{ 'CM0002.INFO.TITLE4' | translate }}</th>
+                            <td class="preline-text">{{ detailData.contents }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <div class="d-flex justify-content-center my-4">
+                        <button type="submit" class="btn btn-primary mx-1" (click)="send()">{{ 'BTN.SEND' | translate }}</button>
+                        <button class="btn btn-secondary mx-1" type="button" (click)="gotoBack()">{{'BTN.CANCEL' | translate}}</button>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+                <!-- /CM0002 detail -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

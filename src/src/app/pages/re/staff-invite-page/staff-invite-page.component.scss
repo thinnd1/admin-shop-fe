@@ -1,0 +1,134 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+
+table{
+  overflow: hidden;
+}
+thead, tbody tr {
+  display:table;
+  width:100%;
+  table-layout:fixed;
+}
+
+#scroll-content {
+  width: 100%;
+  display: block;
+  max-height: 488px;
+  overflow-y: auto;
+  border-bottom: 1px solid #d7d7d7;
+  margin-bottom: 7px;
+}
+#table-staff-invite tr, #table-staff-regist tr{
+  cursor: default;
+}
+.tab-pane{
+  margin-bottom: 40px;
+}
+
+.custom-control {
+  min-height:1rem;
+}
+select.form-control:not([size]):not([multiple]) {
+  padding-top: 0.2rem;
+}
+
+pre {
+  font-family: Meiryo, "\30E1\30A4\30EA\30AA", "MS PGothic", "\FF2D\FF33   \FF30\30B4\30B7\30C3\30AF", "Hiragino Kaku Gothic Pro", "\30D2\30E9\30AE\30CE\89D2\30B4   Pro W3", sans-serif;
+  font-size: inherit;
+  white-space: pre-line
+}
+
+
+/********* Modal *************/
+
+.modal-content-bod {
+  @include border-radius(0);
+  .modal-body-pd {
+    padding: 0;
+  }
+  .group-form-box-title {
+    margin: 0;
+  }
+  .group-form-box {
+    border-bottom: 1px #ccc solid;
+    margin-bottom: 16px;
+    .form-group-fl {
+      padding: 10px 15px;
+      textarea {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+.justify-content-center {
+  button {
+    margin: 0 5px;
+  }
+}
+
+.question-wrap .fa {
+  color: $drjoy-symbol-color;
+  cursor: pointer;
+}
+
+.table-staff-invite {
+  .table-form {
+    margin-bottom: 0;
+    border-spacing: 0 !important;
+  }
+  .form-control-feedback {
+    white-space: normal;
+  }
+}
+
+//@media (max-width: 767px)
+@include media-breakpoint-down(sm) {
+  .select-all {
+    margin-bottom: 1.5rem;
+  }
+  .table-form {
+    tr {
+      //border-bottom: 1px solid #D7D7D7;
+      display: block;
+      margin-bottom: 3rem;
+      &:hover {
+        td {
+          background: none;
+        }
+      }
+    }
+    th {
+      display: block;
+      background: #EEE;
+    }
+    td {
+      display: block;
+      padding-bottom: 1rem;
+      background: #FBFBFB;
+      &.last {
+        width: 100% !important;
+      }
+    }
+    .table-item-close .fa {
+      font-size: 1rem;
+    }
+  }
+  .table-staff-invite th, 
+  .table-staff-invite td {
+    display: block;
+    width: 100% !important;
+  }
+}
+
+//@media (max-width: 575px)
+@include media-breakpoint-down(xs) {
+  .search-group {
+    width: 100%;
+  }
+}
+
+ngb-popover-window .popover-body {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

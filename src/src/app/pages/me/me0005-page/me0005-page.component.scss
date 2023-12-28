@@ -1,0 +1,83 @@
+@import '../../../../assets/styles/_import';
+.table-staff-invite {
+  overflow: auto;
+}
+.text-detail-search {
+	line-height: 24px;
+	.text-Dropdown {
+		color: #3d7fb6;
+	}
+}
+.w-min-40 {
+	min-width: 400px;
+}
+.w-min-60 {
+	min-width: 600px;
+}
+.table-tbl {
+	tr {
+		td {
+			.d-flex-txt-col {
+				color: #75ca2c;
+			}
+			.d-flex-lock {
+				color: #d6d6d6;
+			}
+		}
+	}
+}
+.custom-pin span i{
+  cursor: pointer;
+}
+.pointer {
+  cursor: pointer;
+}
+.disabledScroll {
+  overflow: hidden;
+}
+.select-group {
+	.form-comp {
+		padding:0 1.5%;
+	}
+	.form-control {
+		height: 112px;
+	}
+}
+
+// @media (max-width: 1199px) { ... }
+@include media-breakpoint-down(lg) {
+	.form-comp {
+		padding:0;
+	}
+}
+// Medium devices (tablets, 画面サイズ991px以下)
+// @media (max-width: 991px) { ... }
+@include media-breakpoint-down(md) {
+	.w-min-40,
+	.w-min-60 {
+		min-width: 100%;
+	}
+	.table-tbl {
+		tbody {
+			tr {
+        display: block;
+        margin-bottom: 3rem;
+        border: 1px solid #D7D7D7;
+				th {
+					background: #eee;
+				}
+				th,
+				td {
+					display: block;
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+.table-txt {
+  .text-pr {
+    overflow: hidden;
+    max-height: 55px;
+  }
+}

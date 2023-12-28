@@ -1,0 +1,256 @@
+<div class="page-wrap">
+    <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+      <app-header type="drjoy"></app-header>
+    </nav>
+    <main class="visitor-content-wrap">
+      <div class="container">
+        <div class="row">
+          <div class="col col-main">
+            <div class="col-main-inner unspecified-width">
+              <div class="row">
+                <div class="col col-height">
+                  <!--contents-->
+
+                  <div class="row justify-content-center">
+                    <div class="form-content-wrap rounded p-4 pt-5 mt-5 mb-3 col-12 col-sm-8 col-md-6 col-lg-4">
+                      <div class="lock-icon-wrap">
+                        <div class="lock-icon rounded-circle">
+                          <i class="fa fa-lock fa-2x" aria-hidden="true"></i>
+                        </div>
+                      </div>
+
+                      <ng-container *ngIf="typeLogin === TypeLogin.LOGIN">
+                        <form>
+                          <div [class]="_showError && !_loginId ? 'form-group has-danger text-danger' : 'form-group'">
+                            <span class="col-form-label fs13 text-danger" *ngIf="_showError && !_loginId">{{'INPUT_LOGINID_PLACEHOLDER' | translate}}</span>
+                            <input type="text" name="login-id" class="form-control" placeholder="{{'RE0022.PLACEHOLDER_LOGIN_ID' | translate}}" maxlength="64" [(ngModel)]="_loginId">
+                          </div>
+                          <div [class]="_showError && !_password ? 'form-group has-danger text-danger' : 'form-group'">
+                            <span class="col-form-label fs13 text-danger" *ngIf="_showError && !_password">{{'INPUT_PASSWORD_PLACEHOLDER' | translate}}</span>
+                            <input
+                              [type]="_showPassword ? 'text' : 'password'"
+                              name="password"
+                              class="form-control"
+                              placeholder="{{'PASSWORD_PLACEHOLDER' | translate}}"
+                              maxlength="64"
+                              [(ngModel)]="_password"
+                            >
+                          </div>
+
+                          <!-- <app-password-input [password]="password" [passwordInputOptions]="passwordInputOptions" (passwordInputChanged)="passwordInputChanged($event)"></app-password-input> -->
+                          <div class="form-group fs14">
+                            <label class="custom-control custom-checkbox mb-0">
+                              <input type="checkbox" name="show-password" class="custom-control-input" [(ngModel)]="_showPassword">
+                              <span class="custom-control-indicator"></span>
+                              <span class="custom-control-description">{{'RE0022.SHOW_PASSWORD' | translate}}</span>
+                            </label>
+                            <label class="custom-control custom-checkbox mb-0">
+                              <input type="checkbox" name="seve-login" class="custom-control-input" [(ngModel)]="_saveLogin">
+                              <span class="custom-control-indicator"></span>
+                              <span class="custom-control-description">{{'RE0022.SAVE_LOGIN' | translate}}</span>
+                            </label>
+                          </div>
+                          <button type="submit" class="btn btn-primary btn-block mb-3" (click)="clickLogin($event)">{{'RE0022.LOGIN' | translate}}</button>
+                          <div class="text-center fs14">
+                            <p class="mb-0"><a href="javascript:void(0);" (click)="clickForgotPassword($event)">{{'RE0022.FORGOT_PASSWORD' | translate}}</a></p>
+                          </div>
+                        </form>
+                      </ng-container>
+
+                      <ng-container *ngIf="typeLogin === TypeLogin.FORGOT_PASSWORD">
+                        <form>
+                          <div [formGroup]="formForgotPassword">
+                            <dl>
+                              <dt class="text-center mb-3">{{'RE0022.PASSWORD_RESET' | translate}}</dt>
+                              <dd class="fs14">
+                                {{'RE0022.PASSWORD_RESET_MESSAGE' | translate}}
+                              </dd>
+                            </dl>
+                            <div class="form-group" [ngClass]="{'has-danger': errorForgotPassword.mailAddressVal}">
+                              <span class="col-form-label fs13 text-danger" *ngIf="errorForgotPassword.mailAddressVal">{{errorForgotPassword.mailAddressVal}}</span>
+                              <input type="text" name="mailAddress" [(ngModel)]="mailAddressForgot" class="form-control" placeholder="{{'RE0022.MAIL_ADDRESS' | translate}}"
+                                     maxlength="64" formControlName="mailAddressVal" oncopy="return false" oncut="return false"
+                                     onpaste="return false" autocomplete="off">
+                            </div>
+                            <div class="form-group mb-4" [ngClass]="{'has-danger': errorForgotPassword.mailAddressConfirmVal}">
+                              <span class="col-form-label fs13 text-danger" *ngIf="errorForgotPassword.mailAddressConfirmVal">{{errorForgotPassword.mailAddressConfirmVal}}</span>
+                              <input type="text" name="mailAddressConfirmVal" [(ngModel)]="mailAddressForgotConfirm" class="form-control" placeholder="{{'RE0022.MAIL_ADDRESS_CONFIRM' | translate}}"
+                                     maxlength="64" formControlName="mailAddressConfirmVal" oncopy="return false" oncut="return false"
+                                     onpaste="return false" autocomplete="off">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block mb-3" (click)="checkValidateForgotPassword()">{{'RE0022.SEND' | translate}}</button>
+                            <div class="text-center fs14">
+                              <p class="mb-0"><a href="javascript:void(0);" (click)="changeLogin($event)">{{'RE0022.BACK_LOGIN' | translate}}</a></p>
+                            </div>
+                          </div>
+                        </form>
+                      </ng-container>
+
+                      <ng-container *ngIf="typeLogin === TypeLogin.FORGOT_PASSWORD_SUCCESS">
+                        <dl class="password-reset box-1">
+                          <dt class="text-center mb-3">{{'RE0022.FORGET_PASSWORD.TITLE' | translate}}</dt>
+                          <dd class="mb-3 fs14">「{{formForgotPassword.value.mailAddressVal}}」{{'RE0022.FORGET_PASSWORD.TITLE1' | translate}}</dd>
+                          <dd class="fs14">{{'RE0022.FORGET_PASSWORD.TITLE2' | translate}}</dd>
+                        </dl>
+                      </ng-container>
+
+                      <ng-container *ngIf="typeLogin === TypeLogin.RESET_PASSWORD">
+                        <form>
+                          <div [formGroup]="formResetPassword">
+                            <dl class="password-reset box-2">
+                            <dt class="text-center mb-3">{{'RE0022.PASSWORD_RESET' | translate}}</dt>
+                            <dd class="mb-3 fs14">{{'RE0022.PASSWORD_RESET_MESSAGE2' | translate}}</dd>
+                            </dl>
+                            <div class="form-group" [ngClass]="{'has-danger': errorResetPassword.newPassword}">
+                              <span class="col-form-label fs13 text-danger" *ngIf="errorResetPassword.newPassword">{{errorResetPassword.newPassword}}</span>
+                              <input type="password" name="newPassword" class="form-control" placeholder="{{'RE0022.NEW_PASSWORD' | translate}}"
+                                     oncopy="return false" oncut="return false" onpaste="return false" autocomplete="off" formControlName="newPassword">
+                            </div>
+                            <div class="form-group mb-3" [ngClass]="{'has-danger': errorResetPassword.newPasswordConfirm}">
+                              <span class="col-form-label fs13 text-danger" *ngIf="errorResetPassword.newPasswordConfirm">{{errorResetPassword.newPasswordConfirm}}</span>
+                              <input type="password" name="newPasswordConfirm" class="form-control" placeholder="{{'RE0022.NEW_PASSWORD_CONFIRM' | translate}}"
+                                     oncopy="return false" oncut="return false" onpaste="return false" autocomplete="off" formControlName="newPasswordConfirm">
+                            </div>
+                            <p class="fs14 mb-0">{{'RE0022.BIRTH_DAY' | translate}}</p>
+                            <span class="col-form-label fs13 text-danger" *ngIf="errorResetPassword.yearBirth || errorResetPassword.monthBirth
+                            || errorResetPassword.dayBirth">{{errorResetPassword.yearBirth || errorResetPassword.monthBirth || errorResetPassword.dayBirth}}</span>
+                            <div class="date-select-wrap form-inline">
+                              <div class="input-group mb-2">
+                                <div class="data-select" [ngClass]="{'has-danger': errorResetPassword.yearBirth}">
+                                  <select class="form-control" name="yearBirth" id="yearBirth" formControlName="yearBirth" (change)="changeDate()">
+                                    <option value="" [selected]="">--</option>
+                                    <option *ngFor="let year of options_graduation_year; let i = index" [value]="year">{{options_graduation_text[i]}}</option>
+                                  </select>
+                                </div>
+                                <label class="ml-2 mt-1">{{'COMMON_LABEL.YEAR' | translate}}</label>
+                              </div>
+                            </div>
+                            <div class="date-select-wrap form-inline mb-4">
+                              <div class="input-group mr-3">
+                                <div class="data-select" [ngClass]="{'has-danger': errorResetPassword.monthBirth}">
+                                  <select class="form-control" name="monthBirth" id="monthBirth" formControlName="monthBirth" (change)="changeDate()">
+                                    <option value="" [selected]="">--</option>
+                                    <option *ngFor="let month of monthYears" value="{{month}}">{{ month }}</option>
+                                  </select>
+                                </div>
+                                <label class="ml-2 mt-1">{{'COMMON_LABEL.MONTH' | translate}}</label>
+                              </div>
+                              <div class="input-group mr-0">
+                                <div class="data-select" [ngClass]="{'has-danger': errorResetPassword.dayBirth}">
+                                  <select class="form-control" name="dayBirth" id="dayBirth" formControlName="dayBirth">
+                                    <option value="" [selected]="">--</option>
+                                    <option *ngFor="let day of dayOfMonths" value="{{day}}">{{day}}</option>
+                                  </select>
+                                </div>
+                                <label class="ml-2 mt-1">{{'COMMON_LABEL.DAY' | translate}}</label>
+                              </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block" (click)="checkValidateResetPassword()">{{'COMMON_BTN.SEND' | translate}}</button>
+                          </div>
+                        </form>
+                      </ng-container>
+
+                      <ng-container *ngIf="typeLogin === TypeLogin.RESET_PASSWORD_SUCCESS">
+                        <form>
+                          <dl class="box-3">
+                            <dt class="text-center mb-3">{{'RE0022.PASSWORD_RESET_SUCCESS1' | translate}}</dt>
+                            <dd class="fs14 mb-3">{{'RE0022.PASSWORD_RESET_SUCCESS2' | translate}}</dd>
+                            <dd class="fs14 mb-3">{{'RE0022.PASSWORD_RESET_SUCCESS3' | translate}}</dd>
+                          </dl>
+                          <button type="submit" class="btn btn-primary btn-block" (click)="backLogin()">{{'RE0022.BACK_LOGIN' | translate}}</button>
+                        </form>
+                      </ng-container>
+
+                    </div>
+                  </div>
+                  <div class="row justify-content-center">
+                    <div class="support-content-wrap rounded fs12 p-4 mb-5 col-12 col-sm-8 col-md-6 col-lg-4" *ngIf="typeLogin !== TypeLogin.RESET_PASSWORD_SUCCESS">
+
+                      <ng-container *ngIf="typeLogin === TypeLogin.LOGIN">
+                        <dl class="mb-3">
+                          <dt class="mb-1 text-center">{{'RE0022.INCREASE_SECURITY' | translate}}</dt>
+                          <dd>
+                            <p class="mb-0">
+                              ※{{'RE0022.INCREASE_SECURITY_1' | translate}}
+                            </p>
+                          </dd>
+                        </dl>
+                        <dl class="mb-0">
+                          <dt class="mb-1 text-center">{{'RE0022.SYSTEM_REQUIREMENTS' | translate}}</dt>
+                          <dd class="row">
+                            <dl class="col-6 mb-0">
+                              <dt>Windows 8 {{'RE0022.OVER' | translate}}</dt>
+                              <dd class="mb-0">
+                                <ul class="list-unstyled mb-0">
+                                  <li>Google Chrome {{'RE0022.LATEST' | translate}}</li>
+                                  <li>Internet Explorer 11{{'RE0022.OVER' | translate}}</li>
+                                  <li>Edge {{'RE0022.LATEST' | translate}}</li>
+                                  <li>Firefox {{'RE0022.LATEST' | translate}}</li>
+                                </ul>
+                              </dd>
+                            </dl>
+                            <dl class="col-6 mb-0">
+                              <dt>Mac OS Ⅹ</dt>
+                              <dd class="mb-0">
+                                <ul class="list-unstyled mb-0">
+                                  <li>Google Chrome {{'RE0022.LATEST' | translate}}</li>
+                                  <li>Safari {{'RE0022.LATEST' | translate}}</li>
+                                  <li>Firefox {{'RE0022.LATEST' | translate}}</li>
+                                </ul>
+                              </dd>
+                            </dl>
+                          </dd>
+                        </dl>
+                      </ng-container>
+
+                      <ng-container *ngIf="typeLogin === TypeLogin.FORGOT_PASSWORD">
+                        <p class="mb-0">{{'RE0022.WRONG_MAIL_ADDRESS' | translate}}</p>
+                      </ng-container>
+
+                      <ng-container *ngIf="typeLogin === TypeLogin.FORGOT_PASSWORD_SUCCESS">
+                        <dl class="password-reset mb-3 box-1">
+                          <dt class="mb-2 text-center">{{'RE0022.FORGET_PASSWORD.NOTE1' | translate}}</dt>
+                          <dd class="mb-0">
+                            <p class="mb-0">{{'RE0022.FORGET_PASSWORD.NOTE2' | translate}}</p>
+                            <p class="mb-0">{{'RE0022.FORGET_PASSWORD.NOTE3' | translate}}</p>
+                          </dd>
+                        </dl>
+                      </ng-container>
+
+                      <ng-container *ngIf="typeLogin === TypeLogin.RESET_PASSWORD">
+                        <dl class="password-reset mb-3 box-2">
+                          <dd class="text-center">{{'RE0022.PASSWORD_RESET_MESSAGE0' | translate}}<br>{{'RE0022.PASSWORD_RESET_MESSAGE1' | translate}}</dd>
+                        </dl>
+                      </ng-container>
+
+                    </div>
+                  </div>
+
+                  <div class="row justify-content-center row-footer">
+                    <div class="mb-3 col-12 col-sm-12 col-md-10 col-lg-8">
+                      <div class="licence-list-wrap d-flex justify-content-between">
+                        <div class="licence-list py-2">
+                          <a href="https://itunes.apple.com/jp/app/dr.joy/id933087765" target="_blank"><img src="/assets/img/applestore.png" class="licence-list-img" alt="App Store"></a>
+                        </div>
+                        <div class="licence-list py-2">
+                          <a href="https://play.google.com/store/apps/details?id=jp.drjoy.app" target="_blank"><img src="/assets/img/googleplay.png" class="licence-list-img" alt="Google play"></a>
+                        </div>
+                        <div class="licence-list py-2">
+                          <a href="http://www.g-mark.org/award/describe/44507" target="_blank"><img src="/assets/img/g-type2016-k.png" class="licence-list-img" alt="GOOD DESIGN"></a>
+                        </div>
+                        <div class="licence-list py-2">
+                          <a href="https://privacymark.jp/" target="_blank"><img src="/assets/img/17002797-01-jp.png" class="licence-list-img" alt="privacymark"></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- //contents -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>

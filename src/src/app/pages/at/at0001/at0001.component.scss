@@ -1,0 +1,122 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+
+.dateTime-wrap {
+  max-width: 700px;
+  margin: 0 auto;
+  .dateTime {
+    border: solid 1px #ccc;
+    @include border-radius(5px);
+    .dateTime-number {
+      font-size: 60px;
+    }
+  }
+}
+.control-top {
+  .btn-group {
+    .btn {
+      &:last-child {
+        margin-left:-1px;
+      }
+    }
+  }
+}
+.table-dateTime {
+  th {
+    white-space: nowrap;
+    &:nth-child(1) {
+      min-width: 130px;
+    }
+  }
+  td {
+    height: 74px;
+  }
+  th,
+  td {
+    vertical-align: middle;
+    min-width: 100px;
+  }
+  .dateTime-red {
+    background: #f2dede;
+  }
+}
+.form-control-group {
+  margin: 0 -5px;
+  .form-group {
+    width: 16.666666%;
+    padding: 0 5px;
+  }
+}
+.tbl-dateTime {
+  th {
+    font-size: 0.85rem;
+    white-space: nowrap;
+    &.minW-120 {
+      min-width: 118px;
+    }
+    .table-title {
+      position: relative;
+      .table-title-text {
+        padding-right: 1.2rem;
+      }
+      .soft-arrow {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 1.8rem;
+        .arrow {
+          cursor: pointer;
+          color: #A6A6A6;
+          &.up {
+            letter-spacing: -4px;
+          }
+          &.down {
+            letter-spacing: -2px;
+          }
+          &.active {
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+  .btn-outline-warning {
+    background-color: #fff;
+    &:hover {
+      background-color: #f18d00;
+    }
+  }
+  .dateTime-red {
+    background: #f2dede;
+  }
+}
+
+// Small devices (landscape phones, 画面サイズ767px以下)
+@media (max-width: 767px) {
+  .table-dateTime,
+  .tbl-dateTime {
+    th {
+      border-bottom: none;
+      background-color: #EEE;
+    }
+    th,
+    td {
+      min-width: 100%;
+      display: block;
+    }
+  }
+  .form-control-group {
+    display: block !important;
+    .form-group {
+      width: 100%;
+    }
+  }
+
+}
+
+// Extra small devices (portrait phones, 画面サイズ575px以下)
+@media (max-width: 575px) {
+  .control-top {
+    display: block !important;
+  }
+}

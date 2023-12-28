@@ -1,0 +1,209 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+
+              <div class="col">
+
+                <div class="page-head">
+                  <app-page-head [title]="indexTap === 1? ('ME0035.TITLE' | translate) : ('ME0035.TITLE_2' | translate)" [backEvent]="true" (clickBackEvent)="backMainScreenMe0035(indexTap === 2)"></app-page-head>
+                </div>
+                <div id="me0035">
+                  <div class="top" *ngIf="indexTap === 1">
+                    <div class="header d-block mt-4 fs18">
+                      <div class="float-none float-sm-left">
+                        <label class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" [(ngModel)]="flagChargeDrug" (ngModelChange)="changeChargeDrug()">
+                          <span class="custom-control-indicator"></span>
+                          <span class="custom-control-description">{{'ME0035.CHARGE_DRUG_SELECT' | translate}}</span>
+                        </label>
+                      </div>
+                      <div class="float-none float-sm-right">
+                        <div class="gruopt-buttom text-right">
+                          <button type="button" class="btn btn-lg btn-secondary mb-2" (click)="changeTap()">{{'ME0035.INPUT_DRUG' | translate}}</button>
+                          <button type="button" class="btn btn-lg btn-primary ml-2 mb-2" (click)="putChargeDrugs()">{{'BTN.SAVE' | translate}}</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="content mt-3">
+                      <div class="header mb-3">
+                        <button type="button" class="btn btn-lg btn-secondary px-3 text-primary font-weight-bold mb-2 mr-2" *ngFor="let btn of selectSearch; let i = index"
+                                [ngClass]="{'btn-primary': (btn.isActive), 'text-primary btn-secondary': (!btn.isActive)}"
+                                (click)="searchChargeDrug(i)">{{btn.label}}</button>
+                      </div>
+                      <table class="table fs16">
+                        <thead class="thead-inverse">
+                          <tr>
+                            <th class="text-center">{{'ME0035.CHARGE_DRUG' | translate}}</th>
+                            <th class="w-50 text-left">{{'ME0035.NAME_PRODUCT' | translate}}</th>
+                            <th class="w-30 text-left">{{'ME0035.CODE' | translate}}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let drug of listChargeDrug; let i = index">
+                            <td class="text-center">
+                              <label class="custom-control custom-checkbox m-0 align-middle">
+                                <input type="checkbox" class="custom-control-input" [(ngModel)]="drug.mrInChargeFlag">
+                                <span class="custom-control-indicator"></span>
+                              </label>
+                            </td>
+                            <td class="text-left">{{drug.drugName}}</td>
+                            <td class="text-left">{{drug.drugCode}}</td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="middle" *ngIf="indexTap === 2">
+                    <div class="header">
+                      <div >
+                        <div class="col-10">
+                          <p class="fs16">{{'ME0035.MSG_INPUT_DRUG_1' | translate}} <br/> {{'ME0035.MSG_INPUT_DRUG_2' | translate}}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <form [formGroup]="modelInputDrug">
+                      <table class="table table-bordered fs16">
+                        <tbody class="tbody-inverse">
+                          <tr>
+                            <th scope="row">{{'ME0035.OFFICE' | translate}}<span class="text-danger">※</span></th>
+                            <td>
+                              <div class="form-group row" [ngClass]="{'has-danger': errorInputDrug.officeName}">
+                                <div class="col-12">
+                                  <span class="col-form-label text-danger fs12" *ngIf="errorInputDrug.officeName">{{errorInputDrug.officeName}}</span>
+                                  <input class="form-control form-control-danger" type="text" formControlName="officeName">
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">{{'COMMON_LABEL.LBL_FULL_NAME' | translate}}<span class="text-danger">※</span></th>
+                            <td>
+                              <div class="row d-flex align-items-end">
+                                <div class="col-12 col-xl-5">
+                                  <div class="form-group row name-space d-flex align-items-end" [ngClass]="{'has-danger': errorInputDrug.lastName}">
+                                    <label class="col col-form-label">{{'COMMON_LABEL.LBL_LAST_NAME' | translate}}</label>
+                                    <div class="col-10">
+                                      <span class="col-form-label text-danger fs12" *ngIf="errorInputDrug.lastName">{{errorInputDrug.lastName}}</span>
+                                      <input class="form-control form-control-danger col-xl-10" formControlName="lastName" type="text">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-xl-5">
+                                  <div class="form-group row name-space d-flex align-items-end" [ngClass]="{'has-danger': errorInputDrug.firstName}">
+                                    <label class="col col-form-label">{{'COMMON_LABEL.LBL_FIRST_NAME' | translate}}</label>
+                                    <div class="col-10">
+                                      <span class="col-form-label text-danger fs12" *ngIf="errorInputDrug.firstName">{{errorInputDrug.firstName}}</span>
+                                      <input class="form-control form-control-danger col-xl-10" formControlName="firstName"
+                                        type="text">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">{{'COMMON_LABEL.LBL_MAIL_ADDRESS' | translate}}<span class="text-danger">※</span></th>
+                            <td>
+                              <div class="form-group row" [ngClass]="{'has-danger': errorInputDrug.mailAddress}">
+                                <div class="col-12">
+                                  <span class="col-form-label text-danger fs12" *ngIf="errorInputDrug.mailAddress">{{errorInputDrug.mailAddress}}</span>
+                                  <input class="form-control form-control-danger" type="text" formControlName="mailAddress">
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">{{'COMMON_LABEL.LBL_MOBILE_NUMBER_WORK' | translate}}</th>
+                            <td>
+                              <app-tel-input [telInputOptions]="{id:'phone',name:'mobile',error: errorInputDrug.phoneNumber, isMobile: true}" (telChanged)="mobileChange($event)" ></app-tel-input>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table class="table table-content-add col fs16" formArrayName="drugs">
+                        <thead class="thead-inverse">
+                          <tr>
+                            <th>{{'ME0035.NAME_PRODUCT' | translate}}<span class="text-danger">※</span></th>
+                            <th>{{'ME0035.CODE' | translate}}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr [formGroupName]="i" *ngFor="let obj of modelDrug.controls; let i = index">
+                            <td>
+                              <div class="form-group row" [ngClass]="{'has-danger': errorInputDrug.drugs[i].drugName}">
+                                <div class="col-12">
+                                  <span class="col-form-label text-danger fs12" *ngIf="errorInputDrug.drugs[i].drugName">{{errorInputDrug.drugs[i].drugName}}</span>
+                                  <div class="w-100">
+                                    <app-infinitive-select [source]="listDrug"
+                                                           [ngModel]=""
+                                                           (ngModelChange)="changeDrug($event, obj)"
+                                                           [ngModelOptions]="{standalone: true}"
+                                                           [infiniteScrollOptions]="infiniteScrollOptions"
+                                                           (scrollDown)="scrollDown($event)"
+                                                           (keywordChanged)="textChanged($event, obj)">
+                                    </app-infinitive-select>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <div class="form-group row" [ngClass]="{'has-danger': errorInputDrug.drugs[i].drugCode}">
+                                  <div class="col-12">
+                                    <span class="col-form-label text-danger fs12"
+                                          *ngIf="errorInputDrug.drugs[i].drugCode">{{errorInputDrug.drugs[i].drugCode}}</span>
+                                    <input class="form-control" type="text"
+                                           placeholder="{{'ME0035.YJ_CODE_PLACEHOLDER' | translate}}"
+                                           formControlName="drugCode">
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">
+                              <a href="#" class="add-link" (click)="addDrug($event)"><i class="fa fa-plus-square" aria-hidden="true"></i>{{'BTN.ADD' | translate}}</a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div class="d-flex justify-content-center">
+                        <button class="btn btn-primary" type="button" (click)="checkValidateFormInputDrug()">{{'BTN.SEND' | translate}}</button>
+                      </div>
+                    </form>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

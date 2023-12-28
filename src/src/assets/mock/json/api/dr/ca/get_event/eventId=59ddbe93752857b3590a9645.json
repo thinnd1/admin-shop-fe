@@ -1,0 +1,41 @@
+{
+  "id":"59ddbe93752857b3590a9645",
+  "officeId":"office0001",
+  "meetingId":"",
+  "userId":"user0001",
+  "groupId":null,
+  "calendarId":"59a626ac5fe3ea35808dd910",
+  "start":"2017-09-28T01:50:00.000 UTC",
+  "end":"2017-09-28T02:50:00.000 UTC",
+  "allDay":false,
+  "repeatRule": "FREQ=WEEKLY;INTERVAL=4;BYDAY=MO,TU,SA",
+  "repeatParentId":"3324234234",
+  "publishType":"VISIBLE",
+  "meetingPublishType":"VISIBLE",
+  "title":"title",
+  "place":"Place",
+  "note":"Note",
+  "createdUserId":{
+    "userId":"user0001",
+    "firstName":"さわだa",
+    "lastName":"とおるa"
+  },
+  "modifiedUserId":{
+    "userId":"user0002",
+    "firstName":"さわだa",
+    "lastName":"とおるa"
+  },
+  "deletedUserId":{
+    "userId":"user0001",
+    "firstName":"さわだa",
+    "lastName":"とおるa"
+  },
+  "delete_flag":false,
+  "created":"2017-09-29T15:13:03+0700",
+  "modified":"2017-09-29T15:13:03+0700",
+  "deleted":"2017-09-29T15:13:03+0700",
+  "externalEventId":"",
+  "recurringEventId":"1324342342343",
+  "calendarType": 1,
+  "status": "SCHEDULE_ONLY"
+}

@@ -1,0 +1,184 @@
+@mixin css3($property,$value) {
+  @each $prefix in -webkit-, -moz-, -ms-, -o-, "" {
+    #{$prefix}#{$property}: $value;
+  }
+}
+
+@mixin animation($value) {
+  -webkit-animation: $value;
+  -moz-animation: $value;
+  -ms-animation: $value;
+  -o-animation: $value;
+  animation: $value;
+}
+
+@mixin border-radius($value) {
+  -webkit-border-radius: $value;
+  -moz-border-radius: $value;
+  -ms-border-radius: $value;
+  -o-border-radius: $value;
+  border-radius: $value;
+}
+
+@mixin box-shadow($value) {
+  -webkit-box-shadow: $value;
+  -moz-box-shadow: $value;
+  -ms-box-shadow: $value;
+  -o-box-shadow: $value;
+  box-shadow: $value;
+}
+
+@mixin text-shadow($value) {
+  -webkit-text-shadow: $value;
+  -moz-text-shadow: $value;
+  -ms-text-shadow: $value;
+  -o-text-shadow: $value;
+  text-shadow: $value;
+}
+
+@mixin text-overflow($value) {
+  -webkit-text-overflow: $value;
+  -moz-text-overflow: $value;
+  -ms-text-overflow: $value;
+  -o-text-overflow: $value;
+  text-overflow: $value;
+}
+
+@mixin text-size-adjust($value) {
+  -webkit-text-size-adjust: $value;
+  -moz-text-size-adjust: $value;
+  -ms-text-size-adjust: $value;
+  -o-text-size-adjust: $value;
+  text-size-adjust: $value;
+}
+
+@mixin user-select($value) {
+  -webkit-user-select: $value;
+  -moz-user-select: $value;
+  -ms-user-select: $value;
+  -o-user-select: $value;
+  user-select: $value;
+}
+
+@mixin transform-origin($value) {
+  -webkit-transform-origin: $value;
+  -moz-transform-origin: $value;
+  -ms-transform-origin: $value;
+  -o-transform-origin: $value;
+  transform-origin: $value;
+}
+
+@mixin transform($value) {
+  -webkit-transform: $value;
+  -moz-transform: $value;
+  -ms-transform: $value;
+  -o-transform: $value;
+  transform: $value;
+}
+
+@mixin box-sizing($value) {
+  -webkit-box-sizing: $value;
+  -moz-box-sizing: $value;
+  -ms-box-sizing: $value;
+  -o-box-sizing: $value;
+  box-sizing: $value;
+}
+
+@mixin transition($value) {
+  -webkit-transition: $value;
+  -moz-transition: $value;
+  -ms-transition: $value;
+  -o-transition: $value;
+  transition: $value;
+}
+
+@mixin background-linear-gradient($value) {
+  background: -webkit-linear-gradient($value);
+  background: -moz-linear-gradient($value);
+  background: -ms-linear-gradient($value);
+  background: -o-linear-gradient($value);
+}
+
+@mixin appearance($value) {
+  -webkit-appearance: $value;
+  -moz-appearance: $value;
+  -ms-appearance: $value;
+  -o-appearance: $value;
+  appearance: $value;
+}
+
+@mixin text-rendering($value) {
+  -webkit-text-rendering: $value;
+  -moz-text-rendering: $value;
+  -ms-text-rendering: $value;
+  -o-text-rendering: $value;
+  text-rendering: $value;
+}
+
+@mixin font-smoothing($value) {
+  -webkit-font-smoothing: $value;
+  -moz-font-smoothing: $value;
+  -ms-font-smoothing: $value;
+  -o-font-smoothing: $value;
+  font-smoothing: $value;
+}
+
+@mixin font-feature-settings($value) {
+  -webkit-font-feature-settings: $value;
+  -moz-font-feature-settings: $value;
+  -ms-font-feature-settings: $value;
+  -o-font-feature-settings: $value;
+  font-feature-settings: $value;
+}
+
+@mixin border-image($value) {
+  -webkit-border-image: $value;
+  -moz-border-image: $value;
+  -ms-border-image: $value;
+  -o-border-image: $value;
+  border-image: $value;
+}
+
+@mixin ellipsis() {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  width: 100%;
+}
+
+@mixin icon-styles() {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin placeholder {
+  //&:placeholder-shown {
+  //  @content;
+  //}
+  &::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    @content;
+  }
+  &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    opacity: 1;
+    @content;
+  }
+  &::-moz-placeholder { /* Mozilla Firefox 19+ */
+    opacity: 1;
+    @content;
+  }
+  &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    @content;
+  }
+  &::-ms-input-placeholder { /* Microsoft Edge */
+    @content;
+  }
+}

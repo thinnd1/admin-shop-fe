@@ -1,0 +1,14 @@
+// import common setting
+@import './../../../assets/styles/import';
+
+$group-icon-size: 30, 40, 55, 76, 94;
+@each $size in $group-icon-size {
+  .group-icon-#{$size} {
+    width: #{$size}px;
+    height: #{$size}px;
+  }
+}
+
+.group-icon-bordered {
+  border: 1px solid #EEE;
+}

@@ -1,0 +1,12 @@
+{
+  "groupId": "234",
+  "name": "abcdef",
+  "flagExpire": false,
+  "inviter": {
+    "userId": "user0001",
+    "lastName": "aa",
+    "firstName": "bb",
+    "officeId": "user0001",
+    "officeName": "Tokuda Company"
+  }
+}

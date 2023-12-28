@@ -1,0 +1,47 @@
+@import '../../../../assets/styles/_import';
+
+#faq-page {
+  .ttl-faq {
+    background-color: #3d7fb7;
+    padding: 7px 10px 7px 13px;
+    display: block;
+    color: #fff;
+  }
+  .faq-lst {
+    li {
+      list-style: none;
+      .faq-icon {
+        width: 3rem;
+        font-weight: bold;
+      }
+      .quest-cont {
+        cursor: pointer;
+        color: #04458d;
+        background-color: #d9edf7;
+        .quest-txt {
+          width: calc(100% - 6rem);
+        }
+        .arrow {
+          width: 2rem;
+        }
+        &:hover {
+          background-color: #dff0d8;
+        }
+      }
+      .answer-cont {
+        display: none;
+        background-color: #fff;
+        border: 0.10rem solid #d9edf7;
+        .faq-icon {
+          color: #df2a29;
+        }
+        .quest-txt {
+          width: calc(100% - 4rem);
+        }
+      }
+      .fa-angle-up::before {
+        content: "\F106";
+      }
+    }
+  }
+}

@@ -1,0 +1,100 @@
+<div class="setting-select mb-5">
+  <h2>{{'CA0009.SHARING_SETTINGS_WITH_STAFF_BT' | translate }}</h2>
+  <div class="form-group row">
+    <label class="col-lg-4 col-form-label">
+      {{'CA0009.SHARE_STAFF_AND_MY_CALENDAR' | translate }}
+      <span class="align-middle pl-2 text-warning fs22"  role="button" (click)="gotoHelp()">
+        <i class="fa fa-question-circle" aria-hidden="true"></i>
+      </span>
+    </label>
+    <div class="col-lg-6">
+      <div class="check-box d-flex">
+        <button type="button" class="btn btn-primary-fist" [ngClass]="{'btn-primary-active': shareStatus === 0}"
+                (click)="changeCanShare(canShare[1]['OFF'])">OFF
+        </button>
+        <button type="button" class="btn btn-primary-fist" [ngClass]="{'btn-primary-active': shareStatus !== 0}"
+                (click)="changeCanShare(canShare[0]['ON'])">ON
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-lg-4 col-form-label">{{'CA0009.LEVEL_YOU_PLANNING_SHARE_STAFF' | translate }}</label>
+    <div class="col-lg-5">
+      <select class="form-control" [disabled]="disabledLevelShare == true" [(ngModel)]="shareStatus"
+              (change)="localStorage.setObject('activeConfirmDialog', true)">
+        <option *ngFor="let shareLevel of shareLevelsOutputs"
+                [selected]="shareLevel.value === shareStatus"
+                [ngValue]="shareLevel.value">{{ shareLevel.name }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <p class="text-danger">{{'CA0009.OTHER_STAFF_NEVER_BE_SHARED' | translate }}</p>
+</div>
+<div class="your-calendar mb-5">
+  <h2>{{'CA0009.STAFF_BROWSING_YOUR_CALENDAR' | translate }}</h2>
+  <div class="row row-mg" *ngFor="let listReferencedUser of this.modelReferencedUser.items; let index = index">
+    <div class="col-lg-8">
+      <div class="your-calendar-user">
+        <app-face-icon [officeUserId]="listReferencedUser.userId" [iconSize]="40"></app-face-icon>
+        <span class="name-referenced-user">{{ listReferencedUser.userName }}</span>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <button class="btn btn-secondary fs18" type="button" (click)="remmoveReferencedUser(listReferencedUser, index)">
+        解除
+      </button>
+    </div>
+  </div>
+</div>
+<div class="your-calendar mb-5">
+  <h2>{{'CA0009.THE_STAFF_YOU_ARE_VIEWING' | translate }}</h2>
+  <div class="col-lg-8 your-calendar-input">
+    <input ngui-auto-complete
+           [source]="observableSource.bind(this)"
+           [list-formatter]="autocompleListFormatter"
+           value-property-name="userId"
+           [value-formatter]="formatNameStaffSearch"
+           no-match-found-text="&nbsp;{{'CA0009.NO_RESULT_FOUND' | translate }}"
+           loading-text="&nbsp;{{'CA0009.LOADING' | translate }}"
+           (valueChanged)="addUserReferencing($event)"
+           class="form-control"
+           min-chars="1" autocomplete="off"
+           placeholder="{{'CA0009.ADD_STAFF' | translate }}"/>
+  </div>
+  <div *ngIf="modelListCalendarReFerents.items !== null">
+    <div class="row row-mg" *ngFor="let listReferencingUser of modelListCalendarReFerents.items; let index = index">
+      <div class="col-lg-8">
+        <div class="your-calendar-user">
+          <app-face-icon [officeUserId]="listReferencingUser.userId" [iconSize]="40"></app-face-icon>
+          <span class="box-bg" [ngStyle]="{'background': listReferencingUser.colorString }"></span>
+          <span class="setting-txt-title">{{ listReferencingUser.userName }}</span>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="your-calendar-btn fs18">
+          <button class="btn btn-outline-warning" type="button"
+                  (click)="getDisplayPopUpColorCalendar($event, listReferencingUser)">
+            {{'CA0006.BTN_CHANGE_DISPLAY_COLOR' | translate }}
+          </button>
+          <button class="btn btn-danger" type="button" (click)="removeReferencingUser(index)"> {{'CA0009.DELETE' |
+            translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="my-4">
+  <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center form-inline">
+      <button type="submit" class="btn btn-primary" (click)="postSettingsStaffSettings()">
+        {{'COMMON_BTN.SAVE' | translate }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<app-option-color [calendarReferent]="calendarReferent" [optionEventColor]="optionEventColor"></app-option-color>

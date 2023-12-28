@@ -1,0 +1,39 @@
+@import '../../../../assets/styles/_import';
+.user-account {
+	border: 1px solid #d7d7d7;
+	@include border-radius (5px);
+	.user-name-text {
+		line-height:25px;
+	}
+}
+.authority-select-wrap {
+  .input-group {
+    width: 15rem;
+  }
+}
+.mngment-model {
+	float:right;
+	.select-group {
+		width: 13rem;
+	}
+}
+//@media (max-width: 575px)
+@include media-breakpoint-down(xs) {
+  .authority-select-wrap {
+    .input-group {
+      width: 100%;
+    }
+    .authority-string {
+      width: 100%;
+    }
+  }
+  .mngment-model {
+  	float:none;
+		.select-group {
+			width: 100%;
+		}
+		.mngment-text {
+			width: 100%;
+		}
+	}
+}

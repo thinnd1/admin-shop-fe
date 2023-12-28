@@ -1,0 +1,166 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+            <div class="row">
+              <!--contents-->
+              <!--contents ph0002-->
+
+              <div class="col">
+                <div class="page-head">
+                  <a href="javascript:void(0);" class="page-head-backlink"></a>
+                  <div class="page-head-title">
+                    <h1 class="page-head-title-text">{{'PHARMACY.PH0008.TITLE' | translate}}</h1>
+                  </div>
+                </div>
+                <div class="pharmacy-statistics-prescription-change-reports">
+                  <div class="controlTop-btn clearfix position-relative">
+                    <div class="button-group mb-4 float-left no-print position-relative on-tab">
+                      <button type="button" class="btn btn-lg btn-primary px-3 mr-3 pd-6 " (click)="setCurrentMonth(0)">
+                        {{'PHARMACY.PH0008.THIS_MONTH' | translate}}
+                      </button>
+                      <button type="button" class="btn btn-lg btn-secondary px-3" id="prev-button"
+                              (click)="setCurrentMonth(-1)">
+                        <i class="fa fa-angle-left pd fs20" aria-hidden="true"></i></button>
+                      <button type="button" class="btn btn-lg btn-secondary px-3" id="next-button" [disabled]="isCurrentMonth"
+                              (click)="setCurrentMonth(1)">
+                        <i class="fa fa-angle-right pd fs20" aria-hidden="true"></i></button>
+                    </div>
+                    <div class="text-center fs26 clearfix position-absolute w-100">{{dateNow | timePipe: 'YYYY年MM月'}}</div>
+                  </div>
+                  <div class="tab-list-hosp7ital position-relative pt-2">
+                    <ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
+                      <li class="nav-item" [ngClass]="{'active' : numTab === 2}" (click)="changeTab(2)">
+                        <a class="nav-link" [ngClass]="{'active' : numTab === 2}" href="#tab-content2"
+                           role="tab" data-toggle="tab" aria-expanded="true">{{'PHARMACY.PH0008.TRACING_REPORT'|translate}}</a>
+                      </li>
+                      <li class="nav-item next" [ngClass]="{'active' : numTab === 3}" (click)="changeTab(3)">
+                        <a class="nav-link" [ngClass]="{'active' : numTab === 3}" href="#tab-content3" role="tab"
+                           data-toggle="tab">{{'PHARMACY.PH0008.CHANGE_REPORT'|translate}}</a>
+                      </li>
+                    </ul>
+                    <div class="tab-content"  infinite-scroll [scrollWindow]="true" (scrolled)="scrollPaging()" [infiniteScrollDistance]="1">
+                      <div role="tabpanel" class="tab-pane" [ngClass]="{'active' : numTab === 2}" id="tab-content2">
+                        <table class="table table-bordered fs16 table-striped">
+                          <thead class="thead-inverse">
+                          <tr>
+                            <th scope="row" rowspan="2" class="align-middle text-center">{{'PHARMACY.PH0008.OFFICE_NAME' | translate}}</th>
+                            <th scope="row" colspan="6" class="text-center align-middle">{{'PHARMACY.PH0008.INQUIRY' | translate}}</th>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="align-middle">{{'PHARMACY.PH0008.PATIENT_CONSENT_COUNT' | translate}}</th>
+                            <th scope="row" class="align-middle">{{'PHARMACY.PH0008.PATIENT_NOT_CONSENT_COUNT' | translate}}</th>
+                            <th scope="row" class="align-middle">{{'PHARMACY.PH0008.SUM' | translate}}</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngFor="let record of allPage">
+                            <th scope="row" class="align-middle">{{record.officeName}}</th>
+                            <td class="align-middle text-right">{{record.patientConsentCount}}</td>
+                            <td class="align-middle text-right">{{record.patientNotConsentCount}}</td>
+                            <td class="align-middle text-right">{{record.rowSum}}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="align-middle">{{'PHARMACY.PH0008.SUM' | translate}}</th>
+                            <td class="align-middle text-right">{{sumAll.patientConsentCount}}</td>
+                            <td class="align-middle text-right">{{sumAll.patientNotConsentCount}}</td>
+                            <td class="align-middle text-right">{{sumAll.rowSum}}</td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div role="tabpanel" class="tab-pane" [ngClass]="{'active' : numTab === 3}" id="tab-content3">
+                        <table class="table table-striped table-bordered fs15">
+                          <thead class="thead-inverse">
+                          <tr>
+                            <th scope="row" rowspan="2" class="align-middle text-center">{{'PHARMACY.PH0008.OFFICE_NAME' | translate}}</th>
+                            <th scope="row" colspan="9" class="text-center align-middle">{{'PHARMACY.PH0008.REASON_FOR_CHANGE' | translate}}</th>
+                            <th scope="row" colspan="2" class="text-center align-middle  wrap-space">{{'PHARMACY.PH0008.PROTOCOL' | translate}}</th>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="align-middle">{{'PHARMACY.PH0008.RESIDUE_ADJUSTMENT' | translate}}</th>
+                            <th scope="row" class="align-middle">{{'PHARMACY.PH0008.CHANGE_COMPONENT' | translate}}</th>
+                            <th scope="row" class="align-middle">{{'PHARMACY.PH0008.CHANGE_OF_DOSAGE' | translate}}</th>
+                            <th scope="row" class="align-middle">{{'PHARMACY.PH0008.STANDARD_CHANGE' | translate}}</th>
+                            <th scope="row" class="align-middle">{{'PHARMACY.PH0008.ONE_PACKAGING' | translate}}</th>
+                            <th scope="row" class="align-middle">{{'PHARMACY.PH0008.PRESCRIPTION_DAY' | translate}}</th>
+                            <th scope="row" class="align-middle">{{'PHARMACY.PH0008.CHANGE_GENERA_DRUG' | translate}}</th>
+                            <th scope="row" class="align-middle">{{'PHARMACY.PH0008.OTHER' | translate}}</th>
+                            <th scope="row" class="align-middle">{{'PHARMACY.PH0008.SUM' | translate}}</th>
+                            <th scope="row" class="align-middle">{{'PHARMACY.PH0008.PRESENT' | translate}}</th>
+                            <th scope="row" class="align-middle">{{'PHARMACY.PH0008.NONE' | translate}}</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngFor="let record of allPage">
+                            <th scope="row" class="align-middle">{{record.officeName}}</th>
+                            <td class="align-middle text-right">{{record.remainingAdjustment}}</td>
+                            <td class="align-middle text-right">{{record.brandChange}}</td>
+                            <td class="align-middle text-right">{{record.dosageFormChange}}</td>
+                            <td class="align-middle text-right">{{record.standardChange}}</td>
+                            <td class="align-middle text-right">{{record.packaging}}</td>
+                            <td class="align-middle text-right">{{record.applicationDaysChange}}</td>
+                            <td class="align-middle text-right">{{record.genericDrugChange}}</td>
+                            <td class="align-middle text-right">{{record.otherReason}}</td>
+                            <td class="align-middle text-right">{{record.rowSum}}</td>
+                            <td class="align-middle text-right">{{record.protocolUsage}}</td>
+                            <td class="align-middle text-right">{{record.noProtocolUsage}}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="align-middle">{{'PHARMACY.PH0008.SUM' | translate}}</th>
+                            <td class="align-middle text-right">{{sumAll.remainingAdjustment}}</td>
+                            <td class="align-middle text-right">{{sumAll.brandChange}}</td>
+                            <td class="align-middle text-right">{{sumAll.dosageFormChange}}</td>
+                            <td class="align-middle text-right">{{sumAll.standardChange}}</td>
+                            <td class="align-middle text-right">{{sumAll.packaging}}</td>
+                            <td class="align-middle text-right">{{sumAll.applicationDaysChange}}</td>
+                            <td class="align-middle text-right">{{sumAll.genericDrugChange}}</td>
+                            <td class="align-middle text-right">{{sumAll.otherReason}}</td>
+                            <td class="align-middle text-right">{{sumAll.rowSum}}</td>
+                            <td class="align-middle text-right">{{sumAll.protocolUsage}}</td>
+                            <td class="align-middle text-right">{{sumAll.noProtocolUsage}}</td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="bottom-tooltip position-absolute no-print">
+                      <button type="button" class="btn btn-lg btn-secondary font-weight-bold px-2 pt-1 pb-6 ml-2"
+                              (click)="exportCsv()" data-trigger="hover"
+                              data-toggle="tooltip" data-placement="top" title="{{'PHARMACY.COMMON.CSV_DOWNLOAD' | translate}}">csv
+                      </button>
+                      <button type="button" class="btn btn-lg btn-secondary px-2 ml-2 p-1" data-toggle="tooltip" data-trigger="hover"
+                              (click)="printPage()"
+                              data-placement="top" title="{{'PHARMACY.COMMON.PRINT' | translate}}"><i class="fa fa-print pt-1" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //contents -->
+            </div>
+          </div>
+        <!--</div>-->
+        <!--<div class="col-12 col-lg-3">-->
+          <!--<app-col-sub></app-col-sub>-->
+        <!--</div>-->
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

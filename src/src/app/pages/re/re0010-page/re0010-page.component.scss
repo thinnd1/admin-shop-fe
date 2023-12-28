@@ -1,0 +1,268 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+textarea{
+  resize: vertical;
+}
+form.re0010-mail{
+  text-align: center;
+}
+.re0010-main{
+  margin: auto;
+  max-width: 1000px;
+  text-align: center;
+  -ms-flex-preferred-size:inherit;
+}
+.re0010-mail-expired{
+  padding-top: 0px!important;
+}
+.border-red {
+  border: 1px solid #D21D29;
+}
+.d-inline-block{
+  font-size: 13px;
+}
+.mail-expired{
+  text-align: center;
+}
+.user-edit {
+	padding-bottom: 40px;
+  a.disable-links  {
+    pointer-events: none;
+  }
+	.delete-account {
+	}
+	.table-user-edit {
+		tr {
+			th {
+        width: 1rem;
+        white-space: nowrap;
+			}
+			td {
+				vertical-align: middle;
+				.close-field {
+			    color: #3D7EB6;
+			    line-height: 32px;
+			    cursor: pointer;
+				}
+				.era-middle {
+			    padding: 10px 10px 0px 10px;
+			    color: #333333;
+			    display: block;
+			    width: 100%;
+			    text-align: right;
+				}
+				.box-branch{
+					border: 1px solid #d7d7d7;
+					padding: 12px;
+					@include border-radius(0.25rem);
+					h2.box-title {
+						font-weight: 700;
+					}
+					.box-title-fl {
+            color: inherit;
+						.fa {
+							padding-right: 6px;
+							&.fa-circle-o {
+								color: #7bbd45;
+							}
+							&.fa-remove {
+								color: #d11d28;
+							}
+						}
+					}
+					.box-avatar-top,
+          .box-list-avatar {
+						text-align: center;
+					}
+					.box-txt {
+						padding: 10px 0 0;
+						p {
+							margin: 2px 0;
+						}
+					}
+				}
+			}
+		}
+	}
+	.user-edit-bottom {
+    background: #EEE;
+    padding: 24px;
+    margin-bottom: 20px;
+    margin-top: -10px;
+	}
+	.user-edit-bottom-content {
+	    background: white;
+	    padding: 22.5px;
+	    margin-bottom: 30px;
+	}
+}
+.name-space {
+	/* display: flex;
+    align-items: flex-end; */
+  //margin-top: 50px;
+}
+.form-name {
+  min-width: 190px;
+}
+/**S:email-updated**/
+.email-updated {
+  text-align: center;
+}/**S:email-updated**/
+.add-mail,
+.mail-expired,
+.email-updated  {
+	padding: 50px 0px;
+}
+.confirm-mail {
+  h3 {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .name-space {
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .add-mail-submit {
+    margin-top: 50px;
+  }
+}
+/**S:add-mail**/
+.add-mail-submit {
+   text-align: right;
+}/**E:add-mail**/
+
+/***S:Modal *****/
+#myModal {
+  @include media-breakpoint-up(xl) {
+    .modal-dialog {
+      max-width: 1000px;
+    }
+    .modal-body {
+      padding: {
+        right: 60px;
+        left: 60px;
+      }
+    }
+  }
+  @include media-breakpoint-down(lg) {
+    .modal-body {
+      padding: {
+        right: 30px;
+        left: 30px;
+      }
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    .modal-body {
+      padding: {
+        right: 15px;
+        left: 15px;
+      }
+    }
+  }
+  .modal-example-item {
+    .modal-example-title {
+      .fa {
+        vertical-align: text-top;
+        padding: 0 10px 0 0;
+        &.fa-circle-o {
+          color: #7bbd45;
+        }
+        &.fa-remove {
+          color: #d11d28;
+        }
+      }
+    }
+    .modal-example-list {
+      line-height: 1.8;
+    }
+  }
+}
+
+.textNote {
+  .noteTtl {
+    width:35px;
+  }
+  .noteCt {
+    width:calc(100% - 35px);
+  }
+}
+
+/**E:Modal**/
+.tittle {
+  text-align: center;
+  border-bottom: 1px solid #CCC;
+  margin-bottom: 50px;
+}
+//@media (max-width: 767px)
+@include media-breakpoint-down(sm) {
+	.user-edit {
+		.table-user-edit {
+  		tr {
+  			th, td {
+	  			width: 100%;
+	  			display: block;
+	  		}
+  		}
+  		.col-6 {
+  			max-width: 100%;
+  			flex: 0 0 100%;
+  		}
+	  }
+	}
+}
+
+
+
+.date-select-wrap {
+  select.form-control {
+    width: auto;
+  }
+}
+.tel-input-wrap {
+  .form-control-tel {
+    width: 4.3rem;
+  }
+  :first-child .form-control-tel {
+    width: 3.8rem;
+  }
+}
+.branch-address-wrap {
+  .form-control {
+    z-index: 0;
+  }
+}
+.graduate-input-wrap {
+  .input-group {
+    width: 17rem;
+  }
+}
+.image-uploaded-info {
+  dt:after {
+    content: ":";
+    float: right;
+  }
+}
+//@media (max-width: 575px)
+@include media-breakpoint-down(xs) {
+  .date-select-wrap {
+    select.form-control,
+    .data-select {
+      width: 100%;
+    }
+  }
+  .graduate-input-wrap {
+    .input-group {
+      width: 100%;
+    }
+    .graduate-string-length {
+      width: 100%;
+      padding: 10px 10px 0;
+    }
+  }
+  .image-uploaded-info {
+    dt:after {
+      float: none;
+    }
+  }
+}

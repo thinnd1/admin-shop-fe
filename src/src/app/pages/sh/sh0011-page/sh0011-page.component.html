@@ -1,0 +1,187 @@
+
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents SH0007-->
+
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'SH0011.PAGE_TITLE' | translate"></app-page-head>
+                </div>
+                <div class="setting-team mb-5">
+                	<p>チーム、メンバーを登録します。「チーム追加」ボタンから追加してください。ドラッグで表示順の変更ができます。</p>
+                	<ul class="lst-team pl-0">
+                		<li>
+                			<div class="row">
+                				<div class="col-lg-6 col-12 pr-0 pr-lg-5 mb-3 mb-lg-0">
+                					<div class="setting-row d-flex align-items-end mb-3">
+                						<div class="short-team"><span class="short-btn rounded btn-secondary"><i class="fa fa-arrows-v"></i></span></div>
+                						<div class="color-wrap">
+            									<span class="color-box rounded bg-green"></span>
+            									<div class="modal-color rounded">
+		                						<ul class="lst-color pl-0 clearfix">
+		                							<li class="color-box rounded bg-pink-light"></li>
+		                							<li class="color-box rounded bg-orange"></li>
+		                							<li class="color-box rounded bg-green-light"></li>
+		                							<li class="color-box rounded bg-purple"></li>
+		                							<li class="color-box rounded bg-blue-light"></li>
+		                							<li class="color-box rounded bg-pink"></li>
+		                							<li class="color-box rounded bg-green"></li>
+		                							<li class="color-box rounded bg-blue"></li>
+		                							<li class="color-box rounded bg-brown"></li>
+		                							<li class="color-box rounded bg-yellow"></li>
+		                							<li class="color-box rounded bg-grey"></li>
+		                							<li class="color-box rounded bg-white"></li>
+		                						</ul>
+		                					</div>
+            								</div>
+            								<div class="setting-ttl text-right">略称<span class="text-danger">※</span></div>
+            								<div class="short-name">
+            									<p class="mb-0 text-danger fs12">必須項目です</p>
+            									<input class="form-control" type="" name="" placeholder="2文字以内" value="">
+            								</div>
+                					</div>
+                					<div class="setting-row d-flex align-items-end mb-3">
+                						<div class="short-team"></div>
+                						<div class="color-wrap"></div>
+            								<div class="setting-ttl text-right">略称<span class="text-danger">※</span></div>
+            								<div class="setting-name">
+            									<p class="mb-0 text-danger fs12">必須項目です</p>
+            									<input class="form-control" type="" name="" placeholder="" value="あいうえおあいうえおあいう">
+            								</div>
+                					</div>
+                					<div class="setting-row justify-content-end">
+                						<button class="btn btn-danger">チーム削除</button>
+                					</div>
+                				</div>
+                				<div class="col-lg-6 col-12">
+                					<div class="member-area rounded p-3">
+                						<div class="clearfix">
+                							<span class="d-inline-block">メンバー</span>
+                							<div class="d-inline-block ml-2"><a class="add-link" href=""><i class="fa fa-plus-square"></i>追加</a></div>
+                						</div>
+                						<ul class="lst-member pl-0 mt-2">
+                							<li class="clearfix">
+                								<div class="short-team d-flex align-items-center"><span class="short-btn rounded btn-secondary"><i class="fa fa-arrows-v"></i></span></div>
+                								<div class="member-item d-flex align-items-center">
+                									<div class="user-img">
+		                                <app-face-icon></app-face-icon>
+		                              </div>
+		                              <div class="member-info ml-2">
+		                              	<p class="member-name mb-0">氏名</p>
+		                              	<p class="name-dpm fs12 d-block mb-0"><i _ngcontent-c3="" class="fa fa-caret-right"></i> 耳鼻咽喉科</p>
+		                              </div>
+                								</div>
+                								<div class="close-setting text-right d-flex align-items-center">
+																	<span class="btn-close"><i class="fa fa-close fs28"></i></span>
+																</div>
+                							</li>
+                							<li class="clearfix">
+                								<div class="short-team d-flex align-items-center"><span class="short-btn rounded btn-secondary"><i class="fa fa-arrows-v"></i></span></div>
+                								<div class="member-item d-flex align-items-center">
+                									<div class="user-img">
+		                                <app-face-icon ></app-face-icon>
+		                              </div>
+		                              <div class="member-info ml-2">
+		                              	<p class="member-name mb-0">氏名</p>
+		                              </div>
+                								</div>
+                								<div class="close-setting text-right d-flex align-items-center">
+																	<span class="btn-close"><i class="fa fa-close fs28"></i></span>
+																</div>
+                							</li>
+                							<li class="clearfix">
+                								<div class="short-team d-flex align-items-center"><span class="short-btn rounded btn-secondary"><i class="fa fa-arrows-v"></i></span></div>
+                								<div class="member-item d-flex align-items-center">
+                									<div class="user-img">
+		                                <app-face-icon></app-face-icon>
+		                              </div>
+		                              <div class="member-info ml-2">
+		                              	<p class="member-name mb-0">氏名</p>
+		                              </div>
+                								</div>
+                								<div class="close-setting text-right d-flex align-items-center">
+																	<span class="btn-close"><i class="fa fa-close fs28"></i></span>
+																</div>
+                							</li>
+                						</ul>
+                					</div>
+                				</div>
+                			</div>
+                		</li>
+                		<li>
+                			<div class="row">
+                				<div class="col-lg-6 col-12 pr-0 pr-lg-5 mb-3 mb-lg-0">
+                					<div class="setting-row d-flex align-items-end mb-3">
+                						<div class="short-team"><span class="short-btn rounded btn-secondary"><i class="fa fa-arrows-v"></i></span></div>
+                						<div class="color-wrap">
+            									<span class="color-box rounded bg-pink"></span>
+
+            								</div>
+            								<div class="setting-ttl text-right">略称<span class="text-danger">※</span></div>
+            								<div class="short-name">
+            									<input class="form-control" type="" name="" placeholder="2文字以内" value="">
+            								</div>
+                					</div>
+                					<div class="setting-row d-flex align-items-end mb-3">
+                						<div class="short-team"></div>
+                						<div class="color-wrap"></div>
+            								<div class="setting-ttl text-right">略称<span class="text-danger">※</span></div>
+            								<div class="setting-name">
+            									<input class="form-control" type="" name="" placeholder="" value="あいうえおあいうえおあいう">
+            								</div>
+                					</div>
+                					<div class="setting-row justify-content-end">
+                						<button class="btn btn-danger">チーム削除</button>
+                					</div>
+                				</div>
+                				<div class="col-lg-6 col-12">
+                					<div class="member-area rounded p-3">
+                						<div class="clearfix">
+                							<span class="d-inline-block">メンバー</span>
+                							<div class="d-inline-block ml-2"><a class="add-link" href=""><i class="fa fa-plus-square"></i>追加</a></div>
+                						</div>
+                					</div>
+                				</div>
+                			</div>
+                		</li>
+                	</ul>
+                	<div class="mb-4"><button class="btn btn-success">チーム追加</button></div>
+	                <div class="text-center">
+	                	<button class="btn btn-primary">保存</button>
+	                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--<div class="col-12 col-lg-3 col-sub">-->
+        <!--<app-col-sub></app-col-sub>-->
+        <!--</div>-->
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>
+
+

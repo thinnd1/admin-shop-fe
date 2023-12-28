@@ -1,0 +1,27 @@
+{
+  "statistical": [{
+      "officeId": "4534gerge",
+      "officeName": "製薬会社名",
+      "countPeople": 4,
+      "countMettings": 64,
+      "countTimeMettings": 654,
+      "countStaff": 457
+    },
+    {
+      "officeId": "5455h53h",
+      "officeName": "製薬会社名",
+      "countPeople": 43,
+      "countMettings": 6634,
+      "countTimeMettings": 64654,
+      "countStaff": 45257
+    },
+    {
+      "officeId": "4534gh56yerge",
+      "officeName": "製薬会社名",
+      "countPeople": 4,
+      "countMettings": 626794,
+      "countTimeMettings": 659464,
+      "countStaff": 4623657
+    }
+  ]
+}

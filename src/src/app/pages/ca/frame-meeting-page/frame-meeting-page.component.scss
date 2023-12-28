@@ -1,0 +1,104 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+
+.form-setting {
+  .form-title {
+    background-color: #eee;
+    padding:0.7rem 1rem;
+    @include border-radius(3px);
+  }
+  .date-time-wrap {
+    .form-control-date {
+      width: 8rem;
+    }
+    .form-control-time {
+      width: 5.5rem;
+      padding: 2px;
+    }
+  }
+  .group-radio {
+    .group-radio-select {
+      .form-control {
+        width: 10rem;
+      }
+    }
+  }
+  .end-date-wrap {
+    .form-inline {
+      .endDate-time {
+        width: 5rem;
+      }
+      .endDate-day {
+        width: 8rem;
+      }
+    }
+  }
+}
+.check-box {
+  .btn-primary-fist {
+    background: #99b4cc;
+    color: #fff;
+  }
+  .btn-primary-active {
+    background: #00447f;
+  }
+  .btn {
+    &:first-of-type {
+      border-radius: 0.25rem 0 0 0.25rem;
+    }
+    &:last-child {
+      border-radius: 0 0.25rem 0.25rem 0;
+    }
+  }
+}
+.form-setting-confirm {
+  border-top:1px solid #ccc;
+  .boder-bottom {
+    border-bottom: 1px solid #ccc;
+    padding-bottom:1.5rem;
+  }
+}
+
+.meeting-dl {
+  overflow: hidden;
+  dt {
+    border-left: 10px solid #E1E0DF;
+    border-bottom: 1px solid #E1E0DF;
+  }
+}
+
+_:lang(x)::-ms-backdrop, .pt-ie {padding-top:0.4rem;} /* IE11 */
+_:-ms-lang(x)::backdrop, .pt-ie {padding-top:0.4rem;} /* Edge */
+@include media-breakpoint-down(xs) {
+  .form-setting {
+    .end-date-wrap {
+      .form-inline {
+        width: 100%;
+        .wrap-input {
+          width: 60%;
+        }
+        .endDate-time {
+          width: 100%;
+        }
+        .endDate-day {
+          width: 100%;
+        }
+      }
+    }
+    .date-time-wrap {
+      .form-wrap {
+        width: 48%;
+      }
+      span {
+        width: 100%;
+        text-align: center;
+      }
+      .form-control-date {
+        width: 60%;
+      }
+      .form-control-time {
+        width: 38%;
+      }
+    }
+  }
+}

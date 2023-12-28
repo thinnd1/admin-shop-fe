@@ -1,0 +1,15 @@
+// import common setting
+@import './../../../assets/styles/import';
+
+//@media (max-width: 575px)
+@include media-breakpoint-down(xs) {
+  .count-up-input-wrap {
+    .input-group {
+      width: 100%;
+    }
+    .count-up-input-counter {
+      width: 100%;
+      padding: 10px 10px 0;
+    }
+  }
+}

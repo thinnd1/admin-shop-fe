@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col p-0" *ngIf="!isEdit">
+        <textarea class="form-control groupboard-contribution-textarea w-100" rows="{{options.row}}" style="line-height: 1.25"
+                  [(ngModel)]="textContents" [ngStyle]="{'max-height': options.maxHeight + 'px'}"
+                  placeholder="{{options.placeholder | translate}}" (input)="textChange($event.target.value)"
+                  (keydown)="changeFields($event)" appAutoSize
+        ></textarea>
+  </div>
+  <div class="col preview-textarea" *ngIf="isEdit">
+    <div class="w-100 he-text" appLinky [textHyperlink]="textContents"></div>
+  </div>
+</div>
+<div class="row bg-white">
+  <div class="d-flex flex-wrap mx-2 groupboard-contribution-upload-image-files w-100">
+      <ng-container *ngFor="let item of listAttachments; let i = index">
+        <div
+          class="groupboard-contribution-upload-image-files-wrap m-2 d-flex align-items-center justify-content-center"
+          *ngIf="checkImageFile(item)">
+              <span class="groupboard-contribution-upload-image-file-remove" *ngIf="!isEdit" (click)="removeFile(i)"><i
+                class="fa fa-times fa-lg" aria-hidden="true"></i></span>
+          <img src="" thumbnail [image]="item['_thumb']? item['_thumb']: item" title="{{item.name}}"
+               class="maxw-100 maxh-100 groupboard-contribution-upload-image-file">
+        </div>
+      </ng-container>
+  </div>
+  <div class="groupboard-contribution-upload-files">
+    <ul class="groupboard-contribution-upload-files-list-wrap list-unstyled mb-0 mx-2">
+      <ng-container *ngFor="let item of listAttachments;let i = index">
+        <li class="groupboard-contribution-upload-files-list fs14 mb-2" *ngIf="!checkImageFile(item)">
+          <i class="fa fa-paperclip fa-lg mr-1" aria-hidden="true"></i>
+          <span class="groupboard-contribution-upload-files-list-name mr-1">{{item.name}}</span>
+          <span class="groupboard-contribution-upload-files-list-size mr-1">{{formatSizeUnits(item)}}</span>
+          <span class="groupboard-contribution-upload-files-list-remove" *ngIf="!isEdit" (click)="removeFile(i)"><i
+            class="fa fa-times fa-lg" aria-hidden="true"></i></span>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+  <!--<div class="progress mb-2 mx-2 w-100" *ngIf="progress && progress !== 100">-->
+    <!--<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"-->
+         <!--[ngStyle]="{'width':progress + '%'}">{{progress}}%-->
+    <!--</div>-->
+  <!--</div>-->
+</div>

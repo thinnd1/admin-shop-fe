@@ -1,0 +1,198 @@
+
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents SH0007-->
+
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'SH0012.PAGE_TITLE' | translate"></app-page-head>
+                </div>
+                <div class="guest-setting mb-5">
+                	<p>ゲストをシフトに加えることができます。事前にゲストの所属との調整をお願いします。</p>
+                	<div class="form-group">
+								    <label for="exampleInputEmail1">所属から探す</label>
+								    <select class="form-control">
+								    	<option>すべて</option>
+								    </select>
+								  </div>
+								  <div class="select-content d-flex mb-4">
+								  	<div class="select-col1">
+                      <p class="m-0">&nbsp;</p>
+                      <div class="select-container select-dr-pr">
+                        <div class="select-search p-2">
+                          <div class="search">
+                            <input class="search-input" type="text" placeholder="{{'MEMBER_SELECT.MEMBER_SEARCH' | translate}}">
+                            <button type="button" class="search-btn">
+                              <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                        </div><!-- //select-search-->
+                        <div class="select-container-drag pt-3 pb-1">
+                          <div class="mb-1 px-2">
+                            <label class="custom-control custom-checkbox mb-0">
+                              <input type="checkbox" class="custom-control-input">
+                              <span class="custom-control-indicator"></span>
+                              <span class="custom-control-description">{{'MEMBER_SELECT.MEMBER_ALL_SELECT' | translate}}</span>
+                            </label>
+                          </div>
+                          <ul class="select-user m-0 p-0">
+                            <li class="d-flex align-items-center p-2">
+                              <div class="select-user-img">
+                                <app-face-icon></app-face-icon>
+                              </div>
+                              <div class="select-user-name fs18 pl-2">選択され 択</div>
+                            </li>
+                            <li class="d-flex align-items-center p-2">
+                              <div class="select-user-img">
+                                <app-face-icon ></app-face-icon>
+                              </div>
+                              <div class="select-user-name fs18 pl-2">選択され 択</div>
+                            </li>
+                            <li class="d-flex align-items-center p-2">
+                              <div class="select-user-img">
+                                <app-face-icon></app-face-icon>
+                              </div>
+                              <div class="select-user-name fs18 pl-2">選択され 択</div>
+                            </li>
+                            <li class="d-flex align-items-center p-2">
+                              <div class="select-user-img">
+                                <app-face-icon></app-face-icon>
+                              </div>
+                              <div class="select-user-name fs18 pl-2">選択され 択</div>
+                            </li>
+                            <li class="d-flex align-items-center p-2">
+                              <div class="select-user-img">
+                                <app-face-icon></app-face-icon>
+                              </div>
+                              <div class="select-user-name fs18 pl-2">選択され 択</div>
+                            </li>
+                            <li class="d-flex align-items-center p-2">
+                              <div class="select-user-img">
+                                <app-face-icon></app-face-icon>
+                              </div>
+                              <div class="select-user-name fs18 pl-2">選択され 択</div>
+                            </li>
+                            <li class="d-flex align-items-center p-2">
+                              <div class="select-user-img">
+                                <app-face-icon ></app-face-icon>
+                              </div>
+                              <div class="select-user-name fs18 pl-2">選択され 択</div>
+                            </li>
+                            <li class="d-flex align-items-center p-2">
+                              <div class="select-user-img">
+                                <app-face-icon ></app-face-icon>
+                              </div>
+                              <div class="select-user-name fs18 pl-2">選択され 択</div>
+                            </li>
+                            <li class="d-flex align-items-center p-2">
+                              <div class="select-user-img">
+                                <app-face-icon ></app-face-icon>
+                              </div>
+                              <div class="select-user-name fs18 pl-2">選択され 択</div>
+                            </li>
+                          </ul>
+                        </div><!-- //select-container-drag -->
+                      </div><!-- //select-dr-pr -->
+                    </div>
+                    <div class="select-col2 d-flex">
+                      <div class="button-switcher">
+                        <div class="button-switcher-inner align-middle text-center">
+                          <button type="button" class="btn btn-sm btn-outline-secondary my-2"><i class="fa fa-arrow-right fs24"></i></button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary my-2"><i class="fa fa-arrow-left fs24"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="select-col3">
+                      <p class="m-0">{{'COMMON_LABEL.LBL_SELECTED_MEMBER' | translate}}</p>
+                      <div class="select-container select-member">
+                        <div class="select-search p-2">
+                          <div class="search">
+                            <input class="search-input" type="text" placeholder="{{'MEMBER_SELECT.MEMBER_SEARCH' | translate}}" #searchMember (keyup)="0">
+                            <button type="button" class="search-btn">
+                              <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                        </div><!-- //select-search-->
+                        <div class="select-container-drag pt-3 pb-1">
+                        	<div class="mb-1 px-2">
+                            <label class="custom-control custom-checkbox mb-0">
+                              <input type="checkbox" class="custom-control-input">
+                              <span class="custom-control-indicator"></span>
+                              <span class="custom-control-description">{{'MEMBER_SELECT.MEMBER_ALL_SELECT' | translate}}</span>
+                            </label>
+                          </div>
+                          <ul class="select-user m-0 p-0">
+                            <li class="d-flex align-items-center p-2">
+                              <div class="select-user-img">
+                                <app-face-icon ></app-face-icon>
+                              </div>
+                              <div class="select-user-name fs18 pl-2">選択され 択</div>
+                            </li>
+                            <li class="d-flex align-items-center p-2">
+                              <div class="select-user-img">
+                                <app-face-icon ></app-face-icon>
+                              </div>
+                              <div class="select-user-name fs18 pl-2">選択され 択</div>
+                            </li>
+                            <li class="d-flex align-items-center p-2">
+                              <div class="select-user-img">
+                                <app-face-icon ></app-face-icon>
+                              </div>
+                              <div class="select-user-name fs18 pl-2">選択され 択</div>
+                            </li>
+                            <li class="d-flex align-items-center p-2">
+                              <div class="select-user-img">
+                                <app-face-icon ></app-face-icon>
+                              </div>
+                              <div class="select-user-name fs18 pl-2">選択され 択</div>
+                            </li>
+                            <li class="d-flex align-items-center p-2">
+                              <div class="select-user-img">
+                                <app-face-icon ></app-face-icon>
+                              </div>
+                              <div class="select-user-name fs18 pl-2">選択され 択</div>
+                            </li>
+                          </ul>
+                        </div><!-- //select-container-drag -->
+                      </div><!-- //select-dr-pr -->
+                    </div>
+								  </div>
+	                <div class="text-center">
+	                	<button class="btn btn-primary">保存</button>
+	                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+        	<!-- <app-col-sub></app-col-sub> -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>
+
+

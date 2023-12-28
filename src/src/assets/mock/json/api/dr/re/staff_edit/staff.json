@@ -1,0 +1,61 @@
+{
+  "accountStatus": "2",
+  "birthDate": "03-05-2011",
+  "department": {
+    "id": "20", "name": "Root1", "displayName": "1-1",
+    "children": [{
+      "id": "21", "name": "Root1-sub1", "displayName": "2-1",
+      "children": [{
+        "id": "22", "name": "Root1-Sub2", "displayName": "3-1",
+        "children": [{
+          "id": "23", "name": "Root1-Sub3", "displayName": "4-1"
+        }]
+      }]
+    }]
+  },
+  "firstName": "さわだa",
+  "firstNameKana": "とおる",
+  "gender": "0",
+  "graduationDate": "2016-08-08",
+  "imageUrl": "www.google.com",
+  "jobType": "J0040",
+  "lastName": "とおるa",
+  "lastNameKana": "さわだ",
+  "loginId": "tunghv@drjoy.jp",
+  "mailAddress": "tunghv@ominext.com",
+  "mailAddressPublishingType": "1",
+  "mobileNo": "012-2356-5632",
+  "mobileNoPublishingType": "2",
+  "otherAuthority": {
+    "op_1": true,
+    "op_2": true,
+    "op_3": false,
+    "op_4": false,
+    "op_5": false,
+    "op_6": false,
+    "op_7": false,
+    "op_8": false,
+    "op_9": false
+  },
+  "otherAuthoritySet": "1",
+  "password": "123456789a",
+  "phsNo": "0976321456",
+  "profileImageUrl": "http://ominext.com",
+  "specializedDepartment": [
+    {
+      "fieldId": "f2",
+      "typeId": "t8"
+    },
+    {
+      "fieldId": "f3",
+      "typeId": "t4"
+    }
+  ],
+  "staffAuthority": {
+    "sp_1": true,
+    "sp_2": false,
+    "sp_3": false,
+    "sp_4": false
+  },
+  "staffAuthoritySet": "3"
+}

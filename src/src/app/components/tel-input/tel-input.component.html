@@ -1,0 +1,19 @@
+<div [ngClass]="{'has-danger':telInputOptions.error}">
+  <div *ngIf="telInputOptions.error">
+    <span class="col-form-label fs13 text-danger">{{telInputOptions.error}}</span>
+  </div>
+  <div class="tel-input-wrap form-inline mb-0">
+    <div>
+      <input type="text" class="form-control form-control-tel" name="{{telInputOptions.name}}-first" id="{{telInputOptions.id}}-first" minlength="{{telLength.first.min}}" maxlength="{{telLength.first.max}}" [(ngModel)]="telFirst" (keyup)="changeFields($event)" [ngClass]="{'form-control-danger':telInputOptions.error,'form-control-mobile':telInputOptions.isMobile}">
+    </div>
+    <span class="px-2">-</span>
+    <div>
+      <input type="text" class="form-control form-control-tel" name="{{telInputOptions.name}}-middle" id="{{telInputOptions.id}}-middle" minlength="{{telLength.middle.min}}" maxlength="{{telLength.middle.max}}" [(ngModel)]="telMiddle" (keyup)="changeFields($event)" [ngClass]="{'form-control-danger':telInputOptions.error,'form-control-mobile':telInputOptions.isMobile}">
+    </div>
+    <span class="px-2">-</span>
+    <div class="mr-2">
+      <input type="text" class="form-control form-control-tel" name="{{telInputOptions.name}}-last" id="{{telInputOptions.id}}-last" minlength="{{telLength.last.min}}" maxlength="{{telLength.last.max}}" [(ngModel)]="telLast" (keyup)="changeFields($event)" [ngClass]="{'form-control-danger':telInputOptions.error,'form-control-mobile':telInputOptions.isMobile}">
+    </div>
+    <span class="form-text" *ngIf="telInputOptions.isShowText">{{'TEL_INPUT.FORM_TEXT' | translate}}</span>
+  </div>
+</div>

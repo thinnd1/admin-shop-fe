@@ -1,0 +1,161 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header ></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+
+              <div class="col">
+
+                <div class="page-head">
+                  <app-page-head [title]="'MENU.GENERAL.CALENDAR.LABEL' | translate" (clickBackEvent)='goToBack()'
+                                 [backEvent]='localStorage.getObject("activeConfirmDialog")'></app-page-head>
+                </div>
+                <!--contents-->
+                <ul class="nav nav-tabs nav-tabs-responsive mb-4" role="tablist">
+                  <li class="nav-item" [ngClass]="{'active' : currentTap === 1, 'prev' : currentTap === 4}">
+                    <a class="nav-link" href="#tab-content1" role="tab" data-toggle="tab" aria-expanded="true"
+                       [ngClass]="{'active' : currentTap === 1}">
+                      <span class="text">{{ 'CA0006.MY_SCHEDULE' | translate }}</span>
+                    </a>
+                  </li>
+
+                  <li class="nav-item" [ngClass]="{'active' : currentTap === 4, 'next' : currentTap === 1}">
+                    <a class="nav-link" href="#tab-content4" role="tab" data-toggle="tab"
+                      [ngClass]="{'active' : currentTap === 4}">
+                      <span class="text">{{ 'CA0010.EXTERNAL_CALENDAR' | translate }}</span>
+                    </a>
+                  </li>
+
+
+                </ul>
+                <div class="tab-content">
+                  <!--contents CA0017-->
+                  <div role="tabpanel" class="tab-pane" id="tab-content1" [ngClass]="{'active' : currentTap == 1}">
+                    <div class="setting">
+                      <h2>{{ 'CA0006.LABEL_CONFIGURATION' | translate }}</h2>
+                      <div class="setting-radio mb-3">
+                        <div class="setting-title text-left text-lg-right d-block d-lg-inline-block mr-3 align-top">{{
+                          'CA0006.LABEL_DEFAULT' | translate }}
+                        </div>
+                        <div class="setting-radio-ct d-block d-sm-inline-block ml-3 ml-lg-0">
+                          <label class="custom-control custom-radio label-col mb-0">
+                            <input [checked]="getDataStorage.defaultView == 0" (change)="changeSettingDefault(0)"
+                                   id="radio2"
+                                   name="radio1" type="radio" class="custom-control-input">
+                            <span class="custom-control-indicator"></span>
+                            <span
+                              class="custom-control-description">{{ 'CA0006.LABEL_MONTH_DISPLAY' | translate }}</span>
+                          </label>
+                          <label class="custom-control custom-radio label-col mb-0">
+                            <input [checked]="getDataStorage.defaultView == 1" (change)="changeSettingDefault(1)"
+                                   id="radio1"
+                                   name="radio1" type="radio" class="custom-control-input">
+                            <span class="custom-control-indicator"></span>
+                            <span
+                              class="custom-control-description">{{ 'CA0006.LABEL_WEEK_DISPLAY' | translate }}</span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="setting-radio mb-3">
+                        <div class="setting-title text-left text-lg-right d-block d-lg-inline-block mr-3 align-top">{{
+                          'CA0006.LABEL_WEEK_START' | translate
+                          }}
+                        </div>
+                        <div class="setting-radio-ct d-block d-sm-inline-block ml-3 ml-lg-0">
+                          <label class="custom-control custom-radio label-col mb-0">
+                            <input [checked]="getDataStorage.weekStart == 0" (change)="changeSettingWeekStart(0)"
+                                   id="radio3"
+                                   name="radio2" type="radio" class="custom-control-input">
+                            <span class="custom-control-indicator"></span>
+                            <span
+                              class="custom-control-description">{{ 'CA0006.LABEL_BEGINNING_OF_SUNDAY' | translate }}</span>
+                          </label>
+                          <label class="custom-control custom-radio label-col mb-0">
+                            <input [checked]="getDataStorage.weekStart == 1" (change)="changeSettingWeekStart(1)"
+                                   id="radio4"
+                                   name="radio2" type="radio" class="custom-control-input">
+                            <span class="custom-control-indicator"></span>
+                            <span
+                              class="custom-control-description">{{ 'CA0006.LABEL_MONDAY_BEGINNING' | translate }}</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="setting">
+                      <h2>{{ 'CA0006.LABEL_SCHEDULED_TO_VIEW' | translate }}</h2>
+                      <div class="row row-mg py-1 align-items-center"
+                           *ngFor="let listCalendarReFerent of modelListCalendarReferences.items; let index = index">
+                        <div class="col-lg-5">
+                          <div class="setting-bg d-flex align-items-center">
+                            <span [ngStyle]="{'background': listCalendarReFerent.colorString }" class="box-bg"
+                                  id="{{ listCalendarReFerent.color }}"></span>
+                            <span class="setting-txt-title">{{ listCalendarReFerent.nameCalendarType }}</span>
+                          </div>
+                        </div>
+                        <div class="col-lg-7">
+                          <div class="setting-button fs18">
+                            <button class="btn btn-outline-warning" disabled="{{changeStatus}}"
+                                    (click)="getDisplayPopUpColorCalendar($event, listCalendarReFerent)">
+                              {{'CA0006.BTN_CHANGE_DISPLAY_COLOR' | translate }}
+                            </button>
+                            <button type="button" class="btn btn-success" *ngIf="listCalendarReFerent.visible"
+                                    (click)="changeVisible(listCalendarReFerent)">
+                              {{'CA0006.BTN_SHOWING' | translate }}
+                            </button>
+                            <button type="button" class="btn btn-secondary" *ngIf="listCalendarReFerent.visible === false"
+                                    (click)="changeVisible(listCalendarReFerent)">
+                              {{'CA0006.BTN_HIDDEN' | translate }}
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-center fs18">
+                      <button type="submit" class="btn btn-primary"
+                              (click)="postSettingsSelfSettings(this.modelListCalendarReferences.items)">
+                        {{'COMMON_BTN.SAVE' | translate }}
+                      </button>
+                    </div>
+
+                    <app-option-color [calendarReferent]="calendarReferent" [optionEventColor]="optionEventColor"></app-option-color>
+                  </div>
+                  <!-- end contents CA0017-->
+
+                  <!--contents CA0021 コンポーネントは CA0010と共通 -->
+                  <div role="tabpanel" class="tab-pane" id="tab-content4" [ngClass]="{'active' : currentTap == 4}">
+                    <app-ca0010-page [isPrjoy]="true"></app-ca0010-page>
+                  </div>
+                  <!--end contents CA0021-->
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>;
+

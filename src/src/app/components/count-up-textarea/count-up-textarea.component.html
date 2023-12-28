@@ -1,0 +1,4 @@
+<div class="form-group count-up-textarea-wrap" [ngClass]="{'has-danger':isError}">
+  <textarea class="form-control" [ngClass]="{'form-control-danger':isError}" name="{{countUpTextareaOptions.name}}" id="{{countUpTextareaOptions.id}}" [(ngModel)]="countUpTextarea" placeholder="{{countUpTextareaOptions.placeholder}}" maxlength="{{countUpTextareaOptions.maximumInputLength}}" (keyup)="changeFields($event)" (keydown)="changeFields($event)"></textarea>
+  <span class="count-up-input-counter d-block text-right" [ngClass]="{'text-danger':isError}">{{conter}}/{{countUpTextareaOptions.maximumInputLength}}</span>
+</div>

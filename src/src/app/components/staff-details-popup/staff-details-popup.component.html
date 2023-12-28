@@ -1,0 +1,142 @@
+<div class="staff-details-popup">
+
+  <div class="text-center mb-4">
+    <app-mini-profile class="staff-details-popup-profile"
+     [userInfo]="mockData"
+     [profileOptions]="{
+      iconSize: 94,
+      nameKana: true,
+      nameHonorific: false,
+      officeName: true,
+      departmentName: false,
+      isLink: false,
+      isContent: {
+        top: {
+          content: null,
+          class: null
+        },
+        right: {
+          content: profileOptionsIsContentRightContent|translate,
+          class: profileOptionsIsContentRightClass
+        },
+        bottom: {
+          content: null,
+          class: null
+        }
+      }
+     }"
+    >
+    </app-mini-profile>
+  </div>
+
+  <div>
+    <table class="table staff-details-popup-data">
+      <colgroup class="staff-details-popup-col"></colgroup>
+      <colgroup class="staff-details-popup-col"></colgroup>
+      <colgroup class="staff-details-popup-col"></colgroup>
+      <colgroup class="staff-details-popup-col"></colgroup>
+      <ng-template ngFor let-items [ngForOf]="dataItems">
+        <tr>
+          <ng-template [ngIf]="items.label">
+            <ng-container *ngTemplateOutlet="cellTpl;context:{item:items,col:true}"></ng-container>
+          </ng-template>
+          <ng-template [ngIf]="!items.label">
+            <ng-template ngFor let-item [ngForOf]="items">
+              <ng-container *ngTemplateOutlet="cellTpl;context:{item:item,col:false}"></ng-container>
+            </ng-template>
+          </ng-template>
+        </tr>
+      </ng-template>
+    </table>
+  </div>
+</div>
+
+
+<ng-template #cellTpl let-item="item" let-col="col">
+  <ng-container [ngSwitch]="true">
+
+      <ng-container *ngSwitchCase="item.label === 'STAFF_DETAILS_POPUP.DEPARTMENT'">
+        <ng-container *ngTemplateOutlet="departmentTpl;context:{item:item,col:col}"></ng-container>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="item.label === 'STAFF_DETAILS_POPUP.YEAR_GRADE'">
+        <ng-container *ngTemplateOutlet="yearGradeTpl;context:{item:item,col:col}"></ng-container>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="item.label === 'STAFF_DETAILS_POPUP.YEAR_EXP'">
+        <ng-container *ngTemplateOutlet="yearExpTpl;context:{item:item,col:col}"></ng-container>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="
+        item.label === 'STAFF_DETAILS_POPUP.DEPARTMENT_CHARGE' ||
+        item.label === 'STAFF_DETAILS_POPUP.HOSPITAL_CHARGE' ||
+        item.label === 'STAFF_DETAILS_POPUP.DRUG_CHARGE'
+       ">
+        <ng-container *ngTemplateOutlet="listTpl;context:{item:item,col:col}"></ng-container>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="item.label.indexOf('STAFF_DETAILS_POPUP.SPECIALIZED_DEPARTMENT_NUMBER') !== -1">
+        <ng-container *ngTemplateOutlet="specializedDepartmentTpl;context:{item:item,col:col}"></ng-container>
+      </ng-container>
+
+      <ng-container *ngSwitchDefault>
+        <ng-container *ngTemplateOutlet="defaultTpl;context:{item:item,col:col}"></ng-container>
+      </ng-container>
+
+  </ng-container>
+</ng-template>
+
+
+<ng-template #specializedDepartmentTpl let-item="item" let-col="col">
+  <th>{{item.label|translate}}</th>
+  <td class="text-left">
+    [{{'STAFF_DETAILS_POPUP.DEPARTMENT_TYPE'|translate}}] {{item.value.nameField}}
+  </td>
+  <td class="text-left" [attr.colspan]="col?2:0">
+    [{{'STAFF_DETAILS_POPUP.SPECIALIZED_DEPARTMENT'|translate}}] {{item.value.nameType}}
+  </td>
+</ng-template>
+
+<ng-template #departmentTpl let-item="item" let-col="col">
+  <th>{{item.label|translate}}</th>
+  <td class="text-left" [attr.colspan]="col?3:0">
+    {{item.value | displayDepartment}}
+    <!--<ul class="list-unstyled mb-0" *ngIf="item.value.length">111111-->
+      <!--<ng-template ngFor let-val [ngForOf]="item.value" let-last="last">-->
+        <!--<li class="list-inline-item mr-0">{{val|translate}}<ng-container *ngIf="!last"> | </ng-container></li>-->
+      <!--</ng-template>-->
+    <!--</ul>-->
+  </td>
+</ng-template>
+
+<ng-template #yearGradeTpl let-item="item" let-col="col">
+  <th *ngIf="item.value > 0">{{item.label|translate}}</th>
+  <td class="text-left" [attr.colspan]="col?3:0" *ngIf="item.value > 0">
+    {{'STAFF_DETAILS_POPUP.YEAR_GRADE_TEXT'|translate: {value: item.value} }}
+  </td>
+</ng-template>
+
+<ng-template #yearExpTpl let-item="item" let-col="col">
+  <th>{{item.label|translate}}</th>
+  <td class="text-left" [attr.colspan]="col?3:0">
+    {{'STAFF_DETAILS_POPUP.YEAR_EXP_TEXT'|translate: {value: item.value} }}
+  </td>
+</ng-template>
+
+<ng-template #listTpl let-item="item" let-col="col">
+  <th>{{item.label|translate}}</th>
+  <td class="text-left" [attr.colspan]="col?3:0">
+    <ul class="row mb-0 pl-0 lst-tpt" *ngIf="item.value.length">
+      <ng-template ngFor let-val [ngForOf]="item.value" let-last="last">
+        <li class="col-lg-6">{{val}}</li>
+      </ng-template>
+    </ul>
+  </td>
+</ng-template>
+
+<ng-template #defaultTpl let-item="item" let-col="col">
+  <th>{{item.label|translate}}</th>
+  <td class="text-left" [attr.colspan]="col?3:0">
+    {{item.value|translate}}
+  </td>
+</ng-template>

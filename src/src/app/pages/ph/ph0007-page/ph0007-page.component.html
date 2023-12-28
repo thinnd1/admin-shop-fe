@@ -1,0 +1,131 @@
+<div class="page-wrap">
+    <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+      <app-header></app-header>
+    </nav>
+
+    <nav class="side-menu">
+      <app-side-menu></app-side-menu>
+    </nav>
+
+    <main class="content-wrap" data-effect="push">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col col-main">
+            <div>
+              <div class="row">
+                <!--contents-->
+                <!--contents ph0007-->
+
+                <div class="col">
+                 <div class="page-head">
+                    <app-page-head [title]="'PHARMACY.PH0007.TITLE' | translate"></app-page-head>
+                  </div>
+                  <!--ph0007-->
+                  <div class="hospital-edit-protocol mb-4">
+                    <!-- <div class="row">
+                      <div class="col-3">
+                          <div class="form-group">
+                              <select class="form-control" id="">
+                                <option>病院選択</option>
+                              </select>
+                            </div>
+                      </div>
+                      <div class="col-9  text-right">
+                          <button type="button" class="btn btn-lg btn-secondary px-2 ml-2" data-toggle="tooltip" data-placement="top" title="印刷"><i class="fa fa-print pt-1" aria-hidden="true"></i></button>
+                      </div>
+                    </div> -->
+                    <form [formGroup]="updateProtocolForm" (ngSubmit)="putData()">
+                        <table class="table table-bordered">
+                            <tbody class="tbody-inverse">
+                              <tr>
+                                <th scope="row">0.{{'PHARMACY.PROTOCOL.PROTOCOL_ITEM0'|translate}}<span class="text-danger">※</span></th>
+                                <td [ngClass]="{'has-danger': formErrors.protocolItem0}">
+                                  <span *ngIf="formErrors.protocolItem0" class="col-form-label fs12 text-danger">{{formErrors.protocolItem0}}</span>
+                                  <textarea *ngIf="funcAuthority" formControlName="protocolItem0" rows="7" cols="100" class="m-0 form-control"></textarea>
+                                  <textarea *ngIf="!funcAuthority" formControlName="protocolItem0" rows="7" cols="100" class=" m-0 form-control" readonly></textarea>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row">1.{{'PHARMACY.PROTOCOL.PROTOCOL_ITEM1'|translate}}<span class="text-danger">※</span></th>
+                                <td [ngClass]="{'has-danger': formErrors.protocolItem1}">
+                                  <span *ngIf="formErrors.protocolItem1" class="col-form-label fs12 text-danger">{{formErrors.protocolItem1}}</span>
+                                  <textarea *ngIf="funcAuthority" formControlName="protocolItem1" rows="7" cols="100" class=" m-0 form-control"></textarea>
+                                  <textarea *ngIf="!funcAuthority" formControlName="protocolItem1" rows="7" cols="100" class=" m-0 form-control" readonly></textarea>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row" >2.{{'PHARMACY.PROTOCOL.PROTOCOL_ITEM2'|translate}}<span class="text-danger">※</span><br>{{'PHARMACY.PROTOCOL.PROTOCOL_ITEM2_1'|translate}}</th>
+                                <td [ngClass]="{'has-danger': formErrors.protocolItem2}">
+                                  <span *ngIf="formErrors.protocolItem2" class="col-form-label fs12 text-danger">{{formErrors.protocolItem2}}</span>
+                                  <textarea *ngIf="funcAuthority" formControlName="protocolItem2" rows="7" cols="100" class="m-0 form-control"></textarea>
+                                  <textarea *ngIf="!funcAuthority" formControlName="protocolItem2" rows="7" cols="100" class="m-0 form-control" readonly></textarea>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row">3.{{'PHARMACY.PROTOCOL.PROTOCOL_ITEM3'|translate}}<span class="text-danger">※</span><br>{{'PHARMACY.PROTOCOL.PROTOCOL_ITEM3_1'|translate}}</th>
+                                <td [ngClass]="{'has-danger': formErrors.protocolItem3}">
+                                  <span *ngIf="formErrors.protocolItem3" class="col-form-label fs12 text-danger">{{formErrors.protocolItem3}}</span>
+                                  <textarea *ngIf="funcAuthority" formControlName="protocolItem3" rows="7" cols="100" class="m-0 form-control"></textarea>
+                                  <textarea *ngIf="!funcAuthority" formControlName="protocolItem3" rows="7" cols="100" class=" m-0 form-control" readonly></textarea>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row">4.{{'PHARMACY.PROTOCOL.OTHER_INFO'|translate}}<span class="text-danger">※</span></th>
+                                <td [ngClass]="{'has-danger': formErrors.otherInfo}">
+                                  <span *ngIf="formErrors.otherInfo" class="col-form-label fs12 text-danger">{{formErrors.otherInfo}}</span>
+                                  <textarea *ngIf="funcAuthority" formControlName="otherInfo" rows="7" cols="100" class=" m-0 form-control"></textarea>
+                                  <textarea *ngIf="!funcAuthority" formControlName="otherInfo" rows="7" cols="100" class=" m-0 form-control" readonly></textarea>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row">5.{{'PHARMACY.PROTOCOL.CONTACT_INFO'|translate}}<span class="text-danger">※</span></th>
+                                <td [ngClass]="{'has-danger': formErrors.contactInfo}">
+                                  <span *ngIf="formErrors.contactInfo" class="col-form-label fs12 text-danger">{{formErrors.contactInfo}}</span>
+                                  <textarea *ngIf="funcAuthority" formControlName="contactInfo" rows="7" cols="100" class=" m-0 form-control"></textarea>
+                                  <textarea *ngIf="!funcAuthority" formControlName="contactInfo" rows="7" cols="100" class=" m-0 form-control" readonly></textarea>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row">6.{{'PHARMACY.PROTOCOL.PROTOCOL_USAGE_START_DATE'|translate}}<span class="text-danger">※</span></th>
+                                <td [ngClass]="{'has-danger': formErrors.protocolUsageStartDate}">
+                                  <span *ngIf="formErrors.protocolUsageStartDate" class="col-form-label fs12 text-danger">{{formErrors.protocolUsageStartDate}}</span>
+                                  <input *ngIf="funcAuthority"  type="text" formControlName="protocolUsageStartDate" class="date-hopital m-0 form-control" />
+                                  <input *ngIf="!funcAuthority" type="text" formControlName="protocolUsageStartDate" class="date-hopital m-0 form-control" readonly/>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row">7.{{'PHARMACY.PROTOCOL.REVISION_HISTORY'|translate}}<span class="text-danger">※</span></th>
+                                <td [ngClass]="{'has-danger': formErrors.revisionHistory}">
+                                  <span *ngIf="formErrors.revisionHistory" class="col-form-label fs12 text-danger">{{formErrors.revisionHistory}}</span>
+                                  <textarea *ngIf="funcAuthority" formControlName="revisionHistory" rows="7" cols="100" class=" timeline-hoppital m-0 form-control"></textarea>
+                                  <textarea *ngIf="!funcAuthority" formControlName="revisionHistory" rows="7" cols="100" class=" timeline-hoppital m-0 form-control" readonly></textarea>
+                                </td>
+                              </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="d-flex justify-content-center" *ngIf="funcAuthority">
+                          <button  class="btn btn-primary" type="submit">{{'BTN.SAVE'|translate}}</button>
+                        </div>
+                    </form>
+
+                  </div>
+                </div>
+                <!-- //contents -->
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-3">
+            <app-col-sub></app-col-sub>
+          </div>
+        </div>
+      </div>
+    </main>
+    <aside class="info-panel collapse" id="info-panel">
+      <app-info-panel></app-info-panel>
+    </aside>
+
+    <aside class="settings-panel collapse" id="settings-panel">
+      <app-settings-panel></app-settings-panel>
+    </aside>
+  </div>

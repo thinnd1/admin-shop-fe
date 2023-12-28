@@ -1,0 +1,126 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents CM0006-->
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'CM0006.TITLE' | translate"></app-page-head>
+                </div>
+                <ng-container *ngIf="dataList && dataList.length">
+                  <div class="section-border mb-4 pb-4" *ngFor="let data of dataList; let index=index">
+
+                    <div class="d-flex align-items-center">
+                      <div class="pr-2">
+                        <app-face-icon [faceImgId]='data.contents.contributorOfficeUserId' [iconSize]='55'></app-face-icon>
+                      </div>
+                      <div>
+                        <p class="mb-0">
+                          <ng-container>{{ 'CM0006.' + data.contentsType | translate }}</ng-container>
+                          <ng-container *ngIf="data.contents.commentId">({{ 'CM0006.GROUP_COMMENT' | translate:{group_name:data.contents.containerName} }})</ng-container>
+                          <ng-container *ngIf="!data.contents.commentId">({{ data.contents.containerName }})</ng-container>
+                        </p>
+                        <p class="mb-0">
+                          <ng-container>{{ data.contents.contributorLastName }} {{ data.contents.contributorFirstName }}{{ 'HONORIFIC' | translate }}</ng-container>
+                          <ng-container *ngIf="!data.contents.officeUserId === userSession.officeUserId">{{ 'HONORIFIC' | translate }}</ng-container>
+                          <ng-container [ngSwitch]="true">
+                            <ng-container *ngSwitchCase="data.contentsType === 'OUTSIDE_MESSAGE' && data.contentsType === 'OUTSIDE_GROUP'">
+                              ({{ data.contents.contributorOfficeName }})
+                            </ng-container>
+                            <ng-container *ngSwitchCase="data.contentsType === 'INSIDE_GROUP'">
+                              ({{ data.contents.contributorDepartmentName }})
+                            </ng-container>
+                          </ng-container>
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="d-flex align-items-center justify-content-end mb-2">
+                      <div class="datetime fs12 pr-2">{{ dateConvert(data.contents.date) }}</div>
+                      <div>
+                        <button type="button" class="btn btn-secondary btn-sm fs24" (click)="delete(data.id, index)">
+                          <i class="fa fa-trash" aria-hidden="true"></i>
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="body-content" [ngClass]="{'body-content-show': data.readMoreOver }">
+                      <p class="body-text">{{ data.contents.text }}</p>
+                    </div>
+
+                    <div class="mb-3">
+                      <div class="row">
+                        <div class="col text-left">
+                          <a href="javascript:void(0)" (click)="readMore(index)" *ngIf="data.isReadMoreBtn">{{ 'CM0006.MORE_READ' | translate }}</a>
+                        </div>
+                        <div class="col text-right">
+                          <a href="javascript:void(0)" (click)="gotoArticle(data.contents)">[{{ 'CM0006.ORIGINAL_ARTICLE' | translate }}]</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div *ngIf="data.listAttachments && checkAttachmentsImg.length && !isAllLoading()">
+
+                      <div class="row" *ngIf="checkAttachmentsImg(data.listAttachments)">
+                        <div class="col">
+                          <div class="img-list-box">
+                            <ng-container *ngFor="let listAttachment of data.listAttachments">
+                              <div class="m-1" *ngIf="checkAttachmentImg(listAttachment)">
+                                <img [src]="listAttachment.url" class="img-list" alt="">
+                              </div>
+                            </ng-container>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row" *ngIf="checkAttachmentsEtc(data.listAttachments)">
+                        <div class="col">
+                          <div class="file-box">
+                            <ul class="list-unstyled mb-0">
+                              <ng-container *ngFor="let listAttachment of data.listAttachments">
+                                <li *ngIf="!checkAttachmentImg(listAttachment)">
+                                  {{ listAttachment.name }}
+                                </li>
+                              </ng-container>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </ng-container>
+                <ng-container *ngIf="!isAllLoading() && (!dataList || !dataList.length)">
+                  <p class="text-center fs18">{{ 'NO_DATA_MESSAGE' | translate }}</p>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

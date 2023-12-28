@@ -1,0 +1,123 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+.meeting-dl {
+  overflow: hidden;
+  dt {
+    border-left: 10px solid #E1E0DF;
+    border-bottom: 1px solid #E1E0DF;
+  }
+}
+
+.mini-profile {
+  color: #777;
+  &-avatar {
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 15px;
+    &-img {
+      background: #FFF;
+    }
+  }
+  &-userinfo {
+    display: table-cell;
+    vertical-align: middle;
+    &-main {
+      font-size: _rem(18px);
+      margin-bottom: 0;
+    }
+    &-sub {
+      font-size: _rem(12px);
+    }
+    &-main + &-sub {
+      margin-top: 0.5rem;
+    }
+    &-content {
+      &-top,
+      &-bottom {
+        display: inline-block;
+      }
+    }
+  }
+  &-76 {
+    .mini-profile-userinfo-main {
+      font-size: 1rem;
+    }
+    .mini-profile-userinfo-sub {
+      font-size: _rem(12px);
+      &.mini-profile-userinfo-name-kana {
+        font-size: _rem(10px);
+        line-height: 1;
+      }
+    }
+    .mini-profile-userinfo-main + .mini-profile-userinfo-sub {
+      margin-top: 0.1rem;
+    }
+  }
+}
+
+.form-content-wrap {
+  border: 1px solid $gray-lighter;
+  .lock-icon-wrap {
+    position: relative;
+    .lock-icon {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: $gray-lighter;
+      color: $white;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      top: -74px;
+      .fa {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+      }
+    }
+  }
+}
+.col-height {
+  min-height: 90vh;
+  position: relative;
+  padding-bottom:120px;
+  .row-footer {
+    position: absolute;
+    bottom:10px;
+    width: 100%;
+  }
+}
+.date-select-wrap {
+  select.form-control {
+    width: auto;
+  }
+}
+
+.support-content-wrap {
+  background: $gray-lighter;
+}
+
+.licence-list-wrap {
+  .licence-list-img {
+    max-height: 40px;
+  }
+}
+
+//@media (max-width: 768px)
+@include media-breakpoint-down(sm) {
+  .licence-list-wrap {
+    display: block !important;
+    text-align: center;
+  }
+  .col-height {
+    min-height: 90vh;
+    position: inherit;
+    padding-bottom:40px;
+    .row-footer {
+      position: inherit;
+      bottom:inherit;
+      width: 100%;
+    }
+  }
+}

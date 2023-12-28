@@ -1,0 +1,31 @@
+<div *ngIf="meeting" [ngClass]="{'metting-new':(!meeting.mrSeen && meeting.status !== 'DONE')}" class="meeting-detail-user mb-3">
+  <div class="meeting-detail-stt p-2 fs12">
+    <div class="row">
+      <div class="col-md-5 col-sm-5 stt-left">
+        <strong class="stt-new text-warning pr-3" *ngIf="!meeting.mrSeen && meeting.status !== 'DONE'">NEW</strong>
+        <div class="stt-date-time d-inline-block" [ngClass]="{'meeting-user-stt-cancel': meeting.status === 'CANCELED'}">
+          <span class="stt-date">{{meeting.dateStart}}</span>
+          <span class="stt-time pr-2">　{{meeting.time}}</span>
+          <span class="stt-more text-danger pl-1" *ngIf="meeting.delayTime > 0 && meeting.status === 'FIXED'"><i class="fa fa-exclamation-circle fs13"></i>{{meeting.delayTime}}分遅れます</span>
+          <span class="stt-more" *ngIf="meeting.numberTimeOther > 0">他{{meeting.numberTimeOther}}件</span>
+        </div>
+
+      </div>
+      <div class="col-md-7 col-sm-7 stt-right text-right" [ngClass]="{'meeting-user-stt-cancel': meeting.status === 'CANCELED'}">
+        <span *ngIf="checkMediatorActionRequest(meeting)">{{'MSG.ME.MEETING_REQUEST.MEDIATOR' | translate}}／</span>
+        <span *ngIf="meeting.userRequest">{{'MSG.ME.MEETING_REQUEST.' + meeting.userRequest | translate}}</span>　{{'COMMON_LABEL.LBL_UPDATE' | translate}}：{{ meeting.updatedTime}}
+      </div>
+    </div>
+  </div>
+  <div class="metting-user-content d-flex p-2">
+    <div class="metting-user-stt d-flex justify-content-center align-items-center" [ngClass]='{"text-danger":(checkEventMeetingStatus(meeting) === "NEW")}'>{{'MEETING_STATUS.' + checkEventMeetingStatus(meeting) | translate}}</div>
+    <div class="metting-user-detail d-flex align-items-center px-1">
+      <app-mini-profile [userInfo]="drInfo" [profileOptions]="{'iconSize':76, 'purposeMeeting': true}" (updateImageUrl)="updateInfoImageUrl()"></app-mini-profile>
+    </div>
+    <div class="metting-button d-flex justify-content-center align-items-center">
+      <a [routerLink]="['/me/me0031', meeting.requestId]" routerLinkActive="nav-link-active">
+        <button class="btn btn-secondary fs14">{{'BTN.DETAIL' | translate}}</button>
+      </a>
+    </div>
+  </div>
+</div>

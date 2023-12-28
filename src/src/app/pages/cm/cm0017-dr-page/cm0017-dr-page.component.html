@@ -1,0 +1,122 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents CM0017-->
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="title"></app-page-head>
+                </div>
+
+                <ul class="nav flex-column nav-side-menu-list">
+
+                    <!--院内グループ-->
+                    <ng-container *ngIf="target === 'insideGroup' && sideMenuVisible['insideGroup'] && sideMenu['insideGroup'] && !userSession.personalFlag && sideMenu['insideGroup'].data?.length">
+                      <li class="nav-item" *ngFor="let data of sideMenu['insideGroup'].data">
+                        <a class="nav-link nav-table" (click)="redirectPage($event, data)" [ngClass]="{'nav-link-active' : isLinkActive(data)}">
+                          <span class="nav-link-label">
+                            <span class="nav-link-label-text" *ngIf="data.title">{{data.title}}</span>
+                            <span class="nav-link-label-text" *ngIf="!data.title">&nbsp;</span>
+                          </span>
+                          <span class="balloon" *ngIf="data?.unseenCount">
+                            <span class="balloon-orange" *ngIf="data?.unseenCount > 99">+99</span>
+                            <span class="balloon-orange" *ngIf="data?.unseenCount <= 99">{{data?.unseenCount}}</span>
+                          </span>
+                          <span class="balloon" *ngIf="data.toUnseen">
+                            <span class="balloon-green" *ngIf="data?.toUnseen > 99">+99</span>
+                            <span class="balloon-green" *ngIf="data?.toUnseen <= 99">{{data?.toUnseen}}</span>
+                          </span>
+                        </a>
+                      </li>
+                    </ng-container>
+
+                    <!--院外グループ-->
+                    <ng-container *ngIf="target === 'outsideGroup' && sideMenuVisible['outsideGroup'] && sideMenu['outsideGroup'] && sideMenu['outsideGroup'].data?.length">
+                      <li class="nav-item" *ngFor="let data of sideMenu['outsideGroup'].data">
+                        <a class="nav-link nav-table" (click)="redirectPage($event, data)" [ngClass]="{'nav-link-active' : isLinkActive(data)}">
+                          <span class="nav-link-label">
+                            <span class="nav-link-label-text" *ngIf="data.title">{{data.title}}</span>
+                            <span class="nav-link-label-text" *ngIf="!data.title">&nbsp;</span>
+                          </span>
+                          <span class="badge-new-wrap" *ngIf="data.isNew">
+                            <span class="badge badge-new">NEW</span>
+                          </span>
+                          <span class="balloon" *ngIf="data?.unseenCount">
+                            <span class="balloon-orange" *ngIf="data?.unseenCount > 99">+99</span>
+                            <span class="balloon-orange" *ngIf="data?.unseenCount <= 99">{{data?.unseenCount}}</span>
+                          </span>
+                          <span class="balloon" *ngIf="data?.toUnseen">
+                            <span class="balloon-green" *ngIf="data?.toUnseen > 99">+99</span>
+                            <span class="balloon-green" *ngIf="data?.toUnseen <= 99">{{data?.toUnseen}}</span>
+                          </span>
+                        </a>
+                      </li>
+                    </ng-container>
+
+                    <!--院内メッセージ-->
+                    <ng-container *ngIf="target === 'insideChat' && sideMenuVisible['insideChat'] && sideMenu['insideChat'] && sideMenu['insideChat'].data?.length">
+                      <li class="nav-item" *ngFor="let data of sideMenu['insideChat'].data">
+                        <a class="nav-link nav-table" [routerLink]="['/ch/ch0007/' + data.id]" routerLinkActive="nav-link-active">
+                          <span class="nav-link-label">
+                            <span class="nav-link-label-text" *ngIf="data.title">{{data.title}}</span>
+                            <span class="nav-link-label-text" *ngIf="!data.title">&nbsp;</span>
+                          </span>
+                          <span class="balloon" *ngIf="data?.unseenCount">
+                            <span class="balloon-orange" *ngIf="data?.unseenCount > 99">+99</span>
+                            <span class="balloon-orange" *ngIf="data?.unseenCount <= 99">{{data?.unseenCount}}</span>
+                          </span>
+                        </a>
+                      </li>
+                    </ng-container>
+
+                    <!--院外メッセージ-->
+                    <ng-container *ngIf="target === 'outsideChat' && sideMenuVisible['outsideChat'] && sideMenu['outsideChat'] && sideMenu['outsideChat'].data?.length">
+                      <li class="nav-item" *ngFor="let data of sideMenu['outsideChat'].data">
+                        <a class="nav-link nav-table" [ngClass]="{'nav-mediator':data.hasMediator}" [routerLink]="['/ch/ch0007/' + data.id]" routerLinkActive="nav-link-active">
+                          <span class="nav-link-label">
+                            <span class="nav-mediator-icon d-block text-center" *ngIf="data.hasMediator">{{'SIDE_MENU.MEDIATOR' | translate }}</span>
+                            <span class="nav-link-label-text" *ngIf="data.title">{{data.title}}</span>
+                            <span class="nav-link-label-text" *ngIf="!data.title">&nbsp;</span>
+                          </span>
+                          <span class="balloon" *ngIf="data?.unseenCount">
+                            <span class="balloon-orange" *ngIf="data?.unseenCount > 99">+99</span>
+                            <span class="balloon-orange" *ngIf="data?.unseenCount <= 99">{{data?.unseenCount}}</span>
+                          </span>
+                        </a>
+                      </li>
+                  </ng-container>
+
+                </ul>
+
+              </div>
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

@@ -1,0 +1,16 @@
+[
+    {
+        "id": "1",
+        "name": "company1",
+        "nameInitial": "c",
+        "nameKana": "企業１",
+        "shortOfficeName": "き１"
+    },
+    {
+        "id": "2",
+        "name": "company2",
+        "nameInitial": "c",
+        "nameKana": "企業２",
+        "shortOfficeName": "き２"
+    }
+]

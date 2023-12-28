@@ -1,0 +1,127 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div>
+            <!--contents-->
+            <!--contents ph0002-->
+
+            <div class="col">
+              <div class="page-head">
+                <app-page-head [title]="'DOC_TITLE.PH0017' | translate"></app-page-head>
+              </div>
+              <!--ph0017-->
+              <div class="pharmacy-recipe-detail">
+                <div class="row">
+                  <div class="col-3">
+                    <div class="form-group">
+                      <l-select2 [ngModelOptions]="{standalone: true}" [data]="listHospital"
+                                 [(ngModel)]="selectedHospital"
+                                 (ngModelChange)="onHospitalChange($event)"
+                                 [options]="options"
+                      ></l-select2>
+                    </div>
+                  </div>
+                  <div class="col-9  text-right no-print">
+                    <button type="button" class="btn btn-lg btn-secondary px-2 ml-2" data-toggle="tooltip" data-trigger="hover"
+                            (click)="printPage()"
+                            data-placement="top" title="印刷"><i class="fa fa-print pt-1" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div *ngIf="selectedHospital">
+                  <table class="table table-bordered" *ngIf="protocol">
+                    <colgroup>
+                      <col class="w-30"/>
+                      <col class="w-70"/>
+                    </colgroup>
+                    <tbody class="tbody-inverse">
+                    <tr>
+                      <th scope="row">0.{{'PHARMACY.PROTOCOL.PROTOCOL_ITEM0' | translate}}</th>
+                      <td>
+                        <div>{{protocol.protocolItem0}}
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">1.{{'PHARMACY.PROTOCOL.PROTOCOL_ITEM1' | translate}}</th>
+                      <td>
+                        <div>{{protocol.protocolItem1}}
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" [innerHtml]="'2.'+('PHARMACY.PROTOCOL.PROTOCOL_ITEM2' | translate)"></th>
+                      <td>
+                        <div>{{protocol.protocolItem2}}
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" [innerHtml]="'3.'+('PHARMACY.PROTOCOL.PROTOCOL_ITEM3' | translate)"></th>
+                      <td>
+                        <div>{{protocol.protocolItem3}}
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">4.{{'PHARMACY.PROTOCOL.OTHER_INFO' | translate}}</th>
+                      <td>
+                        <div>{{protocol.otherInfo}}</div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">5.{{'PHARMACY.PROTOCOL.CONTACT_INFO' | translate}}</th>
+                      <td>
+                        <div>{{protocol.contactInfo}}</div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">6.{{'PHARMACY.PROTOCOL.PROTOCOL_USAGE_START_DATE' | translate}}</th>
+                      <td>
+                        <div>{{protocol.protocolUsageStartDate}}</div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">7.{{'PHARMACY.PROTOCOL.REVISION_HISTORY' | translate}}</th>
+                      <td>
+                        <div>{{protocol.revisionHistory}}</div>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <div class="notice" *ngIf="!protocol">
+                    {{'PHARMACY.PH0017.PROTOCOL_NOT_EXIST' | translate}}
+                  </div>
+                </div>
+                <h4 class="notice" *ngIf="!selectedHospital">
+                  {{'PHARMACY.PH0017.PLEASE_SELECT_PROTOCOL' | translate}}
+                </h4>
+              </div>
+            </div>
+            <!-- //contents -->
+          </div>
+        </div>
+        <div class="col-12 col-xl-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

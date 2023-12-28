@@ -1,0 +1,43 @@
+<div class="multi-select d-inline-block" (clickOutside)="closeMultiSelect()" (window:resize)="onResize($event)">
+  <a href="javascript:void(0)" (click)="openMultiSelect($event)">{{multiSelectOptions.text}}</a>
+  <div class="multi-select-popover" [ngClass]="{'multi-select-popover-active':popoverToggle}" [ngStyle]="{'bottom': multiSelectPopoverListPosition['bottom'] + 'px','left': multiSelectPopoverListPosition['left'] + 'px'}">
+    <div class="multi-select-popover-selected-lists-wrap clearfix" *ngIf="selectedFlag">
+      <ul class="list-unstyled multi-select-popover-selected-lists mb-0 py-2 pr-2">
+        <ng-container *ngFor="let list of multiSelect">
+          <ng-container *ngFor="let item of list.children">
+            <li *ngIf="item.isChecked" class="multi-select-popover-selected-list mw-100">
+              <label class="custom-control custom-checkbox mb-0 ml-2 select-none d-block">
+                <input class="custom-control-input" type="checkbox" [(ngModel)]="item.isChecked" (change)="changeChildrenCheckbox($event,item)">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">{{item.name}}</span>
+              </label>
+            </li>
+          </ng-container>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="multi-select-popover-lists-wrap">
+      <ul class="list-unstyled mb-0 multi-select-popover-lists pt-2">
+        <li *ngFor="let list of multiSelect;let i = index" class="multi-select-popover-list px-2" (mouseenter)="toggleMultiSelectPopoverListParent($event,i)" (mouseleave)="toggleMultiSelectPopoverListParent($event,i)" [ngClass]="{'multi-select-popover-list-active':listToggle[i]}">
+          <span>{{list.label}}</span>
+          <ul class="multi-select-popover-lists-children list-unstyled mb-0 p-2" [hidden]="!list.children.length" [ngClass]="{'multi-select-popover-lists-children-open':listToggle[i]}" [ngStyle]="{'top': multiSelectPopoverListChildrenPosition.top + 'px','left': multiSelectPopoverListChildrenPosition.left + 'px'}">
+            <li *ngFor="let item of list.children" class="multi-select-popover-lists-children-list maxw-150">
+              <label class="custom-control custom-checkbox w-100 select-none mb-0">
+                <input class="custom-control-input" type="checkbox" [(ngModel)]="item.isChecked" (change)="changeChildrenCheckbox($event,item)">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description d-block">{{item.name}}</span>
+              </label>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+

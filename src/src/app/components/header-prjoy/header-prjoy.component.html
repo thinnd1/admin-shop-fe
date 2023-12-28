@@ -1,0 +1,78 @@
+<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+<!-- Brand -->
+<a class="navbar-brand" [routerLink]="['/']">
+  <svg class="navbar-brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 152 30">
+    <g>
+      <title>Pr.JOY</title>
+      <path d="M32.8 21.7H21.7c-.3 0-.6-.3-.5-.7l5.1-14.2c.2-.5.6-.8 1.1-.8h11.1c.3 0 .6.3.5.7l-5.1 14.2c-.2.5-.6.8-1.1.8M40 3.4H26.8c-1.2 0-2.2.7-2.6 1.8L18.5 21c-.5 1.3.5 2.6 1.8 2.6h4L21.6 29l6.8-5.3h5.2c1.2 0 2.2-.7 2.6-1.8L42 6.1c.4-1.3-.5-2.7-2-2.7M16.2 23.4s-7.5-6.2-16.2.1l7.3-20c8.6-5.9 16.2-.1 16.2-.1l-7.3 20zM48.1 3.3h10.4c2.3 0 4 .6 5.1 1.6 1.1 1 1.7 2.6 1.7 4.6s-.6 3.6-1.8 4.8c-1.2 1.1-3.1 1.7-5.6 1.7h-3.4v7.6h-6.4V3.3zm6.4 8.7H56c1.2 0 2-.2 2.5-.6.5-.4.7-1 .7-1.6s-.2-1.3-.6-1.7c-.4-.4-1.2-.7-2.4-.7h-1.7V12zM67.4 8.9h5.2v2.4c.5-1 1-1.7 1.6-2.1.5-.4 1.2-.6 2-.6s1.7.3 2.7.8l-1.7 4c-.7-.4-1.2-.5-1.6-.5-.7 0-1.3.3-1.7.9-.6.9-.9 2.4-.9 4.8v4.9h-5.6V8.9zM77.1 18h6.1v5.6h-6.1V18zM96.8 3.3h6.3v11c0 2.3-.2 4-.6 5.2-.4 1.2-1.2 2.2-2.5 3-1.2.8-2.8 1.2-4.7 1.2-2 0-3.6-.3-4.7-.8s-2-1.4-2.6-2.4c-.6-1-1-2.4-1.1-3.9l6-.8c0 .9.1 1.5.2 2 .1.4.4.8.7 1 .2.2.6.3 1 .3.7 0 1.2-.3 1.5-.8.3-.5.5-1.4.5-2.6V3.3zM106.2 13.5c0-3.3.9-5.9 2.7-7.8 1.8-1.8 4.4-2.7 7.8-2.7 3.4 0 6 .9 7.8 2.7 1.8 1.8 2.7 4.3 2.7 7.7 0 2.4-.4 4.3-1.2 5.9-.8 1.5-1.9 2.7-3.4 3.5-1.5.8-3.4 1.3-5.6 1.3-2.3 0-4.2-.4-5.6-1.1-1.5-.7-2.7-1.9-3.6-3.4-1.2-1.8-1.6-3.7-1.6-6.1zm6.3 0c0 2 .4 3.5 1.1 4.4.8.9 1.8 1.3 3.1 1.3s2.4-.4 3.1-1.3c.7-.9 1.1-2.4 1.1-4.7 0-1.9-.4-3.3-1.1-4.2-.8-1-1.8-1.4-3.1-1.4s-2.3.4-3 1.3c-.8 1.1-1.2 2.6-1.2 4.6zM126.9 3.3h7l4.1 6.9 4.1-6.9h7l-7.9 11.8v8.5H135v-8.5l-8.1-11.8z"/>
+    </g>
+  </svg>
+</a>
+
+<button class="navbar-btn-side-menu-toggle">
+  <i class="fa fa-toggle-off fa-lg"></i>
+</button>
+
+<!--<a class="navbar-btn-info-panel-toggle" href="#" data-toggle="collapse" data-target="#info-panel" aria-controls="info-panel" aria-expanded="false" aria-label="Toggle navigation">-->
+  <!--<i class="fa fa-fw" [ngClass]="{'fa-send':unseenCount(),'fa-send-o':!unseenCount()}" aria-hidden="true"></i><span class="navbar-btn-info-panel-badge" *ngIf="unseenCount()" [innerHtml]="unseenCount()"></span>-->
+<!--</a>-->
+
+<!-- Links -->
+<div class="collapse navbar-collapse justify-content-end" id="nav-content">
+  <ul class="navbar-nav">
+
+    <!--<li class="nav-item dropdown hospital-dropdown-item">-->
+      <!--<a class="nav-link dropdown-toggle" href="#" id="hospital-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-hospital-o fa-fw" aria-hidden="true"></i>日本東京病院</a>-->
+      <!--<div class="dropdown-menu" aria-labelledby="hospital-dropdown">-->
+        <!--<a class="dropdown-item disabled" href="#">日本東京病院</a>-->
+        <!--<div class="dropdown-divider"></div>-->
+        <!--<a class="dropdown-item" href="#">東北病院</a>-->
+        <!--<a class="dropdown-item" href="#">大阪総合病院</a>-->
+      <!--</div>-->
+    <!--</li>-->
+
+    <li class="nav-item dropdown support-dropdown-item">
+      <a class="nav-link dropdown-toggle" href="#" id="support-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-question-circle fa-fw" aria-hidden="true"></i>{{'HEADER.SUPPORT' | translate }}</a>
+      <div class="dropdown-menu" aria-labelledby="support-dropdown">
+        <a class="dropdown-item" [routerLink]="'/cm/cm0007'" routerLinkActive="dropdown-item-active">{{'HEADER.DRJOY_INFO' | translate }}</a>
+        <a class="dropdown-item" href="mailto:support@drjoy.jp">{{'HEADER.CONTACT' | translate }}</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="https://teachme.jp/r/roomSwR4vESI" target="_blank">{{'HEADER.MANUAL' | translate }}</a>
+      </div>
+    </li>
+
+    <!--<li class="nav-item info-panel-item">-->
+      <!--<a class="nav-link nav-link-info pr-3" href="#" data-target="#info-panel" data-toggle="collapse"><i class="fa fa-fw" [ngClass]="{'fa-send':unseenCount(),'fa-send-o':!unseenCount()}" aria-hidden="true"></i><span class="nav-link-info-badge" *ngIf="unseenCount()" [innerHtml]="unseenCount()"></span><span class="nav-link-info-label">{{'HEADER.INFO' | translate }}</span></a>-->
+    <!--</li>-->
+
+    <li class="nav-item settings-panel-item">
+      <a class="nav-link" href="#" data-target="#settings-panel" data-toggle="collapse"><i class="fa fa-cog" aria-hidden="true"></i></a>
+    </li>
+
+    <ng-container *ngFor="let category of categories;let i=index">
+      <li class="nav-item dropdown settings-dropdown-item" *ngIf="category.display">
+        <a class="nav-link dropdown-toggle" href="#" id="settings-dropdown-{{i}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-id-card-o fa-fw" aria-hidden="true" *ngIf="category.name === 'MENU.GENERAL.LABEL'"></i><i class="fa fa-cogs fa-fw" aria-hidden="true" *ngIf="category.name === 'MENU.ADMIN.LABEL'"></i>{{category.name | translate}}
+        </a>
+        <div class="dropdown-menu settings-dropdown">
+          <ng-container *ngFor="let midCategory of category.midCategories;let l=last">
+            <ng-container *ngIf="midCategory.display">
+              <h6 class="dropdown-header">{{midCategory.name | translate}}</h6>
+              <ng-container *ngFor="let item of midCategory.items">
+                <a class="dropdown-item" *ngIf="item.display" [routerLink]="[item.path]" routerLinkActive="dropdown-item-active">{{item.name | translate}}</a>
+              </ng-container>
+              <div class="dropdown-divider" [hidden]="l"></div>
+            </ng-container>
+          </ng-container>
+        </div>
+      </li>
+    </ng-container>
+
+    <li class="nav-item logout-item">
+      <a class="nav-link" href="javascript:void(0)" (click)="logout()"><i aria-hidden="true" class="fa fa-sign-out fa-fw"></i>{{'LOGOUT' | translate }}</a>
+    </li>
+  </ul>
+</div>

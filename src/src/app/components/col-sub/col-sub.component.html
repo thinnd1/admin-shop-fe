@@ -1,0 +1,6 @@
+<div class="banner-wrap row">
+  <ng-container [ngSwitch]="colSubType">
+    <app-col-sub-dr *ngSwitchCase="'drjoy'"></app-col-sub-dr>
+    <app-col-sub-pr *ngSwitchCase="'prjoy'"></app-col-sub-pr>
+  </ng-container>
+</div>

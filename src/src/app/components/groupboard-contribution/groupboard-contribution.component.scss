@@ -1,0 +1,131 @@
+// import common setting
+@import './../../../assets/styles/import';
+.groupboard-contribution {
+  .groupboard-contribution-destination {
+    .groupboard-contribution-destination-badge-wrap {
+      padding-top: 5px;
+      width: 40px;
+      .badge-groupboard-contribution-destination {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    .groupboard-contribution-destination-list-wrap {
+      width : -webkit-calc(100% - 40px);
+      width : calc(100% - 40px);
+    }
+    .groupboard-contribution-destination-list {
+      width: 40px;
+      margin-right: 0.5rem;
+      position: relative;
+      .groupboard-contribution-destination-list-remove {
+        position: absolute;
+        top: 0;
+        right: -5px;
+        color: $white;
+        cursor: pointer;
+        .fa {
+          background-color: $link-color;
+        }
+      }
+      & > :last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  .container-groupboard-contribution,
+  .container-groupboard-contribution-reply {
+    border: 1px solid #CCC;
+    background-color: #fff;
+  }
+  .groupboard-contribution-textarea {
+    border: none;
+    resize: none;
+    max-height: 300px;
+    overflow-y: auto;
+    height: calc(100% + 2px);
+    will-change: transform;
+    &::-webkit-input-placeholder {
+      line-height: normal;
+    }
+    _:lang(x)::-ms-backdrop, &.form-control {
+      //min-height: 39px !important;
+      line-height: 1.25;
+    }
+    }
+  .groupboard-contribution-btn-wrap {
+    border-top: 1px solid #CCC;
+    user-select: none;
+    + .groupboard-contribution-btn-wrap {
+      border-left: 1px solid #CCC;
+    }
+    &.disabled {
+      cursor: not-allowed;
+      opacity: .65;
+      &:hover {
+        background-color: $btn-primary-bg;
+      }
+      &:focus {
+        box-shadow: none;
+      }
+    }
+    .fa {
+      color: $orange;
+    }
+  }
+  .groupboard-contribution-reply-btn-wrap {
+    .fa {
+      color: $orange;
+    }
+    .disabled {
+      &:hover {
+        background-color: $btn-primary-bg;
+      }
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+  .groupboard-contribution-upload-image-files {
+    .groupboard-contribution-upload-image-files-wrap {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      float:left;
+      .groupboard-contribution-upload-image-files {
+      }
+      .groupboard-contribution-upload-image-file-remove {
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        color: $link-color;
+      }
+    }
+  }
+  .groupboard-contribution-upload-files {
+    background-color: #fff;
+    .groupboard-contribution-upload-files-list {
+      .fa {
+        color: $blue;
+      }
+      .groupboard-contribution-upload-files-list-name {
+        color: $gray;
+      }
+      .groupboard-contribution-upload-files-list-size {
+      }
+      .groupboard-contribution-upload-files-list-remove {
+        cursor: pointer;
+        .fa {
+          color: $link-color;
+        }
+      }
+    }
+  }
+}
+textarea.textarea-cmt:-ms-input-placeholder {
+  min-height: 43px !important;
+}
+textarea.textarea-post:-ms-input-placeholder {
+  min-height: 115px !important;
+}

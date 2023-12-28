@@ -1,0 +1,124 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents RE0019-->
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'RE0031.TITLE' | translate"></app-page-head>
+                </div>
+                <div class="user-account mb-3 py-1 px-2">
+                  <div class="row">
+                    <div class="col-12 col-sm-5 d-flex align-items-center mb-2 mb-sm-0">
+                      <div class="user-name d-flex align-items-center">
+                        <app-mini-profile [userInfo]="data"></app-mini-profile>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-7 d-flex justify-content-end align-items-center">
+                      <div class="user-lock text-left text-md-right">
+                        <strong>{{'RE0031.LABEL_AUTHORITY' | translate}}</strong><span>{{'AUTHORITY.ADMIN_AUTHORITY.' + data?.managementAuthority | translate}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <form [formGroup]="myForm" (ngSubmit)="putStaffEditSettings()">
+                  <div class="authority-select-wrap form-inline mb-3">
+                    <div class="input-group mr-0 mr-sm-2">
+                      <select class="form-control" formControlName="functionAuthority" (change)="change_role($event.target.value)">
+                        <option *ngFor="let item of functionAuthorities" value="{{item.Id}}" [selected]="data?.funcAuthoritySet == item.Id">{{'AUTHORITY.FUNCTION_AUTHORITY.' + item.Name | translate}}</option>
+                      </select>
+                    </div>
+                    <span class="authority-string text-right">{{'RE0031.ROLE_FUNCTION_TEXT' | translate}}</span>
+                  </div>
+
+                  <div class="group-checkbox mb-5">
+                    <!--<span class="text-danger fs12 mb-2" *ngIf="!checkInit">{{'RE0031.E002_1' | translate}}</span>-->
+                    <div formGroupName="functionAuthorityDetail">
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input type="checkbox" class="form-check-input sp_1" formControlName="fp_1">
+                        {{'AUTHORITY.FUNCTION_AUTHORITY_DETAIL.FP_1' | translate}}
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label class="form-check-label ">
+                          <input type="checkbox" class="form-check-input sp_2" formControlName="fp_2">
+                          {{'AUTHORITY.FUNCTION_AUTHORITY_DETAIL.FP_2' | translate}}
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <div class="row">
+                          <div class="col-lg-6 col-12 d-flex align-items-center">
+                            <label class="form-check-label ">
+                              <input type="checkbox" class="form-check-input sp_3" formControlName="fp_3">
+                              {{'AUTHORITY.FUNCTION_AUTHORITY_DETAIL.FP_3' | translate}}
+                            </label>
+                          </div>
+                          <div class="col-lg-6 col-12">
+                            <div class="form-group form-inline mngment-model mb-0">
+                              <label class="mngment-text text-right pr-0 pr-sm-2">{{'RE0031.LABEL_SCOPE' | translate}}</label>
+                              <div class="select-group mb-2 mb-sm-0">
+                                <select class="form-control" [disabled]="checkDisabled" id="selectLevel">
+                                  <option *ngFor="let item of managerAuthorities" value="{{item.Id}}" [selected]="data?.fp3managementLevel === item.Id">{{'AUTHORITY.SCOPE_OF_MANAGEMENT.' + item.Name | translate}}</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-check">
+                        <label class="form-check-label ">
+                          <input type="checkbox" class="form-check-input sp_5" formControlName="fp_5">
+                          {{'AUTHORITY.FUNCTION_AUTHORITY_DETAIL.FP_5' | translate}}
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label class="form-check-label ">
+                          <input type="checkbox" class="form-check-input sp_6" formControlName="fp_6">
+                          {{'AUTHORITY.FUNCTION_AUTHORITY_DETAIL.FP_6' | translate}}
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label class="form-check-label ">
+                          <input type="checkbox" class="form-check-input sp_7" formControlName="fp_7" (change)="changeFP($event)">
+                          {{'AUTHORITY.FUNCTION_AUTHORITY_DETAIL.FP_7' | translate}}
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary">{{'COMMON_BTN.SAVE' | translate}}</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

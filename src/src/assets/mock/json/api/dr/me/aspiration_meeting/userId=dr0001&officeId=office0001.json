@@ -1,0 +1,227 @@
+{
+  "userId": "dr0001",
+  "officeId": "office0001",
+  "firstName": "firstName_0.2987807427854656",
+  "lastName": "lastName000_0.2987807427854656",
+  "firstNameKana": "firstNameKana000_0.2987807427854656",
+  "lastNameKana": "lastNameKana000_0.2987807427854656",
+  "officeName": "OfficeName-0001",
+  "title": "specializedDepartment-fileId-0001",
+  "accountStatus": "PROVISIONAL",
+  "rule": "meeting rule 1",
+  "acceptRequest": true,
+  "hasMediator": false,
+  "attachment": [
+    {
+      "fileId": "f0001",
+      "fileName": "FN0001"
+    },
+    {
+      "fileId": "f0002",
+      "fileName": "FN0002"
+    }
+  ],
+  "aspirations": [
+    {
+      "item": "label 1"
+    },
+    {
+      "item": "label 2"
+    }
+  ],
+  "aspirationDetail": "detail meeting demand 0.4117574533634156",
+  "meetingFrames": [
+    {
+      "frameId": "5a38cb8155a67c2cf03490e6",
+      "start": "2017-12-16T10:00:00+0700",
+      "end": "2017-12-16T11:00:00+0700",
+      "status": "NEW",
+      "applied": false,
+      "numberOfApplication": 5
+    },
+    {
+      "frameId": "5a38cb8155a67c2cf03490f4",
+      "start": "2017-12-16T11:00:00+0700",
+      "end": "2017-12-16T12:00:00+0700",
+      "status": "CANCEL",
+      "applied": false,
+      "numberOfApplication": 2
+    },
+    {
+      "frameId": "5a38cb8155a67c2cf03490f4",
+      "start": "2017-12-16T11:00:00+0700",
+      "end": "2017-12-16T12:00:00+0700",
+      "status": "FIXED",
+      "applied": true,
+      "numberOfApplication": 1
+    },
+    {
+      "frameId": "5a38cb8155a67c2cf03490f4",
+      "start": "2017-12-16T11:00:00+0700",
+      "end": "2017-12-16T12:00:00+0700",
+      "status": "NEW",
+      "applied": false,
+      "numberOfApplication": 1
+    },
+    {
+      "frameId": "5a38cb8155a67c2cf03490e6",
+      "start": "2017-11-14T10:00:00+0700",
+      "end": "2017-11-14T11:00:00+0700",
+      "status": "NEW",
+      "applied": false,
+      "numberOfApplication": 5
+    },
+    {
+      "frameId": "5a38cb8155a67c2cf03490f4",
+      "start": "2017-11-12T11:00:00+0700",
+      "end": "2017-11-12T12:00:00+0700",
+      "status": "CANCEL",
+      "applied": false,
+      "numberOfApplication": 2
+    },
+    {
+      "frameId": "5a38cb8155a67c2cf03490f4",
+      "start": "2017-11-12T11:00:00+0700",
+      "end": "2017-11-12T12:00:00+0700",
+      "status": "CANCEL",
+      "applied": false,
+      "numberOfApplication": 2
+    },
+    {
+      "frameId": "5a38cb8155a67c2cf03490e6",
+      "start": "2017-10-16T10:00:00+0700",
+      "end": "2017-10-16T11:00:00+0700",
+      "status": "NEW",
+      "applied": false,
+      "numberOfApplication": 5
+    },
+    {
+      "frameId": "5a38cb8155a67c2cf03490e6",
+      "start": "2017-10-15T10:00:00+0700",
+      "end": "2017-10-15T11:00:00+0700",
+      "status": "NEW",
+      "applied": false,
+      "numberOfApplication": 5
+    },
+    {
+      "frameId": "5a38cb8155a67c2cf03490e6",
+      "start": "2017-10-14T10:00:00+0700",
+      "end": "2017-10-14T11:00:00+0700",
+      "status": "NEW",
+      "applied": false,
+      "numberOfApplication": 5
+    },
+    {
+      "frameId": "5a38cb8155a67c2cf03490f4",
+      "start": "2017-10-12T11:00:00+0700",
+      "end": "2017-10-12T12:00:00+0700",
+      "status": "CANCEL",
+      "applied": false,
+      "numberOfApplication": 2
+    },
+    {
+      "frameId": "5a38cb8155a67c2cf03490f4",
+      "start": "2017-10-12T11:00:00+0700",
+      "end": "2017-10-12T12:00:00+0700",
+      "status": "CANCEL",
+      "applied": false,
+      "numberOfApplication": 2
+    },
+    {
+      "frameId": "5a38cb8155a67c2cf03490f4",
+      "start": "2017-09-16T11:00:00+0700",
+      "end": "2017-09-16T12:00:00+0700",
+      "status": "CANCEL",
+      "applied": false,
+      "numberOfApplication": 2
+    },
+    {
+      "frameId": "5a38cb8155a67c2cf03490f4",
+      "start": "2017-09-16T11:00:00+0700",
+      "end": "2017-09-16T12:00:00+0700",
+      "status": "FIXED",
+      "applied": true,
+      "numberOfApplication": 1
+    },
+    {
+      "frameId": "5a38cb8155a67c2cf03490f4",
+      "start": "2017-09-16T11:00:00+0700",
+      "end": "2017-09-16T12:00:00+0700",
+      "status": "NEW",
+      "applied": false,
+      "numberOfApplication": 1
+    },
+    {
+      "frameId": "5a38cb8155a67c2cf03490e6",
+      "start": "2017-08-16T10:00:00+0700",
+      "end": "2017-08-16T11:00:00+0700",
+      "status": "NEW",
+      "applied": false,
+      "numberOfApplication": 5
+    },
+    {
+      "frameId": "5a38cb8155a67c2cf03490e6",
+      "start": "2017-08-16T10:00:00+0700",
+      "end": "2017-08-16T11:00:00+0700",
+      "status": "NEW",
+      "applied": false,
+      "numberOfApplication": 5
+    },
+    {
+      "frameId": "5a38cb8155a67c2cf03490e6",
+      "start": "2017-08-15T10:00:00+0700",
+      "end": "2017-08-15T11:00:00+0700",
+      "status": "NEW",
+      "applied": false,
+      "numberOfApplication": 5
+    },
+    {
+      "frameId": "5a38cb8155a67c2cf03490e6",
+      "start": "2017-07-14T10:00:00+0700",
+      "end": "2017-07-14T11:00:00+0700",
+      "status": "NEW",
+      "applied": false,
+      "numberOfApplication": 5
+    },
+    {
+      "frameId": "5a38cb8155a67c2cf03490f4",
+      "start": "2017-07-12T11:00:00+0700",
+      "end": "2017-07-12T12:00:00+0700",
+      "status": "CANCEL",
+      "applied": false,
+      "numberOfApplication": 2
+    },
+    {
+      "frameId": "5a38cb8155a67c2cf03490f4",
+      "start": "2017-07-12T11:00:00+0700",
+      "end": "2017-07-12T12:00:00+0700",
+      "status": "CANCEL",
+      "applied": false,
+      "numberOfApplication": 2
+    },
+    {
+      "frameId": "5a38cb8155a67c2cf03490e6",
+      "start": "2017-07-14T10:00:00+0700",
+      "end": "2017-07-14T11:00:00+0700",
+      "status": "NEW",
+      "applied": false,
+      "numberOfApplication": 5
+    },
+    {
+      "frameId": "5a38cb8155a67c2cf03490f4",
+      "start": "2017-06-12T11:00:00+0700",
+      "end": "2017-06-12T12:00:00+0700",
+      "status": "CANCEL",
+      "applied": false,
+      "numberOfApplication": 2
+    },
+    {
+      "frameId": "5a38cb8155a67c2cf03490f4",
+      "start": "2017-06-12T11:00:00+0700",
+      "end": "2017-06-12T12:00:00+0700",
+      "status": "CANCEL",
+      "applied": false,
+      "numberOfApplication": 2
+    }
+  ]
+}

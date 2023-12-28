@@ -1,0 +1,44 @@
+{
+  "officeId" : "124234",
+  "userId": "11234234",
+  "lastName": "lastName",
+  "firstName": "firstName",
+  "details": "string",
+  "meetingDemand":[
+    {
+      "id": "123",
+      "label": "薬剤の情報提供",
+      "selected": true
+    },
+    {
+      "id": "124",
+      "label": "薬剤の情報提供",
+      "selected": false
+    },
+    {
+      "id": "125",
+      "label": "薬剤の情報提供",
+      "selected": true
+    },
+    {
+      "id": "126",
+      "label": "薬剤の情報提供",
+      "selected": true
+    },
+    {
+      "id": "127",
+      "label": "薬剤の情報提供",
+      "selected": true
+    },
+    {
+      "id": "128",
+      "label": "薬剤の情報提供",
+      "selected": true
+    },
+    {
+      "id": "129",
+      "label": "薬剤の情報提供",
+      "selected": false
+    }
+  ]
+}

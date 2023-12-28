@@ -1,0 +1,300 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents PH0016-->
+
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'RE0010.PAGE_TITLE' | translate"></app-page-head>
+                </div>
+                <div class="info-setting">
+                	<div class="location form-group">
+								    <label class="mb-1">所在地</label>
+								    <select class="form-control">
+								      <option>すべて</option>
+								      <option>すべて2</option>
+								    </select>
+								  </div>
+								  <div class="form-group">
+								    <label class="mb-1">医療機関名</label>
+								    <div class="row select-row">
+								    	<div class="col-6 col-sm-4">
+								    		<div class="select-popup form-control">
+								    			<span>すべて</span><span class="numer-check">3</span>
+								    			<span class="select-sort"><i class="fa fa-sort"></i></span>
+								    		</div>
+								    	</div>
+								    	<div class="col-6 col-sm-4">
+								    		<div class="search">
+													<form>
+													  <input class="search-input" type="text" placeholder="氏名を検索">
+													  <button type="submit" class="search-btn">
+													    <i class="fa fa-search" aria-hidden="true"></i>
+													  </button>
+													</form>
+												</div>
+								    	</div>
+								    	<div class="select-wrap">
+									    	<div class="row px-0">
+									    		<div class="col-6">
+									    			<ul class="select-wrap-check pl-0 ml-0 mb-0">
+									    				<li class="mb-2">
+											    			<label class="custom-control custom-checkbox mb-0">
+																  <input type="checkbox" class="custom-control-input">
+																  <span class="custom-control-indicator"></span>
+																  <span class="custom-control-description">すべて</span>
+																</label>
+															</li>
+															<li class="mb-2">
+																<label class="custom-control custom-checkbox mb-0">
+																  <input type="checkbox" class="custom-control-input">
+																  <span class="custom-control-indicator"></span>
+																  <span class="custom-control-description">か病院</span>
+																</label>
+															</li>
+															<li class="mb-2">
+																<label class="custom-control custom-checkbox mb-0">
+																  <input type="checkbox" class="custom-control-input">
+																  <span class="custom-control-indicator"></span>
+																  <span class="custom-control-description">た病院</span>
+																</label>
+															</li>
+															<li class="mb-2">
+																<label class="custom-control custom-checkbox mb-0">
+																  <input type="checkbox" class="custom-control-input">
+																  <span class="custom-control-indicator"></span>
+																  <span class="custom-control-description">は病院</span>
+																</label>
+															</li>
+															<li class="mb-2">
+																<label class="custom-control custom-checkbox mb-0">
+																  <input type="checkbox" class="custom-control-input">
+																  <span class="custom-control-indicator"></span>
+																  <span class="custom-control-description">や病院</span>
+																</label>
+															</li>
+															<li>
+																<label class="custom-control custom-checkbox mb-0">
+																  <input type="checkbox" class="custom-control-input">
+																  <span class="custom-control-indicator"></span>
+																  <span class="custom-control-description">わ病院</span>
+																</label>
+									    				</li>
+									    			</ul>
+									    		</div>
+									    		<div class="col-6">
+									    			<ul class="select-wrap-check pl-0 ml-0 mb-0">
+									    				<li class="mb-2">
+											    			<label class="custom-control custom-checkbox mb-0">
+																  <input type="checkbox" class="custom-control-input">
+																  <span class="custom-control-indicator"></span>
+																  <span class="custom-control-description">あ病院</span>
+																</label>
+															</li>
+															<li class="mb-2">
+																<label class="custom-control custom-checkbox mb-0">
+																  <input type="checkbox" class="custom-control-input">
+																  <span class="custom-control-indicator"></span>
+																  <span class="custom-control-description">さ病院</span>
+																</label>
+															</li>
+															<li class="mb-2">
+																<label class="custom-control custom-checkbox mb-0">
+																  <input type="checkbox" class="custom-control-input">
+																  <span class="custom-control-indicator"></span>
+																  <span class="custom-control-description">な病院</span>
+																</label>
+															</li>
+															<li class="mb-2">
+																<label class="custom-control custom-checkbox mb-0">
+																  <input type="checkbox" class="custom-control-input">
+																  <span class="custom-control-indicator"></span>
+																  <span class="custom-control-description">ま病院</span>
+																</label>
+															</li>
+															<li class="mb-2">
+																<label class="custom-control custom-checkbox mb-0">
+																  <input type="checkbox" class="custom-control-input">
+																  <span class="custom-control-indicator"></span>
+																  <span class="custom-control-description">ら病院</span>
+																</label>
+															</li>
+															<li>
+																<label class="custom-control custom-checkbox mb-0">
+																  <input type="checkbox" class="custom-control-input">
+																  <span class="custom-control-indicator"></span>
+																  <span class="custom-control-description">その他病院</span>
+																</label>
+									    				</li>
+									    			</ul>
+									    		</div>
+									    	</div>
+									    </div>
+								    </div>
+								  </div>
+								  <div class="form-group">
+								  	<label class="mb-1">職業</label>
+								  	<div class="clearfix">
+								  		<div class="float-left pt-2">
+								  			<label class="custom-control custom-checkbox mb-0">
+												  <input type="checkbox" class="custom-control-input">
+												  <span class="custom-control-indicator"></span>
+												  <span class="custom-control-description">医師</span>
+												</label>
+												<label class="custom-control custom-checkbox mb-0">
+												  <input type="checkbox" class="custom-control-input">
+												  <span class="custom-control-indicator"></span>
+												  <span class="custom-control-description">薬剤師</span>
+												</label>
+												<label class="custom-control custom-checkbox mb-0">
+												  <input type="checkbox" class="custom-control-input">
+												  <span class="custom-control-indicator"></span>
+												  <span class="custom-control-description">その他</span>
+												</label>
+								  		</div>
+								  		<div class="float-right text-right">
+								  			<button class="btn btn-secondary">CSVダウンロード</button>
+								  			<button class="btn btn-secondary">CSVで取り込む</button>
+								  			<button class="btn btn-primary">保存</button>
+								  		</div>
+								  	</div>
+								  </div>
+								  <table class="table table-bordered table-setting">
+								  	<thead class="thead-inverse hidden-sm-down">
+								  		<tr>
+									  		<th class="tbl-checkBox text-center">
+									  			<label class="custom-control custom-checkbox d-inline-block mb-0 mr-0">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description"></span>
+													</label>
+									  		</th>
+									  		<th class="tbl-user">名前</th>
+									  		<th class="tbl-job">職業</th>
+									  		<th class="tbl-medical">医療機関名</th>
+									  		<th class="tbl-request text-center">面会リクエスト</th>
+								  		</tr>
+								  	</thead>
+								  	<tbody class="tbody-inverse">
+								  		<tr>
+									  		<td class="tbl-checkBox text-center">
+									  			<label class="custom-control custom-checkbox d-inline-block mb-0 mt-2 mr-0">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description"></span>
+													</label>
+									  		</td>
+									  		<th class="hidden-md-up">名前</th>
+									  		<td class="tbl-user">
+									  			<div class="d-flex align-items-center">
+									  				<div class="user-img pr-2"><app-face-icon [iconSize]="40"></app-face-icon></div>
+									  				<div class="user-name"><span class="pr-1">あ</span> <span>名前</span></div>
+									  			</div>
+									  		</td>
+									  		<th class="hidden-md-up">職業</th>
+									  		<td class="tbl-job">医師</td>
+									  		<th class="hidden-md-up">医療機関名</th>
+									  		<td class="tbl-medical">東京病院</td>
+									  		<th class="hidden-md-up">面会リクエスト</th>
+									  		<td class="tbl-request">
+									  			<div class="check-box d-flex justify-content-center">
+										        <button type="button" class="btn btn-primary-fist" >OFF
+										        </button>
+										        <button type="button" class="btn btn-primary-fist" >ON
+										        </button>
+										      </div>
+									  		</td>
+								  		</tr>
+								  		<tr>
+									  		<td class="tbl-checkBox text-center">
+									  			<label class="custom-control custom-checkbox d-inline-block mb-0 mt-2 mr-0">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description"></span>
+													</label>
+									  		</td>
+									  		<th class="hidden-md-up">名前</th>
+									  		<td class="tbl-user">
+									  			<div class="d-flex align-items-center">
+									  				<div class="user-img pr-2"><app-face-icon [iconSize]="40"></app-face-icon></div>
+									  				<div class="user-name"><span class="pr-1">あ</span> <span>名前</span></div>
+									  			</div>
+									  		</td>
+									  		<th class="hidden-md-up">職業</th>
+									  		<td class="tbl-job">医師</td>
+									  		<th class="hidden-md-up">医療機関名</th>
+									  		<td class="tbl-medical">東京病院</td>
+									  		<th class="hidden-md-up">面会リクエスト</th>
+									  		<td class="tbl-request">
+									  			<div class="check-box d-flex justify-content-center">
+										        <button type="button" class="btn btn-primary-fist">OFF
+										        </button>
+										        <button type="button" class="btn btn-primary-fist">ON
+										        </button>
+										      </div>
+									  		</td>
+								  		</tr>
+								  		<tr>
+									  		<td class="tbl-checkBox text-center">
+									  			<label class="custom-control custom-checkbox d-inline-block mb-0 mt-2 mr-0">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description"></span>
+													</label>
+									  		</td>
+									  		<th class="hidden-md-up">名前</th>
+									  		<td class="tbl-user">
+									  			<div class="d-flex align-items-center">
+									  				<div class="user-img pr-2"><app-face-icon [iconSize]="40"></app-face-icon></div>
+									  				<div class="user-name"><span class="pr-1">あ</span> <span>名前</span></div>
+									  			</div>
+									  		</td>
+									  		<th class="hidden-md-up">職業</th>
+									  		<td class="tbl-job">医師</td>
+									  		<th class="hidden-md-up">医療機関名</th>
+									  		<td class="tbl-medical">東京病院</td>
+									  		<th class="hidden-md-up">面会リクエスト</th>
+									  		<td class="tbl-request">
+									  			<div class="check-box d-flex justify-content-center">
+										        <button type="button" class="btn btn-primary-fist">OFF
+										        </button>
+										        <button type="button" class="btn btn-primary-fist">ON
+										        </button>
+										      </div>
+									  		</td>
+								  		</tr>
+								  	</tbody>
+								  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-xl-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

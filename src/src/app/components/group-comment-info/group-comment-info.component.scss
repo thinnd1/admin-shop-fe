@@ -1,0 +1,74 @@
+@import './../../../assets/styles/import';
+
+.support-gray {
+  color: #a6a6a6;
+}
+.support-gray01 {
+  color: #212121;
+}
+.tool-comment {
+  .fa:hover {
+    color: #f18d00;
+  }
+}
+.tool-comment .disabled-edit, .tool-comment .disabled-edit:hover{
+  cursor: not-allowed;
+  color: #a6a6a6 !important;
+}
+.none-border-top:first-child {
+  border-top: none !important;
+}
+.favorited {
+  color: #f18d00;
+}
+.cursor-default {
+  cursor: default;
+}
+.btn-green {
+  color: #fff;
+  background-color: #7CBD45;
+  border-color: #7CBD45;
+}
+.btn-green:focus {
+  outline: none;
+  box-shadow: none !important;
+}
+a:focus{
+  text-decoration: none !important;
+}
+a:hover {
+  text-decoration: underline !important;
+}
+/* fix star Safari 7.1+ */
+.safari {
+  .star-safari {
+    font-size:  1.625rem !important;
+    position:  relative;
+    top:  0.2rem;
+  }
+}
+// Small devices (landscape phones, 画面サイズ767px以下)
+// @media (max-width: 767px) { ... }
+@include media-breakpoint-down(sm) {
+  .d-flex-sm {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+}
+.support-content-txt .break-line {
+  white-space: pre-wrap;
+}
+.fa-star {
+  &:before {
+    font-size: inherit;
+  }
+  &-o {
+    &:before {
+      font-size: inherit;
+    }
+  }
+}
+.text-gray {
+  color: #A4A4A4;
+}

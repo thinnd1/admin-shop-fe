@@ -1,0 +1,165 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+.table-select {
+  th, td {
+    vertical-align: middle;
+  }
+  .td-col1 {
+    width: 10rem;
+    //white-space: nowrap;
+  }
+  .td-col3 {
+    //width: 1rem;
+    //white-space: nowrap;
+  }
+  .td-col2,
+  .td-col4 {
+    //width:35%;
+  }
+}
+.tel-input-wrap {
+  display:flex;
+  .form-control-tel {
+    width:25%;
+  }
+  .form-control-tel2 {
+    width:30%;
+  }
+  .form-control-tel3 {
+    width:35%;
+  }
+}
+.area-report-wrap {
+  .report-content {
+    width:100%;
+    height:350px;
+    border-radius:0.25rem 0.25rem 0 0;
+    resize: none;
+  }
+  .report-control {
+    height:50px;
+    border-bottom:1px solid #ccc;
+    border-left:1px solid #ccc;
+    border-right:1px solid #ccc;
+    .control-attack {
+      width: 5rem;
+      border-right: 1px solid #ccc;
+    }
+    .control-select {
+      width:40%;
+      max-width:350px;
+    }
+  }
+
+}
+
+.table-user-info {
+  td {
+    width:25%;
+  }
+  .select-user-box {
+    width: 20pt;
+    height: 20pt;
+    background-color: #d7d7d7;
+  }
+}
+.custom-file {
+  height:1rem;
+}
+.user-lst {
+  li {
+    border:1px solid #ccc;
+    .select-user-name {
+      width:calc(100% - 40px);
+    }
+  }
+}
+.attach-wrap {
+  .lst-attach {
+    li {
+      list-style:none;
+      margin-right:1rem;
+      float:left;
+    }
+  }
+}
+.change-pres {
+  .change-col-5 {
+    width:39%;
+    padding:0 7px;
+  }
+  .change-col-1 {
+    width:9%;
+    padding:0 7px;
+  }
+  .change-col-2 {
+    width:13%;
+    padding:0 7px;
+  }
+}
+.textarea-cont {
+  border:1px solid #ccc;
+  border-radius:4px;
+  min-height:350px;
+  padding:0.5rem;
+}
+
+.table-tracing-report {
+  table-layout: fixed;
+}
+
+@include media-breakpoint-down(md) {
+  .table-select {
+    .td-col1,
+    .td-col2,
+    .td-col3,
+    .td-col4 {
+      width:100%;
+      display:block;
+      white-space: normal;
+    }
+  }
+  .change-pres {
+    .change-col-5,
+    .change-col-1,
+    .change-col-2 {
+      width:100%;
+      margin-bottom:0.5rem;
+    }
+  }
+}
+@include media-breakpoint-down(sm) {
+  .area-report-wrap {
+    .report-control {
+      height:auto;
+      .control-select {
+        width:calc(100% - 6rem);
+      }
+      .btn-check {
+        width:100%;
+        .btn {
+          width:100%;
+        }
+      }
+      .control-attack {
+        border-bottom:1px solid #ccc;
+      }
+    }
+  }
+}
+.placeholder { color: #aaa; }
+
+.table-tracing-report {
+  table-layout: fixed;
+}
+
+div.b {
+  white-space: nowrap;
+  // width: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.show-right{
+  float:right;
+  margin-right: 20px;
+}

@@ -1,0 +1,14 @@
+{
+  "page": "0",
+  "users": [
+    {
+      "userId": "user0001",
+      "avatar": "image.png",
+      "firstName": "Nhat",
+      "lastName": "Tran",
+      "officeName": "Ominext",
+      "statusVisit": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    }
+  ]
+}

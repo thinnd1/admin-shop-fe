@@ -1,0 +1,126 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+.select-content {
+	.select-col1,
+	.select-col3 {
+		width: 49%;
+		overflow: hidden;
+	}
+	.select-col2 {
+		padding-top:20vh;
+		width: 3.5rem;
+	}
+	.select-container {
+		background-color: #FFF;
+		border: 1px solid #CCC;
+		@include border-radius(0.3rem);
+		.select-search {
+			border-bottom:1px solid #D7D7D7;
+		}
+		.select-container-drag {
+			.select-box {
+				background-color: #eee;
+				.select-user-txt {
+					&:first-of-type  {
+						width: 60px;
+						border-right: 2px solid #fff;
+					}
+				}
+				.select-user-txt-fl {
+					width: calc(100% - 118px);
+				}
+			}
+		}
+	}
+}
+
+.select-user {
+	height: 336px;
+	overflow-y: auto;
+	li {
+		cursor: pointer;
+		.select-user-name {
+			width: calc(100% - 40px);
+		}
+		&:hover {
+			background-color: #FCF8E3;
+		}
+	}
+	.select-user-box {
+		.select-user-box-bg{
+			width: 20pt;
+		  height: 20pt;
+		  background: #d7d7d7;
+		}
+	}
+}
+.select-user .li-no-hover:hover, .select-user .li-no-hover:active {
+  cursor: not-allowed;
+  background-color: #FFFFFF;
+}
+
+.list-email {
+  min-height: 300px;
+	border: solid 1px #CCC;
+	@include border-radius(0.3rem);
+	background-color: #FFF;
+  .list-email-inner {
+    border-bottom: 1px solid #ccc;
+  }
+	.fa {
+		cursor: pointer;
+	}
+}
+.search-email {
+	position: relative;
+	.search-email-box {
+		position: absolute;
+		width: 100%;
+		left: 0;
+    top: 29px;
+    border-radius:0 ;
+    min-height: 100px;
+    border: solid 1px #CCC;
+    @include border-radius(0);
+    background-color: #FFF;
+		.d-flex {
+			cursor: pointer;
+			&:hover {
+				background: #67d3f3;
+			}
+		}
+	}
+}
+.checked {
+  background-color: #FCF8E3;
+}
+.avatar-wrapper {
+	display:flex;
+	.avatar-select {
+		max-width:110px;
+	}
+}
+
+
+// Medium devices (tablets, 画面サイズ991px以下)
+// @media (max-width: 991px) { ... }
+@include media-breakpoint-down(md) {
+	.select-content {
+		flex-wrap: wrap;
+		.select-col1,
+		.select-col3,
+		.select-col2,
+		.button-switcher {
+			width: 100%;
+		}
+		.select-col2 {
+			padding-top: 0;
+		}
+		.fa-arrow-left:before {
+			content: "\F062";
+		}
+		.fa-arrow-right:before {
+			content: "\F063";
+		}
+	}
+}

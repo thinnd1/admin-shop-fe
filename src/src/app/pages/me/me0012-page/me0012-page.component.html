@@ -1,0 +1,74 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'ME0012.TITLE' | translate"></app-page-head>
+                </div>
+                <!-- ME0012 -->
+                <div role="tabpanel" class="tab-pane">
+                  <div class="my-2">
+                    <p class="mb-0">{{'ME0012.NOTI_BLOCK' | translate}}</p>
+                  </div>
+                  <div class="text-center mt-5" *ngIf="blockedUserList.users?.length === 0">
+                    <h3>{{'ME0012.CONTENT_NONE' | translate}}</h3>
+                  </div>
+                  <div class="table-staff-invite tbl-content-01" *ngIf="blockedUserList.users?.length > 0">
+                    <table class="table table-hover">
+                      <thead class="thead-inverse hidden-sm-down">
+                        <tr>
+                          <th class="align-middle w-75">{{'ME0012.TABLE_NAME' | translate}}</th>
+                          <th class="align-middle">{{'ME0012.TABLE_ACTION' | translate}}</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <ng-container *ngFor="let user of blockedUserList.users">
+                        <tr (click)="showInfoDetailMr(user.userId, user.officeId)">
+                          <th class="hidden-md-up align-middle">{{'ME0012.TABLE_NAME' | translate}}</th>
+                          <td class="align-middle">
+                            <div class="d-flex">
+                              <app-mini-profile [profileOptions]="{iconSize: 55, nameKana: false, officeName: true}" [userInfo]="{imageUrl: user.image, firstName: user.firstName, lastName: user.lastName, officeName: user.officeName}"></app-mini-profile>
+                            </div>
+                          </td>
+                          <th class="hidden-md-up align-middle">{{'ME0012.TABLE_ACTION' | translate}}</th>
+                          <td class="align-middle text-center">
+                            <button type="button" class="btn btn-secondary" (click)="unBlockUser($event, user)">{{'ME0012.ACTION_UNLOCK' | translate}}</button>
+                          </td>
+                        </tr>
+                      </ng-container>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

@@ -1,0 +1,499 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents CM0005-->
+              <div class="col">
+                <!-- CM0005-1 -->
+                <div *ngIf="currentPage === pageStatus.Top">
+                  <div class="page-head">
+                    <app-page-head [title]="'CM0005.CM0005-1.TITLE' | translate"></app-page-head>
+                  </div>
+                  <div class="mb-3">
+                    <div class="row">
+                      <div class="col-12 col-lg-6">
+                        <div class="search">
+                          <form #searchForm="ngForm" (ngSubmit)="onSearch()">
+                            <input class="search-input" type="text" placeholder="{{'COMMON_LABEL.LBL_SEARCH' | translate}}" name="keyword" [(ngModel)]="searchOptions.keyword" autocomplete="off">
+                            <button type="submit" class="search-btn">
+                              <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                          </form>
+                        </div>
+                      </div>
+                      <div class="col-12 col-lg-6 text-right">
+                        <button type="button" class="btn btn-success mt-2 mt-lg-0" (click)="gotoNew()">{{ 'CM0005.BTN.NEW' | translate }}</button>
+                      </div>
+                    </div>
+                  </div>
+                  <ng-container *ngIf="dataList && dataList.length">
+                    <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="10" (scrolled)="onScroll($event)">
+                      <div class="row">
+                        <div class="col">
+                          <table #tableData class="table table-data table-striped table-bordered table-hover">
+                            <thead class="thead-inverse hidden-sm-down">
+                            <tr>
+                              <th class="align-middle">{{ 'CM0005.CM0005-1.THEAD1' | translate }}</th>
+                              <th class="align-middle">{{ 'CM0005.CM0005-1.THEAD2' | translate }}</th>
+                              <th class="align-middle">{{ 'CM0005.CM0005-1.THEAD3' | translate }}</th>
+                              <th class="align-middle">{{ 'CM0005.CM0005-1.THEAD4' | translate }}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <ng-container *ngFor="let data of dataList">
+                              <tr (click)="gotoDetail(data.id)" [ngClass]="{unread : !data.read}">
+                                <td class="align-middle">{{ dateConvert(data.date) }}</td>
+                                <td class="align-middle">
+                                  {{ data.creatorDepartment }}<br>
+                                  {{ data.creatorLastName }} {{ data.creatorFirstName }}
+                                </td>
+                                <td class="align-middle">{{ data.signature }}</td>
+                                <td class="align-middle">{{ data.title }}</td>
+                              </tr>
+                            </ng-container>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="infinite-scroll-loader text-center mb-3" [hidden]="isLoading">
+                      <i class="fa fa-spinner fa-pulse fa-fw infinite-scroll-loader-icon"></i>
+                      <span class="infinite-scroll-loader-text fs14">{{'INFINITE_SCROLL.LOADING' | translate}}...</span>
+                    </div>
+                  </ng-container>
+                  <ng-container *ngIf="!isAllLoading() && (!dataList || !dataList.length)">
+                    <p class="text-center fs18">{{ 'NO_DATA_MESSAGE' | translate }}</p>
+                  </ng-container>
+                </div>
+                <!-- /CM0005-1 -->
+
+                <!-- CM0005-2 TOP -->
+                <div *ngIf="currentPage === pageStatus.New">
+                  <div class="page-head">
+                    <app-page-head [title]="'CM0005.CM0005-2.TOP.TITLE' | translate"></app-page-head>
+                  </div>
+                  <form [formGroup]="newInfoForm" (ngSubmit)="onNewInfoSubmit()">
+
+                    <div class="mb-3">
+                      <h2>{{ 'CM0005.CM0005-2.TOP.SECTION1.TITLE' | translate }}</h2>
+                    </div>
+
+                    <div class="mb-5">
+                      <div class="has-danger" *ngIf="isErrorIndustries()">
+                        <div class="form-control-feedback">{{ 'CM0005.ERRORS.INDUSTRY' | translate }}</div>
+                      </div>
+                      <ul class="row list-unstyled mb-0">
+                        <li class="col-12">
+                          <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" name="industryCheck"
+                                   formControlName="industryAll" value="ALL" (change)="changeAllIndustry($event.target.checked)">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">{{ 'CM0005.LABEL.ALL' | translate }}</span>
+                          </label>
+                        </li>
+                        <li class="col-4" formArrayName="industries"
+                            *ngFor="let item of newInfoForm.get('industries').controls; let i = index;">
+                          <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" name="industryCheck"
+                                   [formControlName]="i" [value]="industryTypes[i]" (change)="changeIndustry()">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">{{ 'INDUSTRY_TYPE.' + industryTypes[i] | translate }}</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="mb-3">
+                      <h2>{{ 'CM0005.CM0005-2.TOP.SECTION2.TITLE' | translate }}</h2>
+                    </div>
+
+                    <div class="mb-3">
+                      <div class="row align-items-center">
+                        <div class="col-md-5">
+                          <div [ngClass]="{'has-danger': isError(newInfoForm.get('offices')) }">
+                            <l-select2 #select2 class="select2-noTags" name="officesData"
+                                       formControlName="offices"
+                                       [data]="officesData" [options]="select2Options">
+                            </l-select2>
+                          </div>
+                        </div>
+                        <div class="text-right text-md-left col-md-3">({{ countedOffice() }}{{ 'CM0005.CM0005-2.TOP.SECTION2.OFFICE_COUNTER_SUFFIX' | translate }})</div>
+                        <div class="col-md-4 text-right">
+                          <div class="d-inline-block">
+                            <button type="button" class="btn btn-danger" (click)="clearAllSelectedOffices()">{{ 'CM0005.BTN.ALL_REMOVE' | translate }}</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <ng-container *ngTemplateOutlet="newInfoFormError;
+                                    context: {
+                                      formControl: newInfoForm.get('offices'),
+                                      message: 'CM0005.ERRORS.TOOFFICES'
+                                    }">
+                      </ng-container>
+                      <div class="row">
+                        <div class="col">
+                          <ul class="office-select-box list-unstyled">
+                            <li class="list-inline-item mr-3" *ngFor="let selectedOffice of newInfoForm.get('offices').value; let index=index">
+                              <a href="javascript:void(0)" (click)="clearSelectedOffice(index)">×</a>{{ selectedOffice.text }}
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <div class="row">
+                        <div class="col-8">
+                          <ng-container *ngTemplateOutlet="newInfoFormCountText;
+                                          context: {
+                                            formControl: newInfoForm.get('signature'),
+                                            formControlName: 'signature',
+                                            placeholder: 'CM0005.CM0005-2.TOP.SECTION2.PLACEHOLDER2',
+                                            maxlength: 30
+                                          }">
+                          </ng-container>
+                        </div>
+                        <div class="col-4 text-right">
+                          <a href="javascript:void(0);" class="text-help d-inline-block" (click)="gotoHelp()">
+                            <span class="align-middle pl-2 text-warning fs22">
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                            </span>
+                            <span class="align-middle">{{ 'CM0005.CM0005-2.TOP.SECTION2.HELP' | translate }}</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <ng-container *ngTemplateOutlet="newInfoFormError;
+                                    context: {
+                                      formControl: newInfoForm.get('title'),
+                                      message: 'CM0005.ERRORS.TITLE'
+                                    }">
+                      </ng-container>
+                      <div class="row">
+                        <div class="col">
+                          <ng-container *ngTemplateOutlet="newInfoFormCountText;
+                                          context: {
+                                            formControl: newInfoForm.get('title'),
+                                            formControlName: 'title',
+                                            placeholder: 'CM0005.CM0005-2.TOP.SECTION2.PLACEHOLDER3',
+                                            maxlength: 30
+                                          }">
+                          </ng-container>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <ng-container *ngTemplateOutlet="newInfoFormError;
+                                    context: {
+                                      formControl: newInfoForm.get('body'),
+                                      message: 'CM0005.ERRORS.BODY'
+                                    }">
+                      </ng-container>
+                      <div class="row">
+                        <div class="col">
+                          <div [ngClass]="{'has-danger': isError(newInfoForm.get('body')) }">
+                            <div class="input-group">
+                              <textarea class="form-control" rows="3" formControlName="body"
+                                        placeholder="{{ 'CM0005.CM0005-2.TOP.SECTION2.PLACEHOLDER4' | translate }}"
+                                        [ngClass]="{'form-control-danger': isError(newInfoForm.get('body')) }">
+                              </textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <div class="d-flex align-items-center">
+                        <div class="pr-3">
+                          <label class="custom-control custom-file pl-0 mr-0" *ngIf="attachments.length < 3">
+                            <span class="btn btn-secondary">
+                              {{'CM0005.CM0005-2.TOP.SECTION2.FILE_UPLOAD' | translate }}
+                              <input type="file" (change)="onFileChange($event)" class="custom-file-input">
+                              <input type="hidden" formControlName="files">
+                            </span>
+                          </label>
+                        </div>
+                        <div class="text-ellipsis" *ngIf="attachments.length <= 0">
+                          {{'CM0005.CM0005-2.TOP.SECTION2.NOT_FILE' | translate }}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div *ngIf="attachments.length > 0">
+                      <div class="row">
+                        <div class="col">
+                          <div class="file-box">
+                            <ul class="list-unstyled mb-0">
+                              <li class="text-ellipsis" *ngFor="let attachment of attachments; let i = index">
+                                <a href="javascript:void(0)" (click)="removeAttachment(i)">×</a>{{ attachment.file.name }}
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="py-4">
+                      <div class="row">
+                        <div class="col">
+                          <div class="text-center">
+                            <button type="submit" class="btn btn-primary">{{ 'BTN.CONFIRM' | translate }}</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <ng-template #newInfoFormError let-formControl="formControl" let-message="message">
+                      <div class="has-danger" *ngIf="isError(formControl)">
+                        <div class="form-control-feedback">{{ message | translate }}</div>
+                      </div>
+                    </ng-template>
+
+                    <ng-template #newInfoFormCountText let-placeholder="placeholder" let-formControl="formControl"
+                                 let-formControlName="formControlName" let-maxlength="maxlength">
+                      <div [ngClass]="{'has-danger': isError(formControl) }">
+                        <div class="input-group mr-0 mr-sm-3">
+                          <input type="text" class="form-control" placeholder="{{ placeholder | translate }}"
+                                 [maxlength]="maxlength" [ngClass]="{'form-control-danger': isError(formControl) }"
+                                 [formControlName]="formControlName">
+                        </div>
+                        <div>{{ (formControl.value?.length || 0) }}/{{ maxlength }}</div>
+                      </div>
+                    </ng-template>
+
+                  </form>
+                </div>
+                <!-- /CM0005-2 TOP -->
+
+                <!-- CM0005-2 CONFIRM -->
+                <div *ngIf="currentPage === pageStatus.Confirm">
+                  <div class="page-head">
+                    <app-page-head [title]="'CM0005.CM0005-2.CONFIRM.TITLE' | translate" [backEvent]="true" (clickBackEvent)="gotoBack()" ></app-page-head>
+                  </div>
+
+                  <div class="text-center mb-4">
+                    <h2 class="text-danger">{{ 'CM0005.CM0005-2.CONFIRM.LEAD' | translate }}</h2>
+                  </div>
+
+                  <table class="table table-bordered table-notice">
+                    <tbody class="tbody-inverse">
+                      <tr>
+                        <th scope="row" class="table-notice-label">{{ 'CM0005.INFO.TITLE5' | translate }}</th>
+                        <td class="table-notice-content">{{ newInfoForm.get('title').value }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="table-notice-label">{{ 'CM0005.INFO.TITLE1' | translate }}</th>
+                        <td class="table-notice-content">{{ newInfoForm.get('signature').value }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="table-notice-label">{{ 'CM0005.INFO.TITLE3' | translate }}</th>
+                        <td class="table-notice-content">
+                          <span class="d-inline-block mr-3" *ngIf="newInfoForm.get('industryAll').value">{{ 'CM0005.LABEL.ALL' | translate }}</span>
+                          <ng-container *ngIf="!newInfoForm.get('industryAll').value">
+                            <ng-container *ngFor="let industry of newInfoForm.get('industries').value; let index=index">
+                              <span class="d-inline-block mr-3" *ngIf="industry">
+                                {{ 'INDUSTRY_TYPE.' + industryTypes[index] | translate }}
+                              </span>
+                            </ng-container>
+                          </ng-container>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="table-notice-label">{{ 'CM0005.INFO.TITLE4' | translate }}</th>
+                        <td class="table-notice-content">
+                          <ng-container *ngIf="countedOffice() <= newInfoForm.get('offices').value.length">
+                            {{ 'COMMON_LABEL.ALL' | translate }}
+                          </ng-container>
+                          <ng-container *ngIf="!(countedOffice() <= newInfoForm.get('offices').value.length)">
+                            <span class="d-inline-block mr-3" *ngFor="let toOffice of newInfoForm.get('offices').value">
+                              {{ toOffice.text }}
+                            </span>
+                          </ng-container>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="table-notice-label">{{ 'CM0005.INFO.TITLE6' | translate }}</th>
+                        <td class="table-notice-content preline-text">{{ newInfoForm.get('body').value }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="table-notice-label">{{ 'CM0005.INFO.TITLE7' | translate }}</th>
+                        <td class="table-notice-content">
+                          <div class="row" *ngIf="checkAttachmentsImage()">
+                            <div class="col">
+                              <ul class="list-unstyled attachment-img-list">
+                                <ng-container *ngFor="let attachment of attachments; let index = index">
+                                  <li *ngIf="attachment.imgURL" class="text-center py-1">
+                                    <img [src]="attachment.imgURL" class="mw-100" (load)="loadAttachmentsImage($event, attachment)">
+                                  </li>
+                                </ng-container>
+                              </ul>
+                            </div>
+                          </div>
+
+                          <div class="row" *ngIf="checkAttachmentsFile()">
+                            <div class="col">
+                              <div class="file-box">
+                                <ul class="list-unstyled mb-0">
+                                  <ng-container *ngFor="let attachment of attachments">
+                                    <li *ngIf="!attachment.imgURL">
+                                      {{ attachment.file.name }}
+                                    </li>
+                                  </ng-container>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <div class="pt-4 my-4">
+                    <div class="d-flex justify-content-center">
+                      <div class="d-flex justify-content-center form-inline">
+                        <button class="btn btn-primary m-1" (click)="onNewInfoSend()" type="submit">{{ 'BTN.SEND' | translate }}</button>
+                        <button class="btn btn-secondary m-1" (click)="gotoBack()" type="submit">{{ 'BTN.CANCEL' | translate }}</button>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <!-- CM0005-2 CONFIRM -->
+
+                <!-- CM0005-3 -->
+                <div *ngIf="currentPage === pageStatus.Detail && detailData">
+                  <div class="page-head">
+                    <app-page-head [title]="'CM0005.CM0005-3.TITLE' | translate"></app-page-head>
+                  </div>
+
+                  <div class="mb-3">
+                    <div class="d-flex justify-content-end align-items-center text-right">
+                      <div class="datetime fs12">{{ dateConvert(detailData.date) }}</div>
+                      <div class="ml-3">
+                        <button type="button" class="btn btn-danger" (click)="onRemove(detailData.id)">{{ 'BTN.DELETE' | translate }}</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <table class="table table-bordered table-notice">
+                    <tbody class="tbody-inverse">
+                      <tr>
+                        <th scope="row" class="table-notice-label">{{ 'CM0005.INFO.TITLE5' | translate }}</th>
+                        <td class="table-notice-content">{{ detailData.title }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="table-notice-label">{{ 'CM0005.INFO.TITLE1' | translate }}</th>
+                        <td class="table-notice-content">{{ detailData.signature }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="table-notice-label">{{ 'CM0005.INFO.TITLE2' | translate }}</th>
+                        <td class="table-notice-content">{{ detailData.creatorLastName }} {{ detailData.creatorFirstName }}{{ 'HONORIFIC' | translate }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="table-notice-label">{{ 'CM0005.INFO.TITLE3' | translate }}</th>
+                        <td class="table-notice-content">
+                          <span class="d-inline-block mr-3" *ngFor="let toIndustry of detailData.toIndustries">{{ toIndustry }}</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="table-notice-label">{{ 'CM0005.INFO.TITLE4' | translate }}</th>
+                        <td class="table-notice-content">
+                          <ng-container *ngIf="detailData.toAll">
+                            {{ 'COMMON_LABEL.ALL' | translate }}
+                          </ng-container>
+                          <ng-container *ngIf="!detailData.toAll">
+                            <span class="d-inline-block mr-3" *ngFor="let toOffice of detailData.toOffices">
+                              {{ toOffice }}
+                            </span>
+                          </ng-container>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="table-notice-label">{{ 'CM0005.INFO.TITLE6' | translate }}</th>
+                        <td class="table-notice-content preline-text">{{ detailData.body }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="table-notice-label">{{ 'CM0005.INFO.TITLE7' | translate }}</th>
+                        <td class="table-notice-content">
+                          <!-- imgを表示させる -->
+                          <ng-container *ngIf="detailAttachmentsImageFlag">
+                            <div class="row">
+                              <div class="col">
+                                <ul class="list-unstyled attachment-img-list">
+                                  <ng-container *ngFor="let detailAttachment of detailAttachments">
+                                    <ng-container *ngIf="checkDetailImage(detailAttachment)">
+                                      <li class="text-center">
+                                        <!--<a href="#" class="d-inline-block">-->
+                                        <img [src]="detailAttachment.path" class="mw-100">
+                                        <!--</a>-->
+                                      </li>
+                                    </ng-container>
+                                  </ng-container>
+                                </ul>
+                              </div>
+                            </div>
+                          </ng-container>
+                          <!-- /imgを表示させる -->
+                          <!-- そのほかを表示させる -->
+                          <ng-container *ngIf="checkDetailEtcCount()">
+                            <div class="row">
+                              <div class="col">
+                                <div class="file-box mb-3">
+                                  <ul class="list-unstyled mb-0">
+                                    <ng-container *ngFor="let detailAttachment of detailAttachments">
+                                      <ng-container *ngIf="checkDetailEtc(detailAttachment)">
+                                        <li>
+                                          <a href="javascript:void(0);" (click)="downloadDetailImage(detailAttachment.meta.customMetadata.name, detailAttachment.path)">{{ detailAttachment.meta.customMetadata.name }}</a>
+                                        </li>
+                                      </ng-container>
+                                    </ng-container>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </ng-container>
+                          <!-- /そのほかを表示させる -->
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /CM0005-3 -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

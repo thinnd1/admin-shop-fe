@@ -1,0 +1,20 @@
+// import common setting
+@import './../../../assets/styles/import';
+
+$face-icon-size: 30, 40, 55, 76, 94;
+@each $size in $face-icon-size {
+  .face-icon-#{$size} {
+    width: #{$size}px;
+    height: #{$size}px;
+  }
+}
+
+.face-icon-bordered {
+  border: 1px solid $orange;
+  &-drjoy {
+    border: 1px solid $drjoy-symbol-color;
+  }
+  &-prjoy {
+    border: 1px solid $prjoy-symbol-color;
+  }
+}

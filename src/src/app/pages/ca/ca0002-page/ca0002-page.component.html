@@ -1,0 +1,371 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner unspecified-width">
+            <div class="row">
+              <div class="col">
+                <div id="calendar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <app-popup-hover></app-popup-hover>
+  <!--contents CA0004-->
+  <div class="popover fs16" *ngIf="showPopupCreateEvent" id="popupCreateEvent" (clickOutside)="clickOutsidePopupCreateEvent($event)"
+       [ngClass]="{'popover-position-left': (showLeft), 'popover-position-right': (showRight), 'popover-bottom': (showBottom), 'popover-top': (!showBottom)}">
+    <div class="popover-close">
+      <button type="button" class="close" aria-label="Close" (click)="hidePopupCreateEvent()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="arrow"></div>
+    <div class="popover-tab">
+      <div class="px-2 pt-2">
+        <ul class="nav nav-tabs nav-tabs-responsive fs18 col-11 col-lg-12" role="tablist">
+          <li class="nav-item" (click)="setNumberTapPopup(1)" [ngClass]="{'active' : numberTapActive == 1, 'prev' : numberTapActive == 2}">
+            <a class="nav-link" href="#tab-content1" [ngClass]="{'active' : numberTapActive == 1}" role="tab" data-toggle="tab" aria-expanded="true" id="createEventTap1">
+              <span class="text">{{'CA004.TAB_EVENT' | translate}}</span>
+            </a>
+          </li>
+          <li class="nav-item" (click)="setNumberTapPopup(2)" [ngClass]="{'active' : numberTapActive == 2, 'next' : numberTapActive == 1}" *ngIf="authorityMeeting">
+            <a class="nav-link" href="#tab-content2" [ngClass]="{'active' : numberTapActive == 2}" role="tab" data-toggle="tab" id="createEventTap2">
+              <span class="text">面会枠</span>
+            </a>
+          </li>
+          <!--<li class="nav-item">-->
+            <!--<a class="nav-link" href="#tab-content3" role="tab" data-toggle="tab" id="createEventTap3">-->
+              <!--<span class="text">説明会枠</span>-->
+            <!--</a>-->
+          <!--</li>-->
+        </ul>
+      </div>
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane" id="tab-content1" [ngClass]="{'active' : numberTapActive == 1}">
+          <form [formGroup]="createEventForm" (ngSubmit)="postEventCreateSettings(formModel)" *ngIf="numberTapActive === 1">
+            <div class="px-2">
+              <div class="form-group row row-mg">
+                <label class="col-2 col-form-label d-flex align-items-center justify-content-end">{{'CA004.TITLE.NAME' | translate}}</label>
+                <div class="col-10">
+                  <input class="form-control" formControlName="title" type="text"
+                         placeholder="{{'CA004.TITLE.PLACEHOLDER' | translate}}">
+                </div>
+              </div>
+              <div class="form-group row row-mg">
+                <label class="col-2 col-form-label d-flex align-items-center justify-content-end">{{'CA004.ALL_DAY.TITLE' | translate}}</label>
+                <div class="col-10">
+                  <label class="custom-control custom-checkbox pt-label">
+                    <input type="checkbox" formControlName="allDay" (click)="isAllDay()"
+                           class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">{{'CA004.ALL_DAY.VALUE' | translate}}</span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group row row-mg">
+                <label class="col-2 col-form-label">&nbsp;</label>
+                <div class="col-10">
+                  <div class="input-time form-inline">
+                    <div class="form-input-date">
+                      <app-date-input [date]="dateStartPicker" [showIcon]="false" [dateInputOptions]="{id:'start-day',name:'startDay',placeholder:'日付を選択してください',outsideDays:false,weekendsDisable:false}"
+                      (dateChanged)="startDateChanged($event)"></app-date-input>
+                    </div>
+                    <div class="form-input-time ml-2" *ngIf="!checkAllDay">
+                      <select class="form-control w-100" formControlName="startTime">
+                        <option *ngFor="let item of timePicker" [value]="item">{{item}}</option>
+                      </select>
+                    </div>
+                    <span class="py-1 px-2">〜</span>
+                    <div class="form-input-date">
+                        <app-date-input [date]="dateEndPicker" [showIcon]="false" [dateInputOptions]="{id:'end-date',name:'endDate',placeholder:'日付を選択してください',outsideDays:false,weekendsDisable:false}"
+                      (dateChanged)="endDateChanged($event)"></app-date-input>
+                    </div>
+                    <div class="form-input-time ml-2" *ngIf="!checkAllDay">
+                      <select class="form-control w-100" formControlName="endTime">
+                        <option *ngFor="let item of timePicker" [value]="item">{{item}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row row-mg">
+                <label class="col-2 col-form-label pt-1">{{'CA004.SHARE_TITLE' | translate}}</label>
+                <div class="col-10">
+                  <div class="form-group row">
+                    <div class="col-1 d-flex align-items-center">
+                      <label class="custom-control custom-radio">
+                        <input [checked]="formModel.optionShare===valueShare.user"
+                               formControlName="optionShare" [value]="valueShare.user"
+                               (click)="displayOption(valueShare.user)" type="radio"
+                               class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                      </label>
+                    </div>
+                    <div class="col-7">
+                      <select formControlName="userId" class="form-control" (click)="displayOption(valueShare.user)" [ngClass]="{'disable-option':formModel.optionShare !== valueShare.user}">
+                        <option [selected]="staff.userId === userId" *ngFor="let staff of listStaff"
+                                value="{{staff.userId}}">{{staff.lastName + ' ' + staff.firstName}}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div id="public-type" *ngIf="showPublishType">
+                    <div class="form-group row" *ngIf="!userSession.personalFlag">
+                      <label class="col-5 col-form-label">{{'CA004.SHARE_USER.INSIDE_HOSPITAL_TITLE' |
+                        translate}}</label>
+                      <div class="col-7">
+                        <label class="custom-control custom-radio mr-2" *ngFor="let option of options">
+                          <input [checked]="formModel.publishType===option.value" [value]="option.value"
+                                 formControlName="publishType" type="radio" class="custom-control-input">
+                          <span class="custom-control-indicator"></span>
+                          <span class="custom-control-description">{{'CA004.SHARE_USER.'+option.key | translate}}</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-5 col-form-label">{{'CA004.SHARE_USER.OUTSIDE_HOSPITAL_TITLE' |
+                        translate}}</label>
+                      <div class="col-7">
+                        <label class="custom-control custom-radio mr-2" *ngFor="let option of options">
+                          <input [checked]="formModel.meetingPublishType===option.value"
+                                 [value]="option.value" formControlName="meetingPublishType" type="radio"
+                                 class="custom-control-input">
+                          <span class="custom-control-indicator"></span>
+                          <span class="custom-control-description">{{'CA004.SHARE_USER.'+option.key | translate}}</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group row" *ngIf="!userSession.personalFlag">
+                    <div class="col-1 d-flex align-items-center">
+                      <label class="custom-control custom-radio">
+                        <input formControlName="optionShare" [value]="valueShare.insideHospital" [checked]="formModel.optionShare===valueShare.insideHospital"
+                               (click)="displayOption(valueShare.insideHospital)" type="radio"
+                               class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                      </label>
+                    </div>
+                    <div class="col-7">
+                      <select formControlName="groupInside" class="form-control" id="group-inside" (click)="displayOption(valueShare.insideHospital)"
+                              [ngClass]="{'disable-option':formModel.optionShare !== valueShare.insideHospital}">
+                        <option *ngFor='let item of listGroupInside' [selected]="item.id === formModel.groupInside" [value]="item.id">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-1 d-flex align-items-center">
+                      <label class="custom-control custom-radio">
+                        <input formControlName="optionShare" [value]="valueShare.outsideHospital" [checked]="formModel.optionShare===valueShare.outsideHospital"
+                               (click)="displayOption(valueShare.outsideHospital)" type="radio"
+                               class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                      </label>
+                    </div>
+                    <div class="col-7">
+                      <select formControlName="groupOutside" class="form-control" id="group-outside" (click)="displayOption(valueShare.outsideHospital)"
+                              [ngClass]="{'disable-option':formModel.optionShare !== valueShare.outsideHospital}">
+                        <option *ngFor='let item of listGroupOutside' [selected]="item.id === formModel.groupOutside" [value]="item.id">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="popover-footer px-2 py-2">
+              <button type="button" (click)="editEvent()" class="fs14 btn btn-sm btn-secondary mx-2">
+                {{'CA004.BTN_EDIT' | translate}}
+              </button>
+              <button type="submit" class="fs14 btn btn-sm btn-primary mx-2">{{'CA004.BTN_CREATE' | translate}}
+              </button>
+            </div>
+          </form>
+        </div >
+        <!--tab 2-->
+        <div role="tabpanel" class="tab-pane" id="tab-content2" [ngClass]="{'active' : numberTapActive == 2}" *ngIf="authorityMeeting">
+          <form [formGroup]="createFrameMeetingForm" (ngSubmit)="confirmFrameMeeting()" *ngIf="numberTapActive === 2">
+          <div class="px-2">
+            <div class="form-group row">
+              <label class="col-2 col-form-label d-flex align-items-center justify-content-end">{{'CA0004_FRAME.TIME' | translate}}</label>
+              <div class="col-10">
+                <div class="row input-time form-inline">
+                  <div class="form-input-date">
+                    <app-date-input [showIcon]="false" [date]="dateFrame.startDay"
+                                          [dateInputOptions]="{id:'start-day-frame',name:'startDayFrame',placeholder:'日付を選択してください'}"
+                                         (dateChanged)="startDateFrameChanged($event)"></app-date-input>
+                  </div>
+                  <div class="form-input-time ml-2">
+                    <select class="form-control w-100" formControlName="startTime" (change)="triggerChangeSlot()" >
+                      <option *ngFor="let item of timePicker" [value]="item"
+                              [selected]="(dateFrame.startTime | timePipe: 'HH:mm') === item">{{item}}
+                      </option>
+                    </select>
+                  </div>
+                  <span class="py-1 px-2">〜</span>
+                  <div class="form-input-time">
+                    <select class="form-control w-100" formControlName="endTime" (change)="triggerChangeSlot()">
+                      <option *ngFor="let item of timePicker" [value]="item"
+                              [selected]="(dateFrame.endTime | timePipe: 'HH:mm')  === item" >{{item}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row" *ngIf="isMediator">
+              <label class="col-2 col-form-label d-flex align-items-center justify-content-end">{{'CA0004_FRAME.TARGET' | translate}}</label>
+              <div class="col-7">
+                <select class="form-control" formControlName="officeUserId">
+                  <option *ngFor="let item of listMediator" [value]="item.officeUserId">{{item.lastName + ' ' + item.firstName}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-2 col-form-label">{{'CA0004_FRAME.TYPE' | translate}}</label>
+              <div class="col-10">
+                <div class="form-group row" *ngFor="let option of frameType">
+                  <div class="col-6 d-flex align-items-center">
+                    <label class="custom-control custom-radio">
+                      <input  type="radio" class="custom-control-input" [value]="option.value" formControlName="frameType" [checked]="option.value === 'SLOTS'">
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description">{{'CA0004_FRAME.' + option.key | translate}}</span>
+                    </label>
+                  </div>
+                  <div class="col-3" *ngIf="option.value === 'SLOTS'">
+                    <select class="form-control" formControlName="slots">
+                      <option *ngFor="let slot of slots" [value]="slot" [selected]="createFrameMeetingForm.value.slots == slot" >{{slot}}分</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="popover-footer px-2 py-2">
+            <button type="button"
+                    class="fs14 btn btn-sm btn-secondary mx-2" (click)="advanceFrameMeeting()">{{'CA004.BTN_EDIT' | translate}}
+            </button>
+            <button type="submit" class="fs14 btn btn-sm btn-primary mx-2">{{'CA004.BTN_CREATE' | translate}}
+            </button>
+          </div>
+          </form>
+        </div>
+        <!--tab 3-->
+        <div role="tabpanel" class="tab-pane" id="tab-content3">
+          <div *ngIf="numberTapActive === 3">
+            <div class="px-2">
+              <div class="form-group row">
+                <label class="col-2 col-form-label">グループ</label>
+                <div class="col-7">
+                  <select class="form-control">
+                    <option>グループを選択</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-2 col-form-label">時間</label>
+                <div class="col-10">
+                  2017年06月01日（土） 11:00 〜 11:30
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-2 col-form-label">タイプ</label>
+                <div class="col-10">
+                  <div class="form-group">
+                    <label class="custom-control custom-radio">
+                      <input name="radio2" type="radio" class="custom-control-input">
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description">１件の予約枠として表示</span>
+                    </label>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-6">
+                      <label class="custom-control custom-radio">
+                        <input checked name="radio2" type="radio" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">次の時間単位で予約枠を表示</span>
+                      </label>
+                    </div>
+                    <div class="col-3">
+                      <select class="form-control">
+                        <option>30分</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-2 col-form-label">カテゴリ</label>
+                <div class="col-10">
+                  <div class="row">
+                    <div class="col-3">
+                      <label class="custom-control custom-checkbox">
+                        <input checked type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">薬剤</span>
+                      </label>
+                    </div>
+                    <div class="col-3">
+                      <label class="custom-control custom-checkbox">
+                        <input checked type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">医療機器</span>
+                      </label>
+                    </div>
+                    <div class="col-3">
+                      <label class="custom-control custom-checkbox">
+                        <input checked type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">その他</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-2 col-form-label">薬効分類</label>
+                <div class="col-8">
+                  <select class="form-control">
+                    <option>呼吸器系疾患治療剤</option>
+                    <option>すべて</option>
+                    <option>気管支喘息（発作時内服・吸入）</option>
+                    <option>気管支喘息（発作時静注）</option>
+                    <option>気管支喘息（ネブライザa）</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="popover-footer px-2 py-2">
+              <button type="button"
+                      class="fs14 btn btn-sm btn-secondary mx-2">{{'CA004.BTN_EDIT' | translate}}
+              </button>
+              <button type="button" class="fs14 btn btn-sm btn-primary mx-2">{{'CA004.BTN_CREATE' | translate}}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--contents CA0004-->
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

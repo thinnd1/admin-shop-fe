@@ -1,0 +1,79 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+
+
+@page {
+  size: A4;
+  margin-top: 5px;
+  margin-bottom:0;
+  margin-left: 0;
+  margin-right: 0;
+}
+@page:first {
+  margin: 5px 0 5px;
+}
+.page-print {
+  width:595pt;
+  margin: 0 auto;
+  .print-head {
+    .print-head-top {
+      border-bottom: solid 1px #ccc;
+    }
+  }
+}
+.print-tbl {
+  th {
+    white-space: nowrap;
+  }
+  th,
+  td {
+    font-size: 0.85rem;
+    padding: 0;
+  }
+  .print-box {
+    border: solid 1px #ccc;
+    width: 16px;
+    min-width: 16px;
+    height: 16px;
+    display: block;
+  }
+  .minh-30 {
+    min-height: 30px;
+  }
+  .box-Gray {
+    background: #eee;
+  }
+  .bod-dashedTop {
+    border-top: dashed 2px #D7D7D7;
+  }
+  .bod-top,
+  .bod-bottom,
+  .bod-left,
+  .bod-right {
+    position: relative;
+  }
+  .bod-top {
+    border-top: solid 2px #393730;
+  }
+  .bod-bottom {
+    border-bottom: solid 2px #393730;
+    bottom: -1px;
+  }
+  .bod-left {
+    border-left: solid 2px #393730;
+  }
+  .bod-right {
+    &:after {
+      position:absolute;
+      top: 0;
+      right: 0;
+      width: 2px;
+      height: 105%;
+      background: #393730;
+      content: "";
+    }
+  }
+}
+
+
+

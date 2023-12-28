@@ -1,0 +1,69 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents HE0016-->
+              <div class="col">
+
+                <div class="row">
+                  <div class="col">
+                    <div class="page-head">
+                      <app-page-head [title]="'HELP.HE0016.TITLE' | translate"></app-page-head>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    <div class="he-section">
+                      <p class="he-text">{{'HELP.HE0016.LEAD' | translate}}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    <div class="he-section pt-4">
+                      <h2>{{'HELP.HE0016.SECTION1.TITLE' | translate}}</h2>
+                      <p class="pb-3"><img [src]="'/assets/img/he/he0016/he0016-01-' + lang + '.png'" alt="" class="he-img-full"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    <div class="he-section pt-4">
+                      <h2>{{'HELP.HE0016.SECTION2.TITLE' | translate}}</h2>
+                      <p class="pb-3"><img [src]="'/assets/img/he/he0016/he0016-02-' + lang + '.png'" alt="" class="he-img-full"></p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

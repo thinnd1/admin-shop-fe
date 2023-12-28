@@ -1,0 +1,322 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'CA0007.TITLE_PAGE' | translate" [backEvent]="true" (clickBackEvent)="backCA0014()"></app-page-head>
+                </div>
+                <!--contents-->
+                <!--contents CA0007-->
+                <form class="form-setting mb-5" [formGroup]="editEventForm" (ngSubmit)="postEventDetailSettings()">
+                  <div class="form-group row">
+                    <label class="col-md-12 col-lg-2 col-form-label text-left text-lg-right">{{'CA0007.TITLE' | translate}}</label>
+                    <div class="col-md-12 col-lg-10">
+                      <input class="form-control col-md-12 col-lg-8" [value]='formModel.title' formControlName="title"
+                             placeholder="{{'CA0007.PLACEHOLDER_DEFAULT' | translate }}" type="text">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-12 col-lg-2 col-form-label text-left text-lg-right">{{'CA0007.PLACE' | translate}}</label>
+                    <div class="col-md-12 col-lg-10">
+                      <input class="form-control col-md-12 col-lg-8" formControlName="place" [value]="formModel.place"
+                             placeholder="{{'CA0007.PLACEHOLDER_DEFAULT' | translate }}" type="text">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-12 col-lg-2 col-form-label text-left text-lg-right">{{'CA0007.TIME.TITLE' | translate}}</label>
+                    <div class="col-sm-8 col-lg-8">
+                      <div class="row">
+                        <div class="col-12">
+                          <label class="custom-control custom-checkbox">
+                            <input [checked]="formModel.allDay" type="checkbox" class="custom-control-input"
+                                   formControlName="allDay"
+                                   (click)="isAllDay()">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">{{'CA0007.TIME.ALL_DAY' | translate}}</span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="date-time-wrap form-inline">
+                        <div class="form-wrap form-control-date mr-1">
+                          <app-date-input [isDisable]="false" [date]="formModel.startDay" [dateInputOptions]="{id:'startDay',name:'startDay',placeholder:'日付を選択してください',outsideDays:false,weekendsDisable:false}"
+                                               (dateChanged)="startDateChanged($event)"></app-date-input>
+                        </div>
+                        <div class="form-wrap form-control-time" [hidden]="checkAllDay">
+                          <select class="form-control form-control-time" formControlName = "startTime">
+                            <option [selected]="item === formModel.startTime" [value]="item"
+                                    *ngFor="let item of timePicker">{{item}}
+                            </option>
+                          </select>
+                        </div>
+                        <span class="px-2">〜</span>
+                        <div class="form-wrap form-control-date mr-1">
+                          <app-date-input [isDisable]="false" [date]="formModel.endDay" [dateInputOptions]="{id:'endDay',name:'endDay',placeholder:'日付を選択してください',outsideDays:false,weekendsDisable:false}"
+                                             (dateChanged)="endDateChanged($event)"></app-date-input>
+                        </div>
+                        <div class="form-wrap form-control-time" [hidden]="checkAllDay">
+                          <select class="form-control form-control-time" formControlName="endTime">
+                            <option [selected]="item === formModel.endTime" [value]="item"
+                                    *ngFor="let item of timePicker">{{item}}
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--end day-->
+                  <div class="form-group row">
+                    <label class="col-md-12 col-lg-2 col-form-label text-left text-lg-right">{{'CA0007.REPEAT.TITLE' | translate}}</label>
+                    <div class="col-md-12 col-lg-10">
+                      <div class="form-group">
+                        <label class="custom-control custom-radio">
+                          <input type="radio" formControlName="repeatOption" class="custom-control-input"
+                                 [checked]="formModel.repeatOption === repeatOption.no_repeat"
+                                 [value]="repeatOption.no_repeat"
+                                 (change)="showHideRRule(repeatOption.no_repeat)">
+                          <span class="custom-control-indicator"></span>
+                          <span class="custom-control-description">{{'CA0007.REPEAT.NOT_REPEAT' | translate}}</span>
+                        </label>
+                        <label class="custom-control custom-radio">
+                          <input type="radio" formControlName="repeatOption" class="custom-control-input"
+                                 [checked]="formModel.repeatOption === repeatOption.week"
+                                 [value]="repeatOption.week"
+                                 (change)="showHideRRule(repeatOption.week)">
+                          <span class="custom-control-indicator"></span>
+                          <span class="custom-control-description">{{'CA0007.REPEAT.WEEK' | translate}}</span>
+                        </label>
+                        <label class="custom-control custom-radio">
+                          <input type="radio" formControlName="repeatOption" class="custom-control-input"
+                                 [checked]="formModel.repeatOption === repeatOption.month"
+                                 [value]="repeatOption.month"
+                                 (change)="showHideRRule(repeatOption.month)">
+                          <span class="custom-control-indicator"></span>
+                          <span class="custom-control-description">{{'CA0007.REPEAT.MONTH' | translate}}</span>
+                        </label>
+                      </div>
+                      <!--end not repeat-->
+                      <div class="form-group form-group-sting" formGroupName="repeatRule"
+                           [hidden]="checkOptionRRlue.week === true && checkOptionRRlue.month === true">
+                        <div class="form-title mb-2">{{'CA0007.SUMMARY.TITLE' | translate}}：{{formModel.summary}}</div>
+                        <div class="form-group row">
+                          <label class="col-md-12 col-lg-2 col-form-label text-left text-lg-right">{{'CA0007.SUMMARY.TITLE_REPEAT' |
+                            translate}}</label>
+                          <div class="col-md-12 col-lg-10">
+                            <div class="form-inline">
+                              <div>
+                                <select class="form-control" formControlName="repeatInterval" (change)="getRRule()">
+                                  <option *ngFor="let num of repeatInterval" value="{{num}}">{{num}}</option>
+                                </select>
+                              </div>
+                              <div class="py-1 pl-1">{{(checkOptionRRlue.week ? 'CA0007.SUMMARY.MONTH' :
+                                'CA0007.SUMMARY.WEEK') | translate}}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group row" [hidden]="checkOptionRRlue.week === true">
+                          <label class="col-md-12 col-lg-2 col-form-label text-left text-lg-right">{{'CA0007.SUMMARY.DAY_ON_WEEK' |
+                            translate}}</label>
+                          <div class="col-md-12 col-lg-10">
+                            <label class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" formControlName="sunday"
+                                     [checked]="formModel.sunday===true"
+                                     [value]="dayOfWeek.sunday" (change)="getRRule()">
+                              <span class="custom-control-indicator"></span>
+                              <span class="custom-control-description">{{'CA0007.SUMMARY.SUN' | translate}}</span>
+                            </label>
+                            <label class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" formControlName="monday"
+                                     [checked]="formModel.monday"
+                                     [value]="dayOfWeek.monday" (change)="getRRule()">
+                              <span class="custom-control-indicator"></span>
+                              <span class="custom-control-description">{{'CA0007.SUMMARY.MON' | translate}}</span>
+                            </label>
+                            <label class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" formControlName="tuesday"
+                                     [checked]="formModel.tuesday"
+                                     [value]="dayOfWeek.tuesday" (change)="getRRule()">
+                              <span class="custom-control-indicator"></span>
+                              <span class="custom-control-description">{{'CA0007.SUMMARY.TUE' | translate}}</span>
+                            </label>
+                            <label class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" formControlName="wednesday"
+                                     [checked]="formModel.wednesday"
+                                     [value]="dayOfWeek.wednesday" (change)="getRRule()">
+                              <span class="custom-control-indicator"></span>
+                              <span class="custom-control-description">{{'CA0007.SUMMARY.WED' | translate}}</span>
+                            </label>
+                            <label class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" formControlName="thursday"
+                                     [checked]="formModel.thursday"
+                                     [value]="dayOfWeek.thursday" (change)="getRRule()">
+                              <span class="custom-control-indicator"></span>
+                              <span class="custom-control-description">{{'CA0007.SUMMARY.THU' | translate}}</span>
+                            </label>
+                            <label class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" formControlName="friday"
+                                     [checked]="formModel.friday"
+                                     [value]="dayOfWeek.friday" (change)="getRRule()">
+                              <span class="custom-control-indicator"></span>
+                              <span class="custom-control-description">{{'CA0007.SUMMARY.FRI' | translate}}</span>
+                            </label>
+                            <label class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" formControlName="saturday"
+                                     [checked]="formModel.saturday"
+                                     [value]="dayOfWeek.saturday" (change)="getRRule()">
+                              <span class="custom-control-indicator"></span>
+                              <span class="custom-control-description">{{'CA0007.SUMMARY.SAT' | translate}}</span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="form-group row" [hidden]="checkOptionRRlue.month === true">
+                          <label class="col-md-12 col-lg-2 col-form-label text-left text-lg-right">{{'CA0007.SUMMARY.MONTH_REPEAT_OPTION.TITLE' |
+                            translate}}</label>
+                          <div class="col-md-12 col-lg-10">
+                            <div class="form-inline">
+                              <div class="mr-2">
+                                <label class="custom-control custom-radio">
+                                  <input type="radio" class="custom-control-input"
+                                         [checked]="formModel.monthRepeatOption === monthOptionRepeat.BY_MONTH_DAY"
+                                         formControlName="monthRepeatOption" (change)="getRRule()"
+                                         [value]="monthOptionRepeat.BY_MONTH_DAY" checked="">
+                                  <span class="custom-control-indicator"></span>
+                                  <span class="custom-control-description">{{'CA0007.SUMMARY.MONTH_REPEAT_OPTION.REPEAT_OPTION_1' | translate}}</span>
+                                </label>
+                              </div>
+                              <div class="">
+                                <label class="custom-control custom-radio">
+                                  <input type="radio" class="custom-control-input"
+                                         [checked]="formModel.monthRepeatOption === monthOptionRepeat.BY_DAY_OF_WEEK"
+                                         formControlName="monthRepeatOption" (change)="getRRule()"
+                                         [value]="monthOptionRepeat.BY_DAY_OF_WEEK">
+                                  <span class="custom-control-indicator"></span>
+                                  <span class="custom-control-description">{{'CA0007.SUMMARY.MONTH_REPEAT_OPTION.REPEAT_OPTION_2' | translate}}</span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-md-12 col-lg-2 col-form-label text-left text-lg-right pt-IE-2">{{'CA0007.SUMMARY.DAY_END' |
+                            translate}}</label>
+                          <div class="col-md-12 col-lg-10 end-date-wrap">
+                            <div class="form-inline float-left align-middle pt-1 pt-IE-2">
+                              <label class="custom-control custom-radio">
+                                <input type="radio" formControlName="endDate"
+                                       [checked]="formModel.endDate === endDate.none"
+                                       [value]="endDate.none" (change)="getRRule()"
+                                       (click)="disableOptionRepeat(endDate.none)"
+                                       class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">{{'CA0007.SUMMARY.NOT_END' | translate}}</span>
+                              </label>
+                            </div>
+                            <div class="form-inline float-left mr-3 mb-2">
+                              <div class="d-inline-block align-middle pt-IE-2">
+                                <label class="custom-control custom-radio mr-1">
+                                  <input type="radio" formControlName="endDate"
+                                         [checked]="formModel.endDate === endDate.count_time"
+                                         [value]="endDate.count_time"
+                                         (click)="disableOptionRepeat(endDate.count_time)"
+                                         class="custom-control-input">
+                                  <span class="custom-control-indicator"></span>
+                                </label>
+                              </div>
+                              <div class="d-inline-block wrap-input">
+                                <input class="form-control form-center endDate-time" id='count-time' (keypress)='keyPress($event)' (keyup)='keyUp($event)' (change)="getRRule()"
+                                       formControlName="countTime" type="text">
+                              </div>
+                              <div class="py-1 pl-1 d-inline-block">{{'CA0007.SUMMARY.TIME_END' | translate}}</div>
+                            </div>
+                            <div class="form-inline float-left mb-2">
+                              <div class="d-inline-block align-middle pt-IE-2">
+                                <label class="custom-control custom-radio mr-1">
+                                  <input type="radio" formControlName="endDate"
+                                         [checked]="formModel.endDate === endDate.until_day"
+                                         [value]="endDate.until_day"
+                                         (click)="disableOptionRepeat(endDate.until_day)"
+                                         class="custom-control-input">
+                                  <span class="custom-control-indicator"></span>
+                                </label>
+                              </div>
+                              <div class="d-inline-block wrap-input">
+                                <app-date-input [date]="formModel.untilDay" [isDisable]="isDisableUntilDay" [dateInputOptions]="{id:'until_day',name:'untilDay',placeholder:'日付を選択してください',outsideDays:false,weekendsDisable:false}"
+                                                     (dateChanged)="getValueUntilDay($event)"></app-date-input>
+                              </div>
+                              <div class="py-1 pl-1 d-inline-block">{{'CA0007.SUMMARY.DAY_EXACTLY' | translate}}</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--</div>-->
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-12 col-lg-2 col-form-label text-left text-lg-right">{{'CA0007.SHARE_OPTION.TITLE' | translate}}</label>
+                    <div class="col-md-12 col-lg-10">
+
+                      <div class="form-group mb-0">
+                        <div class="form-inline">
+                          <div class="d-inline-block pr-4">{{'CA0007.SHARE_OPTION.USER.OUTSIDE_HOSPITAL' |translate}}</div>
+                          <div class="d-inline-block">
+                            <label class="custom-control custom-radio d-inline-block" *ngFor="let option of options">
+                              <input type="radio" [checked]="formModel.meetingPublishType === option.value"
+                                     [value]="option.value" class="custom-control-input" formControlName="meetingPublishType">
+                              <span class="custom-control-indicator align-middle"></span>
+                              <span class="custom-control-description">{{'CA0007.SHARE_OPTION.USER.' + option.value | translate}}</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row" *ngIf="eventId">
+                    <label class="col-12 col-sm-2 col-form-label text-left text-lg-right">{{'CA0007.USER_CREATED' | translate}}</label>
+                    <div class="col-12 col-sm-10 ml-2 ml-sm-0">{{formModel.userCreated}}</div>
+                  </div>
+                  <div class="form-group row" *ngIf="eventId">
+                    <label class="col-12 col-sm-2 col-form-label text-left text-lg-right">{{'CA0007.USER_UPDATED' | translate}}</label>
+                    <div class="col-12 col-sm-10 ml-2 ml-sm-0">{{formModel.userUpdated}}</div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-12 col-lg-2 col-form-label text-left text-lg-right">{{'CA0007.NOTE.TITLE' | translate}}</label>
+                    <div class="col-md-12 col-lg-7">
+                      <!--<span class="col-form-label text-danger fs12" *ngIf="validationError.note">{{ 'CA0007.ERROR_VALIDATE.NOTE' | translate}}</span>-->
+                      <textarea class="form-control" rows="6" formControlName="note"></textarea>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-center button-group">
+                    <button class="btn btn-primary mr-2" type="submit">{{'CA0007.BTN_SAVE' | translate}}</button>
+                    <button class="btn btn-secondary ml-2" type="button" (click)="backCA0014()">{{'CA0007.BTN_CANCEL' | translate}}</button>
+                  </div>
+                </form>
+                <!-- contents -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

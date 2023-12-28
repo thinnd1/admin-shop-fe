@@ -1,0 +1,56 @@
+// import common setting
+@import './../../../assets/styles/import';
+
+.groupboard-contribution-textarea {
+  border: none;
+  resize: none;
+  min-height: 39px !important;
+  &::-webkit-input-placeholder {
+    line-height: 1.25;
+  }
+}
+
+.preview-textarea{
+  min-height: 100px;
+}
+
+.groupboard-contribution-upload-image-files {
+  .groupboard-contribution-upload-image-files-wrap {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    .groupboard-contribution-upload-image-files {
+    }
+    .groupboard-contribution-upload-image-file-remove {
+      position: absolute;
+      top: 4px;
+      right: -8px;
+      cursor: pointer;
+      color: $link-color;
+    }
+  }
+}
+.groupboard-contribution-upload-files {
+  background-color: #fff;
+  .groupboard-contribution-upload-files-list {
+    .fa {
+      color: $blue;
+    }
+    .groupboard-contribution-upload-files-list-name {
+      color: $gray;
+    }
+    .groupboard-contribution-upload-files-list-size {
+    }
+    .groupboard-contribution-upload-files-list-remove {
+      cursor: pointer;
+      .fa {
+        color: $link-color;
+      }
+    }
+  }
+}
+
+textarea[readonly]{
+  background-color:transparent;
+}
+

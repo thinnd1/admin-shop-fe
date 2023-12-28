@@ -1,0 +1,34 @@
+<ng-container *ngTemplateOutlet="block;
+                  context: {
+                    tpl: 'banner',
+                    param: {
+                      path: 'bnr-system-prjoy-' + lang + '.png',
+                      href: 'https://www.drjoy.jp/動画出来次第URLをもらう',
+                      target: 'blank'
+                    }
+                  }"></ng-container>
+
+
+<!-- template block -->
+<ng-template #block let-tpl="tpl" let-param="param">
+  <div class="banner-item col-6 col-sm-4 col-md-3 col-lg-12">
+    <ng-container [ngSwitch]="tpl">
+      <ng-container *ngSwitchCase="'banner'">
+        <ng-container *ngTemplateOutlet="banner; context: {param: param}"></ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+</ng-template>
+<!-- /template block -->
+
+
+<!-- template banner -->
+<ng-template #banner let-path="param.path" let-href="param.href" let-target="param.target">
+  <a *ngIf="target && target === 'blank'" href="{{href}}" target="_blank" class="d-block">
+    <img [src]="'/assets/img/' + path" class="img-thumbnail" alt="">
+  </a>
+  <a *ngIf="!(target && target === 'blank')" [routerLink]="href" class="d-block">
+    <img [src]="'/assets/img/' + path" class="img-thumbnail" alt="">
+  </a>
+</ng-template>
+<!-- /template banner -->

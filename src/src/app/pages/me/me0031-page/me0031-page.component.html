@@ -1,0 +1,293 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header [type]="'prjoy'"></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--Pattern 1-->
+
+              <div class="col" *ngIf="requestMeeting">
+                <div class="row">
+                  <div class="col">
+                    <div class="page-head">
+                      <app-page-head [backEvent]="true" (clickBackEvent)="clickBackMainScreen()" [title]="'ME0007.MENU.' + getMeetingStatus() | translate"></app-page-head>
+                    </div>
+
+                    <!--面会リクエストを承認しますか？-->
+                    <div class="text-center mb-4" *ngIf="visibleAccess">
+                      <h2 class="text-danger">{{'MSG.ME.CONFIRM_ACCEPT.TITLE' | translate}}</h2>
+                    </div>
+
+                    <!--面会を断ります-->
+                    <div class="text-center mb-4" *ngIf="visibleReject">
+                      <h2 class="text-danger">{{'MSG.ME.CONFIRM_REJECT.TITLE' | translate}}</h2>
+                    </div>
+
+                    <div class="text-center mb-4" *ngIf="flagCancel">
+                      <!--この面会を中止しますか？-->
+                      <h2 class="text-danger" *ngIf="requestMeeting.requestStatus !== MeetingStatus.NEW">{{'MSG.ME.CONFIRM_CANCEL.TITLE_METING_FIX' | translate}}</h2>
+                      <!--面会リクエストを中止しますか？-->
+                      <h2 class="text-danger" *ngIf="requestMeeting.requestStatus === MeetingStatus.NEW">{{'MSG.ME.CONFIRM_CANCEL.TITLE_METING_NEW' | translate}}</h2>
+                    </div>
+
+                    <!--印刷ボタン-->
+                    <div class="d-flex justify-content-end mb-3 printRequestMeeting" *ngIf="visibleMain">
+                      <button type="button" (click)="printPage()" class="btn btn-secondary px-2 py-1 fs20">
+                        <i class="fa fa-print" aria-hidden="true"></i>
+                      </button>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12 col-sm-12 col-md-6 col-xl-6">
+                        <dl class="meeting-dl m-0">
+
+                          <!--リクエスト先-->
+                          <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">
+                            <span *ngIf="requestMeeting.direction === SenderRequest.RECEIVER">{{'MSG.ME.LBL_RECEIVER_REQUEST' | translate}}</span>
+                            <span *ngIf="requestMeeting.direction === SenderRequest.SENDER && !requestMeeting.mediator">{{'MSG.ME.LBL_SENDER_REQUEST' | translate}}</span>
+                            <span *ngIf="requestMeeting.direction === SenderRequest.SENDER && requestMeeting.mediator">{{'MSG.ME.LBL_DOCTOR_REQUEST' | translate}}</span>
+                          </dt>
+                          <dd class="pl-3 py-1 pr-1 mb-4">
+                            <div class="d-flex">
+                              <div class="mr-auto">
+                                <app-mini-profile [userInfo]="requestMeeting.drInfo" [profileOptions]="{officeName: true, iconSize: 76}"></app-mini-profile>
+                              </div>
+                              <button *ngIf="!flagCancel && drSendMessage"
+                                (click)="sendMessageChat(requestMeeting?.mrInfo.officeUserId, requestMeeting?.drInfo.officeUserId)"
+                                type="button" class="btn btn-sm btn-outline-warning align-self-center ml-2">{{ 'ME0031.MESSAGE' | translate }}
+                              </button>
+                            </div>
+                          </dd>
+
+                          <!--仲介者-->
+                          <ng-container *ngIf="infoMediator">
+                            <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{labelMediatorAction | translate}}</dt>
+                            <dd class="pl-3 py-1 pr-1 mb-4">
+                              <app-mini-profile [userInfo]="infoMediator" [profileOptions]="{officeName: true, iconSize: 76}"></app-mini-profile>
+                            </dd>
+                          </ng-container>
+
+                          <!--場所-->
+                          <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'ME0031.PURPOSE' | translate}}</dt>
+                          <dd class="pl-3 py-1 pr-1 mb-4">{{requestMeeting?.purposeName}}</dd>
+
+                          <!-- 薬剤名・製品名 -->
+                          <ng-container *ngIf="requestMeeting.productName || requestMeeting.drugList.length > 0">
+                            <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'MSG.ME.MEETING_REQUEST.PRODUCT_NAME' | translate}}</dt>
+                            <dd class="pl-3 py-1 pr-1 mb-4">
+                              <span *ngIf="requestMeeting.productName">{{requestMeeting.productName}}</span>
+                              <span *ngIf="requestMeeting.drugList.length > 0" [innerHtml]="getInfoDrugAndProduct()"></span>
+                            </dd>
+                          </ng-container>
+
+                          <!--日程-->
+                          <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'MSG.ME.MEETING_REQUEST.LIST_TIME' | translate}}</dt>
+                          <dd class="pl-3 py-1 pr-1 mb-4" *ngIf="getMeetingStatus() === 'NEW' && !visibleAccess && !visibleReject">
+                            <div class="form-inline mb-2" *ngFor='let date of requestMeeting.candidateTimes; let i = index'>
+                              <div class="form-inline" (click)='enableOption(i)'>
+                                <label class="custom-control custom-radio" [style.cursor]="listTimeInThePass[i] ? 'not-allowed' : 'pointer'">
+                                  <input [checked]='indexSelectedTime === i' name="radio" type="radio" class="custom-control-input" [disabled]="listTimeInThePass[i]">
+                                  <span class="custom-control-indicator"></span>
+                                  <span class="custom-control-description dayOf_{{i}}">{{date.startTime | convertTimeToJa : 'M/D'}}</span>
+                                  <span class="custom-control-description ml-3">{{date.startTime | timePipe : 'HH:mm'}}〜{{date.endTime | timePipe : 'HH:mm'}}</span>
+                                </label>
+                              </div>
+                            </div>
+                          </dd>
+                          <dd class="pl-3 py-1 pr-1 mb-4" *ngIf="getMeetingStatus() === 'NEW' && visibleAccess">
+                            <p class="mb-0">
+                              {{requestMeeting.candidateTimes[indexSelectedTime].startTime | timePipe : 'MM月DD日(date)'}} {{requestMeeting.candidateTimes[indexSelectedTime].startTime | timePipe : 'HH:mm'}}〜{{requestMeeting.candidateTimes[indexSelectedTime].endTime | timePipe : 'HH:mm'}}
+                            </p>
+                          </dd>
+                          <dd class="pl-3 py-1 pr-1 mb-4" *ngIf="getMeetingStatus() === 'REQUESTING' || (getMeetingStatus() === 'NEW' && visibleReject)">
+                            <p class="mb-2" *ngFor="let date of requestMeeting.candidateTimes">
+                              {{date.startTime | timePipe : 'MM月DD日(date)'}} {{date.startTime | timePipe : 'HH:mm'}}〜{{date.endTime | timePipe : 'HH:mm'}}
+                            </p>
+                          </dd>
+                          <dd class="pl-3 py-1 pr-1 mb-4" *ngIf="requestMeeting.requestStatus !== MeetingStatus.NEW">
+                            <p class="mb-2" *ngIf="requestMeeting.acceptedStartTime && requestMeeting.acceptedEndTime">
+                              {{requestMeeting.acceptedStartTime | timePipe : 'MM月DD日(date)'}} {{requestMeeting.acceptedStartTime | timePipe : 'HH:mm'}}〜{{requestMeeting.acceptedEndTime | timePipe : 'HH:mm'}}
+                            </p>
+                            <p class="mb-2" *ngFor="let date of requestMeeting.candidateTimes">
+                              {{date.startTime | timePipe : 'MM月DD日(date)'}} {{date.startTime | timePipe : 'HH:mm'}}〜{{date.endTime | timePipe : 'HH:mm'}}
+                            </p>
+                          </dd>
+
+                          <!--場所-->
+                          <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'ME0031.PLACE' | translate}}</dt>
+                          <dd class="pl-3 py-1 pr-1 mb-4">
+                            <span class="break-line-comment" *ngIf="requestMeeting.place">{{requestMeeting?.place}}</span>
+                            <span *ngIf="!requestMeeting.place">ー</span>
+                          </dd>
+
+                          <!--訪問人数-->
+                          <ng-container *ngIf="!visibleReject">
+                            <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'ME0031.NUMBER_OF_VISITORS' | translate}}</dt>
+                            <dd class="pl-3 py-1 pr-1 mb-4">
+                              <ng-container *ngIf="getMeetingStatus() === 'NEW' && !visibleAccess && !visibleReject">
+                                <span class="text-danger d-block fs12" *ngIf="!checkValidate">{{'ME0031.MSG_VISIT_SELECT' | translate}}</span>
+                                <select class="form-control mb-1" [ngClass]="{'form-control-danger': !checkValidate}"
+                                        [(ngModel)]="numVisitors" name="visitorNumber">
+                                  <option value="0">{{'ME0031.VISIT_SELECT' | translate}}</option>
+                                  <option *ngFor="let number of maxNumberVisit; let i = index" [value]="i + 1">{{i + 1 + '人'}}</option>
+                                </select>
+                              </ng-container>
+                              <span *ngIf="getMeetingStatus() === 'NEW' && visibleAccess">{{numVisitors}}人</span>
+                              <span *ngIf="getMeetingStatus() !== 'NEW' && requestMeeting.numVisitors === 0">ー</span>
+                              <span *ngIf="getMeetingStatus() !== 'NEW' && requestMeeting.numVisitors !== 0">{{requestMeeting.numVisitors}}人</span>
+                            </dd>
+                          </ng-container>
+
+                        </dl>
+                      </div>
+
+                      <div class="col-12 col-sm-12 col-md-6 col-xl-6">
+                        <dl class="meeting-dl m-0">
+
+                          <!--コメント-->
+                          <ng-container *ngFor="let comment of requestMeeting.comment; let i = index">
+                            <ng-container *ngIf="(i % 2) === 0 && getUserComment(comment)">
+                              <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'MSG.ME.MEETING_REQUEST.' + getUserComment(comment) + '_COMMENT' | translate}}</dt>
+                              <dd class="pl-3 py-1 pr-1 mb-4" style="background: #EEE">
+                                <span class="break-line-comment" *ngIf="comment.comment">{{comment.comment}}</span>
+                                <span class="break-line-comment" *ngIf="!comment.comment">ー</span>
+                              </dd>
+                            </ng-container>
+                            <ng-container *ngIf="(i % 2) !== 0 && getUserComment(comment)">
+                              <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'MSG.ME.MEETING_REQUEST.' + getUserComment(comment) + '_COMMENT' | translate}}</dt>
+                              <dd class="pl-3 py-1 pr-1 mb-4">
+                                <span class="break-line-comment" *ngIf="comment.comment">{{comment.comment}}</span>
+                                <span class="break-line-comment" *ngIf="!comment.comment">ー</span>
+                              </dd>
+                            </ng-container>
+                          </ng-container>
+                        </dl>
+                      </div>
+
+                    </div>
+
+
+                    <!-- ボタンコンテンツ -->
+                    <!-- メイン -->
+                    <div *ngIf="visibleMain" class="applicant pt-4 my-4">
+                      <div class="d-flex justify-content-center">
+                        <div class="d-flex justify-content-center form-inline" *ngIf="requestMeeting.requestStatus === MeetingStatus.NEW && requestMeeting.direction === SenderRequest.SENDER">
+                          <button class="btn btn-primary m-1" (click)="acceptMeeting()" type="submit">{{'BTN.ACCEPT' | translate}}</button>
+                          <button class="btn btn-secondary m-1" (click)="rejectMeeting()" type="submit">{{'BTN.REJECT' | translate}}</button>
+                          <button class="btn btn-success m-1" [disabled]="requestMeeting.drInfo.acceptRequest" (click)="changeDateMeeting()" type="button" *ngIf="authorityChangeTimeMeeting">{{'BTN.CHANGE_TIME_MEETING_NEW' | translate}}</button>
+                        </div>
+
+                        <div class="fd-flex justify-content-center form-inline" *ngIf="requestMeeting.requestStatus === MeetingStatus.NEW && requestMeeting.direction === SenderRequest.RECEIVER">
+                          <button class="btn btn-danger m-1" (click)="cancelMeeting()" type="submit">{{'BTN.STOP' | translate}}</button>
+                        </div>
+
+                        <div class="d-flex justify-content-center form-inline" *ngIf="requestMeeting.requestStatus === MeetingStatus.FIXED">
+                          <button class="btn btn-danger m-1" (click)="cancelMeeting()" type="submit">{{'BTN.STOP' | translate}}</button>
+                          <button class="btn btn-success m-1" [disabled]="requestMeeting.drInfo.acceptRequest" (click)="changeDateMeeting()" type="button" *ngIf="authorityChangeTimeMeeting">{{'BTN.CHANGE_TIME_MEETING_FIX' | translate}}</button>
+                        </div>
+
+                        <div class="d-flex justify-content-center form-inline" *ngIf="requestMeeting.requestStatus === MeetingStatus.CANCELED">
+                          <button class="btn btn-success m-1" [disabled]="requestMeeting.drInfo.acceptRequest" (click)="changeDateMeeting()" type="button" *ngIf="authorityChangeTimeMeeting">{{'BTN.CHANGE_TIME_MEETING_NEW' | translate}}</button>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                    <!--面会リクエストを承認しますか？-->
+                    <div *ngIf="visibleAccess" class="applicant pt-4 my-4">
+                      <div class="d-flex justify-content-center">
+                        <div class="d-flex justify-content-center form-inline">
+                          <button class="btn btn-primary m-1" (click)="checkAcceptMeeting(requestMeeting?.requestId, requestMeeting?.mrInfo.officeUserId, requestMeeting?.drInfo.officeUserId)" type="submit">{{ 'MSG.YES' | translate }}</button>
+                          <button class="btn btn-secondary m-1" type="submit" (click)="backMainScreen()">{{'MSG.NO' | translate}}</button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!--面会を断ります-->
+                    <ng-container *ngIf="visibleReject">
+                      <div class="row">
+                        <!--Left Col-->
+                        <div class="col">
+                          <dl class="meeting-dl m-0">
+                            <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'MSG.MSG_TO_CUSTOMER' | translate}}</dt>
+                            <dd class="pl-3 py-1 pr-1 mb-4">
+                              <textarea class="form-control" rows="4" [(ngModel)]="contentMessage"
+                                        placeholder="{{'MSG.ME.PLACEHOLDER_MSG_CUSTOMER' | translate}}"
+                                        [ngModelOptions]="{standalone: true}"
+                                        (keydown)="checkLength($event, 300)" (keyup)="checkLength($event, 300)"
+                                        (blur)="checkLength($event, 300)" maxlength="300"></textarea>
+                            </dd>
+                          </dl>
+                        </div>
+                      </div>
+                      <div class="applicant pt-4 my-4">
+                        <div class="d-flex justify-content-center">
+                          <div class="d-flex justify-content-center form-inline">
+                            <button class="btn btn-primary m-1" (click)="putRejectMeetingSettings(requestMeeting?.requestId)">{{ 'MSG.YES' | translate }}</button>
+                            <button class="btn btn-secondary m-1" type="submit" (click)="backMainScreen()">{{ 'MSG.NO' | translate }}</button>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-container>
+
+                    <!--この面会を中止しますか？-->
+                    <!--面会リクエストを中止しますか？-->
+                    <ng-container *ngIf="flagCancel">
+                      <div class="row">
+                        <!--Left Col-->
+                        <div class="col">
+                          <dl class="meeting-dl m-0">
+                            <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'MSG.MSG_TO_CUSTOMER' | translate}}</dt>
+                            <dd class="pl-3 py-1 pr-1 mb-4">
+                              <textarea class="form-control" maxlength="300"
+                                        placeholder="{{'MSG.ME.PLACEHOLDER_MSG_CUSTOMER' | translate}}"
+                                        [(ngModel)]="contentMessage" [ngModelOptions]="{standalone: true}"
+                                        rows="4" (keydown)="checkLength($event, 300)"
+                                        (keyup)="checkLength($event, 300)"
+                                        (blur)="checkLength($event, 300)" maxlength="300"></textarea>
+                            </dd>
+                          </dl>
+                        </div>
+                      </div>
+                      <div class="applicant pt-4 my-4">
+                        <div class="d-flex justify-content-center">
+                          <div class="d-flex justify-content-center form-inline">
+                            <button class="btn btn-primary m-1" (click)="putCancelMeetingSettings(requestMeeting?.requestId, '')" type="submit">{{ 'MSG.YES' | translate }}</button>
+                            <button class="btn btn-secondary m-1" (click)="backMainScreen()" type="submit">{{ 'MSG.NO' | translate }}</button>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-container>
+
+                    <!-- /ボタンコンテンツ -->
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

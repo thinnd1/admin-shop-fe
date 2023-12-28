@@ -1,0 +1,277 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents PH0016-->
+
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'RE0010.PAGE_TITLE' | translate"></app-page-head>
+                </div>
+                <div class="data-setting">
+                	<div class="control-btn mb-3">
+                		<button class="btn btn-outline-warning mr-2">ファイルアップロード</button>
+                		<button class="btn btn-danger">選択したファイルを削除</button>
+                	</div>
+                	<p class="data-total mb-1">全12件</p>
+                	<div class="tbl-wrap">
+	                	<table class="table table-bordered table-data">
+	                		<thead class="thead-inverse hidden-sm-down">
+	                			<tr>
+	                				<th class="tbl-checkBox text-center">
+										  			<label class="custom-control custom-checkbox d-inline-block mb-0 mr-0">
+														  <input type="checkbox" class="custom-control-input">
+														  <span class="custom-control-indicator"></span>
+														  <span class="custom-control-description"></span>
+														</label>
+										  		</th>
+	                				<th class="tbl-file-name">ファイル名</th>
+	                				<th class="tbl-upload">アップロード者</th>
+	                				<th class="tbl-share">資料共有</th>
+	                				<th class="tbl-pass">パスワード保護</th>
+	                				<th class="tbl-request">
+	                					社内共有
+	                					<span class="float-right cursor-pointer fs22 text-warning question"><i class="fa fa-question-circle"></i></span>
+	                				</th>
+	                			</tr>
+	                		</thead>
+	                		<tbody class="tbody-inverse">
+	                			<tr>
+	                				<td class="tbl-checkBox text-center">
+										  			<label class="custom-control custom-checkbox d-inline-block mb-0 mt-2 mr-0">
+														  <input type="checkbox" class="custom-control-input">
+														  <span class="custom-control-indicator"></span>
+														  <span class="custom-control-description"></span>
+														</label>
+										  		</td>
+										  		<th class="hidden-md-up">ファイル名</th>
+										  		<td class="tbl-file-name">
+										  			<div class="d-flex align-items-center">
+										  				<div class="mr-2 fs26"><i class="fa fa-file-pdf-o"></i></div>
+										  				<div class="data-info w-90">
+										  					<p class="text-primary mb-0 cursor-pointer" data-toggle="modal" data-target="#modal-EditName">エボルトラ点滴静注20mg 適正使用ガイド</p>
+										  					<div class="clearfix">
+										  						<span class="float-left">12MB</span>
+										  						<span class="float-right">最終更新： 2017/10/25</span>
+										  					</div>
+										  				</div>
+										  			</div>
+										  		</td>
+										  		<th class="hidden-md-up">アップロード者</th>
+										  		<td class="tbl-upload">野村 千佳子<br>東京第二営業所</td>
+										  		<th class="hidden-md-up">資料共有</th>
+										  		<td class="tbl-share text-center"><button class="btn btn-outline-warning">URLコピー</button></td>
+										  		<th class="hidden-md-up">パスワード保護</th>
+										  		<td class="tbl-pass text-center"><button class="btn btn-outline-warning" data-toggle="modal" data-target="#modal-request">パスワード保護</button></td>
+	                				<th class="hidden-md-up">
+	                					社内共有
+	                					<span class="float-right cursor-pointer fs22 text-warning question"><i class="fa fa-question-circle"></i></span>
+	                				</th>
+										  		<td class="tbl-request">
+										  			<div class="check-box d-flex justify-content-center">
+											        <button type="button" class="btn btn-primary-fist">OFF
+											        </button>
+											        <button type="button" class="btn btn-primary-fist">ON
+											        </button>
+											      </div>
+										  		</td>
+	                			</tr>
+	                			<tr>
+	                				<td class="tbl-checkBox text-center">
+										  			<label class="custom-control custom-checkbox d-inline-block mb-0 mt-2 mr-0">
+														  <input type="checkbox" class="custom-control-input">
+														  <span class="custom-control-indicator"></span>
+														  <span class="custom-control-description"></span>
+														</label>
+										  		</td>
+										  		<th class="hidden-md-up">ファイル名</th>
+										  		<td class="tbl-file-name">
+										  			<div class="d-flex align-items-center">
+										  				<div class="mr-2 fs26"><i class="fa fa-file-pdf-o"></i></div>
+										  				<div class="data-info w-90">
+										  					<p class="text-primary mb-0" data-toggle="modal" data-target="#modal-EditName">エボルトラ点滴静注20mg 適正使用ガイド</p>
+										  					<div class="clearfix">
+										  						<span class="float-left">12MB</span>
+										  						<span class="float-right">最終更新： 2017/10/25</span>
+										  					</div>
+										  				</div>
+										  			</div>
+										  		</td>
+										  		<th class="hidden-md-up">アップロード者</th>
+										  		<td class="tbl-upload">野村 千佳子<br>東京第二営業所</td>
+										  		<th class="hidden-md-up">資料共有</th>
+										  		<td class="tbl-share text-center"><button class="btn btn-outline-warning">URLコピー</button></td>
+										  		<th class="hidden-md-up">パスワード保護</th>
+										  		<td class="tbl-pass text-center"><button class="btn btn-outline-warning" data-toggle="modal" data-target="#modal-request">パスワード保護</button></td>
+	                				<th class="hidden-md-up">
+	                					社内共有
+	                					<span class="float-right cursor-pointer fs22 text-warning question"><i class="fa fa-question-circle"></i></span>
+	                				</th>
+										  		<td class="tbl-request">
+										  			<div class="check-box d-flex justify-content-center">
+											        <button type="button" class="btn btn-primary-fist" >OFF
+											        </button>
+											        <button type="button" class="btn btn-primary-fist">ON
+											        </button>
+											      </div>
+										  		</td>
+	                			</tr>
+	                			<tr>
+	                				<td class="tbl-checkBox text-center">
+										  			<label class="custom-control custom-checkbox d-inline-block mb-0 mt-2 mr-0">
+														  <input type="checkbox" class="custom-control-input">
+														  <span class="custom-control-indicator"></span>
+														  <span class="custom-control-description"></span>
+														</label>
+										  		</td>
+										  		<th class="hidden-md-up">ファイル名</th>
+										  		<td class="tbl-file-name">
+										  			<div class="d-flex align-items-center">
+										  				<div class="mr-2 fs26"><i class="fa fa-file-pdf-o"></i></div>
+										  				<div class="data-info w-90">
+										  					<p class="text-primary mb-0" data-toggle="modal" data-target="#modal-EditName">エボルトラ点滴静注20mg 適正使用ガイド</p>
+										  					<div class="clearfix">
+										  						<span class="float-left">12MB</span>
+										  						<span class="float-right">最終更新： 2017/10/25</span>
+										  					</div>
+										  				</div>
+										  			</div>
+										  		</td>
+										  		<th class="hidden-md-up">アップロード者</th>
+										  		<td class="tbl-upload">野村 千佳子<br>東京第二営業所</td>
+										  		<th class="hidden-md-up">資料共有</th>
+										  		<td class="tbl-share text-center"><button class="btn btn-outline-warning">URLコピー</button></td>
+										  		<th class="hidden-md-up">パスワード保護</th>
+										  		<td class="tbl-pass text-center"><button class="btn btn-outline-warning" data-toggle="modal" data-target="#modal-request">パスワード保護</button></td>
+	                				<th class="hidden-md-up">
+	                					社内共有
+	                					<span class="float-right cursor-pointer fs22 text-warning question"><i class="fa fa-question-circle"></i></span>
+	                				</th>
+										  		<td class="tbl-request"></td>
+	                			</tr>
+	                			<tr>
+	                				<td class="tbl-checkBox text-center">
+										  			<label class="custom-control custom-checkbox d-inline-block mb-0 mt-2 mr-0">
+														  <input type="checkbox" class="custom-control-input">
+														  <span class="custom-control-indicator"></span>
+														  <span class="custom-control-description"></span>
+														</label>
+										  		</td>
+										  		<th class="hidden-md-up">ファイル名</th>
+										  		<td class="tbl-file-name">
+										  			<div class="d-flex align-items-center">
+										  				<div class="mr-2 fs26"><i class="fa fa-file-pdf-o"></i></div>
+										  				<div class="data-info w-90">
+										  					<p class="text-primary mb-0" data-toggle="modal" data-target="#modal-EditName">エボルトラ点滴静注20mg 適正使用ガイド</p>
+										  					<div class="clearfix">
+										  						<span class="float-left">12MB</span>
+										  						<span class="float-right">最終更新： 2017/10/25</span>
+										  					</div>
+										  				</div>
+										  			</div>
+										  		</td>
+										  		<th class="hidden-md-up">アップロード者</th>
+										  		<td class="tbl-upload">野村 千佳子<br>東京第二営業所</td>
+										  		<th class="hidden-md-up">資料共有</th>
+										  		<td class="tbl-share text-center"><button class="btn btn-outline-warning">URLコピー</button></td>
+										  		<th class="hidden-md-up">パスワード保護</th>
+										  		<td class="tbl-pass text-center"><button class="btn btn-outline-warning" data-toggle="modal" data-target="#modal-request">パスワード保護</button></td>
+	                				<th class="hidden-md-up">
+	                					社内共有
+	                					<span class="float-right cursor-pointer fs22 text-warning question"><i class="fa fa-question-circle"></i></span>
+	                				</th>
+										  		<td class="tbl-request">
+										  			<div class="check-box d-flex justify-content-center">
+											        <button type="button" class="btn btn-primary-fist" >OFF
+											        </button>
+											        <button type="button" class="btn btn-primary-fist">ON
+											        </button>
+											      </div>
+										  		</td>
+	                			</tr>
+	                		</tbody>
+	                	</table>
+                	</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-xl-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>
+
+<!-- Modal EditName-->
+<div class="modal" id="modal-EditName" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header d-block">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel">ファイルの名前を編集します</h4>
+      </div>
+      <div class="modal-body py-4">
+        <div class="wrap-conten">
+        	<input class="form-control" type="" name="" placeholder="エボルトラ点滴静注20ｍｇ適正使用ガイド">
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-primary">保存</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal REQUEST-->
+<div class="modal" id="modal-request" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header d-block">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel">共有時にパスワードを要求します</h4>
+      </div>
+      <div class="modal-body py-4">
+        <div class="wrap-conten clearfix">
+        	<div class="clearfix">
+        		<span class="float-left pt-2">パスワード保護:</span>
+        		<div class="float-right">
+	        		<div class="check-box d-flex justify-content-center">
+				        <button type="button" class="btn btn-primary-fist">OFF
+				        </button>
+				        <button type="button" class="btn btn-primary-fist">ON
+				        </button>
+				      </div>
+        		</div>
+        	</div>
+        	<div class="pt-4"><input class="form-control" type="" name="" placeholder="パスワードを入力してください"></div>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-primary">保存</button>
+      </div>
+    </div>
+  </div>
+</div>

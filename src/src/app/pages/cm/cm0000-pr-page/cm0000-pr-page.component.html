@@ -1,0 +1,55 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <main class="visitor-content-wrap">
+    <div class="container">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner mx-auto">
+            <div class="row">
+
+              <div class="col" *ngIf="termOfUse">
+                <!--contents-->
+                <div class="title-head d-flex align-items-center pt-4 pb-3">
+                  <div class="logo mr-1 d-inline-block">
+                    <svg class="navbar-brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 152 30">
+                      <g>
+                        <title>Pr.JOY</title>
+                        <path d="M32.8 21.7H21.7c-.3 0-.6-.3-.5-.7l5.1-14.2c.2-.5.6-.8 1.1-.8h11.1c.3 0 .6.3.5.7l-5.1 14.2c-.2.5-.6.8-1.1.8M40 3.4H26.8c-1.2 0-2.2.7-2.6 1.8L18.5 21c-.5 1.3.5 2.6 1.8 2.6h4L21.6 29l6.8-5.3h5.2c1.2 0 2.2-.7 2.6-1.8L42 6.1c.4-1.3-.5-2.7-2-2.7M16.2 23.4s-7.5-6.2-16.2.1l7.3-20c8.6-5.9 16.2-.1 16.2-.1l-7.3 20zM48.1 3.3h10.4c2.3 0 4 .6 5.1 1.6 1.1 1 1.7 2.6 1.7 4.6s-.6 3.6-1.8 4.8c-1.2 1.1-3.1 1.7-5.6 1.7h-3.4v7.6h-6.4V3.3zm6.4 8.7H56c1.2 0 2-.2 2.5-.6.5-.4.7-1 .7-1.6s-.2-1.3-.6-1.7c-.4-.4-1.2-.7-2.4-.7h-1.7V12zM67.4 8.9h5.2v2.4c.5-1 1-1.7 1.6-2.1.5-.4 1.2-.6 2-.6s1.7.3 2.7.8l-1.7 4c-.7-.4-1.2-.5-1.6-.5-.7 0-1.3.3-1.7.9-.6.9-.9 2.4-.9 4.8v4.9h-5.6V8.9zM77.1 18h6.1v5.6h-6.1V18zM96.8 3.3h6.3v11c0 2.3-.2 4-.6 5.2-.4 1.2-1.2 2.2-2.5 3-1.2.8-2.8 1.2-4.7 1.2-2 0-3.6-.3-4.7-.8s-2-1.4-2.6-2.4c-.6-1-1-2.4-1.1-3.9l6-.8c0 .9.1 1.5.2 2 .1.4.4.8.7 1 .2.2.6.3 1 .3.7 0 1.2-.3 1.5-.8.3-.5.5-1.4.5-2.6V3.3zM106.2 13.5c0-3.3.9-5.9 2.7-7.8 1.8-1.8 4.4-2.7 7.8-2.7 3.4 0 6 .9 7.8 2.7 1.8 1.8 2.7 4.3 2.7 7.7 0 2.4-.4 4.3-1.2 5.9-.8 1.5-1.9 2.7-3.4 3.5-1.5.8-3.4 1.3-5.6 1.3-2.3 0-4.2-.4-5.6-1.1-1.5-.7-2.7-1.9-3.6-3.4-1.2-1.8-1.6-3.7-1.6-6.1zm6.3 0c0 2 .4 3.5 1.1 4.4.8.9 1.8 1.3 3.1 1.3s2.4-.4 3.1-1.3c.7-.9 1.1-2.4 1.1-4.7 0-1.9-.4-3.3-1.1-4.2-.8-1-1.8-1.4-3.1-1.4s-2.3.4-3 1.3c-.8 1.1-1.2 2.6-1.2 4.6zM126.9 3.3h7l4.1 6.9 4.1-6.9h7l-7.9 11.8v8.5H135v-8.5l-8.1-11.8z"/>
+                      </g>
+                    </svg>
+                  </div>
+                  <h1 class="mb-0 pl-2">{{ termOfUse.title }}</h1>
+                </div>
+                <form (ngSubmit)="approve()" [formGroup]="termApprove">
+                  <div class="regulation-content mb-4">
+                    <div class="regulation-content-txt p-3 fs16">{{ termOfUse.body }}</div>
+                    <ng-container *ngIf="isError(termApprove.get('chkResgister'))">
+                      <div [ngClass]="{'has-danger': isError(termApprove.get('chkResgister'))}" class="text-center pt-2">
+                        <span class="col-form-label text-danger fs12">{{ 'CM0000.AGREST' | translate }}</span>
+                      </div>
+                    </ng-container>
+                    <div class="regulation-checkbox text-center pt-2 fs17">
+                      <label class="custom-control custom-checkbox m-0">
+                        <input type="checkbox" class="custom-control-input" formControlName="chkResgister">
+                        <span class="custom-control-indicator" [ngClass]="{'border-red has-danger': isError(termApprove.get('chkResgister'))}"></span>
+                        <span class="custom-control-description">{{ 'CM0000.CHECK' | translate }}</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-center mb-5">
+                    <button class="btn btn-success" type="submit">{{ 'CM0000.BTN' | translate }}</button>
+                  </div>
+                </form>
+                <!-- //contents -->
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

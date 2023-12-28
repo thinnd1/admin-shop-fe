@@ -1,0 +1,36 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+.table-user-info {
+  td, th {
+    width:25%;
+  }
+  .select-user-box {
+    width: 20pt;
+    height: 20pt;
+    background-color: #d7d7d7;
+  }
+}
+.custom-file {
+  height:1rem;
+}
+.content-border{
+  border:1px solid #ccc;
+}
+
+@media print {
+  html, body {
+    width: 210mm;
+    height: 297mm;
+  }
+  body {
+    margin: 0;
+    font-size: 12pt;
+  }
+  .no-print{
+    display: none;
+  }
+}
+.show-right{
+  float:right;
+  margin-right: 20px;
+}

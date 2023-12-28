@@ -1,0 +1,11 @@
+{
+  "userId": "dummy-user-id",
+  "officeUserId": "dummy-office-user-id",
+  "firstName": "太郎",
+  "lastName": "山田",
+  "firstNameKana": "たろう",
+  "lastNameKana": "やまだ",
+  "email": "yamada@taro.example.com",
+  "password": "dummy-password",
+  "accountStatus": 1
+}

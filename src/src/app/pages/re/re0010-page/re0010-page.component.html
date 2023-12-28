@@ -1,0 +1,582 @@
+<div class="page-wrap top" *ngIf="!confirmMail">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+
+              <div class="col">
+
+                <div class="page-head">
+                  <app-page-head [title]="'RE0010.PAGE_TITLE' | translate"></app-page-head>
+                </div>
+
+                <div class="user-edit">
+                  <div class="delete-account d-flex justify-content-end mb-3">
+                    <button type="button" class="btn btn-danger" (click)="deleteAccount()">{{'COMMON_BTN.DELETE_ACCOUNT' | translate}}</button>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <form (ngSubmit)="postPrUserEditSettings()" [formGroup]="editInfoForm">
+                        <table class="table table-bordered table-user-edit">
+                          <tbody class="tbody-inverse">
+                          <tr>
+                            <th scope="row">
+                              {{'COMMON_LABEL.LOGIN_ID' | translate}}<span class="text-danger">※</span>
+                            </th>
+                            <td>
+                              <div class="form-group row" [ngClass]="{'has-danger': formErrors.loginId}">
+                                <div class="col-xl-6">
+                                  <span class="col-form-label fs12 text-danger" *ngIf="formErrors.loginId">{{formErrors.loginId | translate}}</span>
+                                  <input class="form-control form-control-danger" type="text" formControlName="loginId" placeholder="{{'COMMON_LABEL.INPUT_LOGIN_ID' | translate}}">
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              {{'COMMON_LABEL.LBL_MAIL_NOTIFICATION' | translate}}
+                            </th>
+                            <td>
+                              <div class="form-group row">
+                                <div class="col-xl-6" [ngClass]="{'has-danger': formErrors.mailAddress}">
+                                  <span class="col-form-label fs12 text-danger" *ngIf="formErrors.mailAddress">{{formErrors.mailAddress | translate}}</span>
+                                  <input class="form-control form-control-danger" type="text" formControlName="mailAddress" placeholder="{{'COMMON_LABEL.INPUT_MAIL_PLACEHOLDER' | translate}}"
+                                         id="mailAddress" (focus)="disableCopyPaste('mailAddress')" tabindex="0"  autocomplete="off">
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              {{'COMMON_LABEL.LBL_ADDITIONAL_MAIL' | translate}}
+                            </th>
+                            <td>
+                              <div class="row" formArrayName="additionalMailAddress">
+                                <div class="col-12">
+                                  <div class="row" [formGroupName]="i" *ngFor="let obj of additionalMailAddressData.controls; let i = index">
+                                    <div class="col-12" *ngIf="formErrors.additionalMailAddress[i]">
+                                        <span class="col-form-label fs12 text-danger">
+                                         {{formErrors.additionalMailAddress[i] | translate}}
+                                        </span>
+                                    </div>
+                                    <div class="col-11 col-xl-6 form-group" [ngClass]="{'has-danger': formErrors.additionalMailAddress[i]}">
+                                      <input class="form-control form-control-danger" type="text" formControlName="email" (focus)="disableCopyPaste('additionalMailAddress', i)"
+                                             placeholder="{{'RE0020.INPUT_ADDITIONAL_MAIL' | translate}}" tabindex="0" id="additionalMailAddress{{i}}" autocomplete="off">
+                                    </div>
+                                    <div class="col-1 col-xl-6 text-right">
+                                        <span class="close-field" *ngIf="additionalMailAddressData.controls.length>1" (click)="removeEmail(i)">
+                                          <i class="fa fa-close fs36" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <a href="#" *ngIf="additionalMailAddressData.controls.length < 5" class="add-link" (click)="onClickAddMail($event)">
+                                <i class="fa fa-plus-square" aria-hidden="true"></i><span>{{'COMMON_BTN.ADD' | translate}}</span>
+                              </a>
+                            </td>
+                          </tr>
+                          </tbody>
+                          <tbody class="tbody-inverse">
+                          <tr>
+                            <th scope="row">
+                              {{'COMMON_LABEL.LBL_FULL_NAME' | translate}}<span class="text-danger">※</span>
+                            </th>
+                            <td>
+                              <div class="row d-flex align-items-end">
+                                <div class="col-12 col-xl-5">
+                                  <div class="form-group mb-0 row name-space" [ngClass]="{'has-danger': formErrors.lastName}">
+                                    <label class="col col-form-label d-flex align-items-end">{{'COMMON_LABEL.LBL_LAST_NAME' | translate}}</label>
+                                    <div class="col-10">
+                                      <span class="col-form-label fs12 text-danger" *ngIf="formErrors.lastName">{{formErrors.lastName | translate}}</span>
+                                      <input class="form-control form-control-danger form-name col-xl-10" type="text" formControlName="lastName" id="surname">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-xl-5">
+                                  <div class="form-group mb-0 row name-space" [ngClass]="{'has-danger': formErrors.firstName}">
+                                    <label class="col col-form-label d-flex align-items-end">{{'COMMON_LABEL.LBL_FIRST_NAME' | translate}}</label>
+                                    <div class="col-10">
+                                      <span *ngIf="formErrors.firstName" class="col-form-label fs12 text-danger">{{formErrors.firstName | translate}}</span>
+                                      <input class="form-control form-control-danger form-name col-xl-10" type="text" formControlName="firstName" id="name">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              {{'COMMON_LABEL.LBL_FULL_NAME_KANA' | translate}}<span class="text-danger">※</span>
+                            </th>
+                            <td>
+                              <div class="row d-flex align-items-end">
+                                <div class="col-12 col-xl-5">
+                                  <div class="form-group mb-0 row name-space" [ngClass]="{'has-danger': formErrors.lastNameKana}">
+                                    <label class="col col-form-label d-flex align-items-end">{{'COMMON_LABEL.LBL_LAST_NAME_KANA' | translate}}</label>
+                                    <div class="col-10">
+                                      <span *ngIf="formErrors.lastNameKana" class="col-form-label fs12 text-danger">{{formErrors.lastNameKana | translate}}</span>
+                                      <input class="form-control form-control-danger form-name col-xl-10" type="text" formControlName="lastNameKana" id="surname-kana">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-xl-5">
+                                  <div class="form-group mb-0 row name-space" [ngClass]="{'has-danger': formErrors.firtNameKana}">
+                                    <label class="col col-form-label d-flex align-items-end">{{'COMMON_LABEL.LBL_FIRST_NAME_KANA' | translate}}</label>
+                                    <div class="col-10">
+                                      <span *ngIf="formErrors.firtNameKana" class="col-form-label fs12 text-danger">{{formErrors.firtNameKana | translate}}</span>
+                                      <input class="form-control form-control-danger form-name col-xl-10" type="text" formControlName="firtNameKana" id="name-kana">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              {{'COMMON_LABEL.GENDER' | translate}}
+                            </th>
+                            <td>
+                              {{ (model?.gender === '1' ? 'COMMON_LABEL.FEMALE' : 'COMMON_LABEL.MALE') | translate}}
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              {{'COMMON_LABEL.DOB_TITLE' | translate}}<span class="text-danger">※</span>
+                            </th>
+                            <td>
+                              <div class="date-select-wrap form-inline">
+                                <div class="input-group mr-0 mr-sm-3 mb-3">
+                                  <div class="data-select" [ngClass]="{'has-danger': formErrors.birthDate[0]}">
+                                    <select class="form-control" id="year" (change)="changeDate()">
+                                      <option value="" disabled>---</option>
+                                      <option *ngFor="let y of option_years; let i = index" [selected]="y === arrayBirthDate[0]" [value]="y">{{option_years_text[i]}}</option>
+                                    </select>
+                                  </div>
+                                  <label class="ml-2 mt-1" for="year">{{'COMMON_LABEL.YEAR' | translate}}</label>
+                                </div>
+                                <div class="input-group mr-0 mr-sm-3 mb-3">
+                                  <div class="data-select" [ngClass]="{'has-danger': formErrors.birthDate[1]}">
+                                    <select class="form-control" id="month" (change)="changeDate()">
+                                      <option value="" disabled>---</option>
+                                      <option *ngFor="let m of months" [selected]="m === arrayBirthDate[1]" [value]="m">{{m}}</option>
+                                    </select>
+                                  </div>
+                                  <label class="ml-2 mt-1" for="month">{{'COMMON_LABEL.MONTH' | translate}}</label>
+                                </div>
+                                <div class="input-group mr-0 mr-sm-3 mb-3">
+                                  <div class="data-select" [ngClass]="{'has-danger': formErrors.birthDate[2]}">
+                                    <select class="form-control" id="day">
+                                      <option value="" disabled>---</option>
+                                      <option *ngFor="let d of days" [selected]="d === arrayBirthDate[2]" [value]="d">{{d}}</option>
+                                    </select>
+                                  </div>
+                                  <label class="ml-2 mt-1" for="day">{{'COMMON_LABEL.DAY' | translate}}</label>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          </tbody>
+                          <tbody class="tbody-inverse">
+                          <tr>
+                            <th scope="row">
+                              {{'COMMON_LABEL.OFFICE_NAME' | translate}}<span class="text-danger">※</span>
+                            </th>
+                            <td>
+                              <div class="form-group row" [ngClass]="{'has-danger': formErrors.officeName}">
+                                <div class="col-xl-11">
+                                  <span class="col-form-label fs12 text-danger" *ngIf="formErrors.officeName">{{formErrors.officeName}}</span>
+                                  <input class="form-control" type="text" formControlName="officeName" (keyup)="getJapaneseChars($event, 'officeName')">
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              {{'COMMON_LABEL.OFFICE_ADDRESS' | translate}}<span class="text-danger">※</span>
+                            </th>
+                            <td>
+                              <div>
+                                <span class="col-form-label fs12 text-danger" *ngIf="formErrors.branchPrefectureCode && formErrors.branchAddress">{{'RE0010.RE0010_ERROR.OFFICE_ADDRESS' | translate}}</span>
+                                <span class="col-form-label fs12 text-danger" *ngIf="formErrors.branchPrefectureCode && !formErrors.branchAddress">{{formErrors.branchPrefectureCode}}</span>
+                                <span class="col-form-label fs12 text-danger" *ngIf="formErrors.branchAddress && !formErrors.branchPrefectureCode">{{formErrors.branchAddress}}</span>
+                              </div>
+                              <div class="row">
+                              <div class="branch-address-wrap form-inline d-flex justify-content-between col-xl-11">
+                                <label class="col-form-label mr-2 mr-sm-2 mb-3">{{'COMMON_LABEL.PROVINCE' | translate}}</label>
+                                <div class="prefecture-select mr-0 mr-sm-2 mb-3" [ngClass]="{'has-danger': formErrors.branchPrefectureCode}">
+                                  <select class="form-control" formControlName="branchPrefectureCode">
+                                    <option value="" [selected]="model.branchPrefectureCode == ''">{{'COMMON_LABEL.DEFAULT_SELECT' | translate}}</option>
+                                    <option *ngFor="let province of listKeyProvince" [value]="province.id" [selected]="branchPrefectureCode === province">{{province.name}}</option>
+                                  </select>
+                                </div>
+                                <div class="input-group col-12 col-sm-7 px-0 pl-md-2 mb-3" [ngClass]="{'has-danger': formErrors.branchAddress}">
+                                  <input class="form-control" type="text" formControlName="branchAddress" (keyup)="getJapaneseChars($event, 'branchAddress')" placeholder="{{'RE0010.INPUT_PLACEHOLDER_BRANCH_ADDRESS' | translate}}">
+                                </div>
+                              </div>
+                            </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              {{'COMMON_LABEL.LBL_DEPARTMENT' | translate}}<span class="text-danger">※</span>
+                            </th>
+                            <td>
+                              <div class="form-group row" [ngClass]="{'has-danger': formErrors.branchDepartment}">
+                                <div class="col-xl-11">
+                                  <span class="col-form-label fs12 text-danger" *ngIf="formErrors.branchDepartment">{{formErrors.branchDepartment}}</span>
+                                  <input class="form-control" type="text" formControlName="branchDepartment" (keyup)="getJapaneseChars($event, 'branchDepartment')">
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              {{'COMMON_LABEL.LBL_PHONE_NUMBER' | translate}}<span class="text-danger">※</span>
+                            </th>
+                            <td>
+                              <app-tel-input [tel]="model.branchPhoneNo" [telInputOptions]="{id:'pr-phone',name:'',error:formErrors.branchPhoneNo, isMobile: false}"
+                              ></app-tel-input>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              {{'COMMON_LABEL.LBL_MOBILE_NUMBER' | translate}}<span class="text-danger">※</span>
+                            </th>
+                            <td>
+                              <app-tel-input [tel]="model.mobileNo" [telInputOptions]="{id:'pr-mobile',name:'',error:formErrors.mobileNo, isMobile: true}" ></app-tel-input>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              {{'RE0010.INDUSTRY_TYPE' | translate}}
+                            </th>
+                            <td>
+                              {{'INDUSTRY_TYPE.' + model.industryType | translate}}
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              {{'COMMON_LABEL.EXPERIENCE_TITLE' | translate}}
+                            </th>
+                            <td>
+                              <p *ngIf="model.experiences !== undefined && model.experiences !== null">{{model?.experiences}} {{'COMMON_LABEL.YEAR' | translate}}</p>
+                            </td>
+                          </tr>
+                          </tbody>
+                          <tbody class="tbody-inverse" *ngIf="model.industryType === 'I0001'">
+                          <tr>
+                            <th scope="row">
+                              {{'COMMON_LABEL.PHARMACY_GRAD' | translate}}<span class="text-danger">※</span>
+                            </th>
+                            <td>
+                              <label class="custom-control custom-radio" *ngFor="let option of options">
+                                <input [value]="option.value" formControlName="pharmacyGraduation" type="radio" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description" [ngClass]="{'text-danger': formErrors.pharmacyGraduation}">{{'RE0010.PHARMACY_GRADUATION.' + option.display | translate}}</span>
+                              </label>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              {{'RE0010.DEPARTMENT_TITLE.UP' | translate}}
+                              <br class="hidden-sm-down">
+                              {{'RE0010.DEPARTMENT_TITLE.DOWN' | translate}}<span class="text-danger">※</span>
+                            </th>
+                            <td>
+                              <div class="row" formArrayName="listHandles">
+                                <div class="col-12">
+                                  <div class="row" [formGroupName]="i" *ngFor="let depart of listHandlesData.controls; let i = index">
+                                    <div class="col-3" [ngClass]="{'has-danger': formErrors.listHandles[i]}">
+                                      <span class="text-danger fs12" *ngIf="formErrors.listHandles[i]">{{formErrors.listHandles[i]}}</span>
+                                      <select class="form-control form-group" formControlName="fieldId">
+                                        <option value="">{{'RE0010.DEFAULT_DEPARTMENT' | translate}}</option>
+                                        <option *ngFor="let field of fieldIds" value="{{field.id}}">{{field.text}}</option>
+                                      </select>
+                                    </div>
+                                    <div class="col-8">
+                                      <p *ngIf="i === 0">{{'RE0010.DEPARTMENT_NOTE' | translate}}</p>
+                                    </div>
+                                    <div class="col-1 text-right">
+                                        <span class="close-field" (click)="removeDepartment(i)" *ngIf="listHandlesData.controls.length > 1">
+                                          <i class="fa fa-close fs37" aria-hidden="true"></i></span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <a href="" *ngIf="listHandlesData.controls.length < 5" class="add-link" (click)="clickAddDepartment($event)">
+                                <i class="fa fa-plus-square" aria-hidden="true"></i><span>{{'COMMON_BTN.ADD' | translate}}</span></a>
+                            </td>
+                          </tr>
+                          </tbody>
+                          <tbody class="tbody-inverse">
+                          <tr>
+                            <th scope="row">
+                              {{'COMMON_LABEL.AVATAR_PROFILE' | translate}}
+                            </th>
+                            <td>
+                              <div class="image-cropper">
+                                  <app-image-cropper #imageCropper1 [imageCropperOptions]="{id:'imageCropper1',type:'photo'}" [imageUrl]="model.imageUrl" (flagImgUpload)="uploadImageError($event)" ></app-image-cropper>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2" class="borderless">{{'RE0010.VERIFY_IDENTITY_MSG' | translate}}</td>
+                          </tr>
+                          </tbody>
+                          <tbody class="tbody-inverse">
+                          <tr>
+                            <th scope="row">
+                              本人確認<span class="text-danger">※</span>
+                            </th>
+                            <td>
+                              <div class="row">
+                                <div class="col-sm-12 col-lg-9">
+                                  <div class="image-cropper" [ngClass]="{'border-red has-danger': formErrors.identificationFileName}">
+                                    <app-image-cropper #imageCropper2 [imageCropperOptions]="{id:'imageCropper2',type:'card'}" [imageUrl]="model.identificationImageUrl" (flagImgUpload)="uploadIdentifyImageError($event)" (flagImgDestroy)="imgDestroy($event)"></app-image-cropper>
+                                  </div>
+                                  <dl class="row image-uploaded-info fs13">
+                                    <dt class="col-sm-3 col-xl-2">{{'COMMON_LABEL.LBL_UPDATE' | translate}}</dt>
+                                    <dd class="col-sm-9 col-xl-10">{{model.identificationUpdated | timePipe : 'MM月DD日 HH:mm' }}</dd>
+                                    <dt class="col-sm-3 col-xl-2">{{'RE0010.IDENTIFICATION.FILE_NAME' | translate}}</dt>
+                                    <dd class="col-sm-9 col-xl-10">
+                                     {{editInfoForm.value.identificationFileName}}
+                                    </dd>
+                                  </dl>
+                                  <div>
+                                    <div class="col-form-label fs13 confirm-identity text-danger">{{formErrors.identificationFileName}}</div>
+                                  </div>
+                                </div>
+                                <div class="hidden-md-down col-lg-3">
+                                  <div class="box-branch">
+                                    <h2 class="box-title fs20">{{'RE0010.FORM.AVATAR_EXAMPLE_CARD' | translate}}</h2>
+                                    <figure class="figure mb-0">
+                                      <figcaption class="box-title-fl figure-caption fs16"><i class="fa fa-circle-o fs24"></i>{{'RE0010.IDENTIFICATION.EX' | translate}}</figcaption>
+                                      <img src="/assets/img/business-card-sample-ok.png" class="figure-img img-fluid w-100" alt="{{'RE0010.IDENTIFICATION.EX' | translate}}">
+                                    </figure>
+                                    <figure class="figure mb-0">
+                                      <figcaption class="box-title-fl figure-caption fs16"><i class="fa fa-remove fs24"></i>{{'RE0010.IDENTIFICATION.NG' | translate}}</figcaption>
+                                      <img src="/assets/img/business-card-sample-ng.png" class="figure-img img-fluid w-100" alt="{{'RE0010.IDENTIFICATION.NG' | translate}}">
+                                    </figure>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          </tbody>
+                          <tbody class="tbody-inverse">
+                          <tr>
+                            <th scope="row">
+                              {{'RE0010.PR' | translate}}
+                            </th>
+                            <td>
+                              <textarea class="form-control" rows="4" placeholder="120 {{'RE0010.TEXTBOX_PLACEHOLDER' | translate}}" (keyup)="checkLength($event, 'message', 120)" formControlName="message" maxlength="120"></textarea>
+                              <span class="era-middle">{{(editInfoForm.controls.message.value?.length) ? editInfoForm.controls.message.value?.length : 0}}/120</span>
+                              <div class="my-2">
+                                <div class="textNote">
+                                  <span class="d-inline-block float-left noteTtl">{{'RE0010.PR_MSG.0' | translate}}</span>
+                                  <span class="d-inline-block noteCt" [innerHtml]="'RE0010.PR_MSG.4' | translate">
+                                  </span>
+                                </div>
+                              </div>
+                              <div class="d-flex justify-content-center mb-2">
+                                <button type="button" class="btn btn-lg btn-outline-warning" data-toggle="modal" data-target="#myModal">{{'RE0010.PR_EXAMPLE_BUTTON' | translate}}</button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              {{'COMMON_LABEL.PLACE_BORN_IN' | translate}}
+                            </th>
+                            <td>
+                              <div class="graduate-input-wrap form-inline mb-3">
+                                <div class="input-group mr-0 mr-sm-3">
+                                  <input class="form-control form-control-danger" type="text" placeholder="15 {{'RE0010.TEXTBOX_PLACEHOLDER' | translate}}" maxlength="15" formControlName="placeBornIn" (keyup)="checkLength($event, 'placeBornIn', 15)">
+                                </div>
+                                <span class="graduate-string-length text-right">{{(editInfoForm.controls.placeBornIn.value?.length) ? editInfoForm.controls.placeBornIn.value?.length : 0}}/15</span>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              {{'COMMON_LABEL.HOBBY' | translate}}
+                            </th>
+                            <td>
+                              <textarea class="form-control" rows="4" placeholder="100 {{'RE0010.TEXTBOX_PLACEHOLDER' | translate}}" formControlName="hobby" maxlength="100" (keyup)="checkLength($event, 'hobby', 100)"></textarea>
+                              <span class="era-middle">{{(editInfoForm.controls.hobby.value?.length) ? editInfoForm.controls.hobby.value?.length : 0}}/100</span>
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                        <div class="d-flex justify-content-center">
+                          <button type="submit" class="btn btn-primary fs18">{{'COMMON_BTN.SAVE' | translate}}</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <!--head-->
+                      <div class="modal-header border-0">
+                        <button type="button" class="close ml-auto" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="modal-example">
+                          <h1 class="mb-5">{{'RE0010.PR_EXAMPLE_CONTENT.PR_SENTENCE' | translate}}</h1>
+                          <div class="modal-example-item mb-4 fs14">
+                            <h2 class="modal-example-title mb-2">
+                              <i class="fa fa-circle-o fs33"></i>{{'RE0010.PR_EXAMPLE_CONTENT.PR_PRODUCT' | translate}}</h2>
+                            <ul class="modal-example-list">
+                              <li [innerHtml]="'RE0010.PR_EXAMPLE_CONTENT.PR_PRODUCT_MSG.1' | translate">
+                              </li>
+                              <li [innerHtml]="'RE0010.PR_EXAMPLE_CONTENT.PR_PRODUCT_MSG.2' | translate">
+                              </li>
+                              <li [innerHtml]="'RE0010.PR_EXAMPLE_CONTENT.PR_PRODUCT_MSG.3' | translate">
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="modal-example-item mb-4 fs14">
+                            <h2 class="modal-example-title mb-2">
+                              <i class="fa fa-circle-o fs33"></i>{{'RE0010.PR_EXAMPLE_CONTENT.PR_BUSINESS' | translate}}</h2>
+                            <ul class="modal-example-list">
+                              <li [innerHtml]="'RE0010.PR_EXAMPLE_CONTENT.PR_BUSINESS_MSG.1' | translate">
+                              </li>
+                              <li [innerHtml]="'RE0010.PR_EXAMPLE_CONTENT.PR_BUSINESS_MSG.2' | translate">
+                              </li>
+                              <li [innerHtml]="'RE0010.PR_EXAMPLE_CONTENT.PR_BUSINESS_MSG.3' | translate">
+                              </li>
+                              <li [innerHtml]="'RE0010.PR_EXAMPLE_CONTENT.PR_BUSINESS_MSG.4' | translate">
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="modal-example-item mb-4 fs14">
+                            <h2 class="modal-example-title mb-2">
+                              <i class="fa fa-remove fs33"></i>{{'RE0010.PR_EXAMPLE_CONTENT.PR_COMMON' | translate}}</h2>
+                            <ul class="modal-example-list">
+                              <li>
+                                {{'RE0010.PR_EXAMPLE_CONTENT.PR_COMMON_MSG.1' | translate}}
+                              </li>
+                              <li>
+                                {{'RE0010.PR_EXAMPLE_CONTENT.PR_COMMON_MSG.2' | translate}}
+                              </li>
+                              <li>
+                                {{'RE0010.PR_EXAMPLE_CONTENT.PR_COMMON_MSG.3' | translate}}
+                              </li>
+                              <li>
+                                {{'RE0010.PR_EXAMPLE_CONTENT.PR_COMMON_MSG.4' | translate}}
+                              </li>
+                              <li>
+                                {{'RE0010.PR_EXAMPLE_CONTENT.PR_COMMON_MSG.5' | translate}}
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{'RE0010.PR_EXAMPLE_CONTENT.CLOSE' | translate}}</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>
+
+
+<div class="page-wrap bottom" [hidden]="!confirmMail">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+  <main class="content-wrap ml-0" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main re0010-main">
+          <div >
+            <div class="row">
+
+              <div class="col">
+                <!--S:confirm-mail-->
+                <div class="add-mail" *ngIf="changeMailPageTitle || addMailPageTitle">
+                  <div class="tittle">
+                    <h2 *ngIf="flagMailAddress">{{'COMMON_LABEL.CONFIRM_MAIL_PAGE.MAIL_ADDRESS_PAGE_TITLE' | translate}}</h2>
+                    <h2 *ngIf="flagMailAddition">{{'COMMON_LABEL.CONFIRM_MAIL_PAGE.MAIL_ADDITION_PAGE_TITLE' | translate}}</h2>
+                  </div>
+                  <form class="re0010-mail" [hidden]="!formContent" [formGroup]="formConfirmMail" (ngSubmit)="putConfirmMail()">
+                    <p class="mb-0" *ngIf="changeMailPageTitle">「{{oldMailAddress}} 」{{'COMMON_LABEL.CONFIRM_MAIL_PAGE.TO' | translate}}「{{newMailAddress}}」{{'COMMON_LABEL.CONFIRM_MAIL_PAGE.CHANGE' | translate}}
+                    </p>
+                    <p class="mb-0" *ngIf="addMailPageTitle && flagMailAddress">「{{newMailAddress}}」{{'COMMON_LABEL.CONFIRM_MAIL_PAGE.ADD_1' | translate}}</p>
+                    <p class="mb-0" *ngIf="addMailPageTitle && flagMailAddition">「{{newMailAddress}}」{{'COMMON_LABEL.CONFIRM_MAIL_PAGE.ADD_2' | translate}}</p>
+                    <p class="mb-0">{{'COMMON_LABEL.CONFIRM_MAIL_PAGE.CONTENT_MAIL_PAGE' | translate}}</p>
+                    <div class="form-group row name-space d-flex justify-content-center mt-5 mb-4" [ngClass]="{'has-danger': formInputPassError}">
+                      <label class="col-2 col-form-label font-weight-bold d-flex align-items-end">{{'COMMON_LABEL.LBL_PASSWORD_LOGIN' | translate}}</label>
+                      <div class="col-6 text-left">
+                        <span class="col-form-label fs12 text-danger" *ngIf="formInputPassError">{{ formInputPassError | translate}}</span>
+                        <input class="form-control form-control-danger d-inline-block" type="password" formControlName="inputPass">
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                      <div class="add-mail-submit">
+                        <button type="submit" class="btn btn-primary fs18">{{'COMMON_BTN.SEND' | translate }}</button>
+                      </div>
+                    </div>
+                  </form>
+
+                  <!--S:mail-expired-->
+                  <div class="mail-expired re0010-mail-expired" [hidden]="!mailExpiredContent">
+                    <h3>{{'COMMON_LABEL.CONFIRM_MAIL_PAGE.CONTENT_MAIL_EXPIRED' | translate}}</h3>
+                  </div>
+
+                  <div class="mail-expired re0010-mail-expired" [hidden]="!mailRegisteredContent">
+                    <h3>{{'COMMON_LABEL.CONFIRM_MAIL_PAGE.CONTENT_MAIL_REGISTERED' | translate}}</h3>
+                  </div>
+
+                </div>
+                <!--E:confirm-mail-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

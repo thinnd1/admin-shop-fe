@@ -1,0 +1,52 @@
+// import common setting
+@import './../../../assets/styles/import';
+
+.file-preview-ico{
+  font-size: _rem(144px);
+  color: #A6A6A6;
+}
+
+.file-preview-body{
+  position: relative;
+}
+
+.file-preview-cont{
+}
+
+.file-preview-image,
+.file-preview-video {
+  max-width: 767px;
+  max-height: 767px;
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
+
+.file-preview-next,
+.file-preview-prev{
+  > button{
+    font-size: _rem(32px);
+  }
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  .btn:focus {
+    box-shadow: none !important;
+  }
+}
+
+.file-preview-next{
+  right: _rem(-16px);
+}
+
+.file-preview-prev{
+  left: _rem(-16px);
+}
+.fa-file-xls-o:before {
+  content: "";
+}
+.fa-file-compress-o:before {
+  content: "";
+}
+.fa-file-doc-o:before {
+  content: ""; }

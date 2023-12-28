@@ -1,0 +1,1371 @@
+
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents SH0007-->
+
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'SH0008.PAGE_TITLE' | translate"></app-page-head>
+                </div>
+                <div class="staff-setting mb-5">
+                  <div class="control-top text-right mb-4"><button class="btn btn-success">ゲスト設定</button></div>
+                  <ul class="lst-setting pl-0 mb-4">
+	                	<li class="clearfix">
+	                		<div class="staff-left float-left mb-2 mb-xl-0">
+	                			<div class="shift-row d-flex mb-3">
+	              					<div class="shift-icon"></div>
+	              					<p class="shift-text d-inline-block mb-0">大内 真希 (医師)</p>
+	              				</div>
+	              				<div class="check-setting pl-5">
+	              					<label class="custom-control custom-checkbox mb-0 mr-1">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">シフトに含む</span>
+													</label>
+													<span class="name-dpm fs14"><i class="fa fa-caret-right"></i> 内分泌科</span>
+	              				</div>
+	                		</div>
+	                		<div class="staff-right float-right">
+	                			<div class="input-wrap mb-1">
+	                				<div class="selects-kill">
+	                					<select class="form-control">
+	                						<option>スキルを選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="select-daily">
+	                					<select class="form-control">
+	                						<option>勤務形態を選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="inp-stt pl-2 py-1 text-left text-lg-right">備考</div>
+	                				<div class="inp-text">
+	                					<input class="form-control" name="" placeholder="50文字以内" type="text">
+	                				</div>
+	                			</div>
+	                			<div class="checkbox-lst">
+	                				<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">病棟</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外来</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">オペ</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">当直</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">入り</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">明け</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤渋谷</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤日東</span>
+													</label>
+	                			</div>
+	                		</div>
+	                	</li>
+	                	<li class="clearfix locked">
+	                		<div class="staff-left float-left mb-2 mb-xl-0">
+	                			<div class="shift-row d-flex mb-3">
+	              					<div class="shift-icon"></div>
+	              					<p class="shift-text d-inline-block mb-0">櫻井 翔 (医師)</p>
+	              				</div>
+	              				<div class="check-setting pl-5">
+	              					<span class="setting-lock"><i class="fa fa-key text-danger"></i></span>
+	              					<label class="custom-control custom-checkbox mb-0 mr-1">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">シフトに含む</span>
+													</label>
+													<span class="name-dpm fs14"><i class="fa fa-caret-right"></i> 整形外科</span>
+	              				</div>
+	                		</div>
+	                		<div class="staff-right float-right">
+	                			<div class="input-wrap mb-1">
+	                				<div class="selects-kill">
+	                					<select class="form-control">
+	                						<option>スキルを選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="select-daily">
+	                					<select class="form-control">
+	                						<option>勤務形態を選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="inp-stt pl-2 py-1 text-left text-lg-right">備考</div>
+	                				<div class="inp-text">
+	                					<input class="form-control" name="" placeholder="50文字以内" type="text">
+	                				</div>
+	                			</div>
+	                			<div class="checkbox-lst">
+	                				<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">病棟</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外来</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">オペ</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">当直</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">入り</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">明け</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤渋谷</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤日東</span>
+													</label>
+	                			</div>
+	                		</div>
+	                	</li>
+	                	<li class="clearfix locked">
+	                		<div class="staff-left float-left mb-2 mb-xl-0">
+	                			<div class="shift-row d-flex mb-3">
+	              					<div class="shift-icon"></div>
+	              					<p class="shift-text d-inline-block mb-0">櫻井 翔 (医師)</p>
+	              				</div>
+	              				<div class="check-setting pl-5">
+	              					<span class="setting-lock"><i class="fa fa-key text-danger"></i></span>
+	              					<label class="custom-control custom-checkbox mb-0 mr-1">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">シフトに含む</span>
+													  
+													</label>
+													<span class="name-dpm fs14"><i class="fa fa-caret-right"></i> 耳鼻咽喉科</span>
+	              				</div>
+	                		</div>
+	                		<div class="staff-right float-right">
+	                			<div class="input-wrap mb-1">
+	                				<div class="selects-kill">
+	                					<select class="form-control">
+	                						<option>スキルを選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="select-daily">
+	                					<select class="form-control">
+	                						<option>勤務形態を選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="inp-stt pl-2 py-1 text-left text-lg-right">備考</div>
+	                				<div class="inp-text">
+	                					<input class="form-control" name="" placeholder="50文字以内" type="text">
+	                				</div>
+	                			</div>
+	                			<div class="checkbox-lst">
+	                				<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">病棟</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外来</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">オペ</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">当直</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">入り</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">明け</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤渋谷</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤日東</span>
+													</label>
+	                			</div>
+	                		</div>
+	                	</li>
+	                	<li class="clearfix">
+	                		<div class="staff-left float-left mb-2 mb-xl-0">
+	                			<div class="shift-row d-flex mb-3">
+	              					<div class="shift-icon">
+	              						<span class="icon-inner bg-green d-block">大内</span>
+	              					</div>
+	              					<p class="shift-text d-inline-block mb-0">大内 真希 (医師)</p>
+	              				</div>
+	              				<div class="check-setting pl-5">
+	              					<label class="custom-control custom-checkbox mb-0 mr-1">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">シフトに含む</span>
+													</label>
+	              				</div>
+	                		</div>
+	                		<div class="staff-right float-right">
+	                			<div class="input-wrap mb-1">
+	                				<div class="selects-kill">
+	                					<select class="form-control">
+	                						<option>スキルを選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="select-daily">
+	                					<select class="form-control">
+	                						<option>勤務形態を選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="inp-stt pl-2 py-1 text-left text-lg-right">備考</div>
+	                				<div class="inp-text">
+	                					<input class="form-control" name="" placeholder="50文字以内" type="text">
+	                				</div>
+	                			</div>
+	                			<div class="checkbox-lst">
+	                				<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">病棟</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外来</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">オペ</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">当直</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">入り</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">明け</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤渋谷</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤日東</span>
+													</label>
+	                			</div>
+	                		</div>
+	                	</li>
+	                	<li class="clearfix">
+	                		<div class="staff-left float-left mb-2 mb-xl-0">
+	                			<div class="shift-row d-flex mb-3">
+	              					<div class="shift-icon">
+	              						<span class="icon-inner bg-green d-block">大内</span>
+	              					</div>
+	              					<p class="shift-text d-inline-block mb-0">相沢 勇気 (医師)</p>
+	              				</div>
+	              				<div class="check-setting pl-5">
+	              					<label class="custom-control custom-checkbox mb-0 mr-1">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">シフトに含む</span>
+													</label>
+	              				</div>
+	                		</div>
+	                		<div class="staff-right float-right">
+	                			<div class="input-wrap mb-1">
+	                				<div class="selects-kill">
+	                					<select class="form-control">
+	                						<option>スキルを選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="select-daily">
+	                					<select class="form-control">
+	                						<option>勤務形態を選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="inp-stt pl-2 py-1 text-left text-lg-right">備考</div>
+	                				<div class="inp-text">
+	                					<input class="form-control" name="" placeholder="50文字以内" type="text">
+	                				</div>
+	                			</div>
+	                			<div class="checkbox-lst">
+	                				<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">病棟</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外来</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">オペ</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">当直</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">入り</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">明け</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤渋谷</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤日東</span>
+													</label>
+	                			</div>
+	                		</div>
+	                	</li>
+	                	<li class="clearfix">
+	                		<div class="staff-left float-left mb-2 mb-xl-0">
+	                			<div class="shift-row d-flex mb-3">
+	              					<div class="shift-icon">
+	              						<span class="icon-inner bg-green d-block">大内</span>
+	              					</div>
+	              					<p class="shift-text d-inline-block mb-0">坂本 誠 (医師)</p>
+	              				</div>
+	              				<div class="check-setting pl-5">
+	              					<label class="custom-control custom-checkbox mb-0 mr-1">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">シフトに含む</span>
+													</label>
+	              				</div>
+	                		</div>
+	                		<div class="staff-right float-right">
+	                			<div class="input-wrap mb-1">
+	                				<div class="selects-kill">
+	                					<select class="form-control">
+	                						<option>スキルを選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="select-daily">
+	                					<select class="form-control">
+	                						<option>勤務形態を選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="inp-stt pl-2 py-1 text-left text-lg-right">備考</div>
+	                				<div class="inp-text">
+	                					<input class="form-control" name="" placeholder="50文字以内" type="text">
+	                				</div>
+	                			</div>
+	                			<div class="checkbox-lst">
+	                				<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">病棟</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外来</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">オペ</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">当直</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">入り</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">明け</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤渋谷</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤日東</span>
+													</label>
+	                			</div>
+	                		</div>
+	                	</li>
+	                	<li class="clearfix">
+	                		<div class="staff-left float-left mb-2 mb-xl-0">
+	                			<div class="shift-row d-flex mb-3">
+	              					<div class="shift-icon">
+	              						<span class="icon-inner bg-green d-block">大内</span>
+	              					</div>
+	              					<p class="shift-text d-inline-block mb-0">田中 幸一 (研修医)</p>
+	              				</div>
+	              				<div class="check-setting pl-5">
+	              					<label class="custom-control custom-checkbox mb-0 mr-1">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">シフトに含む</span>
+													</label>
+	              				</div>
+	                		</div>
+	                		<div class="staff-right float-right">
+	                			<div class="input-wrap mb-1">
+	                				<div class="selects-kill">
+	                					<select class="form-control">
+	                						<option>スキルを選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="select-daily">
+	                					<select class="form-control">
+	                						<option>勤務形態を選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="inp-stt pl-2 py-1 text-left text-lg-right">備考</div>
+	                				<div class="inp-text">
+	                					<input class="form-control" name="" placeholder="50文字以内" type="text">
+	                				</div>
+	                			</div>
+	                			<div class="checkbox-lst">
+	                				<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">病棟</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外来</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">オペ</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">当直</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">入り</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">明け</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤渋谷</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤日東</span>
+													</label>
+	                			</div>
+	                		</div>
+	                	</li>
+	                	<li class="clearfix">
+	                		<div class="staff-left float-left mb-2 mb-xl-0">
+	                			<div class="shift-row d-flex mb-3">
+	              					<div class="shift-icon">
+	              						<span class="icon-inner bg-purple d-block">高内</span>
+	              					</div>
+	              					<p class="shift-text d-inline-block mb-0">高内 健 (医師)</p>
+	              				</div>
+	              				<div class="check-setting pl-5">
+	              					<label class="custom-control custom-checkbox mb-0 mr-1">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">シフトに含む</span>
+													</label>
+	              				</div>
+	                		</div>
+	                		<div class="staff-right float-right">
+	                			<div class="input-wrap mb-1">
+	                				<div class="selects-kill">
+	                					<select class="form-control">
+	                						<option>スキルを選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="select-daily">
+	                					<select class="form-control">
+	                						<option>勤務形態を選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="inp-stt pl-2 py-1 text-left text-lg-right">備考</div>
+	                				<div class="inp-text">
+	                					<input class="form-control" name="" placeholder="50文字以内" type="text">
+	                				</div>
+	                			</div>
+	                			<div class="checkbox-lst">
+	                				<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">病棟</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外来</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">オペ</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">当直</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">入り</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">明け</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤渋谷</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤日東</span>
+													</label>
+	                			</div>
+	                		</div>
+	                	</li>
+	                	<li class="clearfix">
+	                		<div class="staff-left float-left mb-2 mb-xl-0">
+	                			<div class="shift-row d-flex mb-3">
+	              					<div class="shift-icon">
+	              						<span class="icon-inner bg-purple d-block">高内</span>
+	              					</div>
+	              					<p class="shift-text d-inline-block mb-0">櫻井 翔 (医師)</p>
+	              				</div>
+	              				<div class="check-setting pl-5">
+	              					<label class="custom-control custom-checkbox mb-0 mr-1">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">シフトに含む</span>
+													</label>
+	              				</div>
+	                		</div>
+	                		<div class="staff-right float-right">
+	                			<div class="input-wrap mb-1">
+	                				<div class="selects-kill">
+	                					<select class="form-control">
+	                						<option>スキルを選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="select-daily">
+	                					<select class="form-control">
+	                						<option>勤務形態を選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="inp-stt pl-2 py-1 text-left text-lg-right">備考</div>
+	                				<div class="inp-text">
+	                					<input class="form-control" name="" placeholder="50文字以内" type="text">
+	                				</div>
+	                			</div>
+	                			<div class="checkbox-lst">
+	                				<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">病棟</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外来</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">オペ</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">当直</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">入り</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">明け</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤渋谷</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤日東</span>
+													</label>
+	                			</div>
+	                		</div>
+	                	</li>
+	                	<li class="clearfix">
+	                		<div class="staff-left float-left mb-2 mb-xl-0">
+	                			<div class="shift-row d-flex mb-3">
+	              					<div class="shift-icon">
+	              						<span class="icon-inner bg-purple d-block">高内</span>
+	              					</div>
+	              					<p class="shift-text d-inline-block mb-0">鈴木 太郎 (医師)</p>
+	              				</div>
+	              				<div class="check-setting pl-5">
+	              					<label class="custom-control custom-checkbox mb-0 mr-1">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">シフトに含む</span>
+													</label>
+	              				</div>
+	                		</div>
+	                		<div class="staff-right float-right">
+	                			<div class="input-wrap mb-1">
+	                				<div class="selects-kill">
+	                					<select class="form-control">
+	                						<option>スキルを選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="select-daily">
+	                					<select class="form-control">
+	                						<option>勤務形態を選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="inp-stt pl-2 py-1 text-left text-lg-right">備考</div>
+	                				<div class="inp-text">
+	                					<input class="form-control" name="" placeholder="50文字以内" type="text">
+	                				</div>
+	                			</div>
+	                			<div class="checkbox-lst">
+	                				<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">病棟</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外来</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">オペ</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">当直</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">入り</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">明け</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤渋谷</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤日東</span>
+													</label>
+	                			</div>
+	                		</div>
+	                	</li>
+	                	<li class="clearfix locked">
+	                		<div class="staff-left float-left mb-2 mb-xl-0">
+	                			<div class="shift-row d-flex mb-3">
+	              					<div class="shift-icon">
+	              						<span class="icon-inner bg-purple d-block">高内</span>
+	              					</div>
+	              					<p class="shift-text d-inline-block mb-0">櫻井 翔 (医師)</p>
+	              				</div>
+	              				<div class="check-setting pl-5">
+	              					<span class="setting-lock"><i class="fa fa-key text-danger"></i></span>
+	              					<label class="custom-control custom-checkbox mb-0 mr-1">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">シフトに含む</span>
+													</label>
+													<span class="name-dpm fs14"><i class="fa fa-caret-right"></i> 整形外科</span>
+	              				</div>
+	                		</div>
+	                		<div class="staff-right float-right">
+	                			<div class="input-wrap mb-1">
+	                				<div class="selects-kill">
+	                					<select class="form-control">
+	                						<option>スキルを選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="select-daily">
+	                					<select class="form-control">
+	                						<option>勤務形態を選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="inp-stt pl-2 py-1 text-left text-lg-right">備考</div>
+	                				<div class="inp-text">
+	                					<input class="form-control" name="" placeholder="50文字以内" type="text">
+	                				</div>
+	                			</div>
+	                			<div class="checkbox-lst">
+	                				<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">病棟</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外来</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">オペ</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">当直</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">入り</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">明け</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤渋谷</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤日東</span>
+													</label>
+	                			</div>
+	                		</div>
+	                	</li>
+	                	<li class="clearfix">
+	                		<div class="staff-left float-left mb-2 mb-xl-0">
+	                			<div class="shift-row d-flex mb-3">
+	              					<div class="shift-icon">
+	              						<span class="icon-inner bg-purple d-block">高内</span>
+	              					</div>
+	              					<p class="shift-text d-inline-block mb-0">鈴木 太郎 (医師)</p>
+	              				</div>
+	              				<div class="check-setting pl-5">
+	              					<label class="custom-control custom-checkbox mb-0 mr-1">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">シフトに含む</span>
+													</label>
+													<span class="name-dpm fs14"><i class="fa fa-caret-right"></i> 整形外科</span>
+	              				</div>
+	                		</div>
+	                		<div class="staff-right float-right">
+	                			<div class="input-wrap mb-1">
+	                				<div class="selects-kill">
+	                					<select class="form-control">
+	                						<option>スキルを選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="select-daily">
+	                					<select class="form-control">
+	                						<option>勤務形態を選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="inp-stt pl-2 py-1 text-left text-lg-right">備考</div>
+	                				<div class="inp-text">
+	                					<input class="form-control" name="" placeholder="50文字以内" type="text">
+	                				</div>
+	                			</div>
+	                			<div class="checkbox-lst">
+	                				<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">病棟</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外来</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">オペ</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">当直</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">入り</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">明け</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤渋谷</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤日東</span>
+													</label>
+	                			</div>
+	                		</div>
+	                	</li>
+
+
+
+	                	<li class="clearfix">
+	                		<div class="staff-left float-left mb-2 mb-xl-0">
+	                			<div class="shift-row d-flex mb-3">
+	              					<div class="shift-icon"></div>
+	              					<p class="shift-text d-inline-block mb-0">坂本 誠 (医師)</p>
+	              				</div>
+	              				<div class="check-setting pl-5">
+	              					<label class="custom-control custom-checkbox mb-0 mr-1">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">シフトに含む</span>
+													</label>
+													<span class="name-dpm fs14"><i class="fa fa-caret-right"></i> 整形外科</span>
+	              				</div>
+	                		</div>
+	                		<div class="staff-right float-right">
+	                			<div class="input-wrap mb-1">
+	                				<div class="selects-kill">
+	                					<select class="form-control">
+	                						<option>スキルを選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="select-daily">
+	                					<select class="form-control">
+	                						<option>勤務形態を選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="inp-stt pl-2 py-1 text-left text-lg-right">備考</div>
+	                				<div class="inp-text">
+	                					<input class="form-control" name="" placeholder="50文字以内" type="text">
+	                				</div>
+	                			</div>
+	                			<div class="checkbox-lst">
+	                				<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">病棟</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外来</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">オペ</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">当直</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">入り</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">明け</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤渋谷</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤日東</span>
+													</label>
+	                			</div>
+	                		</div>
+	                	</li>
+	                	<li class="clearfix">
+	                		<div class="staff-left float-left mb-2 mb-xl-0">
+	                			<div class="shift-row d-flex mb-3">
+	              					<div class="shift-icon"></div>
+	              					<p class="shift-text d-inline-block mb-0">田中 幸一 (研修医)</p>
+	              				</div>
+	              				<div class="check-setting pl-5">
+	              					<label class="custom-control custom-checkbox mb-0 mr-1">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">シフトに含む</span>
+													</label>
+													<span class="name-dpm fs14"><i class="fa fa-caret-right"></i> 整形外科</span>
+	              				</div>
+	                		</div>
+	                		<div class="staff-right float-right">
+	                			<div class="input-wrap mb-1">
+	                				<div class="selects-kill">
+	                					<select class="form-control">
+	                						<option>スキルを選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="select-daily">
+	                					<select class="form-control">
+	                						<option>勤務形態を選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="inp-stt pl-2 py-1 text-left text-lg-right">備考</div>
+	                				<div class="inp-text">
+	                					<input class="form-control" name="" placeholder="50文字以内" type="text">
+	                				</div>
+	                			</div>
+	                			<div class="checkbox-lst">
+	                				<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">病棟</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外来</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">オペ</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">当直</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">入り</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">明け</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤渋谷</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤日東</span>
+													</label>
+	                			</div>
+	                		</div>
+	                	</li>
+	                	<li class="clearfix locked">
+	                		<div class="staff-left float-left mb-2 mb-xl-0">
+	                			<div class="shift-row d-flex mb-3">
+	              					<div class="shift-icon"></div>
+	              					<p class="shift-text d-inline-block mb-0">櫻井 翔 (医師)</p>
+	              				</div>
+	              				<div class="check-setting pl-5">
+	              					<span class="setting-lock"><i class="fa fa-key text-danger"></i></span>
+	              					<label class="custom-control custom-checkbox mb-0 mr-1">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">シフトに含む</span>
+													</label>
+													<span class="name-dpm fs14"><i class="fa fa-caret-right"></i> 整形外科</span>
+	              				</div>
+	                		</div>
+	                		<div class="staff-right float-right">
+	                			<div class="input-wrap mb-1">
+	                				<div class="selects-kill">
+	                					<select class="form-control">
+	                						<option>スキルを選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="select-daily">
+	                					<select class="form-control">
+	                						<option>勤務形態を選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="inp-stt pl-2 py-1 text-left text-lg-right">備考</div>
+	                				<div class="inp-text">
+	                					<input class="form-control" name="" placeholder="50文字以内" type="text">
+	                				</div>
+	                			</div>
+	                			<div class="checkbox-lst">
+	                				<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">病棟</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外来</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">オペ</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">当直</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">入り</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">明け</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤渋谷</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤日東</span>
+													</label>
+	                			</div>
+	                		</div>
+	                	</li>
+	                	<li class="clearfix locked">
+	                		<div class="staff-left float-left mb-2 mb-xl-0">
+	                			<div class="shift-row d-flex mb-3">
+	              					<div class="shift-icon"></div>
+	              					<p class="shift-text d-inline-block mb-0">櫻井 翔 (医師)</p>
+	              				</div>
+	              				<div class="check-setting pl-5">
+	              					<span class="setting-lock"><i class="fa fa-key text-danger"></i></span>
+	              					<label class="custom-control custom-checkbox mb-0 mr-1">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">シフトに含む</span>
+													</label>
+													<span class="name-dpm fs14"><i class="fa fa-caret-right"></i> 整形外科</span>
+	              				</div>
+	                		</div>
+	                		<div class="staff-right float-right">
+	                			<div class="input-wrap mb-1">
+	                				<div class="selects-kill">
+	                					<select class="form-control">
+	                						<option>スキルを選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="select-daily">
+	                					<select class="form-control">
+	                						<option>勤務形態を選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="inp-stt pl-2 py-1 text-left text-lg-right">備考</div>
+	                				<div class="inp-text">
+	                					<input class="form-control" name="" placeholder="50文字以内" type="text">
+	                				</div>
+	                			</div>
+	                			<div class="checkbox-lst">
+	                				<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">病棟</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外来</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">オペ</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">当直</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">入り</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">明け</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤渋谷</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤日東</span>
+													</label>
+	                			</div>
+	                		</div>
+	                	</li>
+	                	<li class="clearfix">
+	                		<div class="staff-left float-left mb-2 mb-xl-0">
+	                			<div class="shift-row d-flex mb-3">
+	              					<div class="shift-icon"></div>
+	              					<p class="shift-text d-inline-block mb-0">鈴木 太郎 (医師)</p>
+	              				</div>
+	              				<div class="check-setting pl-5">
+	              					<label class="custom-control custom-checkbox mb-0 mr-1">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">シフトに含む</span>
+													</label>
+													<span class="name-dpm fs14"><i class="fa fa-caret-right"></i> 整形外科</span>
+	              				</div>
+	                		</div>
+	                		<div class="staff-right float-right">
+	                			<div class="input-wrap mb-1">
+	                				<div class="selects-kill">
+	                					<select class="form-control">
+	                						<option>スキルを選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="select-daily">
+	                					<select class="form-control">
+	                						<option>勤務形態を選択</option>
+	                					</select>
+	                				</div>
+	                				<div class="inp-stt pl-2 py-1 text-left text-lg-right">備考</div>
+	                				<div class="inp-text">
+	                					<input class="form-control" name="" placeholder="50文字以内" type="text">
+	                				</div>
+	                			</div>
+	                			<div class="checkbox-lst">
+	                				<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input" checked>
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">病棟</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外来</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">オペ</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">当直</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">入り</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">明け</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤渋谷</span>
+													</label>
+													<label class="custom-control custom-checkbox mb-0 mr-2">
+													  <input type="checkbox" class="custom-control-input">
+													  <span class="custom-control-indicator"></span>
+													  <span class="custom-control-description">外勤日東</span>
+													</label>
+	                			</div>
+	                		</div>
+	                	</li>
+	                </ul>
+	                <div class="d-flex justify-content-center mb-4">
+	                	<label class="custom-control custom-checkbox mb-0">
+										  <input type="checkbox" class="custom-control-input">
+										  <span class="custom-control-indicator"></span>
+										  <span class="custom-control-description">スタッフごとの項目別の合計値をスタッフに公開する<br>※スタッフが所属全員の夜勤数、休暇数等を閲覧することができます</span>
+										</label>
+	                </div>
+	                <div class="text-center">
+	                	<button class="btn btn-primary">保存</button>
+	                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--<div class="col-12 col-lg-3 col-sub">-->
+        <!--<app-col-sub></app-col-sub>-->
+        <!--</div>-->
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>
+
+

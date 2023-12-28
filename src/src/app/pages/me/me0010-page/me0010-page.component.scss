@@ -1,0 +1,32 @@
+@import '../../../../assets/styles/_import';
+.tbl-content {
+	overflow: auto;
+	.tbl-user {
+		width:35%;
+	}
+	.tbl-button {
+		width:65%;
+	}
+}
+// Small devices (landscape phones, 画面サイズ767px以下)
+// @media (max-width: 767px) { ... }
+@include media-breakpoint-down(sm) {
+	.tbl-content {
+		tr {
+			th {
+				background: #eee;
+			}
+			th,
+			td {
+				width: 100% !important;
+				display: block;
+			}
+      &:before,
+      &:after {
+        content: "";
+        display: block;
+        height: 3rem;
+      }
+		}
+	}
+}

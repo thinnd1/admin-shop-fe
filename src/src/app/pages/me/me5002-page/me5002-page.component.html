@@ -1,0 +1,298 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="row">
+            <!--contents-->
+            <!--contents ME5002-->
+            <div class="col">
+              <div class="page-head"
+                   *ngIf="paymentStatus !== 'UNREGISTERED' && paymentStatus !== 'UNREGISTERED_WITHOUT_CARD' && paymentStatus !== 'BEFORE_REISSUE'">
+                <app-page-head [title]="'ME5002.TITLE' | translate"></app-page-head>
+              </div>
+              <div id="entry-card">
+                <p class="text-right mb-5"
+                   *ngIf="paymentStatus !== 'UNREGISTERED' && paymentStatus !== 'UNREGISTERED_WITHOUT_CARD' && paymentStatus !== 'BEFORE_REISSUE'">
+                  <button class="btn btn-info" routerLink='/me/me5001'>{{'ME5002.BUTTON.FAQ' | translate}}</button>
+                </p>
+                <div class="entry-sub-1"
+                     *ngIf="paymentStatus !== 'UNREGISTERED' && paymentStatus !== 'UNREGISTERED_WITHOUT_CARD' && paymentStatus !== 'BEFORE_REISSUE'">
+                  <table class="table table-bordered table-entry-card mb-5" *ngIf="getUserResult">
+                    <tbody class="tbody-inverse">
+                    <tr>
+                      <th class="table-label">{{'ME5002.LABEL.EFFECTIVE_DATE' | translate}}</th>
+                      <td>{{getUserResult?.effectiveDate | timePipe: 'YYYY年MM月DD日'}}</td>
+                    </tr>
+                    <tr>
+                      <th class="table-label">{{'ME5002.LABEL.OFFICE_USER' | translate}}</th>
+                      <td>
+                        <div class="row">
+                          <div class="col-12 col-lg-9 mb-2 mb-lg-0"><span
+                            class="d-inline-block pr-2">{{paymentNewest?.paymentName}} {{'ME5002.CARD_ADDR.MR' | translate}}</span>　　
+                          </div>
+                          <div class="col-12 col-lg-3 text-right pr-0 pr-lg-3">
+                            <button *ngIf="paymentNewest?.receiptDate == '' && paymentHistoryList" type="button"
+                                    class="btn btn-outline-warning" (click)="changePaymentName();">
+                              {{'ME5002.BUTTON.CHANGE' | translate}}
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="table-label">{{'ME5002.LABEL.MAILING' | translate}}</th>
+                      <td>
+                        <table class="tbl-card-addr">
+                          <tbody>
+                          <tr>
+                            <th>{{'ME5002.CARD_ADDR.ZIP_CODE' | translate}}：</th>
+                            <td>{{getUserResult?.zipCode}}</td>
+                          </tr>
+                          <tr>
+                            <th>{{'ME5002.CARD_ADDR.ADDRESS' | translate}}　　：</th>
+                            <td>{{getUserResult?.address}}</td>
+                          </tr>
+                          <tr>
+                            <th>{{'ME5002.CARD_ADDR.ADDRESS2' | translate}}　：</th>
+                            <td>{{getUserResult?.address2}}</td>
+                          </tr>
+                          <tr>
+                            <th>{{'ME5002.CARD_ADDR.NAME' | translate}}　　：</th>
+                            <td>{{getUserResult?.name}} {{'ME5002.CARD_ADDR.MR' | translate}}</td>
+                          </tr>
+                          </tbody>
+                        </table>
+                        <p class="text-right text-danger fs12 m-0 pt-3">{{'ME5002.CARD_ADDR.NOTICE' | translate}}</p>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <table class="table table-bordered table-entry-card mb-5"
+                         *ngIf="(paymentNewest && paymentStatus != 'VALID' || paymentNewest && !checkPayment && paymentStatus == 'VALID') &&
+                         (paymentNewest && paymentStatus != 'TEMPORARY_INVALID' || paymentNewest && !checkPayment && paymentStatus == 'TEMPORARY_INVALID')">
+                    <tbody class="tbody-inverse">
+                    <tr>
+                      <th class="table-label">{{'ME5002.LABEL.BILLED' | translate}}</th>
+                      <td>{{paymentPrice | number}}{{'ME5002.CURRENCY_UNIT' | translate}}（{{'ME5002.NOTICE_POSTAGE' |
+                        translate}}{{paymentNewest?.postage | number}}{{'ME5002.CURRENCY_UNIT' | translate}}）
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="table-label">{{'ME5002.LABEL.RECEIPT_LIMIT_DATE' | translate}}</th>
+                      <td>{{paymentNewest?.receiptLimitDate | timePipe: 'YYYY年MM月DD日'}}</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <table class="table table-bordered table-entry-card mb-5"
+                         *ngIf="(paymentNewest && paymentStatus != 'VALID' || paymentNewest && !checkPayment && paymentStatus == 'VALID') &&
+                         (paymentNewest && paymentStatus != 'TEMPORARY_INVALID' || paymentNewest && !checkPayment && paymentStatus == 'TEMPORARY_INVALID')">
+                    <tbody class="tbody-inverse">
+                    <tr>
+                      <th class="table-label">{{'ME5002.TRANFER_ACC.BANK_NAME.TITLE' | translate}}</th>
+                      <td>{{'ME5002.TRANFER_ACC.BANK_NAME.INFO' | translate}}</td>
+                    </tr>
+                    <tr>
+                      <th class="table-label">{{'ME5002.TRANFER_ACC.BRANCH_NAME.TITLE' | translate}}</th>
+                      <td>{{'ME5002.TRANFER_ACC.BRANCH_NAME.INFO' | translate}}</td>
+                    </tr>
+                    <tr>
+                      <th class="table-label">{{'ME5002.TRANFER_ACC.TYPE.TITLE' | translate}}</th>
+                      <td>{{'ME5002.TRANFER_ACC.TYPE.INFO' | translate}}</td>
+                    </tr>
+                    <tr>
+                      <th class="table-label">{{'ME5002.TRANFER_ACC.ACC_NUM.TITLE' | translate}}</th>
+                      <td>{{'ME5002.TRANFER_ACC.ACC_NUM.INFO' | translate}}</td>
+                    </tr>
+                    <tr>
+                      <th class="table-label">{{'ME5002.TRANFER_ACC.NAME.TITLE' | translate}}</th>
+                      <td>{{'ME5002.TRANFER_ACC.NAME.INFO' | translate}}</td>
+                    </tr>
+                    <tr>
+                      <th class="table-label">{{'ME5002.TRANFER_ACC.TRANFER_PERSON_NAME.TITLE' | translate}}</th>
+                      <td>{{'ME5002.TRANFER_ACC.TRANFER_PERSON_NAME.INFO' | translate}}<br>{{'ME5002.TRANFER_ACC.TRANFER_PERSON_NAME.EXAMPLE'
+                        | translate}}
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <p class="mb-0"
+                     *ngIf="(paymentNewest && paymentStatus != 'VALID' || paymentNewest && !checkPayment && paymentStatus == 'VALID') &&
+                     (paymentNewest && paymentStatus != 'TEMPORARY_INVALID' || paymentNewest && !checkPayment && paymentStatus == 'TEMPORARY_INVALID')">
+                    {{'ME5002.NOTICE.INVOICE_INFO.NOTE_1' |
+                    translate}}</p>
+                  <p class="mb-0"
+                     *ngIf="(paymentNewest && paymentStatus != 'VALID' || paymentNewest && !checkPayment && paymentStatus == 'VALID') &&
+                     (paymentNewest && paymentStatus != 'TEMPORARY_INVALID' || paymentNewest && !checkPayment && paymentStatus == 'TEMPORARY_INVALID')">
+                    {{'ME5002.NOTICE.INVOICE_INFO.NOTE_2' |
+                    translate}}</p>
+                  <p class="mb-0 mb-5"
+                     *ngIf="(paymentNewest && paymentStatus != 'VALID' || paymentNewest && !checkPayment && paymentStatus == 'VALID') &&
+                     (paymentNewest && paymentStatus != 'TEMPORARY_INVALID' || paymentNewest && !checkPayment && paymentStatus == 'TEMPORARY_INVALID')">
+                    {{'ME5002.NOTICE.INVOICE_INFO.NOTE_3' |
+                    translate}}</p>
+                  <div class="reception-cards-invoice-caution"
+                       *ngIf="(paymentNewest && paymentStatus != 'VALID' || paymentNewest && !checkPayment && paymentStatus == 'VALID') &&
+                       (paymentNewest && paymentStatus != 'TEMPORARY_INVALID' || paymentNewest && !checkPayment && paymentStatus == 'TEMPORARY_INVALID')">
+                    <div class="reception-cards-invoice-caution-ttl">
+                      <img width="24" src="assets/img/me/alert_icon.png" alt="">
+                      {{'ME5002.INVOICE_CAUTION.TITLE' | translate}}
+                    </div>
+                    <div class="reception-cards-invoice-caution-box">
+                      <p>{{'ME5002.INVOICE_CAUTION.EMAIL.START' | translate}}＜<a
+                        href="{{'ME5002.INVOICE_CAUTION.EMAIL.LINK' | translate}}">support_ic@drjoy.jp</a>＞{{'ME5002.INVOICE_CAUTION.EMAIL.END'
+                        | translate}}</p>
+                      <p class="reception-cards-invoice-caution-pre">--------------------------------------------<br>
+                        {{'ME5002.INVOICE_CAUTION.ENTRY_EXIT_CARD.TITLE' | translate}}<br>
+                        --------------------------------------------<br>
+                        {{'ME5002.INVOICE_CAUTION.ENTRY_EXIT_CARD.COMPANY_NAME' | translate}}<br>
+                        {{'ME5002.INVOICE_CAUTION.ENTRY_EXIT_CARD.NAME' | translate}}<br>
+                        {{'ME5002.INVOICE_CAUTION.ENTRY_EXIT_CARD.TRANFER_DATE' | translate}}<br>
+                        {{'ME5002.INVOICE_CAUTION.ENTRY_EXIT_CARD.TRANER_NAME' | translate}}<br>
+                        {{'ME5002.INVOICE_CAUTION.ENTRY_EXIT_CARD.INVOICE_NUM' | translate}}<br>
+                        {{'ME5002.INVOICE_CAUTION.ENTRY_EXIT_CARD.ACC_NAME' | translate}}<br>
+                        {{'ME5002.INVOICE_CAUTION.ENTRY_EXIT_CARD.ACC_PHONE' | translate}}<br>
+                        --------------------------------------------<br>
+                        {{'ME5002.INVOICE_CAUTION.ENTRY_EXIT_CARD.NOTE1' | translate}}<br>
+                        {{'ME5002.INVOICE_CAUTION.ENTRY_EXIT_CARD.NOTE2' | translate}}
+                      </p></div>
+                  </div>
+                  <div class="d-flex justify-content-center my-5" *ngIf="paymentNewest && paymentNewest.receiptDate === ''">
+                    <button class="btn btn-success" type="submit"
+                            (click)="redirectInvoice(paymentNewest);">{{'ME5002.BUTTON.INVOICE' | translate}}
+                    </button>
+                  </div>
+                  <table class="table table-bordered table-receipt" *ngIf="paymentHistoryList"
+                         style="text-align: center">
+                    <thead class="thead-inverse hidden-md-down">
+                    <tr>
+                      <th class="label-usage" style="text-align: center">{{'ME5002.HISTORY_LIST.USAGE' | translate}}
+                      </th>
+                      <th class="label-amount" style="text-align: center">{{'ME5002.HISTORY_LIST.AMOUNT' | translate}}
+                      </th>
+                      <th class="label-payment" style="text-align: center">{{'ME5002.HISTORY_LIST.PAYMENT' |
+                        translate}}
+                      </th>
+                      <th class="label-receipt" style="text-align: center">{{'ME5002.HISTORY_LIST.RECEIPT' |
+                        translate}}
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody class="tbody-inverse" *ngIf="paymentHistoryList ">
+                    <tr *ngFor="let payment of paymentHistoryList">
+                      <th class="label-usage hidden-lg-up">{{'ME5002.HISTORY_LIST.USAGE' | translate}}</th>
+                      <td>{{payment?.contractStartDate | timePipe: 'YYYY年MM月DD日'}}～{{payment?.contractEndDate|
+                        timePipe: 'YYYY年MM月DD日'}}
+                      </td>
+                      <th class="label-amount hidden-lg-up">{{'ME5002.HISTORY_LIST.AMOUNT' | translate}}</th>
+                      <td class="text-center">{{payment?.price + payment?.realTax + payment?.postage}}
+                        {{'ME5002.CURRENCY_UNIT' | translate}}
+                      </td>
+                      <th class="label-payment hidden-lg-up">{{'ME5002.HISTORY_LIST.PAYMENT' | translate}}</th>
+                      <td>{{payment?.receiptDate | timePipe: 'YYYY年MM月DD日'}}</td>
+                      <th class="label-receipt hidden-lg-up">{{'ME5002.HISTORY_LIST.RECEIPT' | translate}}</th>
+                      <td class="text-center">
+                        <button *ngIf="payment.receiptDate != ''" class="btn btn-sm btn-success"
+                                (click)="redirectReceipt(payment);">{{'ME5002.BUTTON.DISPLAY' | translate}}
+                        </button>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <div class="d-flex justify-content-center my-5">
+                    <a href="{{'ME5002.MAILTO' | translate}}">
+                      <button class="btn btn-lg btn-outline-warning" type="submit">{{'ME5002.BUTTON.CARD_ISSUE' |
+                        translate}}
+                      </button>
+                    </a>
+                  </div>
+                  <!-- //entry-sub-1 -->
+                </div>
+
+                <div class="entry-sub-2"
+                     *ngIf="paymentStatus == 'UNREGISTERED' || paymentStatus == 'UNREGISTERED_WITHOUT_CARD' || paymentStatus == 'BEFORE_REISSUE'">
+                  <div class="clearfix mb-3">
+                    <h3 class="float-left pt-2">{{'ME5002.ENTRY_EXIT_CARD.TITLE' | translate}}</h3>
+                    <button class="btn btn-outline-warning float-right" routerLink='/me/me5001'>{{'ME5002.BUTTON.FAQ' |
+                      translate}}
+                    </button>
+                  </div>
+                  <div class="entry-info clearfix mb-5">
+                    <div class="entry-info-txt float-left">
+                      <p class="pb-3">{{'ME5002.ENTRY_EXIT_CARD.NOTICE.ROW1' | translate}}
+                        <br>{{'ME5002.ENTRY_EXIT_CARD.NOTICE.ROW2' | translate}}
+                        <br>{{'ME5002.ENTRY_EXIT_CARD.NOTICE.ROW3' | translate}}
+                        <br>{{'ME5002.ENTRY_EXIT_CARD.NOTICE.ROW3_1' | translate}}
+                      </p>
+                      <p class="pb-3">{{'ME5002.ENTRY_EXIT_CARD.NOTICE.ROW4' | translate}}
+                        <br>{{'ME5002.ENTRY_EXIT_CARD.NOTICE.ROW5' | translate}}
+                        <br>{{'ME5002.ENTRY_EXIT_CARD.NOTICE.ROW6' | translate}}
+                      </p>
+                    </div>
+                    <div class="photo float-left mb-2 mb-md-0">
+                      <img src="assets/img/me/image-sub-2-me5002.jpg" alt="">
+                    </div>
+                  </div>
+                  <p class="text-right text-primary mb-4"><a href="{{'ME5002.MAILTO' | translate}}">{{'ME5002.ENTRY_EXIT_CARD.NOTICE.ROW7'
+                    | translate}}</a></p>
+                  <table class="table table-bordered table-receipt" *ngIf="paymentHistoryList">
+                    <thead class="thead-inverse hidden-md-down">
+                    <tr>
+                      <th class="label-usage">{{'ME5002.HISTORY_LIST.USAGE' | translate}}
+                      </th>
+                      <th class="label-amount">{{'ME5002.HISTORY_LIST.AMOUNT' | translate}}
+                      </th>
+                      <th class="label-payment">{{'ME5002.HISTORY_LIST.PAYMENT' |
+                        translate}}
+                      </th>
+                      <th class="label-receipt">{{'ME5002.HISTORY_LIST.RECEIPT' |
+                        translate}}
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody class="tbody-inverse">
+                    <tr *ngFor="let payment of paymentHistoryList">
+                      <th class="label-usage hidden-lg-up">{{'ME5002.HISTORY_LIST.USAGE' | translate}}</th>
+                      <td>{{payment?.contractStartDate | timePipe: 'YYYY年MM月DD日'}}～{{payment?.contractEndDate |
+                        timePipe: 'YYYY年MM月DD日'}}
+                      </td>
+                      <th class="label-amount hidden-lg-up">{{'ME5002.HISTORY_LIST.AMOUNT' | translate}}</th>
+                      <td>{{payment?.price + payment?.realTax + payment?.postage}} 円</td>
+                      <th class="label-payment hidden-lg-up">{{'ME5002.HISTORY_LIST.PAYMENT' | translate}}</th>
+                      <td>{{payment?.receiptDate | timePipe: 'YYYY年MM月DD日'}}</td>
+                      <th class="label-receipt hidden-lg-up">{{'ME5002.HISTORY_LIST.RECEIPT' | translate}}</th>
+                      <td class="text-center">
+                        <button class="btn btn-sm active btn-secondary" *ngIf="payment.receiptDate != ''"
+                                (click)="redirectReceipt(payment);">{{'ME5002.BUTTON.DISPLAY' | translate}}
+                        </button>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <!-- //entry-sub-2 -->
+                </div>
+                <!-- //entry-card -->
+              </div>
+            </div>
+            <!-- //contents -->
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

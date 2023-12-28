@@ -1,0 +1,272 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+
+              <div class="col">
+
+                <div class="page-head">
+                  <app-page-head [backEvent]="confirmCreateMeeting" (clickBackEvent)="backMainScreen($event)" [title]="'DOC_TITLE.ME0006' | translate"></app-page-head>
+                </div>
+                <div class="me0006" [hidden]="confirmCreateMeeting">
+                  <div class="header row mb-4">
+                    <div class="groupt-buttom-left col-12 col-lg-4 fs18 mb-3 mb-lg-0" id="me0006-date-picker">
+                      <button id="my-prew-button" type="button" class="btn btn-lg btn-secondary px-3"
+                              (click)="prevCalendar()"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+                      <button id="my-next-button" type="button" class="btn btn-lg btn-secondary px-3 mr-2"
+                              (click)="nextCalendar()"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                      <div (clickOutside)="startday.close()" class="d-inline-block float-right float-lg-none">
+                        <label class="btn btn-lg btn-secondary px-3 selectDay" (click)="startday.toggle()" for="a">
+                          {{'MSG.ME.MEETING_REQUEST.DATE_PICKER' | translate}}
+                        </label>
+                        <input ngbDatepicker id="a" class="selectDay" style="display: none" [(ngModel)]="datePicker"
+                               #startday="ngbDatepicker" type="text" (ngModelChange)="goToDateCalendar()">
+                      </div>
+                    </div>
+                    <div class="cadendar-title-center col-12 col-lg-4 text-center fs28 mb-2 mb-lg-0">
+                      <span class="year" id="title-calendar"></span>
+                    </div>
+                    <div class="text-center text-lg-right col-12 col-lg-4 fs18" *ngIf="modelInput === ModelInput.FUTURE">
+                      <button type="button" class="btn btn-lg btn-success" (click)="toDayCalendar()">{{'MSG.ME.MEETING_REQUEST.TO_DAY' | translate}}</button>
+                    </div>
+                    <div class="text-center text-lg-right col-12 col-lg-4 fs18" *ngIf="modelInput === ModelInput.PASS">
+                      <button type="button" class="btn btn-lg btn-success" (click)="tomorrowCalendar()">{{'MSG.ME.MEETING_REQUEST.TOMORROW' | translate}}</button>
+                    </div>
+                  </div>
+                  <div class="content">
+                    <div class="calentda-one">
+                      <div class="row">
+
+                        <!--Calendar-->
+                        <div class="col-12 col-lg-8">
+                          <div class="row">
+                            <div class="col-12 col-lg-6 mb-3 mb-lg-0">
+                              <div class="cld-user fs22 mb-3 d-flex align-items-center" *ngIf="senderRequest && senderRequest.userId === userSession.userId">
+                                <div class="pr-2">
+                                  <app-face-icon [officeUserId]="userSession.userId" [iconSize]="40"></app-face-icon>
+                                </div>
+                                <div class="user-name pl-3">自分の予定</div>
+                              </div>
+
+                              <div class="cld-user fs22 mb-3 d-flex align-items-center" *ngIf="senderRequest && senderRequest.userId !== userSession.userId">
+                                <div class="pr-2">
+                                  <app-face-icon [userInfo]="senderRequest" [iconSize]="40"></app-face-icon>
+                                </div>
+                                <div class="user-name pl-3">{{senderRequest.lastName + ' ' + senderRequest.firstName + 'さんの予定'}}</div>
+                              </div>
+                              <div class="calendar" id="calendar1" (mouseover)="mouseOverCalendar(1)">
+                              </div>
+                            </div>
+
+                            <div class="col-12 col-lg-6">
+                              <div class="calenda-two mb-3">
+                                <div class="cld-user fs22 mb-3 d-flex align-items-center" *ngIf="receiverRequest">
+                                  <div class="pr-2">
+                                    <app-face-icon [userInfo]="receiverRequest" [iconSize]="40"></app-face-icon>
+                                  </div>
+                                  <div class="user-name pl-3">{{receiverRequest.lastName + ' ' + receiverRequest.firstName + 'さんの予定'}}</div>
+                                </div>
+                              </div>
+                              <div class="calenda-two mb-4">
+                                <div class="calendara-2" id="calendar2" (mouseover)="mouseOverCalendar(2)"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!--Calendar-->
+
+                        <!--S:form-right-->
+                        <div class="col-12 col-lg-4 mb-4">
+                          <div class="form-two">
+                            <div class="p-3 img-user" *ngIf="authorityMediator && modelInput !== ModelInput.CHANG_TIME && listMediatorRequest.length > 0  && !userSession?.personalFlag">
+                              <p class="fs18 text-muted mb-2">{{'MSG.ME.MEETING_REQUEST.DOCTOR_SELECT' | translate}}</p>
+                              <div class="search">
+                                <!--[auto-select-first-item]="true"-->
+                                <input ngui-auto-complete [source]="searchDoctorAuto.bind(this)"
+                                       autocomplete="off"
+                                       [list-formatter]="autoCompleteListFormatter" value-property-name="officeUserId"
+                                       [value-formatter]="valueFormatterSearch"
+                                       no-match-found-text="&nbsp;{{'CA0009.NO_RESULT_FOUND' | translate }}"
+                                       (valueChanged)="addDoctorRequest($event)" class="form-control"
+                                       min-chars="1"
+                                       placeholder="{{'MSG.ME.MEETING_REQUEST.SEARCH_DOCTOR' | translate }}" id="searchDoctorAuto"/>
+                                <button type="button" class="search-btn cursor-pointer" (click)="searchDoctor()">
+                                  <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                              </div>
+                              <div class="row mt-3 d-flex align-items-center flex-wrap-mediator" *ngIf="userSession.userId !== senderRequest.userId">
+                                <div class="col-1">
+                                  <a href="#" (click)="removerDoctorRequest($event)"><i aria-hidden="true" class="fa fa-times text-primary"></i></a>
+                                </div>
+                                <app-mini-profile [userInfo]="senderRequest" [profileOptions]="{departmentName : true, iconSize:'40'}"></app-mini-profile>
+                              </div>
+                            </div>
+                            <app-form-create-request-dr [modelInput]="modelInput"
+                                                      [senderRequest]="senderRequest"
+                                                      [receiverRequest]="receiverRequest"
+                                                      [originalRequest]="originalRequest"
+                                                      [formCreateMeeting]="formCreateMeeting"
+                                                      [errorValidateForm]="errorValidateForm"
+                                                      [stringNameProduct]="stringNameProduct"
+                                                      [groupPurposes]="groupPurposes"
+                                                      [inputAddTimeSelect]="inputAddTimeSelect"
+                                                      (checkValidateForm)="validateFormMeeting($event)"
+                                                      (outputAddTimeSelect)="setAddTimeSelect($event)"
+                                                        (checkRequester)="changeRequester($event)"
+                                                      (changeTimeSelect)="changeTimeMeeting($event)"></app-form-create-request-dr>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <div id="me00062" *ngIf="confirmCreateMeeting">
+                  <div class="text-center mb-4">
+                    <h2 class="text-danger">{{'ME0006.ME0006_2_TITLE' | translate}}</h2>
+                  </div>
+                  <div class="row mb-4">
+                    <div class="col-12 col-sm-12 col-md-6 col-xl-6">
+                      <dl class="meeting-dl m-0">
+                        <!--リクエスト先-->
+                        <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'MSG.ME.LBL_RECEIVER_REQUEST' | translate}}</dt>
+                        <dd class="pl-3 py-1 pr-1 mb-4">
+                          <app-mini-profile [userInfo]="receiverRequest" [profileOptions]="{officeName: true, iconSize: 76}"></app-mini-profile>
+                        </dd>
+                        <ng-container *ngIf="userSession.userId !== senderRequest.userId">
+                          <!--面会予定者-->
+                          <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'MSG.ME.LBL_DOCTOR_REQUEST' | translate}}</dt>
+                          <dd class="pl-3 py-1 pr-1 mb-4" *ngIf="senderRequest">
+                            <app-mini-profile [userInfo]="senderRequest" [profileOptions]="{departmentName: true, iconSize: 76}"></app-mini-profile>
+                          </dd>
+                        </ng-container>
+
+                        <!--目的-->
+                        <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'MSG.ME.MEETING_REQUEST.PURPOSE' | translate}}</dt>
+                        <dd class="pl-3 py-1 pr-1 mb-4" *ngIf="modelInput === ModelInput.CHANG_TIME && originalRequest">{{originalRequest.purposeName | translate}}</dd>
+                        <dd class="pl-3 py-1 pr-1 mb-4" *ngIf="modelInput !== ModelInput.CHANG_TIME">{{formCreateMeeting.purposeName | translate}}</dd>
+
+                        <!--薬剤名・製品名-->
+                        <ng-container *ngIf="htmlNameProduct">
+                          <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'MSG.ME.MEETING_REQUEST.PRODUCT_NAME' | translate}}</dt>
+                          <dd class="pl-3 py-1 pr-1 mb-4" [innerHtml]="htmlNameProduct"></dd>
+                        </ng-container>
+
+                        <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'MSG.ME.MEETING_REQUEST.LIST_TIME' | translate}}</dt>
+                        <dd class="pl-3 py-1 pr-1 mb-4">
+                          <p class="mb-2" *ngFor="let date of formCreateMeeting.date">{{date.dateStart | timePipe : 'M月D日(date)'}} {{date.startTime + '〜' + date.endTime}}</p>
+                        </dd>
+
+                        <!--場所-->
+                        <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'MSG.ME.MEETING_REQUEST.PLACE' | translate}}</dt>
+                        <dd class="pl-3 py-1 pr-1 mb-4 break-line-comment" *ngIf="formCreateMeeting.place">{{formCreateMeeting.place}}</dd>
+                        <dd class="pl-3 py-1 pr-1 mb-4 break-line-comment" *ngIf="!formCreateMeeting.place">ー</dd>
+
+                        <!--訪問人数-->
+                        <ng-container *ngIf="modelInput === ModelInput.CHANG_TIME">
+                          <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'MSG.ME.MEETING_REQUEST.NUMBER_VISIT' | translate}}</dt>
+                          <dd class="pl-3 py-1 pr-1 mb-4" *ngIf="originalRequest.visitorNumber !== 0">{{originalRequest.visitorNumber}}人</dd>
+                          <dd class="pl-3 py-1 pr-1 mb-4" *ngIf="originalRequest.visitorNumber === 0">ー</dd>
+                        </ng-container>
+                      </dl>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-6 col-xl-6">
+                      <dl class="meeting-dl m-0">
+                        <dd>
+                          <ng-container *ngIf="originalRequest && modelInput === ModelInput.CHANG_TIME">
+                            <ng-container *ngFor="let comment of originalRequest.comments; let i = index">
+                              <ng-container *ngIf="(i % 2) === 0 && getUserComment(comment)">
+                                <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'MSG.ME.MEETING_REQUEST.' + getUserComment(comment) + '_COMMENT' | translate}}</dt>
+                                <dd class="pl-3 py-1 pr-1 mb-4" style="background: #EEE">
+                                  <span class="break-line-comment" *ngIf="comment.comment">{{comment.comment}}</span>
+                                  <span class="break-line-comment" *ngIf="!comment.comment">ー</span>
+                                </dd>
+                              </ng-container>
+                              <ng-container *ngIf="(i % 2) !== 0 && getUserComment(comment)">
+                                <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'MSG.ME.MEETING_REQUEST.' + getUserComment(comment) + '_COMMENT' | translate}}</dt>
+                                <dd class="pl-3 py-1 pr-1 mb-4">
+                                  <span class="break-line-comment" *ngIf="comment.comment">{{comment.comment}}</span>
+                                  <span class="break-line-comment" *ngIf="!comment.comment">ー</span>
+                                </dd>
+                              </ng-container>
+                            </ng-container>
+                          </ng-container>
+
+                          <!--自分のコメント-->
+                          <ng-container *ngIf="(originalRequest && modelInput === ModelInput.CHANG_TIME && (originalRequest.comments.length % 2) === 0) || (modelInput !== ModelInput.CHANG_TIME)">
+                            <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'MSG.ME.MEETING_REQUEST.MY_COMMENT' | translate}}</dt>
+                            <dd class="pl-3 py-1 pr-1 mb-4" style="background: #EEE">
+                              <span class="break-line-comment" *ngIf="formCreateMeeting.note">{{formCreateMeeting.note}}</span>
+                              <span class="break-line-comment" *ngIf="!formCreateMeeting.note">ー</span>
+                            </dd>
+                          </ng-container>
+
+                          <!--自分のコメント-->
+                          <ng-container *ngIf="originalRequest && modelInput === ModelInput.CHANG_TIME && (originalRequest.comments.length % 2) !== 0">
+                            <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'MSG.ME.MEETING_REQUEST.MY_COMMENT' | translate}}</dt>
+                            <dd class="pl-3 py-1 pr-1 mb-4">
+                              <span class="break-line-comment" *ngIf="formCreateMeeting.note">{{formCreateMeeting.note}}</span>
+                              <span class="break-line-comment" *ngIf="!formCreateMeeting.note">ー</span>
+                            </dd>
+                          </ng-container>
+
+                        </dd>
+                      </dl>
+                    </div>
+                  </div>
+
+                  <!--ボタンコンテンツ-->
+                  <div class="d-flex justify-content-center mb-4">
+                    <div class="d-flex justify-content-center form-inline">
+                      <button type="button" class="btn btn-lg btn-primary m-1" (click)="putMeeting()">{{'MSG.YES' | translate}}</button>
+                      <button type="button" class="btn btn-lg btn-secondary m-1" (click)="changeConfirmCreateMeeting()">{{'MSG.NO' | translate}}</button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+
+  <div *ngIf="showPopover" id="popupHover" (clickOutside)="hide_popover_detail_event()">
+    <div class="popover contentPopupHover" [ngClass]="{'popover-bottom': (showTop), 'popover-top': (!showTop)}">
+      <div class="popover-close fs14"><i class="fa fa-close" (click)="hide_popover_detail_event()"></i></div>
+      <h3 class="popover-title fs18">{{ popup.title }}</h3>
+      <div class="popover-content" >
+        <p class="mb-0" *ngIf="popup.place">{{'MSG.ME.MEETING_REQUEST.PLACE' | translate}}: {{ popup.place }}</p>
+        <p class="mb-0"><span *ngIf="popup.showTime">{{'MSG.ME.MEETING_REQUEST.TIME' | translate}}: </span>{{ popup.time }}</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script>
+
+</script>

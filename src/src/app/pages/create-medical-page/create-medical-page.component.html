@@ -1,0 +1,52 @@
+<div class="col-md-6 col-md-offset-3">
+  <h2>Create Medical</h2>
+  <form name="form" (ngSubmit)="f.form.valid && createMedical()" #f="ngForm" novalidate>
+    <div class="form-group" [ngClass]="{ 'has-danger': f.submitted && !nameInit.valid }">
+      <label for="nameInit">Name</label>
+      <input type="text" class="form-control" name="nameInit" id="nameInit" [(ngModel)]="model.nameInit" #nameInit="ngModel" required />
+    </div>
+    <div class="form-group">
+    <label class="custom-control custom-radio mb-0" *ngFor="let m of officeType">
+      <input id="officeType" name="officeType" type="radio" class="custom-control-input" [(ngModel)]="model.officeType" #officeType="ngModel" [value]="m.Id">
+      <span class="custom-control-indicator"></span>
+      <span class="custom-control-description">{{m.Name}}</span>
+    </label>
+    </div>
+    <div class="form-group" [ngClass]="{ 'has-danger': f.submitted && !keycode.valid }" *ngIf="model.officeType == 'MEDICAL'">
+      <label for="keycode">Key Code </label> <br><label ngClass="text-danger">* Key code is required with Medical</label>
+      <input type="text" class="form-control" name="keycode" id="keycode" [(ngModel)]="model.keycode" #keycode="ngModel" />
+    </div>
+    <div class="form-group" [ngClass]="{ 'has-danger': f.submitted && !loginId.valid }">
+      <label for="loginId">LoginId</label>
+      <input type="text" class="form-control" name="loginId" id="loginId" [(ngModel)]="model.loginId" #loginId="ngModel" required />
+    </div>
+    <div class="form-group" [ngClass]="{ 'has-danger': f.submitted && !mail.valid }">
+      <label for="mail">Email</label>
+      <input type="email" class="form-control" name="mail" id="mail" [(ngModel)]="model.mail" #mail="ngModel" required />
+    </div>
+    <div class="form-group" [ngClass]="{ 'has-danger': f.submitted && !password.valid }">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" name="password" id="password" [(ngModel)]="model.password" #password="ngModel" required />
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary">{{ 'SAVE' | translate }}</button>
+    </div>
+  </form>
+  <div class="form-group">
+    <button class="btn btn-primary" (click)="initData()">{{ 'Init Data' | translate }}</button>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-danger" (click)="cancelMeeting()">{{ 'Cancel meeting' | translate }}</button>
+  </div>
+  <form>
+    <div class="form-group" >
+      <label for="titleEvent">Title Event</label>
+      <input type="text" class="form-control" name="titleEvent" id="titleEvent" [(ngModel)]="eventHoliday.title" #titleEvent="ngModel" required />
+    </div>
+    <div class="form-group">
+      <label>Date Event</label>
+      <app-date-input (dateChanged)="dateChanged($event)"></app-date-input>
+    </div>
+    <button class="btn btn-success" (click)="createHolidayEvent()">{{ 'Create Holiday' | translate }}</button>
+  </form>
+</div>

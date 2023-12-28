@@ -1,0 +1,25 @@
+<!--<div (scroll)="scrollEvent($event)" class="info-panel-inner">-->
+  <!--<dl class="info-panel-list">-->
+    <!--<ng-container *ngFor="let date of objectKeys(replaceObjects);let i = index;">-->
+      <!--<dt class="info-panel-list-day" *ngIf="isSame(today,date,'day')">{{'INFO_PANEL.TODAY' | translate }}</dt>-->
+      <!--<dt class="info-panel-list-day" *ngIf="isSame(yesterday,date,'day')">{{'INFO_PANEL.YESTERDAY' | translate }}</dt>-->
+      <!--<dt class="info-panel-list-day" *ngIf="!isSame(today,date,'day') && !isSame(yesterday,date,'day')">{{dataConvert(date,'YYYY/MM/DD(dd)')}}</dt>-->
+      <!--<ng-container *ngFor="let item of replaceObjects[date];let j = index;">-->
+        <!--<dd id="{{item.id}}" class="info-panel-list-item" [ngClass]="{'info-panel-list-item-link':item.path,'info-panel-list-item-read':item.read}" (click)="clickInfoItem($event,item.path)">-->
+          <!--<div class="info-panel-list-profile clearfix">-->
+            <!--<app-mini-profile [faceImgId]="item.contributor.officeUserId" [officeUserId]="item.contributor.userId" [profileOptions]="{iconSize:30,nameHonorific:true}"></app-mini-profile>-->
+            <!--<small class="info-panel-list-time">{{dataConvert(item.sentAt,'LT')}}</small>-->
+          <!--</div>-->
+          <!--<ng-container *ngIf="item.titleWeb">-->
+            <!--<p class="info-panel-list-action" *ngIf="lang == 'en'" [innerHTML]="item.titleWeb.def"></p>-->
+            <!--<p class="info-panel-list-action" *ngIf="lang == 'ja'" [innerHTML]="item.titleWeb.jp"></p>-->
+          <!--</ng-container>-->
+          <!--<ng-container *ngIf="item.body">-->
+            <!--<p class="info-panel-list-comment" *ngIf="lang == 'en'" [innerHTML]="item.body.def"></p>-->
+            <!--<p class="info-panel-list-comment" *ngIf="lang == 'ja'" [innerHTML]="item.body.jp"></p>-->
+          <!--</ng-container>-->
+        <!--</dd>-->
+      <!--</ng-container>-->
+    <!--</ng-container>-->
+  <!--</dl>-->
+<!--</div>-->

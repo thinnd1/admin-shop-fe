@@ -1,0 +1,23 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+.form-visit {
+  .date-time-wrap {
+    .form-control-date {
+      width: 8rem;
+    }
+    .form-control-time {
+      width: 6rem;
+      padding: 2px;
+    }
+  }
+  .select-numberVisit {
+    width: 6.2rem;
+  }
+  .form-msg {
+    height: 8.25rem;
+  }
+}
+
+.select2-container:focus{
+  outline: none!important;
+}

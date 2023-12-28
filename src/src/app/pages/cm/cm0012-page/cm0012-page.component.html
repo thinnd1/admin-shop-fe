@@ -1,0 +1,377 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents CM0012-->
+              <div class="col">
+
+                <div class="mb-4">
+                  <ul class="nav nav-tabs fs18" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link" routerLink="/gr/gr0014" role="tab">{{ 'GR0014.NAV.TIMELINE' | translate }}</a>
+                    </li>
+                    <li class="nav-item" *ngIf="userSession.funcAuthority.FP_1">
+                      <a class="nav-link" routerLink="/me/me0001" role="tab">{{ 'GR0014.NAV.MEETING' | translate }}</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" routerLink="/cm/cm0012" role="tab">{{ 'GR0014.NAV.KPI' | translate }}</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <ng-container *ngIf="curations && curations.length">
+                  <div class="row mb-5">
+                    <div class="col">
+                      <div class="table-curation-wrap p-2">
+                        <table class="table table-borderless table-curation">
+                          <tbody>
+                            <tr *ngFor="let curation of curations;">
+                              <th class="table-curation-th text-nowrap">
+                                <div class="table-curation-date">{{ curation.date }}</div>
+                                <div class="table-curation-read text-muted font-weight-normal mt-2" *ngIf="curation.read">{{'CM0012.ALREADY' | translate}}</div>
+                              </th>
+                              <td class="table-curation-td">
+                                <div class="preline-text">{{curation.title}}</div>
+                                <div [innerHTML]="curation.body"></div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div class="text-center mb-3">
+                          <a class="btn btn-info" role="button" aria-pressed="true" href="javascript:void(0);" [routerLink]="['/cm/cm0016']">{{'CM0012.ARTICLE_LIST' | translate}}</a>
+                        </div>
+                      </div>
+                      <p class="fs12 text-right mt-1 mb-0">出典：PMDA（独立行政法人 医薬品医療機器総合機構）</p>
+                    </div>
+                  </div>
+                </ng-container>
+
+                <ng-container *ngIf="checkNoData()">
+                  <p class="text-center fs18">{{ 'NO_DATA_MESSAGE' | translate }}</p>
+                </ng-container>
+
+                <div class="row mb-5" *ngIf="managementAuthority">
+                  <div class="col text-center align-middle">
+                    <a class="btn btn-success" role="button" aria-pressed="true" href="javascript:void(0);" [routerLink]="['/cm/cm0014']">{{'CM0012.KPI_SETTING' | translate}}</a>
+                    <a href="javascript:void(0);" [routerLink]="['/he/he0010']"><i class="fa fa-question-circle question-circle fa-lg"></i></a>
+                  </div>
+                </div>
+
+                <ng-container *ngIf="dataArray && dataArray.length">
+                  <ng-container *ngFor="let d of dataArray;">
+
+                    <div *ngIf="d['BED_USE_RATE']" class="row mb-5">
+                      <!--病床利用率-->
+                      <div class="col">
+
+                        <div class="d-flex justify-content-start align-items-center mb-1">
+                          <h2 class="title m-0"><span>{{d['BED_USE_RATE'].name}} (%)</span><small class="text-nowrap" [hidden]="bedUseRateChartType != 'all'">{{'CM0012.DATE_TEXT' | translate:{date:dataConvert(getCurrentDate(),'LL')} }}</small></h2>
+                          <select class="custom-select ml-auto" [(ngModel)]="bedUseRateChartType">
+                            <option value="all">{{'CM0012.ALL_HOSPITAL' | translate}}</option>
+                            <option *ngFor="let labels of d['BED_USE_RATE'].labels;let i = index;" value="{{i}}">{{labels}}</option>
+                          </select>
+                        </div>
+
+                        <div [hidden]="bedUseRateChartType != 'all'">
+
+                          <div class="border position-relative">
+                            <div class="no-data w-100 fill position-absolute" *ngIf="!bedUseRateChartData['all'].length">
+                              <div class="w-100 fill position-relative">
+                                <span class="position-absolute">{{'CM0012.NO_DATA' | translate}}</span>
+                              </div>
+                            </div>
+                            <canvas id="bed-use-rate-chart-all"></canvas>
+                          </div>
+
+                          <table class="table table-bordered mb-0" *ngIf="bedUseRateChartData['all'].length">
+                            <thead>
+                            <tr>
+                              <td *ngFor="let labels of d['BED_USE_RATE'].labels;let i = index;" class="text-center align-middle"><i class="fa fa-square mr-1" [ngStyle]="{'color':labelColors['BED_USE_RATE'][i]}" aria-hidden="true"></i>{{labels}}</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                              <td *ngFor="let data of bedUseRateChartData['all']" class="text-center align-middle">{{data}}%</td>
+                            </tr>
+                            </tbody>
+                          </table>
+                        </div>
+
+                        <div [hidden]="bedUseRateChartType == 'all'">
+                          <ng-container *ngFor="let labels of d['BED_USE_RATE'].labels;let i = index;">
+                            <div [hidden]="bedUseRateChartType != i">
+
+                              <div class="border position-relative">
+                                <div class="no-data w-100 fill position-absolute" *ngIf="!bedUseRateChartData[i].length">
+                                  <div class="w-100 fill position-relative">
+                                    <span class="position-absolute">{{'CM0012.NO_DATA' | translate}}</span>
+                                  </div>
+                                </div>
+                                <canvas id="bed-use-rate-chart-{{i}}"></canvas>
+                              </div>
+
+                              <table class="table table-bordered mb-0" *ngIf="bedUseRateChartData[i].length">
+                                <thead>
+                                <tr>
+                                  <td></td>
+                                  <td *ngFor="let data of d['BED_USE_RATE'].data;" [ngClass]="{'bg-sunday':getDays(data.date) == 0,'bg-saturday':getDays(data.date) == 6}" class="text-center align-middle">{{dataConvert(data.date,'M/D')}}</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                  <td class="text-center align-middle">{{d['BED_USE_RATE'].labels[i]}}</td>
+                                  <td *ngFor="let data of bedUseRateChartData[i];let j = index;" [ngClass]="{'bg-sunday':getDays(d['BED_USE_RATE'].data[j].date) == 0,'bg-saturday':getDays(d['BED_USE_RATE'].data[j].date) == 6}" class="text-center align-middle">{{data}}%</td>
+                                </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </ng-container>
+                        </div>
+
+                      </div>
+                      <!--病床利用率-->
+                    </div>
+
+
+                    <div *ngIf="d['HOSPITAL_STAY']" class="row mb-5">
+                      <!--平均在院日数-->
+                      <div class="col">
+
+                        <div class="d-flex justify-content-start align-items-center mb-1">
+                          <h2 class="title m-0"><span>{{d['HOSPITAL_STAY'].name}} ({{'CM0012.DAY' | translate}})</span><small class="text-nowrap" [hidden]="hospitalStayChartType != 'all'">{{'CM0012.DATE_TEXT' | translate:{date:dataConvert(getCurrentDate(),'LL')} }}</small></h2>
+                          <select class="custom-select ml-auto" [(ngModel)]="hospitalStayChartType">
+                            <option value="all">{{'CM0012.ALL_HOSPITAL' | translate}}</option>
+                            <option *ngFor="let labels of d['HOSPITAL_STAY'].labels;let i = index;" value="{{i}}">{{labels}}</option>
+                          </select>
+                        </div>
+
+                        <div [hidden]="hospitalStayChartType != 'all'">
+
+                          <div class="border position-relative">
+                            <div class="no-data w-100 fill position-absolute" *ngIf="!hospitalStayChartData['all'].length">
+                              <div class="w-100 fill position-relative">
+                                <span class="position-absolute">{{'CM0012.NO_DATA' | translate}}</span>
+                              </div>
+                            </div>
+                            <canvas id="hospital-stay-chart-all"></canvas>
+                          </div>
+
+                          <table class="table table-bordered mb-0" *ngIf="hospitalStayChartData['all'].length">
+                            <thead>
+                            <tr>
+                              <td *ngFor="let labels of d['HOSPITAL_STAY'].labels;let i = index;" class="text-center align-middle"><i class="fa fa-square mr-1" [ngStyle]="{'color':labelColors['HOSPITAL_STAY'][i]}" aria-hidden="true"></i>{{labels}}</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                              <td *ngFor="let data of hospitalStayChartData['all']" class="text-center align-middle">{{data}}{{'CM0012.DAY' | translate}}</td>
+                            </tr>
+                            </tbody>
+                          </table>
+                        </div>
+
+                        <div [hidden]="hospitalStayChartType == 'all'">
+                          <ng-container *ngFor="let labels of d['HOSPITAL_STAY'].labels;let i = index;">
+                            <div [hidden]="hospitalStayChartType != i">
+
+                              <div class="border position-relative">
+                                <div class="no-data w-100 fill position-absolute" *ngIf="!hospitalStayChartData[i].length">
+                                  <div class="w-100 fill position-relative">
+                                    <span class="position-absolute">{{'CM0012.NO_DATA' | translate}}</span>
+                                  </div>
+                                </div>
+                                <canvas id="hospital-stay-chart-{{i}}"></canvas>
+                              </div>
+
+                              <table class="table table-bordered mb-0" *ngIf="hospitalStayChartData[i].length">
+                                <thead>
+                                <tr>
+                                  <td></td>
+                                  <td *ngFor="let data of d['HOSPITAL_STAY'].data;" [ngClass]="{'bg-sunday':getDays(data.date) == 0,'bg-saturday':getDays(data.date) == 6}" class="text-center align-middle">{{dataConvert(data.date,'M/D')}}</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                  <td class="text-center align-middle">{{d['HOSPITAL_STAY'].labels[i]}}</td>
+                                  <td *ngFor="let data of hospitalStayChartData[i];let j = index;" [ngClass]="{'bg-sunday':getDays(d['HOSPITAL_STAY'].data[j].date) == 0,'bg-saturday':getDays(d['HOSPITAL_STAY'].data[j].date) == 6}" class="text-center align-middle">{{data}}{{'CM0012.DAY' | translate}}</td>
+                                </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </ng-container>
+                        </div>
+
+                      </div>
+                      <!--平均在院日数-->
+                    </div>
+
+
+                    <div *ngIf="d['RELIEF_CLASSIFICATION']" class="row mb-5">
+                      <!--救護区分-->
+                      <div class="col">
+                        <h2 class="title"><span>{{d['RELIEF_CLASSIFICATION'].name}} ({{'CM0012.PEOPLE' | translate}})</span><small>{{'CM0012.DATE_TEXT' | translate:{date:dataConvert(getCurrentDate(),'LL')} }}</small></h2>
+                        <div class="position-relative">
+                          <div class="no-data w-100 fill position-absolute" *ngIf="!d['RELIEF_CLASSIFICATION'].data.length">
+                            <div class="w-100 fill position-relative">
+                              <span class="position-absolute">{{'CM0012.NO_DATA' | translate}}</span>
+                            </div>
+                          </div>
+
+                          <table class="table table-bordered mb-0">
+                            <thead>
+                            <tr>
+                              <td></td>
+                              <td *ngFor="let labels of d['RELIEF_CLASSIFICATION'].labels;let i = index;" class="text-center align-middle"><i class="fa fa-square mr-1" [ngStyle]="{'color':labelColors['RELIEF_CLASSIFICATION'][i]}" aria-hidden="true"></i>{{labels}}</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let labels of d['RELIEF_CLASSIFICATION'].labels2;let i = index;">
+                              <td class="text-center align-middle">{{labels}}</td>
+                              <ng-container *ngIf="d['RELIEF_CLASSIFICATION'].data.length">
+                                <td *ngFor="let data of d['RELIEF_CLASSIFICATION'].data[0].data[i];" class="text-center align-middle">{{data}}{{'CM0012.PEOPLE' | translate}}</td>
+                              </ng-container>
+                            </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <!--救護区分-->
+                    </div>
+
+
+                    <div *ngIf="d['NURSING_NEED']" class="row mb-5">
+                      <!--看護必要度-->
+                      <div class="col">
+                        <h2 class="title"><span>{{d['NURSING_NEED'].name}} (%)</span></h2>
+
+                        <div class="border position-relative">
+                          <div class="no-data w-100 fill position-absolute" *ngIf="!d['NURSING_NEED'].data.length">
+                            <div class="w-100 fill position-relative">
+                              <span class="position-absolute">{{'CM0012.NO_DATA' | translate}}</span>
+                            </div>
+                          </div>
+                          <canvas id="nursing-need-chart"></canvas>
+                        </div>
+
+                        <table class="table table-bordered mb-0">
+                          <thead>
+                          <tr>
+                            <td *ngFor="let data of d['NURSING_NEED'].data;" [ngClass]="{'bg-sunday':getDays(data.date) == 0,'bg-saturday':getDays(data.date) == 6}" class="text-center align-middle">{{dataConvert(data.date,'M/D')}}</td>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td *ngFor="let data of d['NURSING_NEED'].data;let j = index;" [ngClass]="{'bg-sunday':getDays(d['NURSING_NEED'].data[j].date) == 0,'bg-saturday':getDays(d['NURSING_NEED'].data[j].date) == 6}" class="text-center align-middle">{{data.data[0]}}%</td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <!--看護必要度-->
+                    </div>
+
+
+                    <div *ngIf="d['OUTPATIENT_NUMBER']" class="row mb-5">
+                      <!--外来患者数-->
+                      <div class="col">
+                        <h2 class="title"><span>{{d['OUTPATIENT_NUMBER'].name}} ({{'CM0012.PEOPLE' | translate}})</span></h2>
+                        <div class="border position-relative">
+                          <div class="no-data w-100 fill position-absolute" *ngIf="!d['OUTPATIENT_NUMBER'].data.length">
+                            <div class="w-100 fill position-relative">
+                              <span class="position-absolute">{{'CM0012.NO_DATA' | translate}}</span>
+                            </div>
+                          </div>
+                          <canvas id="outpatient-number-chart"></canvas>
+                        </div>
+                        <table class="table table-bordered mb-0" *ngIf="d['OUTPATIENT_NUMBER'].data.length">
+                          <thead>
+                          <tr>
+                            <td></td>
+                            <td *ngFor="let data of d['OUTPATIENT_NUMBER'].data;" [ngClass]="{'bg-sunday':getDays(data.date) == 0,'bg-saturday':getDays(data.date) == 6}" class="text-center align-middle">{{dataConvert(data.date,'M/D')}}</td>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngFor="let label of d['OUTPATIENT_NUMBER'].labels;let j = index">
+                            <td>{{d['OUTPATIENT_NUMBER'].labels[j]}}</td>
+                            <td *ngFor="let data of d['OUTPATIENT_NUMBER'].data;" [ngClass]="{'bg-sunday':getDays(data.date) == 0,'bg-saturday':getDays(data.date) == 6}" class="text-center align-middle">{{data.data[j]}}{{'CM0012.PEOPLE' | translate}}</td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <!--外来患者数-->
+                    </div>
+
+
+                    <div *ngIf="d['OTHER']" class="row mb-5">
+                      <!--その他-->
+                      <div class="col">
+                        <h2 class="title"><span>{{d['OTHER'].name}} ({{'CM0012.MATTER' | translate}})</span></h2>
+                        <div class="border position-relative">
+                          <div class="no-data w-100 fill position-absolute" *ngIf="!d['OTHER'].data.length">
+                            <div class="w-100 fill position-relative">
+                              <span class="position-absolute">{{'CM0012.NO_DATA' | translate}}</span>
+                            </div>
+                          </div>
+                          <canvas id="other-chart"></canvas>
+                        </div>
+                        <table class="table table-bordered mb-0" *ngIf="d['OTHER'].data.length">
+                          <thead>
+                          <tr>
+                            <td></td>
+                            <td *ngFor="let data of d['OTHER'].data;" [ngClass]="{'bg-sunday':getDays(data.date) == 0,'bg-saturday':getDays(data.date) == 6}" class="text-center align-middle">{{dataConvert(data.date,'M/D')}}</td>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngFor="let label of d['OTHER'].labels;let j = index">
+                            <td>{{d['OTHER'].labels[j]}}</td>
+                            <td *ngFor="let data of d['OTHER'].data;" [ngClass]="{'bg-sunday':getDays(data.date) == 0,'bg-saturday':getDays(data.date) == 6}" class="text-center align-middle">{{data.data[j]}}{{'CM0012.MATTER' | translate}}</td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <!--その他-->
+                    </div>
+
+
+                    <div *ngIf="d['FREE_TEXT']" class="row mb-5">
+                      <!--フリーテキスト-->
+                      <div class="col">
+                        <div class="free-text p-3">{{d['FREE_TEXT'].freeText}}</div>
+                      </div>
+                      <!--フリーテキスト-->
+                    </div>
+
+
+                  </ng-container>
+                </ng-container>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

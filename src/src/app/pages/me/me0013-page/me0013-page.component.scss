@@ -1,0 +1,48 @@
+@import '../../../../assets/styles/_import';
+.tbl-content-info {
+  color: #3d7eb6;
+}
+
+.tbl-content-gray {
+  color: #777;
+}
+
+.tbody-box {
+  background-color: #eee;
+}
+
+.w-300 {
+  width: 300px;
+}
+
+.table-staff-invite {
+  overflow: auto;
+  white-space: nowrap;
+}
+.tbl-block {
+  width:15rem;
+}
+
+// Small devices (landscape phones, 画面サイズ767px以下)
+// @media (max-width: 767px) { ... }
+@include media-breakpoint-down(sm) {
+  .table-staff-invite {
+    tr {
+      &:before,
+      &:after {
+        content: "";
+        display: block;
+        height: 3rem;
+        background: $white;
+      }
+      th {
+        background: #eee;
+      }
+      th,
+      td {
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+}

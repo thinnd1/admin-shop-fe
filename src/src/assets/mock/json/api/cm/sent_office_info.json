@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "title": "タイトル1",
+    "creatorLastName": "姓",
+    "creatorFirstName": "名",
+    "creatorDepartment": "所属名",
+    "signature": "署名",
+    "date": "2017-12-21T17:26:49+09:00"
+  },
+  {
+    "id": "1",
+    "title": "タイトル1",
+    "creatorLastName": "姓",
+    "creatorFirstName": "名",
+    "creatorDepartment": "所属名",
+    "signature": "署名",
+    "date": "2017-12-21T17:26:49+09:00"
+  }
+]

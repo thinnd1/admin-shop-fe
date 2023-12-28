@@ -1,0 +1,74 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+
+.box-cmn {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.control-top {
+  .btn-group {
+    .btn {
+      &:last-child {
+        margin-left:-1px;
+      }
+    }
+  }
+}
+.table-dateTime-form {
+  .dateTime-red {
+    background: #f2dede;
+  }
+  th {
+    min-width:86px;
+    white-space: nowrap;
+  }
+  td {
+    .minW-70 {
+      width: 70px;
+    }
+    .minW-130 {
+      width: 130px;
+      padding-left: 5px;
+    }
+  }
+  th,
+  td,
+  .form-control {
+    font-size: 0.85rem;
+  }
+}
+
+
+// Small devices (landscape phones, 画面サイズ767px以下)
+@media (max-width: 767px) {
+  .table-dateTime-form {
+    th {
+      border-bottom: none;
+      background-color: #EEE;
+    }
+    td {
+      .d-block-sp {
+        display: block !important;
+      }
+      .minW-130 {
+        margin-top: 10px;
+        padding-left: 0;
+      }
+      .minW-70,
+      .minW-130 {
+        width: 100%;
+      }
+    }
+    th,
+    td {
+      min-width: 100%;
+      display: block;
+    }
+  }
+}
+
+// Extra small devices (portrait phones, 画面サイズ575px以下)
+@media (max-width: 575px) {
+  .control-top {
+    display: block !important;
+  }
+}

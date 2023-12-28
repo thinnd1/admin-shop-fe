@@ -1,0 +1,7 @@
+<div class="input-group" (clickOutside)="d.close()" (keydown.tab)="d.close()">
+  <input class="form-control form-control-date" [class.has-danger]='hasDanger' [disabled]='isDisable' placeholder="{{dateInputOptions.placeholder}}" name="{{dateInputOptions.name}}" [(ngModel)]="model" (ngModelChange)="changeFields()" (click)="d.toggle()" ngbDatepicker #d="ngbDatepicker" [readonly]="true" id="{{dateInputOptions.id}}"
+  [maxDate]="dateConvert(dateInputOptions.maxDate, true)" [minDate]="dateConvert(dateInputOptions.minDate, true)" >
+  <button class="input-group-addon" (click)="d.toggle()" type="button" *ngIf="showIcon">
+    <i class="fa fa-calendar" aria-hidden="true"></i>
+  </button>
+</div>

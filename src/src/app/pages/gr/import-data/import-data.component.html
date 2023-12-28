@@ -1,0 +1,106 @@
+
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents RE0017-->
+
+              <div class="col">
+
+                <div class="page-head">
+                  <app-page-head [title]="'IMPORT DATA'"></app-page-head>
+                </div>
+
+                <div class="groupboard-contribution">
+                  <div class="row d-flex align-items-end">
+                    <div class="col-12">
+                      <div class="form-group h-100 mb-lg-5 row name-space d-flex align-items-end" [ngClass]="{'has-danger': errorMsg}">
+                        <label for="number-iterations" class="col col-md-4">The total number of iterations: </label>
+                        <div class="col-md-4">
+                          <span *ngIf="errorMsg" class="col-form-label text-danger fs12">{{errorMsg}}</span>
+                          <input class="form-control form-control-danger" type="text" id="number-iterations" (keydown)="acceptNumber($event)" [(ngModel)]="numberIterations">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container w-100 mb-2">
+                    <div class="row">
+                      <div class="container container-groupboard-contribution-reply col mb-2">
+                        <div class="row">
+                          <div class="col p-0">
+                            <textarea class="form-control groupboard-contribution-textarea textarea-post" rows="4" placeholder="{{groupboardContributionTextareaPlaceholder}}"
+                              [(ngModel)]="modelStorage.contents" (keydown)="changeFields($event)" appAutoSize></textarea>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="flex-wrap mx-2 groupboard-contribution-upload-image-files w-100">
+                            <ng-container *ngFor="let item of uploader.queue;let i = index">
+                              <div class="groupboard-contribution-upload-image-files-wrap m-2 d-flex align-items-center justify-content-center" *ngIf="isImage[i]">
+                                <span class="groupboard-contribution-upload-image-file-remove" (click)="removeFile(i)"><i class="fa fa-times fa-lg" aria-hidden="true"></i></span>
+                                <img src="" thumbnail [image]="item._file" title="{{item._file.name}}" class="maxw-100 maxh-100 groupboard-contribution-upload-image-file">
+                              </div>
+                            </ng-container>
+                          </div>
+                          <div class="groupboard-contribution-upload-files">
+                            <ul class="groupboard-contribution-upload-files-list-wrap list-unstyled mb-0 mx-2">
+                              <ng-container *ngFor="let item of uploader.queue;let i = index">
+                                <li class="groupboard-contribution-upload-files-list fs14 mb-2" *ngIf="!isImage[i]">
+                                  <i class="fa fa-paperclip fa-lg mr-1" aria-hidden="true"></i>
+                                  <span class="groupboard-contribution-upload-files-list-name mr-1">{{item.file.name}}</span>
+                                  <span class="groupboard-contribution-upload-files-list-size mr-1">{{fileSize[i]}}</span>
+                                  <span class="groupboard-contribution-upload-files-list-remove" (click)="removeFile(i)"><i class="fa fa-times fa-lg" aria-hidden="true"></i></span>
+                                </li>
+                              </ng-container>
+                            </ul>
+                          </div>
+                          <div class="progress mb-2 mx-2 w-100" *ngIf="uploader.progress > 0 && uploader.progress < 100">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" [ngStyle]="{'width':uploader.progress + '%'}">{{uploader.progress}}%</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col p-0 d-flex justify-content-en">
+                        <div class="groupboard-contribution-reply-btn-wrap mr-auto p-0 font-weight-bold" role="button">
+                          <label data-toggle="tooltip" data-placement="top" title="{{'GR0013.ADD_FILES_TOOLTIP' | translate}}" (click)="removeTooptip($event)"
+                                 class="custom-control custom-file fill m-0 p-2 d-flex align-items-center justify-content-center">
+                            <i class="fa fa-paperclip fa-lg mr-1" aria-hidden="true"></i>
+                            <input type="file" class="custom-file-input" multiple ng2FileSelect [uploader]="uploader" (change)="onFileSelected($event)">
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="groupboard-contribution-reply-btn-wrap pl-2 pr-0 d-flex align-items-center justify-content-center">
+                    <button type="button" class="btn btn-primary font-weight-bold" [ngClass]="(!modelStorage.contents) ? 'disabled' : ''" (click)="checkSubmit($event)"><span>{{submitText}}</span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

@@ -1,0 +1,4 @@
+<select id="department-text" [(ngModel)]="innerValue" class="form-control" (change)="changeDepartmentSelect(innerValue, index)" onmousedown="this.focus()">
+  <option *ngFor="let dept of departmentList" value="{{dept.id}}" data-toggle="tooltip" data-placement="top" title="{{dept.text}}"
+          id="department-text-{{dept.id}}">{{ (dept.text.length > limitNumChars) ? (dept.text.substr(0, limitNumChars) + '...') : dept.text}}</option>
+</select>

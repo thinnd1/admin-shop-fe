@@ -1,0 +1,127 @@
+@import './../../../assets/styles/import';
+
+.title {
+  background: #fcf8e3;
+}
+.support-gray {
+  color: #a6a6a6;
+}
+.support-Blue {
+  color: #3d7eb6
+}
+.support-gray01 {
+  color: #212121;
+}
+.support-bod-top {
+  border-top: dashed 1px #969696;
+}
+.tool-comment {
+  .fa:hover {
+    color: #f18d00;
+  }
+}
+.support {
+  .support-bg {
+    background-color: #eee;
+    @include border-radius(0.25rem);
+  }
+}
+.complete {
+  .complete-checkbox {
+    border: 1px solid #d7d7d7;
+    background: #eee;
+    @include border-radius(0.25rem 0 0 0.25rem);
+    width: 30px;
+    min-height: 30px;
+  }
+  .complete-center {
+    width: 100%;
+    .progress-box {
+      border: 1px solid #d7d7d7;
+      background-color: #fff;
+      min-height: 30px;
+      @include border-radius(0 0.25rem 0.25rem 0);
+      position: relative;
+      .progress-box-bar {
+        min-height: 30px;
+        background-color: #d9edf7;
+      }
+      .progress-box-txt {
+        position: relative;
+        width: 100%;
+      }
+    }
+  }
+  .complete-right {
+    width: 30px;
+    .complete-box {
+      height: 30px;
+      border: 1px solid #d7d7d7;
+      background: #eee;
+      @include border-radius(0.25rem);
+    }
+  }
+}
+.tool-comment .disabled-edit, .tool-comment .disabled-edit:hover{
+  cursor: not-allowed;
+  color: #a6a6a6 !important;
+}
+.none-border-top:first-child {
+  border-top: none !important;
+}
+.favorited {
+  color: #f18d00;
+}
+
+.support-content-txt .break-line {
+  white-space: pre-wrap;
+}
+
+.cursor-default {
+  cursor: default;
+}
+.btn-green {
+  color: #fff;
+  background-color: #7CBD45;
+  border-color: #7CBD45;
+}
+.btn-green:focus {
+  outline: none;
+  box-shadow: none !important;
+}
+a:focus{
+  text-decoration: none !important;
+}
+a:hover {
+  text-decoration: underline !important;
+}
+/* fix star Safari 7.1+ */
+.safari {
+  .star-safari {
+    font-size:  1.625rem !important;
+    position:  relative;
+    top:  0.2rem;
+  }
+}
+// Small devices (landscape phones, 画面サイズ767px以下)
+// @media (max-width: 767px) { ... }
+@include media-breakpoint-down(sm) {
+  .d-flex-sm {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+}
+.fa-star {
+  &:before {
+    font-size: inherit;
+  }
+  &-o {
+    &:before {
+      font-size: inherit;
+    }
+  }
+}
+.text-gray {
+  color: #A4A4A4;
+}

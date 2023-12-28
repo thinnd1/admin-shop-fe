@@ -1,0 +1,294 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents PH0001-->
+
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'DOC_TITLE.PH0001' | translate" [showBackButton]="false"></app-page-head>
+                </div>
+
+                <div class="user-edit">
+                  <div class="row">
+                    <div class="col">
+                      <ul class="nav nav-tabs fs18 mt-3" role="tablist">
+                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#inside" role="tab">{{'PH0001.HOSPITAL' | translate}}</a></li>
+                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#outside">{{'PH0001.PHARMACY' | translate}}</a></li>
+                      </ul>
+                      <form (ngSubmit)="createPharmacyGroup()" (keydown.enter)="$event.preventDefault()">
+                      <div class="tab-content">
+                        <div class="tab-pane active" id="inside" role="tabpanel">
+                          <div class="select-content d-flex mb-4">
+                            <div class="select-col1">
+                              <p class="mb-0">{{'COMMON_LABEL.SEARCH_BY_DEPARTMENT' | translate}}</p>
+                              <div class="select-container select-dr-pr">
+                                <div class="select-search p-2">
+                                  <div class="pb-2">
+                                    <app-department-select [value]="" [index]="0" (departmentSelect)="grChangeDepartment($event)"
+                                                           [limitNumChars]="60" [authority]="authority"></app-department-select>
+                                  </div>
+                                  <div class="search">
+                                    <input class="search-input" type="text" placeholder="{{'MEMBER_SELECT.MEMBER_SEARCH' | translate}}" (keyup)="0" #keyWord>
+                                    <button type="button" class="search-btn">
+                                      <i class="fa fa-search" aria-hidden="true"></i>
+                                    </button>
+                                  </div>
+                                </div><!-- //select-search-->
+                                <div class="select-container-drag pt-3 pb-1">
+                                  <div class="mb-1 px-2">
+                                    <label class="custom-control custom-checkbox mb-0">
+                                      <input type="checkbox" class="custom-control-input" [checked]="checkAllUser" (change)="toogleSelectAllUser($event)">
+                                      <span class="custom-control-indicator"></span>
+                                      <span class="custom-control-description">{{'MEMBER_SELECT.MEMBER_ALL_SELECT' | translate}}</span>
+                                    </label>
+                                  </div>
+                                  <ul class="select-user m-0 p-0">
+                                    <li class="d-flex align-items-center p-2" *ngFor="let user of listUser | searchFilter: {fullName: keyWord.value, fullNameKana: keyWord.value}"
+                                      (click)="toogleSelect(user)" [ngClass]="{'checked': user.isSelected}">
+                                      <div class="select-user-img"><app-face-icon [iconSize]="40" [userInfo]="user"></app-face-icon></div>
+                                      <div class="select-user-name fs18 pl-2">
+                                        <span class="d-block">{{user.fullName}}</span>
+                                      </div>
+                                    </li>
+                                  </ul>
+                                </div><!-- //select-container-drag -->
+                              </div><!-- //select-dr-pr -->
+                            </div>
+                            <div class="select-col2 d-flex">
+                              <div class="button-switcher">
+                                <div class="button-switcher-inner align-middle text-center">
+                                  <button type="button" class="btn btn-sm btn-outline-secondary my-2" (click)="addMember()"><i class="fa fa-arrow-right  fs24" aria-hidden="true"></i></button>
+                                  <button type="button" class="btn btn-sm btn-outline-secondary my-2" (click)="removeMember()"><i class="fa fa-arrow-left fs24" aria-hidden="true"></i></button>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="select-col3">
+                              <p class="m-0">{{'COMMON_LABEL.LBL_SELECTED_MEMBER' | translate}}</p>
+                              <span class="d-block col-form-label text-danger fs12" *ngIf="messError.listMember">{{messError.listMember | translate}}</span>
+                              <div class="select-container select-member">
+                                <div class="select-search d-flex align-items-center p-2">
+                                  <div class="search w-100">
+                                    <input class="search-input" type="text" placeholder="{{'MEMBER_SELECT.MEMBER_SEARCH' | translate}}" #searchMember (keyup)="0">
+                                    <button type="button" class="search-btn">
+                                      <i class="fa fa-search" aria-hidden="true"></i>
+                                    </button>
+                                  </div>
+                                </div><!-- //select-search-->
+                                <div class="select-container-drag pb-1">
+                                    <div class="d-flex select-box mx-1 mt-1 mb-2">
+                                      <div class="select-user-txt pt-2 p-1">{{'MEMBER_SELECT.ADMIN' | translate }}</div>
+                                      <div class="select-user-txt pt-2 p-1">{{'COMMON_LABEL.FULL_NAME' | translate }}</div>
+                                    </div>
+                                  <ul class="select-user m-0 p-0">
+                                    <li class="d-flex align-items-center pl-4 py-2" *ngFor="let member of listMember | searchFilter: {fullName: searchMember.value, fullNameKana: searchMember.value} : false, let i = index"
+                                        (click)="toogleSelect(member)"
+                                        [ngClass]="{'selected': member.isSelected && !member.adminFlag, 'li-no-hover':member.adminFlag === true}">
+                                      <div class="checkbox mt-1 d-flex">
+                                        <label class="custom-control custom-checkbox mb-0" [ngClass]="{'li-no-hover': member.adminFlag === true}">
+                                          <input type="checkbox" class="custom-control-input" [readonly]="true" [checked]="member.adminFlag === true" (change)="selectedAdmin($event, member)">
+                                          <span class="custom-control-indicator"></span>
+                                        </label>
+                                      </div>
+                                      <div class="select-user-img"><app-face-icon [iconSize]="40" [userInfo]="member"></app-face-icon></div>
+                                      <div class="select-user-name fs18 pl-2">{{member.fullName}}</div>
+                                    </li>
+                                  </ul>
+                                </div><!-- //select-container-drag -->
+                              </div><!-- //select-dr-pr -->
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-center mb-4">
+                            <button class="btn btn-primary" type="submit">{{'COMMON_BTN.SAVE' | translate}}</button>
+                          </div>
+                        </div>
+                        <div class="tab-pane" id="outside" role="tabpanel">
+                          <div class="select-content d-flex mb-4">
+                            <div class="select-col1 before-text">
+                              <div class="select-container select-dr-pr">
+                                <div class="select-search p-2">
+                                  <div class="search">
+                                    <input class="search-input" type="text" placeholder="{{'MEMBER_SELECT.MEMBER_SEARCH' | translate}}"
+                                    #searchKnownStaff (keyup)="0">
+                                    <button type="button" class="search-btn">
+                                      <i class="fa fa-search" aria-hidden="true"></i>
+                                    </button>
+                                  </div>
+                                </div><!-- //select-search-->
+                                <div class="select-container-drag pt-3 pb-1">
+                                  <div class="mb-1 px-2">
+                                    <label class="custom-control custom-checkbox mb-0">
+                                      <input type="checkbox" class="custom-control-input" (change)="toogleSelectAllKnownStaff($event)" #checkboxAllStaff>
+                                      <span class="custom-control-indicator"></span>
+                                      <span class="custom-control-description">{{'MEMBER_SELECT.MEMBER_ALL_SELECT' | translate}}</span>
+                                    </label>
+                                  </div>
+                                  <ul class="select-user m-0 p-0">
+                                    <li class="d-flex align-items-center p-2" *ngFor="let knownStaff of listKnownPharmacyStaff | searchFilter: {fullName: searchKnownStaff.value, fullNameKana: searchKnownStaff.value} : false"
+                                    [ngClass]="{'checked': knownStaff.isSelected}"
+                                    (click)="toogleSelect(knownStaff)">
+                                      <div class="select-user-img"><app-face-icon [iconSize]="40" [userInfo]="knownStaff"></app-face-icon></div>
+                                      <div class="select-user-name fs18 pl-2">
+                                        <span class="d-block">{{knownStaff.fullName}}</span>
+                                        <span class="d-block">{{(knownStaff.officeName?.length > 35) ? (knownStaff.officeName.substr(0, 35) + '...') : knownStaff.officeName}}</span>
+                                      </div>
+                                    </li>
+                                  </ul>
+                                </div><!-- //select-container-drag -->
+
+                              </div><!-- //select-dr-pr -->
+                              <div class="pb-2 text-center">
+                                <button type="button" class="btn btn-lg btn-secondary w-100 mt-3 font-weight-bold" data-toggle="modal"
+                                        data-backdrop="static" data-keyboard="false" data-target="#modal-getDr"><i
+                                  class="fa fa-envelope-o mr-3" aria-hidden="true"></i>{{ 'PH0001.SEND_MAIL_PHARMACY' |
+                                  translate }}
+                                </button>
+                              </div>
+                            </div>
+                            <div class="select-col2 d-flex">
+                              <div class="button-switcher">
+                                <div class="button-switcher-inner align-middle text-center">
+                                  <button type="button" class="btn btn-sm btn-outline-secondary my-2" (click)="invitePharmacyStaff(); checkboxAllStaff.checked = false"><i class="fa fa-arrow-right  fs24" aria-hidden="true"></i></button>
+                                  <button type="button" class="btn btn-sm btn-outline-secondary my-2" (click)="unInvitePharmacyStaff()"><i class="fa fa-arrow-left fs24" aria-hidden="true"></i></button>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="select-col3">
+                              <p class="m-0">{{'PH0001.MEMBER_CHOOSE' | translate}}</p>
+                              <div class="select-container select-member">
+                                <div class="select-search d-flex align-items-center p-2">
+                                  <div class="search w-100">
+                                    <input class="search-input" type="text" placeholder="{{'MEMBER_SELECT.MEMBER_SEARCH' | translate}}"
+                                    #searchInvitedStaff>
+                                    <button type="button" class="search-btn">
+                                      <i class="fa fa-search" aria-hidden="true"></i>
+                                    </button>
+                                  </div>
+                                </div><!-- //select-search-->
+                                <div class="select-container-drag pb-1">
+                                  <div class="d-flex select-box mx-1 mt-1 mb-1">
+                                    <div class="select-user-name-title pt-2 p-1">{{'COMMON_LABEL.FULL_NAME' | translate}}</div>
+                                    <div class="select-user-txt pt-2 p-1">{{'PH0001.ACCEPT' | translate}}</div>
+                                  </div>
+                                  <ul class="select-user m-0 p-0">
+                                    <li class="d-flex align-items-center p-2"
+                                        *ngFor="let invitedStaff of listInvitedPharmacyStaff | searchFilter: {fullName: searchInvitedStaff.value, firstName: searchInvitedStaff.value,
+                                        firstNameKana: searchInvitedStaff.value, lastNameKana: searchInvitedStaff.value} : false, let i = index"
+                                    [ngClass]="{'checked': invitedStaff.isSelected}"
+                                    (click)="toogleSelect(invitedStaff)">
+                                      <div class="select-user-img"> <app-face-icon [iconSize]="40" [userInfo]="invitedStaff"></app-face-icon></div>
+                                      <div class="select-user-name fs18 pl-2">
+                                        <span class="d-block">{{invitedStaff.fullName}}</span>
+                                        <span class="d-block">{{(invitedStaff.officeName?.length > 35) ? (invitedStaff.officeName.substr(0, 35) + '...') : invitedStaff.officeName}}</span>
+                                      </div>
+                                      <div class="select-user-box ml-1 pr-2" ><span class="select-user-box-bg rounded-circle text-white form-inline justify-content-center" *ngIf="!invitedStaff.accepted">
+                                        {{'GR0006.NOT_YET' | translate}}</span></div>
+                                    </li>
+                                  </ul>
+                                </div><!-- //select-container-drag -->
+                              </div><!-- //select-dr-pr -->
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-center mb-4">
+                            <button class="btn btn-primary" type="submit">{{'COMMON_BTN.SAVE' | translate}}</button>
+                          </div>
+                        </div>
+                      </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>
+
+<!-- Modal getDr-->
+<div class="modal" id="modal-getDr" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header d-block">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="resetSearchMail()"><span aria-hidden="true">&times;</span></button>
+        <h1 class="modal-title" id="myModalLabel">{{'PH0001.TYPE_INVITE_EMAIL_ADDRESS' | translate}}</h1>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3" id="a">
+          <span class="d-block col-form-label text-danger fs12 text-left"
+                *ngIf="formErrors.email">{{formErrors.email | translate}}</span>
+          <div class="search search search-email">
+            <form [formGroup]="mailForm" (ngSubmit)="searchPharmacyStaff()">
+              <div [class.has-danger]="formErrors.email">
+                <input class="search-input" type="text" placeholder="{{'PH0001.SEARCH_EMAIL_PLACEHOLDER' | translate}}"
+                       formControlName="email">
+                <button type="submit" class="search-btn" (click)="searchPharmacyStaff()">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </div>
+            </form>
+            <div class="search-email-box" *ngIf="foundPharmacyStaff">
+              <div class="list-email-inner">
+                <div class="user-block d-flex align-items-center m-1 p-1" (click)="addToInviteList(foundPharmacyStaff)">
+                  <div class="mr-2">
+                    <app-face-icon [iconSize]="40" [userInfo]="foundPharmacyStaff"></app-face-icon>
+                  </div>
+                  <div class="fs18">
+                    <p class="mb-0 text-left">{{foundPharmacyStaff.lastName}} {{foundPharmacyStaff.firstName}}</p>
+                    <p class="mb-0 ">{{(foundPharmacyStaff.officeName?.length > 35) ?
+                      (foundPharmacyStaff.officeName.substr(0, 35) + '...') : foundPharmacyStaff.officeName}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="list-email p-2 mt-3" id="b">
+          <div class="d-flex align-items-center my-2" *ngFor="let pharmacyStaff of inviteList, let i = index">
+            <span><i class="fa fa-times fs24 text-primary" aria-hidden="true" (click)="removeFromInviteList(user)"></i></span>
+            <div class="user-block d-flex align-items-center">
+              <div class="mx-2">
+                <app-face-icon [iconSize]="40" [userInfo]="pharmacyStaff"></app-face-icon>
+              </div>
+              <div class="fs18 w-100">
+                <p class="mb-0 text-left">{{pharmacyStaff.lastName}} {{pharmacyStaff.firstName}}</p>
+                <p class="mb-0 ">{{(pharmacyStaff.officeName?.length > 35) ? (pharmacyStaff.officeName.substr(0, 35) +
+                  '...') : pharmacyStaff.officeName}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-secondary" (click)="resetSearchMail()" >{{'MSG.CANCEL' | translate}}</button>
+        <button type="button" data-dismiss="modal" (click)="appendListInvitedPharmacyStaff()" class="btn btn-primary">{{'PH0001.ADD_TO_LIST' | translate}}</button>
+      </div>
+    </div>
+  </div>
+</div>

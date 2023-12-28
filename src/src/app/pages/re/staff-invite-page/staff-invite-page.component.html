@@ -1,0 +1,385 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <main class="content-wrap ml-0" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner unspecified-width">
+            <div class="row">
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'RE0015.LBL_INVITE1' | translate"></app-page-head>
+                </div>
+                <!--contents-->
+                <div class="group-staff-form mb-3">
+                  <ul class="nav nav-tabs fs18" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" data-toggle="tab" href="#aaa" role="tab" (click)="changeTab(0)">{{'RE0015.LBL_INVITE1' | translate}}</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#bbb" (click)="changeTab(1)">{{'RE0015.LBL_INVITE2' | translate}}</a>
+                    </li>
+                  </ul>
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="aaa" role="tabpanel">
+                      <div class="d-flex flex-wrap mb-3">
+                        <div class="p-2 d-flex align-items-center">
+                          <span>{{'RE0015.LBL_REGISTER' | translate}}</span>
+                        </div>
+                        <div class="d-flex flex-wrap">
+                          <div class="p-2">
+                            <button class="btn btn-outline-warning" type="button" (click)="downloadCsv()">
+                              <i class="fa fa-download" aria-hidden="true"></i> {{'RE0015.LBL_DOWNLOAD' | translate}}</button>
+                          </div>
+                          <div class="p-2">
+                            <label class="custom-control custom-file p-0 m-0">
+                              <button class="btn btn-outline-warning" type="button" onclick="document.getElementById('fileInput').click();">
+                                <i class="fa fa-upload" aria-hidden="true"></i> {{'RE0015.LBL_IMPORT' | translate}}</button>
+                              <input type="file" id="fileInput" #fileInput (click)="fileInput.value = null" accept=".xlsx,.xls,.csv" style="display:none;" class="custom-file-input" (change)="onChangeFile($event)">
+                            </label>
+                          </div>
+                        </div>
+                        <div class="ml-auto py-2">
+                          <div class="button-register text-right">
+                            <button class="btn btn-primary" type="button" (click)="registerStaff($event)">{{'RE0015.BNT_INVITE' | translate}}</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-flex flex-wrap-reverse">
+                        <div class="p-2">
+                          <p class="text-danger m-0">※{{'COMMON_LABEL.REQUIRED_NOTE' | translate}}</p>
+                        </div>
+                      </div>
+                      <div class="table-staff-invite mb-3">
+                        <form autocomplete="off">
+                          <table id="table-staff-regist" class="table table-hover table-striped table-form" cellspacing="0" cellpadding="0">
+                            <thead class="thead-inverse hidden-sm-down">
+                              <tr>
+                                <th class="w-9 align-middle">{{'COMMON_LABEL.LBL_LAST_NAME' | translate}}<span class="text-danger">※</span></th>
+                                <th class="w-9 align-middle">{{'COMMON_LABEL.LBL_FIRST_NAME' | translate}}<span class="text-danger">※</span></th>
+                                <th class="w-9 align-middle">{{'COMMON_LABEL.LBL_LAST_NAME_KANA' | translate}}<span class="text-danger">※</span></th>
+                                <th class="w-9 align-middle">{{'COMMON_LABEL.LBL_FIRST_NAME_KANA' | translate}}<span class="text-danger">※</span></th>
+                                <th class="w-12 align-middle">{{'COMMON_LABEL.LBL_DEPARTMENT' | translate}}<span class="text-danger">※</span></th>
+                                <th class="w-9 align-middle">{{'RE0014.TABLE_JOB' | translate}}<span class="text-danger">※</span></th>
+                                <th class="w-9 align-middle">{{'COMMON_LABEL.LBL_ADMIN_AUTHORITY' | translate}}<span class="text-danger">※</span></th>
+                                <th class="w-9 align-middle">{{'COMMON_LABEL.LBL_FUNCTION_AUTHORITY' | translate}}<span class="text-danger">※</span></th>
+                                <th class="w-18 align-middle" colspan="2">
+                                  <div class="question-wrap d-flex ml-auto">
+                                    <div class="pr-2 w-100">
+                                      <p class="mb-0">{{'COMMON_LABEL.LBL_MAIL1' | translate}}</p>
+                                      <p class="mb-0">{{'COMMON_LABEL.LBL_MAIL2' | translate}}</p>
+                                    </div>
+                                  </div>
+                                </th>
+                                <th class="w-7 align-middle text-right">
+                                  <span class="question-wrap">
+                                      <i class="fa fa-question-circle fs22" aria-hidden="true" #p="ngbPopover" placement="left" ngbPopover="半角英数字8文字以上64文字以内で、以下のボックスに入力してください。ただしこの場合は通知メール機能が使えません。またメールアドレスを入力した人には、仮登録後に登録情報が自動的にメールで配信されますが、入力していない人には、全体管理者の方が個別にログインIDとパスワードをお伝えする必要があります。"
+                                         popoverTitle="ログインIDについて" triggers="manual" (click)="p.toggle()" (clickOutside)="p.close()"></i>
+                                    </span>
+                                </th>
+                              </tr>
+                            </thead>
+                          </table>
+                          <div id="scroll-content" virtualScroll #scroll [items]="listStaff" [childHeight]="81" (change)="onListChange($event)">
+                            <table class="table table-hover table-striped table-form">
+                              <tbody>
+                                <ng-container *ngFor="let staffModel of scroll.viewPortItems; let i = index">
+                                  <app-form-staff-invite-dr [staffIndex]="startScrollPos + i" [staffModel]="staffModel" [countSubmit]="countSubmit"
+                                                            [focusOnItem]="focusOnAnItem"
+                                                            [inputOptions]="{
+                                                                departmentList: departmentList,
+                                                                listJobType: listJobType,
+                                                                listManagementAuthority: listManagementAuthority,
+                                                                listFuncAuthoritySet: listFuncAuthoritySet,
+                                                                lengthStaffList: listStaff.length,
+                                                                authority: authority
+                                                              }"
+                                                            (_deleteStaff)="deleteStaff($event)"
+                                  ></app-form-staff-invite-dr>
+                                </ng-container>
+                              </tbody>
+
+                            </table>
+                          </div>
+                          <div>
+                            <a class="add-link" href="#" (click)="onClickAddMoreStaff($event)"><i aria-hidden="true" class="fa fa-plus-square"></i>{{ 'COMMON_BTN.ADD' | translate }}</a>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    <div class="tab-pane" id="bbb" role="tabpanel"  infinite-scroll [scrollWindow]="true" (scrolled)="scrollPaging()" [infiniteScrollDistance]="1">
+                      <div class="d-flex flex-wrap mb-2">
+                        <div class="search-group form-group mb-0 p-2 w-10 minw-200">
+                          <label>{{ 'RE0014.TITLE_TOP' | translate }}</label>
+                          <app-department-select [departmentList]="departmentSearch" [value]="(userSession.managementAuthority === managementAuthority.MP_1) ? '' : userSession.deptId" [index]="0" (departmentSelect)="searchDepartment($event)"
+                            [authority]="authorityTwo" [limitNumChars]="12"></app-department-select>
+                        </div>
+                        <div class="search-group align-self-end p-2 w-100 maxw-400">
+                          <div class="search">
+                            <input class="search-input"  type="text" name="name" (keyup.enter)="searchUser(name)" [(ngModel)]="name" [ngModelOptions]="{standalone: true}"
+                              placeholder="{{ 'COMMON_LABEL.LBL_SEARCH' | translate }}">
+                            <button type="button" (click)="searchUser(name)" class="search-btn">
+                              <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="align-self-end ml-auto d-flex flex-wrap">
+                          <span class="align-self-center p-2">{{ 'RE0015.LOGIN_OR_PASSWORD' | translate }}</span>
+                          <div class="d-flex flex-nowrap">
+                            <div class="p-2">
+                              <button class="btn btn-secondary" type="button" (click)="sendMail()" data-toggle="tooltip" data-placement="bottom" title="{{ 'RE0015.SEND_BY_EMAIL' | translate }}" data-trigger="hover">
+                                <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
+                              </button>
+                            </div>
+                            <div class="p-2">
+                              <button type="button" class="btn btn-secondary" (click)="exportCSV()" data-toggle="tooltip" data-placement="bottom" title="CSVファイルをダウンロード" data-trigger="hover">CSV</button>
+                            </div>
+                            <div class="p-2">
+                              <button class="btn btn-secondary" type="button" (click)="printUser('printSection')" data-toggle="tooltip" data-placement="bottom" data-trigger="hover"
+                                title="印刷画面を表示">
+                                <i class="fa fa-print fa-lg" aria-hidden="true"></i>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="select-all custom-control-checkbox px-3 py-1">
+                        <label class="custom-control custom-checkbox mb-0">
+                          <input type="checkbox" name="all" [(ngModel)]="selectedAll" (change)="checkAll($event.target.checked)" id="checkAll" class="custom-control-input">
+                          <span class="custom-control-indicator"></span>
+                          <span class="custom-control-description">{{ 'RE0015.SELECT_ALL' | translate }}</span>
+                        </label>
+                      </div>
+                      <div class="table-staff-invite">
+                        <table id="table-staff-invite" class="table table-hover table-striped table-form">
+                          <thead class="thead-inverse hidden-sm-down">
+                            <tr>
+                              <th class="w-5">&nbsp;</th>
+                              <th class="w-7 align-middle">{{'COMMON_LABEL.LBL_LAST_NAME' | translate}}</th>
+                              <th class="w-7 align-middle">{{'COMMON_LABEL.LBL_FIRST_NAME' | translate}}</th>
+                              <th class="w-7 align-middle">{{'COMMON_LABEL.LBL_LAST_NAME_KANA' | translate}}</th>
+                              <th class="w-7 align-middle">{{'COMMON_LABEL.LBL_FIRST_NAME_KANA' | translate}}</th>
+                              <th class="w-18 align-middle">{{'COMMON_LABEL.LBL_DEPARTMENT' | translate}}</th>
+                              <th class="w-18 align-middle">{{'RE0014.TABLE_JOB' | translate}}</th>
+                              <th class="w-18 align-middle">{{ 'COMMON_LABEL.LOGIN_ID' | translate }}</th>
+                              <th class="w-13 align-middle">{{ 'RE0015.TEMPORARY_PASSWORD' | translate }}</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let us of users, let i= index">
+                              <td class="text-center w-5">
+                                <label class="custom-control custom-checkbox m-0 d-inline-block">
+                                  <input type="checkbox" value="{{us.id}}" [(ngModel)]="us.selected" (change)="toggleUser(i, $event)" class="custom-control-input">
+                                  <span class="custom-control-indicator"></span>
+                                  <span class="hidden-md-up custom-control-description">{{ 'RE0015.SELECT_ONE' | translate }}</span>
+                                </label>
+                              </td>
+                              <th class="hidden-md-up align-middle">{{'COMMON_LABEL.LBL_LAST_NAME' | translate}}</th>
+                              <td class="align-middle w-7">{{us.lastName}}</td>
+                              <th class="hidden-md-up align-middle">{{'COMMON_LABEL.LBL_FIRST_NAME' | translate}}</th>
+                              <td class="align-middle w-7">{{us.firstName}}</td>
+                              <th class="hidden-md-up align-middle">{{'COMMON_LABEL.LBL_LAST_NAME_KANA' | translate}}</th>
+                              <td class="align-middle w-7">{{us.lastNameKana}}</td>
+                              <th class="hidden-md-up align-middle">{{'COMMON_LABEL.LBL_FIRST_NAME_KANA' | translate}}</th>
+                              <td class="align-middle w-7">{{us.firstNameKana}}</td>
+                              <th class="hidden-md-up align-middle">{{'COMMON_LABEL.LBL_DEPARTMENT' | translate}}</th>
+                              <td class="align-middle w-18">
+                                <span [innerHtml]="showTextDepartment(i)"></span>
+                              </td>
+                              <th class="hidden-md-up align-middle">{{'COMMON_LABEL.LBL_JOB' | translate}}</th>
+                              <td class="align-middle w-18">{{us.jobName}}</td>
+                              <th class="hidden-md-up align-middle">{{ 'COMMON_LABEL.LOGIN_ID' | translate }}</th>
+                              <td class="align-middle w-18">{{us.loginId}}</td>
+                              <th class="hidden-md-up align-middle">{{ 'RE0015.TEMPORARY_PASSWORD' | translate }}</th>
+                              <td class="align-middle w-13">{{us.temporaryPassword}}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div style="display: none" id="printSection">
+                  <div class="page" *ngFor="let ue of cbChecked">
+                    <div class="group-staff-content subpage">
+                      <div class="title-head">
+                        <h1 class="fs36">{{ue.lastName}}　{{ue.firstName}} さん</h1>
+                      </div>
+                      <div class="group-txt">
+                        <p class="fs18">{{ 'RE0015.TITLE_PRINT' | translate }}</p>
+                        <div class="table-form-txt">
+                          <div>
+                            <div class="th fs24">{{ 'COMMON_LABEL.LOGIN_ID' | translate }}</div>
+                            <div class="td fs22">{{ue.loginId}}</div>
+                          </div>
+                          <div class="boder">
+                            <div class="th fs24">{{ 'RE0015.PASSWORD' | translate }}</div>
+                            <div class="td fs22">{{ue.temporaryPassword?ue.temporaryPassword:ue.password}}</div>
+                          </div>
+                        </div>
+
+                        <p class="fs18">{{ 'RE0015.LINK_PRINT' | translate }}</p>
+                      </div>
+                      <div class="group-txt">
+                        <h3 class="title-print">{{ 'RE0015.NOTES' | translate }}</h3>
+                        <div>{{ 'RE0015.MANAGE_ACCOUNT_1' | translate }}
+                          <br> {{ 'RE0015.MANAGE_ACCOUNT_2' | translate }}</div>
+                      </div>
+                      <div class="group-txt">
+                        <h3 class="title-print">{{ 'RE0015.CONTACT_US' | translate }}</h3>
+                        <div class="group-box">
+                          <p>{{ 'RE0015.MANAGER_OR_FOLLOWING' | translate }}
+                            <br>{{ 'RE0015.INFOR_SUPPORT_PHONE' | translate }}
+                            <br>{{ 'RE0015.INFOR_SUPPORT_EMAIL' | translate }}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div style="display: none" id="printSection1">
+                  <div class="page" *ngFor="let ue of listUserMailFail">
+                    <div class="group-staff-content subpage">
+                      <div class="title-head">
+                        <h1 class="fs36">{{ue.lastName}}　{{ue.firstName}} さん</h1>
+                      </div>
+                      <div class="group-txt">
+                        <p class="fs18">{{ 'RE0015.TITLE_PRINT' | translate }}</p>
+                        <div class="table-form-txt">
+                          <div>
+                            <div class="th fs24">{{ 'COMMON_LABEL.LOGIN_ID' | translate }}</div>
+                            <div class="td fs22">{{ue.loginId}}</div>
+                          </div>
+                          <div class="boder">
+                            <div class="th fs24">{{ 'RE0015.PASSWORD' | translate }}</div>
+                            <div class="td fs22">{{ue.temporaryPassword}}</div>
+                          </div>
+                        </div>
+
+                        <p class="fs18">{{ 'RE0015.LINK_PRINT' | translate }}</p>
+                      </div>
+                      <div class="group-txt">
+                        <h3 class="title-print">{{ 'RE0015.NOTES' | translate }}</h3>
+                        <div>{{ 'RE0015.MANAGE_ACCOUNT_1' | translate }}
+                          <br> {{ 'RE0015.MANAGE_ACCOUNT_2' | translate }}</div>
+                      </div>
+                      <div class="group-txt">
+                        <h3 class="title-print">{{ 'RE0015.CONTACT_US' | translate }}</h3>
+                        <div class="group-box">
+                          <p>{{ 'RE0015.MANAGER_OR_FOLLOWING' | translate }}
+                            <br>{{ 'RE0015.INFOR_SUPPORT_PHONE' | translate }}
+                            <br>{{ 'RE0015.INFOR_SUPPORT_EMAIL' | translate }}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal" id="myModal" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content modal-content-bod">
+                      <div class="modal-body modal-body-pd">
+                        <div class="modal-header">
+                          <h2 class="group-form-box-title">{{ 'RE0015.INVITE_BY_EMAIL' | translate }}</h2>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="group-form-box">
+                          <div class="form-group-fl">
+                            <div class="form-group row mb-2">
+                              <label class="col-1 col-form-label text-center">{{ 'RE0015.SUBJECT' | translate }}</label>
+                              <div class="col-11">
+                                <input maxlength="100" class="form-control" type="text" [(ngModel)]="titleMail">
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label class="col-1 col-form-label text-center">{{ 'RE0015.THE_ARTICLE' | translate }}</label>
+                              <div class="col-11">
+                                <textarea maxlength="1000" class="form-control" placeholder="{{ 'RE0015.VALUE_ARTICLE' | translate }}" [(ngModel)]="descriptionsMail"
+                                  rows="4"></textarea>
+                                <p>{{ 'RE0015.REGISTERED_MAIL' | translate }}
+                                  <br> {{ 'RE0015.REGISTRATION_PROCEDURE' | translate }}
+                                  <br> {{ 'RE0015.TEMPORARY_PASSWORD' | translate }}:xxxxxxxxxxx
+                                </p>
+                                <p>{{ 'RE0015.REGISTERING' | translate }}
+                                  <br>{{ 'RE0015.FOLLOWING_URL' | translate }}
+                                  <br>
+                                  <a href="#">https://secure.drjoy.jp</a>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="d-flex justify-content-end mb-3 mr-3">
+                          <button class="btn btn-secondary fs17 font-weight-bold" data-dismiss="modal" type="button">{{ 'MSG.CANCEL' | translate }}</button>
+                          <button class="btn btn-primary ml-2 fs17" (click)="comfirmSendMail()" type="button">{{ 'BTN.CONFIRM' | translate }}</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal" id="myModal01" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content modal-content-bod">
+                      <div class="modal-body modal-body-pd">
+                        <div class="modal-header">
+                          <h2 class="group-form-box-title">{{ 'RE0015.INVITE_BY_EMAIL' | translate }}</h2>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="group-form-box">
+                          <div class="form-group-fl">
+                            <div class="form-group row">
+                              <div class="group-form col-12">
+                                <div class="group-form-box-txt-fl">
+                                  <p>{{titleMail?titleMail:originTitleMail}}</p>
+                                  <pre>{{descriptionsMail}}</pre>
+                                </div>
+                                <div class="group-form-box-txt">
+                                  <p>{{ 'RE0015.REGISTERED_MAIL' | translate }}
+                                    <br> {{ 'RE0015.REGISTRATION_PROCEDURE' | translate }}
+                                    <br> {{ 'RE0015.TEMPORARY_PASSWORD' | translate }}:xxxxxxxxxxx
+                                  </p>
+                                  <p>{{ 'RE0015.REGISTERING' | translate }}
+                                    <br>{{ 'RE0015.FOLLOWING_URL' | translate }}
+                                    <br>
+                                    <a href="#">https://secure.drjoy.jp</a>
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="d-flex justify-content-end mb-3 mr-3">
+                          <button class="btn btn-secondary fs17 font-weight-bold" (click)="backsendingMail()" type="button">{{ 'RE0015.BACK' | translate }}</button>
+                          <button class="btn btn-primary ml-2 fs17" (click)="staffInviteSendEmail()" type="button">{{ 'BTN.SEND' | translate }}</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--contents RE0015-->
+                <!-- //contents -->
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

@@ -1,0 +1,66 @@
+{
+  "frameMeetingInfo": {
+    "candidates": [{
+      "comment": "◯◯病院◯◯科 ◯◯先生 平素よりお世話になっております。ハイフール製品の大谷です。先日はお忙しいところ時間を取って頂きありがとうございます。  お話があった、◯◯◯◯◯◯◯◯の件につきまして、詳しくご説明させていただきたく思います。  当日は資料をお持ちしまして、◯◯◯◯◯◯◯◯の専門の◯◯と二名で伺う予定です。何卒よろしくお願い致します。お話があった、◯◯◯◯◯◯◯◯の件につきまして、詳しくご説明させていただきたく思います。  当日は資料をお持ちしまして、◯◯◯◯◯◯◯◯の専門の◯◯と二名で伺う予定です。何卒よろしくお願い致します。 ハーフール製品 大谷",
+      "drInfo": {
+        "firstName": "伊藤",
+        "lastName": "大輝",
+        "officeUserId": "DR0011",
+        "specializedDepartment": "頂きあり"
+      },
+      "drugList": [{
+        "id": "drug003",
+        "name": "製品"
+      }],
+      "mrInfo": {
+        "companyName": "ABC 会社",
+        "firstName": "伊藤",
+        "lastName": "大輝",
+        "officeId": "of0011",
+        "officeUserId": "ofu004"
+      },
+      "numVisitors": "3",
+      "place": "馬車道",
+      "productName": "インスリングラルギンBS",
+      "purposeId": "p00895",
+      "purposeName": "PMDAからの注意喚起（イエロー/ブルーレター）",
+      "requestId": 111,
+      "requestStatus": 1
+    },
+      {
+        "comment": "◯◯病院◯◯科 ◯◯先生 平素よりお世話になっております。ハイフール製品の大谷です。先日はお忙しいところ時間を取って頂きありがとうございます。  お話があった、◯◯◯◯◯◯◯◯の件につきまして、詳しくご説明させていただきたく思います。  当日は資料をお持ちしまして、◯◯◯◯◯◯◯◯の専門の◯◯と二名で伺う予定です。何卒よろしくお願い致します。お話があった、◯◯◯◯◯◯◯◯の件につきまして、詳しくご説明させていただきたく思います。  当日は資料をお持ちしまして、◯◯◯◯◯◯◯◯の専門の◯◯と二名で伺う予定です。何卒よろしくお願い致します。 ハーフール製品 大谷",
+        "drInfo": {
+          "firstName": "伊藤",
+          "lastName": "大輝",
+          "officeUserId": "DR0022",
+          "specializedDepartment": "頂きあり"
+        },
+        "drugList": [{
+          "id": "drug003",
+          "name": "製品"
+        }],
+        "mrInfo": {
+          "companyName": "ABC 会社",
+          "firstName": "伊藤",
+          "lastName": "大輝",
+          "officeId": "of0022",
+          "officeUserId": "ofu004"
+        },
+        "numVisitors": "3",
+        "place": "馬車道",
+        "productName": "インスリングラルギンBS",
+        "purposeId": "p00895",
+        "purposeName": "PMDAからの注意喚起（イエロー/ブルーレター）",
+        "requestId": 22,
+        "requestStatus": 1
+      }
+    ],
+    "startTime": "2017-10-06T00:25:00",
+    "endTime": "2017-10-06T00:25:00",
+    "frameBasic": {
+      "day": "2017-10-06T00:25:00"
+    },
+    "frameId": "fr54646",
+    "frameStatus": 1
+  }
+}

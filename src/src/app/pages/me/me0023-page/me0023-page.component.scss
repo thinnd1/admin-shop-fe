@@ -1,0 +1,19 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+textarea{
+	min-height: 30px;
+	resize: vertical;
+}
+.metting-msg-final {
+	height:18rem;
+}
+.select-file-attach {
+	.select-file-info {
+		.select-file-text {
+			width: 14rem;
+			overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+		}
+	}
+}

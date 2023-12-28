@@ -1,0 +1,122 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'RE0012.TITLE' | translate"></app-page-head>
+                </div>
+                <!--contents-->
+                <!--contents RE0012-->
+                  <div class="row mb-5">
+                    <div class="col">
+                      <h2 class="mb-3 heading2">{{ 'RE0012.TEXT1' | translate }}</h2>
+                      <table class="table table-otherhospital">
+                        <tbody>
+                        <tr *ngIf="noHospital">
+                          <th colspan="2" class="font-weight-normal">{{ 'RE0012.TEXT10' | translate }}</th>
+                        </tr>
+                        <tr *ngFor="let handlingHospital of this.handlingHospitals, let j = index;">
+                          <th class="font-weight-normal align-middle">{{ handlingHospital.officeName }}</th>
+                          <td class="text-right align-middle">
+                            <button class="btn btn-danger" (click)="alertDeleteHospital(handlingHospital, j)">
+                              {{ 'RE0012.DELETE' | translate }}
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th class="font-weight-normal align-middle">
+                            <div class="form-inline align-items-end" [ngClass]="{'has-danger':errorResponse}">
+                              <label class="col-form-label mr-3 mr-sm-3">{{ 'RE0012.ADD_NEW' | translate }}</label>
+                              <div class="w-100 maxw-400">
+                                <span class="col-form-label text-danger fs12">{{ errorResponse }}</span>
+                                <input class="form-control form-control-danger w-100" autocomplete="off"
+                                       type="text" name="keyCode" id="keyCode" [(ngModel)]="keyCode"
+                                       placeholder="{{ 'RE0012.PLACEHOLDER_KEYCODE' | translate }}">
+                              </div>
+                            </div>
+                          </th>
+                          <td class="text-right align-bottom">
+                            <button class="btn btn-primary"
+                                    (click)="createHandlingHospitalByKeyCode(keyCode)">{{ 'COMMON_BTN.ADD' | translate }}
+                            </button>
+                          </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="row mb-5">
+                    <div class="col">
+                      <h2 class="mb-2 heading2">{{ 'RE0012.TEXT3' | translate }}</h2>
+                      <p class="fs14">{{ 'RE0012.TEXT4' | translate }}</p>
+                      <table class="table table-otherhospital">
+                        <tbody>
+                        <tr *ngIf="noOtherHospital">
+                          <th colspan="2" class="font-weight-normal">{{ 'RE0012.TEXT8' | translate }}</th>
+                        </tr>
+                        <tr *ngFor="let otherHospital of handlingOtherHospital, let i = index;">
+                          <th class="align-middle font-weight-normal"> {{ otherHospital.officeName }}</th>
+                          <td class="text-right align-middle">
+                            <button class="btn btn-danger"
+                                    (click)="alertDeleteHospital(otherHospital, i)">
+                              {{ 'RE0012.DELETE' | translate }}
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th class="font-weight-normal align-middle">
+                            <div class="form-inline  align-items-end">
+                              <label class="col-form-label mr-3 mr-sm-3">{{ 'RE0012.TEXT5' | translate }}</label>
+                              <div class="w-100 maxw-400" [ngClass]="{'has-danger':errorResponseOther}" >
+                                <span class="col-form-label text-danger fs12">{{ errorResponseOther }}</span>
+                                <app-infinitive-select [source]="listOtherHospital"
+                                                       [(ngModel)]="outsideHospital"
+                                                       (scrollDown)="scrollDown($event)"
+                                                       [infiniteScrollOptions]="infiniteScrollOptions"
+                                                       (keywordChanged)="searchMedicalOffices($event)">
+
+                                </app-infinitive-select>
+                              </div>
+                            </div>
+                          </th>
+                          <td class="text-right align-middle">
+                            <button class="btn btn-primary"
+                                    (click)="createHandlingOtherHospitals()">{{ 'COMMON_BTN.ADD' | translate }}
+                            </button>
+                          </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                <!-- //contents -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

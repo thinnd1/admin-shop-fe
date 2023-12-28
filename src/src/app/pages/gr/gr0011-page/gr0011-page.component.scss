@@ -1,0 +1,43 @@
+@import '../../../../assets/styles/_import';
+
+.hows-support {
+  .support-group {
+    border-bottom: dashed 1px #969696;
+    &:last-child {
+      border: none;
+    }
+  }
+}
+.infinite-scroll {
+  position: relative;
+  &-content {
+    overflow-y: auto;
+    height: 100%;
+  }
+  &-loader {
+    position: absolute;
+    width: 100%;
+    background: rgba($black,.2);
+    z-index: $zindex-fixed + 1;
+    bottom: 0;
+    left: 0;
+    &-icon {
+      color: #777;
+    }
+    &-text {
+
+    }
+  }
+}
+.infinite-scroll-content {
+  overflow: visible;
+}
+
+// Small devices (landscape phones, 画面サイズ767px以下)
+// @media (max-width: 767px) { ... }
+@include media-breakpoint-down(sm) {
+  .d-flex-sm {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

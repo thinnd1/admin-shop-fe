@@ -1,0 +1,23 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+
+.look-shift {
+  white-space: nowrap;
+  .input-wrap {
+    .input-date {
+      width: 7rem;
+    }
+    .input-time {
+      width: 5rem;
+    }
+  }
+  .text-note {
+    color: #888;
+    line-height: 30px;
+  }
+}
+// Extra large devices (large desktops, 画面サイズ1200px以上)
+@include media-breakpoint-down(xl) {
+  
+}
+

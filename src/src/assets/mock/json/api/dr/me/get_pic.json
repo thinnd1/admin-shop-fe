@@ -1,0 +1,44 @@
+{
+  "page": 1,
+  "office": [{
+      "id": "1",
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "avatar": "http://image-us.24h.com.vn/upload/3-2017/images/2017-09-20/1505861310-messi1.jpg",
+      "officeName": "ABC 会社",
+      "statusConfirm": "0",
+      "statusAuthority": "1",
+      "linkAvatar": "http://www.misucell.com/data/out/10/IMG_430251.jpg"
+    },
+    {
+      "id": "2",
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "avatar": "http://image-us.24h.com.vn/upload/3-2017/images/2017-09-20/1505861310-messi1.jpg",
+      "officeName": "ABC 会社",
+      "statusConfirm": "0",
+      "statusAuthority": "1",
+      "linkAvatar": "http://www.misucell.com/data/out/10/IMG_430251.jpg"
+    },
+    {
+      "id": "3",
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "avatar": "http://image-us.24h.com.vn/upload/3-2017/images/2017-09-20/1505861310-messi1.jpg",
+      "officeName": "ABC 会社",
+      "statusConfirm": "1",
+      "statusAuthority": "2",
+      "linkAvatar": "http://www.misucell.com/data/out/10/IMG_430251.jpg"
+    },
+    {
+      "id": "4",
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "avatar": "http://image-us.24h.com.vn/upload/3-2017/images/2017-09-20/1505861310-messi1.jpg",
+      "officeName": "ABC 会社",
+      "statusConfirm": "2",
+      "statusAuthority": "1",
+      "linkAvatar": "http://www.misucell.com/data/out/10/IMG_430251.jpg"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+.side-edit-menu {
+  .table-edit-menu {
+    tr {
+      th{
+        border-right: 1px solid #fdf8f8;
+      }
+      td {
+        border-left: 1px solid #fdf8f8;
+        border-right: 1px solid #fdf8f8;
+        &:first-child {
+          width: 1rem;
+        }
+        &:last-child {
+          .fa {
+            color: #777;
+          }
+        }
+      }
+    }
+  }
+}

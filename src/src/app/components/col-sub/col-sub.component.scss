@@ -1,0 +1,15 @@
+// import common setting
+@import './../../../assets/styles/import';
+
+.banner-wrap {
+  max-width: $side-col-width;
+  padding: 0 8px;
+}
+
+//@media (max-width: 991px)
+@include media-breakpoint-down(md) {
+  .banner-wrap {
+    padding: 0;
+    max-width: none;
+  }
+}

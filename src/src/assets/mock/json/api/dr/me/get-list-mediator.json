@@ -1,0 +1,44 @@
+{
+  "mediators": [
+    {
+      "userId": "user0001",
+      "avatar": "image.png",
+      "firstName": "Nhat",
+      "lastName": "Tran",
+      "firstNameKana": "firstNameKana",
+      "lastNameKana": "lastNameKana"
+    },
+    {
+      "userId": "user0002",
+      "avatar": "image.png",
+      "firstName": "Hanh",
+      "lastName": "Tran",
+      "firstNameKana": "firstNameKana",
+      "lastNameKana": "lastNameKana"
+    },
+    {
+      "userId": "user0003",
+      "avatar": "image.png",
+      "firstName": "Tuyen",
+      "lastName": "DV",
+      "firstNameKana": "firstNameKana",
+      "lastNameKana": "lastNameKana"
+    },
+    {
+      "userId": "user0004",
+      "avatar": "image.png",
+      "firstName": "Quang",
+      "lastName": "HA",
+      "firstNameKana": "firstNameKana",
+      "lastNameKana": "lastNameKana"
+    },
+    {
+      "userId": "user0005",
+      "avatar": "image.png",
+      "firstName": "Nam",
+      "lastName": "NH",
+      "firstNameKana": "firstNameKana",
+      "lastNameKana": "lastNameKana"
+    }
+  ]
+}

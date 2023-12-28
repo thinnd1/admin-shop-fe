@@ -1,0 +1,18 @@
+{
+  "meetingInfo": {
+    "frameMeeting": {
+      "endDate": "string",
+      "location": "string",
+      "resourceRequest": {
+        "avatar": "string",
+        "firstDepartment": "string",
+        "firstName": "string",
+        "hospitalName": "string",
+        "lastName": "string",
+        "officeUserId": "string"
+      },
+      "startDate": "string"
+    },
+    "status": 0
+  }
+}

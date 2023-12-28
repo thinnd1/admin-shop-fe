@@ -1,0 +1,101 @@
+// import common setting
+@import './../../../assets/styles/import';
+
+.multi-select {
+  position: relative;
+}
+
+.multi-select-popover {
+  visibility: hidden;
+  border: 1px solid #CCC;
+  width: 260px; //仮
+  @include border-radius(0.25rem);
+  background: #FFF;
+  position: absolute;
+  z-index: 999;
+  &.multi-select-popover-active {
+   visibility: visible;
+  }
+  .multi-select-popover-selected-lists-wrap {
+    border-bottom: 1px solid #CCC;
+    .multi-select-popover-selected-lists {
+      overflow: hidden;
+      .multi-select-popover-selected-list {
+        float: left;
+        .custom-checkbox {
+          @include ellipsis();
+        }
+      }
+    }
+  }
+  .multi-select-popover-lists-wrap {
+    position: relative;
+    &:before,
+    &:after {
+      border: 10px solid transparent;
+      border-bottom-width: 0;
+      content: "";
+      display: block;
+      margin-left: -10px;
+      position: absolute;
+      width: 0;
+      left: 50%;
+    }
+    &:before {
+      border-top-color: #FFF;
+      z-index: 1;
+      bottom: -8px;
+    }
+    &:after {
+      border-top-color: #CCC;
+    }
+    .multi-select-popover-lists {
+      max-height: 100px; //仮
+      overflow-x: hidden;
+      overflow-y: auto;
+      .multi-select-popover-list {
+        cursor: pointer;
+        @include ellipsis();
+        &.multi-select-popover-list-active {
+          background: #EEE;
+        }
+        .multi-select-popover-lists-children {
+          display: none;
+          background-color: #FFF;
+          @include border-radius(0.25rem);
+          border: 1px solid #CCC;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 999;
+          &:before,
+          &:after {
+            border: 10px solid transparent;
+            border-left-width: 0;
+            content: "";
+            display: block;
+            top: 10px;
+            position: absolute;
+            width: 0;
+          }
+          &:before {
+            border-right-color: #FFF;
+            left: -9px;
+            z-index: 1;
+          }
+          &:after {
+            border-right-color: #CCC;
+            left: -10px;
+          }
+          &-open {
+            display: block;
+            z-index: 100;
+          }
+          .multi-select-popover-lists-children-list .custom-control-description{
+            @include ellipsis();
+          }
+        }
+      }
+    }
+  }
+}

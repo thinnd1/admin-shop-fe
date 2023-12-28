@@ -1,0 +1,100 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+.control-top {
+  .btn-group {
+    .btn {
+      &:last-child {
+        margin-left:-1px; 
+      }
+    }
+  }
+  .select {
+    width: 9rem;
+    height:auto !important;
+  }
+}
+.table-calendar {
+  th, td {
+    width: calc(100% / 8);
+    padding:0.25rem 0.25rem;
+    font-size: 0.8rem;
+    font-weight: normal;
+    vertical-align: middle;
+    border: 1px solid #d7d7d7 !important;
+    height: 2.7rem;
+  }
+  thead {
+    th {
+      text-align: center;
+    }
+  }
+  .saturday {
+    color: #0053a0;
+  }
+  .sunday {
+    color: #d11d4a;
+  }
+}
+.name-dpm {
+  line-height: 10px;
+  margin-top: 0.2rem;
+  color: #777;
+}
+.bg-green {
+  background-color: #91b05f;
+}
+.bg-purple {
+  background-color: #9466af;
+}
+.bg-pink {
+  background-color: #ea81ac;
+}
+.bg-blue {
+  background-color: #58c2df;
+}
+.bg-orange {
+  background-color: #f08c00;
+}
+.bg-check {
+  background-color: #fcf8e3;
+}
+.shift-row {
+  .shift-icon {
+    width: 2.5rem;
+    min-width:2.5rem;
+    .icon-inner {
+      border-radius:3px;
+      text-align: center;
+      height: 1.25rem;
+      line-height: 1.25rem;
+      color: #fff;
+      vertical-align: top;
+      margin-right:0.25rem;
+    }
+  }
+}
+.tbody-inverse::before {
+    content: '';
+    display: block;
+    height: 16px;
+}
+
+#modal-notes {
+  .modal-header {
+    display: block;
+    border-bottom: none;
+  }
+  .modal-footer {
+    justify-content:center;
+    border-top: none;
+  }
+}
+
+
+// Medium devices (tablets, 画面サイズ991px以下)
+// @media (max-width: 991px) { ... }
+@include media-breakpoint-down(md) {
+  .table-shift {
+    white-space: nowrap;
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "group": {
+    "id": "string",
+    "name": "string",
+    "deptName": "Department 3",
+    "users": [
+      {
+        "userId": "user0001",
+        "authority": "MEMBER",
+        "inviteFlg": "APPROVED",
+        "lastName": "MEMBER",
+        "firstName": "ced",
+        "lastNameKana": "られる",
+        "firstNameKana": "ばべ"
+      },
+      {
+        "userId": "user0002",
+        "authority": "ADMIN",
+        "inviteFlg": "APPROVED",
+        "lastName": "おみんど",
+        "firstName": "bed",
+        "lastNameKana": "かさ",
+        "firstNameKana": "さかな"
+      },
+      {
+        "userId": "user0005",
+        "authority": "ADMIN",
+        "inviteFlg": "APPROVED",
+        "lastName": "123",
+        "firstName": "ahr",
+        "lastNameKana": "ひふ",
+        "firstNameKana": "しす"
+      },
+      {
+        "userId": "user0006",
+        "authority": "MEMBER",
+        "inviteFlg": "APPROVED",
+        "lastName": "cMEMBER",
+        "firstName": "age",
+        "lastNameKana": "きれい",
+        "firstNameKana": "こども"
+      },
+      {
+        "userId": "user0008",
+        "authority": "MEMBER",
+        "inviteFlg": "APPROVED",
+        "lastName": "メッセージ",
+        "firstName": "klm",
+        "lastNameKana": "はな",
+        "firstNameKana": "み"
+      },
+      {
+        "userId": "user0009",
+        "authority": "ADMIN",
+        "inviteFlg": "APPROVED",
+        "lastName": "bADMIN",
+        "firstName": "abc",
+        "lastNameKana": "はな",
+        "firstNameKana": "み"
+      },
+      {
+        "userId": "user0010",
+        "authority": "MEMBER",
+        "inviteFlg": "APPROVED",
+        "lastName": "MEMBER",
+        "firstName": "ghj",
+        "lastNameKana": "はな",
+        "firstNameKana": "み"
+      },
+      {
+        "userId": "user0007",
+        "authority": "MEMBER",
+        "inviteFlg": "APPROVED",
+        "lastName": "MEMBER",
+        "firstName": "dfe",
+        "lastNameKana": "はな",
+        "firstNameKana": "み"
+      }
+    ]
+  }
+}

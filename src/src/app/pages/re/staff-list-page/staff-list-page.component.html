@@ -1,0 +1,136 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner unspecified-width">
+            <div class="row">
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'RE0018.TITLE' | translate"></app-page-head>
+                </div>
+                <!--contents-->
+                <div class="form-group fs16">
+                  <label class="mb-0">{{ 'RE0018.TITLE_TOP' | translate}}</label>
+                  <app-department-select [value]="" [index]="0" (departmentSelect)="searchDepartment($event)" [authority]="authority"
+                  [limitNumChars]="90"></app-department-select>
+                </div>
+                <div class="search mb-3">
+                  <form>
+                    <input class="search-input" type="text" placeholder="{{ 'RE0018.SEARCH_NAME' | translate}}" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" maxlength="100">
+                    <button (click)="searchUser(name)" class="search-btn">
+                      <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                  </form>
+                </div>
+                <div class="table-staff-list" infiniteScroll [scrollWindow]="true" [infiniteScrollDistance]="1" (scrolled)="onScrollDown()">
+                  <table class="table table-striped table-bordered table-hover fs16">
+                    <thead class="thead-inverse hidden-md-down">
+                    <tr>
+                      <th class="table-staff-name table-col-1">
+                        <div class="table-title d-flex align-items-center">
+                          <div class="table-title-text mr-auto text-nowrap">{{ 'RE0018.TABLE_NAME' | translate}}</div>
+                          <div class="sort-arrow" (click)="orderBy('lastName')">
+                            <span class="arrow float-right down {{sort == '+lastName' ? 'active' : ''}}">&darr;</span>
+                            <span class="arrow float-right up {{sort == '-lastName' ? 'active' : ''}}">&uarr;</span>
+                          </div>
+                        </div>
+                      </th>
+                      <th class="table-col-2">{{ 'RE0018.TABLE_MAIL' | translate}}</th>
+                      <th class="table-col-3">{{ 'RE0018.TABLE_PHONE' | translate}}</th>
+                      <th class="table-col-4">{{ 'RE0018.TABLE_PHS' | translate}}</th>
+                      <th class="table-col-5">{{ 'RE0018.TABLE_SP' | translate}}</th>
+                      <th class="table-col-6">{{ 'RE0018.TABLE_DEPARTMENT' | translate}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let staff of dataAll; let i = index" (click)="loadDataStaffDetail($event, staff.userId)" class="{{(staff.accountStatus.isLocking == true) ? 'disable-row' : ''}}">
+                      <th class="table-staff-name hidden-lg-up">
+                        <div class="table-title d-flex align-items-center">
+                          <div class="table-title-text mr-auto text-nowrap">{{ 'RE0018.TABLE_NAME' | translate}}</div>
+                          <div class="sort-arrow" (click)="orderBy('lastName')">
+                            <span class="arrow float-right down {{sort == '-lastName' ? 'active' : ''}}">&darr;</span>
+                            <span class="arrow float-right up {{sort == '+lastName' ? 'active' : ''}}">&uarr;</span>
+                          </div>
+                        </div>
+                      </th>
+                      <td class="align-middle table-col-1">
+                        <div class="table-user-item d-flex align-items-center">
+                          <div class="user-item pr-1">
+                        <app-mini-profile
+                          [userInfo]="staff"
+                          [profileOptions]="{
+                                    iconSize: 55,
+                                    nameKana: true,
+                                    nameHonorific: false,
+                                    officeName: false,
+                                    departmentName: false,
+                                    isLink: false,
+                                    isContent: {
+                                      top: {
+                                        content: null,
+                                        class: null
+                                      },
+                                      right: {
+                                        content: null,
+                                        class: null
+                                      },
+                                      bottom: {
+                                        content: null,
+                                        class: null
+                                      }
+                                    }
+                                   }"
+                        ></app-mini-profile>
+                            <div class="table-user-link d-inline-block text-center py-1 px-0 fs14" *ngIf="staff.accountStatus.isProvisional === true">{{ 'RE0014.TABLE_PROVISIONAL' | translate }}</div>
+                          </div>
+                        <div class="icon-lock align-items-center justify-content-end d-flex">
+                          <a class="text-danger" *ngIf="staff.accountStatus.isLocking == true" data-toggle="tooltip" data-placement="top" title="{{ 'RE0014.TABLE_KEY' | translate }}" (mouseenter)="displayTooltip($event)">
+                            <i class="fa fa-key" aria-hidden="true"></i>
+                          </a>
+                        </div>
+                      </div>
+                      </td>
+                      <th class="hidden-lg-up">{{ 'RE0018.TABLE_MAIL' | translate}}</th>
+                      <td class="align-middle table-col-2"><div class="text-over-plus">{{(staff.mailAddressPublishingType !== 2 || staff.userId === userSession.userId) ? staff.mailAddress : ''}}</div></td>
+                      <th class="hidden-lg-up">{{ 'RE0018.TABLE_PHONE' | translate}}</th>
+                      <td class="align-middle table-col-3"><div class="text-over-plus">{{staff.mobileNo}}</div></td>
+                      <th class="hidden-lg-up">{{ 'RE0018.TABLE_PHS' | translate}}</th>
+                      <td class="align-middle table-col-4"><div class="text-over-plus">{{staff.phsNo}}</div></td>
+                      <th class="hidden-lg-up">{{ 'RE0018.TABLE_SP' | translate}}</th>
+                      <td class="align-middle table-col-5 text-danger" *ngIf="staff.managementAuthority == 'MP_1'"><div class="text-over-plus">{{'STAFF_AUTHORITY.' + staff.managementAuthority | translate}}</div></td>
+                      <td class="align-middle table-col-5" *ngIf="staff.managementAuthority == 'MP_2'"><div class="text-over-plus">{{'STAFF_AUTHORITY.' + staff.managementAuthority | translate}}</div></td>
+                      <td class="align-middle table-col-5" *ngIf="staff.managementAuthority == 'MP_3'"><div class="text-over-plus"></div></td>
+                      <th class="hidden-lg-up">{{ 'RE0018.TABLE_DEPARTMENT' | translate}}</th>
+                      <td class="align-middle table-col-6">
+                        {{showTextDepartment(i)}}
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- Detail PR Staff Inside -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

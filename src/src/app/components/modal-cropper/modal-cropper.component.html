@@ -1,0 +1,6 @@
+<div class="">
+  <div class="image-cropper" [ngClass]="{'border-red': errorMsg}">
+    <app-image-cropper #imageCropper [imageCropperOptions]="{id:prop.id, type:prop.type}" (flagImgUpload)="uploadImageError($event)"></app-image-cropper>
+  </div>
+  <div class="col-form-label fs13 text-danger">{{errorMsg}}</div>
+</div>

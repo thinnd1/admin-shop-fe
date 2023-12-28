@@ -1,0 +1,169 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+
+.setting-team {
+  .lst-team {
+   > li {
+      list-style: none;
+      border-bottom:1px dashed #ddd; 
+      padding:0.5rem 0;
+      .short-team {
+        width:2.5rem;
+        min-width: 2.5rem;
+        .short-btn {
+          display: block;
+          width: 2rem;
+          height: 2rem;
+          text-align: center;
+          line-height: 2rem;
+          border: 1px solid #ccc;
+          cursor: pointer;
+        }
+      }
+      .setting-row {
+        display: flex;
+        align-items: flex-end;
+        .setting-ttl {
+          width:4.5rem;
+          padding-right:0.5rem;
+          padding-bottom:0.1rem; 
+        }
+        .short-name {
+          width:7rem;
+        }
+        .setting-name {
+          width:70%;
+        }
+        .color-wrap {
+          width: 1.5rem;
+          min-width: 1.5rem;
+          height:1.5rem;
+          position: relative;
+          bottom:0.25rem;
+          .color-box {
+            display: block;
+            width: 1.5rem;
+            height:1.5rem;
+            cursor: pointer;
+            border: 1px solid #dcdcdc;
+          }
+        }
+      }
+    }
+  }
+  .member-area {
+    background-color: #f8f8f8;
+    .lst-member {
+      li {
+        display: flex;
+        list-style: none;
+        margin-bottom:0.25rem; 
+        .short-team {
+          width: 3rem;
+        }
+        .member-item {
+          width:calc(100% - 4rem);
+          .name-dpm {
+            color: #777;
+          }
+        }
+        .close-setting {
+          color: #3D7EB6;
+          line-height: 28px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.modal-color {
+  display: none;
+  position: absolute;
+  border: 1px solid #ddd;
+  padding: 1rem 1rem 0.5rem;
+  left:-6.7rem;
+  top: 1.5rem;
+  width:15rem;
+  background-color: #fff;
+  z-index: 1000;
+  .lst-color {
+    margin-left:-0.75rem; 
+    li {
+      float: left;
+      margin: 0 0 0.5rem 0.75rem;
+    }
+  }
+  &:after {
+    position: absolute;
+    content: "";
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 12px dashed #ddd;
+    display: inline-block;
+    height: 0;
+    vertical-align: middle;
+    width: 0;
+    left:50%;
+    top:-12px;
+    margin-left:-10px; 
+  }
+  &:before {
+    position: absolute;
+    content: "";
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 12px dashed #fff;
+    display: inline-block;
+    height: 0;
+    vertical-align: middle;
+    width: 0;
+    left:50%;
+    top:-11px;
+    margin-left:-9px;
+    z-index: 10;
+  }
+}
+.bg-green {
+  background-color: #c2e0ba;
+}
+.bg-green-light {
+  background-color: #e7efd8;
+}
+.bg-purple {
+  background-color: #e4cff9;
+}
+.bg-pink {
+  background-color: #ffbdc5;
+}
+.bg-pink-light {
+  background-color: #ffebfb;
+}
+.bg-orange {
+  background-color: #ffcd97;
+}
+.bg-white {
+  background-color: #fff;
+}
+.bg-yellow {
+  background-color: #fff6a4;
+}
+.bg-grey {
+  background-color: #dcdcdc;
+}
+.bg-blue {
+  background-color: #abe6ed;
+}
+.bg-blue-light {
+  background-color: #d9fdff;
+}
+.bg-brown {
+  background-color: #d8c1ab;
+}
+
+@include media-breakpoint-down(md) {
+  .setting-team {
+    
+  }
+}
+

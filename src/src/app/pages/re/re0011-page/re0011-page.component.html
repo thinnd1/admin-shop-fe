@@ -1,0 +1,142 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+                <div class="col">
+                  <form #notificationForm="ngForm" (ngSubmit)="putPrNotificationSettings(model)">
+                  <div class="page-head">
+                    <app-page-head [title]="'RE0011.NOTIFICATION_SETTINGS' | translate"></app-page-head>
+                  </div>
+                  <div class="table-form">
+                    <h2>{{'COMMON_LABEL.NOTIFICATION_EMAIL' | translate}}</h2>
+                    <table class="table fs16 table-bordered table-checkbox">
+                      <tbody class="tbody-inverse">
+                      <!--<tr>-->
+                        <!--<th class="table-checkbox-label">{{'COMMON_LABEL.LBL_GROUP' | translate}}</th>-->
+                        <!--<td class="table-checkbox-content">-->
+                          <!--<div class="custom-control-checkbox">-->
+                            <!--<label class="custom-control custom-checkbox">-->
+                              <!--<input type="checkbox" name="mailWhenNewPost" id="mailWhenNewPost"-->
+                                     <!--[(ngModel)]="model.mailWhenNewPost" class="custom-control-input">-->
+                              <!--<span class="custom-control-indicator"></span>-->
+                              <!--<span class="custom-control-description">{{'RE0011.GROUP_NEW_POST' | translate}}</span>-->
+                            <!--</label>-->
+                          <!--</div>-->
+                          <!--<div class="custom-control-checkbox">-->
+                            <!--<label class="custom-control custom-checkbox">-->
+                              <!--<input type="checkbox" name="mailWhenMentioned" id="mailWhenMentioned"-->
+                                     <!--[(ngModel)]="model.mailWhenMentioned" class="custom-control-input">-->
+                              <!--<span class="custom-control-indicator"></span>-->
+                              <!--<span class="custom-control-description">{{'RE0011.GROUP_MENTIONED' | translate}}</span>-->
+                            <!--</label>-->
+                          <!--</div>-->
+                        <!--</td>-->
+                      <!--</tr>-->
+                      <tr>
+                        <th class="table-checkbox-label">{{'RE0011.VISITATION' | translate}}
+                        </th>
+                        <td class="table-checkbox-content">
+                          <div class="custom-control-checkbox">
+                            <label class="custom-control custom-checkbox">
+                              <input type="checkbox" name="contactWhenRequestReceive" id="contactWhenRequestReceive"
+                                     [(ngModel)]="model.mailWhenRequestReceived" class="custom-control-input">
+                              <span class="custom-control-indicator"></span>
+                              <span class="custom-control-description">{{'RE0011.REQUEST_RECEIVE' | translate}}</span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="table-checkbox-label">{{'RE0011.MESSAGE.UP' | translate}}
+                          <br>{{'RE0011.MESSAGE.DOWN' | translate}}
+                        </th>
+                        <td class="table-checkbox-content">
+                          <div class="custom-control-checkbox">
+                            <label class="custom-control custom-checkbox">
+                              <input type="checkbox" name="mailWhenNewPostLeftUnread" id="mailWhenNewPostLeftUnread"
+                                     [(ngModel)]="model.mailWhenNewPostLeftUnread" class="custom-control-input">
+                              <span class="custom-control-indicator"></span>
+                              <span class="custom-control-description">{{'RE0011.GROUP_NEW_POST' | translate}}</span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="table-form">
+                    <h2>{{'COMMON_LABEL.DESKTOP_NOTIFICATION' | translate}}</h2>
+                    <table class="table fs16 table-bordered table-checkbox">
+                      <tbody class="tbody-inverse">
+                      <!--<tr>-->
+                        <!--<th class="table-checkbox-label">{{'COMMON_LABEL.LBL_GROUP' | translate }}</th>-->
+                        <!--<td class="table-checkbox-content">-->
+                          <!--<div class="custom-control-checkbox">-->
+                            <!--<label class="custom-control custom-checkbox">-->
+                              <!--<input type="checkbox" id="desktopWhenNewPost" name="desktopWhenNewPost"-->
+                                     <!--[(ngModel)]="model.desktopWhenNewPost" class="custom-control-input">-->
+                              <!--<span class="custom-control-indicator"></span>-->
+                              <!--<span class="custom-control-description">{{'RE0011.GROUP_NEW_POST' | translate }}</span>-->
+                            <!--</label>-->
+                          <!--</div>-->
+                          <!--<div class="custom-control-checkbox">-->
+                            <!--<label class="custom-control custom-checkbox">-->
+                              <!--<input type="checkbox" id="desktopWhenMentioned" name="desktopWhenMentioned"-->
+                                     <!--[(ngModel)]="model.desktopWhenMentioned" class="custom-control-input">-->
+                              <!--<span class="custom-control-indicator"></span>-->
+                              <!--<span class="custom-control-description">{{'RE0011.GROUP_MENTIONED' | translate}}</span>-->
+                            <!--</label>-->
+                          <!--</div>-->
+                        <!--</td>-->
+                      <!--</tr>-->
+                      <tr>
+                        <th class="table-checkbox-label">{{'RE0011.MESSAGE.UP' | translate }}<br>{{'RE0011.MESSAGE.DOWN' | translate}}
+                        </th>
+                        <td class="table-checkbox-content">
+                          <div class="custom-control-checkbox">
+                            <label class="custom-control custom-checkbox">
+                              <input type="checkbox" id="desktopWhenNewPostLeftUnread" name="desktopWhenNewPostLeftUnread"
+                                     [(ngModel)]="model.desktopWhenNewPostLeftUnread" class="custom-control-input">
+                              <span class="custom-control-indicator"></span>
+                              <span class="custom-control-description">{{'RE0011.GROUP_NEW_POST' | translate}}</span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary">{{'COMMON_BTN.SAVE' | translate}}</button>
+                  </div>
+                  </form>
+                </div>
+                <!-- //contents -->
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-3 col-sub">
+            <app-col-sub></app-col-sub>
+          </div>
+        </div>
+      </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

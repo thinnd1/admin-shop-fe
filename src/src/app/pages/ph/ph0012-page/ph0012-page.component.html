@@ -1,0 +1,265 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents PH0003-->
+
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'DOC_TITLE.PH0012' | translate"></app-page-head>
+                </div>
+                <section class="tracing-report mb-5" [hidden]="isConfirm">
+                  <form class="mb-5" [formGroup]="modelGroupForm">
+                    <div class="row mb-3">
+                      <div class="col-6 col-md-4"  [ngClass]="{'has-danger': formErrors.medicalOfficeId}">
+                        <span *ngIf="formErrors.medicalOfficeId" class="col-form-label fs12 text-danger">{{formErrors.medicalOfficeId}}</span>
+                        <l-select2 [ngModelOptions]="{standalone: true}" [data]="listHospital"
+                                   [(ngModel)]="selectedHospital"
+                                   (ngModelChange)="onHospitalChange($event)"
+                                   [options]="options"
+                        >
+                        </l-select2>
+                      </div>
+                      <div class="col-2"><span class="py-1 d-block">{{'PH0015.OK' | translate}}</span></div>
+                    </div>
+                    <table class="table table-bordered table-select mb-4 table-tracing-report">
+                      <tbody class="tbody-inverse">
+                      <tr>
+                        <th class="td-col1">{{'PHARMACY.TRACING_REPORT.DRUG_STORE_NAME' |
+                          translate}}<span class="text-danger">※</span>
+                        </th>
+                        <td class="td-col2">{{userSession.officeName}}</td>
+                        <th class="td-col3">{{'PHARMACY.TRACING_REPORT.PHONE_NUMBER' |
+                          translate}}<span class="text-danger">※</span>
+                        </th>
+                        <td class="td-col4">
+                          <span *ngIf="formErrors.phoneNumber" class="col-form-label fs12 text-danger">{{formErrors.phoneNumber}}</span>
+                          <div class="tel-input-wrap align-items-center"
+                               [ngClass]="{'has-danger': formErrors.phoneNumber}">
+                            <app-tel-input [tel]="model.phoneNumber"
+                              [telInputOptions]="{id:'mobile',name:'',isMobile: true,isShowText: false}"></app-tel-input>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="td-col1">{{'PHARMACY.TRACING_REPORT.PHARMACIST_NAME' | translate}}</th>
+                        <td class="td-col2"  [ngClass]="{'has-danger': formErrors.pharmacistName}">
+                          <span *ngIf="formErrors.pharmacistName" class="col-form-label fs12 text-danger">{{formErrors.pharmacistName}}</span>
+
+                          <input formControlName="pharmacistName" class="form-control" type="text"
+                                                   placeholder="{{'PHARMACY.TRACING_REPORT.PHARMACIST_NAME' | translate}}"></td>
+                        <th class="td-col3">{{'PHARMACY.TRACING_REPORT.PRESCRIPTION_ISSUED_DATE' | translate}}<br>{{'PHARMACY.TRACING_REPORT.ISSUED_DATE' | translate}}<span class="text-danger">※</span></th>
+                        <td class="td-col4"  [ngClass]="{'has-danger': formErrors.prescriptionIssuedDate}">
+                          <span *ngIf="formErrors.prescriptionIssuedDate" class="col-form-label fs12 text-danger">{{formErrors.prescriptionIssuedDate}}</span>
+                          <app-date-input [showIcon]="false" [date]="modelGroupForm.value.prescriptionIssuedDate"
+                                          [dateInputOptions]="{id:'prescriptionIssuedDate',name:'prescriptionIssuedDate',placeholder:msgStore['PHARMACY.TRACING_REPORT'].ISSUED_DATE, maxDate: today}"
+                                          (dateChanged)="dateInputOnChange($event,'prescriptionIssuedDate')"></app-date-input>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="td-col1">{{'PHARMACY.TRACING_REPORT.PATIENT_NAME' | translate}}</th>
+                        <td class="td-col2" [ngClass]="{'has-danger': formErrors.patientName}">
+                          <span *ngIf="formErrors.patientName" class="col-form-label fs12 text-danger">{{formErrors.patientName}}</span>
+                          <input class="form-control" formControlName="patientName"
+                                 placeholder="{{'PHARMACY.TRACING_REPORT.PATIENT_NAME' | translate}}">
+                        </td>
+                        <th class="td-col3">{{'PHARMACY.TRACING_REPORT.PATIENT_CODE' | translate}}</th>
+                        <td class="td-col4" [ngClass]="{'has-danger': formErrors.patientCode}">
+                          <span *ngIf="formErrors.patientCode" class="col-form-label fs12 text-danger">{{formErrors.patientCode}}</span>
+                          <input class="form-control" formControlName="patientCode"
+                                 placeholder="{{'PHARMACY.TRACING_REPORT.PATIENT_CODE' | translate}}">
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="td-col1">{{'PHARMACY.TRACING_REPORT.PATIENT_DATE_OF_BIRTH' | translate}}<span class="text-danger">※</span>／{{'PHARMACY.TRACING_REPORT.PATIENT_GENDER' | translate}}<span class="text-danger">※</span>
+                        </th>
+                        <td class="td-col2">
+                          <div class="row">
+                            <span *ngIf="formErrors.patientDateOfBirth" class="col-form-label fs12 col-xl-12 text-danger">{{formErrors.patientDateOfBirth}}</span>
+                            <div class="col-12 col-xl-6 mb-lg-0 mb-2"
+                                 [ngClass]="{'has-danger': formErrors.patientDateOfBirth}">
+                              <app-date-input [showIcon]="false" [date]="modelGroupForm.value.patientDateOfBirth"
+                                              [dateInputOptions]="{id:'patientDateOfBirth',name:'patientDateOfBirth',placeholder:'生年月日', maxDate: today, minDate: '1930-01-01'}"
+                                              (dateChanged)="dateInputOnChange($event,'patientDateOfBirth')"></app-date-input>
+
+                            </div>
+                            <div class="col-12 col-xl-6 text-left pt-1">
+                              <label class="custom-control custom-radio pt-1 fs12 mb-0 mr-0 mr-xl-0">
+                                <input formControlName="patientGender" id="radio1" type="radio" value="MALE"
+                                       class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">{{'PHARMACY.TRACING_REPORT.GENDER.MALE' | translate}}</span>
+                              </label>
+                              <label class="custom-control custom-radio pt-1 fs12 mb-0 mr-xl-0">
+                                <input formControlName="patientGender" id="radio2" type="radio" value="FEMALE"
+                                       class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">{{'PHARMACY.TRACING_REPORT.GENDER.FEMALE' | translate}}</span>
+                              </label>
+                            </div>
+                          </div>
+                        </td>
+                        <th class="td-col3">{{'PHARMACY.TRACING_REPORT.COMPOUNDING_DATE' | translate}}<span class="text-danger"></span></th>
+                        <td class="td-col4" [ngClass]="{'has-danger': formErrors.compoundingDate}">
+                          <span *ngIf="formErrors.compoundingDate" class="col-form-label fs12 text-danger">{{formErrors.compoundingDate}}</span>
+                          <app-date-input [showIcon]="false" [date]="modelGroupForm.value.compoundingDate"
+                                          [dateInputOptions]="{id:'compoundingDate',name:'compoundingDate', placeholder:translate.instant('PHARMACY.TRACING_REPORT.COMPOUNDING_DATE')}"
+                                          (dateChanged)="dateInputOnChange($event,'compoundingDate')"></app-date-input>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="td-col1">{{'PHARMACY.TRACING_REPORT.DEPARTMENT_NAME' | translate}}</th>
+                        <td class="td-col2" [ngClass]="{'has-danger': formErrors.departmentName}">
+                          <span *ngIf="formErrors.departmentName" class="col-form-label fs12 text-danger">{{formErrors.departmentName}}</span>
+                          <input ngui-auto-complete type="text"
+                                 [source]="matcherListAutocomplete.bind(this, 'specialtyAreasList')" autocomplete="off"
+                                 [list-formatter]="autocompleListFormatter"
+                                 [value-formatter]="myValueFormatter"
+                                 [tab-to-select] = "false"
+                                 (keydown.tab)="closeInput()"
+                                 no-match-found-text="{{'PHARMACY.TRACING_REPORT.SELECT2_NO_RESULT'| translate}}"
+                                 loading-text="&nbsp;{{'CA0009.LOADING' | translate }}"
+                                 class="form-control w-100"
+                                 placeholder="{{'PHARMACY.TRACING_REPORT.DEPARTMENT_NAME' | translate}}"
+                                 min-chars="1" [ngModelOptions]="{standalone: true}"
+                                 [(ngModel)]="model.departmentName"
+                                 (change)="inputOnChange($event.target.value, 'departmentName')"
+                                 (valueChanged)="inputOnChange($event, 'departmentName')"
+                                 (customSelected)="inputOnChange($event, 'departmentName')"
+                          />
+                        <th class="td-col3">{{'PHARMACY.TRACING_REPORT.DOCTOR_NAME' | translate}}</th>
+                        <td class="td-col4">
+                          <div class="d-flex align-items-center">
+                            <div class="w-80 pr-2" [ngClass]="{'has-danger': formErrors.doctorName}">
+                              <span *ngIf="formErrors.doctorName" class="col-form-label fs12 text-danger">{{formErrors.doctorName}}</span>
+                              <input ngui-auto-complete type="text"
+                                     [source]="matcherListAutocomplete.bind(this, 'listDoctor')" autocomplete="off"
+                                     [list-formatter]="autocompleListFormatter"
+                                     [value-formatter]="myValueFormatter"
+                                     [tab-to-select]="false"
+                                     (keydown.tab)="closeInput()"
+                                     no-match-found-text="{{'PHARMACY.TRACING_REPORT.SELECT2_NO_RESULT'| translate}}"
+                                     loading-text="&nbsp;{{'CA0009.LOADING' | translate }}"
+                                     class="form-control w-100"
+                                     placeholder="{{'PHARMACY.TRACING_REPORT.DOCTOR_NAME' | translate}}"
+                                     min-chars="1" [ngModelOptions]="{standalone: true}"
+                                     [(ngModel)]="model.doctorName"
+                                     (change)="inputOnChange($event.target.value, 'doctorName')"
+                                     (valueChanged)="inputOnChange($event, 'doctorName')"
+                                     (customSelected)="inputOnChange($event, 'doctorName')"
+                              />
+                            </div>
+                            <span class="d-inline-block w-20">{{'PHARMACY.TRACING_REPORT.DOCTOR' | translate}}</span>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="td-col1">{{'PHARMACY.TRACING_REPORT.PATIENT_CONSENT' | translate}}<span class="text-danger">※</span></th>
+                        <td class="td-col2" [ngClass]="{'has-danger': formErrors.patientConsent}">
+                          <span *ngIf="formErrors.patientConsent" class="col-form-label fs12 text-danger">{{formErrors.patientConsent}}</span>
+                          <select formControlName="patientConsent" class="form-control">
+                            <option value="">{{'PHARMACY.TRACING_REPORT.PATIENT_CONSENT' | translate}}</option>
+                            <option value="true">{{'PHARMACY.TRACING_REPORT.PATIENT_CONSENT_YES' | translate}}</option>
+                            <option value="false">{{'PHARMACY.TRACING_REPORT.PATIENT_CONSENT_NO' | translate}}</option>
+                          </select>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+
+                  </form>
+                </section>
+                <section class="tracing-report-confirm mb-5" *ngIf="isConfirm">
+                  <div class="mb-4">{{'PHARMACY.PH0012.SEND_REPORT' | translate}}</div>
+                  <div class="mb-3"> <h3><b>{{selectedHospital.text}}<span class="pl-5">{{'PHARMACY.TRACING_REPORT.TO' | translate}}</span></b></h3></div>
+                  <table class="table table-bordered table-user-info mb-2">
+                    <tbody class="tbody-inverse">
+                    <tr>
+                      <th>{{'PHARMACY.TRACING_REPORT.DRUG_STORE_NAME' | translate}}</th>
+                      <td>{{userSession.officeName}}</td>
+                      <th>{{'PHARMACY.TRACING_REPORT.PHONE_NUMBER' | translate}}</th>
+                      <td>{{model.phoneNumber}}</td>
+                    </tr>
+                    <tr>
+                      <th>{{'PHARMACY.TRACING_REPORT.PHARMACIST_NAME' | translate}}</th>
+                      <td>{{model.pharmacistName}}</td>
+                      <th>{{'PHARMACY.TRACING_REPORT.PRESCRIPTION_ISSUED_DATE' | translate}}
+                        {{'PHARMACY.TRACING_REPORT.ISSUED_DATE' | translate}}</th>
+                      <td>{{model.prescriptionIssuedDate | timePipe : 'YYYY/MM/DD'}}</td>
+                    </tr>
+                    <tr>
+                      <th>{{'PHARMACY.TRACING_REPORT.PATIENT_NAME' | translate}}</th>
+                      <td>{{model.patientName}}</td>
+                      <th>{{'PHARMACY.TRACING_REPORT.PATIENT_CODE' | translate}}</th>
+                      <td>{{model.patientCode}}</td>
+                    </tr>
+                    <tr>
+                      <th>{{'PHARMACY.TRACING_REPORT.PATIENT_DATE_OF_BIRTH' |
+                        translate}}／{{'PHARMACY.TRACING_REPORT.PATIENT_GENDER' | translate}}
+                      </th>
+                      <td>{{model.patientDateOfBirth| timePipe : 'YYYY/MM/DD'}}
+                        <div class="float-right">
+                          {{('PHARMACY.TRACING_REPORT.GENDER.' + model.patientGender) | translate}}
+                        </div>
+                      </td>
+                      <th>{{'PHARMACY.TRACING_REPORT.COMPOUNDING_DATE' | translate}}</th>
+                      <td>{{model.compoundingDate | timePipe : 'YYYY/MM/DD'}}</td>
+                    </tr>
+                    <tr>
+                      <th>{{'PHARMACY.TRACING_REPORT.DEPARTMENT_NAME' | translate}}</th>
+                      <td>{{model.departmentName }}</td>
+                      <th>{{'PHARMACY.TRACING_REPORT.DOCTOR_NAME' | translate}}</th>
+                      <td>{{model.doctorName}} <span class ="show-right">{{'PHARMACY.TRACING_REPORT.DOCTOR' | translate}}</span></td>
+                    </tr>
+                    <tr>
+                        <th>{{'PHARMACY.TRACING_REPORT.PATIENT_CONSENT' | translate}}</th>
+                        <td>
+                          {{model.patientConsent? ('PHARMACY.TRACING_REPORT.PATIENT_CONSENT_YES' | translate): ('PHARMACY.TRACING_REPORT.PATIENT_CONSENT_NO' | translate)}}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </section>
+                <section class="mb-5">
+                  <span *ngIf="formErrors.content" class="col-form-label fs12 text-danger">{{formErrors.content}}</span>
+                  <div class="area-report-wrap p-0" [ngClass]="{'border-red': formErrors.content}">
+                    <app-attachment-text-box
+                      [isEdit]="isConfirm"
+                      [progress]="progress"
+                      [require]="formErrors.content"
+                      (onConfirm)="confirm($event)"
+                      (onCancel)="cancel()"
+                      (onSubmit)="submit($event)"></app-attachment-text-box>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-xl-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

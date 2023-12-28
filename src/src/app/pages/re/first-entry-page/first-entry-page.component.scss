@@ -1,0 +1,122 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+/*****/
+.title-head {
+  .logo {
+    width: 172px;
+    fill: #f18d00;
+    height:35px;
+  }
+}
+.table-entry {
+  tr {
+    th {
+      white-space: nowrap;
+      width: 1rem;
+    }
+  }
+}
+th.border-bottom{
+  border-bottom-color: #D7D7D7 !important;
+}
+.register-guide {
+  border: 1px solid #f08d00;
+  @include border-radius(0.25rem);
+  .guide-list {
+    margin: 0 0 0 -2%;
+    display: flex;
+    li {
+      list-style: none;
+      width: 33.333333%;
+      padding: 20px 0 0 2%;
+      display: flex;
+      flex-wrap: wrap;
+      .guide-list-item {
+        border: 1px solid #f08d00;
+        position: relative;
+        .group-list-number {
+          width: 59px;
+          height: 59px;
+          position: absolute;
+          top: -15px;
+          left: -10px;
+          @include border-radius(50%);
+          span {
+            line-height: 1.0;
+          }
+        }
+      }
+    }
+  }
+}
+.borderless-top::before {
+  height: 0px;
+}
+.regulation-content {
+  background: #eee;
+  padding: 20px 20px 10px;
+  .regulation-content-txt {
+    background: #fff;
+    white-space: pre-line;
+    height: 155px;
+    overflow-y: auto;
+    border: 1px solid $gray-light;
+  }
+}
+.date-select-wrap {
+  select.form-control {
+    width: auto;
+  }
+}
+.custom-control-indicator.has-danger {
+  border: 1px solid #d21d29;
+}
+
+.guide-list-ttl3{
+  padding-left: 3rem;
+  @include media-breakpoint-up(xl) {
+    padding-left: 2.5rem;
+    letter-spacing: -1px;
+  }
+}
+
+//@media (max-width: 767px)
+@include media-breakpoint-down(sm) {
+  .table-entry {
+    .table-bordered {
+      tr {
+        th,
+        td {
+          display: block;
+          width: 100%;
+        }
+        td {
+          .select-department {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+  .register-guide {
+    .guide-list {
+      display: block;
+      li {
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+}
+//@media (max-width: 575px)
+@include media-breakpoint-down(xs) {
+  .date-select-wrap {
+    select.form-control,
+    .data-select {
+      width: 100%;
+    }
+  }
+}
+span.border-red {
+  border: 1px solid #D21D29;
+}

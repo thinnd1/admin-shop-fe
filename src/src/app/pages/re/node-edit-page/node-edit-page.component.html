@@ -1,0 +1,98 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents RE0017-->
+
+              <div class="col">
+
+                <div class="page-head">
+                  <app-page-head [title]="'RE0017.TITLE' | translate"></app-page-head>
+                </div>
+
+                <!--<form novalidate #myForm="ngForm" name="myForm">-->
+                <div class="group-affiliation fs16">
+                  <ul>
+                    <li *ngFor="let department of listDepartment; let i = index" [ngClass]="(department.level === 1) ? 'group-affiliation-pd': ''">
+                      <div class="group-affiliation-wrap" *ngIf="department.level > 0">
+                        <div class="group-affiliation-left" *ngIf="department.level === 1">
+                          <span class="group-affiliation-span">{{ 'COMMON_LABEL.LBL_DEPARTMENT' | translate }}</span>
+                        </div>
+                        <div class="group-affiliation-left group-col-fl{{department.level -1}}" *ngIf="department.level !== 1">
+                          <div class="group-affiliation-item">
+                            <span><i aria-hidden="true" class="fa fa-level-up fs12"></i></span>{{ 'COMMON_LABEL.LBL_DEPARTMENT'
+                            | translate }}
+                          </div>
+                        </div>
+                        <div class="group-affiliation-right">
+                          <div class="has-group-affiliation" *ngIf="arrayErrorForm[i]">
+                            <span class="col-form-label text-danger fs12">{{ arrayErrorForm[i]}}</span>
+                          </div>
+                          <div class="group-affiliation-form row">
+                            <div class="group-affiliation-col-01 col-12 col-md-12 col-lg-4" [ngClass]="{'has-danger': arrayErrorForm[i]}">
+                              <input type="text" class="form-control" id="" placeholder="{{'RE0017.MEDICAL_DEPARTMENT' | translate}}" [(ngModel)]="department.name" name="name{{i}}" (keyup)="checkMaxLength('name', i, $event)">
+                            </div>
+                            <div class="group-affiliation-col-02 col-12 col-md-12 col-lg-8">
+                              <div class="form-group row">
+                                <label class="col-12 col-md-12 col-lg-3 col-form-label font-weight-bold">{{'RE0017.NAME_TO_DISPLAY' | translate}}</label>
+                                <div class="col-5 col-md-5 col-lg-5">
+                                  <input class="form-control" id="example-text-input" type="text" [(ngModel)]="department.displayName" name="displayName{{i}}" (keyup)="checkMaxLength('displayName', i, $event)">
+                                </div>
+                                <div class="col-5 col-md-5 col-lg-2 d-flex align-items-center mb-1" *ngIf="department.level < max_level_department">
+                                  <button class="btn btn-sm btn-secondary fs14 font-weight-bold" type="button" (click)="addDepartmentChildren(i, $event)">{{ 'RE0017.ADD_LOWER_HIERARCHY' | translate }}</button>
+                                </div>
+                                <div class="col-5 col-md-5 col-lg-2" *ngIf="department.level === max_level_department">
+                                </div>
+                                <div class="group-affiliation-col-03 col-2 col-md-2 col-lg-2" [hidden]="!checkShowBntDeleteDepartment() && (department.level === 1)">
+                                  <span>
+                                      <i class="fa fa-close fs36" aria-hidden="true" (click)="deleteDepartment(i)"></i>
+                                    </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="nav-add">
+                    <a class="add-link" href="" (click)="addDepartmentChildren(-1, $event)"><i class="fa fa-plus-square" aria-hidden="true"></i>{{ 'RE0017.ADD_AFFILIATION' | translate }}</a>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center justify-content-center-btn">
+                  <button class="btn btn-primary" type="submit" (click)="putDepartmentSettings()">{{ 'COMMON_BTN.SAVE' | translate}}</button>
+                </div>
+                <!--</form>-->
+              </div>
+
+
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

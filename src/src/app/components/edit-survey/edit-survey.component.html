@@ -1,0 +1,57 @@
+<div id="detailed-visit" class="fs16">
+  <form [formGroup]="editSurveyForm">
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group mb-5">
+          <label for="exampleTextarea">{{'GR0009.QUESTION_CONTENT' | translate}}</label>
+          <div><span class="col-form-label text-danger fs12" *ngIf="formError.contents">{{formError.contents | translate}}</span></div>
+          <div class="groupboard-contribution">
+            <div class="container w-100 mb-2 container-groupboard-contribution" [ngClass]="{'container-has-danger': formError.contents}">
+              <div class="row">
+                <div class="col p-0">
+                  <textarea class="form-control groupboard-contribution-textarea textarea-survey" rows="4" id="exampleTextarea"
+                            placeholder="{{'GR0009.INPUT_PLACEHOLDER_QUESTION_CONTENT' | translate}}"
+                            formControlName="contents" appAutoSize></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-12">{{'GR0009.DEADLINE_DATE_TIME' | translate}}</div>
+          <div class="col-12">
+            <span class="col-form-label text-danger fs12" *ngIf="formError.closeDate">{{formError.closeDate | translate}}</span>
+          </div>
+          <div class="col-12">
+            <span class="col-form-label text-danger fs12" *ngIf="formError.closeTime">{{formError.closeTime | translate}}</span>
+          </div>
+          <div class="col-12">
+            <div class="width-detail mr-2 float-left" [class.has-danger]="formError.closeDate">
+              <app-date-input [hasDanger]='formError.closeDate' [date]="defaultDate" [showIcon]="false"
+                              (dateChanged)="changeCloseDate($event)"
+                              [dateInputOptions]="{id: 'close-date', name: 'closeDate', placeholder: '', outsideDays:false, weekendsDisable:false}">
+              </app-date-input>
+            </div>
+            <div class="float-left" [ngClass]="{'has-danger': formError.closeTime}">
+              <select class="form-control" formControlName="closeTime" required>
+                <option [value]="time" *ngFor="let time of closeTime">{{time}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 d-flex mt-5">
+        <div class="groupboard-contribution-btn-wrap col-4 col-sm-3 col-lg-3 p-2 font-weight-bold  btn-secondary"
+             role="button" (click)="clickCancel($event)">
+          <span>{{'GROUPBOARD_CONTRIBUTION.CANCEL' | translate}}</span>
+        </div>
+        <div class="groupboard-contribution-btn-wrap col-4 col-sm-3 col-lg-3 p-2 font-weight-bold btn-primary"
+             role="button"
+             (click)="putEditPollSurvey()">
+          <span>{{'COMMON_BTN.SEND' | translate}}</span>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+

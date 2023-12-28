@@ -1,0 +1,17 @@
+@import '../../../../assets/styles/_import';
+.width-detail {
+  width: 10rem;
+}
+.width-detail-2 {
+  width: 5rem;
+}
+.survey-content {
+  resize: vertical;
+  overflow-y: auto;
+  min-height: 161px;
+  max-height: 450px;
+  will-change: transform;
+}
+_:-ms-lang(x), select.form-control {
+	height:calc(1.875rem + 6px) !important;
+}

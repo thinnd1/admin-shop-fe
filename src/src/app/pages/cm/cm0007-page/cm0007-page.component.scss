@@ -1,0 +1,74 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+
+.datetime{
+  color: #777;
+}
+
+.table-data {
+  table-layout: fixed;
+  > thead > tr > th{
+    &:nth-child(1){
+      width: 30%;
+    }
+    &:nth-child(2){
+      width: 30%;
+    }
+    &:nth-child(3){
+      width: 40%;
+    }
+  }
+  > tbody > tr {
+    &.unread {
+      > td {
+        background-color: #ffffc8;
+      }
+      &:hover {
+        > td {
+          background-color: #fcf8e3;
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .table-data {
+    > tbody{
+       > tr{
+        &:first-child{
+          > td{
+            &:nth-child(1){
+              border-top: none;
+            }
+          }
+        }
+        > td{
+          &:nth-child(1){
+            border-top: 1px solid #D7D7D7;
+            padding-bottom: 0.2rem;
+          }
+          &:nth-child(2){
+            padding-top: 0;
+            padding-bottom: 0;
+          }
+          &:nth-child(3){
+            padding-top: 0.2rem;
+          }
+          border: none;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.data-ellipsis{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.preline-text{
+  white-space: pre-line;
+}

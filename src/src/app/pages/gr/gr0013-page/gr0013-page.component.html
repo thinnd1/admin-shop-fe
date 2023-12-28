@@ -1,0 +1,60 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents GR0013-->
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'GR0013.TITLE' | translate"></app-page-head>
+                </div>
+                <div class="text-right" *ngIf="topicGroup.length > 0 && countUnseenTo > 0">
+                  <div class="d-inline-block">
+                    <button type="button" class="btn btn-link" (click)="allSeenTo($event)">
+                      <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                      {{'GR0013.SEEN_ALL' | translate}}
+                    </button>
+                  </div>
+                </div>
+                <div class="hows-support">
+                  <ng-template ngFor let-group [ngForOf]="topicGroup" [ngForTrackBy]="topicTrackById" let-i = "index">
+                    <app-group-article-information [groupInfo]="group.group" [userSession]="userSession" [article]="group.article"
+                                                   [listFavorites]="listFavorites" [comments]="group.comments" [listMemberInfo]="group.membersInfo"
+                                                   [_inputOptions] = "{
+                                                   articleIndex: i,
+                                                   isShowGroupName: true,
+                                                   unseenToArticle: group.unseenTo.article,
+                                                   unseenToComment: group.unseenTo.comment
+                                                 }" (removedArticleEvent)="removeArticle($event)"></app-group-article-information>
+                  </ng-template>
+                </div>
+              </div>
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

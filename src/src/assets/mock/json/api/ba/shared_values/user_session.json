@@ -1,0 +1,19 @@
+{
+  "userId": "user",
+  "officeUserId": "office_user",
+  "officeId": "office_id",
+  "officeName": "〇〇病院",
+  "deptId": "10",
+  "deptName": "診療科",
+  "firstName": "太郎",
+  "lastName": "山田",
+  "firstNameKana": "たろう",
+  "lastNameKana": "やまだ",
+  "mailAddress": "yamada.t@example.com",
+  "password": "password",
+  "accountStatus": 2,
+  "managementAuthority": "MP_1",
+  "funcAuthoritySet": "FPS_1",
+  "funcAuthority": [1,2,7],
+  "managementLevel": 0
+}

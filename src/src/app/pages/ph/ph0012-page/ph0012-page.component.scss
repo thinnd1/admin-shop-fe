@@ -1,0 +1,109 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+.table-select {
+  th, td {
+    vertical-align: middle;
+  }
+  .td-col1 {
+    width: 13rem;
+    white-space: nowrap;
+  }
+  .td-col3 {
+    width: 7rem;
+    white-space: nowrap;
+  }
+  .td-col2,
+  .td-col4 {
+    //width:35%;
+  }
+}
+.tel-input-wrap {
+  display:flex;
+  .form-control-tel {
+    width:25%;
+  }
+  .form-control-tel2 {
+    width:30%;
+  }
+  .form-control-tel3 {
+    width:35%;
+  }
+}
+
+.table-user-info {
+  td, th {
+    width:25%;
+  }
+  .select-user-box {
+    width: 20pt;
+    height: 20pt;
+    background-color: #d7d7d7;
+  }
+}
+.custom-file {
+  height:1rem;
+}
+.user-lst {
+  li {
+    border:1px solid #ccc;
+    .select-user-name {
+      width:calc(100% - 40px);
+    }
+  }
+}
+.attach-wrap {
+  .lst-attach {
+    li {
+      list-style:none;
+      margin-right:1rem;
+      float:left;
+    }
+  }
+}
+
+.table-tracing-report {
+  table-layout: fixed;
+}
+@include media-breakpoint-down(md) {
+  .table-select {
+    .td-col1,
+    .td-col2,
+    .td-col3,
+    .td-col4 {
+      width:100%;
+      display:block;
+      white-space: normal;
+    }
+  }
+  .table-user-info {
+    tr {
+      td, th {
+        display:block;
+        width:100%;
+      }
+    }
+  }
+}
+@include media-breakpoint-down(sm) {
+  .area-report-wrap {
+    .report-control {
+      height:auto;
+      .control-select {
+        width:calc(100% - 6rem);
+      }
+      .btn-check {
+        width:100%;
+        .btn {
+          width:100%;
+        }
+      }
+      .control-attack {
+        border-bottom:1px solid #ccc;
+      }
+    }
+  }
+}
+.show-right{
+  float:right;
+  margin-right: 20px;
+}

@@ -1,0 +1,39 @@
+{
+  "users": [{
+    "department": {
+      "children": [{}],
+      "displayName": "string",
+      "id": "string",
+      "name": "string"
+    },
+    "firstName": "Tran",
+    "lastName": "Nhat",
+    "officeId": "01234567890",
+    "userId": "1"
+  },
+    {
+      "department": {
+        "children": [{}],
+        "displayName": "string",
+        "id": "string",
+        "name": "string"
+      },
+      "firstName": "Hahaa",
+      "lastName": "Hehe",
+      "officeId": "01234567890",
+      "userId": "2"
+    },
+    {
+      "department": {
+        "children": [{}],
+        "displayName": "string",
+        "id": "string",
+        "name": "string"
+      },
+      "firstName": "Hung",
+      "lastName": "Nguyen",
+      "officeId": "01234567890",
+      "userId": "3"
+    }
+  ]
+}

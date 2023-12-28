@@ -1,0 +1,77 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents GR0014-->
+              <div class="col">
+                <div class="mb-4">
+                  <ul class="nav nav-tabs fs18" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" routerLink="/gr/gr0014" role="tab">{{ 'GR0014.NAV.TIMELINE' | translate }}</a>
+                    </li>
+                    <li class="nav-item" *ngIf="userSession.funcAuthority.FP_1">
+                      <a class="nav-link" routerLink="/me/me0001" role="tab">{{ 'GR0014.NAV.MEETING' | translate }}</a>
+                    </li>
+                    <!--<li class="nav-item">-->
+                      <!--<a class="nav-link" routerLink="/cm/cm0012" role="tab">{{ 'GR0014.NAV.KPI' | translate }}</a>-->
+                    <!--</li>-->
+                  </ul>
+                </div>
+                <div class="hows-support">
+                  <figure class="thumb-default mt-3 text-center" *ngIf="!listTimeLine.length">
+                    <img src="/assets/img/group_nowrite_illust.png" alt="" *ngIf="this._displayHasntIllust">
+                  </figure>
+                  <ng-container *ngIf="listTimeLine.length">
+                    <div class="infinite-scroll" [ngStyle]="{'height':infiniteScrollHeight}">
+                      <div class="infinite-scroll-content" infinite-scroll [infiniteScrollDistance]="0" [infiniteScrollThrottle]="10" [scrollWindow]="!infiniteScrollOptions.height" (scrolled)="onScrollDown()">
+                        <div class="support-group pb-2 mb-4" *ngFor="let timeLine of listTimeLine; let index = index">
+                          <app-group-article-information [groupInfo]="timeLine.group" [userSession]="userSession" [article]="timeLine.article" [listFavorites]="listFavorites"
+                                                         [comments]="timeLine.comments"
+                                                         [_inputOptions]="{
+                                                           articleIndex: index,
+                                                           isShowGroupName: true,
+                                                           unseenToArticle: timeLine.article.seen?.unseen,
+                                                           unseenToComment: timeLine.comments.seen?.unseen
+                                                         }"
+                          ></app-group-article-information>
+                        </div>
+                      </div>
+                      <div class="infinite-scroll-loader text-center" [hidden]="isLoading">
+                        <i class="fa fa-spinner fa-pulse fa-fw infinite-scroll-loader-icon"></i>
+                        <span class="infinite-scroll-loader-text fs14">{{'INFINITE_SCROLL.LOADING' | translate}}...</span>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+        <!--// scroll-->
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

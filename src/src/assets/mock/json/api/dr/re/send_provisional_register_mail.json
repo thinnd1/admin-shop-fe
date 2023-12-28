@@ -1,0 +1,27 @@
+{
+  "status": 200,
+  "staff": [
+    {
+      "firstName": "aaaa",
+      "lastName": "sssss",
+      "firstNameKana": "しょうじ てつや",
+      "lastNameKana": "東海林 哲哉",
+      "departmant": "0",
+      "job": "0",
+      "staff_role": "0",
+      "other_role": "0",
+      "email": "email@gmail.com"
+    },
+    {
+      "firstName": "aaaa",
+      "lastName": "sssss",
+      "firstNameKana": "しょうじ てつや",
+      "lastNameKana": "東海林 哲哉",
+      "department": "0",
+      "job": "0",
+      "staff_role": "0",
+      "other_role": "0",
+      "email": "email@gmail.com"
+    }
+  ]
+}

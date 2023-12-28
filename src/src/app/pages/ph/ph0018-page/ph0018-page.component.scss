@@ -1,0 +1,114 @@
+.pharmacy-statistics-prescription-change-reports {
+  .detail-search {
+    text-decoration: underline;
+  }
+  .bottom-tooltip  {
+    right: 0;
+    top: 0.5rem;
+  }
+  #next-button {
+    margin-left: -6px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+  }
+  #prev-button {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  tr {
+    td {
+      padding: 0.5rem;
+    }
+  }
+}
+.on-tab {
+  z-index: 9;
+}
+.tbody-inverse tr:not(:last-child) th {
+  border-bottom-color: #D7D7D7;
+}
+.font-weight-bold {
+  height: 34px;
+}
+.page-head-backlink {
+  display: table-cell;
+  vertical-align: middle;
+  width: 50px;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  .fa {
+    background-color: #EEE;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+  }
+  &:hover {
+    opacity: .5;
+  }
+}
+.page-head-title {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  width: 100%;
+  &-text {
+    margin: 0;
+  }
+  &.page-head-title-spacing {
+    padding-right: 10px;
+  }
+}
+@media (max-width: 1199px) {
+  .bottom-tooltip  {
+    position:static;
+  }
+
+}
+
+@media print {
+  html, body {
+    width: 210mm;
+    height: 297mm;
+  }
+  body {
+    margin: 0px;
+    font-size: 12pt;
+  }
+  .no-print {
+    display: none;
+  }
+  .nav-tabs, .nav-link {
+    border: 1px transparent;
+    font-size: 18pt;
+    font-weight: bold;
+  }
+  .nav-tabs-responsive {
+    .nav-item.active {
+      width: 100%;
+      margin-left: 0;
+    }
+    :not(.active) {
+      display: none;
+    }
+  }
+  .tooltip {
+    display: none !important;
+  }
+  .nav-tabs-responsive > .nav-item:first-child {
+    margin-left: -25px !important;
+  }
+  .nav-tabs-responsive .nav-item.next {
+    margin-left: -170px !important;
+  }
+}
+.pd {
+  padding: 3px;
+}
+.pd-6 {
+  padding: 6px;
+}
+.pb-6 {
+  padding-bottom: 6px;
+}

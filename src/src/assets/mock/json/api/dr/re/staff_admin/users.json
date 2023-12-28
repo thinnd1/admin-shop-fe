@@ -1,0 +1,306 @@
+{
+  "page": "0",
+  "user": [
+    {
+      "id": "1",
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "firstNameKana": "しょうじ",
+      "lastNameKana": "てつや",
+      "jobType": "医師1",
+      "accountStatus": "1",
+      "department": {
+        "id": "1",
+        "name": "Root1",
+        "displayName": "Root1",
+        "children": [
+          {
+            "id": "9",
+            "name": "Root1-Sub1",
+            "displayName": "Root1-Sub1",
+            "children": [
+              {
+                "id": "10",
+                "name": "Root11-Sub1",
+                "displayName": "Root1-Sub2",
+                "children": [{
+                  "id": "11",
+                  "name": "Root1-Sub3",
+                  "displayName": "Root1-Sub3",
+                  "children": [{
+                    "id": "12",
+                    "name": "Root1-Sub4",
+                    "displayName": "Root1-Sub4"
+                  }]
+                }]
+              }
+            ]
+          }
+        ]
+      },
+      "stuffAuthority": "所属管理者",
+      "otherAuthority": "仲介者",
+      "mailAddress": "demo@drjoy.jp",
+      "mobileNo": "012-3456-7890",
+      "phsNo": "11111"
+    },
+    {
+      "id": "2",
+      "firstName": "東海林",
+      "lastName": "哲哉2",
+      "firstNameKana": "しょうじ",
+      "lastNameKana": "てつや2",
+      "jobType": "医師2",
+      "accountStatus": "2",
+      "department": {
+        "id": "1",
+        "name": "Root1",
+        "displayName": "Root1",
+        "children": [
+          {
+            "id": "9",
+            "name": "Root1-Sub1",
+            "displayName": "Root1-Sub1",
+            "children": [
+              {
+                "id": "10",
+                "name": "Root11-Sub1",
+                "displayName": "Root1-Sub2",
+                "children": [{
+                  "id": "11",
+                  "name": "Root1-Sub3",
+                  "displayName": "Root1-Sub3",
+                  "children": [{
+                    "id": "12",
+                    "name": "Root1-Sub4",
+                    "displayName": "Root1-Sub4"
+                  }]
+                }]
+              }
+            ]
+          }
+        ]
+      },
+      "stuffAuthority": "所属管理者",
+      "otherAuthority": "仲介者",
+      "mailAddress": "demo@drjoy.jp",
+      "mobileNo": "012-3456-7890",
+      "phsNo": "22222"
+    },
+    {
+      "id": "3",
+      "firstName": "東海林",
+      "lastName": "哲哉3",
+      "firstNameKana": "しょうじ",
+      "lastNameKana": "てつや3",
+      "jobType": "医師3",
+      "accountStatus": "1",
+      "department": {
+        "children": [
+          {
+            "displayName": "循環器内科",
+            "id": "11",
+            "name": "循環器内科",
+            "children": [
+              {
+                "displayName": "AAA",
+                "id": "11",
+                "name": "AAA"
+              }
+            ]
+          }
+        ],
+        "displayName": "循環器・呼吸器疾患センター",
+        "id": "1",
+        "name": "循環器・呼吸器疾患センター"
+      },
+      "stuffAuthority": "所属管理者",
+      "otherAuthority": "仲介者",
+      "mailAddress": "demo@drjoy.jp",
+      "mobileNo": "012-3456-7890",
+      "phsNo": "33333"
+    },
+    {
+      "id": "4",
+      "firstName": "東海林",
+      "lastName": "哲哉4",
+      "firstNameKana": "しょうじ",
+      "lastNameKana": "てつや4",
+      "jobType": "医師4",
+      "accountStatus": "1",
+      "department": {
+        "children": [
+          {
+            "displayName": "循環器内科",
+            "id": "11",
+            "name": "循環器内科"
+          }
+        ],
+        "displayName": "循環器・呼吸器疾患センター",
+        "id": "1",
+        "name": "循環器・呼吸器疾患センター"
+      },
+      "stuffAuthority": "所属管理者",
+      "otherAuthority": "仲介者",
+      "mailAddress": "demo@drjoy.jp",
+      "mobileNo": "012-3456-7890",
+      "phsNo": "44444"
+    },
+    {
+      "id": "5",
+      "firstName": "東海林",
+      "lastName": "哲哉5",
+      "firstNameKana": "しょうじ",
+      "lastNameKana": "てつや5",
+      "jobType": "医師5",
+      "accountStatus": "1",
+      "department": {
+        "children": [
+          {
+            "displayName": "循環器内科",
+            "id": "11",
+            "name": "循環器内科"
+          }
+        ],
+        "displayName": "循環器・呼吸器疾患センター",
+        "id": "1",
+        "name": "循環器・呼吸器疾患センター"
+      },
+      "stuffAuthority": "所属管理者",
+      "otherAuthority": "仲介者",
+      "mailAddress": "demo@drjoy.jp",
+      "mobileNo": "012-3456-7890",
+      "phsNo": "55555"
+    },
+    {
+      "id": "6",
+      "firstName": "東海林",
+      "lastName": "哲哉6",
+      "firstNameKana": "しょうじ",
+      "lastNameKana": "てつや6",
+      "jobType": "医師",
+      "accountStatus": "1",
+      "department": {
+        "children": [
+          {
+            "displayName": "循環器内科",
+            "id": "11",
+            "name": "循環器内科"
+          }
+        ],
+        "displayName": "循環器・呼吸器疾患センター",
+        "id": "1",
+        "name": "循環器・呼吸器疾患センター"
+      },
+      "stuffAuthority": "所属管理者",
+      "otherAuthority": "仲介者",
+      "mailAddress": "demo@drjoy.jp",
+      "mobileNo": "012-3456-7890",
+      "phsNo": "66666"
+    },
+    {
+      "id": "7",
+      "firstName": "東海林",
+      "lastName": "哲哉7",
+      "firstNameKana": "しょうじ",
+      "lastNameKana": "てつや7",
+      "jobType": "医師",
+      "accountStatus": "1",
+      "department": {
+        "children": [
+          {
+            "displayName": "循環器内科",
+            "id": "11",
+            "name": "循環器内科"
+          }
+        ],
+        "displayName": "循環器・呼吸器疾患センター",
+        "id": "1",
+        "name": "循環器・呼吸器疾患センター"
+      },
+      "stuffAuthority": "所属管理者",
+      "otherAuthority": "仲介者",
+      "mailAddress": "demo@drjoy.jp",
+      "mobileNo": "012-3456-7890",
+      "phsNo": "77777"
+    },
+    {
+      "id": "8",
+      "firstName": "東海林",
+      "lastName": "哲哉8",
+      "firstNameKana": "しょうじ",
+      "lastNameKana": "てつや8",
+      "jobType": "医師",
+      "accountStatus": "1",
+      "department": {
+        "children": [
+          {
+            "displayName": "循環器内科",
+            "id": "11",
+            "name": "循環器内科"
+          }
+        ],
+        "displayName": "循環器・呼吸器疾患センター",
+        "id": "1",
+        "name": "循環器・呼吸器疾患センター"
+      },
+      "stuffAuthority": "所属管理者",
+      "otherAuthority": "仲介者",
+      "mailAddress": "demo@drjoy.jp",
+      "mobileNo": "012-3456-7890",
+      "phsNo": "88888"
+    },
+    {
+      "id": "9",
+      "firstName": "東海林",
+      "lastName": "哲哉9",
+      "firstNameKana": "しょうじ",
+      "lastNameKana": "てつや9",
+      "jobType": "医師",
+      "accountStatus": "1",
+      "department": {
+        "children": [
+          {
+            "displayName": "循環器内科",
+            "id": "11",
+            "name": "循環器内科"
+          }
+        ],
+        "displayName": "循環器・呼吸器疾患センター",
+        "id": "1",
+        "name": "循環器・呼吸器疾患センター"
+      },
+      "stuffAuthority": "所属管理者",
+      "otherAuthority": "仲介者",
+      "mailAddress": "demo@drjoy.jp",
+      "mobileNo": "012-3456-7890",
+      "phsNo": "99999"
+    },
+    {
+      "id": "10",
+      "firstName": "東海林",
+      "lastName": "哲哉10",
+      "firstNameKana": "しょうじ",
+      "lastNameKana": "てつや10",
+      "jobType": "医師",
+      "accountStatus": "1",
+      "department": {
+        "children": [
+          {
+            "displayName": "循環器内科",
+            "id": "11",
+            "name": "循環器内科"
+          }
+        ],
+        "displayName": "循環器・呼吸器疾患センター",
+        "id": "1",
+        "name": "循環器・呼吸器疾患センター"
+      },
+      "stuffAuthority": "所属管理者",
+      "otherAuthority": "仲介者",
+      "mailAddress": "demo@drjoy.jp",
+      "mobileNo": "012-3456-7890",
+      "phsNo": "101010"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "status": 200,
+  "body": {
+    "calendarReferences": [
+      {
+        "color": 0,
+        "id": "string",
+        "visible": false
+      }
+    ]
+  }
+}

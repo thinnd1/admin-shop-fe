@@ -1,0 +1,8 @@
+<div class="popover popover-bottom color-option-calendar" (clickOutside)="hidePopupSetColor()">
+  <div class="popover-content">
+    <div class="popover-box " *ngFor="let listColor of listColors; let i = index" [ngClass]="{'active': checkColorActive(listColor, calendarReferent)}"
+         (click)="changeColor(listColor.colorInt, listColor.colorString)">
+      <div [ngStyle]="{'background':listColor.colorString}" class="box-bg color{{ listColor.colorInt }}"></div>
+    </div>
+  </div>
+</div>

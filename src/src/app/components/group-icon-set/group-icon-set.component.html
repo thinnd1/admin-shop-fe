@@ -1,0 +1,8 @@
+<div class="group-icon-set" (click)="onMouseClick($event)" [ngClass]="groupIconClassOptions()">
+  <div class="group-icon-set-inner rounded-circle avatar-img-bordered">
+    <app-group-icon class="group-icon-set-img group-icon-set-select" [groupId]="groupIconSetOptions.groupId" [iconSize]="groupIconSetOptions.iconSize"
+                    [groupAvatar]="groupAvatar"></app-group-icon>
+    <img class="group-icon-set-img group-icon-set-cover" [src]="'/assets/img/group-icon-over-' + lang + '.png'" alt="">
+  </div>
+  <img class="group-icon-set-btn" src="/assets/img/camera-icon.png" alt="" *ngIf="isAdminCheck()">
+</div>

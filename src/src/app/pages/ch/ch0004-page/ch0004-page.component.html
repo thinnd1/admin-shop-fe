@@ -1,0 +1,131 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents CH0004-->
+
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'MENU.ITEM.CH0004' | translate"></app-page-head>
+                </div>
+                <div class="form-group" [ngClass]="{'has-danger': messError.roomName}">
+                  <label class="mb-1">{{'COMMON_LABEL.ROOM_CHAT_NAME_LBL' | translate }}</label>
+                  <span class="d-block col-form-label text-danger fs12" *ngIf="messError.roomName">{{messError.roomName}}</span>
+                  <input type="text" class="form-control" placeholder="{{'CH0005.PLACE_HOLDER_NAME' | translate}}" [(ngModel)]="roomName">
+                </div>
+                <div class="form-group">
+                  <label for="exampleSelect1" class="mb-1">{{'COMMON_LABEL.SEARCH_BY_DEPARTMENT' | translate}}</label>
+                  <select class="form-control" id="exampleSelect1" [(ngModel)]="deptId" (ngModelChange)="changeSelectedDepartment($event)">
+                    <option value="">{{'COMMON_LABEL.ALL' | translate }}</option>
+                    <option *ngFor="let dept of listDepartment" value="{{dept.id}}" data-toggle="tooltip" data-placement="top" title="{{dept.text}}"
+                            id="department-{{dept.id}}">{{ (dept.text.length > 60) ? (dept.text.substr(0, 60) + '...') : dept.text}}</option>
+                  </select>
+                </div>
+                <div class="select-content d-flex pt-3 mb-4">
+                  <div class="select-col1">
+                    <p class="m-0">&nbsp;</p>
+                    <div class="select-container select-dr-pr">
+                      <div class="select-search p-2">
+                        <div class="search">
+                          <input class="search-input" type="text" placeholder="{{'MEMBER_SELECT.MEMBER_SEARCH' | translate}}" (keyup)="0" #keyWord>
+                          <button type="submit" class="search-btn">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                          </button>
+                        </div>
+                      </div><!-- //select-search-->
+                      <div class="select-container-drag pt-3 pb-1">
+                        <div class="mb-1 px-2">
+                          <label class="custom-control custom-checkbox mb-0">
+                            <input type="checkbox" class="custom-control-input" [checked]="checkAllUser" (change)="changeCheckAllUser(checkAllUser)">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">{{'MEMBER_SELECT.MEMBER_ALL_SELECT' | translate }}</span>
+                          </label>
+                        </div>
+                        <ul class="select-user m-0 p-0">
+                          <li class="d-flex align-items-center p-2" *ngFor="let user of listUserCH | searchFilter: {fullName: keyWord.value, fullNameKana: keyWord.value}, let i = index"
+                              (click)="editSelectedUser(user)" [ngClass]="{'selected': user.isSelected}">
+                            <div class="select-user-img"><app-face-icon [iconSize]="40" [userInfo]="user"></app-face-icon></div>
+                            <div class="select-user-name fs18 pl-2">{{user.fullName}}</div>
+                          </li>
+                        </ul>
+                      </div><!-- //select-container-drag -->
+                    </div><!-- //select-dr-pr -->
+                  </div>
+                  <div class="select-col2 d-flex">
+                    <div class="button-switcher">
+                      <div class="button-switcher-inner align-middle text-center">
+                        <button class="btn btn-sm btn-outline-secondary my-2 mx-1" (click)="editAddMember()"><i class="fa fa-arrow-right  fs24" aria-hidden="true"></i></button>
+                        <button class="btn btn-sm btn-outline-secondary my-2 mx-1" (click)="editRemoveMember()"><i class="fa fa-arrow-left fs24" aria-hidden="true"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="select-col3">
+                    <p class="m-0">{{'COMMON_LABEL.LBL_SELECTED_MEMBER' | translate }}</p>
+                    <span class="d-block col-form-label text-danger fs12" *ngIf="messError.member">{{messError.member}}</span>
+                    <div class="select-container select-member">
+                      <div class="select-search p-2">
+                        <div class="search">
+                          <input class="search-input" type="text" placeholder="{{'MEMBER_SELECT.MEMBER_SEARCH' | translate }}" #searchMember (keyup)="0">
+                          <button type="submit" class="search-btn">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                          </button>
+                        </div>
+                      </div><!-- //select-search-->
+                      <div class="select-container-drag pb-1">
+                        <div class="d-flex select-box mx-1 mt-1 mb-2">
+                          <div class="select-user-txt pt-2 p-1">{{'MEMBER_SELECT.ADMIN' | translate }}</div>
+                          <div class="select-user-txt pt-2 p-1">{{'COMMON_LABEL.FULL_NAME' | translate }}</div>
+                        </div>
+                        <ul class="select-user m-0 p-0">
+                          <li class="d-flex align-items-center pl-4 py-2" *ngFor="let member of listMember | searchFilter: {fullName: searchMember.value, fullNameKana: searchMember.value} : false, let i = index"
+                              (click)="editSelectedMember(member)" [ngClass]="{'selected': member.isSelected}">
+                            <div class="checkbox mt-2">
+                              <label class="custom-control custom-checkbox mb-0">
+                                <input type="checkbox" class="custom-control-input" [checked]="member.authority === 'ADMIN'" (change)="editSelectedAdmin(member)">
+                                <span class="custom-control-indicator"></span>
+                              </label>
+                            </div>
+                            <div class="select-user-img"><app-face-icon [iconSize]="40" [userInfo]="member"></app-face-icon></div>
+                            <div class="select-user-name fs18 pl-2">{{member.fullName}}</div>
+                          </li>
+                        </ul>
+                      </div><!-- //select-container-drag -->
+                    </div><!-- //select-dr-pr -->
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center mb-2">
+                  <button class="btn btn-primary mr-2" type="submit" (click)="putEditRoomChat()">{{'COMMON_BTN.SAVE' | translate }}</button>
+                  <button class="btn btn-danger" type="submit" (click)="deleteRoomChat()">{{'COMMON_BTN.DELETE' | translate}}</button>
+                </div>
+
+              </div>
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

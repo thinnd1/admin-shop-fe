@@ -1,0 +1,251 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+
+/*****/
+textarea{
+  min-height: 30px;
+  resize: vertical;
+}
+
+.re0010-main{
+  margin: auto;
+  max-width: 1000px;
+  text-align: center;
+  -ms-flex-preferred-size:inherit;
+
+}
+
+.tittle {
+  text-align: center;
+  border-bottom: 1px solid #CCC;
+  margin-bottom: 50px;
+}
+
+.title-head {
+  color: #3fa9f5;
+  border-bottom: solid 1px #d7d7d7;
+  .logo {
+    width: 172px;
+    fill: #3fa9f5;
+    height:35px;
+  }
+}
+.register-input{
+  display: none;
+}
+.table-example {
+  td {
+    border: none;
+  }
+}
+.table-branch {
+  table {
+    tbody {
+      tr {
+        .sale-info {
+          vertical-align: middle;
+        }
+        th {
+          white-space: nowrap;
+          width: 1rem;
+          min-width: 263px;
+        }
+        td {
+          .btn-close {
+            line-height: 10px;
+            cursor: pointer;
+          }
+          .form-group {
+            position: relative;
+          }
+          span {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+.border-red {
+  border: 1px solid #D21D29;
+}
+
+.regulation-content {
+  background: #EEE;
+  padding: 20px 20px 10px;
+  .regulation-content-txt {
+    background: #FFF;
+    white-space: pre-line;
+    height: 155px;
+    overflow-y: auto;
+    border: 1px solid $gray-light;
+  }
+}
+
+.name-space {
+  display: flex;
+  align-items: flex-end;
+}
+
+.preline-text {
+  white-space: pre-line;
+}
+
+/**** Modal *****/
+#modal-example {
+  @include media-breakpoint-up(xl) {
+    .modal-dialog {
+      max-width: 1000px;
+    }
+    .modal-body {
+      padding: {
+        right: 60px;
+        left: 60px;
+      }
+    }
+  }
+  @include media-breakpoint-down(lg) {
+    .modal-body {
+      padding: {
+        right: 30px;
+        left: 30px;
+      }
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    .modal-body {
+      padding: {
+        right: 15px;
+        left: 15px;
+      }
+    }
+  }
+  .modal-example-item {
+    .modal-example-title {
+      .fa {
+        vertical-align: text-top;
+        padding: 0 10px 0 0;
+        &.fa-circle-o {
+          color: #7bbd45;
+        }
+        &.fa-remove {
+          color: #d11d28;
+        }
+      }
+    }
+    .modal-example-list {
+      line-height: 1.8;
+    }
+  }
+}
+
+.table-confirm {
+  border-bottom: 1px solid #d7d7d7;
+  .table {
+    thead {
+      tr {
+        th,
+        td {
+          padding: 0.4rem;
+          border: none;
+          vertical-align: top;
+          span {
+            display: block;
+          }
+        }
+        th {
+          white-space: nowrap;
+          width: 1rem;
+        }
+        .table-col-2 {
+          min-width: 9rem;
+          width: 20%;
+        }
+        .table-col-3 {
+          width: 13rem;
+        }
+      }
+    }
+  }
+}
+
+.tel-input-wrap {
+  .form-control-tel {
+    width: 4.3rem;
+  }
+   :first-child .form-control-tel {
+    width: 3.8rem;
+  }
+}
+
+.date-select-wrap {
+  select.form-control {
+    width: auto;
+  }
+}
+
+.graduate-input-wrap {
+  .input-group {
+    width: 17rem;
+  }
+}
+
+.era-middle {
+  padding: 10px 10px 0px 10px;
+  color: #333;
+}
+
+//@media (max-width: 767px)
+@include media-breakpoint-down(sm) {
+  .table-branch {
+    table {
+      tbody {
+        tr {
+          th,
+          td {
+            width: 100%;
+            display: block;
+          }
+          td {
+            .form-group-span {
+              max-width: 8%;
+            }
+          }
+        }
+      }
+    }
+  }
+  .table-confirm {
+    .table {
+      thead {
+        tr {
+          th,
+          td {
+            width: 100%;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+//@media (max-width: 575px)
+@include media-breakpoint-down(xs) {
+  .date-select-wrap {
+    select.form-control,
+    .data-select {
+      width: 100%;
+    }
+  }
+  .graduate-input-wrap {
+    .input-group {
+      width: 100%;
+    }
+    .graduate-string-length {
+      width: 100%;
+      padding: 10px 10px 0;
+    }
+  }
+}

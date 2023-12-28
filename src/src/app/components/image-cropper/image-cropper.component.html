@@ -1,0 +1,29 @@
+<div id="{{imageCropperOptions.id}}" class="image-cropper-inner-wrap" [ngClass]="{'card-cropper-inner-wrap':imageType}">
+  <div class="image-cropper-container">
+    <img [src]="imagePath" class="image-cropper-picture" alt="{{ 'IMAGE_CROPPER.IMAGE' | translate }}" (click)="onMouseClick($event)" (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">
+  </div>
+  <div class="image-cropper-btn-group-wrap">
+    <div class="btn-group">
+      <label class="btn btn-secondary btn-upload" title="{{ 'IMAGE_CROPPER.IMAGE_UPLOAD' | translate }}">
+        <input type="file" class="sr-only image-cropper-upload" #fileInput (click)="fileInput.value = null"  value=""  accept=".jpg,.jpeg,.png,.gif" (change)="imageUpload($event)">
+        <span class="fa fa-upload"></span>
+      </label>
+      <button type="button" class="btn btn-secondary btn-zoom-in" title="{{ 'IMAGE_CROPPER.IMAGE_ZOOM_IN' | translate }}" [attr.disabled]="btnsDisabledFlag" (click)="imageZoomIn($event)">
+        <span class="fa fa-search-plus"></span>
+      </button>
+      <button type="button" class="btn btn-secondary btn-zoom-out" title="{{ 'IMAGE_CROPPER.IMAGE_ZOOM_OUT' | translate }}" [attr.disabled]="btnsDisabledFlag" (click)="imageZoomOut($event)">
+        <span class="fa fa-search-minus"></span>
+      </button>
+      <button type="button" class="btn btn-secondary btn-rotate-left" title="{{ 'IMAGE_CROPPER.IMAGE_ROTATE_LEFT' | translate }}" [attr.disabled]="btnsDisabledFlag" (click)="imageRotateLeft($event)">
+        <span class="fa fa-rotate-left"></span>
+      </button>
+      <button type="button" class="btn btn-secondary btn-rotate-right" title="{{ 'IMAGE_CROPPER.IMAGE_ROTATE_RIGHT' | translate }}" [attr.disabled]="btnsDisabledFlag" (click)="imageRotateRight($event)">
+        <span class="fa fa-rotate-right"></span>
+      </button>
+      <button type="button" class="btn btn-secondary btn-destroy" title="{{ 'IMAGE_CROPPER.IMAGE_DELETE' | translate }}" [attr.disabled]="btnsDisabledFlag" (click)="imageDelete($event)">
+        <span class="fa fa-remove"></span>
+      </button>
+    </div>
+    <p><small>{{ 'IMAGE_CROPPER.IMAGE_INFO' | translate }}</small></p>
+  </div>
+</div>

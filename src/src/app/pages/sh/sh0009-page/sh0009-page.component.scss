@@ -1,0 +1,158 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+
+.setting-item {
+  .lst-item {
+    li {
+      > div {
+        padding:0 0.5rem;
+      }
+      display: flex;
+      margin: 0 -0.5rem 0.5rem;
+      list-style: none;
+      .setting-color {
+        width: 2rem;
+        min-width: 2rem;
+      }
+      .color-wrap {
+        width: 1.5rem;
+        height:1.5rem;
+        position: relative;
+        .color-box {
+          display: block;
+          width: 1.5rem;
+          height:1.5rem;
+          cursor: pointer;
+          border: 1px solid #dcdcdc;
+        }
+      }
+      .setting-ttl {
+        min-width: 4.5rem;
+      }
+      .short-name {
+        width:9rem;
+        min-width: 9rem;
+      }
+      .close-setting {
+        color: #3D7EB6;
+        line-height: 28px;
+        cursor: pointer;
+      }
+      .setting-name {
+        width:68%;
+      }
+    }
+  }
+}
+.modal-color {
+  display: none;
+  position: absolute;
+  border: 1px solid #ddd;
+  padding: 1rem 1rem 0.5rem;
+  left:-6.7rem;
+  top: 1.5rem;
+  width:15rem;
+  background-color: #fff;
+  z-index: 1000;
+  .lst-color {
+    margin-left:-0.75rem; 
+    li {
+      float: left;
+      margin: 0 0 0.5rem 0.75rem;
+    }
+  }
+  &:after {
+    position: absolute;
+    content: "";
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 12px dashed #ddd;
+    display: inline-block;
+    height: 0;
+    vertical-align: middle;
+    width: 0;
+    left:50%;
+    top:-12px;
+    margin-left:-10px; 
+  }
+  &:before {
+    position: absolute;
+    content: "";
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 12px dashed #fff;
+    display: inline-block;
+    height: 0;
+    vertical-align: middle;
+    width: 0;
+    left:50%;
+    top:-11px;
+    margin-left:-9px;
+    z-index: 10;
+  }
+}
+.bg-green {
+  background-color: #c2e0ba;
+}
+.bg-green-light {
+  background-color: #e7efd8;
+}
+.bg-purple {
+  background-color: #e4cff9;
+}
+.bg-pink {
+  background-color: #ffbdc5;
+}
+.bg-pink-light {
+  background-color: #ffebfb;
+}
+.bg-orange {
+  background-color: #ffcd97;
+}
+.bg-white {
+  background-color: #fff;
+}
+.bg-yellow {
+  background-color: #fff6a4;
+}
+.bg-grey {
+  background-color: #dcdcdc;
+}
+.bg-blue {
+  background-color: #abe6ed;
+}
+.bg-blue-light {
+  background-color: #d9fdff;
+}
+.bg-brown {
+  background-color: #d8c1ab;
+}
+
+
+
+@include media-breakpoint-down(lg) {
+  
+}
+@include media-breakpoint-down(md) {
+  .setting-item {
+    .lst-item {
+      li {
+        display: block;
+        > div {
+          float: left;
+        }
+        .setting-ttl {
+          clear: both;
+        }
+        .short-name {
+          width:calc(100% - 15rem);
+          min-width: 9rem;
+        }
+        .setting-name {
+          width:calc(100% - 7rem);
+        }
+      }
+    }
+  }
+}
+

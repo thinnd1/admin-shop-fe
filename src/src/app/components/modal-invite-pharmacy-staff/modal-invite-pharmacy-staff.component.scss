@@ -1,0 +1,36 @@
+// import common setting
+@import './../../../assets/styles/import';
+.search-email {
+  position: relative;
+  .search-email-box {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 29px;
+    border-radius:0 ;
+    border: solid 1px #CCC;
+    @include border-radius(0);
+    background-color: #FFF;
+    .d-flex {
+      cursor: pointer;
+      &:hover {
+        background: #67d3f3;
+      }
+    }
+  }
+}
+.list-email {
+  min-height: 300px;
+  border: solid 1px #CCC;
+  @include border-radius(0.3rem);
+  background-color: #FFF;
+  .list-email-inner {
+    border-bottom: 1px solid #ccc;
+  }
+  .fa {
+    cursor: pointer;
+  }
+}
+.has-danger input {
+  border-color: #D21D29;
+}

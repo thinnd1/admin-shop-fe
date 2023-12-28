@@ -1,0 +1,73 @@
+@import '../../../../assets/styles/_import';
+
+.meeting-dl {
+  overflow: hidden;
+  dt {
+    border-left: 10px solid #E1E0DF;
+    border-bottom: 1px solid #E1E0DF;
+  }
+}
+
+.applicant {
+  border-top: 1px solid rgba(0,0,0,0.2);
+}
+.applicant-bd {
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+.applicant-box,
+.applicant-box-fl,
+.applicant-box-top {
+  @include border-radius(0.25rem);
+}
+.applicant-box {
+  background: #eee;
+}
+.applicant-box-fl {
+  border: 1px solid rgba(0,0,0,0.2);
+  .applicant-box-top {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+}
+.disable-option{
+  opacity: 0.3;
+  background: #f7f8f8;
+}
+.col-user {
+  max-width:360px;
+  width:80%;
+}
+
+.bg-comment {
+  background: #eee;
+}
+.comment-business {
+  border-left: 4px solid #eee;
+}
+.support-content-txt .break-line {
+  white-space: pre-wrap;
+}
+
+@media print {
+  .print-page, .page-head-backlink, .title-top, #login-block {
+    display: none;
+  }
+  .info-meeting-request {
+    page-break-inside: avoid;
+    .print-page-input {
+      flex: 0 0 16.66666667%;
+      max-width: 16.66666667%;
+    }
+  }
+  .bg-comment {
+    background-color: #eee !important;
+    -webkit-print-color-adjust: exact !important; /*Chrome, Safari */
+    color-adjust: exact !important; /*Firefox*/
+  }
+
+  .comment-business {
+    border-left: 4px solid #eee;
+  }
+  .support-content-txt .break-line {
+    white-space: pre-wrap;
+  }
+}

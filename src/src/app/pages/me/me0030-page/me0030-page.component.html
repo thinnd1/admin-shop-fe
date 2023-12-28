@@ -1,0 +1,81 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid infinite-scroll">
+      <div class="row infinite-scroll-content" [infiniteScrollDistance]="1" [infiniteScrollThrottle]="20" infinite-scroll [scrollWindow]="true" (scrolled)="onScrollDown()">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents ME0001-->
+
+              <div class="col">
+
+                <div class="page-head" id='title-head'>
+                  <app-page-head [title]="'ME0030.TITLE' | translate"></app-page-head>
+                </div>
+                <div class="button-control row" id="list-select-options">
+                  <div class="col-12 col-xl-9 mb-5">
+                    <div class="select-list row">
+                      <div class="col-md-4 mb-4 mb-md-0">
+                        <p class="mb-0">{{'MSG.ME.MEETING_REQUEST.FROM_REQUEST' | translate}}</p>
+                        <select class="form-control" [(ngModel)]="conditionSearch.sourceRequest" (ngModelChange)="changeOptionDisplay()">
+                          <option *ngFor="let request of requestSource" [value]="request.code">{{request.name}}</option>
+                        </select>
+                      </div>
+                      <div class="col-md-4 mb-4 mb-md-0">
+                        <p class="mb-0">{{'MSG.ME.LBL_MEETING_SITUATION' | translate}}</p>
+                        <select class="form-control" [(ngModel)]="conditionSearch.meetingStatus" (ngModelChange)="changeOptionDisplay()" [disabled]="conditionSearch.order === '2'">
+                          <option *ngFor="let itemStatus of status" [value]="itemStatus.code">{{'MEETING_STATUS.' + itemStatus.id | translate}}</option>
+                        </select>
+                      </div>
+                      <div class="col-md-4">
+                        <p class="mb-0">{{'MSG.ME.LBL_SORT' | translate}}</p>
+                        <select class="form-control" [(ngModel)]="conditionSearch.order" (ngModelChange)="changeOptionDisplay()">
+                          <option *ngFor="let itemSort of sort" [value]="itemSort.code">{{'MSG.ME.SORT_MEETING_REQUEST_ME030.' + itemSort.id | translate}}</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-xl-3 group-btn  mb-5 d-flex justify-content-end align-items-end">
+                    <button class="btn btn-secondary ml-3" (click)="printPage()"><i class="fa fa-print"></i></button>
+                  </div>
+                </div><!-- //button-control  -->
+                <!--<h2 class="mb-2">医療者からのリクエスト</h2>-->
+                <div class="metting-detail" id="detail-meeting" *ngIf="listRequestMeeting">
+                  <div *ngFor="let meeting of listRequestMeeting">
+                    <app-request-meeting-pr [meeting]="meeting"></app-request-meeting-pr>
+                  </div>
+                </div><!-- //metting-detail -->
+
+                <div class="d-flex justify-content-center" *ngIf="searchZeroRecord && listRequestMeeting.length === 0">{{ 'ME0030.SEARCH_ZERO_RECORD' | translate }}</div>
+
+              </div>
+
+
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

@@ -1,0 +1,32 @@
+
+<div class="img-group d-flex" >
+  <div *ngFor="let file of listAttachments">
+    <div class="support-content-img img-detail" *ngIf="getFileType(file) === 'image'">
+      <figure class="figure" [style.width]="file.resizedWidth">
+        <img class="img-fluid" appImgPreloader [targetSource]="file?.thumb_url" (click)="filePreviewOpen($event, file.fileId)" [title]="file.name">
+      </figure>
+    </div>
+  </div>
+  <div *ngFor="let file of listAttachments">
+    <div class="support-file">
+      <video class="d-flex img-detail" [src]="file.url" *ngIf="getFileType(file) === 'video'" [style.width]="file.resizedWidth"
+             controls="controls" autobuffer="true" controlsList="nodownload" (click)="filePreviewOpen($event, file.fileId)">
+      </video>
+      <br>
+    </div>
+  </div>
+</div>
+
+<div *ngFor="let file of listAttachments" >
+  <div *ngIf="getFileType(file) === 'audio'" class="audio-detail">
+    <audio  controls="controls" class="d-flex w-100"  controlsList="nodownload" [src]="file.url" (click)="filePreviewOpen($event, file.fileId)">
+    </audio >
+    <a href="#" (click)="downloadFile($event, file)"><i class="fa fa-paperclip pr-1 fs24"></i> {{file.name}}</a>
+  </div>
+</div>
+
+<div *ngFor="let file of listAttachments" >
+  <div *ngIf="['image', 'video', 'audio'].indexOf(getFileType(file)) < 0">
+    <a href="#" (click)="downloadFile($event, file)"><i class="fa fa-paperclip pr-1 fs24"></i>{{file.name}} {{file.size | formatSizeUnits}}</a>
+  </div>
+</div>

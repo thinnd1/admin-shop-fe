@@ -1,0 +1,92 @@
+{
+  "handleList": [
+    {
+      "userId": "user0001",
+      "avatar": "image.png",
+      "department": {
+        "children": [
+          {}
+        ],
+        "displayName": "Ominext",
+        "id": "1234567890",
+        "name": "ominext",
+        "path": "/ominext"
+      },
+      "firstName": "nhat",
+      "firstNameKana": "string",
+      "image": "string",
+      "lastName": "member 1",
+      "lastNameKana": "string",
+      "mediatorsList": [
+        "string"
+      ],
+      "officeUserId": "string"
+    },
+    {
+      "userId": "user0007",
+      "avatar": "image.png",
+      "department": {
+        "children": [
+          {}
+        ],
+        "displayName": "Ominext",
+        "id": "1234567890",
+        "name": "ominext",
+        "path": "/ominext"
+      },
+      "firstName": "hoang",
+      "firstNameKana": "string",
+      "image": "string",
+      "lastName": "member 7",
+      "lastNameKana": "string",
+      "mediatorsList": [
+        "string"
+      ],
+      "officeUserId": "string"
+    },
+    {
+      "userId": "user0006",
+      "avatar": "image.png",
+      "department": {
+        "children": [
+          {}
+        ],
+        "displayName": "Ominext",
+        "id": "1234567890",
+        "name": "ominext",
+        "path": "/ominext"
+      },
+      "firstName": "hoang",
+      "firstNameKana": "string",
+      "image": "string",
+      "lastName": "member 6",
+      "lastNameKana": "string",
+      "mediatorsList": [
+        "string"
+      ],
+      "officeUserId": "string"
+    },
+    {
+      "userId": "user0002",
+      "avatar": "image.png",
+      "department": {
+        "children": [
+          {}
+        ],
+        "displayName": "Ominext",
+        "id": "1234567890",
+        "name": "ominext",
+        "path": "/ominext"
+      },
+      "firstName": "nam",
+      "firstNameKana": "string",
+      "image": "string",
+      "lastName": "member 2",
+      "lastNameKana": "string",
+      "mediatorsList": [
+        "string"
+      ],
+      "officeUserId": "string"
+    }
+  ]
+}

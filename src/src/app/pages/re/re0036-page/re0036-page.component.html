@@ -1,0 +1,68 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'DOC_TITLE.RE0036' | translate"></app-page-head>
+                </div>
+                <!--contents RE0036-->
+                <div class="publish-profile">
+                  <form #settingForm="ngForm" (ngSubmit)="putMrSettingPublic()">
+                    <table class="table table-bordered table-publish mb-5">
+                      <tbody class="tbody-inverse">
+                      <tr>
+                        <th>{{'RE0036.SETTING_HEAD' | translate}}</th>
+                        <td>
+                          <label class="custom-control custom-radio mb-0 mr-5">
+                            <input id="radio1" name="visibleToAllHospital" [value]="true" [(ngModel)]="model.visibleToAllHospital" type="radio"
+                                   class="custom-control-input">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">{{'RE0036.CHECKBOX_1' | translate}}</span>
+                          </label>
+                          <label class="custom-control custom-radio mb-0">
+                            <input id="radio2" name="visibleToAllHospital" [value]="false" [(ngModel)]="model.visibleToAllHospital" type="radio"
+                                   class="custom-control-input">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">{{'RE0036.CHECKBOX_2' | translate}}</span>
+                          </label>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                    <div class="d-flex justify-content-center">
+                      <button class="btn btn-primary" type="submit">{{'BTN.SAVE' | translate}}</button>
+                    </div>
+                  </form>
+                </div>
+                <!-- //contents -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--<div class="col-12 col-lg-3 col-sub">-->
+        <!--<app-col-sub></app-col-sub>-->
+        <!--</div>-->
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

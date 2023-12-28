@@ -1,0 +1,20 @@
+<div class="modal-input-custom">
+  <p>{{params.message}}</p>
+  <form [formGroup]="fb">
+    <div *ngIf="prop.type === 'email'">
+      <div class="col-form-label fs13 text-danger" *ngIf="isViewError(fb.get('input'), 'required')">{{'VAL.REQUIRED_EMAIL' | translate}}</div>
+      <div class="col-form-label fs13 text-danger" *ngIf="isViewError(fb.get('input'), 'minLength')">{{'VAL.LENGHT_EMAIL' | translate}}</div>
+      <div class="col-form-label fs13 text-danger" *ngIf="isViewError(fb.get('input'), 'maxLength')">{{'VAL.LENGHT_EMAIL' | translate}}</div>
+      <div class="col-form-label fs13 text-danger" *ngIf="isViewError(fb.get('input'), 'pattern')">{{'VAL.ILLEGAL_FORMAT_EMAIL' | translate}}</div>
+    </div>
+    <div class="form-group mb-0" [ngClass]="{'has-danger':isViewError(fb.get('input'))}">
+      <input class="form-control" formControlName="input"
+             [type]="prop.type"
+             [placeholder]="prop.placeholder | translate"
+             [autocomplete]="prop.autocomplete">
+    </div>
+  </form>
+  <div>
+    <p></p>
+  </div>
+</div>

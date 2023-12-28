@@ -1,0 +1,232 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+	<app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+	<app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap">
+	<div class="container-fluid">
+	  <div class="row">
+		<div class="col col-main">
+		  <div class="col-main-inner">
+			<div class="row">
+			  <!--contents-->
+			  <!--contents SH0004-->
+
+			  <div class="col">
+				<div class="page-head">
+				  <app-page-head [title]="'SH0004.PAGE_TITLE' | translate"></app-page-head>
+				</div>
+				<div class="shift-request mb-5">
+					<div class="noti-re-register rounded mb-3 p-3">
+						<p class="mb-2">募集内容が変更されました。再度、提出をお願いします。</p>
+						<p class="mb-2">変更された項目：募集期間, 提出期限, 備考</p>
+						<p class="mb-2">追加された項目：夜勤NG, 夜勤希望</p>
+						<p class="mb-0">削除された項目：その他の予定 (学会、研修等)</p>
+					</div>
+					<p class="pb-3">2017年6月1日(金) ～ 2017年7月31日(日) のシフト希望を募集します。2017年5月1日(金) 19(00 までに提出してください。</p>
+					<div class="mb-5">
+						<p class="mb-2">6月10日は監査が入りますので、担当者は出勤をお願いします。</p>
+						<p class="mb-2">6月20日は創立祭のため、やむを得ない場合以外はなるべく出勤をお願いします。</p>
+						<p class="mb-0">また、全国呼吸器内科学会へ登壇・参加される方は記載してください。 <span class="readMore">... もっと読む</span></p>
+					</div>
+					<div class="form-shift mb-5">
+						<h2 class="mb-3">希望休</h2>
+						<p>希望日を入力してください。希望日がお休みにならない場合もございます。</p>
+						<div class="add-wrap mb-5 align-items-end">
+							<div class="input-date has-danger">
+								<p class="mb-0 text-danger fs12">必須項目です</p>
+								<input class="form-control" type="" name="" placeholder="" value="2017/06/01">
+							</div>
+							<div class="select-type has-danger">
+								<p class="mb-0 text-danger fs12">必須項目です</p>
+								<select class="form-control">
+									<option>種別を選択</option>
+									<option>種別を選択</option>
+								</select>
+							</div>
+							<div class="select-day has-danger">
+								<p class="mb-0 text-danger fs12">必須項目です</p>
+								<select class="form-control">
+									<option>終日</option>
+								</select>
+							</div>
+							<div class="add-ttl pl-2 py-1 text-left text-lg-right">理由</div>
+							<div class="add-text">
+								<input class="form-control" type="" name="" placeholder="100文字以内">
+								<p class="count-text pt-1 mb-0">0/100</p>
+							</div>
+							<div class="close-add text-right">
+								<span class="btn-close"><i class="fa fa-close fs35 align-middle"></i></span>
+							</div>
+						</div>
+						<div class="add-wrap mb-5 align-items-end">
+							<div class="input-date has-danger">
+								<p class="mb-0 text-danger fs12">必須項目です</p>
+								<input class="form-control" type="" name="" placeholder="" value="2017/06/01">
+							</div>
+							<div class="select-type has-danger">
+								<p class="mb-0 text-danger fs12">必須項目です</p>
+								<select class="form-control">
+									<option>種別を選択</option>
+									<option>種別を選択</option>
+								</select>
+							</div>
+							<div class="select-day">
+								<select class="form-control">
+									<option>終日</option>
+								</select>
+							</div>
+							<div class="add-ttl pl-2 py-1 text-left text-lg-right">理由</div>
+							<div class="add-text">
+								<input class="form-control" type="" name="" placeholder="100文字以内">
+								<p class="count-text pt-1 mb-0">0/100</p>
+							</div>
+							<div class="close-add text-right">
+								<span class="btn-close"><i class="fa fa-close fs35 align-middle"></i></span>
+							</div>
+						</div>
+						<div><a class="add-link" href=""><i class="fa fa-plus-square"></i>追加</a></div>
+					</div>
+					<div class="form-shift mb-5">
+						<h2 class="mb-3">夜勤NG <span class="noti-msg fs16 d-inline-block pl-4"><i class="fa fa-exclamation-circle text-danger"></i> 追加された項目</span></h2>
+						<p>当直に入れない日を入力してください。理由も併せてご記入ください。承認されない場合もございます。</p>
+						<div class="add-wrap align-items-end mb-3">
+							<div class="input-date has-danger">
+								<p class="mb-0 text-danger fs12">必須項目です</p>
+								<input class="form-control" type="" name="" placeholder="" value="2017/06/01">
+							</div>
+							<div class="select-type has-danger">
+								<p class="mb-0 text-danger fs12">必須項目です</p>
+								<select class="form-control">
+									<option>種別を選択</option>
+									<option>種別を選択</option>
+								</select>
+							</div>
+							<div class="add-ttl pl-2 py-1 text-left text-lg-right w-20">理由・その他の場合<span class="text-danger">※</span></div>
+								<div class="add-text">
+								<input class="form-control" type="" name="" placeholder="100文字以内">
+								<p class="count-text pt-1 mb-0">0/100</p>
+							</div>
+							<div class="close-add text-right">
+								<span class="btn-close"><i class="fa fa-close fs35 align-middle"></i></span>
+							</div>
+						</div>
+						<div><a class="add-link" href=""><i class="fa fa-plus-square"></i>追加</a></div>
+					</div>
+					<div class="form-shift mb-5">
+						<h2 class="mb-3">夜勤希望 <span class="noti-msg fs16 d-inline-block pl-4"><i class="fa fa-exclamation-circle text-danger"></i> 追加された項目</span></h2>
+						<p>当直希望日がありましたら入力してください。希望日が当直にならない場合もございます。</p>
+						<div class="add-wrap mb-3">
+							<div class="input-date"><input class="form-control" type="" name="" placeholder="" value="2017/06/01"></div>
+							<div class="close-add text-right">
+								<span class="btn-close"><i class="fa fa-close fs35"></i></span>
+							</div>
+						</div>
+						<div><a class="add-link" href=""><i class="fa fa-plus-square"></i>追加</a></div>
+					</div>
+					<div class="form-shift mb-5">
+						<h2 class="mb-3">外勤予定</h2>
+						<p>すでに決まっている外勤予定がありましたら入力してください。その他を選択した場合は、備考欄に外勤先をご記入ください。</p>
+						<div class="add-wrap align-items-end mb-3">
+							<div class="input-date"><input class="form-control" type="" name="" placeholder="" value="2017/06/01"></div>
+							<div class="add-check w-45 pt-1">
+								<p class="mb-0 text-danger fs12">必須項目です</p>
+								<div>
+									<label class="custom-control custom-checkbox mr-2">
+									  <input type="checkbox" class="custom-control-input">
+									  <span class="custom-control-indicator"></span>
+									  <span class="custom-control-description">終日</span>
+									</label>
+									<label class="custom-control custom-checkbox mr-2 under-check">
+									  <input type="checkbox" class="custom-control-input">
+									  <span class="custom-control-indicator"></span>
+									  <span class="custom-control-description">午前</span>
+									</label>
+									<label class="custom-control custom-checkbox mr-2 under-check">
+									  <input type="checkbox" class="custom-control-input">
+									  <span class="custom-control-indicator"></span>
+									  <span class="custom-control-description">午後</span>
+									</label>
+									<label class="custom-control custom-checkbox mr-2 under-check">
+									  <input type="checkbox" class="custom-control-input">
+									  <span class="custom-control-indicator"></span>
+									  <span class="custom-control-description">夜間</span>
+									</label>
+								</div>
+							</div>
+							<div class="select-type">
+								<select class="form-control">
+									<option>種別を選択</option>
+									<option>種別を選択</option>
+								</select>
+							</div>
+							<div class="add-ttl pl-2 py-1 text-left text-lg-right">備考</div>
+								<div class="add-text">
+								<input class="form-control" type="" name="" placeholder="100文字以内">
+								<p class="count-text pt-1 mb-0">0/100</p>
+							</div>
+							<div class="close-add text-right">
+								<span class="btn-close"><i class="fa fa-close align-middle fs35"></i></span>
+							</div>
+						</div>
+						<div><a class="add-link" href=""><i class="fa fa-plus-square"></i>追加</a></div>
+					</div>
+					<div class="form-shift mb-5 shift-remove">
+						<h2 class="mb-3">その他の予定 (学会、研修等) <span class="noti-msg fs16 d-inline-block pl-4"><i class="fa fa-exclamation-circle text-danger"></i> 削除された項目</span></h2>
+						<p>すでに決まっている学会や研修等がありましたら入力してください。名称/場所/時間帯も併せてご記入ください。</p>
+						<div class="add-wrap mb-3">
+							<div class="input-date"><input class="form-control" type="" name="" placeholder="" value="2017/06/01"></div>
+							<div class="select-day">
+								<select class="form-control">
+									<option>終日</option>
+								</select>
+							</div>
+							<div class="py-1 px-2">～</div>
+							<div class="select-day">
+								<select class="form-control">
+									<option>終日</option>
+								</select>
+							</div>
+							<div class="add-ttl pl-2 py-1 text-left text-lg-right w-20">名称/場所/時間帯等<span class=" text-danger">※</span></div>
+								<div class="add-text">
+								<input class="form-control" type="" name="" placeholder="100文字以内">
+								<p class="count-text pt-1 mb-0">0/100</p>
+							</div>
+							<div class="close-add text-right">
+								<span class="btn-close"><i class="fa fa-close fs35"></i></span>
+							</div>
+						</div>
+						<div><a class="add-link" href=""><i class="fa fa-plus-square"></i>追加</a></div>
+						<p>
+							※募集内容に変更が生じた場合、再度募集がかかることがございます。<br>
+											※締切３日前と、締切当日の朝7(00に未提出のスタッフ宛にリマインドメールと通知が送信されます。<br>
+											※提出したあとも、提出期限前であれば編集・再提出できます。
+						</p>
+					</div>
+					<div class="text-center mt-4">
+						<button class="btn btn-primary">提出</button>
+					</div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<!--<div class="col-12 col-lg-3 col-sub">-->
+		<!--<app-col-sub></app-col-sub>-->
+		<!--</div>-->
+	  </div>
+	</div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+	<app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+	<app-settings-panel></app-settings-panel>
+  </aside>
+</div>

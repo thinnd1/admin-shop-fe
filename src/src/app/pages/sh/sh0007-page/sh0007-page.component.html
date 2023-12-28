@@ -1,0 +1,117 @@
+
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents SH0007-->
+
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'RE0010.PAGE_TITLE' | translate"></app-page-head>
+                </div>
+                <div class="look-shift mb-5">
+                  <p>シフト希望を募集する期間と締切日時を設定し、スタッフにシフト希望の募集開始をお知らせします。</p>
+                  <div class="form-group input-wrap form-inline">
+                    <label class="col-form-label pr-2">募集期間<span class="text-danger">※</span></label>
+                    <div class="form-inline">
+                      <input class="form-control input-date" type="text" value="2017/06">
+                      <span class="px-2">～</span>
+                      <input class="form-control input-date" type="text" value="2017/06">
+                    </div>
+                  </div>
+                  <div class="form-group input-wrap form-inline align-items-end">
+                    <label class="col-form-label pr-2">提出期限<span class="text-danger">※</span></label>
+                    <div>
+                    	<p class="mb-0 text-danger fs12">提出期限は募集期間より前の日付を指定してください</p>
+                    	<div class="form-inline align-items-end">
+                    		<div>
+                    			<p class="mb-0 text-danger fs12">必須項目です</p>
+                    			<input class="form-control input-date mr-2" type="text" value="2017/06/01">
+                    		</div>
+                    		<div>
+                    			<p class="mb-0 text-danger fs12">必須項目です</p>
+                    			<input class="form-control input-time" type="text" value="11:00">
+                    		</div>
+                    	</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+								    <label class="mb-0">備考</label>
+								    <p class="text-danger mb-0 fs12">備考は3000文字以内で入力してください</p>
+								    <textarea class="form-control p-2" rows="5" placeholder="3000文字以内"></textarea>
+								    <p class="mb-0">0/3000</p>
+								  </div>
+								  <div class="form-group input-wrap form-inline align-items-end mb-4">
+                    <label class="col-form-label pr-2 pb-0">募集項目<span class="text-danger">※1つ以上選択</span></label>
+                    <div>
+                    	<p class="text-danger mb-0 fs12">提出期限は募集期間より前の日付を指定してください</p>
+                    	<div class="form-inline">
+	                    	<label class="custom-control custom-checkbox mr-2">
+												  <input type="checkbox" class="custom-control-input">
+												  <span class="custom-control-indicator"></span>
+												  <span class="custom-control-description">希望休</span>
+												</label>
+												<label class="custom-control custom-checkbox mr-2 under-check">
+												  <input type="checkbox" class="custom-control-input">
+												  <span class="custom-control-indicator"></span>
+												  <span class="custom-control-description">夜勤NG</span>
+												</label>
+												<label class="custom-control custom-checkbox mr-2 under-check">
+												  <input type="checkbox" class="custom-control-input">
+												  <span class="custom-control-indicator"></span>
+												  <span class="custom-control-description">夜勤希望</span>
+												</label>
+												<label class="custom-control custom-checkbox mr-2 under-check">
+												  <input type="checkbox" class="custom-control-input">
+												  <span class="custom-control-indicator"></span>
+												  <span class="custom-control-description">外勤予定</span>
+												</label>
+												<label class="custom-control custom-checkbox mr-2 under-check">
+												  <input type="checkbox" class="custom-control-input">
+												  <span class="custom-control-indicator"></span>
+												  <span class="custom-control-description">その他の予定 (学会・研修等)</span>
+												</label>
+                    	</div>
+                    </div>
+                  </div>
+                  <p class="mb-4 text-note">
+                  	※募集開始時にシフト希望を募集するお知らせがスタッフにメールと通知で送信されます。<br>
+										※締切３日前と、締切当日の朝7(00に未提出のスタッフ宛にリマインドメールと通知が送信されます。<br>
+										※募集開始をしたあとも編集・再募集できます。
+									</p>
+									<div class="text-center"><button class="btn btn-primary">募集開始</button></div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--<div class="col-12 col-lg-3 col-sub">-->
+        <!--<app-col-sub></app-col-sub>-->
+        <!--</div>-->
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>
+
+

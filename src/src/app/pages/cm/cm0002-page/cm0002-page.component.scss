@@ -1,0 +1,34 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+
+.preline-text{
+  white-space: pre-line;
+}
+
+.section-border {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.table-contact-from {
+  tr {
+    th {
+      white-space: nowrap;
+      width: 1rem;
+    }
+    td {
+      vertical-align: middle;
+    }
+  }
+}
+
+//@media (max-width: 767px)
+@include media-breakpoint-down(sm) {
+  .table-contact-from {
+    tr {
+      th, td {
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+}

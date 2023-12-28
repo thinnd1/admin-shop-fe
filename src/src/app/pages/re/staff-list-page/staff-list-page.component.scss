@@ -1,0 +1,173 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+.table-staff-list {
+  tr {
+    td {
+      .table-user-link {
+        background: #b2b2b2;
+        color: #3D7FB7;
+        width: 6.6875rem;
+        @include border-radius(2.5rem);
+        margin-left:2.8rem ;
+      }
+      .table-user-item {
+        max-width:17rem;
+        .user-item {
+          width: calc(100% - 2rem);
+        }
+        .icon-lock {
+          width: 1.8rem;
+        }
+      }
+      .table-user-info {
+        width: calc(100% - 50px);
+        .table-user-name-big {
+          width: 99.9%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+    th {
+      .table-title {
+        position: relative;
+        min-width: 14rem;
+        .table-title-text {
+        }
+        .sort-arrow {
+          width: 1.8rem;
+          .arrow {
+            cursor: pointer;
+            color: #A6A6A6;
+            &.up {
+              letter-spacing: -4px;
+            }
+            &.down {
+              letter-spacing: -2px;
+            }
+            &.active {
+              color: #333;
+            }
+          }
+        }
+      }
+    }
+  }
+  tr.disable-row {
+    td,
+    th {
+      opacity: 0.5;
+    }
+  }
+}
+.table-col-1 {
+  width: 22%;
+}
+.table-col-2 {
+  width: 18%;
+}
+.table-col-3 {
+  width: 15%;
+}
+.table-col-4 {
+  width: 12%;
+}
+.table-col-5 {
+  width: 12%;
+}
+.table-col-6 {
+  width: 21%;
+}
+.text-over-plus {
+  width: 96%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/************************* -------modal-popup-------- **********************/
+
+.modal-dialog-w1000 {
+  max-width: 1000px;
+}
+
+.profile-avatar-staff-list {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  position: relative;
+  .close,
+  .btn-outline-warning-fl,
+  .profile-span {
+    position: absolute;
+  }
+  .close {
+    top: 16px;
+    right: 10px;
+  }
+  .btn-outline-warning-fl {
+    top: 10px;
+    right: 40px
+  }
+  .profile-span {
+    bottom: 10px;
+    right: 40px;
+  }
+}
+
+.profile-userinfo-txt {
+  p {
+    line-height: 24px;
+  }
+}
+
+.table-modal-staff {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  tr {
+    td,
+    th {
+      border: none;
+    }
+    th {
+      white-space: nowrap;
+      width: 1rem;
+    }
+    .table-col-2 {
+      max-width: 7rem;
+    }
+  }
+}
+
+// @media (max-width: 1199px) { ... }
+@include media-breakpoint-down(lg) {
+  .table-staff-list {
+    overflow: auto;
+    white-space: nowrap;
+  }
+}
+
+// @media (max-width: 991px) { ... }
+@include media-breakpoint-down(md) {
+  .table-staff-list {
+    tr {
+      display: block;
+      margin-bottom: 2rem;
+      th,
+      td {
+        display: block;
+        width: 100%;
+      }
+      td {
+        background: #fbfbfb;
+        .table-user-item {
+          max-width: 100%;
+        }
+      }
+      th {
+        background: #EEE;
+        .table-title {
+         width: 100%;
+        }
+      }
+    }
+  }
+}

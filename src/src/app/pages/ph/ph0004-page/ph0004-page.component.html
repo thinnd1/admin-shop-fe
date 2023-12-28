@@ -1,0 +1,269 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents ph0002-->
+
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'DOC_TITLE.PH0002' | translate" [showBackButton]="false" ></app-page-head>
+                </div>
+                <div class="pharmacylist-of-drug-info-reports">
+                  <section class="no-print">
+                    <div class="form-group row">
+                      <label class="col-12 col-form-label">{{'PH0010.PATIENT_CODE_OR_NAME' | translate}}</label>
+                      <div class="col-sx-12 col-md-4">
+                        <div class="search">
+                          <input class="form-control w-100 search-patient" type="text" [(ngModel)]="keyword"
+                                 (keydown.enter)="reloadSearch()">
+                          <button type="submit" class="search-btn" (click)="reloadSearch()">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <a class="detail-search d-inline-block py-1 text-dark text-Dropdown" data-toggle="collapse"
+                           data-parent="#accordion" href="#collapseOne" aria-expanded="true"
+                           aria-controls="collapseOne" role="button"
+                             (click)="showSearchAdvance()">
+                          {{'PH0010.SEARCH' | translate}}<i
+                          class="fa pl-2" aria-hidden="true"
+                          [ngClass]="{'fa-angle-down': !searchAdvance, 'fa-angle-up': searchAdvance}">
+                        </i></a>
+                      </div>
+                    </div>
+                    <div id = "collapseOne"class="panel-collapse collapse">
+                    <div *ngIf="numTab == 2">
+                        <div class="form-group row">
+                          <div class="col-sx-12 col-md-5">
+                            <label class="w-100">{{'PH0010.UPDATE' | translate}}</label>
+                            <div class="gruopt-select-date d-flex fs17 align-items-center">
+                              <app-date-input [date]="formSearchTab2.start" [showIcon]="false" class = "w-100"
+                                              (dateChanged)="changeUpdated($event, 'start', 'from')"
+                                              [dateInputOptions]="{id: 'updatedFrom', name: 'start', placeholder: '', outsideDays:false, weekendsDisable:false}">
+                              </app-date-input>
+                              <span class="px-2">~</span>
+                              <app-date-input [date]="formSearchTab2.end" [showIcon]="false" class ="w-100"
+                                              (dateChanged)="changeUpdated($event, 'end', 'to')"
+                                              [dateInputOptions]="{id: 'updatedTo', name: 'end', placeholder: '', outsideDays:false, weekendsDisable:false}">
+                              </app-date-input>
+                            </div>
+                          </div>
+                          <div class="col-sx-12 col-md-3 w-100">
+                            <label class="w-100">{{'PH0010.OFFICE_ID' | translate}}</label>
+                            <l-select2
+                              [(ngModel)]="selectDrugstore2"
+                              [ngModelOptions]="{standalone: true}"
+                              [options]="options" (ngModelChange)="reloadSearch()"
+                              [data]="listDrugstore"
+                            >
+                            </l-select2>
+                          </div>
+                          <div class="col-sx-12 col-md-2 w-100">
+                            <label class="w-100">{{'PH0010.IS_READ' | translate}}</label>
+                            <select class="form-control d-inline-block" [(ngModel)]="formSearchTab2.isRead"
+                                    (ngModelChange)="reloadSearch()">
+                              <option [value]="0">{{'PHARMACY.COMMON.ALL' | translate}}</option>
+                              <option [value]="1">{{'PH0010.ALREADY_READ' | translate}}</option>
+                              <option [value]="2">{{'PH0010.EMPTY' | translate}}</option>
+                            </select>
+                          </div>
+                          <div class="col-sx-12 col-md-2 w-100">
+                            <label class="w-100">{{'PH0010.COMMENT' | translate}}</label>
+                            <select class="form-control d-inline-block" [(ngModel)]="formSearchTab2.hasComment"
+                                    (ngModelChange)="reloadSearch()">
+                              <option [value]="0">{{'PHARMACY.COMMON.ALL' | translate}}</option>
+                              <option [value]="1">{{'PH0010.HAS_COMMENT' | translate}}</option>
+                              <option [value]="2">{{'PH0010.NO_COMMENT' | translate}}</option>
+                            </select>
+                          </div>
+                        </div>
+                    </div>
+                    <div *ngIf="numTab == 3">
+                        <div class="form-group row">
+                          <div class="col-sx-12 col-md-5">
+                            <label class="w-100">{{'PH0010.UPDATE' | translate}}</label>
+                            <div class="gruopt-select-date d-flex fs17 align-items-center">
+                              <app-date-input [date]="formSearchTab3.dateFrom" [showIcon]="false" class ="w-100"
+                                              (dateChanged)="changeUpdated($event, 'dateFrom', 'from')"
+                                              [dateInputOptions]="{id: 'dateFrom', name: 'dateFrom', placeholder: '', outsideDays:false, weekendsDisable:false}">
+                              </app-date-input>
+                              <span class="px-2">~</span>
+                              <app-date-input [date]="formSearchTab3.dateTo" [showIcon]="false" class ="w-100"
+                                              (dateChanged)="changeUpdated($event, 'dateTo', 'to')"
+                                              [dateInputOptions]="{id: 'dateTo', name: 'dateTo', placeholder: '', outsideDays:false, weekendsDisable:false}">
+                              </app-date-input>
+                            </div>
+                          </div>
+                          <div class="col-sx-12 col-md-3 w-100">
+                            <label class="w-100">{{'PH0010.OFFICE_ID' | translate}}</label>
+                            <l-select2
+                              [(ngModel)]="selectDrugstore3"
+                              [ngModelOptions]="{standalone: true}"
+                              [options]="options" (ngModelChange)="reloadSearch()"
+                              [data]="listDrugstore"
+                            >
+                            </l-select2>
+                          </div>
+                          <div class="col-sx-12 col-md-4 w-100">
+                            <label class="w-100">{{'PH0010.CHANGE_CONTENT' | translate}}</label>
+                            <select class="form-control d-inline-block" (change)="reloadSearch()"
+                                    [(ngModel)]="formSearchTab3.prescriptionUpdateReason">
+                              <option value=""> {{'PHARMACY.COMMON.ALL' | translate}}</option>
+                              <option [value]="type.id" *ngFor="let type of prescriptionUpdateReason"
+                                      [selected]>
+                                {{('PHARMACY.COMMON.' + type.key) | translate}}
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                    </div>
+                    </div>
+                  </section>
+                  <div class="tab-list-hospital position-relative pt-2">
+                    <ul class="nav nav-tabs nav-tabs-responsive" role="tablist">
+                      <li class="nav-item" [ngClass]="{'active' : numTab === 2}" (click)="changeTab(2)">
+                        <a class="nav-link" [ngClass]="{'active' : numTab === 2}" href="#tab-content2" role="tab"
+                           data-toggle="tab">{{'PH0010.TRACING_REPORT' | translate}}</a>
+                      </li>
+                      <li class="nav-item next" [ngClass]="{'active' : numTab === 3}" (click)="changeTab(3)">
+                        <a class="nav-link" [ngClass]="{'active' : numTab === 3}" href="#tab-content3" role="tab"
+                           data-toggle="tab">{{'PH0010.PRESCRIPTION_UPDATE_CONTENT' | translate}}</a>
+                      </li>
+                    </ul>
+                    <div class="tab-content" infinite-scroll (scrolled)="scrollPaging()" [infiniteScrollDistance]="1" [scrollWindow]="true">
+                      <div role="tabpanel" class="tab-pane" [ngClass]="{'active' : numTab === 2}" id="tab-content2">
+                        <table class="table table-striped table-bordered table-cmn text-left text-md-center table-tracing-report">
+                          <thead class="thead-inverse">
+                          <tr>
+                            <th>{{'PH0010.UPDATE' | translate}}</th>
+                            <th>{{'PH0004.OFFICE_ID_NAME' | translate}}</th>
+                            <th>{{'PH0010.PATIENT_CODE_OR_NAME' | translate}}</th>
+                            <th>{{'PH0010.IS_READ' | translate}}</th>
+                            <th>{{'PH0010.COMMENT' | translate}}</th>
+                          </tr>
+                          </thead>
+                          <tbody class="hand">
+                          <tr *ngFor="let record of allPage" (click)="chooseDetail(record.topicId)"
+                             >
+                            <td>
+                              <div class="line position-relative pt-2 pl-2"  [ngClass]="{'new-lines':record.hospitalNew}" >
+                              <span *ngIf="record.hospitalNew"
+                                    class="d-block text-new text-left text-uppercase font-weight-bold fs11 pl-0 position-absolute">New</span>
+                                {{record.updated | timePipe: 'MM月DD日(date)'}}<br>
+                                {{record.updated | timePipe: 'HH:mm' }}
+                              </div>
+                            </td>
+                            <td>
+                              <div class="ellipsis"><span [ngbTooltip]="record.officeName">{{record.officeName}}</span></div>
+                              <div class="ellipsis"><span [ngbTooltip]="record.pharmacistName">{{record.pharmacistName}}</span></div>
+                            </td>
+                            <td>
+                              <div class="ellipsis"><span [ngbTooltip]="record.patientCode">{{record.patientCode}}</span></div>
+                              <div class="ellipsis"><span [ngbTooltip]="record.patientName">{{record.patientName}}</span></div>
+                            </td>
+                            <td>{{record.hospitalRead? ('PH0010.ALREADY_READ' | translate): ''}}</td>
+                            <td>{{record.hasComment? ('PH0010.HAS_COMMENT' | translate): ''}}</td>
+                          </tr>
+                          </tbody>
+                        </table>
+
+                      </div>
+                      <!--Ph0013-->
+                      <div role="tabpanel" class="tab-pane" [ngClass]="{'active' : numTab === 3}" id="tab-content3">
+                        <table class="table table-striped table-bordered table-cmn text-left text-md-center table-tracing-report">
+                          <thead class="thead-inverse">
+                          <tr>
+                            <th>{{'PH0010.UPDATE' | translate}}</th>
+                            <th>{{'PH0004.OFFICE_ID_NAME' | translate}}</th>
+                            <th>{{'PH0010.PATIENT_CODE_OR_NAME' | translate}}</th>
+                            <th>{{'PH0010.CHANGE_CONTENT' | translate}}</th>
+                          </tr>
+                          </thead>
+                          <tbody class="tbody-inverse hand">
+                          <tr *ngFor="let record of allPage" (click)="chooseDetail(record.topicId)">
+                            <td>
+                              <div class="line position-relative pt-2 pl-2"  [ngClass]="{'new-lines':record.isHospitalNew}" >
+                              <span *ngIf="record.isHospitalNew"
+                                    class="d-block text-new text-left text-uppercase font-weight-bold fs11 pl-0 position-absolute">New</span>
+                              {{record.created | timePipe: 'MM月DD日(date)'}}<br>
+                              {{record.created | timePipe: 'HH:mm' }}
+                              </div>
+                            </td>
+                            <td>
+                              <div class="ellipsis"><span [ngbTooltip]="record.drugStoreOfficeName">{{record.drugStoreOfficeName}}</span></div>
+                              <div class="ellipsis"><span  [ngbTooltip]="record.pharmacistName">{{record.pharmacistName}}</span></div>
+                            </td>
+                            <td>
+                              <span>
+                                <div class="ellipsis"><span [ngbTooltip]="record.patientCode">{{record.patientCode}}</span></div>
+                              </span>
+                              <div>
+                                <div class="ellipsis"><span [ngbTooltip]="record.patientName">{{record.patientName}}</span></div>
+                              </div>
+                            </td>
+                            <td *ngIf="record.prescriptionUpdateReason == -1"> </td>
+                            <td *ngIf="record.prescriptionUpdateReason != -1" > {{('PHARMACY.COMMON.' + record.prescriptionUpdateReason) | translate}}</td>
+                          </tr>
+                          <tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="d-flex justify-content-center mt-4" *ngIf="!allPage ||allPage.length === 0">
+                        {{"MSG.NO_RESULT" | translate}}
+                      </div>
+                    </div>
+                    <div class="bottom-tooltip position-absolute no-print">
+                      <button type="button" class="btn btn-lg btn-secondary px-2 ml-2" data-toggle="tooltip" data-trigger="hover"
+                              data-placement="top" title="{{'PHARMACY.COMMON.DRUG_IN_USE' | translate}}"
+                              (click)="goTo('drug')">
+                        <img src="/assets/img/drug.png">
+                      </button>
+                      <button type="button" class="btn btn-lg btn-secondary px-2 ml-2" data-toggle="tooltip" data-trigger="hover"
+                              data-placement="top" title="{{'PHARMACY.COMMON.PROTOCOL' | translate}}"
+                              (click)="goTo('protocol')">
+                        <i class="fa fa-list-alt pt-1" aria-hidden="true"></i>
+                      </button>
+                      <button type="button" class="btn btn-lg btn-secondary font-weight-bold px-2 pt-1 ml-2 pb-6"
+                              data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                              title="{{'PHARMACY.COMMON.CSV_DOWNLOAD' | translate}}" (click)="exportCsv()">csv
+                      </button>
+                      <button type="button" data-trigger="hover" class="btn btn-lg btn-secondary px-2 ml-2" data-toggle="tooltip"
+                              data-placement="top" title="{{'PHARMACY.COMMON.PRINT' | translate}}"
+                              (click)="printPage()">
+                        <i class="fa fa-print pt-1" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

@@ -1,0 +1,15 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+
+.table-otherhospital {
+  tr:last-child {
+    th,td {
+      border-bottom: 1px solid #D7D7D7;
+    }
+  }
+}
+.heading2{
+  color: #3d7eb6;
+}
+
+

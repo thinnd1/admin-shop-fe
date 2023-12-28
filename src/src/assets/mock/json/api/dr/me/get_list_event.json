@@ -1,0 +1,134 @@
+{
+  "getEventCalendar": {
+    "listEventCalendars": [
+      {
+        "start": "2017-11-12T04:00:00.000 UTC",
+        "end": "2017-12-12T09:00:00.000 UTC",
+        "title": null,
+        "color": 4378248,
+        "allDay": false
+      }
+    ]
+  },
+  "getEventMeeting": {
+    "eventMeetings": [
+      {
+        "start": "",
+        "end": "",
+        "senderType": "DR",
+        "status": "NEW",
+        "mr": {
+          "firstName": "abc",
+          "lastName": "def",
+          "officeName": "ABC",
+          "userId": "5a1bc87ac911ac1a1066a37d",
+          "officeId": ""
+        },
+        "dr": {
+          "userId": "5a1bc821c911ac1a1066a370",
+          "officeId": "5a1bc821c911ac1a1066a36f",
+          "officeName": "ABC",
+          "firstName": "abc",
+          "lastName": "def"
+        },
+        "typeRequest": "REQUEST",
+        "candidacyTimes": [
+          {
+            "start": "2017-12-12T06:30:00.000 UTC",
+            "end": "2017-12-12T07:00:00.000 UTC"
+          },
+          {
+            "start": "2017-12-12T03:30:00.000 UTC",
+            "end": "2017-12-12T04:00:00.000 UTC"
+          }
+        ]
+      },
+      {
+        "start": "2017-12-12T12:30:00.000 UTC",
+        "end": "2017-12-12T13:00:00.000 UTC",
+        "title": "0",
+        "senderType": "MR",
+        "status": "NEW",
+        "mr": {
+          "firstName": "abc",
+          "lastName": "def",
+          "officeName": "ABC",
+          "userId": "5a1bc87ac911ac1a1066a37d",
+          "officeId": ""
+        },
+        "dr": {
+          "userId": "",
+          "officeId": "",
+          "officeName": "ABC",
+          "firstName": "abc",
+          "lastName": "def"
+        },
+        "typeRequest": "REQUEST",
+        "candidacyTimes": [
+          {
+            "start": "2017-12-12T14:30:00.000 UTC",
+            "end": "2017-12-12T15:00:00.000 UTC"
+          }
+        ]
+      },
+      {
+        "start": "2017-12-12T12:30:00.000 UTC",
+        "end": "2017-12-12T13:00:00.000 UTC",
+        "senderType": "MR",
+        "status": "FIXED",
+        "mr": {
+          "firstName": "abc",
+          "lastName": "def",
+          "officeName": "ABC",
+          "userId": "5a1bc87ac911ac1a1066a37d",
+          "officeId": ""
+        },
+        "dr": {
+          "userId": "",
+          "officeId": "",
+          "officeName": "ABC",
+          "firstName": "abc",
+          "lastName": "def"
+        },
+        "typeRequest": "REQUEST",
+        "candidacyTimes": [
+          {
+            "start": "2017-12-12T12:30:00.000 UTC",
+            "end": "2017-12-12T13:00:00.000 UTC"
+          },
+          {
+            "start": "2017-12-12T14:30:00.000 UTC",
+            "end": "2017-12-12T15:00:00.000 UTC"
+          }
+        ]
+      },
+      {
+        "start": "2017-12-12T11:30:00.000 UTC",
+        "end": "2017-12-12T11:45:00.000 UTC",
+        "senderType": "DR",
+        "status": "FIXED",
+        "mr": {
+          "firstName": "abc",
+          "lastName": "def",
+          "officeName": "ABC",
+          "userId": "5a1bc87ac911ac1a1066a37d",
+          "officeId": ""
+        },
+        "dr": {
+          "userId": "5a1bc821c911ac1a1066a370",
+          "officeId": "5a1bc821c911ac1a1066a36f",
+          "firstName": "abc",
+          "lastName": "def",
+          "officeName": "ABC"
+        },
+        "typeRequest": "FRAME",
+        "candidacyTimes": [
+          {
+            "start": "2017-12-12T11:30:00.000 UTC",
+            "end": "2017-12-12T11:45:00.000 UTC"
+          }
+        ]
+      }
+    ]
+  }
+}

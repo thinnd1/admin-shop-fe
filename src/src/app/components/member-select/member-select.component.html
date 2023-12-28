@@ -1,0 +1,92 @@
+<div class="member-select-wrap">
+  
+    <div class="member-select-box member-select-box-add">
+  
+      <div class="member-search-wrap">
+        <div class="search">
+          <input class="search-input" type="text" placeholder="{{'MEMBER_SELECT.MEMBER_SEARCH' | translate}}" (keyup)="addMemberListSearch($event)" (keydown)="addMemberListSearch($event)" (blur)="addMemberListSearch($event)" [(ngModel)]="addMemberListSearchVal">
+          <button type="button" class="search-btn" disabled="disabled">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+  
+      <div class="member-select-list">
+        <div class="member-all-select-wrap ml-2">
+          <label class="custom-control custom-checkbox mr-0 mb-0 ml-1">
+            <input type="checkbox" class="custom-control-input" [(ngModel)]="addMemberAllSelectVal" (change)="addMemberAllSelect($event)" [disabled]="!addMemberList.length">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">{{'MEMBER_SELECT.MEMBER_ALL_SELECT' | translate}}</span>
+          </label>
+        </div>
+        <table class="member-select-list-table">
+          <tbody>
+            <ng-container *ngFor="let member of addMemberList;let i=index">
+              <tr [ngClass]="{'member-select':addMemberSelect[i]}" (click)="addMemberSelectClick(member,$event,i)" [hidden]="addMemberListSearchMatch[i]">
+                <td class="member-wrap">
+                  <app-mini-profile #miniProfile [officeUserId]="member.officeUserId" [profileOptions]="{iconSize:40}"></app-mini-profile>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+    <div class="member-select-move-btn-wrap">
+      <ul class="nav flex-column">
+        <li class="nav-item text-center">
+          <button type="button" class="btn btn-sm btn-secondary btn-add" (click)="addMember($event)" [disabled]="!addMemberList.length || addMemberSelect.indexOf(true) < 0 || addMemberListSearchMatch.indexOf(false) < 0"></button>
+        </li>
+        <li class="nav-item text-center">
+          <button type="button" class="btn btn-sm btn-secondary btn-remove" (click)="removeMember($event)" [disabled]="!removeMemberList.length || removeMemberSelect.indexOf(true) < 0 || removeMemberListSearchMatch.indexOf(false) < 0"></button>
+        </li>
+      </ul>
+    </div>
+  
+    <div class="member-select-box member-select-box-remove">
+  
+      <div class="member-search-wrap">
+        <div class="search">
+          <input class="search-input" type="text" placeholder="{{'MEMBER_SELECT.MEMBER_SEARCH' | translate}}" (keyup)="removeMemberListSearch($event)" (keydown)="removeMemberListSearch($event)" (blur)="removeMemberListSearch($event)" [(ngModel)]="removeMemberListSearchVal">
+          <button type="button" class="search-btn">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+  
+      <div class="member-select-list">
+        <table class="member-select-list-table">
+          <thead>
+            <tr>
+              <th class="admin-check-wrap text-center">
+                {{'MEMBER_SELECT.ADMIN' | translate}}
+              </th>
+              <th class="member-wrap">
+                {{'MEMBER_SELECT.NAME' | translate}}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let member of removeMemberList;let i=index">
+              <tr [ngClass]="{'member-select':removeMemberSelect[i]}" (click)="removeMemberSelectClick(member,$event,i)" [hidden]="removeMemberListSearchMatch[i]">
+                <td class="admin-check-wrap text-center">
+                  <label class="custom-control custom-checkbox mr-0">
+                    <input type="checkbox" class="custom-control-input" [checked]="member.isAdmin" (change)="isAdminChecked(member,$event,i)">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                </td>
+                <td class="member-wrap">
+                  <app-mini-profile [officeUserId]="member.officeUserId" [profileOptions]="{iconSize:40}"></app-mini-profile>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+  </div>
+  <div class="my-5 text-center">
+    <button type="button" class="btn btn-primary" (click)="saveMemberSelectClick($event)" [disabled]="!memberList.length">{{'MEMBER_SELECT.SAVE' | translate}}</button>
+  </div>

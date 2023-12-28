@@ -1,0 +1,24 @@
+// import common setting
+@import './../../../assets/styles/import';
+
+app-header-drjoy,
+app-header-prjoy,
+app-header-drjoy-visitor,
+app-header-prjoy-visitor,
+app-header-drjoy-provisional,
+app-header-prjoy-provisional {
+  width: 100%;
+  align-items: center;
+}
+
+//media (min-width: 992px)
+@include media-breakpoint-up(lg) {
+  app-header-drjoy,
+  app-header-prjoy,
+  app-header-drjoy-visitor,
+  app-header-prjoy-visitor,
+  app-header-drjoy-provisional,
+  app-header-prjoy-provisional {
+    display: flex;
+  }
+}

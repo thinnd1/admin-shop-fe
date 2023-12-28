@@ -1,0 +1,36 @@
+// import common setting
+@import './../../../assets/styles/import';
+
+.settings-panel-list {
+  .settings-panel-list-title {
+    border-top: 1px solid #989898;
+    border-bottom: 1px solid #D7D7D7;
+    background: #EEE;
+    color: $black;
+  }
+  > .nav-item:first-child .settings-panel-list-title {
+    border-top: none;
+  }
+  .nav-title {
+    border-bottom: 1px solid #EEE;
+    color: $black;
+  }
+  .nav-item {
+    line-height: 1.4;
+    position: relative;
+  }
+  .nav-link {
+    padding-left: 2rem;
+    border-bottom: 1px solid #EEE;
+    color: $black;
+    &-active {
+      color: $prjoy-symbol-color;
+    }
+    &:hover {
+      background: #FCF8E3;
+    }
+    &.disabled:hover {
+      background: transparent;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head (clickBackEvent)="backPreviousPage()" [backEvent]="checkStatusEdit" [title]="'ME0015.TITLE' | translate"></app-page-head>
+                </div>
+                <!--contents-->
+                <div class="theme-detail">
+                  <div class="select-intermediary float-left mb-4 pt-4">
+                    <p class="fs24 mb-1">{{ 'ME0015.SELECT_MEDIATOR' | translate }}</p>
+                    <div class="select-wap">
+                      <ul class="select-user m-0 p-0">
+                        <ng-container *ngFor="let member of listMediators; let i=index">
+                          <li class="d-flex p-2 align-items-center mediator" id="mediator-{{i}}" (click)="selectMediatorClick(member, $event, i)">
+                            <app-mini-profile [userInfo]="member" [profileOptions]="{'iconSize':40}"></app-mini-profile>
+                          </li>
+                        </ng-container>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- //select-intermediary -->
+                  <div class="select-doctor float-right pl-3 mb-4" *ngIf="displayDoctorList">
+                    <div class="select-doctor-wap">
+                      <app-member-select-copy [memberList]="memberList" [memberListSelected]="listHandleUsers" [options]="{'displayDepartment': true, 'isAdmin': false}" (memberSelected)="memberSelected($event)" (eventClick)="saveHandleUsers($event)"></app-member-select-copy>
+                    </div>
+                  </div>
+                  <!-- //select-doctor -->
+                </div>
+                <!-- //theme-detail -->
+                <!-- //contents -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

@@ -1,0 +1,32 @@
+{
+  "items": [
+    {
+      "displayOrder": 2,
+      "functionId": "CA0002"
+    },
+    {
+      "displayOrder": 1,
+      "functionId": "ME0001"
+    },
+    {
+      "displayOrder": 6,
+      "functionId": "CH0007"
+    },
+    {
+      "displayOrder": 4,
+      "functionId": "CH0005"
+    },
+    {
+      "displayOrder": 5,
+      "functionId": "GR0015"
+    },
+    {
+      "displayOrder": 0,
+      "functionId": "GR0016"
+    },
+    {
+      "displayOrder": 10,
+      "functionId": "CH0001"
+    }
+  ]
+}

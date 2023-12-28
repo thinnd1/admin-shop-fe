@@ -1,0 +1,102 @@
+{
+  "items": [
+    {
+      "calendarReferenceId": "1",
+      "calendarId": "1",
+      "calendarType": "STAFF",
+      "color": 11506560,
+      "visible": true,
+      "userId": "string",
+      "lastName": "string",
+      "firstName": "string",
+      "shareStatus": "SCHEDULE_ONLY",
+      "groupId": "string",
+      "groupName": "string",
+      "externalCalendarName": "string"
+    },
+    {
+      "calendarReferenceId": "2",
+      "calendarId": "2",
+      "calendarType": "STAFF",
+      "color": 16741687,
+      "visible": false,
+      "userId": "string",
+      "lastName": "string",
+      "firstName": "string",
+      "shareStatus": "SCHEDULE_ONLY",
+      "groupId": "string",
+      "groupName": "string",
+      "externalCalendarName": "string"
+    },
+    {
+      "calendarReferenceId": "3",
+      "calendarId": "3",
+      "calendarType": "STAFF",
+      "color": 8114504,
+      "visible": true,
+      "userId": "string",
+      "lastName": "string",
+      "firstName": "string",
+      "shareStatus": "SCHEDULE_ONLY",
+      "groupId": "string",
+      "groupName": "string",
+      "externalCalendarName": "string"
+    },
+    {
+      "calendarReferenceId": "4",
+      "calendarId": "4",
+      "calendarType": "STAFF",
+      "color": 14529806,
+      "visible": false,
+      "userId": "string",
+      "lastName": "string",
+      "firstName": "string",
+      "shareStatus": "SCHEDULE_ONLY",
+      "groupId": "string",
+      "groupName": "string",
+      "externalCalendarName": "string"
+    },
+    {
+      "calendarReferenceId": "5",
+      "calendarId": "5",
+      "calendarType": "STAFF",
+      "color": 13211578,
+      "visible": true,
+      "userId": "string",
+      "lastName": "string",
+      "firstName": "string",
+      "shareStatus": "SCHEDULE_ONLY",
+      "groupId": "string",
+      "groupName": "string",
+      "externalCalendarName": "string"
+    },
+    {
+      "calendarReferenceId": "6",
+      "calendarId": "6",
+      "calendarType": "STAFF",
+      "color": 9669585,
+      "visible": false,
+      "userId": "string",
+      "lastName": "string",
+      "firstName": "string",
+      "shareStatus": "SCHEDULE_ONLY",
+      "groupId": "string",
+      "groupName": "string",
+      "externalCalendarName": "string"
+    },
+    {
+      "calendarReferenceId": "7",
+      "calendarId": "7",
+      "calendarType": "STAFF",
+      "color": 15699598,
+      "visible": true,
+      "userId": "string",
+      "lastName": "string",
+      "firstName": "string",
+      "shareStatus": "SCHEDULE_ONLY",
+      "groupId": "string",
+      "groupName": "string",
+      "externalCalendarName": "string"
+    }
+  ]
+}

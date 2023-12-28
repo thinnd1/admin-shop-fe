@@ -1,0 +1,21 @@
+{
+  "chkResgister": false,
+  "dayBirth": "12",
+  "emailNotification": false,
+  "firstName": "John",
+  "firstNameKana": "Hard",
+  "gender": "0",
+  "jobName": "",
+  "jobType": "J0001",
+  "lastName": "澤田",
+  "lastNameKana": "運輸",
+  "loginId": "jo0034",
+  "mailAddress": "okencv@bco.com",
+  "monthBirth": "07",
+  "newEmailAddress": "",
+  "password": "12345678",
+  "passwordConfirm": "",
+  "specializedDepartmentField": "",
+  "specializedDepartmentType": "",
+  "yearBirth": "1995"
+}

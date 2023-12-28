@@ -1,0 +1,533 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'CA0004_PAGE.PAGE_TITLE' | translate" (clickBackEvent)="backPreviousPage()" [backEvent]="true"></app-page-head>
+                </div>
+                <div *ngIf="!page_to_display || page_to_display === const.pageFlag.form" class="form-setting mb-5">
+                  <p>{{'CA0004_PAGE.PAGE_NOTE' | translate}} <span
+                    class="fa fa-question-circle fs22 text-warning" aria-hidden="true" data-toggle="modal" data-backdrop="static" data-keyboard="false"
+                    data-target="#modal-explanation"></span></p>
+                  <div class="form-group row" *ngIf="userSession.funcAuthority.FP_7">
+                    <label class="col-md-12 col-lg-2 col-form-label text-left text-lg-right">{{'CA0004_PAGE.LABEL.TARGET' | translate}}</label>
+                    <div class="col-md-12 col-lg-10">
+                      <select class="form-control col-md-12 col-lg-4" [(ngModel)]="formModel.officeUserId" (ngModelChange)="userOnChange($event)">
+                        <option *ngFor="let item of dataStore.listMediator" [value]="item.officeUserId">{{item.lastName
+                          + ' ' + item.firstName}}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-12 col-lg-2 col-form-label text-left text-lg-right">{{'CA0004_PAGE.LABEL.PLACE' | translate}}</label>
+                    <div class="col-md-12 col-lg-10">
+                      <input class="form-control col-md-12 col-lg-8" [(ngModel)]="formModel.place" placeholder="{{'CA0007.PLACEHOLDER_DEFAULT' | translate}}"
+                             type="text">
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-md-12 col-lg-2 col-form-label text-left text-lg-right">{{'CA0004_PAGE.LABEL.TIME_BLOCK' | translate}}</label>
+                    <div class="col-md-12 col-lg-10">
+                      <div class="date-time-wrap form-inline">
+                        <div class="form-wrap form-control-date mr-1">
+                          <app-date-input [date]="formModel.start | timePipe: 'YYYY-MM-DD'"
+                                               (dateChanged)="frameMeetingTimeOnChange($event)"
+                                               [dateInputOptions]="{id:'startDay',name:'startDay',placeholder:'',outsideDays:false,weekendsDisable:false}"
+                          ></app-date-input>
+                        </div>
+                        <div class="form-wrap form-control-time">
+                          <select class="form-control form-control-time w-100" id="startTime"
+                                  (ngModelChange)="frameMeetingTimeOnChange($event)" [(ngModel)]="formModel.startTime"
+                          >
+                            <option [value]="item"
+                                    *ngFor="let item of const.timePicker">{{item}}
+                            </option>
+                          </select>
+                        </div>
+                        <span class="px-2">〜</span>
+                        <div class="form-wrap form-control-date mr-1">
+                          <app-date-input [date]="formModel.end | timePipe: 'YYYY-MM-DD'"
+                                               (dateChanged)="frameMeetingTimeOnChange($event)"
+                                               [dateInputOptions]="{id:'endDay',name:'endDay',placeholder:'',outsideDays:false,weekendsDisable:false}"
+                          ></app-date-input>
+                        </div>
+                        <div class="form-wrap form-control-time">
+                          <select class="form-control form-control-time w-100" id="endTime"
+                                  (change)="frameMeetingTimeOnChange($event)"
+                                  [(ngModel)]="formModel.endTime">
+                            <option [value]="item"
+                                    *ngFor="let item of const.timePicker">{{item}}
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-12 col-lg-2 col-form-label text-left text-lg-right">{{'CA0004_PAGE.LABEL.TYPE' | translate}}</label>
+                    <div class="col-md-12 col-lg-10">
+                      <div class="form-group mb-2">
+                        <label class="custom-control custom-radio mb-0">
+                          <input name="frameType" type="radio" [(ngModel)]="formModel.frameType"
+                                 class="custom-control-input"
+                                 [value]="const.frameType.spot">
+                          <span class="custom-control-indicator"></span>
+                          <span class="custom-control-description">{{'CA0004_PAGE.LABEL.TYPE_SPOT' | translate}}</span>
+                        </label>
+                      </div>
+                      <div class="form-group">
+                        <label class="custom-control custom-radio mb-0 align-middle">
+                          <input name="frameType" type="radio" [(ngModel)]="formModel.frameType"
+                                 class="custom-control-input"
+                                 [value]="const.frameType.slots">
+                          <span class="custom-control-indicator"></span>
+                          <span class="custom-control-description">{{'CA0004_PAGE.LABEL.TYPE_SLOTS' | translate}}</span>
+                        </label>
+                        <div class="d-inline-block">
+                          <div class="d-inline-block align-middle">
+                            <select class="form-control" [(ngModel)]="formModel.slots">
+                              <option *ngFor="let slot of slots" [value]=slot>{{slot}}</option>
+                            </select>
+                          </div>
+                          <div class="d-inline-block">{{'CA0004_PAGE.UNIT.MINUTE' | translate}}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row"
+                       *ngIf="!formModel.repeatOption || formModel.repeatOption !== const.repeatFlag.importCalendar">
+                    <label class="col-md-12 col-lg-2 col-form-label text-left text-lg-right pt-0">{{'CA0004_PAGE.LABEL.IS_REPEAT' | translate}}</label>
+                    <div class="col-md-12 col-lg-10">
+                      <div class="form-group">
+                        <label class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" [(ngModel)]="formModel.isRepeat" [value]="1"
+                                 (change)="getRRule()">
+                          <span class="custom-control-indicator"></span>
+                          <span class="custom-control-description">{{'CA0004_PAGE.LABEL.IS_REPEAT' | translate}}</span>
+                        </label>
+                      </div>
+                      <div *ngIf="formModel.isRepeat">
+                        <div class="form-group">
+                          <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" [(ngModel)]="formModel.ignoreHoliday" (click)="ignoreHolidayOnChange()" [readonly]=true
+                                   [value]="1">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">{{'CA0004_PAGE.LABEL.EXCLUDE_HOLIDAY' | translate}}</span>
+                          </label>
+                        </div>
+                        <div class="form-group">
+                          <select class="form-control col-md-12 col-lg-4" [(ngModel)]="formModel.repeatOption"
+                                  (change)="getRRule()">
+                            <option [value]="const.repeatFlag.daily">{{'CA0004_PAGE.REPEAT_OPTION.DAILY' | translate}}
+                            </option>
+                            <option [value]="const.repeatFlag.weekdayOnly">{{'CA0004_PAGE.REPEAT_OPTION.WEEKDAY_ONLY' |
+                              translate}}
+                            </option>
+                            <option [value]="const.repeatFlag.weekly">{{'CA0004_PAGE.REPEAT_OPTION.WEEKLY' |
+                              translate}}
+                            </option>
+                            <option [value]="const.repeatFlag.monthly">{{'CA0004_PAGE.REPEAT_OPTION.MONTHLY' |
+                              translate}}
+                            </option>
+                            <option [value]="const.repeatFlag.yearly">{{'CA0004_PAGE.REPEAT_OPTION.YEARLY' | translate}}
+                            </option>
+                          </select>
+                        </div>
+
+                        <div class="form-group form-group-sting">
+                          <div class="form-title mb-2">{{'CA0007.SUMMARY.TITLE' | translate}}：{{formModel.summary}}</div>
+                          <div *ngIf="formModel.repeatOption === const.repeatFlag.daily">
+                            <div class="form-group row">
+                              <label class="col-md-12 col-lg-2 col-form-label text-left text-lg-right">{{'CA0007.SUMMARY.TITLE_REPEAT' |
+                            translate}}</label>
+                              <div class="col-md-12 col-lg-10">
+                                <div class="form-inline">
+                                  <div>
+                                    <select class="form-control" [(ngModel)]="formModel.repeatInterval"
+                                            (change)="getRRule()">
+                                      <option *ngFor="let num of const.repeatInterval" [value]="num">{{num}}</option>
+                                    </select>
+                                  </div>
+                                  <div class="py-1 pl-1">{{'CA0004_PAGE.UNIT.DAY' | translate}}</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div *ngIf="formModel.repeatOption === const.repeatFlag.weekdayOnly">
+                          </div>
+                          <div *ngIf="formModel.repeatOption === const.repeatFlag.weekly">
+                            <div class="form-group row">
+                              <label class="col-md-12 col-lg-2 col-form-label text-left text-lg-right">{{'CA0007.SUMMARY.TITLE_REPEAT' |
+                                translate}}</label>
+                              <div class="col-md-12 col-lg-10">
+                                <div class="row">
+                                  <div class="col-3 col-lg-2">
+                                    <select class="form-control" [(ngModel)]="formModel.repeatInterval"
+                                            (change)="getRRule()">
+                                      <option *ngFor="let num of const.repeatInterval" [value]="num">{{num}}</option>
+                                    </select>
+                                  </div>
+                                  <div class="py-1">{{'CA0004_PAGE.UNIT.WEEK' | translate}}</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label class="col-md-12 col-lg-2 col-form-label text-left text-lg-right pt-0">{{'CA0007.SUMMARY.DAY_ON_WEEK'
+                                |
+                                translate}}</label>
+                              <div class="col-md-12 col-lg-10">
+                                <label class="custom-control custom-checkbox">
+                                  <input type="checkbox" class="custom-control-input" [(ngModel)]="formModel.sunday"
+                                         [value]="dayOfWeek.sunday" (change)="getRRule()">
+                                  <span class="custom-control-indicator"></span>
+                                  <span class="custom-control-description">{{'CA0007.SUMMARY.SUN' | translate}}</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                  <input type="checkbox" class="custom-control-input" [(ngModel)]="formModel.monday"
+                                         [checked]="formModel.monday"
+                                         [value]="dayOfWeek.monday" (change)="getRRule()">
+                                  <span class="custom-control-indicator"></span>
+                                  <span class="custom-control-description">{{'CA0007.SUMMARY.MON' | translate}}</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                  <input type="checkbox" class="custom-control-input" [(ngModel)]="formModel.tuesday"
+                                         [checked]="formModel.tuesday"
+                                         [value]="dayOfWeek.tuesday" (change)="getRRule()">
+                                  <span class="custom-control-indicator"></span>
+                                  <span class="custom-control-description">{{'CA0007.SUMMARY.TUE' | translate}}</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                  <input type="checkbox" class="custom-control-input" [(ngModel)]="formModel.wednesday"
+                                         [checked]="formModel.wednesday"
+                                         [value]="dayOfWeek.wednesday" (change)="getRRule()">
+                                  <span class="custom-control-indicator"></span>
+                                  <span class="custom-control-description">{{'CA0007.SUMMARY.WED' | translate}}</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                  <input type="checkbox" class="custom-control-input" [(ngModel)]="formModel.thursday"
+                                         (change)="getRRule()">
+
+                                  <span class="custom-control-indicator"></span>
+                                  <span class="custom-control-description">{{'CA0007.SUMMARY.THU' | translate}}</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                  <input type="checkbox" class="custom-control-input" [(ngModel)]="formModel.friday"
+                                         (change)="getRRule()">
+                                  <span class="custom-control-indicator"></span>
+                                  <span class="custom-control-description">{{'CA0007.SUMMARY.FRI' | translate}}</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                  <input type="checkbox" class="custom-control-input" [(ngModel)]="formModel.saturday"
+                                         (change)="getRRule()">
+                                  <span class="custom-control-indicator"></span>
+                                  <span class="custom-control-description">{{'CA0007.SUMMARY.SAT' | translate}}</span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                          <div *ngIf="formModel.repeatOption === const.repeatFlag.monthly">
+                            <div class="form-group row">
+                              <label class="col-md-12 col-lg-2 col-form-label text-left text-lg-right">{{'CA0007.SUMMARY.TITLE_REPEAT' |
+                                translate}}</label>
+                              <div class="col-md-12 col-lg-10">
+                                <div class="row">
+                                  <div class="col-3 col-lg-2">
+                                    <select class="form-control" [(ngModel)]="formModel.repeatInterval"
+                                            (change)="getRRule()">
+                                      <option *ngFor="let num of const.repeatInterval" [value]="num">{{num}}</option>
+                                    </select>
+                                  </div>
+                                  <div class="py-1">{{'CA0004_PAGE.UNIT.MONTH' | translate}}</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label class="col-md-12 col-lg-2 col-form-label text-left text-lg-right pt-0">{{'CA0007.SUMMARY.MONTH_REPEAT_OPTION.TITLE'
+                                |
+                                translate}}</label>
+                              <div class="col-md-12 col-lg-10">
+                                <div class="form-inline">
+                                  <div class="mr-2">
+                                    <label class="custom-control custom-radio">
+                                      <input type="radio" class="custom-control-input"
+                                             [(ngModel)]="formModel.monthRepeatOption" (change)="getRRule()"
+                                             name="monthRepeatOption" [value]="const.monthRepeatOption.BY_MONTH_DAY">
+                                      <span class="custom-control-indicator"></span>
+                                      <span class="custom-control-description">{{'CA0007.SUMMARY.MONTH_REPEAT_OPTION.REPEAT_OPTION_1' | translate}}</span>
+                                    </label>
+                                  </div>
+                                  <div class="">
+                                    <label class="custom-control custom-radio">
+                                      <input type="radio" class="custom-control-input"
+                                             [(ngModel)]="formModel.monthRepeatOption" (change)="getRRule()"
+                                             name="monthRepeatOption" [value]="const.monthRepeatOption.BY_DAY_OF_WEEK"
+                                      >
+                                      <span class="custom-control-indicator"></span>
+                                      <span class="custom-control-description">{{'CA0007.SUMMARY.MONTH_REPEAT_OPTION.REPEAT_OPTION_2' | translate}}</span>
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div *ngIf="formModel.repeatOption === const.repeatFlag.yearly">
+                            <div class="form-group row">
+                              <label class="col-md-12 col-lg-2 col-form-label text-left text-lg-right">{{'CA0007.SUMMARY.TITLE_REPEAT' |
+                                translate}}</label>
+                              <div class="col-md-12 col-lg-10">
+                                <div class="row">
+                                  <div class="col-3 col-lg-2">
+                                    <select class="form-control" [(ngModel)]="formModel.repeatInterval"
+                                            (change)="getRRule()">
+                                      <option *ngFor="let num of const.repeatInterval" [value]="num">{{num}}</option>
+                                    </select>
+                                  </div>
+                                  <div class="py-1">{{'CA0004_PAGE.UNIT.YEAR' | translate}}</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- until -->
+                          <div class="form-group row">
+                            <label class="col-md-12 col-lg-2 col-form-label text-left text-lg-right pt-ie">{{'CA0007.SUMMARY.DAY_END'
+                              |
+                              translate}}</label>
+                            <div class="col-md-12 col-lg-10 end-date-wrap">
+                              <div class="form-inline d-inline-block align-middle my-1">
+                                <label class="custom-control custom-radio">
+                                  <input type="radio" [(ngModel)]="formModel.endFrame" (change)="getRRule()"
+                                         [value]="const.endDate.none" value="{{const.endDate.none}}"
+                                         class="custom-control-input">
+                                  <span class="custom-control-indicator"></span>
+                                  <span
+                                    class="custom-control-description">{{'CA0007.SUMMARY.NOT_END' | translate}}</span>
+                                </label>
+                              </div>
+                              <div class="form-inline d-inline-block mr-3 mb-2">
+                                <div class="d-inline-block align-middle">
+                                  <label class="custom-control custom-radio mr-1 py-1">
+                                    <input type="radio" [(ngModel)]="formModel.endFrame" (change)="getRRule()"
+                                           [value]="const.endDate.count_time" value="{{const.endDate.count_time}}"
+                                           class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                  </label>
+                                </div>
+                                <div class="d-inline-block wrap-input ">
+                                  <input class="form-control form-center endDate-time" (change)="getRRule()" [disabled]="formModel.endFrame !== const.endDate.count_time"
+                                         (keypress)='keyPress($event)' (keyup)='keyUp($event)'
+                                         [(ngModel)]="formModel.countTime" type="text" id="countTime" >
+                                </div>
+                                <div class="py-1 d-inline-block align-middle">{{'CA0007.SUMMARY.TIME_END' | translate}}</div>
+                              </div>
+                              <div class="form-inline d-inline-block mb-2">
+                                <div class="d-inline-block align-middle">
+                                  <label class="custom-control custom-radio mr-1 py-1">
+                                    <input type="radio" [(ngModel)]="formModel.endFrame" (change)="getRRule()"
+                                           [value]="const.endDate.until_day" value="{{const.endDate.until_day}}"
+                                           class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                  </label>
+                                </div>
+                                <div class="d-inline-block wrap-input align-middle">
+                                  <app-date-input [date]="formModel.untilDay" [isDisable]="formModel.endFrame !== const.endDate.until_day"
+                                                       [dateInputOptions]="{id:'until_day',name:'untilDay',placeholder:'日付を選択してください',outsideDays:false,weekendsDisable:false}"
+                                                       (dateChanged)="getUntilDayOnChange($event)"></app-date-input>
+                                </div>
+                                <div class="py-1 d-inline-block align-middle">{{'CA0007.SUMMARY.DAY_EXACTLY' | translate}}</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--</div>-->
+                  </div>
+                  <div class="form-group row"
+                       *ngIf="formModel.repeatOption && formModel.repeatOption === const.repeatFlag.importCalendar"></div>
+                  <div class="form-group row">
+                    <label class="col-12 col-lg-2 col-form-label text-left text-lg-right pt-0">{{'CA0007.USER_CREATED' | translate}}</label>
+                    <div class="col-12 col-lg-10">{{userSession.lastName + ' ' +userSession.firstName}}</div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-12 col-lg-2 col-form-label text-left text-lg-right pt-0">{{'CA0004_PAGE.LABEL.ACCEPT_REQUEST' | translate}}</label>
+                    <div class="col-12 col-lg-10">
+                      <div class="row" *ngIf="1">
+                        <div class="col-12 col-lg-8 pb-2 pb-md-0" [innerHtml]="'CA0004_PAGE.LABEL.ACCEPT_REQUEST_NOTE' | translate">
+                        </div>
+                        <div class="col-12 col-lg-4">
+                          <div class="check-box d-flex">
+                            <button class="btn btn-primary-fist" type="button"
+                                    (click)="acceptRequestOnClick(const.acceptRequest.no)"
+                                    [ngClass]="{'btn-primary-active': formModel.acceptRequest === const.acceptRequest.no}"
+                            >OFF
+                            </button>
+                            <button class="btn btn-primary-fist" type="button"
+                                    (click)="acceptRequestOnClick(const.acceptRequest.yes)"
+                                    [ngClass]="{'btn-primary-active':  formModel.acceptRequest === const.acceptRequest.yes}"
+                            >ON
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="d-flex justify-content-center button-group">
+                    <button class="btn btn-primary mr-2" type="submit" (click)="updateOrCreateNewMeetingFrameSubmit()">
+                      {{'CA0007.BTN_SAVE' | translate}}
+                    </button>
+                    <button class="btn btn-secondary ml-2" type="button" (click)="backCA0002()">{{'CA0007.BTN_CANCEL' |
+                      translate}}
+                    </button>
+                  </div>
+                </div>
+
+                <!-- 編集:以下の内容で面会枠を作成しますか？ -->
+                <div *ngIf="page_to_display === const.pageFlag.confirmEdit">
+                  <div class="form-group">
+                    <h2 class="text-center text-danger">{{'CA0004_PAGE.CONFIRM' | translate}}</h2>
+                  </div>
+                  <!-- 日程/場所 -->
+                  <div class="row">
+                    <!--Left Col-->
+                    <div class="col-12 col-sm-12 col-md-6 col-xl-6">
+                      <dl class="meeting-dl m-0">
+                        <!-- 日程 -->
+                        <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'CA0004_PAGE.LABEL.DATE_TIME' | translate}}</dt>
+                        <dd class="pl-3 py-1 pr-1 mb-4">
+                          <div *ngIf="formModel.frameType === const.frameType.spot">
+                            <p class="mb-0">
+                              {{formModel.start | timePipe: 'MM月DD日(date)'}} {{formModel.start| timePipe: 'HH:mm'}}
+                              〜{{formModel.end | timePipe: 'HH:mm'}}</p>
+                          </div>
+                          <div *ngIf="formModel.frameType === const.frameType.slots">
+                            <p class="mb-0"
+                               *ngFor="let item of confirmDisplayObject.frameList">
+                              {{formModel.start | timePipe: 'MM月DD日(date)'}} {{item.start+'〜'+item.end}}</p>
+                          </div>
+                          <div *ngIf="formModel.isRepeat">
+                            <p class="mb-0">
+                              【{{confirmDisplayObject.repeatRuleJap}}】{{formModel.startTime+'〜'+formModel.endTime}}</p>
+                            <p class="mb-0">{{'CA0004_PAGE.LABEL.BEGIN' | translate}}：{{formModel.start | timePipe: 'YYYY/MM/DD'}} {{'CA0004_PAGE.LABEL.FROM' | translate}}</p>
+                            <p class="mb-0">{{'CA0004_PAGE.LABEL.END' | translate}}：{{confirmDisplayObject.endFrameJap}}</p>
+                          </div>
+                        </dd>
+                        <!-- 場所 -->
+                        <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'CA0004_PAGE.LABEL.PLACE' | translate}}</dt>
+                        <dd class="pl-3 py-1 pr-1 mb-4">
+                          <p class="mb-0" *ngIf="formModel.place">{{formModel.place}}</p>
+                          <p class="mb-0" *ngIf="!formModel.place">ー</p>
+                        </dd>
+                      </dl>
+                    </div>
+                  </div>
+                  <!-- /日程/場所 -->
+                  <!-- ボタンコンテンツ -->
+                  <div class="form-setting-confirm mt-3 pt-4">
+                    <div class="d-flex justify-content-center">
+                      <div class="d-flex justify-content-center form-inline">
+                        <button class="btn btn-primary m-1" type="submit" (click)="submitForm()">{{'MSG.YES' | translate}}</button>
+                        <button class="btn btn-secondary m-1" type="button" (click)="changePage(const.pageFlag.form)">{{'MSG.NO' | translate}}</button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /ボタンコンテンツ -->
+                </div>
+
+                <!-- 作成:以下の内容で面会枠を作成しますか？ -->
+                <form *ngIf="page_to_display === const.pageFlag.confirmCreate">
+                  <div class="form-group">
+                    <h2 class="text-center text-danger">{{'CA0004_PAGE.CONFIRM' | translate}}</h2>
+                  </div>
+                  <!-- 日程/場所 -->
+                  <div class="row">
+                    <!--Left Col-->
+                    <div class="col-12 col-sm-12 col-md-6 col-xl-6">
+                      <dl class="meeting-dl m-0">
+                        <!-- 日程 -->
+                        <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'CA0004_PAGE.LABEL.DATE_TIME' | translate}}</dt>
+                        <dd class="pl-3 py-1 pr-1 mb-4">
+                          <div *ngIf="formModel.frameType === const.frameType.slots">
+                            <p class="mb-0"
+                               *ngFor="let item of confirmDisplayObject.frameList">
+                              {{formModel.start | timePipe: 'MM月DD日(date)'}} {{item.start+'〜'+item.end}}</p>
+                          </div>
+                          <div *ngIf="formModel.frameType === const.frameType.spot">
+                            <p class="mb-0">
+                              {{formModel.start | timePipe: 'MM月DD日(date)'}} {{formModel.start| timePipe: 'HH:mm'}}
+                              〜{{formModel.end | timePipe: 'HH:mm'}}</p>
+                          </div>
+                        </dd>
+                        <!-- 場所 -->
+                        <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'CA0004_PAGE.LABEL.PLACE' | translate}}</dt>
+                        <dd class="pl-3 py-1 pr-1 mb-4">
+                          <p class="mb-0" *ngIf="formModel.place">{{formModel.place}}</p>
+                          <p class="mb-0" *ngIf="!formModel.place">ー</p>
+                        </dd>
+                      </dl>
+                    </div>
+                  </div>
+                  <!-- ボタンコンテンツ -->
+                  <div class="form-setting-confirm mt-3 pt-4">
+                    <div class="d-flex justify-content-center">
+                      <div class="d-flex justify-content-center form-inline">
+                        <button class="btn btn-primary m-1" type="submit" (click)="createFrame()">{{'MSG.YES' | translate}}</button>
+                        <button class="btn btn-secondary m-1" type="button" (click)="backCA0002()">{{'MSG.NO' | translate}}</button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /ボタンコンテンツ -->
+                </form>
+
+                <!-- contents -->
+                <div class="modal bs-example-modal-lg" tabindex="-1" role="dialog" id="modal-explanation">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="px-3 py-3">
+                        <h2>{{'CA0004_PAGE.MODAL.QUESTION' | translate}}</h2>
+                        <p class="fs19" [innerHtml]="'CA0004_PAGE.MODAL.EXPLANATION' | translate"></p>
+                        <img src="/assets/img/frame-meeting-help.png" class="img-fluid mb-3">
+                        <p class="fs19">{{'CA0004_PAGE.MODAL.FOOTER_NOTE' | translate}}</p>
+                        <div class="d-flex justify-content-center mt-2">
+                          <button class="btn btn-secondary fs18" type="submit" data-dismiss="modal" aria-label="Close">
+                            {{'CA0004_PAGE.MODAL.CLOSE' | translate}}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

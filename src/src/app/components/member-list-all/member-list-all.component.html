@@ -1,0 +1,35 @@
+<div class="member-list-all">
+  <div class="member-list-all-head" *ngIf="multiTabs">
+    <ul class="nav nav-tabs">
+      <ng-template ngFor let-nav [ngForOf]="navs">
+        <li class="nav-item">
+          <a class="nav-link" href="#" [ngClass]="{active: nav.active}" (click)="tabOpenClick($event, nav)">{{nav.label | translate}}</a>
+        </li>
+      </ng-template>
+    </ul>
+  </div>
+  <div class="member-list-all-body">
+    <div *ngIf="message && users.length === 0"> {{message}} </div>
+    <ul class="list-unstyled row">
+      <!--<ng-template ngFor let-user [ngForOf]="users">-->
+        <li class="my-2 col-12 col-sm-6 col-lg-3" *ngFor="let user of userInfo | filterInfo: users : isSort: isAllMember">
+          <app-mini-profile [tooltipOptions]="{isShow: true, isShowOfficeName: isShowOfficeName}" [userInfo]="user" (miniProfileLinkClick)="miniProfileOpen($event, user)"
+                            [profileOptions]="{
+                              iconSize: iconSize,
+                              isLink: !user.invalid,
+                              isContent: {
+                                top: {
+                                  content: (!group && user.isAdmin) ? adminLabel : null,
+                                  class: (!group && user.isAdmin) ? 'mini-profile font-weight-bold' : null
+                                },
+                                bottom: {
+                                  content: getContentBottom(user),
+                                  class: (user.isLocking || user.isRestricted || user.isBlocked) ? 'text-danger' : null
+                                }
+                              }
+                            }"></app-mini-profile>
+        </li>
+      <!--</ng-template>-->
+    </ul>
+  </div>
+</div>

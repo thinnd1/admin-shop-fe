@@ -1,0 +1,106 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents PH0003-->
+
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'DOC_TITLE.PH0011' | translate"></app-page-head>
+                </div>
+                <div class="tracing-report">
+                  <div class="control-btn clearfix mb-3">
+                    <div class="float-left pt-2" *ngIf="!isHospital"><span class="d-inline-block pr-5"><h3><b>{{reportInfo.medicalName}}</b></h3></span> <span class="d-inline-block"><h3><b>宛</b></h3></span></div>
+                    <div class="float-right no-print">
+                      <button class="btn btn-secondary" data-trigger="hover" data-toggle="tooltip" title="{{'PHARMACY.COMMON.PRINT' | translate}}"
+                              data-placement="top" (click)="printPage()"><i class="fa fa-print"></i></button>
+                    </div>
+                  </div>
+                  <table class="table table-bordered table-user-info mb-2">
+                    <tbody class="tbody-inverse">
+                      <tr>
+                        <th>{{'PHARMACY.TRACING_REPORT.DRUG_STORE_NAME' | translate}}</th>
+                        <td>{{reportInfo.drugStoreName}}</td>
+                      <th>{{'PHARMACY.TRACING_REPORT.PHONE_NUMBER' | translate}}</th>
+                        <td>{{reportInfo.phoneNumber}}</td>
+                      </tr>
+                      <tr>
+                      <th>{{'PHARMACY.TRACING_REPORT.PHARMACIST_NAME' | translate}}</th>
+                        <td>{{reportInfo.drugStoreUser}} <span class="select-user-box rounded-circle text-white form-inline justify-content-center float-right fs13">印</span></td>
+                      <th>{{'PHARMACY.TRACING_REPORT.PRESCRIPTION_ISSUED_DATE' | translate}}{{'PHARMACY.TRACING_REPORT.ISSUED_DATE' | translate}}</th>
+                        <td>{{reportInfo.prescriptionIssuedDate| timePipe : 'YYYY/MM/DD'}}</td>
+                      </tr>
+                      <tr>
+                      <th>{{'PHARMACY.TRACING_REPORT.PATIENT_NAME' | translate}}</th>
+                        <td>{{reportInfo.patientName}}</td>
+                      <th>{{'PHARMACY.TRACING_REPORT.PATIENT_CODE' | translate}}</th>
+                        <td>{{reportInfo.patientCode}}</td>
+                      </tr>
+                      <tr>
+                      <th>{{'PHARMACY.TRACING_REPORT.PATIENT_DATE_OF_BIRTH' |
+                        translate}}／{{'PHARMACY.TRACING_REPORT.PATIENT_GENDER' | translate}}
+                      </th>
+                      <td>{{reportInfo.patientBirthDate| timePipe : 'YYYY/MM/DD'}}
+                        <div class="float-right">
+                          {{('PHARMACY.TRACING_REPORT.GENDER.' + reportInfo.patientGender) | translate}}
+                        </div>
+                      </td>
+                      <th>{{'PHARMACY.TRACING_REPORT.COMPOUNDING_DATE' | translate}}</th>
+                        <td>{{reportInfo.compoundingDate | timePipe : 'YYYY/MM/DD'}}</td>
+                      </tr>
+                      <tr>
+                      <th>{{'PHARMACY.TRACING_REPORT.DEPARTMENT_NAME' | translate}}</th>
+                        <td>{{reportInfo.departmentName}}</td>
+                      <th>{{'PHARMACY.TRACING_REPORT.DOCTOR_NAME' | translate}}</th>
+                        <td>{{reportInfo.doctorName}}<span class ="show-right">{{'PHARMACY.TRACING_REPORT.DOCTOR' | translate}}</span></td>
+                      </tr>
+                      <tr>
+                        <th>{{'PHARMACY.TRACING_REPORT.PATIENT_CONSENT' | translate}}</th>
+                        <td>
+                          {{reportInfo.patientConsent? ('PHARMACY.TRACING_REPORT.PATIENT_CONSENT_YES' | translate): ('PHARMACY.TRACING_REPORT.PATIENT_CONSENT_NO' | translate)}}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="clearfix mb-2 content-border p-2" *ngIf="reportInfo.content || listAttachments.length > 0">
+                    <app-attachment-text-box-contents [contents]="{attachments:[], contents: reportInfo.content}"
+                                                      [isEdit]="true"
+                    ></app-attachment-text-box-contents>
+                    <app-report-file-display [path]="const.attachmentPath +'/' + reportInfo.firebaseStorageTopicPath"
+                                             [comment]="reportInfo"></app-report-file-display>
+                  </div>
+                  <app-report-comment-list [progress]="progress" [newComment]="reportInfo.comments"
+                                           [attachmentPath]="(reportInfo.firebaseStorageTopicPath)? const.attachmentPath + '/'+ reportInfo.firebaseStorageTopicPath: ''"
+                                           (onCreateComment)="createComment($event)"></app-report-comment-list>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

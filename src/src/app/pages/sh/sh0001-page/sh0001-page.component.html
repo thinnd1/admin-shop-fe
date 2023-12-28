@@ -1,0 +1,1582 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents PH0001-->
+
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'RE0010.PAGE_TITLE' | translate"></app-page-head>
+                </div>
+                <div class="control-top clearfix">
+                	<div class="control-left float-left mb-3">
+                		<button class="btn btn-primary mr-2">今週</button>
+                		<div class="d-inline-block btn-group mr-2">
+                			<button class="btn btn-secondary float-left"><i class="fa fa-angle-left"></i></button>
+                			<button class="btn btn-secondary float-left"><i class="fa fa-angle-right"></i></button>
+                		</div>
+                		<div class="d-inline-block btn-group mr-1">
+                			<button class="btn btn-secondary float-left">月</button>
+                			<button class="btn btn-secondary float-left">週</button>
+                		</div>
+                	</div>
+                	<div class="control-right float-right mb-3">
+                		<button class="btn btn-outline-warning mr-2" data-toggle="modal" data-target="#modal-notes">メモ</button>
+                		<button class="btn btn-success mr-2">シフト希望を提出</button>
+                		<select class="select form-control d-inline-block mr-2">
+                			<option>所属を選択</option>
+                		</select>
+                		<button class="btn btn-secondary"><i class="fa fa-print"></i></button>
+                	</div>
+                </div>
+                <div class="table-shift mb-5">
+	                <table class="table table-bordered table-calendar">
+	                	<thead class="thead-inverse">
+	                		<tr>
+	                			<th rowspan="2"></th>
+	                			<th>3/1 (月)</th>
+	                			<th>3/2 (火)</th>
+	                			<th>3/3 (水)</th>
+	                			<th>3/4 (木)</th>
+	                			<th>3/5 (金)</th>
+	                			<th class="saturday">3/6 (土)</th>
+	                			<th class="sunday">3/7 (日)</th>
+	                		</tr>
+	                		<tr>
+	                			<th><i class="fa fa-users"></i> [休診]鈴木先生 ! <br>→[代診]松本先生</th>
+	                			<th></th>
+	                			<th></th>
+	                			<th><i class="fa fa-user-o"></i> 19時から研修あり</th>
+	                			<th></th>
+	                			<th><i class="fa fa-users"></i> [休診]岡田先生</th>
+	                			<th></th>
+	                		</tr>
+	                	</thead>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="text-center p-3 border" colspan="8">午前</th>
+	                		</tr>
+	                		<tr>
+	                			<th rowspan="4">病棟診療</th>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	                				</div>
+	                				<span class="name-dpm fs11 d-block"><i class="fa fa-caret-right"></i> 耳鼻咽喉科</span>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">高内 健</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">渡辺 優子</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">高内 健</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">渡辺 優子</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                		<tr>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">相沢 勇気</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">櫻井 翔</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">相沢 勇気</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">大野 紗栄子</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">櫻井 翔</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">相沢 勇気</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">大野 紗栄子</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                		<tr>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">坂本 誠</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">伊坂 幸一郎</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">坂本 誠</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">鈴木 花子</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">伊坂 幸一郎</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">坂本 誠</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">鈴木 花子</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                		<tr>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">伊坂 幸一郎</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">鈴木 花子</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">伊坂 幸一郎</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">鈴木 花子</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+
+	                		<tr>
+	                			<th rowspan="3">外来診療</th>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">高内 健</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">渡辺 優子</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">高内 健</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">渡辺 優子</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                		<tr>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-blue d-block">内T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">相沢 勇気</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">櫻井 翔</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">M部</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">相沢 勇気</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">大野 紗栄子</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">名 大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">櫻井 翔</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">相沢 勇気</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">大野 紗栄子</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                		<tr>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">竹田 良樹</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">上田 大智</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-block mb-0">竹田 良樹</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">上田 大智</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                		<tr>
+	                			<th>関東病院</th>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">近藤 真帆</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-blue d-block">内T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">山本 業平</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">松本 環</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                		<tr>
+	                			<th>日本総合病院</th>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">近藤 真帆</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-blue d-block">内T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">山本 業平</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">松本 環</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                		<tr>
+	                			<th>坂の上総合内科</th>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">近藤 真帆</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-blue d-block">内T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">山本 業平</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">松本 環</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                	</tbody>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="text-center p-3 border" colspan="8">午後</th>
+	                		</tr>
+	                		<tr>
+	                			<th rowspan="4">病棟診療</th>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">高内 健</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">渡辺 優子</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">高内 健</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">渡辺 優子</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                		<tr>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">相沢 勇気</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">櫻井 翔</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">相沢 勇気</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">大野 紗栄子</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">櫻井 翔</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">相沢 勇気</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">大野 紗栄子</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                		<tr>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">坂本 誠</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">伊坂 幸一郎</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">坂本 誠</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">鈴木 花子</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">伊坂 幸一郎</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">坂本 誠</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">鈴木 花子</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                		<tr>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">伊坂 幸一郎</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">鈴木 花子</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">伊坂 幸一郎</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">鈴木 花子</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+
+	                		<tr>
+	                			<th rowspan="3">外来診療</th>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">高内 健</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">渡辺 優子</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">高内 健</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">渡辺 優子</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                		<tr>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-blue d-block">内T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">相沢 勇気</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">櫻井 翔</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">M部</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">相沢 勇気</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">大野 紗栄子</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">名 大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">櫻井 翔</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">相沢 勇気</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">大野 紗栄子</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                		<tr>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">竹田 良樹</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">上田 大智</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-block mb-0">竹田 良樹</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">上田 大智</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                		<tr>
+	                			<th>関東病院</th>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">近藤 真帆</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-blue d-block">内T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">山本 業平</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">松本 環</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                		<tr>
+	                			<th>日本総合病院</th>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">近藤 真帆</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-blue d-block">内T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">山本 業平</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">松本 環</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                		<tr>
+	                			<th>坂の上総合内科</th>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">近藤 真帆</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-blue d-block">内T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">山本 業平</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">松本 環</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                	</tbody>
+	                	<tbody class="tbody-inverse">
+	                		<tr>
+	                			<th class="text-center p-3 border" colspan="8">夜間</th>
+	                		</tr>
+	                		<tr>
+	                			<th rowspan="4">病棟診療</th>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">高内 健</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">渡辺 優子</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">高内 健</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">渡辺 優子</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                		<tr>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">相沢 勇気</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">櫻井 翔</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">相沢 勇気</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">大野 紗栄子</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">櫻井 翔</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">相沢 勇気</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">大野 紗栄子</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                		<tr>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">坂本 誠</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">伊坂 幸一郎</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">坂本 誠</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">鈴木 花子</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">伊坂 幸一郎</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">坂本 誠</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">鈴木 花子</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                		<tr>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">伊坂 幸一郎</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">鈴木 花子</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">伊坂 幸一郎</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">鈴木 花子</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+
+	                		<tr>
+	                			<th rowspan="3">外来診療</th>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">高内 健</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">渡辺 優子</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">高内 健</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">大内 真希</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">渡辺 優子</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                		<tr>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-blue d-block">内T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">相沢 勇気</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">櫻井 翔</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">M部</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">相沢 勇気</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">大野 紗栄子</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-green d-block">名 大内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">櫻井 翔</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">相沢 勇気</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">大野 紗栄子</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                		<tr>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">竹田 良樹</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">上田 大智</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-orange d-block">渡T</span>
+	                					</div>
+	                					<p class="shift-text d-block mb-0">竹田 良樹</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">上田 大智</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                		<tr>
+	                			<th>関東病院</th>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">近藤 真帆</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-blue d-block">内T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">山本 業平</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">松本 環</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                		<tr>
+	                			<th>日本総合病院</th>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">近藤 真帆</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-blue d-block">内T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">山本 業平</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">松本 環</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                		<tr>
+	                			<th>坂の上総合内科</th>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<p class="shift-text d-inline-block mb-0">近藤 真帆</p>
+	                				</div>
+	                			</td>
+	                			<td class="bg-check">
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-blue d-block">内T</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">山本 業平</p>
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					
+	                				</div>
+	                			</td>
+	                			<td>
+	                				<div class="shift-row d-flex">
+	                					<div class="shift-icon">
+	                						<span class="icon-inner bg-purple d-block">高内</span>
+	                					</div>
+	                					<p class="shift-text d-inline-block mb-0">松本 環</p>
+	                				</div>
+	                			</td>
+	                		</tr>
+	                	</tbody>
+	                </table>
+              	</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--<div class="col-12 col-lg-3 col-sub">-->
+        <!--<app-col-sub></app-col-sub>-->
+        <!--</div>-->
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>
+
+<!-- Modal Notes -->
+<div class="modal fade" id="modal-notes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header pb-0">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+      	<h4 class="modal-title text-center pb-4">メモ</h4>
+    		<div class="form-group row">
+			    <label for="example-text-input" class="col-2 col-form-label">日付：</label>
+			    <div class="col-5">
+			      <select class="form-control">
+			      	<option>3/1(月)</option>
+			      	<option>3/2(月)</option>
+			      	<option>3/3(月)</option>
+			      </select>
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label class="mb-0">[公開] 休診や代診など共有事項：</label>
+			    <input type="text" class="form-control" placeholder="30文字以内">
+			  </div>
+			  <div class="form-group">
+			    <label class="mb-0">[非公開] メモ ※他のスタッフには公開されません：</label>
+			    <input type="text" class="form-control" placeholder="30文字以内">
+			  </div>
+      </div>
+      <div class="modal-footer">
+      	<button type="button" class="btn btn-primary">保存</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">とじる</button>
+      </div>
+    </div>
+  </div>
+</div>

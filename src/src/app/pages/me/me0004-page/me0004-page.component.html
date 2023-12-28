@@ -1,0 +1,187 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'ME0004.TITLE' | translate"></app-page-head>
+                </div>
+                <div id="theme-details">
+                  <div class="header">
+                    <div class="d-flex justify-content-center ">
+                      <div class="user mb-4">
+                        <div class="user-img d-inline-block mr-2">
+                          <app-face-icon
+                            [userInfo]="{imageUrl: modelProfileAssignee.avatar,
+                                         firstName: modelProfileAssignee.firstName,
+                                         lastName: modelProfileAssignee.lastName}"
+                            [iconSize]="76">
+                          </app-face-icon>
+                        </div>
+                        <div class="user-description d-inline-block align-middle align-middle">
+                          <span class="fs12">{{ modelProfileAssignee.lastNameKana }}　{{ modelProfileAssignee.firstNameKana }}</span>
+                          <p class="fs24 name-big m-0">
+                            {{ modelProfileAssignee.lastName }} {{ modelProfileAssignee.firstName }}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                      <div class="user-buttom text-center">
+                        <button type="button" class="btn btn-lg btn-outline-warning m-1"
+                                [ngClass]="{'disabled': modelProfileAssignee.blockStatus === true }"
+                                (click)="routeMessageAssignee()">
+                          {{'ME0004.MESSAGE' | translate }}
+                        </button>
+                        <button type="button" class="btn btn-lg btn-success m-1"
+                                [ngClass]="{'disabled': modelProfileAssignee.blockStatus === true }"
+                                (click)="routeRequestDirect()" *ngIf="authorityRequestMeeting">
+                          {{ 'ME0004.VISIT_REQUEST' | translate }}
+                        </button>
+                        <button type="button" class="btn btn-lg btn-secondary m-1"
+                                (click)="changeStatusblockUser(false)"
+                                *ngIf="modelProfileAssignee.blockStatus === true">
+                          {{ 'ME0004.CANCEL_BLOCK' | translate }}
+                        </button>
+                        <button type="button" class="btn btn-lg btn-secondary m-1"
+                                (click)="changeStatusblockUser(true)"
+                                *ngIf="modelProfileAssignee.blockStatus === false">
+                          {{ 'ME0004.TO_BLOCK' | translate }}
+                        </button>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="content mt-5 mb-5">
+
+                    <table class="table table-bordered fs16">
+                      <tbody class="tbody-inverse">
+                      <tr class="border-top">
+                        <th scope="row">{{ 'ME0004.COMPANY_NAME' | translate }}：</th>
+                        <td colspan="3">{{ modelProfileAssignee.officeName }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">{{ 'ME0004.OWN_PR' | translate }}：</th>
+                        <td colspan="3">{{ modelProfileAssignee.selfPR }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">{{ 'ME0004.SOS_PHONE' | translate }}：</th>
+                        <td>{{ modelProfileAssignee.emergencyContact }}</td>
+                        <th>{{ 'ME0004.OFFICE_PHONE' | translate }}：</th>
+                        <td>{{ modelProfileAssignee.phoneOffice }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">{{ 'ME0004.OFFICE_NAME' | translate }}：</th>
+                        <td colspan="3">{{ modelProfileAssignee.companyName }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">{{ 'ME0004.DEPARTMENT' | translate }}：</th>
+                        <td colspan="3">{{ modelProfileAssignee.department }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">{{ 'ME0004.ADDRESS' | translate }}：</th>
+                        <td colspan="3">{{ modelProfileAssignee.officeAddress }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">{{ 'ME0004.ITEM_INDUSTRY_TYPE' | translate }}：</th>
+                        <td colspan="3">{{ modelProfileAssignee.industryName }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">{{ 'ME0004.GENDER_TYPE' | translate }}：</th>
+                        <td>
+                          {{ (modelProfileAssignee.genderType === 0 ? 'COMMON_LABEL.MALE' : 'COMMON_LABEL.FEMALE') | translate}}
+                        </td>
+                        <th>{{ 'ME0004.PHARMACY_GRADUATION' | translate }}：</th>
+                        <td>
+                          {{ (modelProfileAssignee.pharmacyGraduated === true ? 'ME0004.PHARMACY_GRADUATION_YES' :
+                          'ME0004.PHARMACY_GRADUATION_NO') | translate}}
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">{{ 'ME0004.EXPERIENCES' | translate }}：</th>
+                        <td colspan="3">{{ modelProfileAssignee.numYearExperience }}{{ 'COMMON_LABEL.YEAR' | translate }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">{{ 'ME0004.HANDLE_FIELDS' | translate }}：</th>
+                        <td colspan="3">
+                          <span *ngIf="handleFields?.length <= 0">―</span>
+                          <ul class="pl-4 mb-0" *ngIf="handleFields?.length > 0">
+                            <ng-container *ngFor="let handleField of handleFields">
+                              <li>{{handleField}}</li>
+                            </ng-container>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">{{ 'ME0004.HANDLE_OFFICES' | translate }}：</th>
+                        <td colspan="3">
+                          <span *ngIf="handleOffices?.length <= 0">―</span>
+                          <ul class="pl-4 mb-0" *ngIf="handleOffices?.length > 0">
+                            <ng-container *ngFor="let handleOffice of handleOffices">
+                              <li>{{handleOffice.officeName }}</li>
+                            </ng-container>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">{{ 'ME0004.PHARMACY_ADDRESS' | translate }}：</th>
+                        <td colspan="3">{{ (modelProfileAssignee.pharmacyPhones?.length > 0) ? modelProfileAssignee?.pharmacyPhones[0] : '―'}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">{{ 'ME0004.HANDLE_DRUGS' | translate }}：</th>
+                        <td colspan="3">
+                          <span *ngIf="handleDrugs?.length <= 0">―</span>
+                          <ul class="pl-4 mb-0" *ngIf="handleDrugs?.length > 0">
+                            <ng-container *ngFor="let handleDrug of handleDrugs">
+                              <li>{{handleDrug}}</li>
+                            </ng-container>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">{{ 'ME0004.PLACE_BORN_IN' | translate }}：</th>
+                        <td colspan="3">{{ modelProfileAssignee.placeBirth }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">{{ 'ME0004.HOBBY' | translate }}：</th>
+                        <td colspan="3">{{ modelProfileAssignee.hobby }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">{{ 'ME0004.START_HANDLE' | translate }}：</th>
+                        <td>
+                          {{(modelProfileAssignee.startHandle | timePipe: 'YYYY/MM/DD') !== '' ? (modelProfileAssignee.startHandle | timePipe: 'YYYY/MM/DD') : '―'}}</td>
+                        <th>{{ 'ME0004.END_HANDLE' | translate }}：</th>
+                        <td>
+                          {{(modelProfileAssignee.endHandle | timePipe: 'YYYY/MM/DD') !== '' ? (modelProfileAssignee.endHandle | timePipe: 'YYYY/MM/DD') : '―'}}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

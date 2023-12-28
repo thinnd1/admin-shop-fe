@@ -1,0 +1,626 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="row">
+            <!--contents-->
+            <!--contents ME5001-->
+            <div class="col">
+              <div class="page-head">
+                <app-page-head [title]="'ME5001.TITLE' | translate"></app-page-head>
+              </div>
+              <div id="faq-page">
+                <div class="faq-wrapper mb-5">
+                  <h2>{{'ME5001.ENTRANCE_CARD.TITLE' | translate}}</h2>
+                  <h3 class="ttl-faq mb-1">{{'ME5001.ENTRANCE_CARD.ISSUE.TITLE' | translate}}</h3>
+                  <ul class="faq-lst pl-0 mb-0">
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.ENTRANCE_CARD.ISSUE.QUESTION1' |
+                          translate}}</p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">{{'ME5001.ENTRANCE_CARD.ISSUE.ANSWER1' |
+                          translate}}</p>
+                      </div>
+                    </li>
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.ENTRANCE_CARD.ISSUE.QUESTION2' |
+                          translate}}</p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">{{'ME5001.ENTRANCE_CARD.ISSUE.ANSWER2' |
+                          translate}} </p>
+                      </div>
+                    </li>
+                  </ul>
+                  <h3 class="ttl-faq mb-1">{{'ME5001.ENTRANCE_CARD.DELIVERY.TITLE' | translate}}</h3>
+                  <ul class="faq-lst pl-0 mb-0">
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.ENTRANCE_CARD.DELIVERY.QUESTION1' |
+                          translate}}</p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">{{'ME5001.ENTRANCE_CARD.DELIVERY.ANSWER1' |
+                          translate}}</p>
+                      </div>
+                    </li>
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.ENTRANCE_CARD.DELIVERY.QUESTION2' |
+                          translate}}</p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">{{'ME5001.ENTRANCE_CARD.DELIVERY.ANSWER2' |
+                          translate}}</p>
+                      </div>
+                    </li>
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.ENTRANCE_CARD.DELIVERY.QUESTION3' |
+                          translate}}</p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">{{'ME5001.ENTRANCE_CARD.DELIVERY.ANSWER3' |
+                          translate}}</p>
+                      </div>
+                    </li>
+                  </ul>
+                  <h3 class="ttl-faq mb-1">{{'ME5001.ENTRANCE_CARD.TRANSFERS.TITLE' | translate}}</h3>
+                  <ul class="faq-lst pl-0 mb-0">
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.ENTRANCE_CARD.TRANSFERS.QUESTION1' |
+                          translate}}</p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">{{'ME5001.ENTRANCE_CARD.TRANSFERS.ANSWER1' |
+                          translate}}</p>
+                      </div>
+                    </li>
+                  </ul>
+                  <h3 class="ttl-faq mb-1">{{'ME5001.ENTRANCE_CARD.CARD_UPDATE.TITLE' | translate}}</h3>
+                  <ul class="faq-lst pl-0 mb-0">
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.ENTRANCE_CARD.CARD_UPDATE.QUESTION1' |
+                          translate}}</p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">
+                          {{'ME5001.ENTRANCE_CARD.CARD_UPDATE.ANSWER1' |
+                          translate}}
+                          <br>
+                          {{'ME5001.ENTRANCE_CARD.CARD_UPDATE.ANSWER1_1' |
+                          translate}}
+                        </p>
+                      </div>
+                    </li>
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.ENTRANCE_CARD.CARD_UPDATE.QUESTION2' |
+                          translate}}</p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">
+                          {{'ME5001.ENTRANCE_CARD.CARD_UPDATE.ANSWER2' |
+                          translate}}</p>
+                      </div>
+                    </li>
+                  </ul>
+                  <h3 class="ttl-faq mb-1">{{'ME5001.ENTRANCE_CARD.STOPPING_CARD.TITLE' |
+                    translate}}</h3>
+                  <ul class="faq-lst pl-0 mb-0">
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.ENTRANCE_CARD.STOPPING_CARD.QUESTION1' |
+                          translate}}</p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">{{'ME5001.ENTRANCE_CARD.STOPPING_CARD.ANSWER1' |
+                          translate}}</p>
+                      </div>
+                    </li>
+                  </ul>
+                  <h3 class="ttl-faq mb-1">{{'ME5001.ENTRANCE_CARD.RESUME_CARD.TITLE' |
+                    translate}}</h3>
+                  <ul class="faq-lst pl-0 mb-0">
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.ENTRANCE_CARD.RESUME_CARD.QUESTION1' |
+                          translate}}</p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">
+                          {{'ME5001.ENTRANCE_CARD.RESUME_CARD.ANSWER1' |
+                          translate}}
+                          <br>
+                          {{'ME5001.ENTRANCE_CARD.RESUME_CARD.ANSWER1_1' |
+                          translate}}
+                          <br>
+                          {{'ME5001.ENTRANCE_CARD.RESUME_CARD.ANSWER1_2' |
+                          translate}}
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                  <h3 class="ttl-faq mb-1">{{'ME5001.ENTRANCE_CARD.REISSUE_CARD.TITLE' |
+                    translate}}</h3>
+                  <ul class="faq-lst pl-0 mb-0">
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.ENTRANCE_CARD.REISSUE_CARD.QUESTION1' |
+                          translate}}</p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">
+                          {{'ME5001.ENTRANCE_CARD.REISSUE_CARD.ANSWER1' |
+                          translate}}
+                          <br>
+                          {{'ME5001.ENTRANCE_CARD.REISSUE_CARD.ANSWER1_1' |
+                          translate}}
+                          <br>
+                          {{'ME5001.ENTRANCE_CARD.REISSUE_CARD.ANSWER1_2' |
+                          translate}}
+                        </p>
+                      </div>
+                    </li>
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.ENTRANCE_CARD.REISSUE_CARD.QUESTION2' |
+                          translate}}</p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2"> {{'ME5001.ENTRANCE_CARD.REISSUE_CARD.ANSWER2' |
+                          translate}}
+                          <br>
+                          {{'ME5001.ENTRANCE_CARD.REISSUE_CARD.ANSWER2_1' |
+                          translate}}
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                  <h3 class="ttl-faq mb-1">{{'ME5001.ENTRANCE_CARD.CARD_TROUBLE.TITLE' |
+                    translate}}</h3>
+                  <ul class="faq-lst pl-0 mb-0">
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.ENTRANCE_CARD.CARD_TROUBLE.QUESTION1' |
+                          translate}}</p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">
+                          {{'ME5001.ENTRANCE_CARD.CARD_TROUBLE.ANSWER1' |
+                          translate}}
+                          <br>
+                          {{'ME5001.ENTRANCE_CARD.CARD_TROUBLE.ANSWER1_1' |
+                          translate}}
+                          <br>
+                          {{'ME5001.ENTRANCE_CARD.CARD_TROUBLE.ANSWER1_2' |
+                          translate}}
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="faq-wrapper mb-5">
+                  <h2>{{'ME5001.ENTRY.TITLE' | translate}}</h2>
+                  <h3 class="ttl-faq mb-1">{{'ME5001.ENTRY.ENTRANCE.TITLE' | translate}}</h3>
+                  <ul class="faq-lst pl-0 mb-0">
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.ENTRY.ENTRANCE.QUESTION1' |
+                          translate}}</p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">{{'ME5001.ENTRY.ENTRANCE.ANSWER1' |
+                          translate}}</p>
+                      </div>
+                    </li>
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.ENTRY.ENTRANCE.QUESTION2' |
+                          translate}}</p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">{{'ME5001.ENTRY.ENTRANCE.ANSWER2' |
+                          translate}}</p>
+                      </div>
+                    </li>
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.ENTRY.ENTRANCE.QUESTION3' |
+                          translate}}</p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">{{'ME5001.ENTRY.ENTRANCE.ANSWER3' |
+                          translate}}</p>
+                      </div>
+                    </li>
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.ENTRY.ENTRANCE.QUESTION4' |
+                          translate}}</p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">
+                          {{'ME5001.ENTRY.ENTRANCE.ANSWER4' |
+                          translate}}</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="faq-wrapper mb-5">
+                  <h2>{{'ME5001.TRANSFER.TITLE' |
+                    translate}}</h2>
+                  <h3 class="ttl-faq mb-1">{{'ME5001.TRANSFER.REGISTRATION_FEE.TITLE' |
+                    translate}}</h3>
+                  <ul class="faq-lst pl-0 mb-0">
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.TRANSFER.REGISTRATION_FEE.QUESTION1' |
+                          translate}}</p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">{{'ME5001.TRANSFER.REGISTRATION_FEE.ANSWER1' |
+                          translate}}
+                          <br>
+                          {{'ME5001.TRANSFER.REGISTRATION_FEE.ANSWER1_1' |
+                          translate}}
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                  <h3 class="ttl-faq mb-1">{{'ME5001.TRANSFER.UPDATE_FEE.TITLE' |
+                    translate}} </h3>
+                  <ul class="faq-lst pl-0 mb-0">
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.TRANSFER.UPDATE_FEE.QUESTION1' |
+                          translate}}</p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">{{'ME5001.TRANSFER.UPDATE_FEE.ANSWER1' |
+                          translate}}
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                  <h3 class="ttl-faq mb-1">{{'ME5001.TRANSFER.PAYEE.TITLE' |
+                    translate}}</h3>
+                  <ul class="faq-lst pl-0 mb-0">
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.TRANSFER.PAYEE.QUESTION1' |
+                          translate}}</p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">{{'ME5001.TRANSFER.PAYEE.ANSWER1' |
+                          translate}}
+                          <br>
+                          {{'ME5001.TRANSFER.PAYEE.ANSWER1_1' |
+                          translate}}
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                  <h3 class="ttl-faq mb-1">{{'ME5001.TRANSFER.OTHER.TITLE' |
+                    translate}}</h3>
+                  <ul class="faq-lst pl-0 mb-0">
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.TRANSFER.OTHER.QUESTION1' |
+                          translate}} </p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">{{'ME5001.TRANSFER.OTHER.ANSWER1' |
+                          translate}}
+                        </p>
+                      </div>
+                    </li>
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.TRANSFER.OTHER.QUESTION2' |
+                          translate}} </p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">{{'ME5001.TRANSFER.OTHER.ANSWER2' |
+                          translate}}
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="faq-wrapper mb-5">
+                  <h2>{{'ME5001.INVOICE.TITLE' |
+                    translate}}</h2>
+                  <h3 class="ttl-faq mb-1">{{'ME5001.INVOICE.ISSUE_INVOICE.TITLE' |
+                    translate}} </h3>
+                  <ul class="faq-lst pl-0 mb-0">
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.INVOICE.ISSUE_INVOICE.QUESTION1' |
+                          translate}} </p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">{{'ME5001.INVOICE.ISSUE_INVOICE.ANSWER1' |
+                          translate}}
+                          <br>
+                          {{'ME5001.INVOICE.ISSUE_INVOICE.ANSWER1_1' |
+                          translate}}
+                        </p>
+                      </div>
+                    </li>
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.INVOICE.ISSUE_INVOICE.QUESTION2' |
+                          translate}} </p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">{{'ME5001.INVOICE.ISSUE_INVOICE.ANSWER2' |
+                          translate}}
+                        </p>
+                      </div>
+                    </li>
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.INVOICE.ISSUE_INVOICE.QUESTION3' |
+                          translate}} </p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">
+                          {{'ME5001.INVOICE.ISSUE_INVOICE.ANSWER3' |
+                          translate}}
+                          <br>
+                          {{'ME5001.INVOICE.ISSUE_INVOICE.ANSWER3_1' |
+                          translate}}
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="faq-wrapper">
+                  <h2>{{'ME5001.RECEIPT.TITLE' |
+                    translate}}</h2>
+                  <h3 class="ttl-faq mb-1">{{'ME5001.RECEIPT.ISSUING_A_RECEIPT.TITLE' |
+                    translate}} </h3>
+                  <ul class="faq-lst pl-0 mb-0">
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.RECEIPT.ISSUING_A_RECEIPT.QUESTION1' |
+                          translate}} </p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">
+                          {{'ME5001.RECEIPT.ISSUING_A_RECEIPT.ANSWER1' |
+                          translate}}
+                          <br>
+                          {{'ME5001.RECEIPT.ISSUING_A_RECEIPT.ANSWER1_1' |
+                          translate}}
+                        </p>
+                      </div>
+                    </li>
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4"> {{'ME5001.RECEIPT.ISSUING_A_RECEIPT.QUESTION2' |
+                          translate}}</p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">
+                          {{'ME5001.RECEIPT.ISSUING_A_RECEIPT.ANSWER2' |
+                          translate}}
+                          <br>
+                          {{'ME5001.RECEIPT.ISSUING_A_RECEIPT.ANSWER2_1' |
+                          translate}}
+                        </p>
+                      </div>
+                    </li>
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4"> {{'ME5001.RECEIPT.ISSUING_A_RECEIPT.QUESTION3' |
+                          translate}}</p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">
+                          {{'ME5001.RECEIPT.ISSUING_A_RECEIPT.ANSWER3' |
+                          translate}}
+                        </p>
+                      </div>
+                    </li>
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">  {{'ME5001.RECEIPT.ISSUING_A_RECEIPT.QUESTION4' |
+                          translate}} </p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2"> {{'ME5001.RECEIPT.ISSUING_A_RECEIPT.ANSWER4' |
+                          translate}}
+                        </p>
+                      </div>
+                    </li>
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.RECEIPT.ISSUING_A_RECEIPT.QUESTION5' |
+                          translate}} </p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">{{'ME5001.RECEIPT.ISSUING_A_RECEIPT.ANSWER5' |
+                          translate}}
+                          <br>
+                          {{'ME5001.RECEIPT.ISSUING_A_RECEIPT.ANSWER5_1' |
+                          translate}}
+                        </p>
+                      </div>
+                    </li>
+                    <li class="clearfix mb-1">
+                      <div class="quest-cont align-items-center py-2">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top">Q</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4">{{'ME5001.RECEIPT.ISSUING_A_RECEIPT.QUESTION6' |
+                          translate}}</p>
+                        <span class="arrow d-inline-block text-center align-top fs20"><i
+                          class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div class="answer-cont align-items-center">
+                        <span class="faq-icon text-right fs18 d-inline-block align-top py-2">A</span>
+                        <p class="quest-txt d-inline-block mb-0 pl-4 py-2">{{'ME5001.RECEIPT.ISSUING_A_RECEIPT.ANSWER6' |
+                          translate}}
+                          <br>
+                          {{'ME5001.RECEIPT.ISSUING_A_RECEIPT.ANSWER6_1' |
+                          translate}}
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="d-flex justify-content-center my-4">
+                  <button class="btn btn-info" type="submit" (click)="receptionPolicy()">
+                    {{'ME5001.BUTTON.SUBMIT' | translate}}
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- //contents -->
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

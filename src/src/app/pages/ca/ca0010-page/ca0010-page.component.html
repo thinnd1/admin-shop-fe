@@ -1,0 +1,173 @@
+<ng-template #elseBlock>
+  <p class="text-danger">外部カレンダー情報が取得できません</p>
+  <button class="btn btn-primary" (click)="_load()">再試行</button>
+</ng-template>
+
+<ng-container *ngIf="_settingsAsyncOb | async as settings; else elseBlock;">
+
+  <calendar-consent-panel
+    provider="GOOGLE"
+    [platform]="_isPrjoy$ ? 'WEB_PRJOY' : 'WEB'"
+    [accounts]="settings.googles"
+    (reload)="_load()"
+  >
+  </calendar-consent-panel>
+
+  <calendar-consent-panel
+    provider="OUTLOOK"
+    [platform]="_isPrjoy$ ? 'WEB_PRJOY' : 'WEB'"
+    [accounts]="settings.outlooks"
+    (reload)="_load()"
+  >
+  </calendar-consent-panel>
+
+<!-- 
+<hr>
+
+<h2>Google カレンダーとの同期</h2>
+<div class="d-flex justify-content-center fs18">
+  <button type="submit" class="btn btn-primary" (click)="_onAddAccount('GOOGLE')">アカウント追加</button>
+</div>
+<div class="panel-group-release">
+  {{ settings }}
+
+  <div class="panel-group-fl" *ngFor="let account of settings.googles">
+    <div class="panel-head d-flex">
+      <div class="panel-head-txt"><h2>{{ account.name }}</h2></div>
+      <div class="panel-btn px-2 btn btn-lg btn-secondary fs18" (click)="_onDelete(account)">解除</div>
+    </div>
+
+    <div id="collapseOne01" class="panel-collapse-fl">
+      <div class="panel-body p-4">
+        
+        <div class="row row-mg py-1 align-items-center" *ngFor="let calendar of account.calendars">
+          <div class="col-lg-7">
+            <div class="panel-bg d-flex align-items-center">
+              <span class="box-bg-17 box-bg"></span>
+              <span class="setting-txt-title">{{ calendar.name }}</span>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="panel-button text-right fs18">
+              <button type="button" class="btn btn-outline-warning">表示カラーの変更</button>
+              <button *ngIf="calendar.visible" (click)="_onDisplay(false, calendar)" type="button" class="btn btn-success">表示中</button>
+              <button *ngIf="! calendar.visible" (click)="_onDisplay(true, calendar)" type="button" class="btn btn-secondary">非表示</button>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="panel-group-fl">
+    <div class="panel-head d-flex">
+      <div class="panel-head-txt"><h2>abcdefg@hijklmn.co.jp</h2></div>
+      <div class="panel-btn px-2 btn btn-lg btn-secondary fs18">解除</div>
+    </div>
+    <div id="collapseOne01" class="panel-collapse-fl">
+      <div class="panel-body p-4">
+        <div class="row row-mg py-1 align-items-center">
+          <div class="col-lg-7">
+            <div class="panel-bg d-flex align-items-center">
+              <span class="box-bg-17 box-bg"></span>
+              <span class="setting-txt-title">aaaaa@aaaaa.com</span>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="panel-button text-right fs18">
+              <button type="button" class="btn btn-outline-warning">表示カラーの変更</button>
+              <button type="button" class="btn btn-success">表示中</button>
+            </div>
+          </div>
+        </div>
+        <div class="row row-mg py-1 align-items-center">
+          <div class="col-lg-7">
+            <div class="panel-bg d-flex align-items-center">
+              <span class="box-bg-05 box-bg"></span>
+              <span class="setting-txt-title">aaaaa@aaaaa.com</span>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="panel-button text-right fs18">
+              <button type="button" class="btn btn-outline-warning">表示カラーの変更</button>
+              <button type="button" class="btn btn-secondary">非表示</button>
+            </div>
+          </div>
+        </div>
+        <div class="row row-mg py-1 align-items-center">
+          <div class="col-lg-7">
+            <div class="panel-bg d-flex align-items-center">
+              <span class="box-bg-11 box-bg"></span>
+              <span class="setting-txt-title">bbbbbb@aaaaa.com</span>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="panel-button text-right fs18">
+              <button type="button" class="btn btn-outline-warning">表示カラーの変更</button>
+              <button type="button" class="btn btn-success">表示中</button>
+            </div>
+          </div>
+        </div>
+        <div class="row row-mg py-1 align-items-center">
+          <div class="col-lg-7">
+            <div class="panel-bg d-flex align-items-center">
+              <span class="box-bg-02 box-bg"></span>
+              <span class="setting-txt-title">ccccccccccccc@aaaaa.com</span>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="panel-button text-right fs18">
+              <button type="button" class="btn btn-outline-warning">表示カラーの変更</button>
+              <button type="button" class="btn btn-secondary">非表示</button>
+            </div>
+          </div>
+        </div>
+        <div class="row row-mg py-1 align-items-center">
+          <div class="col-lg-7">
+            <div class="panel-bg d-flex align-items-center">
+              <span class="box-bg-14 box-bg"></span>
+              <span class="setting-txt-title">eeeeeeeeeehhhhhhhhhheeeeeeeeeehhhhhhhhhheeeeeeeeeehhhhhhhhhh@aaaaaaaaaa.co.j</span>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="panel-button text-right fs18">
+              <button type="button" class="btn btn-outline-warning">表示カラーの変更</button>
+              <button type="button" class="btn btn-success">表示中</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-group-fl">
+    <div class="panel-head d-flex" id="headingOne">
+      <div class="panel-head-txt"><h2>opqrstu@hijklmn.co.jp</h2></div>
+      <div class="panel-btn px-2 btn btn-secondary fs18">解除</div>
+    </div>
+  </div>
+  <div class="panel-group-fl">
+    <div class="panel-head d-flex">
+      <div class="panel-head-txt"><h2>
+        sample.mail.outlook.sample.mail.outlook.sample.mail.outlook.sample.mail.outlook.sample.mail.outlook.sample.mail.outlook.@live.jp</h2>
+      </div>
+      <div class="panel-btn px-2 btn btn-secondary fs18">解除</div>
+    </div>
+  </div>
+</div>
+<h2>Outlook.com カレンダーとの同期</h2>
+<div class="d-flex justify-content-center fs18">
+  <button type="submit" class="btn btn-primary">アカウント追加</button>
+</div>
+<h2>サイボウズ Garoon カレンダーとの同期</h2>
+<div class="d-flex justify-content-center fs18">
+  <button type="submit" class="btn btn-primary">アカウント追加</button>
+</div>
+<div class="d-flex justify-content-center fs18">
+  <button type="submit" class="btn btn-primary">保存</button>
+</div> -->
+
+</ng-container>

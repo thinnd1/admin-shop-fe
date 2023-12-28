@@ -1,0 +1,16 @@
+<div class="staff-popover-wrap" (clickOutside)="p.close()">
+  <ng-template #popContent>
+    <div class="staff-popover py-2">
+      <ul class="list-inline mb-0">
+        <ng-container *ngFor="let user of listUserInfo | filterInfo: displayList;let i = index">
+          <li *ngIf="i < limit" class="my-1">
+            <app-mini-profile [userInfo]="user" [profileOptions]="{iconSize:30}" [tooltipOptions]="{isShow: true, isShowOfficeName: isGroupOutside}"></app-mini-profile>
+          </li>
+        </ng-container>
+        <li *ngIf="otherStaff" class="mt-1 fs14 staff-popover-other">{{'STAFF_POPOVER.OTHER_STAFF' | translate:param}}</li>
+      </ul>
+    </div>
+  </ng-template>
+  <a href="javascript:void(0);" (click)="clickLink($event)" class="staff-popover-link" [ngStyle]="{'font-weight': staffPopoverOptions.fontWeight ? staffPopoverOptions.fontWeight : 'bold', 'color': staffPopoverOptions.color }"
+     [ngbPopover]="popContent" #p="ngbPopover" placement="auto"  triggers="mouseenter:mouseleave">{{staffPopoverOptions.text}}</a>
+</div>

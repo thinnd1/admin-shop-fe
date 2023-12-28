@@ -1,0 +1,82 @@
+// import common setting
+@import './../../../assets/styles/import';
+
+.info-panel-inner {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100%;
+  min-width: 400px;
+  .info-panel-list {
+    margin: 0;
+    color: #777;
+    &-day {
+      background: #EEE;
+      text-align: center;
+      font-weight: normal;
+      padding: 0.5em 1em;
+      white-space: nowrap;
+      border-top: 1px solid #D7D7D7;
+      border-bottom: 1px solid #D7D7D7;
+      &:first-child {
+        border-top: none;
+      }
+    }
+    &-item {
+      padding: 10px;
+      margin: 0;
+      cursor: auto;
+      font-size: _rem(12px);
+      @include user-select(none);
+      &.info-panel-list-item-link {
+        cursor: pointer;
+        &:hover {
+          background: #FCF8E3;
+        }
+      }
+      &.info-panel-list-item-read {
+        background: #FAFAFA;
+      }
+      + .info-panel-list-item {
+        border-top: 1px solid #EEE;
+      }
+    }
+    &-time {
+      position: absolute;
+      right: 0;
+      top: 6px;
+    }
+    &-profile {
+      position: relative;
+      margin-bottom: 5px;
+      &-avatar {
+        display: table-cell;
+        vertical-align: middle;
+        padding-right: 10px;
+        &-img {
+        }
+      }
+      &-userinfo {
+        display: table-cell;
+        vertical-align: middle;
+        &-username {
+          margin: 0;
+          white-space: nowrap;
+        }
+      }
+    }
+    &-action {
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: $green;
+    }
+    &-comment {
+      margin: 0;
+      color: #333;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap
+    }
+  }
+}

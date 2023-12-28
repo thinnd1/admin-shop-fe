@@ -1,0 +1,86 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+.border-red{
+	border: 1px solid #D21D29!important;
+}
+.staff-edit {
+	.user-account {
+		border: 1px solid #d7d7d7;
+		@include border-radius (5px);
+		.user-name-text {
+			line-height:25px;
+		}
+	}
+	.table-edit {
+		tr {
+			th {
+		    white-space: nowrap;
+		    width: 1rem;
+			}
+			td {
+				vertical-align: middle;
+				.align-right {
+			    width: auto;
+				}
+				.mail-dr {
+				  line-height: 32px;
+				}
+				.close-field {
+			    line-height: 0px;
+          cursor: pointer;
+          margin-top:-4px; 
+				}
+			}
+		}
+	}
+}
+
+.date-select-wrap {
+  select.form-control {
+    width: auto;
+  }
+  .input-phs {
+  	width: 8rem;
+  }
+}
+.tel-input-wrap {
+  .form-control-tel {
+    width: 4.3rem;
+  }
+  :first-child .form-control-tel {
+    width: 3.8rem;
+  }
+}
+
+// @media (max-width: 991px) { ... }
+@include media-breakpoint-down(md) {
+	.staff-edit {
+		.table-edit {
+			tr {
+				th {
+			    white-space: inherit;
+			    width: 10rem;
+				}
+			}
+		}
+	}
+}
+
+//@media (max-width: 767px)
+@include media-breakpoint-down(sm) {
+  .staff-edit {
+	  .table-edit {
+  		tr{
+	  		th, td {
+	  			width: 100%;
+	  			max-width: inherit;
+	  			display: block;
+	  		}
+	  	}
+  		.col-6 {
+  			max-width: 100%;
+  			flex: 0 0 100%;
+  		}
+	  }
+	}
+}

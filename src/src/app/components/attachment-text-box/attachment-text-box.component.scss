@@ -1,0 +1,133 @@
+// import common setting
+@import './../../../assets/styles/import';
+
+.border-red {
+  border: 1px solid #D21D29 !important;
+}
+.groupboard-contribution {
+  .select-dropdown{
+    width: 90%;
+    display: inline-block;
+  }
+  .groupboard-contribution-destination {
+    .groupboard-contribution-destination-badge-wrap {
+      padding-top: 5px;
+      width: 40px;
+      .badge-groupboard-contribution-destination {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    .groupboard-contribution-destination-list-wrap {
+      width : -webkit-calc(100% - 40px);
+      width : calc(100% - 40px);
+    }
+    .groupboard-contribution-destination-list {
+      width: 40px;
+      margin-right: 0.5rem;
+      position: relative;
+      .groupboard-contribution-destination-list-remove {
+        position: absolute;
+        top: 0;
+        right: -5px;
+        color: $white;
+        cursor: pointer;
+        .fa {
+          background-color: $link-color;
+        }
+      }
+      & > :last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  .container-groupboard-contribution,
+  .container-groupboard-contribution-reply {
+    border: 1px solid #CCC;
+    background-color: #fff;
+  }
+  .groupboard-contribution-textarea {
+    border: none;
+    resize: none;
+    &::-webkit-input-placeholder {
+      line-height: normal;
+    }
+    }
+  .groupboard-contribution-btn-wrap {
+    border-top: 1px solid #CCC;
+    user-select: none;
+    + .groupboard-contribution-btn-wrap {
+      border-left: 1px solid #CCC;
+    }
+    &.disabled {
+      cursor: not-allowed;
+      opacity: .65;
+      &:hover {
+        background-color: $btn-primary-bg;
+      }
+      &:focus {
+        box-shadow: none;
+      }
+    }
+    .fa {
+      color: $orange;
+    }
+  }
+  .groupboard-contribution-reply-btn-wrap {
+    .fa {
+      color: $orange;
+    }
+    .disabled {
+      &:hover {
+        background-color: $btn-primary-bg;
+      }
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+
+  .groupboard-contribution-upload-files {
+    background-color: #fff;
+    .groupboard-contribution-upload-files-list {
+      .fa {
+        color: $blue;
+      }
+      .groupboard-contribution-upload-files-list-name {
+        color: $gray;
+      }
+      .groupboard-contribution-upload-files-list-size {
+      }
+      .groupboard-contribution-upload-files-list-remove {
+        cursor: pointer;
+        .fa {
+          color: $link-color;
+        }
+      }
+    }
+  }
+}
+
+.btn-upload-img {
+  border-radius:0px;
+}
+.wrap-text{
+  white-space: normal;
+}
+.dropdown-scroll{
+  max-height: 200px;
+  overflow-x: auto;
+}
+.form-area {
+  min-height: 200px !important;
+}
+.drop-list {
+  display: block;
+  width: 100%;
+  padding: 3px 1rem;
+  color: #292b2c;
+  text-align: inherit;
+  white-space: nowrap;
+  background: none;
+  border: 0;
+}

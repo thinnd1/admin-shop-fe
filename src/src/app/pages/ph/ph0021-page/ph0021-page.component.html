@@ -1,0 +1,267 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+            <div class="row">
+              <!--contents-->
+              <!--contents PH0016-->
+
+              <div class="col">
+                <div class="page-head">
+                  <div class="page-head-title">
+                    <h1 class="page-head-title-text" *ngIf="isHospital">{{'DOC_TITLE.PH0021' | translate}}</h1>
+                    <h1 class="page-head-title-text" *ngIf="!isHospital">{{'DOC_TITLE.PH0023' | translate}}</h1>
+                  </div>
+                </div>
+                <ul class="nav nav-tabs mb-4" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active' : numTab === 2, 'nav-customlink': numTab !== 2}"
+                       (click)="changeNumTab(2)">{{'PHARMACY.DRUG.DRUG' |
+                      translate}}</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active' : numTab === 3, 'nav-customlink': numTab !== 3}"
+                       (click)="changeNumTab(3)">{{'PHARMACY.PH0025.TAB_TITLE' | translate}}</a>
+                  </li>
+                </ul>
+                <div class="tab-content">
+                  <div *ngIf="numTab === 2" role="tabpanel">
+                    <div class="recruit-drug">
+                      <div class="control-bar clearfix mb-3">
+                        <div class="control-bar-left form-inline float-left col-9 p-0">
+                          <div class="clearfix pr-0 pr-sm-2 search-bar mb-2 mb-xs-2 col-4 p-0">
+                            <label class="mb-0 justify-content-start">{{'PHARMACY.DRUG.DRUG_NAME' | translate}}</label>
+                            <!--<div class="search">-->
+                            <!--<input ngui-auto-complete type="text"-->
+                            <!--[source]="listDrug" autocomplete="off"-->
+                            <!--[list-formatter]="autocompleListFormatter"-->
+                            <!--[value-formatter]="myValueFormatter"-->
+                            <!--select-on-blur=false-->
+                            <!--select-value-of="text"-->
+                            <!--close-on-focusout="false"-->
+                            <!--no-match-found-text="{{'PHARMACY.TRACING_REPORT.SELECT2_NO_RESULT'| translate}}"-->
+                            <!--loading-text="&nbsp;{{'CA0009.LOADING' | translate }}"-->
+                            <!--class="form-control w-100 seach-input"-->
+                            <!--placeholder="{{'BTN.SEARCH' | translate}}"-->
+                            <!--min-chars="1"-->
+                            <!--tab-to-select="false"-->
+                            <!--[(ngModel)]="formSearch.productName"-->
+                            <!--(valueChanged)="getSearchData()"-->
+                            <!--(keydown.enter)="productNameOnChange($event.target.value, 'productName')"-->
+                            <!--/><app-infinitive-select></app-infinitive-select>-->
+                            <!--<button type="submit" class="search-btn" (click)="getSearchData()">-->
+                            <!--<i class="fa fa-search" aria-hidden="true"></i>-->
+                            <!--</button>-->
+                            <!--</div>-->
+                            <app-infinitive-select [source]="listDrug" tabindex="-1" (keydown.enter)="getSearchData()"
+                                                   (ngModelChange)="productNameOnChange($event, 'productName')"
+                                                   [ngModelOptions]="{standalone: true}"
+                                                   [(ngModel)]="selectedDrug"
+                                                   [infiniteScrollOptions]="infiniteScrollOptions"
+                                                   [forceInputWithoutReload]="formSearch.productName"
+                                                   (scrollDown)="scrollDown($event, 'productName')"
+                                                   (keywordChanged)="textChanged($event, 'productName')"
+                                                   (clickSearch)="getSearchData()"
+                            ></app-infinitive-select>
+                          </div>
+                          <div class="clearfix select-business pr-0 pr-sm-2 mb-2 mb-xs-2 col-4">
+                            <label class="mb-0 justify-content-start">{{'PHARMACY.DRUG.COMPANY_NAME' |
+                              translate}}</label>
+                            <!--<div class="search">-->
+                            <!--<input ngui-auto-complete type="text"-->
+                            <!--[source]="pharmacyOffices" autocomplete="off"-->
+                            <!--[list-formatter]="autocompleListFormatter"-->
+                            <!--[value-formatter]="myValueFormatter"-->
+                            <!--select-on-blur=false-->
+                            <!--select-value-of="text"-->
+                            <!--close-on-focusout="false"-->
+                            <!--no-match-found-text="{{'PHARMACY.TRACING_REPORT.SELECT2_NO_RESULT'| translate}}"-->
+                            <!--loading-text="&nbsp;{{'CA0009.LOADING' | translate }}"-->
+                            <!--class="form-control w-100 seach-input"-->
+                            <!--placeholder="{{'BTN.SEARCH' | translate}}"-->
+                            <!--min-chars="1"-->
+                            <!--[(ngModel)]="formSearch.companyName"-->
+                            <!--(valueChanged)="getSearchData()"-->
+                            <!--(keydown.enter)="productNameOnChange($event.target.value, 'companyName')"-->
+                            <!--/>-->
+                            <!--<button type="submit" class="search-btn" (click)="getSearchData()">-->
+                            <!--<i class="fa fa-search" aria-hidden="true"></i>-->
+                            <!--</button>-->
+                            <!--</div>-->
+                            <app-infinitive-select [source]="pharmacyOfficesResult" tabindex="-1"
+                                                   (keydown.enter)="getSearchData()"
+                                                   (ngModelChange)="productNameOnChange($event, 'companyName')"
+                                                   [ngModelOptions]="{standalone: true}"
+                                                   [(ngModel)]="selectedPharmacy"
+                                                   [infiniteScrollOptions]="infiniteScrollOptions"
+                                                   [forceInputWithoutReload]="formSearch.companyName"
+                                                   (keywordChanged)="textChanged($event, 'companyName')"
+                                                   (clickSearch)="getSearchData()"
+                            ></app-infinitive-select>
+                          </div>
+                          <div class="clearfix pt-0 pt-sm-3 col-4">
+                            <div class="d-flex text-left">
+                              <label class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input"
+                                       [(ngModel)]="formSearch.isAdoptedOnly" (change)="getSearchData()" [value]="true">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">{{(isHospital? 'PHARMACY.PH0021.SHOW_ONLY_APPLIED_DRUG': 'PHARMACY.PH0021.DRUG_STORE_SHOW_ONLY_APPLIED_DRUG') | translate}}</span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="control-bar-right float-right text-center">
+                          <p class="mb-0 d-none d-sm-block">&nbsp;</p>
+                          <div>
+                            <button class="btn btn-secondary btn-sm px-3 py-2 font-weight-bold mr-3"
+                                    data-trigger="hover"
+                                    (click)="beforeImportCsv(fileInput)">
+                              <span> インポート</span>
+                            </button>
+                            <input type="file" #fileInput id="fileInput" accept=".xlsx,.xls,.csv"
+                                   class="custom-file-input" (change)="importCsv($event)">
+                            <button class="btn btn-secondary btn-sm px-3 py-2 font-weight-bold" (click)="exportCsv()">
+                              {{'PHARMACY.COMMON.DOWNLOAD' | translate}}
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="clearfix btn-control mb-3">
+                        <div class="float-left btn-lst d-sm-flex d-block mb-3">
+                          <button class="btn font-weight-bold" *ngFor="let btn of selectSearch; let i = index"
+                                  [ngClass]="{'btn-primary ': (formSearch.alphabetIndex === i), 'text-primary btn-secondary': (formSearch.alphabetIndex !== i), 'mx-2': (i % 2 === 1)}"
+                                  (click)="searchProductByAlphabet(i)"
+                          >{{btn.label}}
+                          </button>
+                        </div>
+                        <div class="float-right btn-all mb-3">
+                          <button class="btn btn-primary" (click)="registerDrug()">{{'MSG.SAVE' | translate}}</button>
+                        </div>
+                      </div>
+                    </div>
+                    <table class="table table-striped table-bordered tabl-recruit table-tracing-report" infinite-scroll
+                           [scrollWindow]="true"
+                           (scrolled)="scrollPaging()" [infiniteScrollDistance]="1">
+                      <thead class="thead-inverse hidden-md-down">
+                      <tr>
+                        <th class="tbl-check w-5">{{(isHospital? 'PHARMACY.COMMON.DRUG_IN_USE':
+                          'PHARMACY.DRUG.DRUG_STORE.DRUG_IN_USE') | translate}}
+                        </th>
+                        <th class="tbl-name">{{'PHARMACY.DRUG.DRUG_NAME' | translate}}</th>
+                        <th class="tbl-comp">{{'PHARMACY.DRUG.COMPANY_NAME' | translate}}</th>
+                        <th class="tbl-code">{{'PHARMACY.DRUG.DRUG_CODE' | translate}}</th>
+                        <th class="tbl-use" *ngIf="isHospital">{{'PHARMACY.DRUG.DRUG_CATEGORY' | translate}}</th>
+                        <th class="tbl-date">{{(isHospital? 'PHARMACY.DRUG.USAGE_START_DATE':
+                          'PHARMACY.DRUG.DRUG_STORE.USAGE_START_DATE' )| translate}}
+                        </th>
+                        <th class="tbl-endDate">{{'PHARMACY.DRUG.USAGE_END_DATE' | translate}}</th>
+                      </tr>
+                      </thead>
+                      <tbody class="tbody-inverse">
+                      <tr *ngFor="let record of allPage;let i = index">
+                        <th class="hidden-lg-up">{{'PHARMACY.DRUG.DRUG_NAME' | translate}}</th>
+                        <td class="tbl-check text-left text-md-center">
+                          <label class="custom-control custom-checkbox mb-0 mr-0  ml-2 mt-1 d-inline-block">
+                            <input type="checkbox" class="custom-control-input" [(ngModel)]="record.applied"
+                                   [value]="true" (change)="editDrug(i)">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description"></span>
+                          </label>
+                        </td>
+                        <th class="hidden-lg-up">{{'PHARMACY.DRUG.DRUG_NAME' | translate}}</th>
+                        <td class="tbl-name">
+                          <div class="ellipsis">
+                            <span [ngbTooltip]="record.drugName">{{record.drugName}}</span>
+                          </div>
+                        </td>
+                        <th class="hidden-lg-up">{{'PHARMACY.DRUG.COMPANY_NAME' | translate}}</th>
+                        <td class="tbl-comp text-truncate">{{record.companyName}}</td>
+                        <th class="hidden-lg-up">{{'PHARMACY.DRUG.DRUG_CODE' | translate}}</th>
+                        <td class="tbl-code">{{record.drugCode}}</td>
+                        <th class="hidden-lg-up" *ngIf="isHospital">
+                          {{'PHARMACY.DRUG.DRUG_CATEGORY' | translate}}
+                        </th>
+                        <td class="tbl-use" *ngIf="isHospital">
+                          <select class="form-control font-weight-bold" [(ngModel)]="record.drugCategory"
+                                  (change)="updateDataList(i)">
+                            <option [value]="" class="font-weight-bold"></option>
+                            <option *ngFor="let obj of const.drugCategory" [value]="obj.key" class="font-weight-bold">
+                              {{'PHARMACY.DRUG.'+obj.text | translate }}
+                            </option>
+                          </select>
+                        </td>
+                        <th class="hidden-lg-up">{{(isHospital? 'PHARMACY.DRUG.USAGE_START_DATE':
+                          'PHARMACY.DRUG.DRUG_STORE.USAGE_START_DATE' )| translate}}
+                        </th>
+                        <td class="tbl-date">{{record.usageStartDate ?
+                          (record.usageStartDate | timePipe: 'YYYY/MM/DD'): 'ー'}}
+                        </td>
+                        <th class="hidden-lg-up">{{'PHARMACY.DRUG.USAGE_END_DATE' | translate}}</th>
+                        <td class="tbl-endDate">{{record.usageEndDate ?
+                          (record.usageEndDate | timePipe: 'YYYY/MM/DD' ): 'ー'}}
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                    <div class="d-flex justify-content-center mt-4" *ngIf="!allPage ||allPage.length === 0">
+                      {{"PHARMACY.COMMON.NO_RESULT" | translate}}
+                    </div>
+                  </div>
+                  <div class=" tab-selec-drug" *ngIf="numTab === 3" [ngClass]="{'active' : numTab === 3}"  role="tabpanel">
+                    <div class="select-content mb-4">
+                      <p class="text-center mt-4" *ngIf="!isHospital">{{'PHARMACY.PH0025.TITLE' | translate}}</p>
+                      <p class="text-center mt-4" *ngIf="isHospital">{{'PHARMACY.PH0024.TITLE' | translate}}</p>
+                      <div class="select-container select-dr-pr my-4">
+                        <div class="select-search p-2">
+                          <div class="search">
+                            <input class="search-input" type="text" placeholder="{{'PHARMACY.PH0025.OFFICE_NAME' | translate}}" (keyup)="0" #keyWord>
+                            <button type="button" class="search-btn">
+                              <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                        </div><!-- //select-search-->
+                        <div class="select-container-drag pt-3 pb-1">
+                          <ul class="lst-drug px-3">
+                            <li *ngFor="let office of model | searchFilter: {officeName: keyWord.value, officeNameKana: keyWord.value }; let item = index" class="mb-3">
+                              <label class="custom-control custom-checkbox mb-0">
+                                <input type="checkbox" [(ngModel)]="office.sharing" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description" >{{office.officeName}}</span>
+                              </label>
+                            </li>
+                          </ul>
+                        </div><!-- //select-container-drag -->
+                      </div><!-- //select-dr-pr -->
+                      <div class="text-center">
+                        <button class="btn btn-primary" type="submit" (click)="saveSharingAdoptedDrug()">{{'PHARMACY.PH0025.SAVE' | translate}}</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--<div class="col-12 col-xl-3 col-sub">-->
+        <!--<app-col-sub></app-col-sub>-->
+        <!--</div>-->
+      </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

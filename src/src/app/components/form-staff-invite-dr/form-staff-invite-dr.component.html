@@ -1,0 +1,80 @@
+<tr *ngIf="staffModel" class="row-staff-invite" valign="middle">
+  <th class="hidden-md-up align-middle">{{'COMMON_LABEL.LBL_LAST_NAME' | translate}}
+    <span class="text-danger">※</span>
+  </th>
+  <td class="w-9" [ngClass]="{'has-danger': formError['lastName']}">
+    <div *ngIf="formError['lastName']" class="form-control-feedback mt-0 mb-1 fs12">{{formError['lastName']}}</div>
+    <input type="text" class="form-control" [(ngModel)]="staffModel.lastName" id="lastName-{{staffIndex}}" (ngModelChange)="modelChanged($event, 'lastNameKana')">
+  </td>
+  <th class="hidden-md-up align-middle">{{'COMMON_LABEL.LBL_FIRST_NAME' | translate}}
+    <span class="text-danger">※</span>
+  </th>
+  <td class="w-9" [ngClass]="{'has-danger': formError['firstName']}">
+    <div *ngIf="formError['firstName']" class="form-control-feedback mt-0 mb-1 fs12">{{formError['firstName']}}</div>
+    <input type="text" class="form-control" [(ngModel)]="staffModel.firstName" id="firstName-{{staffIndex}}" (ngModelChange)="modelChanged($event, 'firstNameKana')">
+  </td>
+  <th class="hidden-md-up align-middle">{{'COMMON_LABEL.LBL_LAST_NAME_KANA' | translate}}
+    <span class="text-danger">※</span>
+  </th>
+  <td class="w-9" [ngClass]="{'has-danger': formError['lastNameKana']}">
+    <div *ngIf="formError['lastNameKana']" class="form-control-feedback mt-0 mb-1 fs12">{{formError['lastNameKana']}}</div>
+    <input type="text" class="form-control" [(ngModel)]="staffModel.lastNameKana" id="lastNameKana-{{staffIndex}}">
+  </td>
+  <th class="hidden-md-up align-middle">{{'COMMON_LABEL.LBL_FIRST_NAME_KANA' | translate}}
+    <span class="text-danger">※</span>
+  </th>
+  <td class="w-9" [ngClass]="{'has-danger': formError['firstNameKana']}">
+    <div *ngIf="formError['firstNameKana']" class="form-control-feedback mt-0 mb-1 fs12">{{formError['firstNameKana']}}</div>
+    <input type="text" class="form-control" [(ngModel)]="staffModel.firstNameKana" id="firstNameKana-{{staffIndex}}">
+  </td>
+  <th class="hidden-md-up align-middle">{{'COMMON_LABEL.LBL_DEPARTMENT' | translate}}
+    <span class="text-danger">※</span>
+  </th>
+  <td class="w-12" [ngClass]="{'has-danger': formError['department']}">
+    <span *ngIf="formError['department']" class="form-control-feedback mt-0 mb-1 fs12">{{formError['department']}}</span>
+    <app-department-select [departmentList]="inputOptions.departmentList" [value]="staffModel.department?.id" [authority]="inputOptions.authority" [index]="0" (departmentSelect)="changeDepartment($event)" [limitNumChars]="12"></app-department-select>
+  </td>
+  <th class="hidden-md-up align-middle">{{'COMMON_LABEL.LBL_JOB' | translate}}
+    <span class="text-danger">※</span>
+  </th>
+  <td class="w-9" [ngClass]="{'has-danger': formError['jobType']}">
+    <div *ngIf="formError['jobType']" class="form-control-feedback mt-0 mb-1 fs12">{{formError['jobType']}}</div>
+    <select class="form-control" [(ngModel)]="staffModel.jobType" (change)="changeJobType($event.target.value)">
+      <option value="">{{ 'COMMON_LABEL.DEFAULT_SELECT' | translate}}</option>
+      <option *ngFor="let job of inputOptions.listJobType" value="{{job.id}}">{{ job.jobName }}</option>
+    </select>
+  </td>
+  <th class="hidden-md-up align-middle">{{'COMMON_LABEL.LBL_ADMIN_AUTHORITY' | translate}}
+    <span class="text-danger">※</span>
+  </th>
+  <td class="w-9" [ngClass]="{'has-danger': formError['managementAuthority']}">
+    <div *ngIf="formError['managementAuthority']" class="form-control-feedback mt-0 mb-1 fs12">{{formError['managementAuthority']}}</div>
+    <select class="form-control" [(ngModel)]="staffModel.managementAuthority" (change)="changeManagementAuthority()">
+      <option value="">{{ 'COMMON_LABEL.DEFAULT_SELECT' | translate}}</option>
+      <option *ngFor="let adAuthority of inputOptions.listManagementAuthority" value="{{adAuthority.id}}">{{ 'AUTHORITY.ADMIN_AUTHORITY.' + adAuthority.id | translate }}</option>
+    </select>
+  </td>
+  <th class="hidden-md-up align-middle">{{'COMMON_LABEL.LBL_FUNCTION_AUTHORITY' | translate}}
+    <span class="text-danger">※</span>
+  </th>
+  <td class="w-9" [ngClass]="{'has-danger': formError['funcAuthoritySet']}">
+    <div *ngIf="formError['funcAuthoritySet']" class="form-control-feedback mt-0 mb-1 fs12">{{formError['funcAuthoritySet']}}</div>
+    <select class="form-control" [(ngModel)]="staffModel.funcAuthoritySet" (change)="changeFuncAuthority()">
+      <option value="">{{ 'COMMON_LABEL.DEFAULT_SELECT' | translate}}</option>
+      <option *ngFor="let fcAuthority of inputOptions.listFuncAuthoritySet" value="{{fcAuthority.id}}">{{ 'AUTHORITY.FUNCTION_AUTHORITY.' + fcAuthority.id | translate }}</option>
+    </select>
+  </td>
+  <th class="hidden-md-up align-middle">{{'COMMON_LABEL.LBL_MAIL1' | translate}}</th>
+  <td class="mailAddress w-18" [ngClass]="{'has-danger': formError['mailAddress']}">
+    <div *ngIf="formError['mailAddress']" class="form-control-feedback mt-0 mb-1 fs12">{{formError['mailAddress']}}</div>
+    <input type="mailAddress" class="form-control" oncopy="return false" oncut="return false" onpaste="return false" [(ngModel)]="staffModel.mailAddress" >
+  </td>
+  <td class="w-7">
+    <div class="table-item text-right" *ngIf="inputOptions.lengthStaffList > 1">
+      <span class="table-item-close" (click)="deleteStaff(staffIndex)">
+                                      <i class="fa fa-close fa-2x" aria-hidden="true"></i>
+                                      <span class="hidden-md-up"></span>
+                                    </span>
+    </div>
+  </td>
+</tr>

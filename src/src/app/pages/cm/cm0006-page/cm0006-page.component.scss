@@ -1,0 +1,46 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+
+.datetime{
+  color: #777;
+}
+
+.body-text{
+  white-space: pre-line;
+}
+
+.body-content {
+  max-height: 9rem;
+  overflow: hidden;
+  &.body-content-show {
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+.img-list-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  > * {
+    align-self: center;
+    text-align: center;
+    flex-basis: 86px;
+  }
+}
+
+.img-list {
+  max-width: 86px;
+  max-height: 86px;
+}
+
+.file-box {
+  background-color: #EEE;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.section-border {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}

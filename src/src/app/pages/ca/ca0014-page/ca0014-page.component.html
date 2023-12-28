@@ -1,0 +1,135 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner unspecified-width">
+            <div class="row">
+              <div class="col">
+                <!--               <div class="page-head">
+                                <app-page-head></app-page-head>
+                              </div> -->
+                <div id="calendar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--<div class="col-12 col-lg-3 col-sub">-->
+        <!--<app-col-sub></app-col-sub>-->
+        <!--</div>-->
+      </div>
+    </div>
+  </main>
+
+  <app-popup-hover></app-popup-hover>
+  <!--contents CA0004-->
+  <div class="popover fs16" *ngIf="showPopupCreateEvent" id="popupCreateEvent" (clickOutside)="clickOutsidePopupCreateEvent($event)"
+       [ngClass]="{'popover-position-left': (showLeft), 'popover-position-right': (showRight), 'popover-bottom': (showBottom), 'popover-top': (!showBottom)}">
+    <div class="popover-close fs14"><i class="fa fa-close" (click)="hidePopupCreateEvent()"></i></div>
+    <div class="arrow"></div>
+    <div class="popover-tab">
+      <div class="px-2 pt-2">
+        <ul class="nav nav-tabs nav-tabs-responsive fs18 col-11 col-lg-12" role="tablist">
+          <li class="nav-item active">
+            <a class="nav-link active" href="#tab-content1" role="tab" data-toggle="tab" aria-expanded="true" id="createEventTap1">
+              <span class="text">{{'CA004.TAB_EVENT' | translate}}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="tab-content1">
+          <form [formGroup]="createEventForm" (ngSubmit)="postEventCreateSettings()">
+            <div class="px-2">
+              <div class="form-group row row-mg">
+                <label class="col-2 col-form-label d-flex align-items-center justify-content-end">{{'CA004.TITLE.NAME' | translate}}</label>
+                <div class="col-10">
+                  <input class="form-control" formControlName="title" type="text" placeholder="{{'CA004.TITLE.PLACEHOLDER' | translate}}">
+                </div>
+              </div>
+              <div class="form-group row row-mg">
+                <label class="col-2 col-form-label d-flex align-items-center justify-content-end">{{'CA004.ALL_DAY.TITLE' | translate}}</label>
+                <div class="col-10">
+                  <label class="custom-control custom-checkbox">
+                    <input type="checkbox" formControlName="allDay" (click)="isAllDay()"
+                           class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">{{'CA004.ALL_DAY.VALUE' | translate}}</span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group row row-mg">
+                <label class="col-2 col-form-label">&nbsp;</label>
+                <div class="col-10">
+                  <div class="input-time form-inline">
+                    <div class="form-input-date">
+                      <app-date-input [date]="dateStartPicker" [showIcon]="false" [dateInputOptions]="{id:'start-day',name:'startDay',placeholder:'日付を選択してください',outsideDays:false,weekendsDisable:false}"
+                                           (dateChanged)="startDateChanged($event)"></app-date-input>
+                    </div>
+                    <div class="form-input-time ml-2" *ngIf="!checkAllDay">
+                      <select class="form-control w-100" formControlName="startTime">
+                        <option *ngFor="let item of timePicker" [value]="item">{{item}}</option>
+                      </select>
+                    </div>
+                    <span class="py-1 px-2">〜</span>
+                    <div class="form-input-date">
+                        <app-date-input [date]="dateEndPicker" [showIcon]="false" [dateInputOptions]="{id:'end-date',name:'endDate',placeholder:'日付を選択してください',outsideDays:false,weekendsDisable:false}"
+                                           (dateChanged)="endDateChanged($event)"></app-date-input>
+                    </div>
+                    <div class="form-input-time ml-2" *ngIf="!checkAllDay">
+                      <select class="form-control w-100" formControlName="endTime" >
+                        <option *ngFor="let item of timePicker" [value]="item">{{item}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row row-mg">
+                <label class="col-2 col-form-label">{{'CA004.SHARE_TITLE' | translate}}</label>
+
+                <div class="col-10">
+                  <div class="form-group row">
+                    <label class="col-3 col-form-label">{{'CA004.SHARE_USER.OUTSIDE_HOSPITAL_TITLE' | translate}}</label>
+                    <div class="col-7">
+                      <label class="custom-control custom-radio mr-2" *ngFor="let option of options">
+                        <input [checked]="formModel.meetingPublishType===option.value"
+                        [value]="option.value" formControlName="meetingPublishType" type="radio"
+                        class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">{{'CA004.SHARE_USER.'+option.key | translate}}</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="popover-footer px-2 py-2">
+              <button type="button" (click)="editEvent()" class="fs14 btn btn-sm btn-secondary">
+                {{'CA004.BTN_EDIT' | translate}}
+              </button>
+              <button type="submit" class="fs14 btn btn-sm btn-primary">{{'CA004.BTN_CREATE' | translate}}
+              </button>
+            </div>
+          </form>
+        </div >
+      </div>
+    </div>
+  </div>
+  <!--contents CA0004-->
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

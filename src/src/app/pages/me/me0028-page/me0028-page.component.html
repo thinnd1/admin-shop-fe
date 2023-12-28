@@ -1,0 +1,211 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header [type]="'prjoy'"></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'ME0028.TITLE' | translate"></app-page-head>
+                </div>
+                <div id="me0028">
+                  <div class="header mb-3 d-flex align-items-center">
+                    <div class="center d-inline-block">
+                      <div class="d-flex justify-content-center">
+                        <div class="user mb-5">
+                          <div class="user-img d-inline-block align-middle mr-2">
+                            <app-face-icon [userInfo]="modelAspirationMeeting" [iconSize]="76"></app-face-icon>
+                          </div>
+                          <div class="user-description d-inline-block align-middle">
+                            <span class="fs12">{{ modelAspirationMeeting.lastNameKana}}  {{ modelAspirationMeeting.firstNameKana}}</span>
+                            <p class="fs24 mb-0">
+                              {{ modelAspirationMeeting.lastName}} {{ modelAspirationMeeting.firstName}}
+                            <span class="color-type-user">
+                              <span *ngIf="!modelAspirationMeeting.hasMediator && modelAspirationMeeting.accountStatus === 1">
+                                {{'ME0028.TEXT_PROVISIONAL' | translate }}</span>
+                              <span *ngIf="modelAspirationMeeting.hasMediator && modelAspirationMeeting.accountStatus === 1">
+                                {{'ME0028.TEXT_PROVISIONAL_HASMEDIATOR' | translate }}</span>
+                              <span *ngIf="modelAspirationMeeting.hasMediator &&  modelAspirationMeeting.accountStatus !== 1">
+                                {{'ME0028.TEXT_HASMEDIATOR' | translate }}</span>
+                            </span>
+                            </p>
+                            <p class="fs18 mb-0">{{ modelAspirationMeeting.officeName }}／{{
+                              modelAspirationMeeting.title}}</p>
+                          </div>
+                          <button *ngIf="modelAspirationMeeting.accountStatus !== 1" type="button"
+                                  class="btn btn-outline-warning ml-5" (click)="redirectChatroom()">{{
+                            'ME0028.TEST_MESSAGE' | translate }}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="content">
+                    <div class="row">
+                      <div class="mb-4 col-sm-12 col-md-6">
+                        <h2>{{ 'ME0028.REQUEST_FOR_VISITATION' | translate }}</h2>
+                        <div class="table-scroll-wrap">
+                          <table class="table table-scroll m-0">
+                            <tbody>
+                            <tr>
+                              <td>
+                                <div class="row">
+                                  <div class="col-2">
+                                    <span class="header-group font-weight-bold">{{ 'ME0028.REQUEST' | translate }}</span>
+                                  </div>
+                                  <div class="col-5">
+                                    <ul class="pl-4" *ngIf="!aspirationNull">
+                                      <li *ngFor="let aspiration of aspirationOne"> {{ aspiration.item }}</li>
+                                    </ul>
+                                    <span class="hidden-listyle" *ngIf="aspirationNull">―</span>
+                                  </div>
+                                  <div class="col-5">
+                                    <ul class="pl-4">
+                                      <li *ngFor="let aspiration of aspirationTwo"> {{ aspiration.item }}</li>
+                                    </ul>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-2">
+                                    <span class="header-group font-weight-bold">{{ 'ME0028.DETAILS' | translate }}</span>
+                                  </div>
+                                  <div class="col-10 break-line">{{ modelAspirationMeeting.aspirationDetail }}</div>
+                                </div>
+                              </td>
+                            </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <div class="mb-4 col-sm-12 col-md-6">
+                        <h2>{{ 'ME0028.OWN_PR' | translate }}</h2>
+                        <div class="table-scroll-wrap">
+                          <table class="table table-scroll m-0">
+                            <tbody>
+                            <tr>
+                              <td>
+                                <div class="content-top break-line">{{ modelAspirationMeeting.rule }}</div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <span class="text-left title-image">{{ 'ME0028.ATTACHMENT' | translate }}</span>
+                              </td>
+                            </tr>
+                            <tr *ngFor="let file of attachmentFile">
+                              <td>
+                                <div class="btn-group align-items-end mb-1 fs16 cusor-file-download" (click)="downloadDocRule(file)">
+                                  <p class="fs36 text-warning m-0" >
+                                    <span *ngIf="helper.getFileClass(file) && helper.getFileClass(file) !== 'application'">
+                                      <i class="fa" [ngClass]="'fa-file-' + helper.getFileClass(file) + '-o'" aria-hidden="true"></i>
+                                    </span>
+                                    <span *ngIf="!helper.getFileClass(file) || helper.getFileClass(file) === 'application'">
+                                      <i class="fa" [ngClass]="'fa-file-o'" aria-hidden="true"></i>
+                                    </span>
+                                  </p>
+                                  <span class="fs16 ml-3">{{ file.name }}<br><span>{{ file.size | formatSizeUnits }}</span>
+                                  </span>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td *ngIf="attachmentFile?.length === 0"><span>―</span></td>
+                            </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="buttom mb-3 clearfix">
+                      <p class="notify text-center" *ngIf="modelAspirationMeeting.accountStatus === PROVISIONAL">
+                        {{ 'ME0028.NOTIFY_USER_TEMPORARY_REGISTRATION_1' | translate }}<br>{{
+                        'ME0028.NOTIFY_USER_TEMPORARY_REGISTRATION_2' | translate }}
+                      </p>
+                      <p class="notify text-center" *ngIf="modelAspirationMeeting.accountStatus !== PROVISIONAL && meetingFrames.length > 0">
+                        {{ 'ME0028.FRAME_MEETING_LIST_BELOW' | translate }}
+                      </p>
+                      <div class="d-flex justify-content-center mb-5">
+                        <button type="button" class="btn btn-lg btn-success"
+                                [disabled]="modelAspirationMeeting.acceptRequest === true"
+                                (click)="registerMeeting()">{{ 'ME0028.BT_VISITATION_APPLICATION' | translate }}
+                        </button>
+                        <button type="button" class="btn btn-lg btn-success ml-4"
+                                [ngClass]="{'d-none': modelAspirationMeeting.accountStatus === PROVISIONAL ||
+                                (modelAspirationMeeting.jobType !== 'J0029' && modelAspirationMeeting.jobType !== 'J0022')}"
+                                [disabled]="modelAspirationMeeting.acceptRequest === true"
+                                (click)="sendDocument()">{{ 'ME0028.BT_DATA_DELIVERY_VISIT' | translate }}
+                        </button>
+                      </div>
+                      <table class="table table-hover fs16 table-frame" *ngIf="meetingFrames && meetingFrames.length > 0">
+                        <thead class="thead-inverse">
+                        <tr>
+                          <th>{{ 'ME0028.DATE_AND_TIME' | translate }}</th>
+                          <th>{{ 'ME0028.STATUS' | translate }}</th>
+                          <th>{{ 'ME0028.NUMBER_OF_APPLICATIONS' | translate }}</th>
+                          <th>{{ 'ME0028.APPLY_STATUS' | translate }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let meetingFrame of meetingFramesCollage"
+                            [ngClass]="{'disabled-row': meetingFrame.displayStatus && meetingFrame.displayStatus !== 'NEW'}">
+                          <td>{{ meetingFrame.start | timePipe : 'MM月DD日(date)' }} {{ meetingFrame.start |
+                            timePipe :'HH:mm'}}〜{{ meetingFrame.end | timePipe :'HH:mm'}}
+                          </td>
+                          <td [ngClass]="{'text-warning': meetingFrame.displayStatus === 'APPLY'}" *ngIf="meetingFrame.displayStatus">
+                            {{'ME0028.STATUS_'+meetingFrame.displayStatus | translate }}
+                          </td>
+                          <td>{{ meetingFrame.numberOfApplication }}{{ 'ME0028.NUMBER_VISIT' | translate }}</td>
+                          <td>
+                            <button type="button" class="btn btn-lg btn-success"
+                                    [disabled]="meetingFrame.displayStatus && meetingFrame.displayStatus !== 'NEW'"
+                                    (click)="redirectApplyFrameMeeting(meetingFrame.frameId)">
+                              {{ 'ME0028.BT_APPLY_REQUEST_MEETING' | translate }}
+                            </button>
+                          </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                      <div class="schedule mt-4" *ngIf="showbutton">
+                        <div class="d-flex justify-content-center font-weight-bold" (click)="getAllMeetingFrames()">
+                          <a (click)="getAllMeetingFrames()" class="fs16 open-colllage">{{'ME0028.SEE_THE_SCHEDULE_AFTER_THIS'
+                            | translate }}</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

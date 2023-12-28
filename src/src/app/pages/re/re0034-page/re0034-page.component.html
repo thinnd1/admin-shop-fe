@@ -1,0 +1,607 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row" [hidden]="getPageConfirm">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <div class="col">
+                <div class="page-head">
+                  <div class="title-head d-flex align-items-center pt-0 pb-0 text-center">
+                    <a href="#" class="logo mr-1">
+                      <svg class="navbar-brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 152 30">
+                        <g>
+                          <title>{{ 'RE0023.TITLE' | translate }}</title>
+                          <path
+                            d="M32.9 21.7H21.7c-.3 0-.6-.3-.5-.7l5.2-14.3c.1-.4.6-.7 1.1-.7h11.2c.3 0 .6.3.5.7L34 21c-.2.4-.7.7-1.1.7zm7.3-18.3H26.9c-1.2 0-2.2.7-2.6 1.8l-5.8 15.9c-.5 1.3.5 2.6 1.9 2.6h4.1l-2.8 5.4 6.8-5.4h5.3c1.2 0 2.2-.7 2.6-1.8L42.2 6c.4-1.2-.6-2.6-2-2.6zM16.2 23.4s-7.5-6.2-16.2.1l7.2-20c8.6-5.9 16.2-.1 16.2-.1l-7.2 20zM48.4 3.3h9.4c1.8 0 3.3.3 4.5.8 1.1.5 2.1 1.2 2.8 2.2.7.9 1.3 2 1.6 3.3.3 1.2.5 2.6.5 3.9 0 2.2-.2 3.9-.7 5.1s-1.2 2.2-2.1 3-1.8 1.4-2.8 1.6c-1.4.4-2.6.6-3.8.6h-9.4V3.3zm6.3 4.6V19h1.5c1.3 0 2.3-.1 2.8-.4.6-.3 1-.8 1.3-1.5s.5-1.9.5-3.5c0-2.2-.4-3.6-1.1-4.4S57.8 8 56.2 8h-1.5zM70.1 8.9h5.3v2.4c.5-1 1-1.8 1.6-2.2.5-.4 1.2-.6 2-.6s1.7.3 2.7.8l-1.8 4c-.7-.3-1.2-.4-1.6-.4-.7 0-1.3.3-1.7.9-.6.9-.9 2.5-.9 4.8v5H70V8.9zM79.9 18h6v5.7h-6V18zM99.6 3.3h6.3v11.1c0 2.3-.2 4.1-.6 5.3s-1.2 2.2-2.5 3.1c-1.2.8-2.8 1.3-4.8 1.3-2.1 0-3.7-.3-4.8-.8-1.1-.6-2-1.4-2.6-2.4-.6-1.1-1-2.4-1.1-4l6-.8c0 .9.1 1.6.2 2s.4.8.8 1.1c.2.2.6.3 1 .3.7 0 1.2-.3 1.6-.8.3-.5.5-1.4.5-2.6V3.3zM109.1 13.5c0-3.3.9-5.9 2.8-7.8s4.4-2.8 7.7-2.8c3.4 0 6 .9 7.8 2.7s2.8 4.4 2.8 7.7c0 2.4-.4 4.3-1.2 5.9-.8 1.5-2 2.7-3.5 3.6-1.5.8-3.4 1.3-5.7 1.3s-4.2-.4-5.7-1.1-2.7-1.9-3.7-3.5c-.9-1.6-1.3-3.6-1.3-6zm6.3 0c0 2.1.4 3.5 1.1 4.4.8.9 1.8 1.3 3.1 1.3 1.4 0 2.4-.4 3.1-1.3s1.1-2.5 1.1-4.7c0-1.9-.4-3.3-1.2-4.2s-1.8-1.3-3.1-1.3-2.3.4-3.1 1.3c-.6 1-1 2.5-1 4.5zM129.8 3.3h7l4.1 6.9 4.1-6.9h7l-7.9 11.8v8.5h-6.3v-8.5l-8-11.8z"
+                          />
+                        </g>
+                      </svg>
+                    </a>
+                    <h1 class="page-head-title-text">{{'RE0034.PAGE_TITLE' | translate}}</h1>
+                  </div>
+                </div>
+                <hr class="line-confirm">
+                <div class="user-edit">
+                  <div class="delete-account d-flex justify-content-end mb-3">
+                    <button type="button" class="btn btn-secondary" (click)="deleteAccount()">
+                      {{'COMMON_BTN.DELETE_ACCOUNT' | translate}}
+                    </button>
+                  </div>
+                  <p class="text-left text-danger" *ngIf="model?.verificationStatus === 'ST4'">{{'RE0034.ST4' |
+                    translate}}</p>
+                  <p>{{'RE0034.TOP_NOTIFICATION' | translate}}</p>
+                  <p class="text-left">{{'RE0034.NOTE1' | translate}}<br>
+                    {{'RE0034.NOTE2' | translate}}</p>
+                  <div class="row">
+                    <div class="col">
+                      <form [formGroup]="verificationForm" (ngSubmit)="confirmPersonalReg()">
+                        <table class="table table-user-edit">
+                          <tbody class="tbody-inverse">
+                          <tr>
+                            <th scope="row">
+                              {{'RE0034.NAME.TITLE' | translate}}
+                            </th>
+                            <td colspan="2">
+                              <div class="row">
+                                <div class="col-12 col-xl-4">
+                                  <div class="form-group h-100 mb-0 row name-space"
+                                       [ngClass]="{'has-danger': formErrors.lastName}">
+                                    <div class="col-12">
+                                      <span *ngIf="formErrors.lastName" class="col-form-label fs12 text-danger">{{formErrors.lastName}}</span>
+                                      <input class="form-control form-control-danger col-xl-10" type="text"
+                                             placeholder="{{'RE0034.NAME.LAST_NAME' | translate}}"
+                                             formControlName="lastName"
+                                             [attr.disabled]="(model?.verificationStatus == 'ST2') ? true : null"
+                                             id="surname">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-xl-4">
+                                  <div class="form-group h-100 mb-0 row name-space"
+                                       [ngClass]="{'has-danger': formErrors.firstName}">
+                                    <div class="col-12">
+                                      <span *ngIf="formErrors.firstName" class="col-form-label fs12 text-danger">{{formErrors.firstName}}</span>
+                                      <input class="form-control form-control-danger col-xl-10" type="text"
+                                             placeholder="{{'RE0034.NAME.FISRT_NAME' | translate}}"
+                                             formControlName="firstName"
+                                             [attr.disabled]="(model?.verificationStatus == 'ST2') ? true : null"
+                                             id="name">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              {{'RE0034.KANA_NAME.TITLE' | translate}}
+                            </th>
+                            <td colspan="2">
+                              <div class="row">
+                                <div class="col-12 col-xl-4">
+                                  <div class="form-group h-100 mb-0 row name-space"
+                                       [ngClass]="{'has-danger': formErrors.lastNameKana}">
+                                    <div class="col-12">
+                                      <span *ngIf="formErrors.lastNameKana" class="col-form-label fs12 text-danger">{{formErrors.lastNameKana}}</span>
+                                      <input class="form-control form-control-danger col-xl-10" type="text"
+                                             placeholder="{{'RE0034.KANA_NAME.LASTNAME_KANA' | translate}}"
+                                             formControlName="lastNameKana"
+                                             [attr.disabled]="(model?.verificationStatus == 'ST2') ? true : null"
+                                             id="surname-kana">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-xl-4">
+                                  <div class="form-group h-100 mb-0 row name-space"
+                                       [ngClass]="{'has-danger': formErrors.firstNameKana}">
+                                    <div class="col-12">
+                                      <span *ngIf="formErrors.firstNameKana" class="col-form-label fs12 text-danger">{{formErrors.firstNameKana}}</span>
+                                      <input class="form-control form-control-danger col-xl-10" type="text"
+                                             placeholder="{{'RE0034.KANA_NAME.FIRSTNAME_KANA' | translate}}"
+                                             formControlName="firstNameKana"
+                                             [attr.disabled]="(model?.verificationStatus == 'ST2') ? true : null"
+                                             id="name-kana">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              {{'RE0034.GENDER' | translate}}
+                            </th>
+                            <td colspan="2">
+                              <div class="group-radio">
+                                <label class="custom-control custom-radio mb-0" *ngFor="let g of genders">
+                                  <input name="gender" type="radio" class="custom-control-input" [value]="g?.id"
+                                         formControlName="gender"
+                                         [attr.disabled]="(model?.verificationStatus == 'ST2') ? true : null">
+                                  <span class="custom-control-indicator"></span>
+                                  <span class="custom-control-description">{{g.name}}</span>
+                                </label>
+                              </div>
+                            </td>
+
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              {{'RE0034.BIRTHDAY' | translate}}
+                            </th>
+                            <td colspan="2">
+                             <span *ngIf="formErrors.yearBirth || formErrors.monthBirth || formErrors.dayBirth"
+                                   class="col-form-label fs12 text-danger">{{ formErrors.yearBirth ||
+                               formErrors.monthBirth || formErrors.dayBirth | translate}}
+                          </span>
+                              <div class="date-select-wrap form-inline mb-0 mb-sm-2">
+                                <div class="input-group mr-0 mr-sm-3 mb-3 mb-sm-0">
+                                  <div class="data-select" [ngClass]="{'has-danger': formErrors.yearBirth}">
+                                    <select class="form-control" id="year" (change)="changeDate()"
+                                            formControlName="yearBirth"
+                                            [attr.disabled]="(model?.verificationStatus == 'ST2') ? true : null">
+                                      <option value="" [selected]="">--</option>
+                                      <option *ngFor="let year of options_graduation_year; let i = index"
+                                              [selected]="year === model?.yearBirth" [value]="year">
+                                        {{options_graduation_text[i]}}
+                                      </option>
+                                    </select>
+                                  </div>
+                                  <label class="ml-2 mt-1" for="year">{{ 'COMMON_LABEL.YEAR' | translate }}</label>
+                                </div>
+                                <div class="input-group mr-0 mr-sm-3 mb-3 mb-sm-0">
+                                  <div class="data-select" [ngClass]="{'has-danger': formErrors.monthBirth}">
+                                    <select class="form-control" id="month" (change)="changeDate()"
+                                            formControlName="monthBirth"
+                                            [attr.disabled]="(model?.verificationStatus == 'ST2') ? true : null">
+                                      <option value="" [selected]="">--</option>
+                                      <option *ngFor="let month of monthYears" [selected]="month === model?.monthBirth"
+                                              value="{{month}}">{{ month }}
+                                      </option>
+                                    </select>
+                                  </div>
+                                  <label class="ml-2 mt-1" for="month">{{ 'COMMON_LABEL.MONTH' | translate }}</label>
+                                </div>
+                                <div class="input-group mr-0 mr-sm-3 mb-2 mb-sm-0">
+                                  <div class="data-select" [ngClass]="{'has-danger': formErrors.dayBirth}">
+                                    <select class="form-control" id="day" formControlName="dayBirth"
+                                            [attr.disabled]="(model?.verificationStatus == 'ST2') ? true : null">
+                                      <option value="" [selected]="">--</option>
+                                      <option *ngFor="let day of dayOfMonths" [selected]="day === model?.dayBirth"
+                                              value="{{day}}">{{day}}
+                                      </option>
+                                    </select>
+                                  </div>
+                                  <label class="ml-2 mt-1" for="day">{{ 'COMMON_LABEL.DAY' | translate }}</label>
+                                </div>
+                                <div class="col-xl-12 mt-3"><span class="text-warning" style="font-size: 13px;">{{'RE0034.NOTE_DEPARTMENT' | translate}}</span>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              {{'RE0034.JOB' | translate}}
+                            </th>
+                            <td colspan="2">
+                              <label class="custom-control custom-radio" *ngFor="let type of jobTypes">
+                                <input id="{{type.jobType}}" name="jobType" type="radio" class="custom-control-input"
+                                       [value]="type.jobType"
+                                       (change)="changeJobTypes($event.target.id)"
+                                       formControlName="jobType"
+                                       [attr.disabled]="(model?.verificationStatus == 'ST2') ? true : null">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">{{ type?.jobName }}</span>
+                              </label>
+                            </td>
+                          </tr>
+                          <tr *ngIf="isDr">
+                            <th scope="row">
+                              {{'RE0034.DEPARTMENT' | translate}}
+                            </th>
+                            <td colspan="2">
+                              <div class="row d-flex align-items-end" style="width: 121%;">
+                                <div class="col-12 d-flex align-items-end col-sm-6 col-lg-4 mb-3 mb-sm-0">
+                                  <div class="w-100" [ngClass]="{'has-danger': formErrors.specializedDepartmentField}">
+                                    <span *ngIf="formErrors.specializedDepartmentField"
+                                          class="col-form-label text-danger fs12">{{ formErrors.specializedDepartmentField | translate}}</span>
+                                    <l-select2 *ngIf="!flag && fieldIdDefault" id="Fields"
+                                               formControlName="specializedDepartmentField" [data]="fieldIds"
+                                               [(ngModel)]="fieldIdDefault"
+                                               (ngModelChange)="changeFields($event)"
+                                               [disabled]="model?.verificationStatus == 'ST2'"></l-select2>
+                                    <l-select2 *ngIf="flag || !fieldIdDefault" id="Fields"
+                                               formControlName="specializedDepartmentField" [data]="fieldIds"
+                                               (ngModelChange)="changeFields($event)"
+                                               [disabled]="model?.verificationStatus == 'ST2'"></l-select2>
+                                  </div>
+                                </div>
+                                <div class="col-12 h-100 d-flex align-items-end col-sm-6 col-lg-4 departmentType">
+                                  <div class="w-100" [ngClass]="{'has-danger': formErrors.specializedDepartmentType}">
+                                    <span
+                                      *ngIf="formErrors.specializedDepartmentType && !formErrors.specializedDepartmentField"
+                                      class="col-form-label text-danger fs12">{{ formErrors.specializedDepartmentType | translate}}</span>
+                                    <l-select2 id="Types" formControlName="specializedDepartmentType"
+                                               [options]="options"
+                                               [data]="listTypeIds" [disabled]="status"></l-select2>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              {{'RE0034.LoginID' | translate}}
+                            </th>
+                            <td colspan="2" [ngClass]="{'has-danger': formErrors.loginId}">
+                              <div class="form-group row">
+                                <div class="col-xl-7">
+                                  <span *ngIf="formErrors.loginId" class="col-form-label fs12 text-danger">{{formErrors.loginId}}</span>
+                                  <input class="form-control form-control-danger" type="text" placeholder=""
+                                         formControlName="loginId"
+                                         [attr.disabled]="(model?.verificationStatus == 'ST2') ? true : null">
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              {{'RE0034.PASSWORD.TITLE' | translate}}
+                            </th>
+                            <td colspan="2" [ngClass]="{'has-danger': formErrors.password}"
+                                *ngIf="model?.verificationStatus !== 'ST2'">
+                              <div class="form-group row">
+                                <div class="col-xl-7">
+                                  <span *ngIf="formErrors.password" class="col-form-label text-danger fs12 text-danger">{{ formErrors.password}}</span>
+                                  <input type="password" class="form-control form-control-danger" oncopy="return false"
+                                         oncut="return false"
+                                         onpaste="return false"
+                                         placeholder="{{'RE0034.PASSWORD.PLACEHOLDER' | translate}}"
+                                         formControlName="password"
+                                         [attr.disabled]="(model?.verificationStatus == 'ST2') ? true : null">
+                                </div>
+                              </div>
+                            </td>
+                            <td *ngIf="model?.verificationStatus === 'ST2'">**********</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              {{'RE0034.PASSWORD.CONFIRM_TITLE' | translate}}
+                            </th>
+                            <td colspan="2" [ngClass]="{'has-danger': formErrors.passwordConfirm}"
+                                *ngIf="model?.verificationStatus !== 'ST2'">
+                              <div class="form-group row">
+                                <div class="col-xl-7">
+                                  <span *ngIf="formErrors.passwordConfirm" class="col-form-label fs12 text-danger">{{formErrors.passwordConfirm}}</span>
+                                  <input class="form-control form-control-danger" type="password" oncopy="return false"
+                                         oncut="return false"
+                                         onpaste="return false"
+                                         placeholder="{{ 'RE0034.PASSWORD.CONFIRM_PLACEHOLDER' | translate }}"
+                                         formControlName="passwordConfirm"
+                                         [attr.disabled]="(model?.verificationStatus == 'ST2') ? true : null">
+                                </div>
+                              </div>
+                            </td>
+                            <td *ngIf="model?.verificationStatus === 'ST2'">**********</td>
+                          </tr>
+                          <tr *ngIf="model?.verificationStatus !== 'ST2' && model?.verificationStatus !== 'ST3'">
+                            <th scope="row">
+                              {{'RE0034.IDENTIFICATION.CARD1.TITLE' | translate}}
+                              <p class="m-0">
+                                <span
+                                  class="title-update bg-primary text-white d-block px-3 w-75 text-center py-1 pt-2">{{'RE0034.IDENTIFICATION.CARD1.DATE' | translate}}</span>
+                              </p>
+                              <p>
+                                <span>{{(dateFirstImage1) ? (dateFirstImage1 | timePipe: 'M月D日 HH:mm') : (model?.document1?.date) ? (model?.document1?.date | timePipe: 'M月D日 HH:mm') : ''}}</span>
+                              </p>
+                              <p class="m-0">
+                                <span
+                                  class="title-update bg-primary text-white d-block px-3 w-75 text-center py-1 pt-2">{{'RE0034.IDENTIFICATION.CARD1.FILE_NAME' | translate}}</span>
+                              </p>
+                              <p>
+                                <span>{{model?.firstImage1}}</span>
+                              </p>
+                            </th>
+                            <td class="w-50">
+                              <div class="row">
+                                <div class="col-sm-12 col-lg-12">
+                                  <div class="image-cropper">
+                                    <app-image-cropper #firstImage1
+                                                       [imageCropperOptions]="{id:'firstImage1',type:'card'}"
+                                                       [addUrl]="model?.document1?.firstImage"
+                                                       (flagImgUpload)="flagImgUpload($event)"></app-image-cropper>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <td rowspan="4" class="align-top">
+                              <div class="hidden-md-down col-lg-12">
+                                <div class="box-branch">
+                                  <h4 class="box-title">{{'RE0034.IDENTIFICATION.CARD1.EX_IMG' | translate}}</h4>
+                                  <figure class="figure mb-0">
+                                    <figcaption class="box-title-fl figure-caption fs16"><i
+                                      class="fa fa-circle-o fs24"></i>{{'RE0034.IDENTIFICATION.CARD1.EX' | translate}}
+                                    </figcaption>
+                                    <img style="width: 300px;border: 1px solid #d2d2d2;" src="/assets/img/re/o.jpg"
+                                         class="figure-img img-fluid"
+                                         alt="{{'RE0034.IDENTIFICATION.CARD1.EX' | translate}}">
+                                  </figure>
+                                  <figure class="figure mb-0">
+                                    <figcaption class="box-title-fl figure-caption fs16"><i
+                                      class="fa fa-remove fs24"></i>{{'RE0034.IDENTIFICATION.CARD1.NG' | translate}}
+                                    </figcaption>
+                                    <img style="width: 300px;border: 1px solid #d2d2d2;" src="/assets/img/re/x.jpg"
+                                         class="figure-img img-fluid"
+                                         alt="{{'RE0034.IDENTIFICATION.CARD1.NG' | translate}}">
+                                  </figure>
+                                </div>
+                              </div>
+                              <p class="p-2">
+                                {{'RE0034.NOTE_IMAGE' | translate}}<br>
+                                {{'RE0034.NOTE_IMAGE_1' | translate}}<br>
+                                {{'RE0034.NOTE_IMAGE_2' | translate}}
+                              </p>
+                            </td>
+                          </tr>
+                          <tr *ngIf="model?.verificationStatus !== 'ST2' && model?.verificationStatus !== 'ST3'">
+                            <th scope="row">
+                              {{'RE0034.IDENTIFICATION.CARD1.BACK_TITLE' | translate}}
+                              <p class="m-0">
+                                <span
+                                  class="title-update bg-primary text-white d-block px-3 w-75 text-center py-1 pt-2">{{'RE0034.IDENTIFICATION.CARD1.DATE' | translate}}</span>
+                              </p>
+                              <p>
+                                <span>{{(dateLastImage1) ? (dateLastImage1 | timePipe: 'M月D日 HH:mm') : (model?.document1?.date) ? (model?.document1?.date | timePipe: 'M月D日 HH:mm') : ''}}</span>
+                              </p>
+                              <p class="m-0">
+                                <span
+                                  class="title-update bg-primary text-white d-block px-3 w-75 text-center py-1 pt-2">{{'RE0034.IDENTIFICATION.CARD1.FILE_NAME' | translate}}</span>
+                              </p>
+                              <p>
+                                <span>{{model?.lastImage1}}</span>
+                              </p>
+                            </th>
+                            <td>
+                              <div class="col-sm-12 col-lg-12">
+                                <div class="image-cropper">
+                                  <app-image-cropper #lastImage1
+                                                     [imageCropperOptions]="{id:'lastImage1',type:'card'}"
+                                                     [addUrl]="model?.document1?.lastImage"
+                                                     (flagImgUpload)="flagImgUpload($event)"></app-image-cropper>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr *ngIf="model?.verificationStatus !== 'ST2' && model?.verificationStatus !== 'ST3'">
+                            <th scope="row">
+                              {{'RE0034.IDENTIFICATION.CARD2.TITLE' | translate}}
+                              <p class="m-0">
+                                <span
+                                  class="title-update bg-primary text-white d-block px-3 w-75 text-center py-1 pt-2">{{'RE0034.IDENTIFICATION.CARD2.DATE' | translate}}</span>
+                              </p>
+                              <p>
+                                <span>{{(dateFirstImage2) ? (dateFirstImage2 | timePipe: 'M月D日 HH:mm') : (model?.document1?.date) ? (model?.document2?.date | timePipe: 'M月D日 HH:mm') : ''}}</span>
+                              </p>
+                              <p class="m-0">
+                                <span
+                                  class="title-update bg-primary text-white d-block px-3 w-75 text-center py-1 pt-2">{{'RE0034.IDENTIFICATION.CARD2.FILE_NAME' | translate}}</span>
+                              </p>
+                              <p>
+                                <span>{{model?.firstImage2}}</span>
+                              </p>
+                            </th>
+                            <td>
+                              <div class="col-sm-12 col-lg-12">
+                                <div class="image-cropper">
+                                  <app-image-cropper #firstImage2
+                                                     [imageCropperOptions]="{id:'firstImage2',type:'card'}"
+                                                     [addUrl]="model?.document2?.firstImage"
+                                                     (flagImgUpload)="flagImgUpload($event)"></app-image-cropper>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr *ngIf="model?.verificationStatus !== 'ST2' && model?.verificationStatus !== 'ST3'">
+                            <th scope="row">
+                              {{'RE0034.IDENTIFICATION.CARD2.BACK_TITLE' | translate}}
+                              <p class="m-0">
+                                <span
+                                  class="title-update bg-primary text-white d-block px-3 w-75 text-center py-1 pt-2">{{'RE0034.IDENTIFICATION.CARD2.DATE' | translate}}</span>
+                              </p>
+                              <p>
+                                <span>{{(dateLastImage2) ? (dateLastImage2 | timePipe: 'M月D日 HH:mm') : (model?.document1?.date) ? (model?.document2?.date | timePipe: 'M月D日 HH:mm') : ''}}</span>
+                              </p>
+                              <p class="m-0">
+                                <span
+                                  class="title-update bg-primary text-white d-block px-3 w-75 text-center py-1 pt-2">{{'RE0034.IDENTIFICATION.CARD2.FILE_NAME' | translate}}</span>
+                              </p>
+                              <p>
+                                <span>{{model?.lastImage2}}</span>
+                              </p>
+                            </th>
+                            <td>
+                              <div class="col-sm-12 col-lg-12">
+                                <div class="image-cropper">
+                                  <app-image-cropper #lastImage2
+                                                     [imageCropperOptions]="{id:'lastImage2',type:'card'}"
+                                                     [addUrl]="model?.document2?.lastImage"
+                                                     (flagImgUpload)="flagImgUpload($event)"></app-image-cropper>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
+
+                        <div class="identity-verification" *ngIf="model.verificationStatus == 'ST2'">
+                          <div class="text-center">
+                            <p class="mb-3">{{'RE0034.ST2' | translate}}</p>
+                          </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center" *ngIf="model?.verificationStatus !== 'ST2'">
+                          <button class="btn btn-success" type="submit">{{'RE0034.BUTTON' | translate}}</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="getPageConfirm">
+        <div class="col col-main">
+          <div class="row">
+            <!--contents-->
+            <div class="col">
+              <div class="identity-verification">
+                <div class="title-head d-flex align-items-center pt-4 pb-3 text-center">
+                  <a href="#" class="logo mr-1">
+                    <svg class="navbar-brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 152 30">
+                      <g>
+                        <title>{{ 'RE0023.TITLE' | translate }}</title>
+                        <path
+                          d="M32.9 21.7H21.7c-.3 0-.6-.3-.5-.7l5.2-14.3c.1-.4.6-.7 1.1-.7h11.2c.3 0 .6.3.5.7L34 21c-.2.4-.7.7-1.1.7zm7.3-18.3H26.9c-1.2 0-2.2.7-2.6 1.8l-5.8 15.9c-.5 1.3.5 2.6 1.9 2.6h4.1l-2.8 5.4 6.8-5.4h5.3c1.2 0 2.2-.7 2.6-1.8L42.2 6c.4-1.2-.6-2.6-2-2.6zM16.2 23.4s-7.5-6.2-16.2.1l7.2-20c8.6-5.9 16.2-.1 16.2-.1l-7.2 20zM48.4 3.3h9.4c1.8 0 3.3.3 4.5.8 1.1.5 2.1 1.2 2.8 2.2.7.9 1.3 2 1.6 3.3.3 1.2.5 2.6.5 3.9 0 2.2-.2 3.9-.7 5.1s-1.2 2.2-2.1 3-1.8 1.4-2.8 1.6c-1.4.4-2.6.6-3.8.6h-9.4V3.3zm6.3 4.6V19h1.5c1.3 0 2.3-.1 2.8-.4.6-.3 1-.8 1.3-1.5s.5-1.9.5-3.5c0-2.2-.4-3.6-1.1-4.4S57.8 8 56.2 8h-1.5zM70.1 8.9h5.3v2.4c.5-1 1-1.8 1.6-2.2.5-.4 1.2-.6 2-.6s1.7.3 2.7.8l-1.8 4c-.7-.3-1.2-.4-1.6-.4-.7 0-1.3.3-1.7.9-.6.9-.9 2.5-.9 4.8v5H70V8.9zM79.9 18h6v5.7h-6V18zM99.6 3.3h6.3v11.1c0 2.3-.2 4.1-.6 5.3s-1.2 2.2-2.5 3.1c-1.2.8-2.8 1.3-4.8 1.3-2.1 0-3.7-.3-4.8-.8-1.1-.6-2-1.4-2.6-2.4-.6-1.1-1-2.4-1.1-4l6-.8c0 .9.1 1.6.2 2s.4.8.8 1.1c.2.2.6.3 1 .3.7 0 1.2-.3 1.6-.8.3-.5.5-1.4.5-2.6V3.3zM109.1 13.5c0-3.3.9-5.9 2.8-7.8s4.4-2.8 7.7-2.8c3.4 0 6 .9 7.8 2.7s2.8 4.4 2.8 7.7c0 2.4-.4 4.3-1.2 5.9-.8 1.5-2 2.7-3.5 3.6-1.5.8-3.4 1.3-5.7 1.3s-4.2-.4-5.7-1.1-2.7-1.9-3.7-3.5c-.9-1.6-1.3-3.6-1.3-6zm6.3 0c0 2.1.4 3.5 1.1 4.4.8.9 1.8 1.3 3.1 1.3 1.4 0 2.4-.4 3.1-1.3s1.1-2.5 1.1-4.7c0-1.9-.4-3.3-1.2-4.2s-1.8-1.3-3.1-1.3-2.3.4-3.1 1.3c-.6 1-1 2.5-1 4.5zM129.8 3.3h7l4.1 6.9 4.1-6.9h7l-7.9 11.8v8.5h-6.3v-8.5l-8-11.8z"
+                        />
+                      </g>
+                    </svg>
+                  </a>
+                  <h1 class="mb-0 pl-2 text-center">{{'RE0034.RE0034_CONFIRM_TITLE' | translate}}</h1>
+                </div>
+                <hr class="line-confirm">
+                <div class="row">
+                  <div class="col">
+                    <form>
+                      <table class="table table-bordered fs16">
+                        <tbody class="tbody-inverse">
+                        <tr>
+                          <th scope="row">{{'RE0034.NAME.TITLE' | translate}}</th>
+                          <td>{{model.personalObject?.lastName + ' ' + model.personalObject?.firstName}}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">{{'RE0034.KANA_NAME.TITLE' | translate}}</th>
+                          <td>{{model.personalObject?.lastNameKana + ' ' + model.personalObject?.firstNameKana}}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">{{'RE0034.GENDER' | translate}}</th>
+                          <td>{{ gendersConfirm }}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">{{'RE0034.BIRTHDAY' | translate}}</th>
+                          <td>{{ model.personalObject.birthDate }}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">{{'RE0034.JOB' | translate}}</th>
+                          <td>{{ jobTypesConfirm }}</td>
+                        </tr>
+                        <tr *ngIf="model?.personalObject?.jobType == 'J0001'">
+                          <th scope="row"> {{'RE0034.DEPARTMENT2' | translate}}</th>
+                          <td>{{ specializedDepartmentType }}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">{{'RE0034.LoginID' | translate}}</th>
+                          <td>{{ model?.personalObject?.newLoginId }}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row"> {{'RE0034.PASSWORD.TITLE' | translate}}</th>
+                          <td>**********</td>
+                        </tr>
+                        <tr>
+                          <th scope="row"> {{'RE0034.PASSWORD.CONFIRM_TITLE' | translate}}</th>
+                          <td>**********</td>
+                        </tr>
+                        <tr *ngIf="model.personalObject.verificationStatus != 'ST2'">
+                          <th scope="row">{{'RE0034.IDENTIFICATION.CARD1.TITLE' | translate}}</th>
+                          <td>
+                            <div class="img-verification text-center">
+                              <p class="img-verification-content d-inline-block m-0 border w-50"><img
+                                *ngIf="firstImageStorage1"
+                                [src]="sanitize(firstImageStorage1)"
+                                class="avatar-img-bordered avatar-img-76"
+                                alt="{{'RE0034.IDENTIFICATION.CARD1.TITLE' | translate}}"></p>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr *ngIf="model.personalObject.verificationStatus != 'ST2'">
+                          <th scope="row"> {{'RE0034.IDENTIFICATION.CARD1.BACK_TITLE' | translate}}</th>
+                          <td>
+                            <div class="img-verification text-center">
+                              <p class="img-verification-content d-inline-block m-0 border w-50">
+                                <img *ngIf="lastImageStorage1"
+                                     [src]="sanitize(lastImageStorage1)"
+                                     class="avatar-img-bordered avatar-img-76"
+                                     alt="{{'RE0034.IDENTIFICATION.CARD1.BACK_TITLE' | translate}}">
+                              </p>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr *ngIf="model.personalObject.verificationStatus != 'ST2'">
+                          <th scope="row">{{'RE0034.IDENTIFICATION.CARD2.TITLE' | translate}}</th>
+                          <td>
+                            <div class="img-verification text-center">
+                              <p class="img-verification-content d-inline-block m-0 border w-50">
+                                <img *ngIf="firstImageStorage2" [src]="sanitize(firstImageStorage2)"
+                                     class="avatar-img-bordered avatar-img-76"
+                                     alt="{{'RE0034.IDENTIFICATION.CARD2.TITLE' | translate}}"></p>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr *ngIf="model.personalObject.verificationStatus != 'ST2'">
+                          <th scope="row">{{'RE0034.IDENTIFICATION.CARD2.BACK_TITLE' | translate}}</th>
+                          <td>
+                            <div class="img-verification text-center h-100">
+                              <p class="img-verification-content d-inline-block m-0 border w-50"><img
+                                *ngIf="lastImageStorage2"
+                                [src]="sanitize(lastImageStorage2)"
+                                class="avatar-img-bordered avatar-img-76"
+                                alt="{{'RE0034.IDENTIFICATION.CARD2.BACK_TITLE' | translate}}"></p>
+                            </div>
+                          </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                      <div class="identity-verification" *ngIf="model.personalObject.verificationStatus == 'ST2'">
+                        <div class="text-center">{{'RE0034.CHECK_IMAGE' | translate}}</div>
+                      </div>
+                      <form (ngSubmit)="putPersonalRegister()">
+                        <div class="d-flex justify-content-center">
+                          <button type="submit" class="btn btn-success fs18" style="background-color: #7CBD45;">{{'RE0034.REG_BUTTON' | translate}}
+                          </button>
+                          <button class="btn btn-secondary mx-1" (click)="backToRE0034()" type="button">{{
+                            'RE0023.BACK_MAIN' | translate }}
+                          </button>
+                        </div>
+                      </form>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //contents -->
+          </div>
+        </div>
+        <div class="col-12 col-lg-3">
+          <!--<app-col-sub></app-col-sub>-->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

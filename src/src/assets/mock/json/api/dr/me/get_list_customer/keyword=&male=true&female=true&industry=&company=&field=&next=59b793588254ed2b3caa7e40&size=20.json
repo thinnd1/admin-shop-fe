@@ -1,0 +1,125 @@
+{
+  "page": "0",
+  "users": [{
+      "_id": "59b793588254ed2b3caa7e41",
+      "userId": "user0001",
+      "avatar": "image.png",
+      "firstName": "Nhat",
+      "lastName": "Tran",
+      "officeName": "Ominext",
+      "statusVisit": false,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e2",
+      "userId": "user0002",
+      "avatar": "image.png",
+      "firstName": "Nam",
+      "lastName": "DH",
+      "officeName": "Ominext",
+      "statusVisit": true,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e3",
+      "userId": "user0003",
+      "avatar": "image.png",
+      "firstName": "Tung",
+      "lastName": "HV",
+      "officeName": "Ominext",
+      "statusVisit": false,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e4",
+      "userId": "user0004",
+      "avatar": "image.png",
+      "firstName": "Tuyen",
+      "lastName": "Tran",
+      "officeName": "Ominext",
+      "statusVisit": false,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e5",
+      "userId": "user0005",
+      "avatar": "image.png",
+      "firstName": "Quang",
+      "lastName": "HA",
+      "officeName": "Ominext",
+      "statusVisit": true,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e6",
+      "userId": "32323",
+      "avatar": "image.png",
+      "firstName": "Nhat",
+      "lastName": "Tran",
+      "officeName": "Ominext",
+      "statusVisit": false,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e7",
+      "userId": "12121",
+      "avatar": "image.png",
+      "firstName": "Nam",
+      "lastName": "DH",
+      "officeName": "Ominext",
+      "statusVisit": true,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e8",
+      "userId": "user055545003",
+      "avatar": "image.png",
+      "firstName": "Tung",
+      "lastName": "HV",
+      "officeName": "Ominext",
+      "statusVisit": false,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e9",
+      "userId": "user32330004",
+      "avatar": "image.png",
+      "firstName": "Tuyen",
+      "lastName": "Tran",
+      "officeName": "Ominext",
+      "statusVisit": false,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e10",
+      "userId": "user0555005",
+      "avatar": "image.png",
+      "firstName": "Quang",
+      "lastName": "HA",
+      "officeName": "Ominext",
+      "statusVisit": true,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "_id": "59b793588254ed2b3caa7e51",
+      "userId": "user00444401",
+      "avatar": "image.png",
+      "firstName": "Nhat",
+      "lastName": "Tran",
+      "officeName": "Ominext",
+      "statusVisit": false,
+      "statusPin": false,
+      "prMyself": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    }
+  ]
+}

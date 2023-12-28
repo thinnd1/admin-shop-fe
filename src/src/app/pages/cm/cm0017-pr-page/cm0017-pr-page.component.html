@@ -1,0 +1,63 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents CM0017-->
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="title"></app-page-head>
+                </div>
+
+                <ul class="nav flex-column nav-side-menu-list">
+
+                  <!--社外メッセージ-->
+                  <ng-container *ngIf="target === 'outsideChat' && sideMenu['outsideChat'] && sideMenu['outsideChat'].data?.length">
+                    <li class="nav-item" *ngFor="let data of sideMenu['outsideChat'].data | slice:0:10;">
+                      <a class="nav-link nav-table" [ngClass]="{'nav-mediator':data.hasMediator}" [routerLink]="['/ch/ch0007/' + data.id]" routerLinkActive="nav-link-active">
+                        <span class="nav-link-label">
+                          <span class="nav-mediator-icon d-block text-center" *ngIf="data.hasMediator">{{'SIDE_MENU.MEDIATOR' | translate }}</span>
+                          <span class="nav-link-label-text" *ngIf="data.title">{{data.title}}</span>
+                          <span class="nav-link-label-text" *ngIf="!data.title">&nbsp;</span>
+                        </span>
+                        <span class="balloon" *ngIf="data?.unseenCount">
+                          <span class="balloon-orange" *ngIf="data?.unseenCount > 99">+99</span>
+                          <span class="balloon-orange" *ngIf="data?.unseenCount <= 99">{{data?.unseenCount}}</span>
+                        </span>
+                      </a>
+                    </li>
+                  </ng-container>
+
+                </ul>
+
+              </div>
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

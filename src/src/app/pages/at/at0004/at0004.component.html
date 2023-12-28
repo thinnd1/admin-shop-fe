@@ -1,0 +1,626 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents AT0004-->
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'ME0014.TITLE' | translate" ></app-page-head>
+                </div>
+                <div class="rounded box-cmn p-2">
+                  <div class="d-flex align-items-center">
+                    <div class="box-avatar">
+                      <app-face-icon [iconSize]="55"></app-face-icon>
+                    </div>
+                    <div class="box-txt pl-2">
+                      <p class="fs10 mb-0">さわだ とおる</p>
+                      <p class="fs20 mb-0">澤田 徹</p>
+                      <p class="fs12 mb-0">薬剤部</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="control-top mt-3 d-flex justify-content-between">
+                  <div class="control-left mb-3">
+                    <button class="btn btn-primary mt-2 mr-2">今月</button>
+                    <div class="d-inline-block btn-group mt-2 mr-2">
+                      <button class="btn btn-secondary float-left"><i class="fa fa-angle-left"></i></button>
+                      <button class="btn btn-secondary float-left"><i class="fa fa-angle-right"></i></button>
+                    </div>
+                  </div>
+                  <div class="control-center px-2">
+                    <h2 class="text-center fs18 mt-4">2018年12月今月</h2>
+                  </div>
+                  <div class="control-right text-right mb-3">
+                    <button class="btn btn-primary mt-2 mr-2">保存</button>
+                    <button class="btn btn-secondary mt-2">CSV</button>
+                    <button class="btn btn-secondary mt-2 ml-2"><i class="fa fa-print"></i></button>
+                  </div>
+                </div>
+                <div class="mt-3 table-dateTime-form">
+                  <table class="table table-striped table-bordered table-hover">
+                    <thead class="thead-inverse hidden-sm-down">
+                    <tr>
+                      <th class="align-middle text-center">日付</th>
+                      <th class="align-middle text-center">シフト</th>
+                      <th class="align-middle text-center">出勤</th>
+                      <th class="align-middle text-center">退勤</th>
+                      <th class="align-middle text-center">自己研鑽</th>
+                      <th class="align-middle text-center">労働</th>
+                      <th class="align-middle text-center">残業</th>
+                      <th class="align-middle text-center">深夜</th>
+                      <th class="align-middle text-center">休憩</th>
+                      <th class="align-middle text-center">残業理由</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <th class="hidden-md-up align-middle text-center">日付</th>
+                      <td class="align-middle">12月01日　金</td>
+                      <th class="hidden-md-up align-middle text-center">シフト</th>
+                      <td class="align-middle">
+                        <p class="mb-0">午前 病棟</p>
+                        <p class="mb-0">00:00 - 08:00</p>
+                      </td>
+                      <th class="hidden-md-up align-middle text-center">出勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">退勤</th>
+                      <td class="align-middle has-danger">
+                        <p class="fs12 text-danger mb-0">エラー</p>
+                        <input type="text" class="form-control form-control-danger" value="9:00">
+                      </td>
+                      <th class="hidden-md-up align-middle text-center">自己研鑽</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">労働</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">残業</th>
+                      <td class="align-middle has-danger">
+                        <p class="fs12 text-danger mb-0">超過エラー</p>
+                        <input type="text" class="form-control form-control-danger" value="9:00">
+                      </td>
+                      <th class="hidden-md-up align-middle text-center">深夜</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">休憩</th>
+                      <td class="align-middle has-danger">
+                        <p class="fs12 text-danger mb-0">超過エラー</p>
+                        <input type="text" class="form-control form-control-danger" value="9:00">
+                      </td>
+                      <th class="hidden-md-up align-middle text-center">残業理由</th>
+                      <td class="align-middle">
+                        <div class="d-flex d-block-sp">
+                          <div class="minW-70">
+                            <select class="form-control">
+                              <option>患者対応</option>
+                              <option>その他</option>
+                            </select>
+                          </div>
+                          <div class="minW-130 has-danger">
+                            <p class="fs12 text-danger mb-0">◯文字以内で入力してください</p>
+                            <input type="text" class="form-control form-control-danger" placeholder="その他の理由を記入">
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="hidden-md-up align-middle text-center">日付</th>
+                      <td class="align-middle text-primary">12月02日　土</td>
+                      <th class="hidden-md-up align-middle text-center">シフト</th>
+                      <td class="align-middle">
+                        <p class="mb-0">午前 病棟</p>
+                        <p class="mb-0">00:00 - 08:00</p>
+                      </td>
+                      <th class="hidden-md-up align-middle text-center">出勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">退勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">自己研鑽</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">労働</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">残業</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">深夜</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">休憩</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">残業理由</th>
+                      <td class="align-middle">
+                        <div class="d-flex d-block-sp">
+                          <div class="minW-70">
+                            <select class="form-control">
+                              <option>患者対応</option>
+                              <option>その他</option>
+                            </select>
+                          </div>
+                          <div class="minW-130">
+                            <input type="text" class="form-control" placeholder="その他の理由を記入">
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="hidden-md-up align-middle text-center">日付</th>
+                      <td class="align-middle text-danger">12月03日　日</td>
+                      <th class="hidden-md-up align-middle text-center">シフト</th>
+                      <td class="align-middle">
+                        <p class="mb-0">公休</p>
+                      </td>
+                      <th class="hidden-md-up align-middle text-center">出勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">退勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">自己研鑽</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">労働</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">残業</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">深夜</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">休憩</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">残業理由</th>
+                      <td class="align-middle">
+                        <div class="d-flex d-block-sp">
+                          <div class="minW-70">
+                            <select class="form-control">
+                              <option>患者対応</option>
+                              <option>その他</option>
+                            </select>
+                          </div>
+                          <div class="minW-130">
+                            <input type="text" class="form-control" placeholder="その他の理由を記入">
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="hidden-md-up align-middle text-center">日付</th>
+                      <td class="align-middle">12月04日　月</td>
+                      <th class="hidden-md-up align-middle text-center">シフト</th>
+                      <td class="align-middle">
+                        <p class="mb-0">午前 病棟</p>
+                        <p class="mb-0">00:00 - 08:00</p>
+                      </td>
+                      <th class="hidden-md-up align-middle text-center">出勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">退勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">自己研鑽</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">労働</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">残業</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">深夜</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">休憩</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">残業理由</th>
+                      <td class="align-middle">
+                        <div class="d-flex d-block-sp">
+                          <div class="minW-70">
+                            <select class="form-control">
+                              <option>患者対応</option>
+                              <option>その他</option>
+                            </select>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="dateTime-red">
+                      <th class="hidden-md-up align-middle text-center">日付</th>
+                      <td class="align-middle">12月05日　火</td>
+                      <th class="hidden-md-up align-middle text-center">シフト</th>
+                      <td class="align-middle">
+                        <p class="mb-0">午前 病棟</p>
+                        <p class="mb-0">00:00 - 08:00</p>
+                      </td>
+                      <th class="hidden-md-up align-middle text-center">出勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">退勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">自己研鑽</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">労働</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">残業</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">深夜</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">休憩</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">残業理由</th>
+                      <td class="align-middle">
+                        <div class="d-flex d-block-sp">
+                          <div class="minW-70">
+                            <select class="form-control">
+                              <option>患者対応</option>
+                              <option>その他</option>
+                            </select>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="hidden-md-up align-middle text-center">日付</th>
+                      <td class="align-middle">12月06日　水</td>
+                      <th class="hidden-md-up align-middle text-center">シフト</th>
+                      <td class="align-middle">
+                        <p class="mb-0">午前 病棟</p>
+                        <p class="mb-0">00:00 - 08:00</p>
+                      </td>
+                      <th class="hidden-md-up align-middle text-center">出勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">退勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">自己研鑽</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">労働</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">残業</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">深夜</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">休憩</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">残業理由</th>
+                      <td class="align-middle">
+                        <div class="d-flex d-block-sp">
+                          <div class="minW-70">
+                            <select class="form-control">
+                              <option>患者対応</option>
+                              <option>その他</option>
+                            </select>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="hidden-md-up align-middle text-center">日付</th>
+                      <td class="align-middle">12月07日　木</td>
+                      <th class="hidden-md-up align-middle text-center">シフト</th>
+                      <td class="align-middle">
+                        <p class="mb-0">午前 病棟</p>
+                        <p class="mb-0">00:00 - 08:00</p>
+                      </td>
+                      <th class="hidden-md-up align-middle text-center">出勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">退勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">自己研鑽</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">労働</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">残業</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">深夜</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">休憩</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">残業理由</th>
+                      <td class="align-middle">
+                        <div class="d-flex d-block-sp">
+                          <div class="minW-70">
+                            <select class="form-control">
+                              <option>患者対応</option>
+                              <option>その他</option>
+                            </select>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="hidden-md-up align-middle text-center">日付</th>
+                      <td class="align-middle">12月08日　金</td>
+                      <th class="hidden-md-up align-middle text-center">シフト</th>
+                      <td class="align-middle">
+                        <p class="mb-0">午前 病棟</p>
+                        <p class="mb-0">00:00 - 08:00</p>
+                      </td>
+                      <th class="hidden-md-up align-middle text-center">出勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">退勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">自己研鑽</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">労働</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">残業</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">深夜</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">休憩</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">残業理由</th>
+                      <td class="align-middle">
+                        <div class="d-flex d-block-sp">
+                          <div class="minW-70">
+                            <select class="form-control">
+                              <option>患者対応</option>
+                              <option>その他</option>
+                            </select>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="hidden-md-up align-middle text-center">日付</th>
+                      <td class="align-middle text-primary">12月09日　土</td>
+                      <th class="hidden-md-up align-middle text-center">シフト</th>
+                      <td class="align-middle">
+                        <p class="mb-0">午前 病棟</p>
+                        <p class="mb-0">00:00 - 08:00</p>
+                      </td>
+                      <th class="hidden-md-up align-middle text-center">出勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">退勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">自己研鑽</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">労働</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">残業</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">深夜</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">休憩</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">残業理由</th>
+                      <td class="align-middle">
+                        <div class="d-flex d-block-sp">
+                          <div class="minW-70">
+                            <select class="form-control">
+                              <option>患者対応</option>
+                              <option>その他</option>
+                            </select>
+                          </div>
+                          <div class="minW-130">
+                            <input type="text" class="form-control" placeholder="その他の理由を記入">
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="hidden-md-up align-middle text-center">日付</th>
+                      <td class="align-middle text-danger">12月10日　日</td>
+                      <th class="hidden-md-up align-middle text-center">シフト</th>
+                      <td class="align-middle">
+                        <p class="mb-0">公休</p>
+                      </td>
+                      <th class="hidden-md-up align-middle text-center">出勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">退勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">自己研鑽</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">労働</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">残業</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">深夜</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">休憩</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">残業理由</th>
+                      <td class="align-middle">
+                        <div class="d-flex d-block-sp">
+                          <div class="minW-70">
+                            <select class="form-control">
+                              <option>患者対応</option>
+                              <option>その他</option>
+                            </select>
+                          </div>
+                          <div class="minW-130">
+                            <input type="text" class="form-control" placeholder="その他の理由を記入">
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="hidden-md-up align-middle text-center">日付</th>
+                      <td class="align-middle">12月11日　月</td>
+                      <th class="hidden-md-up align-middle text-center">シフト</th>
+                      <td class="align-middle">
+                        <p class="mb-0">午前 病棟</p>
+                        <p class="mb-0">00:00 - 08:00</p>
+                      </td>
+                      <th class="hidden-md-up align-middle text-center">出勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">退勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">自己研鑽</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">労働</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">残業</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">深夜</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">休憩</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">残業理由</th>
+                      <td class="align-middle">
+                        <div class="d-flex d-block-sp">
+                          <div class="minW-70">
+                            <select class="form-control">
+                              <option>患者対応</option>
+                              <option>その他</option>
+                            </select>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="hidden-md-up align-middle text-center">日付</th>
+                      <td class="align-middle">12月12日　火</td>
+                      <th class="hidden-md-up align-middle text-center">シフト</th>
+                      <td class="align-middle">
+                        <p class="mb-0">午前 病棟</p>
+                        <p class="mb-0">00:00 - 08:00</p>
+                      </td>
+                      <th class="hidden-md-up align-middle text-center">出勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">退勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">自己研鑽</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">労働</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">残業</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">深夜</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">休憩</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">残業理由</th>
+                      <td class="align-middle">
+                        <div class="d-flex d-block-sp">
+                          <div class="minW-70">
+                            <select class="form-control">
+                              <option>患者対応</option>
+                              <option>その他</option>
+                            </select>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="hidden-md-up align-middle text-center">日付</th>
+                      <td class="align-middle">12月13日　水</td>
+                      <th class="hidden-md-up align-middle text-center">シフト</th>
+                      <td class="align-middle">
+                        <p class="mb-0">午前 病棟</p>
+                        <p class="mb-0">00:00 - 08:00</p>
+                      </td>
+                      <th class="hidden-md-up align-middle text-center">出勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">退勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">自己研鑽</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">労働</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">残業</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">深夜</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">休憩</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">残業理由</th>
+                      <td class="align-middle">
+                        <div class="d-flex d-block-sp">
+                          <div class="minW-70">
+                            <select class="form-control">
+                              <option>患者対応</option>
+                              <option>その他</option>
+                            </select>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="hidden-md-up align-middle text-center">日付</th>
+                      <td class="align-middle">12月14日　木</td>
+                      <th class="hidden-md-up align-middle text-center">シフト</th>
+                      <td class="align-middle">
+                        <p class="mb-0">午前 病棟</p>
+                        <p class="mb-0">00:00 - 08:00</p>
+                      </td>
+                      <th class="hidden-md-up align-middle text-center">出勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">退勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">自己研鑽</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">労働</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">残業</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">深夜</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">休憩</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">残業理由</th>
+                      <td class="align-middle">
+                        <div class="d-flex d-block-sp">
+                          <div class="minW-70">
+                            <select class="form-control">
+                              <option>患者対応</option>
+                              <option>その他</option>
+                            </select>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="hidden-md-up align-middle text-center">日付</th>
+                      <td class="align-middle">12月15日　金</td>
+                      <th class="hidden-md-up align-middle text-center">シフト</th>
+                      <td class="align-middle">
+                        <p class="mb-0">午前 病棟</p>
+                        <p class="mb-0">00:00 - 08:00</p>
+                      </td>
+                      <th class="hidden-md-up align-middle text-center">出勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">退勤</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">自己研鑽</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">労働</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">残業</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">深夜</th>
+                      <td class="align-middle">00:00</td>
+                      <th class="hidden-md-up align-middle text-center">休憩</th>
+                      <td class="align-middle"><input type="text" class="form-control" value="9:00"></td>
+                      <th class="hidden-md-up align-middle text-center">残業理由</th>
+                      <td class="align-middle">
+                        <div class="d-flex d-block-sp">
+                          <div class="minW-70">
+                            <select class="form-control">
+                              <option>患者対応</option>
+                              <option>その他</option>
+                            </select>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="mt-3 mb-3 text-center">
+                  <button class="btn btn-primary">保存</button>
+                </div>
+              </div>
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <!--<div class="col-12 col-lg-3 col-sub">-->
+        <!--<app-col-sub></app-col-sub>-->
+        <!--</div>-->
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

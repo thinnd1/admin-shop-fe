@@ -1,0 +1,45 @@
+<div class="mb-4" id="a">
+  <span class="d-block col-form-label text-danger fs12 text-left"
+        *ngIf="formErrors.email">{{formErrors.email | translate}}</span>
+  <div class="search search-email">
+    <form [formGroup]="mailForm" (ngSubmit)="searchPharmacyStaff()">
+      <div [class.has-danger]="formErrors.email">
+        <input class="search-input" type="text" placeholder="{{'PH0001.SEARCH_EMAIL_PLACEHOLDER' | translate}}"
+               formControlName="email">
+        <button type="submit" class="search-btn" (click)="searchPharmacyStaff()">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+      </div>
+    </form>
+    <div class="search-email-box" *ngIf="foundPharmacyStaff">
+      <div class="list-email-inner">
+        <div class="user-block d-flex align-items-center m-1 p-1" (click)="addToInviteList(foundPharmacyStaff)">
+          <div class="mr-2">
+            <app-face-icon [iconSize]="40" [userInfo]="foundPharmacyStaff"></app-face-icon>
+          </div>
+          <div class="fs18">
+            <p class="mb-0 text-left">{{foundPharmacyStaff.lastName}} {{foundPharmacyStaff.firstName}}</p>
+            <p class="mb-0 ">{{(foundPharmacyStaff.officeName?.length > 35) ?
+              (foundPharmacyStaff.officeName.substr(0, 35) + '...') : foundPharmacyStaff.officeName}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="list-email p-2 mt-3" id="b">
+  <div class="d-flex align-items-center my-2" *ngFor="let pharmacyStaff of inviteList, let i = index">
+    <span><i class="fa fa-times fs24 text-primary" aria-hidden="true" (click)="removeFromInviteList(user)"></i></span>
+    <div class="user-block d-flex align-items-center">
+      <div class="mx-2">
+        <app-face-icon [iconSize]="40" [userInfo]="pharmacyStaff"></app-face-icon>
+      </div>
+      <div class="fs18 w-100">
+        <p class="mb-0 text-left">{{pharmacyStaff.lastName}} {{pharmacyStaff.firstName}}</p>
+        <p class="mb-0 ">{{(pharmacyStaff.officeName?.length > 35) ? (pharmacyStaff.officeName.substr(0, 35) +
+          '...') : pharmacyStaff.officeName}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+

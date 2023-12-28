@@ -1,0 +1,91 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+
+.select-user {
+  height: 500px;
+  display: block;
+  padding: 0 5px;
+	li {
+		cursor: pointer;
+		.select-user-img {
+			width: 40px;
+			.avatar-img-40 {
+				border:1px solid #969696;
+			}
+		}
+		.select-user-name {
+			width: calc(100% - 40px);
+		}
+		&:hover, &.member-select {
+			background-color: #FCF8E3;
+		}
+	}
+}
+.theme-detail {
+	.select-intermediary {
+		width: 13.5rem;
+		.select-wap {
+			border: 1px solid #CCC;
+			border-radius:0.3rem;
+			overflow: auto;
+		}
+	}
+	.select-doctor {
+		width: calc(100% - 13.5rem);
+		.select-doctor-wap {
+			background-color: #EEE;
+			border-radius:0.3rem;
+			padding: 1.4rem 2.875rem;
+			.select-col1,
+			.select-col3 {
+				width: 47%;
+			}
+			.select-col2 {
+				width: 3.5rem;
+				.fa {
+					color: #333;
+				}
+			}
+			.select-container {
+				background-color: #FFF;
+				border: 1px solid #CCC;
+				border-radius:0.3rem;
+				.select-search {
+					border-bottom:1px solid #D7D7D7;
+				}
+				.select-container-drag {
+					.select-user {
+						li {
+							.select-user-img {
+								.avatar-img-40 {
+									border:inherit;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.member-select-box-add tbody {
+  height:365px !important;
+}
+@include media-breakpoint-down(lg) {
+	.theme-detail {
+		.select-doctor {
+			.select-doctor-wap {
+				padding: 1rem;
+			}
+		}
+	}
+}
+@include media-breakpoint-down(md) {
+	.theme-detail {
+		.select-intermediary,
+		.select-doctor {
+			width: 100%;
+			padding-left:0;
+		}
+	}
+}

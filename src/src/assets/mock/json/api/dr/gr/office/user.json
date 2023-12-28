@@ -1,0 +1,68 @@
+{
+  "officeUsers": [
+    {
+      "userId": "user0041",
+      "officeID": "34",
+      "officeName": "国保直営総合病院...",
+      "lastName": "谷原",
+      "firstName": "利三郎",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd"
+    },
+    {
+      "userId": "user0042",
+      "officeID": "35",
+      "officeName": "国保直営総合病院...",
+      "lastName": "谷原",
+      "firstName": "利三郎",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd"
+    },
+    {
+      "userId": "user0043",
+      "officeID": "36",
+      "officeName": "国保直営総合病院...",
+      "lastName": "谷原",
+      "firstName": "利三郎",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd"
+    },
+    {
+      "userId": "user0044",
+      "officeID": "37",
+      "officeName": "国保直営総合病院...",
+      "lastName": "谷原",
+      "firstName": "利三郎",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd"
+    },
+    {
+      "userId": "user0045",
+      "officeID": "37",
+      "officeName": "国保直営総合病院...",
+      "lastName": "谷原",
+      "firstName": "利三郎",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd"
+    },
+    {
+      "userId": "user0046",
+      "officeID": "37",
+      "officeName": "国保直営総合病院...",
+      "lastName": "谷原",
+      "firstName": "利三郎",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd"
+    },
+    {
+      "userId": "user0047",
+      "officeID": "37",
+      "officeName": "国保直営総合病院...",
+      "lastName": "谷原",
+      "firstName": "利三郎",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd"
+    }
+  ]
+}
+

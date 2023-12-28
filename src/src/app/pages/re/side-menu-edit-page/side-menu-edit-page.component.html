@@ -1,0 +1,77 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu [sideMenuReload]="sideMenuReload" (reload)="setReloadSideMenu($event)"></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <div class="col">
+
+                <div class="page-head">
+                  <app-page-head [title]="'RE0001.TITLE' | translate"></app-page-head>
+                </div>
+
+                <!--contents-->
+                <!--contents RE0001-->
+                <form>
+                  <div class="side-edit-menu">
+                    <div class="row">
+                      <div class="col-12">
+                        <form>
+                          <table class="table table-bordered table-edit-menu">
+                            <thead class="thead-inverse">
+                            <tr>
+                              <th class="text-center">{{ 'RE0001.MENU_ORDER' | translate}}</th>
+                              <th class="text-center">{{ 'RE0001.MENU_LIST' | translate}}</th>
+                            </tr>
+                            </thead>
+                            <tbody *ngIf="models.length !== 1">
+                            <tr *ngFor="let model of models; let i = index" class="1">
+                              <td class="fs18 align-middle" *ngIf="!(menu[model.functionId] === 'building' && !this.showMeeting)">
+                                <div class="d-sm-flex justify-content-center" *ngIf="menu[model.functionId] !== 'calendar' && menu[model.functionId] !== 'building'">
+                                  <button class="btn btn-secondary p-2 mx-2 my-1" (click)="upMenu(i)" [disabled]="disableCheck(i, indexUp)"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+                                  <button class="btn btn-secondary p-2 mx-2 my-1" (click)="downMenu(i)" [disabled]="disableCheck(i, indexDown)"><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+                                </div>
+                              </td>
+                              <td class="fs18 align-middle" *ngIf="!(menu[model.functionId] === 'building' && !this.showMeeting)">
+                                <i class="fa mr-2" [ngClass]="'fa-' + menu[model.functionId]" aria-hidden="true"></i>{{  'RE0001.MENU.'+ model.functionId | translate}}
+                              </td>
+                            </tr>
+                            </tbody>
+                          </table>
+                          <div class="d-flex justify-content-center">
+                            <button class="btn btn-primary" type="submit" (click)="confirmPutSideMenu()">{{ 'COMMON_BTN.SAVE' | translate}}</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <!-- //contents -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

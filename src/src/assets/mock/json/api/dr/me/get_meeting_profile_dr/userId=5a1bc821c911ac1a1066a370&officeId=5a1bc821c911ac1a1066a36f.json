@@ -1,0 +1,43 @@
+{
+  "firstName":"firstName",
+  "lastName":"lastName",
+  "firstNameKana":"firstNameKana",
+  "lastNameKana":"lastNameKana",
+  "gender":1,
+  "birthDate":"2011-06-10",
+  "mailAddress":"drjoy1@gmail.com",
+  "specializedDepartment":[
+    {
+      "fieldId":"A0001",
+      "typeId":"S0001"
+    },
+    {
+      "fieldId":"A0001",
+      "typeId":"S0001"
+    },
+    {
+      "fieldId":"A0002",
+      "typeId":"S0087"
+    }
+  ],
+  "placeBornIn":"Thanh Hoa ",
+  "hobby":"i like play badminton",
+  "mobileNo":"0976055646",
+  "briefHistory":"i stydy at Hust",
+  "qualification":"very good",
+  "position":"master ,sennior",
+  "phsNo":"678923423423",
+  "jobType":"J0001",
+  "department":{
+    "id":"5a1bc821c911ac1a1066a36e",
+    "name":"department",
+    "displayName":"department",
+    "path":"/department/",
+    "children":[
+
+    ]
+  },
+  "graduationDate":"2017-08-08",
+  "officeName":"officeName テキストテキストテキストテキストテキストテキストテキストテキストテキスト",
+  "acceptRequest":true
+}

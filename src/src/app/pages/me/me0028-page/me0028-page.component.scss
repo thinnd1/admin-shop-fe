@@ -1,0 +1,53 @@
+@import '../../../../assets/styles/_import';
+#me0028 {
+  th, td {
+    border: 1px solid transparent;
+  }
+  .header{
+    .center {
+      width: 91%;
+    }
+  }
+  .middle{
+    tbody {
+      tr {
+        th {
+          width: 6rem;
+        }
+      }
+    }
+  }
+}
+.title-image {
+  font-weight: bold;
+}
+.color-type-user{
+  color: #777777;
+}
+.open-colllage{
+  color:#3D7FB7 !important;
+  cursor: pointer;
+}
+.cusor-file-download{
+  cursor: pointer;
+}
+li.hidden-listyle{
+  list-style: none;
+  position: absolute;
+  left: 2.5%;
+}
+.table-frame {
+  th, td{
+    border-left: 1px solid #d7d7d7 !important;
+    border-right: 1px solid #d7d7d7 !important;
+  }
+}
+.break-line {
+   white-space: pre-wrap;
+ }
+
+.table-scroll-wrap {
+  border: 1px solid #d7d7d7;
+  overflow-y: auto;
+  height: 200px;
+}

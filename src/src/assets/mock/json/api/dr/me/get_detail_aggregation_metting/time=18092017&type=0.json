@@ -1,0 +1,48 @@
+{
+  "details": [{
+      "locationMeeting": "リハビリテーションセンター",
+      "numPeople": "3",
+      "purposeMeeting": "定期打ち合わせ（治験・学会・講演会など）",
+      "timeFinishMeeting": "2017-10-12T09:20:00",
+      "timeMeeting": "2017-10-12T19:20:00",
+      "visitorId": "dg4w5vdafgq34",
+      "visitName": "林 修三",
+      "visitOfficeName": "HJIK株式会社",
+      "visitOfficeUserId": "3464g45g",
+      "staffId": "45egeagra",
+      "staffName": "山田 真由子",
+      "staffOfficeName": "外科 消化器外科",
+      "staffOfficeId": "45grey4grt"
+    },
+    {
+      "locationMeeting": "受付にお越し下さい",
+      "numPeople": "3",
+      "purposeMeeting": "別担当の紹介依頼",
+      "timeFinishMeeting": "2017-10-12T09:20:00",
+      "timeMeeting": "2017-10-12T09:20:00",
+      "visitorId": "dg4w5vdafgq34",
+      "visitName": "林 修三",
+      "visitOfficeName": "HJIK株式会社",
+      "visitOfficeUserId": "3464g45g",
+      "staffId": "45egeagra",
+      "staffName": "山田 真由子",
+      "staffOfficeName": "外科 消化器外科",
+      "staffOfficeId": "45grey4grt"
+    },
+    {
+      "locationMeeting": "薬局",
+      "numPeople": "3",
+      "purposeMeeting": "受付にお越し下さい",
+      "timeFinishMeeting": "2017-10-12T09:20:00",
+      "timeMeeting": "2017-10-12T09:20:00",
+      "visitorId": "dg4w5vdafgq34",
+      "visitName": "林 修三",
+      "visitOfficeName": "HJIK株式会社",
+      "visitOfficeUserId": "3464g45g",
+      "staffId": "45egeagra",
+      "staffName": "山田 真由子",
+      "staffOfficeName": "外科 消化器外科",
+      "staffOfficeId": "45grey4grt"
+    }
+  ]
+}

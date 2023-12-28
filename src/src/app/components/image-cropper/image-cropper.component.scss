@@ -1,0 +1,20 @@
+// import common setting
+@import './../../../assets/styles/import';
+
+.image-cropper-container {
+  overflow: hidden;
+  height: 240px;
+  margin-bottom: 1rem;
+  line-height: 240px;
+  text-align: center;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAAA3NCSVQICAjb4U/gAAAABlBMVEXMzMz////TjRV2AAAACXBIWXMAAArrAAAK6wGCiw1aAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M26LyyjAAAABFJREFUCJlj+M/AgBVhF/0PAH6/D/HkDxOGAAAAAElFTkSuQmCC");
+  .image-cropper-picture {
+    width: 240px;
+    cursor: pointer;
+    user-select: none;
+  }
+}
+
+.image-cropper-btn-group-wrap {
+  text-align: center;
+}

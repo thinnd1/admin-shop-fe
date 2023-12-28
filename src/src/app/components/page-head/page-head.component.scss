@@ -1,0 +1,66 @@
+// import common setting
+@import './../../../assets/styles/import';
+
+.page-head-backlink {
+  display: table-cell;
+  vertical-align: middle;
+  width: 50px;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  .fa {
+    background-color: #EEE;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    @include user-select(none);
+  }
+  &:hover {
+    opacity: .5;
+  }
+}
+
+.page-head-title {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0 60px 0 10px;
+  text-align: center;
+  width: 100%;
+  &-text {
+    margin: 0;
+  }
+  &.page-head-title-spacing {
+    padding-right: 10px;
+  }
+}
+
+.page-head-popover-wrap {
+  display: table-cell;
+  vertical-align: middle;
+  .btn-cog {
+    width: 50px;
+    height: 50px;
+    color: $gray-light;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  .page-head-popover-list-link {
+    color: $gray;
+  }
+}
+.disabled {
+  pointer-events: none; //This makes it not clickable
+  opacity: 0.6; //This grays it out to look disabled
+}
+@media print {
+  .print-white {
+    display: none;
+    visibility: hidden;
+  }
+  .page-head-backlink .fa {
+    background-color : #fff;
+    color: #fff;
+  }
+}

@@ -1,0 +1,302 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents GR0006-->
+
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head *ngIf="userSession.personalFlag === false" [title]="'MENU.ITEM.GR0006' | translate"></app-page-head>
+                  <app-page-head *ngIf="userSession.personalFlag === true" [title]="'GR0006.TITLE_PERSONAL' | translate"></app-page-head>
+                </div>
+              <form [formGroup]="formCreateGroup" (ngSubmit)="putCreateOutsideGroup()" (keydown.enter)="$event.preventDefault()">
+                <div class="row mt-4 avatar-wrapper">
+                  <div class="col-lg-2 avatar-select">
+                    <app-group-icon-set [groupIconSetOptions]="{admin: 1, groupId: null, iconSize:94}" (iconImageChanged)="groupIconSetChanged($event)"></app-group-icon-set>
+                  </div>
+                  <div class="col-lg-9">
+                    <div class="form-group" [ngClass]="{'has-danger': formErrors.name}">
+                      <label>{{'COMMON_LABEL.LBL_GROUP_NAME' | translate}}<span class="text-danger">※</span></label>
+                      <span *ngIf="formErrors.name" class="d-block col-form-label text-danger fs12">{{formErrors.name}}</span>
+                      <input type="text" class="form-control" placeholder="{{'COMMON_LABEL.INPUT_GROUP_NAME_PLACEHOLDER' | translate}}" formControlName="name">
+                    </div>
+                  </div>
+                </div>
+
+                <ul class="nav nav-tabs fs18 mt-3" role="tablist" *ngIf="userSession.personalFlag === false">
+                  <li class="nav-item" >
+                    <a class="nav-link active" data-toggle="tab" href="#inside" role="tab">{{'GR0006.TAB_1' | translate}}</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#outside">{{'GR0006.TAB_2' | translate}}</a>
+                  </li>
+                </ul>
+
+                <div class="tab-content" >
+                  <div class="tab-pane active" id="inside" role="tabpanel" *ngIf="userSession.personalFlag === false">
+                    <div class="form-group mt-4">
+                      <label>{{'COMMON_LABEL.SEARCH_BY_DEPARTMENT' | translate}}</label>
+                      <select class="form-control" (change)="changeDepId($event.target.value)" onmousedown="this.focus()">
+                        <option value="">{{'COMMON_LABEL.ALL' | translate}}</option>
+                        <option *ngFor="let de of listDepartment" value="{{de.id}}" data-toggle="tooltip" data-placement="top" title="{{de.text}}"
+                                id="department-{{de.id}}">{{ (de.text.length > 60) ? (de.text.substr(0, 60) + '...' ) : de.text}}</option>
+                      </select>
+                    </div>
+                    <div class="select-content d-flex mb-4">
+                      <div class="select-col1">
+                        <p class="m-0">&nbsp;</p>
+                        <div class="select-container select-dr-pr">
+                          <div class="select-search p-2">
+                            <div class="search">
+                              <input class="search-input" type="text" placeholder="{{'MEMBER_SELECT.MEMBER_SEARCH' | translate}}" (keyup)="0" #keyWord>
+                              <button type="button" class="search-btn">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                              </button>
+                            </div>
+                          </div><!-- //select-search-->
+                          <div class="select-container-drag pt-3 pb-1">
+                            <div class="mb-1 px-2">
+                              <label class="custom-control custom-checkbox mb-0">
+                                <input type="checkbox" class="custom-control-input" [checked]="checkAllUserInside" (change)="changeCheckAll(checkAllUserInside, false)">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">{{'MEMBER_SELECT.MEMBER_ALL_SELECT' | translate}}</span>
+                              </label>
+                            </div>
+                            <ul class="select-user m-0 p-0">
+                              <li class="d-flex align-items-center p-2" *ngFor="let user of listInside | searchFilter: {fullName: keyWord.value, fullNameKana: keyWord.value}"
+                                  (click)="selectedUser(user)"
+                                  [ngClass]="{'checked': user.isSelected}">
+                                <div class="select-user-img"> <app-face-icon [iconSize]="40" [userInfo]="user"></app-face-icon></div>
+                                <div class="select-user-name fs18 pl-2">{{user.fullName}}</div>
+                              </li>
+                            </ul>
+                          </div><!-- //select-container-drag -->
+                        </div><!-- //select-dr-pr -->
+                      </div>
+                      <div class="select-col2 d-flex">
+                        <div class="button-switcher">
+                          <div class="button-switcher-inner align-middle text-center">
+                            <button type="button" class="btn btn-sm btn-outline-secondary my-2 mx-1" (click)="addMember(false)"><i class="fa fa-arrow-right  fs24" aria-hidden="true"></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary my-2 mx-1" (click)="removeMember()"><i class="fa fa-arrow-left fs24" aria-hidden="true"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="select-col3">
+                        <p class="m-0">{{'COMMON_LABEL.LBL_SELECTED_MEMBER' | translate}}</p>
+                        <span class="d-block col-form-label text-danger fs12" *ngIf="formErrors.member">{{formErrors.member | translate}}</span>
+                        <div class="select-container select-member">
+                          <div class="select-search p-2">
+                            <div class="search">
+                              <input class="search-input" type="text" placeholder="{{'MEMBER_SELECT.MEMBER_SEARCH' | translate}}" #searchMember (keyup)="0">
+                              <button type="button" class="search-btn">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                              </button>
+                            </div>
+                          </div><!-- //select-search-->
+                          <div class="select-container-drag pb-1">
+                            <div class="d-flex select-box mx-1 mt-1 mb-1">
+                              <div class="select-user-txt pt-2 p-1">{{'MEMBER_SELECT.ADMIN' | translate}}</div>
+                              <div class="select-user-txt select-user-txt-fl pt-2 p-1">{{'COMMON_LABEL.FULL_NAME' | translate}}</div>
+                              <div class="select-user-txt pt-2 p-1">{{'BTN.ACCEPT' | translate}}</div>
+                            </div>
+                            <ul class="select-user m-0 p-0">
+                              <li class="d-flex align-items-center pl-4 py-2" *ngFor="let member of listMember | searchFilter: {fullName: searchMember.value, fullNameKana: searchMember.value}"
+                                  (click)="selectedMember(member)" [ngClass]="{'checked': member.isSelected && member.officeUserId !== userSession.officeUserId, 'li-no-hover': member.officeUserId === userSession.officeUserId}">
+                                <div class="checkbox d-flex mt-1">
+                                  <label class="custom-control custom-checkbox mb-0" [ngClass]="{'li-no-hover': member.officeUserId === userSession.officeUserId}">
+                                    <input type="checkbox" class="custom-control-input" [checked]="member.authority === 'ADMIN'" (change)="selectedHospitalAdmin($event, member)" [disabled]="member.officeUserId === userSession.officeUserId">
+                                    <span class="custom-control-indicator"></span>
+                                  </label>
+                                </div>
+                                <div class="select-user-img"> <app-face-icon [iconSize]="40" [userInfo]="member"></app-face-icon></div>
+                                <div class="select-user-name fs18 pl-2">
+                                  <span class="d-block">{{member.fullName}}</span>
+                                  <span class="d-block" *ngIf="member.officeId !== userSession.officeId" title="{{member.officeName}}" id="member-list-inside-{{i}}">{{(member.officeName?.length > 20) ? (member.officeName.substr(0, 20) + '...') : member.officeName}}</span>
+                                </div>
+                                <div class="select-user-box ml-1 pr-2" *ngIf="member.inviteFlg"><span class="select-user-box-bg rounded-circle text-white form-inline justify-content-center">{{'GR0006.NOT_YET' | translate}}</span></div>
+                              </li>
+                            </ul>
+                          </div><!-- //select-container-drag -->
+                        </div><!-- //select-dr-pr -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane" [ngClass]="{'active': userSession.personalFlag === true}" id="outside" role="tabpanel">
+                    <div class="form-group mt-4">
+                      <label>{{'GR0006.MEDICAL_INSTITUTION_NAME' | translate}}</label>
+                      <select class="form-control" (change)="changeOfficeId($event.target.value)" onmousedown="this.focus()">
+                        <option value="">{{'COMMON_LABEL.ALL' | translate}}</option>
+                        <option *ngFor="let office of listOffices" value="{{office.id}}" data-toggle="tooltip" data-placement="top" title="{{office.name}}"
+                                id="office-{{office.id}}">{{(office.name.length > 60) ? (office.name.substr(0, 60) + '...') : office.name}}</option>
+                      </select>
+                    </div>
+                    <div class="select-content d-flex mb-4">
+                      <div class="select-col1">
+                        <p class="m-0">&nbsp;</p>
+                        <div class="select-container select-dr-pr">
+                          <div class="select-search p-2">
+                            <div class="search">
+                              <input class="search-input" type="text" placeholder="{{'MEMBER_SELECT.MEMBER_SEARCH' | translate}}" (keyup)="0" #key>
+                              <button type="button" class="search-btn">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                              </button>
+                            </div>
+                          </div><!-- //select-search-->
+                          <div class="select-container-drag pt-3 pb-1">
+                            <div class="mb-1 px-2">
+                              <label class="custom-control custom-checkbox mb-0">
+                                <input type="checkbox" class="custom-control-input" [checked]="checkAllUserOutside" (change)="changeCheckAll(checkAllUserOutside, true)">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">{{'MEMBER_SELECT.MEMBER_ALL_SELECT' | translate}}</span>
+                              </label>
+                            </div>
+                            <ul class="select-user m-0 p-0">
+                              <li class="d-flex align-items-center p-2" *ngFor="let officeUser of listOutSide | searchFilter: {fullName: key.value, fullNameKana: key.value}"
+                                  (click)="selectedUser(officeUser)"
+                                  [ngClass]="{'checked': officeUser.isSelected}">
+                                <div class="select-user-img"><app-face-icon [iconSize]="40" [userInfo]="officeUser"></app-face-icon></div>
+                                <div class="select-user-name fs18 pl-2">
+                                  <span class="d-block">{{officeUser.fullName}}</span>
+                                  <span class="d-block" title="{{officeUser.officeName}}">{{(officeUser.officeName?.length > 20) ? (officeUser.officeName.substr(0, 20) + '...') : officeUser.officeName}}</span>
+                                </div>
+                              </li>
+                            </ul>
+                          </div><!-- //select-container-drag -->
+                        </div><!-- //select-dr-pr -->
+                        <button type="button" class="btn btn-lg btn-secondary w-100 mt-3" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#exampleModal" data-whatever="@mdo">{{'GR0006.MAIL_INVITE' | translate}}</button>
+                      </div>
+                      <div class="select-col2 d-flex">
+                        <div class="button-switcher">
+                          <div class="button-switcher-inner align-middle text-center">
+                            <button type="button" class="btn btn-sm btn-outline-secondary my-2 mx-1" (click)="addMember(true)"><i class="fa fa-arrow-right  fs24" aria-hidden="true"></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary my-2 mx-1" (click)="removeMember()"><i class="fa fa-arrow-left fs24" aria-hidden="true"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="select-col3">
+                        <p class="m-0">{{'COMMON_LABEL.LBL_SELECTED_MEMBER' | translate}}</p>
+                        <span class="d-block col-form-label text-danger fs12" *ngIf="formErrors.member">{{formErrors.member | translate}}</span>
+                        <div class="select-container select-member">
+                          <div class="select-search p-2">
+                            <div class="search">
+                              <input class="search-input" type="text" placeholder="{{'MEMBER_SELECT.MEMBER_SEARCH' | translate}}" #searchMem (keyup)="0">
+                              <button type="button" class="search-btn">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                              </button>
+                            </div>
+                          </div><!-- //select-search-->
+                          <div class="select-container-drag pb-1">
+                            <div class="d-flex select-box mx-1 mt-1 mb-1">
+                              <div class="select-user-txt pt-2 p-1">{{'MEMBER_SELECT.ADMIN' | translate}}</div>
+                              <div class="select-user-txt select-user-txt-fl pt-2 p-1">{{'COMMON_LABEL.FULL_NAME' | translate}}</div>
+                              <div class="select-user-txt pt-2 p-1">{{'BTN.ACCEPT' | translate}}</div>
+                            </div>
+                            <ul class="select-user m-0 p-0">
+                              <li class="d-flex align-items-center pl-4 py-2" *ngFor="let member of listMember | searchFilter: {fullName: searchMem.value, fullNameKana: searchMem.value}"
+                                  (click)="selectedMember(member)" [ngClass]="{'checked': member.isSelected && member.officeUserId !== userSession.officeUserId, 'li-no-hover': member.officeUserId === userSession.officeUserId}">
+                                <div class="checkbox d-flex mt-1">
+                                  <label class="custom-control custom-checkbox mb-0" [ngClass]="{'li-no-hover': member.officeUserId === userSession.officeUserId}">
+                                    <input type="checkbox" class="custom-control-input" [checked]="member.authority === 'ADMIN'" (change)="selectedHospitalAdmin($event, member)" [disabled]="member.officeUserId === userSession.officeUserId">
+                                    <span class="custom-control-indicator"></span>
+                                  </label>
+                                </div>
+                                <div class="select-user-img"><app-face-icon [iconSize]="40" [userInfo]="member"></app-face-icon></div>
+                                <div class="select-user-name fs18 pl-2">
+                                  <span class="d-block">{{member.fullName}}</span>
+                                  <span class="d-block" *ngIf="member.officeId !== userSession.officeId || userSession.personalFlag" id="member-list-outside-{{i}}">{{(member.officeName?.length > 20) ? (member.officeName.substr(0, 20) + '...') : member.officeName}}</span>
+                                </div>
+                                <div class="select-user-box ml-1 pr-2" *ngIf="member.inviteFlg"><span class="select-user-box-bg rounded-circle text-white form-inline justify-content-center">{{'GR0006.NOT_YET' | translate}}</span></div>
+                              </li>
+                            </ul>
+                          </div><!-- //select-container-drag -->
+                        </div><!-- //select-dr-pr -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-center mb-4">
+                    <button class="btn btn-primary" type="submit">{{'COMMON_BTN.SAVE' | translate}}</button>
+                  </div>
+                </div>
+              </form>
+                <!-- // modal -->
+
+                <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title" id="exampleModalLabel">{{'GR0006.TITLE_MODAL' | translate}}</h1>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="resetSearchMail()"><span aria-hidden="true">&times;</span></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="search-email">
+                        <form [formGroup]="mailForm" (ngSubmit)="searchOfficeUser()">
+                          <span *ngIf="formErrors.mail" class="d-block col-form-label text-danger fs12">{{formErrors.mail}}</span>
+                          <div class="d-flex form-group" [ngClass]="{'has-danger': formErrors.mail}">
+                            <input type="text" class="form-control mr-2" aria-describedby="emailHelp" placeholder="{{'GR0006.PLACEHOLDER_MAIL_INPUT' | translate}}" formControlName="mail">
+                            <button type="submit" class="btn btn-lg btn-primary">{{'BTN.SEARCH' | translate}}</button>
+                          </div>
+                        </form>
+                        <div class="search-email-box" *ngIf="suggestedList.length > 0">
+                          <div *ngFor="let out of suggestedList" class="list-email-inner">
+                            <div class="d-flex align-items-center m-1 p-1" (click)="addInvitedMail(out)">
+                              <div class="mr-2">
+                                <app-face-icon [iconSize]="40" [userInfo]="out"></app-face-icon>
+                              </div>
+                              <div class="fs18 w-100">
+                                <p class="m-0">{{out.lastName}} {{out.firstName}}</p>
+                                <p class="m-0" id="suggested-list-{{out.officeUserId}}" [title]="out.officeName">{{(out.officeName?.length > 35) ? (out.officeName.substr(0, 35) + '...') : out.officeName}}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="list-email p-2 mt-3">
+                          <div class="d-flex align-items-center my-2" *ngFor="let user of invitedList, let i = index">
+                            <span><i class="fa fa-times fs24 text-primary" aria-hidden="true" (click)="removeDoctor(user)"></i></span>
+                            <div class="mx-2"><app-face-icon [iconSize]="40" [userInfo]="user"></app-face-icon></div>
+                            <div class="fs18 w-100">
+                              <p class="m-0">{{user.lastName}} {{user.firstName}}</p>
+                              <p class="m-0" id="invited-list-{{user.officeUserId}}" [title]="user.officeName">{{(user.officeName?.length > 35) ? (user.officeName.substr(0, 35) + '...') : user.officeName}}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-secondary" (click)="resetSearchMail()">{{'MSG.CANCEL' | translate}}</button>
+                        <button type="button" data-dismiss="modal" class="btn btn-primary" (click)="addInvitedMember()">{{'GR0006.ADD_TO_LIST' | translate}}</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-xl-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

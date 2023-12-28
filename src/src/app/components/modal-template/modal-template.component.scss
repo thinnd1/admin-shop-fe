@@ -1,0 +1,37 @@
+
+.form-area {
+  min-height: 200px !important;
+}
+textarea {
+  resize: none!important;
+}
+.modal-content {
+  .modal-header-txt {
+    position: relative;
+    .close {
+      position: absolute;
+      top: 8px;
+      right: 1rem;
+    }
+  }
+  .modal-container {
+    .tlt-file {
+      list-style: none;
+      border: 1px #ccc solid;
+      overflow-y: auto;
+      min-height: 800px;
+      max-height: 800px;
+      li {
+        a {
+          color: #333;
+          padding: 4px 20px;
+          display: block;
+          &.active {
+            background: #73d4f3;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}

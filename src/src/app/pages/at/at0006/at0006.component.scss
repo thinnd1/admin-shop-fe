@@ -1,0 +1,100 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+
+.form-control-group {
+  margin: 0 -5px;
+  .form-group {
+    padding: 0 5px;
+  }
+  &.form-control-col-4 {
+    .form-group {
+      width: 25%;
+    }
+  }
+  &.form-control-col-5 {
+    .form-group {
+      width: 20%;
+    }
+  }
+}
+
+.table-tbl {
+  th {
+    white-space: nowrap;
+    min-width: 100px;
+    &.minW-180 {
+      min-width: 180px;
+    }
+    &.minW-200 {
+      min-width: 200px;
+    }
+    &.minW-250 {
+      min-width: 250px;
+    }
+    &.minW-260 {
+      min-width: 260px;
+    }
+    &.minW-368 {
+      min-width: 368px;
+    }
+  }
+  .clone-item {
+    color: #3d7eb6;
+    cursor: pointer;
+  }
+  .minW-80 {
+    width: 80px;
+  }
+  .mnw-58 {
+    width: 58px;
+  }
+  .mnw-100 {
+    width: 100px;
+  }
+  &.table-tbl-form {
+    tr {
+      th:last-child,
+      td:last-child {
+        background: #fff;
+        border: none;
+        min-width: 56px;
+      }
+
+    }
+  }
+  &.table-tbl-form-fl {
+    th,
+    td,
+    .form-control {
+      font-size: 0.85rem;
+    }
+  }
+}
+
+// Small devices (landscape phones, 画面サイズ767px以下)
+@media (max-width: 767px) {
+  .form-control-group {
+    display: block !important;
+    &.form-control-col-4 .form-group,
+    &.form-control-col-5 .form-group {
+      width: 100%;
+    }
+  }
+  .table-tbl {
+    th {
+      border-bottom: none;
+      background-color: #EEE;
+    }
+    th,
+    td {
+      width: 100%;
+      display: block;
+    }
+  }
+
+}
+
+// Extra small devices (portrait phones, 画面サイズ575px以下)
+@media (max-width: 575px) {
+
+}

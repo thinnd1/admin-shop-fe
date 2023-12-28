@@ -1,0 +1,63 @@
+{
+  "meetingFrames": [
+    {
+      "doctorId": "string",
+      "receiptRequest": {
+        "dateUpdate": "2017-10-06T12:25:00",
+        "doctorMeeting": "string",
+        "meetingPurpose": "string",
+        "message": "string",
+        "mrMeeting": "string",
+        "numVisitors": "string",
+        "requestId": "string",
+        "requestStatus": "string",
+        "timeCandidates": "string"
+      }
+    } ,
+    {
+      "doctorId": "string",
+      "sendRequest": {
+        "dateUpdate": "2017-10-06T00:25:00",
+        "doctorMeeting": "string",
+        "intermediary": "string",
+        "meetingPurpose": "string",
+        "message": "string",
+        "mrMeeting": "string",
+        "numVisitors": "string",
+        "requestId": "string",
+        "requestStatus": "string",
+        "timeCandidates": "string"
+      }
+    },
+    {
+      "doctorId": "string",
+      "sendRequest": {
+        "dateUpdate": "2017-10-06T00:25:00",
+        "doctorMeeting": "string",
+        "intermediary": "string",
+        "meetingPurpose": "string",
+        "message": "string",
+        "mrMeeting": "string",
+        "numVisitors": "string",
+        "requestId": "string",
+        "requestStatus": "string",
+        "timeCandidates": "string"
+      }
+    },
+    {
+      "doctorId": "string",
+      "sendRequest": {
+        "dateUpdate": "2017-10-06T00:25:00",
+        "doctorMeeting": "string",
+        "intermediary": "string",
+        "meetingPurpose": "string",
+        "message": "string",
+        "mrMeeting": "string",
+        "numVisitors": "string",
+        "requestId": "string",
+        "requestStatus": "string",
+        "timeCandidates": "string"
+      }
+    }
+  ]
+}

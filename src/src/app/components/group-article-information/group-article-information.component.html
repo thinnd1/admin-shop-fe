@@ -1,0 +1,179 @@
+<div class="support-group pb-2 mb-4" *ngIf="groupInfo && article">
+  <div class="col-md-12 col-lg-12 p-0" *ngIf="_inputOptions.isShowGroupName">
+    <div class="title py-2 px-3 fs18">
+      <span *ngIf="!isGroupOutside && !userSession.personalFlag">{{'GR0013.GROUP_INSIDE_LBL' | translate}}</span>
+      <span *ngIf="isGroupOutside">{{'GR0013.GROUP_OUTSIDE_LBL' | translate}}</span>
+      「<a href="#" (click)="redirectGroupTimeline($event)" class="support-Blue">{{groupInfo.name}}</a>」</div>
+  </div>
+  <div class="d-flex d-flex-sm mt-4">
+    <div class="avatar mr-3 mb-2">
+      <a href="#" (click)="getDetailUser($event, contributorInfo)">
+        <app-face-icon [userInfo]="contributorInfo" [iconSize]="76" [tooltipOptions]="{isShow: true, isShowOfficeName: isGroupOutside}"
+                       ></app-face-icon>
+      </a>
+    </div>
+    <div class="support w-100">
+      <div class="row">
+        <div class="col-md-7 col-lg-7">
+          <h3 class="mb-0">
+            <a href="#" (click)="getDetailUser($event, contributorInfo)" *ngIf="!contributorInfo?.invalid">{{contributorInfo?.fullName}}
+              <span *ngIf="!isGroupOutside && contributorInfo?.deptName">（{{contributorInfo?.deptName}}）</span>
+              <span *ngIf="isGroupOutside && contributorInfo?.officeName">（{{contributorInfo?.officeName}}）</span>
+            </a>
+            <span class="text-gray" *ngIf="contributorInfo?.invalid">{{contributorInfo?.fullName}}</span>
+          </h3>
+          <span class="support-gray">
+            <app-time-ago [editDate]="article.editDate" [isEdit]="article.isEdit"></app-time-ago>
+          </span>
+        </div>
+        <div class="col-md-5 col-lg-5 text-right">
+          <span class="d-block">{{article.createdAt | timePipe: 'YYYY年MM月DD日(date)'}} {{article.createdAt | timePipe: 'HH:mm'}}</span>
+          <div class="tool-comment" *ngIf="!article.isEdit">
+            <a class="align-middle" href="#" *ngIf="isAuthor" (click)="editArticle($event)"><i data-toggle="tooltip" data-placement="top" title="{{'GR0013.EDIT_ARTICLE_TOOLTIP' | translate}}" [ngClass]="{'disabled-edit': article.surveysFlag && isExpiredSurvey}"
+                 class="fa fa-pencil-square-o support-gray fs25"></i></a>
+            <a class="align-middle" href="#" *ngIf="isAuthor" (click)="deleteArticle($event)" class="mx-1"><i data-toggle="tooltip" data-placement="top" title="{{'GR0013.DELETE_ARTICLE_TOOLTIP' | translate}}" class="fa fa-trash support-gray fs25"></i></a>
+            <a class="align-middle" href="#" (click)="onclickFavorite($event)"><i [ngClass]="{'favorited': isFavorited}" data-toggle="tooltip" data-placement="top" title="{{'GR0013.FAVORITE_TOOLTIP' | translate}}" class="fa fa-star support-gray fs25 star-safari"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="timeLine groupboard-timeline">
+        <div class="row" *ngIf="article.toUser.length > 0 && !article.isEdit">
+          <div class="col-md-6 col-lg-4" *ngFor="let user of toUserList| slice:0:9; let i = index; let last = last">
+            <div class="d-flex align-items-center mt-2" *ngIf="!last || article.toUser.length === 1|| last && article.toUser.length <= 9">
+              <div class="btn btn-sm btn-green fs16 cursor-default">TO</div>
+              <div class="support-avatar mx-1">
+                <a href="#" (click)="getDetailUser($event, user)">
+                  <app-face-icon [userInfo]="user" [iconSize]="30" [tooltipOptions]="{isShow: true, isShowOfficeName: isGroupOutside}"></app-face-icon>
+                </a></div>
+              <div class="support-name fs13">
+                <a href="#" (click)="getDetailUser($event, user)" *ngIf="!user?.invalid">{{user?.fullName}} さん</a>
+                <span class="text-gray" *ngIf="user?.invalid">{{user?.fullName}}</span>
+              </div>
+            </div>
+            <div class="d-flex align-items-center mt-2" *ngIf="i === 8 && article.toUser.length > 9">
+              <app-staff-popover [userIds]="article.toUser" [startIndex]="8" [listUserInfo]="toUserList" [isGroupOutside]="isGroupOutside" [isSortKana]="true"
+                                 [staffPopoverOptions]="{text: '他' + (article.toUser.length - 8) + '人'}" (clickStaffPopoverLink)="showToUserModal($event)"></app-staff-popover>
+            </div>
+          </div>
+        </div>
+        <!-- // edit article -->
+        <div *ngIf="article.surveysFlag && article.isEdit">
+          <app-edit-survey [article]="article" ></app-edit-survey>
+        </div>
+        <div *ngIf="!article.surveysFlag">
+          <app-groupboard-contribution [isEdit]="article.isEdit" [groupInfo]="groupInfo" [model]="article" [articleId]="article.id" [listAttachments]="listAttachments"
+                                       [userSession]="userSession" [listMember]="_listMemberInfo"></app-groupboard-contribution>
+        </div>
+        <!-- // end edit article -->
+        <!-- // conten article -->
+        <div class="support-txt mt-3 article-info">
+          <div class="support-content-txt" *ngIf="!article.isEdit">
+            <p class="mb-3 break-line" id="{{(isUnseenArticle || isUnseenToArticle) ? article.id : null}}" appLinky [textHyperlink]="article.contents"></p>
+          </div>
+          <app-file-display [groupId]="groupInfo.id" [article]="article" [userSession]="userSession" (attachedFilesEvent)="attachedLists($event)"></app-file-display>
+          <div class="complete mt-4"  *ngIf="article.surveysFlag">
+            <p class="text-danger mb-0" *ngIf="!isExpiredSurvey">{{'GR0013.EXPIRE_DATE' | translate}}：{{article.surveys?.closeDate | timePipe: 'YYYY/MM/DD'}} {{article.surveys?.closeDate | timePipe: 'HH:mm'}}</p>
+            <p class="text-danger mb-0" *ngIf="isExpiredSurvey">{{'GR0013.EXPIRED' | translate}}：{{article.surveys?.closeDate | timePipe: 'YYYY/MM/DD'}} {{article.surveys?.closeDate | timePipe: 'HH:mm'}}</p>
+            <!-- // radio -->
+            <div class="content-radio" *ngIf="article.surveys?.singleChoiceFlag">
+              <div class="d-flex align-items-center mt-2" *ngFor="let choice of article.surveys.choices; let i = index">
+                <div class="d-flex complete-center">
+                  <div class="complete-checkbox d-flex align-items-center justify-content-center">
+                    <label class="custom-control custom-radio m-0" (click)="answerSurvey(choice, $event)">
+                      <input name="radio" type="radio" class="custom-control-input" [checked]="choice.answered?.indexOf(userSession.officeUserId) > -1" [disabled]="isExpiredSurvey">
+                      <span class="custom-control-indicator ml-1"></span>
+                    </label>
+                  </div>
+                  <div class="complete-center">
+                    <div class="progress-box border-left-0 d-flex">
+                      <div class="progress-box-bar" [ngStyle]="{ width: article.surveys?.percent[i] + '%'}"></div>
+                      <div class="progress-box-txt pt-1 px-2" [ngStyle]="{'margin-left': '-' + article.surveys?.percent[i] + '%'}">{{choice.contents}}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="complete-right ml-3">
+                  <a href="#" class="d-flex align-items-center justify-content-center complete-box" *ngIf="choice.answered?.length > 0" (click)="showAnsweredModal($event, choice.answered.reverse())">{{choice.answered?.length}}</a>
+                </div>
+              </div>
+            </div>
+            <!-- // end radio -->
+            <!-- // checkbox -->
+            <div class="content-checkbox" *ngIf="!article.surveys?.singleChoiceFlag">
+              <div class="d-flex align-items-center mt-2" *ngFor="let multiChoice of article.surveys?.choices; let i = index">
+                <div class="d-flex complete-center">
+                  <div class="complete-checkbox d-flex align-items-center justify-content-center">
+                    <label class="custom-control custom-checkbox m-0" (click)="answerSurvey(multiChoice, $event)">
+                      <input checked type="checkbox" class="custom-control-input" [checked]="multiChoice.answered?.indexOf(userSession.officeUserId) > -1" [disabled]="isExpiredSurvey">
+                      <span class="custom-control-indicator ml-1"></span>
+                    </label>
+                  </div>
+                  <div class="complete-center">
+                    <div class="progress-box border-left-0 d-flex">
+                      <div class="progress-box-bar" [ngStyle]="{ width: (article.surveys?.percent[i] < 100 ? article.surveys?.percent[i] : 100) + '%'}"></div>
+                      <div class="progress-box-txt pt-1 px-2" [ngStyle]="{'margin-left': '-' + (article.surveys.percent[i] < 100 ? article.surveys?.percent[i] : 100) + '%'}">{{multiChoice.contents}}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="complete-right ml-3">
+                  <a href="#" class="d-flex align-items-center justify-content-center complete-box" *ngIf="multiChoice.answered?.length > 0" (click)="showAnsweredModal($event, multiChoice.answered.reverse())">{{multiChoice.answered?.length}}</a>
+                </div>
+              </div>
+            </div>
+            <!-- // end checkbox -->
+            <div class="mt-3"><a href="#" (click)="showUnansweredModal($event)">{{'GR0013.UN_ANSWER' | translate}}</a></div>
+          </div>
+        </div>
+        <!-- // end content article -->
+        <div class="row mt-3 mb-1">
+          <div class="col-9" >
+            <a href="#" (click)="onClickConfirmed($event)" [ngClass]="{'support-gray01 mr-2' : !isConfirmed}">
+              <i class="fa fa-check-circle-o pr-2 fs24" [ngClass]="{'text-warning': isConfirmed}" aria-hidden="true"></i>
+              <span *ngIf="isConfirmed">{{'GR0013.CONFIRMED' | translate}}</span>
+              <span *ngIf="!isConfirmed">{{'MSG.CONFIRMED' | translate}}！</span>
+            </a>
+          </div>
+          <div class="col-3 mt-1 text-right fs14"
+               *ngIf="article.seen.seen.length > 0">{{'GR0013.SEEN_LBL' | translate}}:
+            <a href="#" (click)="displaySeen($event)">{{article?.seen.seen.length }}人</a>
+          </div>
+        </div>
+      </div>
+      <div class="support-bg mt-1 p-3">
+        <div class="fs14" *ngIf="article.confirmed.length > 0">
+          <span *ngIf="!firstConfirmation?.invalid">
+            <a href="#" [ngbTooltip]="getTooltipTitle(firstConfirmation)"
+                         (click)="getDetailUser($event, firstConfirmation)">{{firstConfirmation?.fullName}}</a><span *ngIf="!firstConfirmation?.invalid"> さん</span>
+          </span>
+          <span class="text-gray" *ngIf="firstConfirmation?.invalid" [ngbTooltip]="getTooltipTitle(firstConfirmation)">{{firstConfirmation?.fullName}}</span>
+          <span *ngIf="article.confirmed.length > 1">他
+          <app-staff-popover [userIds]="confirmedIds" [startIndex]="0" [listUserInfo]="confirmedList" [staffPopoverOptions]="{text: article.confirmed.length-1 + '人'}"
+                             (clickStaffPopoverLink)="showConfirmedModal($event)" [isSortKana]="false" [isGroupOutside]="isGroupOutside"></app-staff-popover>
+        </span> {{'GR0013.MYSELF_CONFIRMED' | translate}}</div>
+        <!--comment-->
+        <ng-template ngFor let-comment [ngForOf]="comments"  let-first = "first" [ngForTrackBy]="commentTrackByFn">
+          <div [ngClass]="{'support-bod-top':  !first || first && article?.confirmed.length > 0}" >
+            <app-group-comment-info [ngStyle]="{'width': 100 + '%'}"  [article]="article" [groupInfo]="groupInfo" [userSession]="userSession"
+                                  [listFavorites]="listFavorites" [listMemberInfo]="_listMemberInfo" [focusedComment]="_inputOptions.focusedComment"
+                                  [comment]="comment" [unseenToComment]="_inputOptions.unseenToComment" (replyAll)="clickReplyAll($event)" (renderedComment)="checkCommentRendered($event)">
+            </app-group-comment-info>
+          </div>
+        </ng-template>
+        <div class="d-flex pt-3 pb-1" [ngClass]="{'support-bod-top': article.confirmed.length > 0 || article.comments.length > 0}">
+          <div class="avatar mr-3">
+            <a href="#" (click)="getDetailUser($event, userSession)" *ngFor="let u of _listMemberInfo | filterInfo: userSession?.officeUserId">
+              <app-face-icon [userInfo]="u" [iconSize]="55" [tooltipOptions]="{isShow: true, isShowOfficeName: isGroupOutside}"></app-face-icon>
+            </a>
+          </div>
+          <!--create comment-->
+          <div class="w-100">
+            <app-groupboard-contribution [groupInfo]="groupInfo" [articleId]="article.id" [userIds]="replyList" [userSession]="userSession"
+                                         [listMember]="_listMemberInfo"
+            ></app-groupboard-contribution>
+          </div>
+          <!--end create comment-->
+        </div>
+        <!--end comment-->
+      </div>
+    </div>
+  </div>
+</div>

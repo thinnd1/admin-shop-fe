@@ -1,0 +1,96 @@
+<ng-container [ngSwitch]="colSubCurrent">
+  <ng-container *ngSwitchCase="colSubStatus.Identification">
+    <ng-container *ngTemplateOutlet="block;
+                  context: {
+                    tpl: 'banner',
+                    param: {
+                      path: 'bnr-regist-' + lang + '.png',
+                      href: '/re/re0034'
+                    }
+                  }"></ng-container>
+  </ng-container>
+
+  <!--TODO: 個人登録がまだ実装されていないのでいらない-->
+  <!--<ng-container *ngSwitchCase="colSubStatus.CorporateRegistration">-->
+    <!--<ng-container *ngTemplateOutlet="block;-->
+                  <!--context: {-->
+                    <!--tpl: 'corporateRegistration',-->
+                    <!--param: {-->
+                      <!--path: 'bnr-regist-company-' + lang + '.png',-->
+                      <!--mailto: mailCorp.address + '?subject=' + mailCorp.subject + '&body=' + mailCorp.body-->
+                    <!--}-->
+                  <!--}"></ng-container>-->
+  <!--</ng-container>-->
+  
+  <ng-container *ngSwitchDefault></ng-container>
+</ng-container>
+
+
+<ng-container *ngTemplateOutlet="block;
+                  context: {
+                    tpl: 'banner',
+                    param: {
+                      path: 'bnr-system-drjoy-' + lang + '.png',
+                      href: 'https://www.drjoy.jp/動画出来次第URLをもらう',
+                      target: 'blank'
+                    }
+                  }"></ng-container>
+
+
+<ng-container *ngTemplateOutlet="block;
+                  context: {
+                    tpl: 'banner',
+                    param: {
+                      path: 'bnr-voice-' + lang + '.png',
+                      href: 'https://youtu.be/y2oXs6eK_o0',
+                      target: 'blank'
+                    }
+                  }"></ng-container>
+
+
+<ng-container *ngTemplateOutlet="block;
+                  context: {
+                    tpl: 'banner',
+                    param: {
+                      path: 'bnr-use-' + lang + '.png',
+                      href: 'https://www.drjoy.jp/lp/',
+                      target: 'blank'
+                    }
+                  }"></ng-container>
+
+
+<!-- template block -->
+<ng-template #block let-tpl="tpl" let-param="param">
+  <div class="banner-item col-6 col-sm-4 col-md-3 col-lg-12">
+    <ng-container [ngSwitch]="tpl">
+      <ng-container *ngSwitchCase="'banner'">
+        <ng-container *ngTemplateOutlet="banner; context: {param: param}"></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="'corporateRegistration'">
+        <ng-container *ngTemplateOutlet="corporateRegistration; context: {param: param}"></ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+</ng-template>
+<!-- /template block -->
+
+
+<!-- template banner -->
+<ng-template #banner let-path="param.path" let-href="param.href" let-target="param.target">
+  <a *ngIf="target && target === 'blank'" href="{{href}}" target="_blank" class="d-block">
+    <img [src]="'/assets/img/' + path" class="img-thumbnail" alt="">
+  </a>
+  <a *ngIf="!(target && target === 'blank')" [routerLink]="href" class="d-block">
+    <img [src]="'/assets/img/' + path" class="img-thumbnail" alt="">
+  </a>
+</ng-template>
+<!-- /template banner -->
+
+
+<!-- template corporateRegistration -->
+<ng-template #corporateRegistration let-path="param.path" let-mailto="param.mailto">
+  <a [href]="'mailto:' + mailto" class="d-block">
+    <img [src]="'/assets/img/' + path" class="img-thumbnail" alt="">
+  </a>
+</ng-template>
+<!-- /template corporateRegistration -->

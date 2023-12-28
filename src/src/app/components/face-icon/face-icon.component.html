@@ -1,0 +1,3 @@
+<img *ngIf="!userInfo || (userInfo && !tooltipOptions.isShow)" [src]="_iconPath" class="rounded-circle face-icon-bordered face-icon-bordered-{{productType}} face-icon-{{_iconSize}}" alt="{{name}}">
+<img *ngIf="userInfo && tooltipOptions.isShow" [src]="_iconPath" class="rounded-circle face-icon-bordered face-icon-bordered-{{productType}} face-icon-{{_iconSize}}" alt="{{userInfo?.fullName}}"
+     data-toggle="tooltip" data-placement="top" data-animation="false" title="{{tooltipTitle}}">

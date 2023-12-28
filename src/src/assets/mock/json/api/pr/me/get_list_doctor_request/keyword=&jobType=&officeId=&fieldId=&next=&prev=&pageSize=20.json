@@ -1,0 +1,95 @@
+{
+  "next": "0",
+  "totalNumber" : "12",
+  "meetingRequestList": [
+    {
+      "aspiration": {
+        "aspirationDetail": "string",
+        "aspirationList": [
+          "string1",
+          "薬剤の情報提供1",
+          "string2",
+          "薬剤の情報提供2",
+          "string3",
+          "薬剤の情報提供3",
+          "薬剤の情報提供"
+        ]
+      },
+      "departmentName": "string",
+      "firstName": "string",
+      "intermediaryFlag": "string",
+      "jobName": "string",
+      "lastName": "string",
+      "medicalName": "string",
+      "meetingRule": "string",
+      "officeId": "string",
+      "pinFlag": true,
+      "registrationTmpFlag": "string",
+      "userId": "string"
+    },
+    {
+      "aspiration": {
+        "aspirationDetail": "string",
+        "aspirationList": [
+          "string",
+          "string1",
+          "薬剤の情報提供1",
+          "string2",
+          "薬剤の情報提供2",
+          "string3",
+          "string3",
+          "薬剤の情報提供3"
+        ]
+      },
+      "departmentName": "string",
+      "firstName": "string",
+      "intermediaryFlag": "string",
+      "jobName": "string",
+      "lastName": "string",
+      "medicalName": "string",
+      "meetingRule": "string",
+      "officeId": "string",
+      "pinFlag": true,
+      "registrationTmpFlag": "string",
+      "userId": "string"
+    },
+    {
+      "aspiration": {
+        "aspirationDetail": "string",
+        "aspirationList": [
+          "string"
+        ]
+      },
+      "departmentName": "string",
+      "firstName": "string",
+      "intermediaryFlag": "string",
+      "jobName": "string",
+      "lastName": "string",
+      "medicalName": "string",
+      "meetingRule": "string",
+      "officeId": "string",
+      "pinFlag": false,
+      "registrationTmpFlag": "string",
+      "userId": "string"
+    },
+    {
+      "aspiration": {
+        "aspirationDetail": "string",
+        "aspirationList": [
+          "string"
+        ]
+      },
+      "departmentName": "string",
+      "firstName": "string",
+      "intermediaryFlag": "string",
+      "jobName": "string",
+      "lastName": "string",
+      "medicalName": "string",
+      "meetingRule": "string",
+      "officeId": "string",
+      "pinFlag": false,
+      "registrationTmpFlag": "string",
+      "userId": "string"
+    }
+  ]
+}

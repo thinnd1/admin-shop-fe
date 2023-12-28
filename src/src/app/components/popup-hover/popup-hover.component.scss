@@ -1,0 +1,63 @@
+// import common setting
+@import '../../../assets/styles/_import';
+
+#popupHover {
+  .popover {
+    background: white;
+  }
+}
+.row-margin {
+  margin-bottom:40px;
+}
+
+/*POPOVER COMMON*/
+.popover {
+  position: relative;
+  width:260px;
+  .popover-title {
+    padding-right:25px;
+    .popover-title-main {
+      display: block;
+      padding-bottom: 6px;
+    }
+    .popover-title-sub {
+      color: #777;
+      display: block;
+    }
+  }
+
+  .popover-close {
+    position: absolute;
+    top:10px;
+    right: 10px;
+    cursor: pointer;
+  }
+  .popover-content {
+    max-height: 95px;
+    overflow-y: auto;
+    p {
+      margin-bottom:0;
+    }
+    .break-line {
+      white-space: pre-wrap;
+    }
+  }
+  .popover-footer {
+    background-color: #f7f7f7;
+    border-top: 1px solid #ebebeb;
+    border-bottom-left-radius: calc(0.3rem - 1px);
+    border-bottom-right-radius: calc(0.3rem - 1px);
+    margin-bottom: 0;
+    padding: 5px 8px;
+    text-align: right;
+  }
+}
+.popover.popover-bottom::after, .popover.bs-tether-element-attached-top::after {
+  border-bottom-color: #fff;
+}
+.popover.popover-position-left::after, .popover.popover-position-left::before{
+  left: 20%;
+}
+.popover.popover-position-right::after, .popover.popover-position-right::before{
+  left: 80%;
+}

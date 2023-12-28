@@ -1,0 +1,149 @@
+.pharmacylist-of-drug-info-reports {
+  .detail-search {
+    text-decoration: underline;
+  }
+  .bottom-tooltip {
+    right: 0;
+    top: 0.5rem;
+  }
+  .hidden-pc {
+    display: none;
+  }
+  .hidden-pc-tb {
+    display: none;
+  }
+}
+
+.table-cmn {
+  tr {
+    td {
+      vertical-align: middle;
+      padding: 0.5rem;
+      text-align: left;
+    }
+  }
+}
+.hand {
+  cursor: pointer;
+}
+
+.new-lines {
+  position: relative;
+    &::before {
+      background-color: #F18D30;
+      -webkit-print-color-adjust: exact !important;
+      color-adjust: exact !important;
+      content: "";
+      height: 128%;
+      left: -8px;
+      position: absolute;
+      top: -8px;
+      width: 0.4rem;
+    }
+    span {
+      top: -5px;
+    }
+}
+
+
+.btn-creat {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  right: 20%;
+  bottom: 5%;
+}
+.text-new {
+  color: #F18D30;
+}
+
+.text-Dropdown {
+  color: #3d7fb6;
+}
+
+@media print {
+  html, body {
+    width: 210mm;
+    height: 297mm;
+  }
+  body {
+    margin: 0px;
+    font-size: 12pt;
+  }
+  .no-print {
+    display: none;
+  }
+  .nav-tabs, .nav-link {
+    border: 1px transparent;
+    font-size: 18pt;
+    font-weight: bold;
+  }
+  .nav-tabs-responsive {
+    .nav-item.active {
+      width: 100%;
+      margin-left: 0;
+    }
+    :not(.active) {
+      display: none;
+    }
+  }
+  .tooltip {
+    display: none !important;
+  }
+  .nav-tabs-responsive > .nav-item:first-child {
+    margin-left: -25px !important;
+  }
+  .nav-tabs-responsive .nav-item.next {
+    margin-left: -170px !important;
+  }
+  .table-cmn {
+    tr {
+      td {
+        border: 1px solid red;
+        .line {
+          padding-left: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .bottom-tooltip {
+    position: static;
+  }
+}
+
+@media (max-width: 767px and not print) {
+  .pharmacylist-of-drug-info-reports {
+    table {
+      thead {
+        th {
+          display: none
+        }
+      }
+      td {
+        display: block;
+        width: 100%;
+      }
+    }
+    .hidden-pc {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+.table-tracing-report {
+  table-layout: fixed;
+}
+div.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.search-patient {
+  padding-right: 3rem;
+}
+.pb-6 {
+  padding-bottom: 6px;
+}

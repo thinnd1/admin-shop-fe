@@ -1,0 +1,13 @@
+<div class="modal-input-custom">
+  <p>{{params.message}}</p>
+  <div class="form-group mb-0">
+    <div *ngIf="messageErr">
+      <span class="col-form-label fs13 text-danger">{{errors}}</span>
+    </div>
+    <input class="form-control"
+           [type]="prop.type"
+           [(ngModel)]="prop.theInput"
+           [placeholder]="prop.placeholder|translate"
+           [autocomplete]="prop.autocomplete">
+  </div>
+</div>

@@ -1,0 +1,122 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+
+              <div class="col">
+
+                <div class="page-head">
+                  <app-page-head [title]="'MENU.ITEM.GR0009' | translate"></app-page-head>
+                </div>
+                <div id="detailed-visit" class="fs16">
+                  <form [formGroup]="createSurveyForm" (ngSubmit)="submitSurveyForm()">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="form-group mb-5">
+                          <h3>{{'GR0009.QUESTION_CONTENT' | translate}}</h3>
+                          <div><span class="col-form-label text-danger fs12" *ngIf="formErrors.contents">{{formErrors.contents | translate}}</span></div>
+                          <div class="row">
+                            <div class="col-11">
+                              <textarea class="form-control survey-content" [ngClass]="{'form-control-danger': formErrors.contents}" id="exampleTextarea" rows="4"
+                                        placeholder="{{'GR0009.INPUT_PLACEHOLDER_QUESTION_CONTENT' | translate}}" formControlName="contents" appAutoSize></textarea>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="form-group mb-5">
+                          <h3>{{'GR0009.QUESTIONNAIRE_CHOICES' | translate}}</h3>
+                          <div class="content-check" [ngClass]="{'has-danger': formErrors.singleChoiceFlag}">
+                            <span class="col-form-label text-danger fs12" *ngIf="formErrors.singleChoiceFlag">{{formErrors.singleChoiceFlag | translate}}</span>
+                            <div class="check-top">
+                              <label class="custom-control custom-radio mb-1">
+                                <input id="radio1" formControlName="singleChoiceFlag" type="radio" class="custom-control-input" value="false">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description col-form-label py-0">{{'GR0009.CHOICES_FLAG.MULTIPLE' | translate}}</span>
+                              </label>
+                            </div>
+                            <div class="check-buttom">
+                              <label class="custom-control custom-radio mb-0">
+                                <input id="radio2" formControlName="singleChoiceFlag" type="radio" class="custom-control-input" value="true">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description col-form-label py-0">{{'GR0009.CHOICES_FLAG.SINGLE' | translate}}</span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="gruop-text-box">
+                          <h3>{{'GR0009.ADD_CHOICE' | translate}}</h3>
+                          <div class="row mb-2  align-items-center" formArrayName="choices" *ngFor="let choice of choicesData.controls, let i = index">
+                            <div class="col-12">
+                              <span class="col-form-label text-danger fs12" *ngIf="formErrors.choices[i]">{{formErrors.choices[i] | translate}}</span>
+                            </div>
+                            <div class="col-11 mb-0" [ngClass]="{'has-danger': formErrors.choices[i]}">
+                              <input type="text" class="form-control" placeholder="{{'GR0009.INPUT_CHOICE_PLACEHOLDER' | translate}}" formControlName="{{i}}">
+                            </div>
+                            <div class="col-1">
+                              <a href="#" (click)="removeChoice($event, i)" *ngIf="choicesData.controls.length > 1"><i aria-hidden="true" class="fa fa-close fs36 text-primary"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <a href="#" class="add-link d-inline-block mb-5" (click)="addChoices($event)"><i class="fa fa-plus-square" aria-hidden="true"></i>{{'COMMON_BTN.ADD' | translate}}</a>
+                        <div class="form-group">
+                          <h3>{{'GR0009.DEADLINE_DATE_TIME' | translate}}</h3>
+                          <div class="row">
+                            <div class="col-12">
+                              <span class="col-form-label text-danger fs12" *ngIf="formErrors.closeDate">{{formErrors.closeDate | translate}}</span>
+                            </div>
+                            <div class="col-12">
+                              <span class="col-form-label text-danger fs12" *ngIf="formErrors.closeTime">{{formErrors.closeTime | translate}}</span>
+                            </div>
+                            <div class="col-12">
+                              <div class="width-detail mr-2 float-left" [class.has-danger]="formErrors.closeDate">
+                                <app-date-input [hasDanger]='formErrors.closeDate' [date]="defaultDate" [showIcon]="false" (dateChanged)="changeCloseDate($event)"
+                                                [dateInputOptions]="{id: 'close-date', name: 'closeDate', placeholder: '', outsideDays:false, weekendsDisable:false}">
+                                </app-date-input>
+                              </div>
+                              <div class="float-left" [ngClass]="{'has-danger': formErrors.closeTime}">
+                                <select class="form-control" formControlName="closeTime" required id="close-time">
+                                  <option [value]="time" *ngFor="let time of closeTime">{{time}}</option>
+                                </select>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 mb-5">
+                        <div class="d-flex justify-content-center mt-5">
+                          <button class="btn btn-primary fs18" type="submit">{{'COMMON_BTN.SEND' | translate}}</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

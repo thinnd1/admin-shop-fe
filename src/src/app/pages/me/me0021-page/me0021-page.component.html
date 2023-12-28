@@ -1,0 +1,22 @@
+<form #formDemand="ngForm" (ngSubmit)="putMeetingDemands()">
+  <h2 class="pt-3">{{'ME0021.FORM_TITLE' | translate}}</h2>
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-lg-3 mt-3" *ngFor="let demandItem of model.meetingDemand">
+      <label class="custom-control custom-checkbox">
+        <input type="checkbox" [checked]="demandItem.selected" [(ngModel)]="demandItem.selected" name="{{demandItem.id}}" class="custom-control-input">
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description">{{demandItem.label}}</span>
+      </label>
+    </div>
+  </div>
+  <div class="mt-4">
+    <h2>{{'ME0021.DETAIL_TITLE' | translate}}</h2>
+    <textarea class="form-control" rows="4" maxlength="300" placeholder="{{'ME0021.NOTE_PLACEHOLDER' | translate}}" [(ngModel)]="model.details" [value]="model.details" name="demand_details"></textarea>
+  </div>
+  <div class="d-flex justify-content-center mt-3 mb-2">
+    <button class="btn btn-primary" type="submit">{{'ME0021.BTN_SAVE' | translate}}</button>
+  </div>
+  <p class="fs16 form-inline justify-content-end" *ngIf="model?.updated">
+    {{'ME0017.UPDATE' | translate}}{{model.updated | timePipe: 'YYYY/MM/DD'}} {{model.updated | timePipe: 'HH:mm:ss'}}
+  </p>
+</form>

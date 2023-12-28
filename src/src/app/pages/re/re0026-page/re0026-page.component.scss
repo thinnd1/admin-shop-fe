@@ -1,0 +1,35 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+.heading2{
+  color: #3d7eb6;
+}
+.not-handle{
+  text-align: center;
+  margin-top: 90px;
+}
+.otherhospitalregist {
+  td {
+    border-bottom: 1px solid #D7D7D7;
+    .close-field {
+      cursor: pointer;
+      margin-top:-5px;
+    }
+  }
+  .add-link {
+    cursor: pointer;
+    display: inline-block;
+  }
+}
+//@media (max-width: 767px)
+@include media-breakpoint-down(sm) {
+  .otherhospital {
+    .table-otherhospital {
+      tr {
+        td {
+          width: 100%;
+          display: block;
+        }
+      }
+    }
+  }
+}

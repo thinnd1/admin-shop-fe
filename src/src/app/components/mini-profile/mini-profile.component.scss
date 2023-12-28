@@ -1,0 +1,107 @@
+// import common setting
+@import './../../../assets/styles/import';
+
+.mini-profile {
+  color: #777;
+  &-avatar {
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 15px;
+    &-img {
+      background: #FFF;
+    }
+  }
+  &-userinfo {
+    display: table-cell;
+    vertical-align: middle;
+    &-main {
+      font-size: _rem(18px);
+      margin-bottom: 0;
+    }
+    &-sub {
+      font-size: _rem(12px);
+    }
+    &-main + &-sub {
+      margin-top: 0.5rem;
+    }
+    &-content {
+      &-top,
+      &-bottom {
+        display: inline-block;
+      }
+    }
+  }
+  &-30 {
+    .mini-profile-avatar {
+      padding-right: 5px;
+    }
+    .mini-profile-userinfo-main {
+      font-size: _rem(12px);
+    }
+    .mini-profile-userinfo-sub {
+      font-size: _rem(12px);
+      line-height: 1;
+    }
+    .mini-profile-userinfo-main + .mini-profile-userinfo-sub {
+      margin-top: 0;
+    }
+  }
+  &-40 {
+    .mini-profile-avatar {
+      padding-right: 5px;
+    }
+    .mini-profile-userinfo-main {
+      font-size: _rem(12px);
+    }
+    .mini-profile-userinfo-sub {
+      font-size: _rem(12px);
+      &.mini-profile-userinfo-name-kana {
+        font-size: _rem(10px);
+        line-height: 1;
+      }
+    }
+    .mini-profile-userinfo-main + .mini-profile-userinfo-sub {
+      margin-top: 0;
+    }
+  }
+  &-55 {
+    .mini-profile-avatar {
+      padding-right: 5px;
+    }
+    .mini-profile-userinfo-main {
+      font-size: _rem(12px);
+    }
+    .mini-profile-userinfo-sub {
+      font-size: _rem(12px);
+    }
+    .mini-profile-userinfo-main + .mini-profile-userinfo-sub {
+      margin-top: 0;
+    }
+  }
+  &-76 {
+    .mini-profile-userinfo-main {
+      font-size: 1rem;
+    }
+    .mini-profile-userinfo-sub {
+      font-size: _rem(12px);
+      &.mini-profile-userinfo-name-kana {
+        font-size: _rem(10px);
+        line-height: 1;
+      }
+    }
+    .mini-profile-userinfo-main + .mini-profile-userinfo-sub {
+      margin-top: 0.1rem;
+    }
+  }
+  &-94 {
+    .mini-profile-userinfo-main {
+      font-size: _rem(18px);
+    }
+    .mini-profile-userinfo-sub {
+      font-size: _rem(12px);
+    }
+  }
+}
+.text-gray {
+  color: #A4A4A4
+}

@@ -1,0 +1,28 @@
+@import '../../../../assets/styles/_import';
+#me0019 {
+  th, td {
+  border: 1px solid transparent;
+  }
+  .header{
+    .center {
+      width: 91%;
+    }
+  }
+  .middle{
+    tbody {
+      tr {
+        th {
+          width: 6rem;
+        }
+        td {
+          &:last-child {
+            width: 50rem;
+          }
+        }
+      }
+    }
+  }
+  .schedule-content {
+    text-decoration: none;
+  }
+}

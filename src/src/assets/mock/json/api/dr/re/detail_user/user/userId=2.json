@@ -1,0 +1,43 @@
+{
+    "loginId": "test002",
+    "firstName": "ユーザ2 mock",
+    "lastName": "テスト2 aaa",
+    "firstNameKana": "ゆーざ2",
+    "lastNameKana": "てすと2",
+    "gender": "0",
+    "birthDate": "1988-06-11",
+    "mailAddress": "test2@test.jp",
+    "mailAddressPublishingType": "0",
+    "additionalMailAddress": [],
+    "password": "$2a$10$LDsFQD1wLYsBL2G3VobLe./AgstiyDsv/BpkvduO2N5oYZWbwg9w2",
+    "specializedDepartment": [],
+    "placeBornIn": "",
+    "hobby": "",
+    "imageUrl": "/assets/img/user.png",
+    "briefHistory": "",
+    "qualification": "",
+    "position": "",
+    "phsNo": "",
+    "mobileNo": "",
+    "mobileNoPublishingType": "0",
+    "jobType": "J0001",
+    "department": {
+        "id": "59edbe889d702ba35cbb8b25",
+        "name": "総合診療科",
+        "displayName": "",
+        "path": "/",
+        "children": []
+    },
+    "graduationDate": "",
+    "managementAuthority": "MP_1",
+    "funcAuthoritySet": "FPS_1",
+    "funcAuthority": {
+        "fp_2": true,
+        "fp_1": true,
+        "fp_4": true,
+        "fp_3": true,
+        "fp_5": true,
+        "fp_6": true,
+        "fp_7": true
+    }
+}

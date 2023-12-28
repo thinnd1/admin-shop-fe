@@ -1,0 +1,127 @@
+{
+  "page": 1,
+  "user": [{
+      "userId": "1",
+      "officeId": "1",
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "avatar": "http://image-us.24h.com.vn/upload/3-2017/images/2017-09-20/1505861310-messi1.jpg",
+      "officeName": "ABC 会社",
+      "identifyStatus": "3",
+      "restrictionStatus": "1",
+      "restricted": "",
+      "operator": "",
+      "linkAvatar": "http://www.allteenstalk.com/wp-content/uploads/2015/08/girls-in-hot-pants-3.jpg"
+    }, {
+      "userId": "2",
+      "officeId": "2",
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "avatar": "http://image-us.24h.com.vn/upload/3-2017/images/2017-09-20/1505861310-messi1.jpg",
+      "officeName": "ABC 会社",
+      "identifyStatus": "1",
+      "restrictionStatus": "1",
+      "restricted": "2017-10-12T09:55:00",
+      "operator": "山口 亜由美",
+      "linkAvatar": "http://www.allteenstalk.com/wp-content/uploads/2015/08/girls-in-hot-pants-3.jpg"
+    }, {
+      "userId": "134",
+      "officeId": "14",
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "avatar": "http://image-us.24h.com.vn/upload/3-2017/images/2017-09-20/1505861310-messi1.jpg",
+      "officeName": "ABC 会社",
+      "identifyStatus": "1",
+      "restrictionStatus": "2",
+      "restricted": "",
+      "operator": "",
+      "linkAvatar": "http://www.allteenstalk.com/wp-content/uploads/2015/08/girls-in-hot-pants-3.jpg"
+    }, {
+      "userId": "13",
+      "officeId": "12",
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "avatar": "http://image-us.24h.com.vn/upload/3-2017/images/2017-09-20/1505861310-messi1.jpg",
+      "officeName": "ABC 会社",
+      "identifyStatus": "2",
+      "restrictionStatus": "1",
+      "restricted": "",
+      "operator": "",
+      "linkAvatar": "http://www.allteenstalk.com/wp-content/uploads/2015/08/girls-in-hot-pants-3.jpg"
+    }, {
+      "userId": "211",
+      "officeId": "121",
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "avatar": "http://image-us.24h.com.vn/upload/3-2017/images/2017-09-20/1505861310-messi1.jpg",
+      "officeName": "ABC 会社",
+      "identifyStatus": "2",
+      "restrictionStatus": "1",
+      "restricted": "2017-10-12T09:55:00",
+      "operator": "山口 亜由美",
+      "linkAvatar": "http://www.allteenstalk.com/wp-content/uploads/2015/08/girls-in-hot-pants-3.jpg"
+    }, {
+      "userId": "1234",
+      "officeId": "321",
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "avatar": "http://image-us.24h.com.vn/upload/3-2017/images/2017-09-20/1505861310-messi1.jpg",
+      "officeName": "ABC製薬",
+      "identifyStatus": "3",
+      "restrictionStatus": "4",
+      "restricted": "2017-10-12T09:55:00",
+      "operator": "山口 亜由美",
+      "linkAvatar": "http://www.allteenstalk.com/wp-content/uploads/2015/08/girls-in-hot-pants-3.jpg"
+    }, {
+      "userId": "1345",
+      "officeId": "1589",
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "avatar": "http://image-us.24h.com.vn/upload/3-2017/images/2017-09-20/1505861310-messi1.jpg",
+      "officeName": "ABC 会社",
+      "identifyStatus": "1",
+      "restrictionStatus": "2",
+      "restricted": "2017-10-12T09:55:00",
+      "operator": "山口 亜由美",
+      "linkAvatar": "http://www.allteenstalk.com/wp-content/uploads/2015/08/girls-in-hot-pants-3.jpg"
+    }, {
+      "userId": "12342",
+      "officeId": "15435",
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "avatar": "http://image-us.24h.com.vn/upload/3-2017/images/2017-09-20/1505861310-messi1.jpg",
+      "officeName": "ABC 会社",
+      "identifyStatus": "2",
+      "restrictionStatus": "3",
+      "restricted": "2017-10-12T09:55:00",
+      "operator": "山口 亜由美",
+      "linkAvatar": "http://www.allteenstalk.com/wp-content/uploads/2015/08/girls-in-hot-pants-3.jpg"
+    }, {
+      "userId": "1345345",
+      "officeId": "134534",
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "avatar": "http://image-us.24h.com.vn/upload/3-2017/images/2017-09-20/1505861310-messi1.jpg",
+      "officeName": "ABC 会社",
+      "identifyStatus": "1",
+      "restrictionStatus": "1",
+      "restricted": "2017-10-12T09:55:00",
+      "operator": "山口 亜由美",
+      "linkAvatar": "http://www.allteenstalk.com/wp-content/uploads/2015/08/girls-in-hot-pants-3.jpg"
+    }, {
+      "userId": "13453",
+      "officeId": "34541",
+      "firstName": "東海林",
+      "lastName": "哲哉",
+      "avatar": "http://image-us.24h.com.vn/upload/3-2017/images/2017-09-20/1505861310-messi1.jpg",
+      "officeName": "ABC 会社",
+      "identifyStatus": "3",
+      "restrictionStatus": "3",
+      "restricted": "",
+      "operator": "",
+      "linkAvatar": "http://www.allteenstalk.com/wp-content/uploads/2015/08/girls-in-hot-pants-3.jpg"
+    }
+
+  ]
+
+}

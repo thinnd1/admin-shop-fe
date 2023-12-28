@@ -1,0 +1,24 @@
+<div [hidden]="showPopup" id="popupHover" (clickOutside)="onClickButton('close')">
+  <div class="popover contentPopupHover" *ngIf="!popup.holiday"
+       [ngClass]="{'popover-position-left': (showLeft), 'popover-position-right': (showRight), 'popover-bottom': (showTop), 'popover-top': (!showTop)}">
+    <div class="popover-close fs14"><i class="fa fa-close" (click)="onClickButton('close')"></i></div>
+    <h3 class="popover-title fs24"><span class="popover-title-main">{{ popup.title }}</span><span class="popover-title-sub fs15">{{ popup.time }}<br *ngIf="popup.user">{{ popup.user }}</span></h3>
+    <div class="popover-content" *ngIf="popup.place || popup.note">
+      <p class="mb-0">{{ popup.place }}</p>
+      <p class="break-line">{{ popup.note }}</p>
+    </div>
+    <div class="popover-footer" *ngIf="popup.bntShow">
+      <button type="button" class="fs14 btn btn-sm btn-primary" (click)="onClickButton('edit')">{{ 'BTN.EDIT' | translate }}</button>
+      <button type="button" class="fs14 btn btn-sm btn-secondary" (click)="onClickButton('delete')">{{ 'BTN.DELETE' | translate }}</button>
+    </div>
+  </div>
+
+  <div class="popover contentPopupHover" *ngIf="popup.holiday"
+       [ngClass]="{'popover-position-left': (showLeft), 'popover-position-right': (showRight), 'popover-bottom': (showTop), 'popover-top': (!showTop)}">
+    <div class="popover-close fs14"><i class="fa fa-close" (click)="onClickButton('close')"></i></div>
+    <h3 class="popover-title fs24"><span class="popover-title-main">{{ popup.title }}</span></h3>
+    <div class="popover-content">
+      <p>{{ popup.time }}</p>
+    </div>
+  </div>
+</div>

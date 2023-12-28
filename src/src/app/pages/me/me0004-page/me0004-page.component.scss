@@ -1,0 +1,50 @@
+@import '../../../../assets/styles/_import';
+#theme-details {
+  table {
+    //border-left: 1px solid #ccc;
+    //border-right: 1px solid #ccc;
+    tr {
+      th {
+        width:12rem;
+      }
+      th,
+      td {
+        border: none;
+        background: transparent;
+        border-bottom: 1px solid #D7D7D7;
+      }
+    }
+    .ul01 {
+      li:nth-child(2n+1) {
+        clear: both;
+      }
+      li {
+        float: left;
+      }
+    }
+  }
+}
+ul.list {
+  margin-top: -16px;
+}
+
+//@media (max-width: 575px)
+@include media-breakpoint-down(xs) {
+  #theme-details {
+    table {
+      border-bottom: 1px solid #D7D7D7;
+      tr {
+        th,
+        td {
+          display: block;
+          width: auto;
+          border-bottom: none;
+        }
+        th {
+          border-top: 1px solid #D7D7D7;
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}

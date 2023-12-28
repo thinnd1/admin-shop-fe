@@ -1,0 +1,200 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents ME0014-->
+
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'ME0014.TITLE' | translate" ></app-page-head>
+                </div>
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane active" id="tab-content3">
+                    <div class="row">
+                      <div class="search col-lg-8">
+                        <input class="search-input" [(ngModel)]="keyWord" type="text" (keyup.enter)="searchOffice(keyWord)" placeholder="{{'ME0014.SEARCH_PLACEHOLDER' | translate}}">
+                        <button type="submit" (click)="searchOffice(keyWord)" class="search-btn">
+                          <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="row mt-2">
+                      <div class="col-md-4 col-lg-4">
+                        <label class="custom-control custom-checkbox">
+                          <input type="checkbox" (change)="toggleOffice($event)" class="custom-control-input">
+                          <span class="custom-control-indicator"></span>
+                          <span class="custom-control-description">{{'ME0014.LBL_FILTER' | translate}}</span>
+                        </label>
+                      </div>
+                      <div class="col-md-8 col-lg-8">
+                        <p class="mb-0 text-right text-danger">{{'ME0014.SPAM' | translate}}</p>
+                      </div>
+                    </div>
+                    <div class="tbl-content" infiniteScroll [infiniteScrollUpDistance]="1" [infiniteScrollThrottle]="100" [scrollWindow]="true" (scrolled)="scrollPaging()">
+                      <p class="mb-1">{{'ME0014.ALL' | translate}}{{totalRecord}}{{'ME0014.MATTER_IN' | translate}} {{default}}{{'ME0014.MATTER' | translate}}{{nextScroll}}{{'ME0014.SHOW_SUBJECTS' | translate}}</p>
+                      <div class="table-staff-invite">
+                        <table class="table">
+                          <thead class="thead-inverse hidden-sm-down">
+                            <tr>
+                              <th class="align-middle w-40">{{'ME0014.LBL_NAME' | translate}}</th>
+                              <th class="align-middle">{{'ME0014.LBL_CONFIRM' | translate}}
+                                <span class="text-warning pl-2 help-Popover fs22 align-middle" role="button"
+                                  popoverTitle="{{'ME0014.IDENTIFICATION' | translate}}" placement="bottom"
+                                  [ngbPopover]="popContent2"
+                                      #d="ngbPopover" (click)="setCurrentPopoverOpen(d)">
+                                  <i class="fa fa-question-circle" aria-hidden="true"></i>
+                                </span>
+                                <ng-template #popContent2>
+                                  <strong>{{'ME0014.IDENTIFICATION_CARD' | translate}}</strong>
+                                </ng-template>
+                              </th>
+                              <th class="align-middle w-30">{{'ME0014.LBL_AUTH_MEETING' | translate}}
+                                <span class="text-warning pl-2 help-Popover fs22 align-middle" role="button"
+                                  popoverTitle="{{'ME0014.RESTRICTION_CONTENT' | translate}}" placement="left"
+                                  [ngbPopover]="popContent" #p="ngbPopover" (click)="setCurrentPopoverOpen(p)">
+                                  <i class="fa fa-question-circle" aria-hidden="true"></i>
+                                  <ng-template #popContent>
+                                    <div><strong>{{'ME0014.LIMIT.NO_LIMIT' | translate}}</strong></div>
+                                    <p>{{'ME0014.LIMIT.HOSPITALS_BUSINESS' | translate}}</p>
+                                    <div><strong>{{'ME0014.LIMIT.NO_BUSINESS1' | translate}}</strong></div>
+                                    <p>{{'ME0014.LIMIT.HOSPITALS' | translate}}<br>{{'ME0014.LIMIT.NO_BUSINESS2' | translate}}</p>
+                                    <div><strong>{{'ME0014.LIMIT.NO_HOSPITALS' | translate}}</strong></div>
+                                    <p>{{'ME0014.LIMIT.NO_HOSPITALS_BUSINESS' | translate}}</p>
+                                  </ng-template>
+                                </span>
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let office of offices, let i= index">
+                              <th class="hidden-md-up align-middle w-40">{{'ME0014.LBL_NAME' | translate}}</th>
+                              <td class="align-middle">
+                                <div class="d-flex">
+                                  <app-mini-profile
+                                    [userInfo]="{imageUrl: office.image, firstName: office.firstName,
+                                                  lastName: office.lastName, officeName: office.officeName}"
+                                                    [profileOptions]="{'iconSize':55, 'officeName': true}">
+                                  </app-mini-profile>
+                                </div>
+                              </td>
+                              <th class="hidden-md-up align-middle">{{'ME0014.LBL_CONFIRM' | translate}}
+                                <span class="text-warning pl-2 help-Popover fs22 align-middle" role="button"
+                                      popoverTitle="{{'ME0014.IDENTIFICATION' | translate}}" placement="right"
+                                      [ngbPopover]="popContent3"
+                                      #e="ngbPopover" (click)="setCurrentPopoverOpen(e)">
+                                  <i class="fa fa-question-circle" aria-hidden="true"></i>
+                                </span>
+                                <ng-template #popContent3>
+                                  <strong>{{'ME0014.IDENTIFICATION_CARD' | translate}}</strong>
+                                </ng-template>
+                              </th>
+                              <td class="align-middle">
+                                <div class="d-flex w-300 align-items-center">
+                                  <div class="col-4 pl-0 pr-1">
+                                    <a href="#" data-toggle="modal" [attr.data-target]="'#'+ 'exampleModal'+ i">
+                                      <i class="fa fa-paperclip pr-2" aria-hidden="true"></i>{{'ME0014.LINK_AVATAR' | translate}}</a>
+                                  </div>
+                                  <div class="col-4 text-center pl-0 pr-1">
+                                    <button type="button" (click)="putIdentifyrestrictionStatus(office, 1)" *ngIf="office.identifyStatus === '' || office.identifyStatus === '0' || office.identifyStatus === '2'"
+                                      class="btn btn-sm btn-primary">{{'COMMON_LABEL.ME0014.E000_2' | translate}}</button>
+                                    <button type="button" (click)="putIdentifyrestrictionStatus(office, 0)" *ngIf="office.identifyStatus === '1'" class="btn btn-sm btn-secondary">{{'COMMON_LABEL.ME0014.E000_1' | translate}}</button>
+                                  </div>
+                                  <div class="col-4 text-center pl-0 pr-1">
+                                    <button type="button" (click)="putIdentifyStatusCancel(office, 2)" [disabled]="office.identifyStatus === '1'" *ngIf="office.identifyStatus !== '2'"
+                                      [ngClass]="{'disabled': office.identifyStatus === '2'}" class="btn btn-sm btn-danger">{{'COMMON_LABEL.ME0014.E000_4' | translate}}</button>
+                                    <span *ngIf="office.identifyStatus === '2'" class="btn btn-sm">{{'COMMON_LABEL.ME0014.E000_3' | translate}}</span>
+                                  </div>
+                                </div>
+                              </td>
+                              <th class="hidden-md-up align-middle">{{'ME0014.LBL_AUTH_MEETING' | translate}}
+                                <span class="text-warning pl-2 help-Popover fs22 align-middle" role="button"
+                                      popoverTitle="{{'ME0014.RESTRICTION_CONTENT' | translate}}" placement="bottom"
+                                      [ngbPopover]="popContent1" #c="ngbPopover" (click)="setCurrentPopoverOpen(c)">
+                                  <i class="fa fa-question-circle" aria-hidden="true"></i>
+                                  <ng-template #popContent1>
+                                    <div><strong>{{'ME0014.LIMIT.NO_LIMIT' | translate}}</strong></div>
+                                    <p>{{'ME0014.LIMIT.HOSPITALS_BUSINESS' | translate}}</p>
+                                    <div><strong>{{'ME0014.LIMIT.NO_BUSINESS1' | translate}}</strong></div>
+                                    <p>{{'ME0014.LIMIT.HOSPITALS' | translate}}<br>{{'ME0014.LIMIT.NO_BUSINESS2' | translate}}</p>
+                                    <div><strong>{{'ME0014.LIMIT.NO_HOSPITALS' | translate}}</strong></div>
+                                    <p>{{'ME0014.LIMIT.NO_HOSPITALS_BUSINESS' | translate}}</p>
+                                  </ng-template>
+                                </span>
+                              </th>
+                              <td class="align-middle">
+                                <div class="d-flex align-items-center">
+                                  <select class="form-control customs-select14 authority_{{i}}" (change)="putMeetingRestriction($event.target.value, office,i)">
+                                    <option [selected]="office.restrictionStatus === '0'" [value]="0">{{'ME0014.AUTH_MEETING_1' | translate}}</option>
+                                    <option [selected]="office.restrictionStatus === '1'" [value]="1">{{'ME0014.AUTH_MEETING_2' | translate}}</option>
+                                    <option [selected]="office.restrictionStatus === '2'" [value]="2">{{'ME0014.AUTH_MEETING_3' | translate}}</option>
+                                  </select>
+                                  <ng-template #popContent>
+                                    <div>
+                                      <strong>
+                                      {{'ME0014.RESTRICTION_DATE' | translate}} ： {{office.restricted | convertTimeToJa : 'YYYY/MM/DD'}}
+                                      <br> {{'ME0014.OPERATOR' | translate}} ： {{office.operatorName}}
+                                      </strong>
+                                    </div>
+                                  </ng-template>
+                                  <span *ngIf="office.restricted && office.operatorName" class="text-warning pl-2 help-Popover" role="button" data-toggle="popover" data-placement="left" [ngbPopover]="popContent"
+                                    popoverTitle="{{'ME0014.OPERATION_HISTORY' | translate}}" #p="ngbPopover" (click)="setCurrentPopoverOpen(p)">
+                                    <i class="fa fa-user-circle fs18" aria-hidden="true"></i>
+                                  </span>
+                                </div>
+                              </td>
+                              <div class="modal" id="exampleModal{{i}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-backdrop="static" data-keyboard="false">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h3 class="modal-title" id="exampleModalLabel{{i}}">{{office.fileName}}</h3>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body modal-me0014">
+                                      <div class="gallery text-center">
+                                        <img src="{{office?.image_identification_url}}" alt="">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

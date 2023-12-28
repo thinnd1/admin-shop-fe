@@ -1,0 +1,91 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents ME0010-->
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'ME0010.TITLE' | translate"></app-page-head>
+                </div>
+                <div class="search">
+                  <form>
+                    <input class="search-input" type="text" placeholder="{{ 'ME0010.SEARCH_PLACEHOLDER' | translate }}" [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
+                    <button (click)="searchUser(name)" class="search-btn">
+                      <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                  </form>
+                </div>
+                <div class="tbl-content mt-3">
+                  <table class="table">
+                    <thead class="thead-inverse hidden-sm-down">
+                    <tr>
+                      <th class="text-center align-middle tbl-user">{{ 'ME0010.TABLE_STAFF' | translate}}</th>
+                      <th class="text-center align-middle tbl-button">{{ 'ME0010.TABLE_ACTION' | translate}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <ng-container *ngFor="let item of model.staffList">
+                      <tr>
+                        <th class="hidden-md-up text-center align-middle">{{ 'ME0010.TABLE_STAFF' | translate}}</th>
+                        <td class="align-middle tbl-user">
+                          <div class="d-flex">
+                            <app-mini-profile [userInfo]="{
+                              imageUrl: item.avatar,
+                              firstName: item.firstName,
+                              lastName: item.lastName,
+                              deptName: item.department.displayName ? item.department.displayName : item.department.name
+                            }" [profileOptions]="{departmentName: true, iconSize: 55}" ></app-mini-profile>
+                          </div>
+                        </td>
+                        <th class="hidden-md-up text-center align-middle">{{ 'ME0010.TABLE_ACTION' | translate}}</th>
+                        <td class="align-middle tbl-button">
+                          <div class="form-inline justify-content-center">
+                            <div class="text-center d-inline-block mx-1">
+                              <button type="button" class="btn btn-outline-warning" (click)="goToMe0016(item.userId, item.officeId)">{{ 'ME0010.SETTING_TIMEZONE' | translate}}</button>
+                              <p class="text-danger mt-1 mb-0" *ngIf="item.configuredVisibleTime === false">{{ 'MSG.ME0010.P001_2' | translate}}</p>
+                              <p class="mt-1 mb-0" *ngIf="item.configuredVisibleTime === true">{{ 'MSG.ME0010.P001_1' | translate}}</p>
+                            </div>
+                            <div class="text-center d-inline-block mx-1">
+                              <button type="button" class="btn btn-outline-warning" (click)="goToMe0021(item.userId, item.officeId)">{{ 'ME0010.SETTING_REQUEST_VISIT' | translate}}</button>
+                              <p class="text-danger mt-1 mb-0" *ngIf="item.configuredMeetingDemand === false">{{ 'MSG.ME0010.P001_2' | translate}}</p>
+                              <p class="mt-1 mb-0" *ngIf="item.configuredMeetingDemand === true">{{ 'MSG.ME0010.P001_1' | translate}}</p>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </ng-container>
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

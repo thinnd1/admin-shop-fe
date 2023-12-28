@@ -1,0 +1,58 @@
+@import '../../../../assets/styles/_import';
+
+.meeting-dl {
+  overflow: hidden;
+  dt {
+    border-left: 10px solid #E1E0DF;
+    border-bottom: 1px solid #E1E0DF;
+  }
+}
+
+.applicant {
+	 border-top: 1px solid rgba(0,0,0,0.2);
+}
+.applicant-bd {
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+.applicant-box,
+.applicant-box-fl,
+.applicant-box-top {
+	@include border-radius(0.25rem);
+}
+.applicant-box {
+	background: #eee;
+}
+.applicant-box-fl {
+	 border: 1px solid rgba(0,0,0,0.2);
+	.applicant-box-top {
+		border-bottom: 1px solid rgba(0,0,0,0.1);
+	}
+}
+.disable-option{
+  opacity: 0.3;
+  background: #f7f8f8;
+}
+.col-user {
+  width:80%;
+  max-width:360px;
+}
+
+@media print {
+  .printRequestMeeting{
+    display: none;
+  }
+  .meeting-dl {
+    dt, dd {
+    }
+  }
+  .applicant {
+    margin: 0 !important;
+    .btn {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+  }
+}
+
+
+

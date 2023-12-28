@@ -1,0 +1,185 @@
+{
+  "page": "0",
+  "staffList": [
+    {
+      "userId": "user0001",
+      "officeId": "1000b841650c470ef4770001",
+      "avatar": "image.png",
+      "firstName": "Nhat",
+      "lastName": "Tran",
+      "department": {
+        "id": "59e950d88758fb1fc494fe1c",
+        "name": "Root9-Sub1",
+        "displayName": "Root9-Sub1",
+        "children": [],
+        "path": "/Root9/Root9-Sub1/"
+      },
+      "configuredVisibleTime": true,
+      "configuredMeetingFrame": true,
+      "configuredMeetingDemand": true,
+      "configuredInterestedDrug": true
+    },
+    {
+      "userId": "user0001",
+      "officeId": "1000b841650c470ef4770001",
+      "avatar": "image.png",
+      "firstName": "Hanh",
+      "lastName": "Tran",
+      "department": {
+        "id": "59e950d88758fb1fc494fe1c",
+        "name": "Root9-Sub1",
+        "displayName": "Root9-Sub1",
+        "children": [],
+        "path": "/Root9/Root9-Sub1/"
+      },
+      "configuredVisibleTime": false,
+      "configuredMeetingFrame": true,
+      "configuredMeetingDemand": true,
+      "configuredInterestedDrug": true
+    },
+    {
+      "userId": "user0001",
+      "officeId": "1000b841650c470ef4770001",
+      "avatar": "image.png",
+      "firstName": "Tuyen",
+      "lastName": "DV",
+      "department": {
+        "id": "59e950d88758fb1fc494fe1c",
+        "name": "Root9-Sub1",
+        "displayName": "Root9-Sub1",
+        "children": [],
+        "path": "/Root9/Root9-Sub1/"
+      },
+      "configuredVisibleTime": true,
+      "configuredMeetingFrame": false,
+      "configuredMeetingDemand": false,
+      "configuredInterestedDrug": true
+    },
+    {
+      "userId": "user0001",
+      "officeId": "1000b841650c470ef4770001",
+      "avatar": "image.png",
+      "firstName": "Nam",
+      "lastName": "NH",
+      "department": {
+        "id": "59e950d88758fb1fc494fe1c",
+        "name": "Root9-Sub1",
+        "displayName": "Root9-Sub1",
+        "children": [],
+        "path": "/Root9/Root9-Sub1/"
+      },
+      "configuredVisibleTime": true,
+      "configuredMeetingFrame": true,
+      "configuredMeetingDemand": true,
+      "configuredInterestedDrug": false
+    },
+    {
+      "userId": "user0001",
+      "officeId": "1000b841650c470ef4770001",
+      "avatar": "image.png",
+      "firstName": "Nhat",
+      "lastName": "Tran",
+      "department": {
+        "id": "59e950d88758fb1fc494fe1c",
+        "name": "Root9-Sub1",
+        "displayName": "Root9-Sub1",
+        "children": [],
+        "path": "/Root9/Root9-Sub1/"
+      },
+      "configuredVisibleTime": true,
+      "configuredMeetingFrame": true,
+      "configuredMeetingDemand": true,
+      "configuredInterestedDrug": true
+    },
+    {
+      "userId": "user0001",
+      "officeId": "1000b841650c470ef4770001",
+      "avatar": "image.png",
+      "firstName": "Hanh",
+      "lastName": "Tran",
+      "department": {
+        "id": "59e950d88758fb1fc494fe1c",
+        "name": "Root9-Sub1",
+        "displayName": "Root9-Sub1",
+        "children": [],
+        "path": "/Root9/Root9-Sub1/"
+      },
+      "configuredVisibleTime": false,
+      "configuredMeetingFrame": true,
+      "configuredMeetingDemand": true,
+      "configuredInterestedDrug": true
+    },
+    {
+      "userId": "user0001",
+      "officeId": "1000b841650c470ef4770001",
+      "avatar": "image.png",
+      "firstName": "Tuyen",
+      "lastName": "DV",
+      "department": {
+        "id": "59e950d88758fb1fc494fe1c",
+        "name": "Root9-Sub1",
+        "displayName": "Root9-Sub1",
+        "children": [],
+        "path": "/Root9/Root9-Sub1/"
+      },
+      "configuredVisibleTime": true,
+      "configuredMeetingFrame": false,
+      "configuredMeetingDemand": false,
+      "configuredInterestedDrug": true
+    },
+    {
+      "userId": "user0001",
+      "officeId": "1000b841650c470ef4770001",
+      "avatar": "image.png",
+      "firstName": "Nam",
+      "lastName": "NH",
+      "department": {
+        "id": "59e950d88758fb1fc494fe1c",
+        "name": "Root9-Sub1",
+        "displayName": "Root9-Sub1",
+        "children": [],
+        "path": "/Root9/Root9-Sub1/"
+      },
+      "configuredVisibleTime": true,
+      "configuredMeetingFrame": true,
+      "configuredMeetingDemand": true,
+      "configuredInterestedDrug": false
+    },
+    {
+      "userId": "user0001",
+      "officeId": "1000b841650c470ef4770001",
+      "avatar": "image.png",
+      "firstName": "Nhat",
+      "lastName": "Tran",
+      "department": {
+        "id": "59e950d88758fb1fc494fe1c",
+        "name": "Root9-Sub1",
+        "displayName": "Root9-Sub1",
+        "children": [],
+        "path": "/Root9/Root9-Sub1/"
+      },
+      "configuredVisibleTime": true,
+      "configuredMeetingFrame": true,
+      "configuredMeetingDemand": true,
+      "configuredInterestedDrug": true
+    },
+    {
+      "userId": "user0001",
+      "officeId": "1000b841650c470ef4770001",
+      "avatar": "image.png",
+      "firstName": "Hanh",
+      "lastName": "Tran",
+      "department": {
+        "id": "59e950d88758fb1fc494fe1c",
+        "name": "Root9-Sub1",
+        "displayName": "Root9-Sub1",
+        "children": [],
+        "path": "/Root9/Root9-Sub1/"
+      },
+      "configuredVisibleTime": false,
+      "configuredMeetingFrame": true,
+      "configuredMeetingDemand": true,
+      "configuredInterestedDrug": true
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "attachments": [
+    {
+      "fileId": "string",
+      "fileName": "string",
+      "id": "string"
+    }
+  ],
+  "rule": "string"
+}

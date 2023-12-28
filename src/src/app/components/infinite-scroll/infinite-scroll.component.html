@@ -1,0 +1,11 @@
+<div class="infinite-scroll" [ngStyle]="{'height':infiniteScrollHeight}">
+  <div class="infinite-scroll-content" infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="10" [scrollWindow]="!infiniteScrollOptions.height" (scrolled)="onScrollDown()">
+    <ng-container *ngFor="let item of items">
+      <div class="infinite-scroll-item" [innerHTML]="item.content"></div>
+    </ng-container>
+  </div>
+  <div class="infinite-scroll-loader text-center" [hidden]="isLoading">
+    <i class="fa fa-spinner fa-pulse fa-fw infinite-scroll-loader-icon"></i>
+    <span class="infinite-scroll-loader-text fs14">{{'INFINITE_SCROLL.LOADING' | translate}}...</span>
+  </div>
+</div>

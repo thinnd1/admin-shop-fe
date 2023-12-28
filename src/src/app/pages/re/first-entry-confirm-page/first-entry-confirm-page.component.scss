@@ -1,0 +1,41 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+/***** re0025 *****/
+.title-head {
+	.logo {
+		width: 172px;
+		fill: #f18d00;
+		height:35px;
+	}
+}
+.table-content-txt {
+	border-bottom: 1px solid #d7d7d7;
+	tbody {
+		tr{
+			th, td {
+				border: none;
+			}
+			th {
+				white-space: nowrap;
+				width: 1rem;
+			}
+		}
+	}
+}
+.line-confirm {
+	padding-bottom: 1rem;
+}
+
+//@media (max-width: 767px)
+@include media-breakpoint-down(sm) {
+	table.table-content-txt{
+		tbody {
+			tr {
+				th, td {
+					width: 100%;
+					display: block;
+				}
+			}
+		}
+	}
+}

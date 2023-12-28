@@ -1,0 +1,18 @@
+{
+  "bedUseRateThreshold": 0,
+  "freeText": "string",
+  "hospitalStayThreshold": 0,
+  "hospitalWards": [
+    "string1",
+    "string2"
+  ],
+  "items": [
+    {
+      "id": "string",
+      "isVisible": true,
+      "name": "string",
+      "type": "BED_USE_RATE"
+    }
+  ],
+  "nursingNeedThreshold": 0
+}

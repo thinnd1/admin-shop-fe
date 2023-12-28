@@ -1,0 +1,96 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+#calendar {
+  .fc-icon-fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .setting-icon {
+    &:before {
+      content: "\f013";
+    }
+  }
+  .print-icon:before {
+    content: "\f02f";
+  }
+}
+
+/** ------ @mixin -----------------**/
+@mixin align-items() {
+  -moz-box-align: center;
+  align-items: center;
+}
+/*****/
+.popover {
+  position: relative;
+}
+/*POPOVER COMMON*/
+.popover {
+  max-width: 610px;
+  min-width: 610px;
+  .popover-close {
+    position: absolute;
+    top:25px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .popover-footer {
+    background-color: #f7f7f7;
+    border-top: 1px solid #ebebeb;
+    border-bottom-left-radius: calc(0.3rem - 1px);
+    border-bottom-right-radius: calc(0.3rem - 1px);
+    text-align: right;
+  }
+}
+.popover.popover-bottom::after, .popover.bs-tether-element-attached-top::after {
+  border-bottom-color: #fff;
+}
+.popover.popover-position-left::after, .popover.popover-position-left::before{
+  left: 5%;
+}
+.popover.popover-position-right::after, .popover.popover-position-right::before{
+  left: 95%;
+}
+
+
+/******/
+.popover-tab {
+  ul.nav-tabs{
+    padding: 0;
+  }
+  .form-group {
+    margin-bottom:10px;
+    select{
+      padding: 2px;
+    }
+    label {
+      margin: 0;
+      &.col-form-label {
+        text-align: right;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+    .input-time {
+      margin: 0;
+      @include align-items;
+      .form-input-date {
+        width:7.7rem;
+      }
+      .form-input-time {
+        width: 5.5rem;
+      }
+    }
+    .col-1{
+      text-align: center;
+    }
+  }
+}
+.row-mg {
+  margin: 0;
+}

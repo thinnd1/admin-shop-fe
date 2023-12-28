@@ -1,0 +1,12 @@
+<div class="drug-regist-alert" *ngIf="show">
+  <a class="drug-regist-alert__wrap p-3" href="#" [routerLink]="['/me/me0035']">
+    <dl>
+      <dt class="drug-regist-alert__ttl pb-2">
+        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        {{'DRUG_REGIST_ALERT.TITLE' | translate}}
+      </dt>
+      <dd class="drug-regist-alert__txt pb-1" [innerHTML]="lineConvert('DRUG_REGIST_ALERT.BODY' | translate)">
+      </dd>
+    </dl>
+  </a>
+</div>

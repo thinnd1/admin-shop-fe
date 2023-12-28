@@ -1,0 +1,30 @@
+<ul class="nav flex-column settings-panel-list">
+  <ng-container *ngFor="let category of categories">
+    <li class="nav-item" *ngIf="category.display">
+      <p class="settings-panel-list-title m-0 py-2 px-3">
+        <i class="fa fa-id-card-o mr-1" aria-hidden="true" *ngIf="category.name === 'MENU.GENERAL.LABEL'"></i>
+        <i class="fa fa-cogs mr-1" aria-hidden="true" *ngIf="category.name === 'MENU.ADMIN.LABEL'"></i>
+        {{category.name | translate}}
+      </p>
+      <ul class="list-unstyled">
+        <li class="nav-item" *ngFor="let midCategory of category.midCategories">
+          <dl class="m-0" *ngIf="midCategory.display">
+            <dt class="nav-title fs14 font-weight-normal py-2 px-3">
+              {{midCategory.name | translate}}
+            </dt>
+            <dd class="m-0" *ngIf="midCategory.items">
+              <ul class="nav flex-column">
+                <ng-container *ngFor="let item of midCategory.items">
+                  <li class="nav-item" *ngIf="item.display">
+                    <a class="nav-link fs12" *ngIf="item.fragment" [routerLink]="[item.path]" fragment="{{item.fragment}}" [class.nav-link-active]="isLinkActive(item.path + '#' + item.fragment)">{{item.name | translate}}</a>
+                    <a class="nav-link fs12" *ngIf="!item.fragment" [routerLink]="[item.path]" [class.nav-link-active]="isLinkActive(item.path)">{{item.name | translate}}</a>
+                  </li>
+                </ng-container>
+              </ul>
+            </dd>
+          </dl>
+        </li>
+      </ul>
+    </li>
+  </ng-container>
+</ul>

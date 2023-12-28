@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "contentsType": "INSIDE_MESSAGE",
+    "contents": {
+      "contributorOfficeUserId": "1",
+      "contributorLastName": "姓1",
+      "contributorFirstName": "名1",
+      "contributorOfficeName": "事業所1",
+      "contributorDepartmentName": "所属1",
+      "containerId": "1",
+      "containerName": "INSIDE_MESSAGE",
+      "date": "2017-12-21T17:39:28+09:00",
+      "text": "親譲りの無鉄砲で小供の時から損ばかりしている。\n小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。\nなぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。\n新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。\n弱虫やーい。\nと囃したからである。\n小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰を抜かす奴があるかと云ったから、この次は抜かさずに飛んで見せますと答えた。\n\n（青空文庫より）",
+      "messageId": "1"
+    }
+  },
+  {
+    "id": "2",
+    "contentsType": "INSIDE_GROUP",
+    "contents": {
+      "contributorOfficeUserId": "2",
+      "contributorLastName": "姓2",
+      "contributorFirstName": "名2",
+      "contributorOfficeName": "事業所2",
+      "contributorDepartmentName": "所属2",
+      "containerId": "2",
+      "containerName": "INSIDE_GROUP",
+      "date": "2017-12-21T17:39:28+09:00",
+      "text": "内容2",
+      "articleId": "article2",
+      "commentId": "comment2",
+      "fileIds": [
+        "1"
+      ]
+    }
+  }
+]

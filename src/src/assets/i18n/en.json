@@ -1,0 +1,3174 @@
+{
+  "DOC_TITLE": {
+    "ERROR": "エラー",
+    "FILE_DOWNLOAD": "ダウンロード",
+    "TOP_PAGE": "トップページ",
+    "CA0001": "予定詳細",
+    "CA0002": "月表示",
+    "CA0003": "週表示",
+    "FRAME_MEETING": "面会枠編集",
+    "CA0006": "自分の予定設定",
+    "CA0007": "予定の編集",
+    "CA0008": "グループの予定設定",
+    "CA0009": "スタッフの予定設定",
+    "CA0010": "外部カレンダー設定",
+    "CA0011": "外部カレンダー同期",
+    "CA0012": "カレンダー機能",
+    "CA0013": "予定詳細",
+    "CA0014": "月表示",
+    "CA0015": "週表示",
+    "CA0016": "予定の作成",
+    "CA0017": "自分の予定設定",
+    "CA0018": "予定の編集",
+
+    "CA0021": "外部カレンダー設定",
+    "CH0003": "院内メッセージ作成",
+    "CH0004": "院内メッセージ編集",
+    "CH0005": "院外メッセージ作成",
+    "CH0006": "院外メッセージ編集",
+    "CH0007": "院内メッセージ",
+    "CH0008": "院外メッセージ",
+    "CH0009": "院外メッセージ承認",
+    "CH0010": "取引先メッセージ",
+    "CH0011": "添付ファイル一覧",
+    "CH0019": "医療者メッセージ",
+    "CM0000DR": "Dr.JOY利用規約",
+    "CM0000PR": "Pr.JOY利用規約",
+    "CM0001": "Dr.JOYからのお知らせ",
+    "CM0002": "お問い合わせ",
+    "CM0004": "お知らせ一覧",
+    "CM0005": "取引先へのお知らせ",
+    "CM0005_NEW": "取引先へのお知らせ 新規作成",
+    "CM0005_DETAIL": "取引先へのお知らせ 詳細",
+    "CM0006": "お気に入り記事",
+    "CM0007": "Dr.JOYからのお知らせ",
+    "CM0008": "病院からのお知らせ",
+    "CM0009": "お知らせ一覧",
+    "CM0012": "経営指標",
+    "CM0013": "検索結果",
+    "CM0014": "経営指標設定",
+    "CM0015": "お知らせ機能概要",
+    "CM0016": "経営指標一覧",
+    "CM0017": "メニュー一覧",
+    "GR0001": "グループ一覧",
+    "GR0002": "院内グループ作成",
+    "GR0003": "所属グループ作成",
+    "GR0004": "院内グループ編集",
+    "GR0005": "所属グループ編集",
+    "GR0006": "院外グループ作成",
+    "GR0007": "院外グループ編集",
+    "GR0008": "院外グループ承認",
+    "GR0009": "アンケート作成",
+    "GR0010": "アンケート編集",
+    "GR0011": "グループ記事一覧",
+    "GR0012": "グループ記事詳細",
+    "GR0013": "TOあなた宛の未読一覧",
+    "GR0014": "タイムライン表示",
+    "DETAIL": "グループ",
+
+    "ME0001": "面会トップ",
+    "ME0003": "訪問登録",
+    "ME0004": "担当者プロフィール",
+    "ME0005": "担当者一覧",
+    "ME0006": "直接リクエスト",
+    "ME0007": "面会詳細",
+    "ME0008": "未ログインチャット返信",
+    "ME0009": "未ログイン面会承認",
+    "ME0010": "面会個人設定",
+    "ME0012": "取引業者管理 ブロック",
+    "ME0013": "取引業者管理 担当者一覧",
+    "ME0014": "取引業者管理 本人確認",
+    "ME0015": "仲介者設定",
+    "ME0016": "面会時間帯設定",
+    "ME0017": "病院の面会時間帯設定",
+    "ME0018": "面会枠設定",
+    "ME0019": "取引先の面会要望",
+    "ME0020": "関心のある薬剤設定",
+    "ME0021": "面会要望設定",
+    "ME0023": "面会ルール設定",
+    "ME0024": "面会状況 ダウンロード",
+    "ME0025": "面会状況 日別",
+    "ME0026": "面会状況 取引業者別",
+    "ME0027": "面会状況 スタッフ別",
+    "ME0028": "医療者の面会要望",
+    "ME0029": "直接リクエスト",
+    "ME0030": "面会トップ",
+    "ME0031": "面会詳細",
+    "ME0032": "医療者一覧",
+    "ME0033": "面会枠リクエスト",
+    "ME0035": "担当薬設定",
+    "ME0036": "医療者プロフィール",
+    "ME0038": "面会報告一覧",
+    "ME0039": "面会報告編集",
+    "ME0042": "面会報告詳細",
+    "ME0048": "採用薬登録",
+    "ME0050": "情報提供元設定",
+    "ME0051": "Web面談",
+    "ME0052": "Web面談",
+    "ME0054": "資料設定",
+    "ME5001": "入退館 よくあるご質問",
+    "ME5002": "入退館 カード申請履歴",
+    "ME5008": "入退館 カード申請フォーム",
+
+    "PH0001": "薬薬連携グループ設定",
+    "PH0002": "トレーシングレポート一覧",
+    "PH0003": "トレーシングレポート詳細",
+    "PH0004": "処方変更報告一覧",
+    "PH0005": "処方変更報告詳細",
+    "PH0006": "採用薬一覧",
+    "PH0007": "プロトコル編集",
+    "PH0008": "トレーシングレポート集計",
+    "PH0009": "処方変更報告集計",
+    "PH0010": "トレーシングレポート一覧",
+    "PH0011": "トレーシングレポート詳細",
+    "PH0012": "トレーシングレポート作成",
+    "PH0013": "処方変更報告一覧",
+    "PH0014": "処方変更報告詳細",
+    "PH0015": "処方変更報告作成",
+    "PH0016": "採用薬一覧",
+    "PH0017": "プロトコル詳細",
+    "PH0018": "処方変更報告集計",
+    "PH0019": "トレーシングレポート集計",
+
+    "SIDE_MENU_EDIT": "サイドメニュー編集",
+    "RE0004": "Keyコード登録",
+    "RE0006": "初期登録",
+    "RE0009": "パスワード変更",
+    "RE0010": "ユーザー情報編集",
+    "RE0011": "通知設定",
+    "RE0012": "担当病院設定",
+    "RE0013": "ログインログアウト",
+    "STAFF_ADMIN": "スタッフ管理",
+    "STAFF_INVITE": "スタッフ招待",
+    "STAFF_EDIT": "スタッフ編集",
+    "NODE_EDIT": "部署所属編集",
+    "STAFF_LIST": "スタッフ一覧",
+    "PASSWORD": "パスワード変更",
+    "USER_EDIT": "ユーザー情報編集",
+    "NOTIFICATION": "通知設定",
+    "RE0022": "ログインログアウト",
+    "FIRST_ENTRY": "初期登録",
+    "FIRST_ENTRY_CONFIRM": "初期登録確認",
+    "RE0026": "社員招待",
+    "RE0027": "スタッフ一覧",
+    "RE0029": "権限",
+    "RE0030": "権限付与",
+    "RE0031": "権限付与編集",
+    "RE0032": "名刺画像再登録",
+    "RE0033": "個人登録",
+    "RE0034": "本人確認申請",
+    "RE0035": "クイックログイン",
+    "RE0036": "オプション設定",
+
+    "HE0001": "管理権限とは？",
+    "HE0002": "機能権限とは？",
+    "HE0003": "面会",
+    "HE0004": "訪問登録について",
+    "HE0006": "面会時間帯設定とは？",
+    "HE0007": "面会報告について",
+    "HE0008": "所属グループとは",
+    "HE0009": "署名について",
+    "HE0010": "経営指標とは？",
+    "HE0011": "スタッフとの共有設定について",
+    "HE0012": "Google/Outlookカレンダーとの同期について",
+    "HE0013": "サイボウズ Garoonカレンダーとの同期について",
+    "HE0014": "面会枠設定とは",
+    "HE0015": "Google/Outlookカレンダーとの同期について",
+    "HE0016": "サイボウズ Garoonカレンダーとの同期について"
+  },
+  "INPUT_LOGINID_PLACEHOLDER": "Please enter your login id",
+  "INPUT_PASSWORD_PLACEHOLDER": "Please enter your password",
+  "ID_PLACEHOLDER": "メールアドレス/ログインID",
+  "PASSWORD_PLACEHOLDER": "パスワード",
+  "TOP_PAGE": "This is the top page written in English.",
+  "PAGE_NOT_FOUND": "Page not found",
+  "BACK": "Go Back Page",
+  "USERNAME": "Username",
+  "PASSWORD": "Password",
+  "LOGIN": "Login",
+  "LOGOUT": "Logout",
+  "REGISTER": "Register",
+  "VALIDATION_REQUIRED": "{{value}} is required",
+  "LOADING": "Loading",
+  "TEST_MESSAGE": "Test Message",
+  "SETTING": "Setting",
+  "FILE_UPLOAD": "File Upload",
+  "HONORIFIC": "",
+  "HONORIFIC2" : "",
+  "STAFF_POPOVER": {
+    "OTHER_STAFF": "他{{value}}人"
+  },
+  "PAGE_HEAD": {
+    "ALREADY": "すべて既読にする",
+    "ATTACHED_FILES": "添付ファイル一覧",
+    "GROUP_EDIT": "グループの編集",
+    "ROOM_EDIT": "メッセージの設定",
+    "LIST_MEMBERS": "メンバー一覧",
+    "CSV_DOWNLOAD": "CSVをダウンロード",
+    "NOTIFICATION_SOUND_ON": "通知音をONにする",
+    "NOTIFICATION_SOUND_OFF": "通知音をOFFにする",
+    "NOTIFICATION_MAIL_ON": "通知メールを受信する",
+    "NOTIFICATION_MAIL_OFF": "通知メールを受信しない",
+    "LOGOUT": "退出する",
+    "LEAVE_ROOM": "退出する"
+  },
+  "DRUG_REGIST_ALERT": {
+    "TITLE": "担当薬の登録をしましょう。",
+    "BODY": "担当薬の登録を行うと、医師・薬剤師が薬剤検索から\nあなたに連絡することができるようになります。"
+  },
+  "NETWORK_ERROR": "通知エラーが発生しました。",
+  "CHANGE_ACCOUNT_STATUS": "管理者によって権限が変更された為、ログアウトします。\n再度ログインするか、管理者にお問い合わせ下さい。",
+  "SIDE_MENU": {
+    "SEARCH": "検索",
+    "CALENDAR": "カレンダー",
+    "SCHEDULE": "スケジュール",
+    "TASK": "タスク",
+    "UNREAD": "未読",
+    "MEETING": "面会",
+    "MEETING_RULE": "面会ルール",
+    "MEETING_SITUATION": "面会状況",
+    "MEETING_REPORT": "面会報告",
+    "SEARCH_CUSTOMER": "取引先を探す",
+    "SEARCH_MEDICAL": "医療者を探す",
+    "HOSPITAL_INFO": "病院からのお知らせ",
+    "INSIDE_CHAT": "院内メッセージ",
+    "OUTSIDE_CHAT": {
+      "DRJOY": "院外メッセージ",
+      "PRJOY": "社外メッセージ"
+    },
+    "CHAT_LIST": "メッセージ一覧",
+    "INSIDE_GROUP": "院内グループ",
+    "OUTSIDE_GROUP": "院外グループ",
+    "GROUP_LIST": "グループリスト",
+    "MEDIATOR": "仲",
+    "TO_LIST" : "あなた宛の未読一覧",
+    "OUTSIDE_CHAT_DIALOG": {
+      "TITLE": "院外メッセージを作成する",
+      "COPY": "メッセージの種類を選択してください。",
+      "LABEL1": "取引先",
+      "NOTE1": "※面会に関するメッセージの場合はこちら",
+      "LABEL2": "院内・院外スタッフ",
+      "NOTE2": "※院内スタッフと院外スタッフを含めたメッセージの場合はこちら"
+    }
+  },
+  "INFO_PANEL": {
+    "TODAY": "今日",
+    "YESTERDAY": "昨日"
+  },
+  "HEADER": {
+    "SUPPORT": "Support",
+    "DRJOY_INFO": "Dr.JOYからのお知らせ",
+    "CONTACT": "お問い合わせ",
+    "MANUAL": "使い方マニュアル",
+    "ADMIN_MANUAL": "使い方マニュアル（管理者向け）",
+    "TUTORIAL": "チュートリアル動画",
+    "BOOKMARK": "お気に入り記事",
+    "INFO": "お知らせ",
+    "CONTACT_INFO": "お問い合わせ先",
+    "CONTACT_INFO_MSG": "ご不明な点がございましたらお問い合わせください（平日9:00〜17:00）"
+  },
+  "GROUPBOARD_CONTRIBUTION": {
+    "ADD_FILES": "Add Files",
+    "REGIST": "Submit",
+    "EDIT": "Edit",
+    "QUESTIONNAIRE": "Questionnaire",
+    "CANCEL": "Cancel",
+    "PLACEHOLDER": "みんなで共有したい情報を投稿する(Shift+Enterキーで送信)",
+    "REPLY_REGIST": "コメントする",
+    "REPLY_PLACEHOLDER": "コメントする(Shift+Enterキーで送信)"
+  },
+  "DESTINATION_POPOVER": {
+    "MEMBER_SEARCH": "Member search",
+    "ALL_SELECT": "Select",
+    "ALL_REMOVE": "Remove",
+    "TO": "Destination"
+  },
+  "MEMBER_SELECT": {
+    "ADMIN": "Admin",
+    "NAME": "Name",
+    "MEMBER_ALL_SELECT": "Member all select",
+    "MEMBER_SEARCH": "Member search",
+    "SAVE": "Save"
+  },
+  "PR_OFFICE_SELECT": {
+    "PLACEHOLDER": "Search company name",
+    "INPUT_TOO_SHORT": "Type more stuff",
+    "INPUT_TOO_LONG": "You typed too much",
+    "ERROR_LOADING": "Error loading results",
+    "LOADING_MORE": "Loading more results",
+    "NO_RESULTS": "No results found",
+    "SEARCHING": "Searching...",
+    "MAXIMUM_SELECTED": "Error loading results"
+  },
+  "INFINITE_SCROLL": {
+    "LOADING": "Loading"
+  },
+  "IMAGE_CROPPER": {
+    "IMAGE": "Image",
+    "IMAGE_UPLOAD": "Image Upload",
+    "IMAGE_ZOOM_IN": "Image Zoom In(+)",
+    "IMAGE_ZOOM_OUT": "Image Zoom Out(-)",
+    "IMAGE_ROTATE_LEFT": "Image Rotate(Left)",
+    "IMAGE_ROTATE_RIGHT": "Image Rotate(Right)",
+    "IMAGE_DELETE": "Image Delete",
+    "IMAGE_INFO": "Image File( JPEG,PNG,GIF )less than 10MB"
+  },
+  "PASSWORD_INPUT": {
+    "FORM_TEXT": "HalfWidth Characters"
+  },
+  "TEL_INPUT": {
+    "FORM_TEXT": "HalfWidth Characters"
+  },
+  "NO_DATA_MESSAGE": "No data",
+  "MSG": {
+    "SAVED": "Saved",
+    "SAVE_FAILED": "Saving failed",
+    "ERROR": "Error",
+    "DELETED": "Deleted",
+    "SENT": "Sent",
+    "SAVE": "Save",
+    "OK": "OK",
+    "CANCEL": "Cancel",
+    "YES": "Yes",
+    "NO": "No",
+    "EDIT": "Edit",
+    "CLOSE": "Close",
+    "SEND": "Send",
+    "ADDED": "Added",
+    "CONFIRM": "Confirmation",
+    "CONFIRMED": "Confirmed",
+    "CONFIRM_SAVE": "Do you want to save it?",
+    "INVITATION_COMPLETE": "Invitation emails are sent",
+    "DOWNLOAD": "Download",
+    "FORWARD": "Forward",
+    "MSG_UPLOAD_IMAGE_EXCEEDS_SIZE": "画像ファイル（JPEG,PNG,GIF）10MB以下で選択してください",
+    "MSG_SEND_MAIL": {
+      "MSG_1": "Saved",
+      "MSG_2": "I sent a confirmation email",
+      "MSG_3": "Please click URL in the mail and complete the registration."
+    },
+    "ATTACHED_FILES": {
+      "CONFIRM_DELETE": "Do you want to delete it?",
+      "CONFIRM_SEND": "Do you want to transfer the attached file?",
+      "CONFIRM_EMAIL": "Please enter the email address of the transfer destination.",
+      "FORWARDING_ADDRESS": "Attachment transfer destination:",
+      "PLACEHOLDER": "Enter email address",
+      "CANCELED": "Transmission was canceled"
+    },
+    "MEMBER_LIST": {
+      "READ_TITLE": "Read / Unread",
+      "CONFIRM_TITLE": "Confirmed",
+      "GROUP_TITLE": "Group member",
+      "GROUP_EDIT": "Group edit",
+      "ROOM_TITLE": "Room member"
+    },
+    "RE0004": {
+      "E001_1": "Invalid Key Code"
+    },
+    "RE0010": {
+      "E001_2": "Are you sure you want to delete this account?",
+      "E001_3_1": "Deleting the account deletes all history data such as registration information, visiting / contact room, group, etc.",
+      "E001_3_2": "Please note that you can not restore the data of the deleted account.",
+      "E001_3_3": "Also,",
+      "E001_3_RED": "It is not possible to create an account again using the same e-mail address",
+      "E001_3_4": "please note。",
+      "E001_4": "Please acknowledge that it can not be restored and delete the account"
+    },
+    "RE0010_1": {
+      "E003_1": "Are you sure you want to delete the additional mail address?",
+      "E003_2": "The notification will not be sent to the deleted mail address。",
+      "E006_1": "Would you like to delete your area of expertise?",
+      "E007_1": "Please enter your current login password",
+      "E007_2": "Login password is required if you want to change the login ID"
+    },
+    "RE0012": {
+      "E001_1": "「hospitalName」を削除します。よろしいですか？<br>担当病院を削除する場合は、該当病院の医師や薬剤師との<br>面会予定等の情報はすべて削除されます。<br>なお、後任の担当者がいる場合、削除前に必ず社員招待をしてください。",
+      "E002_1": "Keyコードが不正です",
+      "E002_2": "既に登録済みです",
+      "E002_3": "keyコードを入力してください",
+      "E003_1": "「hospitalName」を削除します。よろしいですか？",
+      "E005_1": "既に登録済みです",
+      "TEXT1": "現在登録されている担当病院一覧 (Dr.JOY導入済み病院)",
+      "ADD_NEW": "新しい担当病院を追加",
+      "TEXT3": "その他の担当病院一覧 (Dr.JOY未導入病院)",
+      "TEXT4": "Dr.JOYをご導入されていない病院で、担当されている病院がございましたらご登録ください。（先生から見たプロフィールに表示されます）",
+      "TEXT5": "その他の担当病院を検索",
+      "DELETE": "削除",
+      "ADD_TO": "追加",
+      "TEXT8": "登録済のその他の担当病院はありません。",
+      "SEARCH": "検索",
+      "TEXT10": "登録済の担当病院はありません。",
+      "PLACEHOLDER_KEYCODE": "keyコードを入力してください",
+      "SEARCH_MEDICAL_ERROR": "担当病院の名前をを入力してください",
+      "NO_RESULT": "一致する会社がありません"
+    },
+    "RE0013_1": {
+      "E004_1": "ログインに失敗しました",
+      "E004_2": "このアカウントはロックされています",
+      "CONTACT_ADMIN": "法人管理者にお問い合わせ下さい。"
+    },
+    "RE0016": {
+      "DELETE_DEPARTMENT": {
+        "E006_1": "Are you want to delete？"
+      },
+      "E002_1": "Would you like to unlock this user's account?",
+      "E002_2": "Would you like to lock this user's account?",
+      "E003_1": "This user is granted 'intermediary authority'. If you delete an account, this intermediary will be disconnected from the doctor in charge. If only one mediator of a doctor is available, we recommend that other users be mediators in advance.",
+      "E003_2": "Are you sure you want to delete this account?",
+      "E003_3_1": "Deleting the account deletes all history data such as registration information, visiting / contact room, group etc. In addition, you can not restore the data of account once deleted. Also,",
+      "E003_3_2": "It is not possible to create an account again with the same email address. ",
+      "E003_3_3": "Please understand.",
+      "E003_4": "Please acknowledge that it can not be restored and delete the account",
+      "P001_1": "Account unlocked",
+      "P002_1": "Account locked"
+    },
+    "CA0006": {
+      "E000_1": "Acquisition of calendar setting failed",
+      "E001_1": "Save calendar setting failed",
+      "BACK_CURRENT_PAGE": "このページから移動しますか︖ <br> 編集の途中の為保存されていない内容は削除されます。"
+    },
+    "CA0008": {
+      "E001_1": "Save calendar setting failed"
+    },
+    "CA0009": {
+      "E000_1": "Failed to get referenced user",
+      "E000_2": "Acquisition of share level failed",
+      "E001_1": "Staff search failed",
+      "E001_2": "Save calendar setting failed",
+      "ALERT_REMOVE_STAFF": "Would you like to unshare 「nameStaff」?",
+      "ALERT_OFF_SHARE": "<div class='content-delete-referenced'> Sharing is currently off if you turn off <br> 「Staff who has registered your calendar in the staff calendar」<br> All settings are canceled and your schedule can not be seen from the other party. <br> Is it OK︖</div>"
+    },
+    "RE0020_1": {
+      "E002_1_1": "あなたは「仲介者権限」を付与されています。",
+      "E002_1_2": "アカウントを削除すると、担当している医師からはずれます。",
+      "E002_1_3": "担当している医師の仲介者があなたのみの場合は事前に",
+      "E002_1_4": "他のユーザーを仲介者にしておくことをおすすめします。",
+      "E002_2": "このアカウントを削除してもよろしいですか？",
+      "E002_3_1": "アカウントを削除すると、登録情報や面会・連絡ルーム、グループなどの履歴データがすべて消去されます。",
+      "E002_3_2": "なお、一度削除したアカウントのデータを復元させることはできません。",
+      "E002_3_3": "また、",
+      "E002_3_RED_1": "同じメールアドレスを使って再度アカウントを作成することは",
+      "E002_3_RED_2": "できません",
+      "E002_3_4": "のでご了承ください。",
+      "E002_4": "復元できないことを了承した上でアカウントを削除します",
+      "E003_1": "追加メールアドレスを削除してよろしいですか？",
+      "E003_2": "削除したメールアドレス宛には通知が送られなくなります。",
+      "E006_1": "診療科を削除しますか？",
+      "E010_1": "現在のログインパスワードを入力してください",
+      "E010_2": "ログインIDを変更するにはログインパスワードが必要です"
+    },
+    "RE0022_1": {
+      "E004_1": "ログインに失敗しました",
+      "E004_2": "このアカウントはロックされています",
+      "CONTACT_ADMIN": "法人管理者にお問い合わせ下さい。"
+    },
+    "RE0022_2": {
+    },
+    "RE0026": {
+      "E003_2": "以下のメールアドレスへの送信は失敗しました。",
+      "E003_3": "以下のメールアドレスは登録済みです。"
+    },
+    "GR": {
+      "M001": "グループを作成しました",
+      "M002": "このグループを退出しますか？",
+      "M003": "退出しました",
+      "M004_1": "投稿記事を削除します",
+      "M004_2": "本当によろしいですか？",
+      "M005": "管理者は最低1人以上選択してください",
+      "M006_1": "グループを削除しますか？",
+      "M006_2": "グループ内で投稿した記事は消えます。",
+      "M007": "グループを削除しました",
+      "M008_1": "グループを修正しますか？",
+      "M008_2": "招待されたメンバーはグループ内の過去の投稿を閲覧可能です。",
+      "M009": "グループを修正しました",
+      "M012_1": "コメントを削除します",
+      "M012_2": "本当によろしいですか？",
+      "M013": "回答期限が切れています",
+      "M014": "他に管理者がいないので、削除できません",
+      "M015": "受け付けました",
+      "M016": "1度にアップロードできる添付ファイルは10件までとなります",
+      "M017": "グループが存在しません",
+      "M018": "グループへの招待を拒否しますか？",
+      "TITLE_NG_KEYWORD_CHECKBOX": "コメントでの副作用の報告は禁止しております",
+      "CONTENT_NG_KEYWORD_CHECKBOX": "副作用情報を報告する場合は、直接お電話、メール等で行ってください。",
+      "NG_KEYWORD_CHECKBOX_LBL": "副作用情報が含まれていないことを確認の上、送信します",
+      "LOCKED_ACCOUNT_PROFILE_POPUP": {
+        "MSG_1": "スタッフのプロフィールを",
+        "MSG_2": "表示できません。",
+        "MSG_3": "データの取得が出来なかったため、",
+        "MSG_4": "スタッフのプロフィールを表示できません。"
+      },
+      "MAX_SIZE_ERROR": "ファイルの容量が128MBを超えています",
+      "DEFAULT_NAME_DELETED_ACCOUNT": "アカウント削除",
+      "ERROR＿NETWORK": "通信エラーが発生しました。",
+      "CSV_HEADER": {
+        "H001": "投稿日時",
+        "H002": "投稿者",
+        "H003": "既読者",
+        "H004": "未読者"
+      },
+      "MSG_CSV_POPUP": {
+        "P001": "CSVをダウンロードしますか？",
+        "P002": "ダウンロードファイルの準備にはお時間がかかります。",
+        "P003": "ダウンロードしますか？"
+      },
+      "CSV_MSG_NO_ARTICLES": "データが無いため、ダウンロードできません。"
+    },
+    "GR0011": {
+      "M012_1": "コメントを削除します",
+      "M012_2": "本当によろしいですか？",
+      "GROUP_SETTINGS_BTN_TOOLTIP": "グループ設定"
+    },
+    "CA0001": {
+      "E000_1": "予定が存在しませんでした",
+      "E000_2": "予定の取得に失敗しました",
+      "E001_1": "予定が存在しませんでした",
+      "E001_2": "予定の削除に失敗しました"
+    },
+    "CA002": {
+      "E000_2": "Acquisition of calendar setting failed"
+    },
+    "ME0004": {
+      "E000_1": "ブロック解除する",
+      "E000_2": "ブロックする",
+      "P001_1": "この担当者をブロックしますか？",
+      "E000_3": "ブロックボタンの文言を「ブロック解除する」にする",
+      "E000_4": "「ブロックする」",
+      "P002_1": "ブロックを解除しますか？"
+    },
+    "ME0008": {
+      "E_SEND_MESSAGE": "送信に失敗しました"
+    },
+    "ME0009": {
+      "E001_1A": "このURLは有効期限が切れています。",
+      "E001_1B": "メールまたはログインしてご確認ください。",
+      "E001_2A": "こちらの面会はすでに処理済みです。",
+      "E001_2B": "メールまたはログインしてご確認ください。",
+      "E001_3A": "このURLは有効期限が過ぎているか、既に処理済みです。",
+      "E001_3B": "メールまたはログインしてご確認ください。",
+      "E001_4A": "閲覧権限がありません。",
+      "E001_4B": "アカウントの状態をシステム管理者にご確認ください。",
+      "E000_1": "すべての日程を断る",
+      "E000_2": "断る",
+      "E001_1": "面会リクエストを承認しますか？",
+      "E001_2": "承認しました",
+      "E002_2": "面会リクエストを断りますか？<br> お断りする相手にメッセージを書きましょう",
+      "E002_1": "予定を断りました",
+      "ALERT_ACCEPT": "面会リクエストを承認しますか？",
+      "MESSAGE_DEFAULT": "今回は都合により面会予定の調整ができませんでした。またご応 募いただければ幸いです。今後とも宜しくお願い致します。"
+    },
+    "ME0031": {
+      "E001": "面会を承認しました <br> 取引先との細かいやりとりをするため、連絡ルームに移動しますか？",
+      "E002": "面会リクエストを断りました"
+    },
+    "ME0017": {
+      "E002_2": "設定を変更しました"
+    },
+    "CH": {
+      "M001": "メッセージを作成しました。",
+      "M002": "メッセージの設定を保存しました。",
+      "E001": "管理者は最低１人以上選択してください。 ",
+      "E002_1": "メンバーを追加しますか？",
+      "E002_2": "招待されたメンバーは過去のメッセージを閲覧可能です。",
+      "E003_1": "メッセージを削除しますか？",
+      "E003_2": "過去のメッセージは全て削除されます。",
+      "E004": "メッセージを削除しました",
+      "MESSAGE_MAX_LENGTH": "メッセージは全角・半角、3,000文字以内で入力して下さい",
+      "CHAT_INPUT_PLACEHOLDER": "Shift＋Enterキーで送信",
+      "UPLOAD_CONFIRMATION_MSG": "ファイル名を確認して送信",
+      "ADMIN_LABEL": "管理者",
+      "LOCKED_ACCOUNT_LABEL": "アカウントロック中",
+      "BLOCKED_ACCOUNT_LABEL": "ブロック中",
+      "VISIT_RESTRICTION_LABEL": "訪問制限中",
+      "LOADING": "読み込み中です･･･",
+      "EMPTY_MESSAGE": "メッセージ内容を入力してください",
+      "UPLOAD_FILE_BTN": "ファイルを送信",
+      "STAMP": "スタンプ",
+      "MSG_TODAY": "今日",
+      "MSG_YESTERDAY": "昨日",
+      "ALREADY_READ": "既読",
+      "MARK_UNREAD": "ここから未読",
+      "CHAT_SETTINGS_BTN_TOOLTIP": "メッセージ設定"
+    },
+    "ME5002": {
+      "E001_1": "Please enter your billing address (within 64 characters)",
+      "PLACEHOLDER": "",
+      "VALIDATE": {
+        "MAX_LENGTH": "Please make your billing address within 64 characters.",
+        "MIN_LENGTH": "Billing address is not entered."
+      }
+    }
+  },
+  "VAL": {
+    "GET_USER_FAILED": "Not found Office",
+    "DELETE_USER_FAILED": "Not Found Specified User",
+    "PASSWORD_CONFIRM_MISMATCH": "Passwords do not match。",
+    "PASSWORD_FORMAT_ERROR": "パスワードは、英数大文字小文字(0-9a-zA-Z), '_'(アンダーバー) 6文字以上16文字以内で入力してください",
+    "REQUIRED_EMAIL": "メールアドレスが未入力です",
+    "ILLEGAL_FORMAT_EMAIL": "Invalid email address format",
+    "RE0004": {
+      "REQUIRED_EMAIL": "E-mail address is a required item"
+    },
+    "RE0023_1": {
+      "E002_1": "利用規約の内容をご理解いただいた上、「利用規約の同意」にチェックをいれてください",
+      "E002_2": "Confirmation email address does not match."
+    },
+    "LOGIN_ID": {
+      "LENGTH": "Login ID must be 8 to 64 characters",
+      "NOT_MATCH_PATTERN": "指定のIDに不正な文字列が含まれています。"
+    },
+    "DUPLICATION_MAIL": "メールアドレスが重複しています",
+    "DUPLICATION_SPECIALIZED_DEPT": "主な専門領域が重複しています",
+    "SPEC_DEPT_FIELD_REQUIRED": "領域を選択してください",
+    "SPEC_DEPT_TYPE_REQUIRED": "診療科を選択してください",
+    "FIRST_NAME": "Please enter 'First Name' within 8 characters",
+    "LAST_NAME": "Please enter 'Last Name' within 8 characters",
+    "FIRST_NAME_KANA": "Please enter 'First Name(Kana)' within 8 characters' ",
+    "LAST_NAME_KANA": "Please enter 'Last Name(Kana)' within 8 characters",
+    "ERROR_CHANGE_PASSWORD": {
+      "CURRENT_PASSWORD_MATCH": "Please enter the current password correctly",
+      "CURRENT_PASSWORD_REQUIRED": "Please enter your current password",
+      "NEW_PASSWORD_REQUIRED": "Please enter a new password",
+      "CONFIRM_PASSWORD_REQUIRED": "Please enter password confirmation"
+    },
+    "WRONG_FORMAT": "グループ名を正しく入力してください",
+    "NON_SELECTED_DEPT": "所属は未選択",
+    "NON_SELECTED": "メンバーを選択してください",
+    "COMMENT_REQUIRED": "Please enter comment",
+    "COMMENT_RANGE": "Please enter less than 3000 characters",
+    "ARTICLE_REQUIRED": "記事内容を入力してください",
+    "ARTICLE_RANGE": "3000文字以下で入力してください",
+    "NOT_FOUND_GROUP": "Not Found Specified Group",
+    "NOT_PERMISSION": "Not Permission",
+    "ROOM_NAME_WRONG_FORMAT": "ルーム名を正しく入力してください"
+  },
+  "BTN": {
+    "SEND": "Send",
+    "SAVE": "Save",
+    "ADD": "Add",
+    "SEARCH": "Search",
+    "DELETE_ACCOUNT": "Delete account",
+    "ADD_MORE": "Add more",
+    "CHANGE": "Change",
+    "CREATE": "Create",
+    "CANCEL": "Cancel",
+    "EDIT": "Edit",
+    "DELETE": "Delete"
+  },
+  "OTHER_AUTHORITY": {
+    "FPS_0": "Custom",
+    "FPS_1": "Administrator",
+    "FPS_2": "Intermediary",
+    "FPS_3": "説明会スタッフ",
+    "FPS_4": "None"
+  },
+  "STAFF_AUTHORITY": {
+    "MP_1": "全体管理者",
+    "MP_2": "所属管理者",
+    "MP_3": "なし"
+  },
+  "COMMON_LABEL": {
+    "ALL": "All",
+    "LBL_SEARCH": "Search",
+    "REQUIRED_NOTE": "is a required item",
+    "REGISTRATION_CONFIRMATION": "Do you want to register with the following contents？",
+    "SELECT_DEPARTMENT_FIELD": "Please select a field",
+    "SELECT_DEPARTMENT_TYPE": "Please select medical department",
+    "INPUT_MAIL_PLACEHOLDER": "Enter email address",
+    "DESKTOP_NOTIFICATION": "Desktop notification",
+    "LBL_NEW_PASSWORD": "New password",
+    "LBL_CONFIRM_PASSWORD": "New password (for confirmation)",
+    "LBL_PASSWORD_LOGIN": "Login password",
+    "LBL_GROUP": "Group",
+    "LOGIN_ID": "ID Login",
+    "INPUT_LOGIN_ID": "メールアドレスもしくは半角英数字8文字以上64文字以内で入力",
+    "CURRENT_PASSWORD": "Current password",
+    "LBL_GROUP_NAME": "Group Name",
+    "FULL_NAME": "Full Name",
+    "LBL_FULL_NAME": "Name",
+    "LBL_FULL_NAME_KANA": "Name(kana)",
+    "LBL_FIRST_NAME": "First Name",
+    "LBL_LAST_NAME": "Last Name",
+    "LBL_FIRST_NAME_KANA": "First Name(kana)",
+    "LBL_LAST_NAME_KANA": "Last Name(kana)",
+    "GENDER": "Gender",
+    "MALE": "Male",
+    "FEMALE": "Female",
+    "DOB_TITLE": "Birthday",
+    "YEAR": "year",
+    "MONTH": "month",
+    "DAY": "day",
+    "EXPERIENCE_TITLE": "Year of experience",
+    "LBL_GRADUATION_YEAR": "Graduation Year",
+    "PHARMACY_GRAD": "薬学部卒業",
+    "LBL_DEPARTMENT": "Department",
+    "LBL_DEPARTMENT_FIELD": "Field",
+    "LBL_DEPARTMENT_TYPE": "Department",
+    "LBL_JOB": "Occupational Classification",
+    "SALES_OFFICE": "Sales Office",
+    "OFFICE_NAME": "Sales Office Name",
+    "OFFICE_ADDRESS": "Sales Office Address",
+    "PROVINCE": "Prefecture",
+    "NOTIFICATION_EMAIL": "Notification e-mail",
+    "LBL_MAIL_ADDRESS": "Mail address",
+    "LBL_MAIL_NOTIFICATION": "Notification mail address",
+    "LBL_ADDITIONAL_MAIL": "Additional mail address",
+    "LBL_PHONE_NUMBER": "Office telephone number",
+    "LBL_MOBILE_NUMBER": "Mobile phone",
+    "HALF_WIDTH_NUMBER": "half-width number",
+    "AVATAR_PROFILE": "Profile",
+    "HOBBY": "Hobby",
+    "PLACE_BORN_IN": "Birthplace",
+    "LBL_STAFF_AUTHORITY": "Staff authority",
+    "LBL_OTHER_AUTHORITY": "Other authority",
+    "LBL_ADMIN_AUTHORITY": "Management authority",
+    "LBL_FUNCTION_AUTHORITY": "Function authority",
+    "DEFAULT_SELECT": "Please select",
+    "LBL_MAIL1": "Mail address( half-width alphanumeric)",
+    "LBL_MAIL2": "メールアドレスを持っていない場合",
+    "CONFIRM_MAIL_PAGE": {
+      "CHANGE_MAIL_PAGE_TITLE": "Change notification email address",
+      "ADD_MAIL_PAGE_TITLE": "通知メールアドレスの追加",
+      "CONTENT_MAIL_PAGE": "Please enter the login password of Dr. JOY and click 「Send」 button.",
+      "TO": "to",
+      "CHANGE": "change to。",
+      "ADD": "を追加します。",
+      "LABEL_INPUT": "Login password",
+      "CONTENT_MAIL_EXPIRED": "E-mail address registration URL has expired。",
+      "MAIL_UPDATED": "Email address updated",
+      "MAIL_EXPIRED": "有効期限が切れています。",
+      "PASS_ERROR": "Please enter the correct password"
+    },
+    "BTN_GO_TO_HOSP_GROUP_CREATION_SCREEN": "院内グループ作成画面へ",
+    "BTN_GO_TO_DEPT_GROUP_CREATION_SCREEN": "所属グループ作成画面へ",
+    "INPUT_GROUP_NAME_PLACEHOLDER": "全角、半角、17文字以内で入力してください",
+    "SEARCH_BY_DEPARTMENT": "所属から探す",
+    "REQUIRED": "必須",
+    "DEFAULT_SELECT_DEPT": "所属を選択してください",
+    "LBL_SELECTED_MEMBER": "選択されたメンバー",
+    "DEPARTMENT_GROUP_NOTE": "所属に新しくスタッフが追加された場合、自動的にグループのメンバーに追加されます",
+    "ROOM_CHAT_NAME_LBL": "メッセージルーム名",
+    "TITLE_MODAL_UNANSWERED": "未回答者",
+    "TITLE_MODAL_ANSWERED": "回答者",
+    "TITLE_MODAL_CONFIRMED": "確認しました",
+    "MODAL_TAB_SEEN": "既読",
+    "MODAL_TAB_UNSEEN": "未読",
+    "MODAL_BTN_CLOSE": "とじる",
+    "NEW_COMMENT": "コメントする"
+  },
+  "COMMON_BTN": {
+    "SEND": "Send",
+    "SAVE": "Save",
+    "DELETE": "Delete",
+    "ADD": "Add",
+    "SEARCH": "Search",
+    "DELETE_ACCOUNT": "Delete Account",
+    "ADD_MORE": "Add more",
+    "ADD_SPEC_DEPART": "診療科を追加",
+    "CHANGE": "Change"
+  },
+  "PROVINCES": {
+    "P001": "Hokkaido",
+    "P002": "Aomori Prefecture",
+    "P003": "Iwate Prefecture",
+    "P004": "Miyagi Prefecture",
+    "P005": "Akita",
+    "P006": "Yamagata Prefecture",
+    "P007": "Fukushima Prefecture",
+    "P008": "Ibaraki Prefecture",
+    "P009": "Tochigi Prefecture",
+    "P010": "Gunma Prefecture",
+    "P011": "Saitama",
+    "P012": "Chiba Prefecture",
+    "P013": "Tokyo",
+    "P014": "Kanagawa Prefecture",
+    "P015": "Niigata Prefecture",
+    "P016": "Toyama Prefecture",
+    "P017": "Ishikawa Prefecture",
+    "P018": "Fukui-ken",
+    "P019": "Yamanashi Prefecture",
+    "P020": "Nagano Prefecture",
+    "P021": "Gifu Prefecture",
+    "P022": "Shizuoka Prefecture",
+    "P023": "Aichi-ken",
+    "P024": "Mie Prefecture",
+    "P025": "Shiga Prefecture",
+    "P026": "Kyoto",
+    "P027": "Osaka prefecture",
+    "P028": "Hyōgo Prefecture",
+    "P029": "Nara Prefecture",
+    "P030": "Wakayama Prefecture",
+    "P031": "Tottori Prefecture",
+    "P032": "Shimane Prefecture",
+    "P033": "Okayama Prefecture",
+    "P034": "Hiroshima",
+    "P035": "Yamaguchi Prefecture",
+    "P036": "Tokushima",
+    "P037": "Kagawa Prefecture",
+    "P038": "Ehime Prefecture",
+    "P039": "Kochi Prefecture",
+    "P040": "Fukuoka Prefecture",
+    "P041": "Saga Prefecture",
+    "P042": "Nagasaki Prefecture",
+    "P043": "Kumamoto Prefecture",
+    "P044": "Oita Prefecture",
+    "P045": "Miyazaki",
+    "P046": "Kagoshima prefecture",
+    "P047": "Okinawa Prefecture"
+  },
+  "JOB_TYPES": {
+    "J0001": "Doctor",
+    "J0002": "Doctor Internship",
+    "J0003": "Dentist",
+    "J0004": "Medical technologis",
+    "J0005": "Radiologic technologist",
+    "J0006": "Clinical Engineering Technologis",
+    "J0007": "Physio therapist",
+    "J0008": "Occupational therapist",
+    "J0009": "Registered dietitian",
+    "J0010": "Dietitian",
+    "J0011": "Speech-Language-Hearing Therapist",
+    "J0012": "Clinical Psychologist",
+    "J0013": "Orthoptist",
+    "J0014": "Prosthetist and Orthotist",
+    "J0015": "Emergency Medical Technician Paramedic",
+    "J0016": "Psychiatric Social Worker",
+    "J0017": "Medical Social Worker",
+    "J0018": "Medical Coordinator",
+    "J0019": "Care Manager",
+    "J0020": "Vocational Counselor",
+    "J0021": "Counseling",
+    "J0022": "Secretary ",
+    "J0023": "事務",
+    "J0024": "Nursing",
+    "J0025": "Nurse",
+    "J0026": "Nursing Aide",
+    "J0027": "Midwife",
+    "J0028": "Public Health Nurse",
+    "J0029": "Pharmacist",
+    "J0030": "Pharmaceutical Assistant",
+    "J0031": "Dental Technician",
+    "J0032": "Dental Hygienist",
+    "J0033": "Dental Assistant",
+    "J0034": "Certified Care Worker",
+    "J0035": "Caregiver（helper）",
+    "J0036": "Acupuncturist",
+    "J0037": "Moxibutionist",
+    "J0038": "Masseur",
+    "J0039": "Bonesetter",
+    "J0040": "加圧トレーナー",
+    "J0041": "Medical Association staff",
+    "J0042": "Local Government staff",
+    "J0043": "Teacher",
+    "J0044": "Medical Student",
+    "J0045": "学生（医学生以外）",
+    "J0046": "Ward Clerk",
+    "J9999": "Other"
+  },
+  "STAFF_DETAILS_POPUP": {
+    "EMAIL_ADDRESS": "Email address",
+    "PHONE_NUMBER": "Mobile phone number",
+    "PHS": "PHS",
+    "GENDER": "Gender",
+    "JOB": "Job",
+    "YEAR_GRADE": "Year of experience",
+    "YEAR_EXP": "Year of experience",
+    "YEAR_GRADE_TEXT": "Graduate from college {{value}} year",
+    "YEAR_EXP_TEXT": "{{value}} year",
+    "DEPARTMENT": "Department",
+    "DEPARTMENT_TYPE": "Type",
+    "SPECIALIZED_DEPARTMENT": "Clinical Departments",
+    "SPECIALIZED_DEPARTMENT_NUMBER1": "The first Department",
+    "SPECIALIZED_DEPARTMENT_NUMBER2": "The second Department",
+    "SPECIALIZED_DEPARTMENT_NUMBER3": "The third Department",
+    "SPECIALIZED_DEPARTMENT_NUMBER4": "The fourth Department",
+    "SPECIALIZED_DEPARTMENT_NUMBER5": "The fifth Department",
+    "BRIEF_HISTORY": "Brief history",
+    "QUALIFICATION": "License",
+    "POSITION": "Position",
+    "HOBBY": "Hobby",
+    "PLACE_BORN_IN": "Place of birth",
+    "EMERGENCY_CONTACT": "Emergency contact",
+    "OFFICE_PHONE": "Office telephone number",
+    "OFFICE_NAME": "Sales Office Name",
+    "OFFICE_ADDRESS": "Sales Office Address",
+    "DEPARTMENT_SECTION": "Department",
+    "INDUSTRY_TYPE": "Type of industry",
+    "GRADE_PHARMA": "Pharmacy Graduation",
+    "YES": "Yes",
+    "NO": "No",
+    "DEPARTMENT_CHARGE": "Department in charge",
+    "HOSPITAL_CHARGE": "Hospital in charge",
+    "DRUG_CHARGE": "Drug in charge",
+    "MALE": "Male",
+    "FEMALE": "Female"
+  },
+  "ATTACHED_FILES": {
+    "TITLE": "Attached file list",
+    "FILE_NAME": "Filename",
+    "UPLOAD_USER": "Uploader",
+    "UPLOAD_DATE": "Upload date"
+  },
+  "MEMBER_LIST": {
+    "ALREADY": "Read",
+    "UNREAD": "Unread",
+    "ANSWERED": "Answered",
+    "UNANSWERED": "Unanswered"
+  },
+  "RE0001": {
+    "MENU_ORDER": "Display order",
+    "MENU_LIST": "Function name",
+    "MENU_MEG": "サイドメニューの表示を切り替えていいですか？",
+    "TITLE": "Side menu sort",
+    "MENU": {
+      "CA0002": "カレンダー",
+      "ME0001": "面会",
+      "CH0007": "院内メッセージ",
+      "CH0005": "院外メッセージ",
+      "GR0015": "院内グループ",
+      "GR0016": "院外グループ"
+    }
+  },
+  "RE0004": {
+    "REGISTRATION_PAGE": "Pr.JOY登録ページ",
+    "HOSPITAL": "メールアドレスと登録する病院のkeyコードを入力してください。",
+    "HOSPITAL_SPECIFIC": "病院専用の登録ページをご案内いたします。",
+    "KEY_CODE": "Keyコード",
+    "CONFIRM_SAVE": "登録しますか？",
+    "REGISTRATION": "登録",
+    "TITLE": "メールを送信しました",
+    "MESSAGE": "届いたメールに記載のURLから登録フォームにお進みください"
+  },
+  "RE0006": {
+    "REQUIRED_NOTE": "印は必須項目です",
+    "FORM": {
+      "PLACEHOLDER": "会社名の一部を入力",
+      "COMPANY": "会社名",
+      "COMPANY_REQ": "会社名の一部を入力",
+      "COMPANY_INPUT": "「株式会社」や「有限会社」等は省いて入力してください。",
+      "EMAIL_SUPPORT": "support@drjoy.jp",
+      "COMPANY_DES": "貴社名が検索結果にない場合は、Dr.JOYサポート ",
+      "CONTACT_US": " までご連絡ください。",
+      "COMPANY_PHONE": "お薬の連絡先",
+      "SALES_OFFICE_INFO": "営業所情報",
+      "TYPE_BUSSINESS": "業種",
+      "MALE": "男性",
+      "FEMALE": "女性",
+      "REAL_DOB": "パスワードを再設定する際に必要になりますので、生年月日は必ず正確なものを入力して下さい。",
+      "EMAIL_LOGIN": "メールアドレス(ログインID)",
+      "EMAIL_GUIDE": "※PCメール推奨。携帯メールアドレスでご登録の場合は、「@prjoy.jp」からのメール受信できるよう設定をお願いします。",
+      "ALPHA_REQ": "半角英数字",
+      "EMAIL_CONFIRM": "メールアドレス(確認用)",
+      "LBL_CONFIRM_PASSWORD": "パスワード(確認用)",
+      "PASSWORD_REQ": "6文字以上16文字以下の半角英数字及び_(アンダースコア)で入力",
+      "YEAR_EXP": "現業種での経験年数",
+      "GRADE_PHARMA": "薬学部卒業",
+      "YES": "あり",
+      "NO": "なし",
+      "EXPERTISE": "主な専門領域(5つまで選択可)",
+      "INFO_DISPLAY": "下記の出身地、趣味、自己PR、プロフィール写真情報は、医師・薬剤師等があなたを探す際に表示されます。",
+      "ADDRESS_REQ": "15文字以内",
+      "HOBBY_REQ": "100文字以内",
+      "PR_MYSELF": "自己PR",
+      "PR_REQ": "120文字以内",
+      "PR_EXAMPLE": "例",
+      "PR_EXAMPLE_CONTENT": "これまで◯◯の症状に処方されていた「△△」ですが最近は◇◇の症例にも著効する報告が報告が増えてきております。 近隣の病院の先生方の処方例を交えながら具体的にご説明いたしますので、◯◯の症状をお持ちな先生方、是非お声掛け下さい！",
+      "PR_EXAMPLE_BUTTON": "他の例文も見る",
+      "AVATAR": "プロフィール写真登録",
+      "AVATAR_EXAMPLE_FACE": "【写真例】",
+      "AVATAR_EXAMPLE_CARD": "【名刺画像の例】",
+      "EXAMPLE_TEXT": "見本",
+      "EXAMPLE_TEXT_NG": "NG",
+      "FACE_NG1": "顔が横向き、写真が不鮮明",
+      "FACE_NG2": "顔が小さい",
+      "FACE_NG3": "写真が切れている",
+      "FACE_NG4": "写真が暗い",
+      "AVATAR_CAUTION": "Dr.JOYでは、すべてのユーザー様に安心してご利用いただくためになりすまし会員による不正使用を禁じております。その為にご登録いただく上で本人確認を行っております。ご登録いただく名刺の画像データは文字情報が正確に確認出来る画像のご登録をお願いいたします。\n医療機関様にて名刺情報を確認いただいておりますが、確認が取れない場合、再度ご提出をお願いすることがございます。",
+      "IDENTIFICATION": "本人確認",
+      "CHOOSE_AVATAR": "Choose Avatar",
+      "LIMIT_SIZE": "Image File(JPG,JPEG, PNG) Maximum 10MB",
+      "VERIFY_IMAGES": "Verify Images",
+      "RULE_DESCRIPTION": "利用規約と、弊社の個人情報保護方針を必ずお読みいただき、同意のうえお進みください。",
+      "RULE_LINK_TEXT": "<a href=\"https://www.drjoy.jp/privacy-policy/\" class=\"fs18\" target=\"_blank\">個人情報保護方針</a>はこちら",
+      "CONFIRM_TERM": "上記を確認の上、同意する",
+      "BUTTON_CONFIRM": "確認画面へ"
+    },
+    "VALIDATE": {
+      "MEDICAL_OFFICE": "会社が選択されていません",
+      "INDUSTRY_TYPE": "業種は必ず選択してください",
+      "FIRST_NAME": "‘名’は8文字以内で入力してください",
+      "LAST_NAME": "‘姓’は8文字以内で入力してください",
+      "FIRST_NAME_KANA": "‘名(かな)’は8文字以内で入力してください",
+      "LAST_NAME_KANA": "‘姓(かな)’は8文字以内で入力してください",
+      "PASSWORD_TEXT": "パスワードは6文字以上、16文字以下の半角英数字及びアンダースコアで入力してください",
+      "PASSWORD_CONFIRM_MISMATCH": "パスワードがー致しません",
+      "EMAIL_REQUIRED": "メールアドレスは半角英数字で入力してください",
+      "EMAIL_INCORRECT_FORMAT": "メールアドレスの形式が不正です",
+      "EMAIL_NOT_MATCH": "メールアドレスがー致しません",
+      "BIRTHDAY": "生年月日は必ず選択してください",
+      "EXPERIENCE": "現業種での経験年数は必ず選択してください",
+      "IMAGE_URL": "プロフィール写真を選択してください",
+      "IDENTIFICATION_IMAGE_URL": "本人確認は必ず登録してください",
+      "OFFICE_NAME": "営業所名を入力してください",
+      "OFFICE_ADDRESS": "営業所住所を入力してください",
+      "OFFICE_DEPARTMENT": "所属を入力してください",
+      "OFFICE_NAME_MAX_LENGTH": "営業所名は255文字以内で入力してください",
+      "OFFICE_ADDRESS_MAX_LENGTH": "営業所住所は255文字以内で入力してください",
+      "OFFICE_DEPARTMENT_MAX_LENGTH": "所属は255文字以内で入力してください",
+      "OFFICE_PHONE": "営業所電話番号を入力してください",
+      "OFFICE_MOBILE": "携帯番号(仕事用)を入力してください",
+      "DEPARTMENT": "主な専門領域は選択してください",
+      "ACCESS": "利用規約の内容をご理解いただいた上、「利用規約の同意」にチェックをいれてください"
+    },
+    "OFFICE_REQUIED": "会社が選択されていません",
+    "OFFICE": "営業所情報はすべて入力してください",
+    "PHONE_OFFICE": "営業所電話番号は半角数字で入力してください ※※電話番号が全角の場合やスペースが入っている場合は不正な値と判断されます",
+    "PHONE": "携帯番号は半角数字で入力してください ※※電話番号が全角の場合やスペースが入っている場合は不正な値と判断されます",
+    "JOB": "業種は必ず選択してください",
+    "NAME_FIRST_REQUIED": "‘姓’は8文字以内で入力してください",
+    "NAME_LAST_REQUIED": "‘名’は8文字以内で入力してください",
+    "NAME_FIRST_KANA_REQUIED": "‘姓’(かな)は8文字以内で入力してください",
+    "NAME_LAST_KANA_REQUIED": "‘名’(かな)は8文字以内で入力してください",
+    "BIRTHDAY": "生年月日は必ず選択してください",
+    "PASSWORD_REQUIRED": "パスワードは6文字以上、16文字以下の半角英数字及びアンダースコアで入力してください",
+    "EMAIL_REQUIED": "メールアドレスは半角英数字で入力してください",
+    "EMAIL_MATCH": "メールアドレスの形式が不正です",
+    "EXPERIENCE": "現業種での経験年数は必ず選択してください",
+    "CONFIRMATION": "本人確認は必ず登録してください",
+    "AGREST": "利用規約の内容をご理解いただいた上、「利用規約の同意」にチェックをいれてください",
+    "INDUSTRY_TYPE": {
+      "I0001": "製薬企業",
+      "I0002": "医薬品卸",
+      "I0003": "医療機器",
+      "I0004": "医療資材",
+      "I0005": "食品",
+      "I0006": "治験施設支援機関(SMO)",
+      "I0007": "開発業務受託機関(CRO)",
+      "I0008": "医療機器卸",
+      "I9999": "その他"
+    },
+    "SWAL": {
+      "ADD_HOSPITAL": "病院の追加登録が完了しました",
+      "SELECT_HOSPITAL": "「医師を探す」画面の「医療機関名」から該当病院を選択できます",
+      "EXIST_DEPARTMENT": "同一の領域は選択できません",
+      "REPLACE_COMPANY": "会社名は変更することはできません"
+    },
+    "FORM_CONFIRM": {
+      "TITLE": "以下の内容で登録しますか？",
+      "MOBILE_PHONE": "携帯電話番号",
+      "TYPE_BUSINESS": "業種",
+      "YEAR_EXP": "現業種での経験年数",
+      "GRADE_PHARMA": {
+        "TITLE": "薬学部卒業経験",
+        "YES": "Yes",
+        "NO": "No"
+      },
+      "MAJOR_AREA": {
+        "TITLE": "専門領域"
+      },
+      "REGISTER": "Register",
+      "BACK": "Back previous"
+    }
+  },
+  "RE0009": {
+    "TITLE": "Change password",
+    "CHANGE_PASSWORD": {
+      "CURRENT_PASSWORD": "Current password",
+      "NEW_PASSWORD": "New password",
+      "CONFIRM_PASSWORD": "Confirm password",
+      "MEG_PASSWORD": "Please enter with 6 to 16 single-byte alphanumeric characters and _ (underscore)"
+    },
+    "ERROR_CHANGE_PASSWORD": {
+      "CURRENT_PASSWORD_MATCH": "Current password not match",
+      "CURRENT_PASSWORD_REQUIRED": "Current password is required",
+      "NEW_PASSWORD_REQUIRED": "New password is required",
+      "CONFIRM_PASSWORD_REQUIRED": "Confirm password is required",
+      "PASSWORD_TEXT": "Please enter the password in upper case letters and lower case letters (0 - 9 a - z A - Z), '_' (underscore) within 6 characters and 16 characters.",
+      "PASSWORD_CONFIRM_MISMATCH": "Password not match",
+      "REGISTER": "登録",
+      "BACK": "前の画面に戻る"
+    }
+  },
+  "RE0010": {
+    "PAGE_TITLE": "ユーザー情報編集",
+    "INDUSTRY_TYPE": "業種",
+    "PASS_ERROR": "パスワードを入力してください",
+    "INPUT_PLACEHOLDER_BRANCH_ADDRESS": "都道府県以降の住所を入力",
+    "PHARMACY_GRADUATION": {
+      "1": "あり",
+      "0": "なし"
+    },
+    "FORM":{
+      "AVATAR_EXAMPLE_CARD": "【名刺画像の例】"
+    },
+    "IDENTIFICATION": {
+      "FILE_NAME": "ファイル名",
+      "EX": "見本",
+      "NG": "NG"
+    },
+    "DEPARTMENT_TITLE": {
+      "UP": "主な専門領域",
+      "DOWN": "(5つまで選択可)"
+    },
+    "DEPARTMENT_NOTE": "こちらに選択した担当薬が優先的に医師側の紹介画面に表示されます",
+    "DEFAULT_DEPARTMENT": "専門領域を選択してください",
+    "BTN_UPLOAD_BUSSINESS_CARD_IMG": "名刺画像を選択する",
+    "VERIFY_IDENTITY_MSG": "Dr.JOYでは、ご登録いただく上で本人確認を行っています。すべてのユーザー様に安心してご利用いただくために、なりすまし会員による不正使用を禁じております。 名刺の画像データは文字情報が正確に確認出来る画像のご登録をお願いいたします。医療機関様にて名刺情報を確認いただいております。確認が取れない場合、再度ご提出をお願いすることがございます。",
+    "VERIFY_IDENTITY_ERROR": "本人確認が正常に行えませんでした。再度名刺画像の登録をお願いたします。",
+    "PR": "自己PR",
+    "PR_MSG": {
+      "0": "例：",
+      "1": "例：これまで◯◯の症状に処方されていた「△△」ですが最近は◇◇の症例にも著効する報告が報告が増えてきております。",
+      "2": "是非お声掛け下さい！近隣の病院の先生方の処方例を交えながら具体的にご説明いたしますので、◯◯の症状をお持ちな先生方、",
+      "3": "是非お声掛け下さい！",
+      "4": "これまで◯◯の症状に処方されていた「△△」ですが最近は◇◇の症例にも著効する報告が報告が増えてきております。<br>是非お声掛け下さい！近隣の病院の先生方の処方例を交えながら具体的にご説明いたしますので、◯◯の症状をお持ちな先生方、是非お声掛け下さい！"
+    },
+    "TEXTBOX_PLACEHOLDER": "文字以内",
+    "CONFIRM_INDENTIFICATION_IMAGE_1": "本人確認証を更新しますか？",
+    "CONFIRM_INDENTIFICATION_IMAGE_2": "更新した内容は担当している各病院に提示します",
+    "CONFIRM_INDENTIFICATION_IMAGE_SUCCESS": "登録が完了しました",
+    "RE0010_ERROR": {
+      "PHONE": {
+        "REQUIRED": "営業所電話番号を入力してください",
+        "MAXLENGTH": "16文字以内"
+      },
+      "MOBILE": {
+        "REQUIRED": "携帯番号(仕事用)を入力してください",
+        "MAXLENGTH": "16文字以内"
+      },
+      "DEPARTMENT_REQUIRED": "主な専門領域は選択してください",
+      "IDENTIFICATION_IMAGE_URL": "本人確認は必ず登録してください",
+      "IMAGE_URL": "プロフィール写真を選択してください",
+      "OFFICE_NAME": "営業所名を入力してください",
+      "OFFICE_NAME_LENGTH": "営業所名を255字以内で入力してください",
+      "OFFICE_ADDRESS": "営業所住所を入力してください",
+      "PREFECTURE": "都道府県を選択してください",
+      "BRANCH_ADDRESS": "都道府県以外の住所を入力してください",
+      "BRANCH_ADDRESS_LENGTH": "営業所住所を255字以内で入力してください",
+      "BRANCH_DEPARTMENT": "所属を入力してください",
+      "BRANCH_DEPARTMENT_LENGTH": "所属を255字以内で入力してください",
+      "EXISTED_ID": "ログインIDが既に使用されています",
+      "EXISTED_MAIL": "メールアドレスが既に使用されています"
+    },
+    "PR_EXAMPLE_BUTTON": "他の例文も見る",
+    "PR_EXAMPLE_CONTENT": {
+      "CLOSE": "とじる",
+      "PR_SENTENCE": "自己PR例文",
+      "PR_PRODUCT": "製品PR",
+      "PR_PRODUCT_MSG": {
+        "1": "新たな◯◯系製剤「△△」が製造販売承認を取得しました！フェーズ３では、非常に良い結果が出ております。<br>“５分”で薬剤の特徴を簡潔にご説明しますので、専門外の先生方もお気軽にお声掛け下さい！",
+        "2": "これまで◯◯の症例に処方されていた「△△」ですが最近は◇◇の症例にも著効する報告が増えてきております。<br>近隣の病院の先生方の処方例を交えながら具体的にご説明いたしますので◯◯の症例をお持ちな先生方、是非お声掛け下さい！",
+        "3": "◯◯系製剤「△△」が◇◇の症例でも適応が広がりました！既に発売されている欧米での事例も踏まえながら、ご説明いたします。<br>複数名の先生方同席でお弁当もご用意致しますので、夕方仕事終わりに、１５分ほどお時間いただけませんか？"
+      },
+      "PR_BUSINESS": "営業PR",
+      "PR_BUSINESS_MSG": {
+        "1": "私の持ち味は、先生方に多職種の医療関係者をご紹介し、先生方のネットワーク作りのお手伝いをすることです。<br>「認知症」や「◯◯」を始めこれから益々重要になっていきます地域医療連携を考え交流会を通じて先生方の診療のお役に立てればと考えています。",
+        "2": "はじめまして！◯◯県出身、△△大学薬学部卒、MR歴７年目の◇◇と申します。趣味はゴルフで週末は友人と××へラウンドに行っています。<br>小学校の頃からのゴルフを通して、誠実さとコミュニケーションの基本を学びました。○○領域に特化した情報提供を行います。",
+        "3": "◯◯領域のトップメーカーとして、常に最新の情報をご用意しております。「△△」製剤でお困りのことはございませんか？<br>また◯◯領域の開発途中の製剤に関しても、弊社のMSLをご紹介させていただき、海外の最新のトピックとともに情報提供いたします。",
+        "4": "◯月より△△から社名が変更になりました、××社の◇◇と申します。私は先生方にたくさんご指導を頂き、◯◯領域を20年間担当することが出来ております。<br>そのご恩を忘れずに、これからも先生方のお側でお役に立てるよう尽力いたします。"
+      },
+      "PR_COMMON": "一般的であまり先生に響かない例",
+      "PR_COMMON_MSG": {
+        "1": "いつもお世話になっております。適正かつ迅速な医薬品提供に努めます。",
+        "2": "◯月より貴院を担当させて頂いております。今後共宜しくお願いいたします。",
+        "3": "いつも格別のご高配にあずかり、厚くお礼申し上げます。責任と誠実を持って情報提供に努めていきたいと思います。",
+        "4": "弊社は◯◯と申します。先月△△社と◇◇社の合弁会社としてスタート致しました。",
+        "5": "まだまだ勉強中ではありますが、迅速で適正な情報提供を心がけていきます。"
+      }
+    }
+  },
+  "RE0011": {
+    "NOTIFICATION_SETTINGS": "Notification settings",
+    "MESSAGE": {
+      "UP": "メッセージ(取引先/社内/社外)",
+      "DOWN": "(5分以上未読の場合)"
+    },
+    "BACK": "入退館",
+    "GROUP_NEW_POST": "投稿があった場合",
+    "GROUP_MENTIONED": "自分が投稿した記事にコメントがあった場合",
+    "MAIL_VISIT": "入退館システムで訪問者が訪れた場合"
+  },
+  "RE0012": {
+    "TITLE": "担当病院",
+    "TEXT1": "現在登録されている担当病院一覧 (Dr.JOY導入済み病院)",
+    "ADD_NEW": "新しい担当病院を追加",
+    "TEXT3": "その他の担当病院一覧 (Dr.JOY未導入病院)",
+    "TEXT4": "Dr.JOYをご導入されていない病院で、担当されている病院がございましたらご登録ください。（先生から見たプロフィールに表示されます）",
+    "TEXT5": "その他の担当病院を検索",
+    "DELETE": "削除",
+    "TEXT8": "登録済のその他の担当病院はありません。",
+    "TEXT10": "登録済の担当病院はありません。",
+    "PLACEHOLDER_KEYCODE": "keyコードを入力してください"
+  },
+  "RE0013": {
+    "PLACEHOLDER_LOGIN_ID": "メールアドレス/ログインID",
+    "SHOW_PASSWORD": "パスワードを表示する",
+    "SAVE_LOGIN": "ログイン状態を保存(1ヶ月間)",
+    "LOGIN": "ログイン",
+    "NOT_LOGIN": "ログインできない場合はこちら",
+    "FORGOT_PASSWORD": "パスワードを忘れた方はこちら",
+    "SIGN_UP": "新規登録・病院追加の方はこちら",
+    "INCREASE_SECURITY": "セキュリティを高めるため",
+    "INCREASE_SECURITY_1": "他サービスでお使いのものと同じID／パスワードは使用しないことをお勧めします",
+    "SYSTEM_REQUIREMENTS": "Dr.JOYでは以下の環境を推奨しています",
+    "LATEST": "最新版",
+    "OVER": "以上",
+    "LOGIN_ID_ERROR": "メールアドレス/ログインIDを入力してください",
+    "PASSWORD_RESET": "パスワードの再設定",
+    "PASSWORD_RESET_MESSAGE": "ログイン用メールアドレスを入力し「送信」ボタンを押して下さい。パスワード再設定用URLを記載したメールが自動送信されます。",
+    "MAIL_ADDRESS": "メールアドレス",
+    "MAIL_ADDRESS_CONFIRM": "メールアドレス（再入力）",
+    "SEND": "送信",
+    "WRONG_MAIL_ADDRESS": "登録メールアドレスが不明な場合、既に使用できない場合、メールアドレスを登録していない場合は、上記カスタマーサポートへお問合せ下さい。",
+    "MAIL_ADDRESS_ERROR": "メールアドレスを入力してください",
+    "MAIL_ADDRESS_CONFIRM_ERROR": "メールアドレスが同一ではありません"
+  },
+
+  "RE0014": {
+    "RESIST_TITLE": "タイトル",
+    "TITLE_TOP": "所属を選択",
+    "TABLE_JOB": "職業",
+    "TABLE_ROLE_MAIN": "スタッフ権限",
+    "TABLE_ROLE_OTHER": "その他の権限",
+    "TABLE_PROVISIONAL": "仮登録",
+    "TABLE_KEY": "アカウントロック",
+    "TABLE_DETAIL": "詳細",
+    "STUFF_AUTHORITY": {
+      "0": "全体管理者",
+      "1": "所属管理者",
+      "2": "なし",
+      "3": "カスタム"
+    },
+    "OTHER_AUTHORITY": {
+      "0": "管理者",
+      "1": "仲介者",
+      "2": "一般",
+      "3": "なし",
+      "4": "カスタム"
+    }
+  },
+  "RE0015": {
+    "PASSWORD": "仮パスワード",
+    "EMAIL_DUPLICATE": "メールアドレスが重複しています。",
+    "EMAIL_EXIST": "このメールアドレスは既に使用されていよす",
+    "MESSAGE_ERROR_FILE": "ファイル形式が不正です。",
+    "FIRST_NAME_KANA": "‘名(かな)’は8文字以内で入力してください",
+    "LAST_NAME_KANA": "‘姓(かな)’は8文字以内で入力してください",
+    "MSG_VALIDATION": {
+      "REQUIRED": "※必須項目です",
+      "EMAIL": "メールアドレス（ログインID）は半角8文字以上64文字以内で入力してください",
+      "LOGINID": "指定のログインIDは利用できません",
+      "MAX_LENGHT_EMAIL": "メールアドレス（ログインID）は半角8文字以上64文字以内で入力してください",
+      "DUPLICATED_EMAIL": "指定のログインIDは利用できません"
+    },
+    "MSG_SEND_MAIL": {
+      "TITLE": "仮登録が完了しました。",
+      "TEXT2": "仮登録したユーザーに本登録を促すメールを送信しますか？",
+      "TEXT3": "後ほど全体管理者のご都合の良いタイミングで本登録を促すこともできます。",
+      "TEXT4": "※後日通知メールを送信したい場合は、事業所管理画面トップで行うことができます。",
+      "TEXT5": "　また、メールアドレスを登録していないユーザーには事業所管理画面トップにて",
+      "TEXT6": "　仮パスワードを印刷することができます。"
+    },
+    "CONFIRM_REGISTER": {
+      "TITLE": "以下のユーザーを登録しますか？",
+      "TEXT2": " 名のユーザーを  ",
+      "TEXT3": " のスタッフとして登録します。 "
+    },
+    "MSG_CONFIRM": {
+      "REGISTER_STAFF": "スタッフを登録しますか？",
+      "NAME_USER": "名のユーザーを",
+      "USER_OUTSITE": "のスタッフとして登録します。",
+      "REGISTER_COMPLETE": "仮登録が完了しました",
+      "REGISTER_TEMPORALY": "仮登録したユーザーに本登録を促すメールを送信しますか？",
+      "REGISTER_INFOR": "後ほど全体管理者の都合の良いタイミングで本登録を促すこともできます。",
+      "REGISTER_CONFIRM": "※後日メールを送信する場合は「管理者メニュー」の「一括招待」で行うことができます。また、メールアドレスを登録していないユーザーには「管理者メニュー」の「一括招待」にて仮パスワードを印刷することができます。"
+    },
+    "CHOOSE_MAIL": "スタッフを選択してください",
+    "TITLE_ERROR_INVITE": "一部の宛先への送信が失敗しました。",
+    "MESSAGE_ERROR_INVITE": "仮登録メール送信",
+    "ERROR_INVITE": "メールアドレスが登録済みのため、失敗しました。",
+    "LBL_INVITE1": "一括招待",
+    "LBL_INVITE2": "仮登録者一覧",
+    "LBL_REGISTER": "CSVファイルで登録される方は右記よりご利用下さい",
+    "LBL_DOWNLOAD": "テンプレート",
+    "LBL_IMPORT": "インポート",
+    "BNT_INVITE": "仮登録する",
+    "LOGIN_OR_PASSWORD": "ログインID / 仮パスワードを",
+    "SEND_BY_EMAIL": "メールで送る",
+    "SELECT_ONE": "スタッフを選択",
+    "SELECT_ALL": "スタッフを一括選択",
+    "TEMPORARY_PASSWORD": "仮パスワード",
+    "TITLE_PRINT": "お客様のログインID、仮パスワード情報を以下の内容で設定させていただきましたので、ご確認下さい。",
+    "LINK_PRINT": "https://secure.drjoy.jpにアクセスし上記のログインID、仮パスワードを入力して登録を進めてください。",
+    "NOTES": "注意事項",
+    "MANAGE_ACCOUNT_1": "・ログインID、仮パスワードは他人に知られないように、お客様ご自身で管理してください。",
+    "MANAGE_ACCOUNT_2": "・ログインID、仮パスワードはすべて半角文字です。",
+    "CONTACT_US": "お問い合わせ",
+    "MANAGER_OR_FOLLOWING": "上記に関するお問い合わせは法人管理者、または下記までご連絡ください。",
+    "INFOR_SUPPORT_PHONE": "・お電話:　03-6427-4977 (営業時間:平日9:00~17:00)",
+    "INFOR_SUPPORT_EMAIL": "・メール:　support@drjoy.jp",
+    "INVITE_BY_EMAIL": "メールで招待する",
+    "SUBJECT": "件名",
+    "VALUE_SUBJECT": "【Dr.JOY】nameOfficeさんがあなたをDr.JOYに招待しています。",
+    "THE_ARTICLE": "本文",
+    "VALUE_ARTICLE": "下記のような文章が送られます。冒頭にメッセージを加えたい場合にはこちらに記入してください。",
+    "REGISTERED_MAIL": "このメールアドレスを、ログインIDとして仮登録しました。",
+    "REGISTRATION_PROCEDURE": "下記の仮パスワードを用いて以下のURLから本登録の手続きを行ってください。",
+    "REGISTERING": "[ パソコンから登録を行う場合 ]",
+    "FOLLOWING_URL": "以下の URL から登録の手続きを行ってください。",
+    "COPY_URL": "URLが2行以上になっていてクリックしてもアクセスできない場合は、URLをコピーして",
+    "ENTER_BROWSER": "ブラウザのアドレスバーに1行になるように貼り付けてください。",
+    "INVITED_MAIL": "招待したため、本メールをお送りしました。",
+    "TO_DRJOY": "をDr.JOYに",
+    "YOU_ARE": "があなた",
+    "BACK": "修正"
+  },
+  "RE0016": {
+    "STAFF_EDIT_TITLE": "Staff editing",
+    "ACCOUNT_LOCKED": "アカウントロック中",
+    "UNLOCK": "アカウントロック解除",
+    "LOCK": "アカウントロック",
+    "WHOLE_PUBLIC": "全体公開",
+    "ONLY_IN_HOSPITAL": "院内のみ",
+    "NO_PUBLIC": "公開しない",
+    "RESET_PASS": "Reset password",
+    "PHONE_NUMBER": "携帯番号(仕事用)",
+    "1": "第一診療科",
+    "2": "第二診療科",
+    "3": "第三診療科",
+    "4": "第四診療科",
+    "5": "第五診療科",
+    "ERROR_SAVE_NO_ADMIN": "全体管理者が0名になってしまう為保存できません",
+    "ERROR_SAVE_AN_ADMIN": "全体管理者は最低1名必要な為保存できません",
+    "ERROR_STAFF_EDIT": {
+      "REGEX": "有効な名前を入力してください",
+      "PHS_MAXLENGTH": "最大は6文字です",
+      "PHONE_MAXLENGTH": "最大は16文字です"
+    }
+  },
+  "RE0017": {
+    "TITLE": "所属の編集",
+    "NAME_TO_DISPLAY": "表示する名称",
+    "ADD_LOWER_HIERARCHY": "下の階層に追加",
+    "MEDICAL_DEPARTMENT": "所属名を入力",
+    "VALIDATION_REQUIRED": "所属名を入力してください",
+    "CONTENT_ALERT_BEFORE": "所属を削除してよろしいですか？<br><br>所属を削除すると、その所属の傘下の所属、<span class='text-danger'>及び関連するグループ</span>がすべて削除されます。また現在「",
+    "CONTENT_ALERT_AFTER": "」に所属しているスタッフは「所属未分類」<span style='line-height:35px;'>へ移動します。</span> <br><br> 本当に削除しますか？",
+    "ADD_AFFILIATION": "所属を追加"
+  },
+  "RE0018": {
+    "TITLE": "Staff list",
+    "TAB_1": "院内",
+    "TAB_2": "院外",
+    "TITLE_TOP": "所属を選択",
+    "INPUT_SEARCH_PLACEHOLDER": "ユーザー名を検索",
+    "TABLE_AUTHORITY": "権限",
+    "TABLE_ROLE_MAIN": "Role Main",
+    "TABLE_ROLE_OTHER": "Role Other",
+    "TABLE_PROVISIONAL": "Provisional",
+    "TABLE_KEY": "Account Locked",
+    "TABLE_DETAIL": "Details",
+    "STUFF_AUTHORITY": {
+      "0": "Admin Managers",
+      "1": "Admin Departments",
+      "2": "No Rights",
+      "3": "Custom"
+    },
+    "OTHER_AUTHORITY": {
+      "0": "Admin",
+      "1": "Middleman",
+      "2": "Normal",
+      "3": "No Rights",
+      "4": "Custom"
+    }
+  },
+  "RE0019": {
+    "TITLE": "Change password",
+    "CHANGE_PASSWORD": {
+      "MEG_PASSWORD": "6文字以上16文字以下の半角英数字及び_(アンダースコア)で入力"
+    }
+  },
+  "RE0020": {
+    "PAGE_TITLE": "Edit user information",
+    "INPUT_ADDITIONAL_MAIL": "追加するメールアドレスを入力",
+    "PUBLISHING_TYPE": [
+      {
+        "VALUE": "0",
+        "TEXT": "全体公開"
+      },
+      {
+        "VALUE": "1",
+        "TEXT": "院内のみ"
+      },
+      {
+        "VALUE": "2",
+        "TEXT": "公開しない"
+      }
+    ],
+    "DATE_OF_BIRTH": "{{value1}} 年 {{value2}} 月 {{value3}} 日",
+    "MOBILE_NUMBER": "携帯番号(仕事用)",
+    "DEPARTMENT_TITLE": {
+      "0": "第一診療科",
+      "1": "第二診療科",
+      "2": "第三診療科",
+      "3": "第四診療科",
+      "4": "第五診療科"
+    },
+    "MESSAGE_NOTE_1": "一度設定した診療科の変更、削除はできません。",
+    "MESSAGE_NOTE_2": "変更、削除をしたい場合はDr.JOYにお問い合わせください。",
+    "BRIEF_HISTORY": "略歴",
+    "QUALIFICATION": "学会 / 資格等",
+    "POSITION": "役職 / 役割"
+  },
+  "RE0021": {
+    "TITLE": "通知設定",
+    "MESSAGE": {
+      "UP": "メッセージ(取引先/院内/院外)",
+      "DOWN": "(5分以上未読の場合)"
+    },
+    "BACK": "入退館",
+    "GROUP_NEW_POST": "投稿があった場合",
+    "GROUP_MENTIONED": "自分が投稿した記事にコメントがあった場合",
+    "MAIL_VISIT": "入退館システムで訪問者が訪れた場合"
+  },
+  "RE0022": {
+    "PLACEHOLDER_LOGIN_ID": "メールアドレス/ログインID",
+    "SHOW_PASSWORD": "パスワードを表示する",
+    "SAVE_LOGIN": "ログイン状態を保存(1ヶ月間)",
+    "LOGIN": "ログイン",
+    "FORGOT_PASSWORD": "パスワードを忘れた方はこちら",
+    "INCREASE_SECURITY": "セキュリティを高めるため",
+    "INCREASE_SECURITY_1": "他サービスでお使いのものと同じID／パスワードは使用しないことをお勧めします",
+    "SYSTEM_REQUIREMENTS": "Dr.JOYでは以下の環境を推奨しています",
+    "LATEST": "最新版",
+    "OVER": "以上",
+    "LOGIN_ID_ERROR": "メールアドレス/ログインIDを入力してください",
+    "PASSWORD_RESET": "パスワードの再設定",
+    "PASSWORD_RESET_MESSAGE": "ログイン用メールアドレスを入力し「送信」ボタンを押して下さい。パスワード再設定用URLを記載したメールが自動送信されます。",
+    "MAIL_ADDRESS": "メールアドレス",
+    "MAIL_ADDRESS_CONFIRM": "メールアドレス（再入力）",
+    "SEND": "送信",
+    "WRONG_MAIL_ADDRESS": "登録メールアドレスが不明な場合、既に使用できない場合、メールアドレスを登録していない場合は、上記カスタマーサポートへお問合せ下さい。",
+    "MAIL_ADDRESS_ERROR": "メールアドレスを入力してください",
+    "MAIL_ADDRESS_CONFIRM_ERROR": "メールアドレスが同一ではありません"
+  },
+  "RE0023": {
+    "TITLE": "Dr.JOY",
+    "TITLE_PAGE": "Enter user information",
+    "INFORMATION_PAGE": "is a required item",
+    "INFOR_PASSWORD": "現在設定されているパスワードは仮発行パスワードです。 新規パスワードを設定して下さい。",
+    "SPECIALIZED_DEPARTMENT": "第一診療科",
+    "JOB_TYPE": "医師",
+    "NOTE_BIRTHDAY": "生年月日は必ず正確なものを入力して下さい。パスワードを変更する際に必要になります。",
+    "CONFIRM_EMAIL": "通知先メールアドレス(確認用)",
+    "CONFIRM_NOTIFICATION_EMAIL": "通知先メールアドレスをログインIDとして使用する",
+    "RULES": "Dr.JOYにメールアドレスを登録するとこんなに便利！",
+    "TITLE_RULES": "メリット",
+    "RULE_TITLE_ONE": "大事な用件の見落としが減る！",
+    "RULE_CONTENT_ONE": "新着情報やアポイントの連絡が届くと、Dr.JOYから通知メールが届くので、見落としが減ります。",
+    "RULE_TITLE_TWO": "素早く情報をチェック！",
+    "RULE_CONTENT_TWO": "メールでメッセージの内容が届きますので、Dr.JOYを開かなくても内容を確認できます。",
+    "RULE_TITLE_THREE": "ログインしなくても面会返信可能！",
+    "RULE_CONTENT_THREE": "Dr.JOYにログインしていなくても、面会承認ができ、とても便利！",
+    "RULE_LINK_TEXT": "<a href=\"https://www.drjoy.jp/privacy-policy/\" class=\"fs18\" target=\"_blank\">個人情報保護方針</a>と<a href=\"https://www.drjoy.jp/privacy-statement/\" class=\"fs18\" target=\"_blank\">プライバシーステートメント</a>はこちら",
+    "CONFIRM_RULE": "上記を確認の上、同意する",
+    "BUTTON_CONFIRM": "確認画面へ",
+    "CONFIRM_QUESTION": "以下の内容で登録しますか？",
+    "MESSAGE_COMPLETE": "完了",
+    "REGISTER_COMPLETED": "ご登録ありがとうございました。",
+    "MESSAGE_SEND_MAIL": "ご登録いただいたメールアドレスに登録完了メールを送付いたします。",
+    "NOTIFICATION_CONFIRM_REGISTER": "ご登録情報は、ユーザー情報編集ページでご変更いただけ",
+    "BACK_TOP_PAGE": "さっそく始める",
+    "FILE_UPLOAD": "ファイルアップロード",
+    "BACK_MAIN": "前の画面に戻る",
+    "RE0023_ERROR": {
+      "DATE_BIRTH_REQUIRED": "生年月日を入力してください",
+      "SPECIALIZE_DEPARTMENT_REQUIRED": "領域を選択してください",
+      "CHECK_RESGISTER": "利用規約の内容をご理解いただいた上、「利用規約の同意」にチェックをいれてください",
+      "EMAIL_TEXT": " メールアドレスの形式が不正です",
+      "CONFIRM_EMAIL_REQUIRED": "メールアドレス(確認用)を入力してください",
+      "NEW_EMAIL_REQUIRED": "メールアドレスを入力してください",
+      "EMAIL_REQUIRED": "メールアドレスが未入力です",
+      "EMAIL_CONFIRM_MISMATCH": "確認用メールアドレスが一致しません"
+    }
+  },
+  "RE0026": {
+    "TITLE": "Employee Invitation",
+    "TITLE_ALL": "招待するユーザーの担当する医療機関を選択してください。（一度に1医療機関しか選択出来ません）",
+    "LIST_HEALTHCARE_FACILITIES": "招待可能な医療機関一覧",
+    "LIST_INVITED_EMAIL": "招待するユーザーのメールアドレスを入力してください。",
+    "INPUT_MAIL_PLACEHOLDER": "招待する相手のメールアドレスを入力",
+    "E003_1_1": "「病院名」の担当者として登録します",
+    "E003_1_2": "下記のメールアドレスでよろしいですか？",
+    "E003_2": "以下のメールアドレスは既に使用されています",
+    "NO_HANDLE_3": "Currently, there are no hospitals that can invite employees",
+    "NO_HANDLE_4": "Please obtain the KEY code from your medical institution and add the hospital in charge by setting",
+    "RE0026_ERROR": {
+      "HOSPITAL": {
+        "REQUIRED": "リスト病院のいずれかを選択してください"
+      },
+      "EMAIL": {
+        "INCORRECT_FORMAT": "メールアドレスの形式が正しくありません"
+      }
+    }
+  },
+  "RE0027": {
+    "RESIST_TITLE": "Employee list",
+    "EMERGENCY_CONTACT": "Emergency contact",
+    "OTHER": "Other",
+    "PHARMACY_GRAD": "Pharmacy Graduation?",
+    "YES": "Yes",
+    "NO": "No",
+    "EXPERIENCE": "Experiences",
+    "YEARS": "year(s)",
+    "DEPARTMENT_CHARGE": "Department Charge",
+    "HOSPITAL_CHARGE": "Hospital Charge",
+    "DRUG_CHARGE": "Drug Charge",
+    "ADDRESS": "Address",
+    "HOBBY": "Hobby"
+  },
+  "CA004": {
+    "TAB_EVENT": "Plans",
+    "TITLE": {
+      "NAME": "Title",
+      "PLACEHOLDER": "Within 20 characters",
+      "DEFAULT_VALUE": "Title not set"
+    },
+    "ALL_DAY": {
+      "TITLE": "Time",
+      "VALUE": "All day"
+    },
+    "SHARE_TITLE": "Scope of disclosure",
+    "SHARE_USER": {
+      "VALUE_DEFAULT": "Myself",
+      "INSIDE_HOSPITAL_TITLE": "Indication for hospital",
+      "OUTSIDE_HOSPITAL_TITLE": "External view",
+      "HOSPITAL_VALUE_1": "Scheduled",
+      "HOSPITAL_VALUE_2": "No notation"
+    },
+    "SHARE_INSIDE_HOSPITAL": {
+      "VALUE_DEFAULT": "Group in the hospital"
+    },
+    "SHARE_OUTSIDE_HOSPITAL": {
+      "VALUE_DEFAULT": "Out-of-hospital group"
+    },
+    "SHARE_GROUP": {
+      "VALUE_DEFAULT": "group"
+    },
+    "BTN_CREATE": "Create",
+    "BTN_EDIT": "Edit",
+    "MSG": {
+      "CA0004_E000_1": "スタッフカレンダーの取得に失敗しました",
+      "SAVED": "保存しました",
+      "CA0004_E001_1": "予定の作成に失敗しました"
+    },
+    "ERROR_VALIDATE": {
+      "TITLE": "タイトルは20文字以内で入力してください",
+      "PLACE": "場所は20文字以内で入力してください",
+      "INSIDE_GROUP": "院内グループ選択してください",
+      "OUTSIDE_GROUP": "院外グループ選択してください",
+      "DATE_COMPARE": "終了日は開始日より過去には指定できません",
+      "TIME_COMPARE": "終了時間は、開始時刻より過去には指定できません"
+    }
+  },
+  "RE0030": {
+    "SELECT_BELONG": "Select belonging",
+    "NAME": "Name",
+    "MANAGEMENT_AUTHORITY": "Management authority",
+    "FUNCTION_AUTHORITY": "Function authority",
+    "EDIT": "Edit",
+    "CHANGE_PERMISSIONS": "Do you want to change permissions?",
+    "TEMPORARY": "Temporary registration",
+    "SEARCH_NAME": "Search user name"
+  },
+  "RE0031": {
+    "TITLE": "Authorization",
+    "E002_1": "Doctors, pharmacists can not turn off this check box",
+    "LABEL_AUTHORITY": "Administrative authority:",
+    "LABEL_SCOPE": "Control scope",
+    "ROLE_FUNCTION_TEXT": "Advanced setting of authority is possible when'Custom'is selected",
+    "CONFIRM": "Do you want to change permissions?"
+  },
+  "AUTHORITY": {
+    "FUNCTION_AUTHORITY": {
+      "FPS_0": "Custom",
+      "FPS_1": "meeting / briefing manager",
+      "FPS_2": "Intermediary",
+      "FPS_3": "meeting / briefing staff",
+      "FPS_4": "None"
+    },
+    "FUNCTION_AUTHORITY_DETAIL": {
+      "FP_1": "You can use the meeting / briefing function",
+      "FP_2": "Setting visitation rules for hospitals, confirming identity of business partners / Restricting visits",
+      "FP_3": "You can view and download visitation status",
+      "FP_4": "You can view / download briefing situation",
+      "FP_5": "You can download the contact list",
+      "FP_6": "Can distribute to business partners at once",
+      "FP_7": "Set up medicine doctor in charge of intermediary and can manage visitation of doctors who set up mediation"
+    },
+    "FUNCTION_AUTHORITY_SHORT_NAME": {
+      "FP_1": "Visitation / explanatory meeting authority",
+      "FP_2": "Visitation rule management authority",
+      "FP_3": "Visitation status management authority",
+      "FP_4": "Briefing session status management authority",
+      "FP_5": "Permission to download account list",
+      "FP_6": "Permission to broadcast to business partners",
+      "FP_7": "Intermediary authority"
+    },
+    "ADMIN_AUTHORITY": {
+      "MP_1": "Overall Administrator",
+      "MP_2": "Affiliated Administrator",
+      "MP_3": "None"
+    },
+    "SCOPE_OF_MANAGEMENT": {
+      "ROLE_1": "All in hospital",
+      "ROLE_2": "Your affiliation and subordinate"
+    }
+  },
+  "CA0007": {
+    "TITLE_PAGE": "予定編集",
+    "TITLE": "Title",
+    "TITLE_DEFAULT_VALUE": "タイトル未設定",
+    "PLACEHOLDER_DEFAULT": "Within 20 characters",
+    "PLACE": "Place",
+    "TIME": {
+      "TITLE": "Time",
+      "ALL_DAY": "All day"
+    },
+    "REPEAT": {
+      "TITLE": "Repetition",
+      "NOT_REPEAT": "No Repeat",
+      "WEEK": "Weekly",
+      "MONTH": "Monthly"
+    },
+    "SUMMARY": {
+      "TITLE": "Summary",
+      "TITLE_REPEAT": "Repeat interval",
+      "WEEK": "week",
+      "DAY_ON_WEEK": "Day of week",
+      "SUN": "Sun",
+      "MON": "Mon",
+      "TUE": "Tue",
+      "WED": "Wed",
+      "THU": "Thu",
+      "FRI": "Fri",
+      "SAT": "Sat",
+      "DAY_END": "End date",
+      "NOT_END": "No",
+      "TIME_END": "Times",
+      "DAY_EXACTLY": "Day exactly",
+      "MONTH": "month",
+      "MONTH_REPEAT_OPTION": {
+        "TITLE": "Repeat Option",
+        "REPEAT_OPTION_1": "Day",
+        "REPEAT_OPTION_2": "Day of week"
+      }
+    },
+    "SHARE_OPTION": {
+      "TITLE": "Scope of disclosure",
+      "USER": {
+        "USER_DEFAULT": "自分",
+        "INSIDE_HOSPITAL": "Indication for hospital",
+        "OUTSIDE_HOSPITAL": "External view",
+        "GROUP": "Group",
+        "VISIBLE": "Scheduled",
+        "INVISIBLE": "No notation"
+      },
+      "GROUP_INSIDE_HOSPITAL": "院内グループ",
+      "GROUP_OUTSIDE_HOSPITAL": "院外グループ"
+    },
+    "USER_CREATED": "User created",
+    "USER_UPDATED": "User updated",
+    "NOTE": {
+      "TITLE": "Note",
+      "PLACEHOLDER": "textarea"
+    },
+    "BTN_SAVE": "Save",
+    "BTN_CANCEL": "Cancel",
+    "MODAL_EDIT": {
+      "EDIT_CONFIRM_1": "Edit recurring appointments",
+      "EDIT_CONFIRM_2": "Do you want to edit only the schedule this time ?",
+      "EDIT_CONFIRM_3": "* Please check if you want to edit all of the series of iteration schedule",
+      "EDIT_CONFIRM_4": "Change all of the iteration schedule after the editing day"
+    },
+    "MSG": {
+      "COMMON.SAVED": "It has changed",
+      "CA0007.E001_1": "Failed to get the schedule",
+      "CA0007.E001_2": "Scheduled save failed"
+    },
+    "ERROR_VALIDATE": {
+      "TITLE": "タイトルは20文字以内で入力してください",
+      "PLACE": "場所は20文字以内で入力してください",
+      "NOTE": "3000文字以内で入力してくだい",
+      "INSIDE_GROUP": "院内グループ選択してください",
+      "OUTSIDE_GROUP": "院外グループ選択してください",
+      "DATE_COMPARE": "終了日は開始日より過去には指定できません",
+      "TIME_COMPARE": "終了時間は、開始時刻より過去には指定できません",
+      "RRULE_WEEK_DAY_OF_WEEK_NONE": "曜日を選択してください",
+      "COUNT_TIME_NONE": "回数が入力されていません"
+    }
+  },
+  "CA0006": {
+    "MY_SCHEDULE": "My schedule",
+    "MY": "My plan",
+    "MEETING_DECIDED": "Appointment plan",
+    "MEETING_ACCEPTING": "Visiting frame (spot Â· regular)",
+    "MEETING_MEDIATOR": "Teacher's interview frame mediated",
+    "VISIT": "visit",
+    "SOCIETY": "Conference schedule",
+    "HOLIDAY": "Japanese Holidays",
+    "LABEL_CONFIGURATION": "Configuration",
+    "LABEL_DEFAULT": "Default",
+    "LABEL_MONTH_DISPLAY": "Month display",
+    "LABEL_WEEK_DISPLAY": "Week display",
+    "LABEL_WEEK_START": "Week start",
+    "LABEL_BEGINNING_OF_SUNDAY": "Beginning of Sunday",
+    "LABEL_MONDAY_BEGINNING": "Monday beginning",
+    "LABEL_SCHEDULED_TO_VIEW": "Scheduled to view",
+    "BTN_CHANGE_DISPLAY_COLOR": "Change display color",
+    "BTN_SHOWING": "Showing",
+    "BTN_HIDDEN": "hidden"
+  },
+  "CA0008": {
+    "GROUP_SCHEDULE": "Group schedule",
+    "HOSPITAL_IN_GROUP": "Hospital group",
+    "HOSPITAL_OUT_GROUP": "Hospital out group",
+    "BTN_CHANGE_DISPLAY_COLOR": "Change display color",
+    "BTN_SHOWING": "Showing"
+  },
+  "CA0009": {
+    "SHARING_SETTINGS_WITH_STAFF_BT": "スタッフとの共有",
+    "SHARING_SETTINGS_WITH_STAFF": "Sharing settings with staff",
+    "SHARE_STAFF_AND_MY_CALENDAR": "Share staff and my calendar",
+    "LEVEL_YOU_PLANNING_SHARE_STAFF": "What level are you planning to share with staffï¼Ÿ",
+    "OTHER_STAFF_NEVER_BE_SHARED": "â€» Other staff will never be shared unless you add you to 'favorite staff' ",
+    "STAFF_BROWSING_YOUR_CALENDAR": "Staff browsing your calendar",
+    "THE_STAFF_YOU_ARE_VIEWING": "The staff you are viewing",
+    "SCHEDULE_ONLY": "時間のみ閲覧可能(予定の件名、詳細を非表示)",
+    "READ_ONLY": "すべて閲覧可能(予定の件名、詳細を表示)",
+    "EDITABLE": "閲覧に加え、作成・編集も可能",
+    "ADD_STAFF": "Add staff",
+    "NO_RESULT_FOUND": "No result found",
+    "LOADING": "Loading",
+    "DELETE": "Delete"
+  },
+  "CA0010": {
+    "EXTERNAL_CALENDAR": "外部カレンダー",
+    "EXTERNAL_CALENDAR_LINK": {
+      "DELETE_CONFIRM": "このアカウントの同期を解除しますか？",
+      "DELETE_SUCCEEDED": "解除しました"
+    }
+  },
+  "MENU": {
+    "GENERAL": {
+      "LABEL": "設定",
+      "PERSONAL": {
+        "LABEL": "ユーザー情報編集"
+      },
+      "MEETING": {
+        "LABEL": "面会ルール"
+      },
+      "CALENDAR": {
+        "LABEL": "カレンダー設定"
+      },
+      "PREFERENCE": {
+        "LABEL": "環境設定"
+      },
+      "STAFF": {
+        "LABEL": "スタッフ"
+      },
+      "EMPLOYEE": {
+        "LABEL": "社員情報"
+      },
+      "PRIMARY": {
+        "LABEL": "担当薬剤"
+      },
+      "HOSPITAL": {
+        "LABEL": "担当病院の編集"
+      }
+    },
+    "ADMIN": {
+      "LABEL": "管理者メニュー",
+      "SUPPLIER": {
+        "LABEL": "取引先管理"
+      },
+      "OFFICE": {
+        "LABEL": "病院管理"
+      }
+    },
+    "ITEM": {
+      "RE0020": "ユーザー情報編集",
+      "RE0019": "パスワード変更",
+      "ME0016": "面会時間帯設定",
+      "ME0017": "病院の面会時間帯設定",
+      "ME0018": "面会枠",
+      "ME0044": "自動承認",
+      "ME0021": "面会に関する要望",
+      "CA0006": "自分の予定",
+      "CA0008": "グループの予定",
+      "CA0009": "スタッフとの共有設定",
+      "CA0010": "外部カレンダー",
+      "RE0001": "サイドメニュー並び替え",
+      "RE0021": "通知設定",
+      "RE0018": "スタッフ一覧",
+      "ME0023": "面会ルール",
+      "ME0014": "本人確認/訪問制限",
+      "RE0017": "所属編集",
+      "RE0014": "スタッフ編集",
+      "RE0015": "一括招待",
+      "ME0015": "仲介者の担当医師を設定",
+      "ME0010": "スタッフの面会ルール",
+      "RE0030": "権限付与",
+      "GR0006": "院外グループを作成する",
+      "GR0007": "院外グループを編集する",
+      "GR0002": "院内グループを作成する",
+      "GR0003": "所属グループを作成する",
+      "GR0004": "院内グループを編集する",
+      "GR0005": "所属グループを編集する",
+      "GR0009": "アンケートを作成",
+      "GR0010": "アンケートを編集",
+      "CH0003": "院内メッセージ作成",
+      "CH0004": "院内メッセージ編集",
+      "CH0005": "院外メッセージを作成する",
+      "CH0006": "院外メッセージの設定",
+      "RE0010": "ユーザー情報編集",
+      "RE0009": "パスワード変更",
+      "CA0017": "自分の予定",
+      "CA0021": "外部カレンダー",
+      "RE0011": "通知設定",
+      "RE0012": "担当病院",
+      "ME0035": "担当薬剤",
+      "ME0058": "入退館カード",
+      "RE0026": "社員招待",
+      "RE0027": "社員一覧",
+      "ME5008": "入退館カード"
+    }
+  },
+  "GR0006": {
+    "TITLE": "",
+    "TAB_1": "院内",
+    "TAB_2": "院外",
+    "MEDICAL_INSTITUTION_NAME": "医療機関名から探す",
+    "NOT_YET": "未",
+    "MAIL_INVITE": "ログインID(メールアドレス)で招待",
+    "TITLE_MODAL": "ログインIDもしくはメールアドレスを入力",
+    "PLACEHOLDER_MAIL_INPUT": "招待したい相手のログインIDもしくは登録メールアドレスを入力してください",
+    "ADD_TO_LIST": "招待者リストに追加",
+    "WRONG_FORMAT": "グループ名を正しく入力してください",
+    "TITLE_PERSONAL": "Create a group"
+  },
+  "GR0008": {
+    "TITLE": "東病棟・第一分院",
+    "AGREE": "参加",
+    "DISAGREE": "拒否",
+    "EXPIRE_INVITE": "ページの有効期限が切れています。",
+    "CONFIRM_DIS_AGREE": "グループへの招待を拒否しますか？",
+    "TEXT_1": "病院の",
+    "TEXT_2": "さんが",
+    "TEXT_3": "あなたを",
+    "TEXT_4": "に招待しました"
+  },
+  "GR0009": {
+    "CHOICES_FLAG": {
+      "SINGLE": "1つだけ選択できるようにする",
+      "MULTIPLE": "複数選択できるようにする"
+    },
+    "QUESTION_CONTENT": "質問内容",
+    "INPUT_PLACEHOLDER_QUESTION_CONTENT": "質問内容を記入(3000文字以内)",
+    "QUESTIONNAIRE_CHOICES": "アンケートの選択肢",
+    "ADD_CHOICE": "選択肢を追加",
+    "INPUT_CHOICE_PLACEHOLDER": "選択肢の項目名を入力(140文字)",
+    "DEADLINE_DATE_TIME": "回答締切日時",
+    "GR0009_VALIDATION": {
+      "CONTENTS": {
+        "REQUIRED": "質問内容を入力してください",
+        "RANGE": "3000文字以下で入力してください"
+      },
+      "NON_SELECTED": "アンケートの選択肢を選択してください",
+      "CHOICES": {
+        "REQUIRED": "選択肢項目を入力してください",
+        "RANGE": "140文字以下で入力してください"
+      },
+      "DATE_REQUIRED": "回答締切日を入力してください",
+      "TIME_REQUIRED": "回答締切時間を入力してください",
+      "CLOSE_DATE": {
+        "WRONG_FORMAT": "回答締切日を正しく入力してください"
+      },
+      "CLOSE_TIME": {
+        "WRONG_FORMAT": "回答締切日を正しく入力してください "
+      }
+    }
+  },
+  "GR0014": {
+    "NAV": {
+      "TIMELINE": "タイムライン",
+      "MEETING": "面会",
+      "KPI": "経営指標"
+    },
+    "INSIDE_GROUP": "院内グループ",
+    "OUTSIDE_GROUP": "院外グループ",
+    "SEEN_ALL": "全て既読にする"
+  },
+  "CA0001": {
+    "TITLE_CREATE": "予定作成",
+    "LABEL": {
+      "DELETE_CONFIRM_1": "繰り返しの予定を削除",
+      "DELETE_CONFIRM_2": "今回の予定だけを削除しますか？",
+      "DELETE_CONFIRM_3": "※一連の繰り返し予定すべてを削除の場合チェックをして下さい",
+      "DELETE_CONFIRM_4": "　編集中の日以降の繰り返しの予定すべてを削除します。",
+      "DELETE_CONFIRM": "を削除します。よろしいですか？",
+      "USER_UPDATE": "最終更新：",
+      "USER_CREATE": "登録：",
+      "MONTH": "Month",
+      "WEEK": "Week",
+      "BTN_EXTERNAL": "External calendar synchronization",
+      "TODAY": "Today"
+    },
+    "ERROR_GET_DETAIL_EVENT": "予定の取得に失敗しました",
+    "ERROR_DELETE_EVENT": "予定の削除に失敗しました"
+  },
+  "ME0006": {
+    "DATE_PASS": "当日・過去の日付に移動すると入力した内容は削除されますがよろしいですか？",
+    "FUTURE": "未来の日付に移動すると入力した内容は削除されますがよろしいですか？"
+  },
+  "ME0016": {
+    "TITLE": "面会時間帯設定",
+    "LABEL_1": "自分が設定した時間内に、取引先から直接リクエストが届きます。",
+    "LABEL_2": "祝祭日は面会を受け付けない",
+    "LABEL_3": "病院の全体設定で「祝祭日は面会を受け付けない」となっています。",
+    "SETTING_SELF": "現在のあなたの設定",
+    "SETTING_OFFICE": "病院の面会可能な時間帯",
+    "SETTING": {
+      "TITLE": "面会時間を設定",
+      "NONE": "設定なし",
+      "LABEL_NONE": "病院の設定と同じ",
+      "DIS_ALLOW_ALL_DAY": "終日不可",
+      "LABEL_DIS_ALLOW_ALL_DAY": "取引先からのリクエストを受け付けません",
+      "TIME": "時間を設定"
+    },
+    "SETTING_1": "自分の面会時間帯とは︖",
+    "SETTING_2": "病院が設定している時間の中で、自分のスケジュールに合わせて面会時間を縮めたり面会日を限定したりできます。",
+    "SETTING_3": "とじる",
+    "ADD": "追加",
+    "ME0016": {
+      "HOLIDAY_CONFIRM": {
+        "MSG1": "祝祭日は面会を受け付けない設定にします。",
+        "MSG2": "これまで設定されていた面会可能な日時に申請されている",
+        "MSG3": "「未確定」の面会や作成済みの面会枠がある場合は、すべて「中止」となります。",
+        "MSG4": "保存してよろしいですか？",
+        "MSG5": "祝祭日も面会を受け付ける設定にします。",
+        "CONFIRM": "「確認しました」"
+      },
+      "DIS_ALLOW_ALL_DAY": {
+        "MSG1": "これまで設定されていた面会可能な日時に申請されている",
+        "MSG2": "「未確定」の面会や作成済みの面会枠がある場合は、",
+        "MSG3": "すべて「中止」となります。",
+        "MSG4": "変更される場合は事前に周知することをお勧めします。",
+        "MSG5": "保存してよろしいですか？",
+        "CONFIRM": "確認しました"
+      },
+      "SELECT_TIME": "時間を入力してください。",
+      "MATCH_TIME": "面会時間が重なっています",
+      "MATCH_OFFICE": "病院が設定している面会可能時間に含まれるように設定してください"
+    }
+  },
+  "ME0017": {
+    "JOB_TYPE_SELECT": "職業を選択",
+    "UPDATE": "最終更新：",
+    "TITLE": "面会時間帯設定",
+    "LABEL_2": "祝祭日は面会を受け付けない",
+    "SETTING": {
+      "TITLE": "面会時間を設定",
+      "NONE": "設定なし",
+      "LABEL_NONE": "病院の設定と同じ",
+      "DIS_ALLOW_ALL_DAY": "終日不可",
+      "LABEL_DIS_ALLOW_ALL_DAY": "取引先からのリクエストを受け付けません",
+      "TIME": "時間を設定"
+    },
+    "ADD": "追加",
+    "ME0017": {
+      "HOLIDAY_CONFIRM": {
+        "MSG1": "祝祭日は面会を受け付ける設定にしますか？",
+        "MSG2": "病院の面会ルールを変更すると、事業所内に所属するスタッフ全員に共通の制限がかかります。",
+        "CONFIRM": "「確認しました」"
+      },
+      "PUT_SETTING": {
+        "MSG1": "これまで設定されていた面会可能な日時に申請されている",
+        "MSG2": "「未確定」の面会や作成済みの面会枠がある場合は、",
+        "MSG3": "すべて「中止」となります。",
+        "MSG4": "変更される場合は事前に周知することをお勧めします。",
+        "MSG5": "保存してよろしいですか？",
+        "CONFIRM": "確認しました"
+      },
+      "SELECT_TIME": "時間を入力してください。",
+      "MATCH_TIME": "面会時間が重なっています",
+      "MATCH_OFFICE": "病院が設定している面会可能時間に含まれるように設定してください"
+    }
+  },
+  "ME0020": {
+    "LABEL_CHECKALL": "カスタムチェックボックス",
+    "BTN_SAVE": "保存",
+    "SAVED": "保存しました"
+  },
+  "ME0021": {
+    "TITLE": "テーマの詳細",
+    "FORM_TITLE": "取引先に、面会に関する要望を伝えることができます。",
+    "DETAIL_TITLE": "要望の詳細",
+    "BTN_SAVE": "保存",
+    "SAVED": "保存しました",
+    "NOTE_PLACEHOLDER": "要望の詳細（300文字以内）"
+  },
+  "ME0004": {
+    "TITLE": "テーマの詳細",
+    "MESSAGE": "メッセージ",
+    "VISIT_REQUEST": "面会リクエスト",
+    "TO_BLOCK": "ブロックする",
+    "CANCEL_BLOCK": "ブロック解除する",
+    "COMPANY_NAME": "会社",
+    "OWN_PR": "自己PR",
+    "SOS_PHONE": "緊急連絡先",
+    "OFFICE_PHONE": "営業所電話番号",
+    "OFFICE_NAME": "営業所名",
+    "DEPARTMENT": "部署・所属",
+    "ADDRESS": "営業所住所",
+    "INDUSTRY_TYPE": "業種",
+    "GENDER_TYPE": "性別",
+    "PHARMACY_GRADUATION": "薬学部卒業",
+    "EXPERIENCES": "経験年数",
+    "HANDLE_FIELDS": "担当領域",
+    "HANDLE_OFFICES": "担当病院",
+    "PHARMACY_ADDRESS": "お薬の連絡先",
+    "HANDLE_DRUGS": "担当薬",
+    "PLACE_BORN_IN": "出身地",
+    "HOBBY": "趣味",
+    "PHARMACY_GRADUATION_YES": "あり",
+    "PHARMACY_GRADUATION_NO": "なし",
+    "START_HANDLE": "担当開始日",
+    "END_HANDLE": "担当終了日"
+  },
+  "ME0008": {
+    "MESSAGE_VALID1": "未読メッセージはありません。",
+    "MESSAGE_VALID2": "メールまたはログインしてご確認ください。",
+    "MESSAGE_EXPIRED1": "このURLは期限切れです。",
+    "MESSAGE_EXPIRED2": "ログインして処理を行ってください。",
+    "MESSAGE_DONE1": "このメッセージにはすでに返信済みです。",
+    "MESSAGE_DONE2": "メッセージ画面にて内容をご確認ください。",
+    "GO_LOGIN_SCREEN": "ログイン画面へ"
+  },
+  "ME0009": {
+    "LOGIN_FORM": {
+      "HEAD_TEXT": "Dr.JOYにログインして操作をする場合はこちら",
+      "SHOW_PASSWORD": "パスワード表示",
+      "SAVE_LOGIN": "ログイン状態を保存(1ヶ月間)",
+      "HP": "公式ホームページ"
+    },
+    "TITLE": "面会の詳細(未対応)",
+    "APPLICANT": "申請者",
+    "PURPOSE": "目的",
+    "DRUG_NAME_PRODUCT_NAME": "薬剤名・製品名",
+    "SCHEDULE": "日程",
+    "PLACE": "場所",
+    "NUMBER_OF_VISITORS": "訪問人数",
+    "COMMENTS_BUSINESS_PARTNERS": "取引先からのコメント",
+    "GO_LOGIN_SCREEN": "ログイン画面へ",
+    "MESSAGE_PROCESSED1": "こちらの面会はすでに処理済みです。",
+    "MESSAGE_PROCESSED2": "メールまたは面会画面にて面会情報をご確認ください。",
+    "ACCEPT": "承認",
+    "REFUSE_ALL_THE_DATES": "全ての日程を断る"
+  },
+  "ME0031": {
+    "APPLICANT": "申請者",
+    "PURPOSE": "目的",
+    "DRUG_NAME_PRODUCT_NAME": "薬剤名・製品名",
+    "SCHEDULE": "日程",
+    "PLACE": "場所",
+    "NUMBER_OF_VISITORS": "訪問人数",
+    "COMMENTS_BUSINESS_DR": "自分のコメント",
+    "COMMENTS_BUSINESS_MR": "医療者からのコメント",
+    "BT_ACCEPT": "承認",
+    "BT_REJECT": "断る",
+    "BT_ADJUST_OTHER_DATE_AND_TIME": "他の日時で調整",
+    "MESSAGE_ACCEPT": "面会リクエストを承認しますか？",
+    "CONFIRM_MESSAGE_REJECT": "面会リクエストを断りますか？",
+    "MESSAGE_REJECT": "今回は都合により面会予定の調整ができませんでした。またご応募いただければ幸いです。今後とも宜しくお願い致します。",
+    "MESSAGE": "メッセージ",
+    "CONFIRM_MESSAGE_CANCEL": "この面会を中止しますか？",
+    "CANCEL_MEETING": "面会を中止しました",
+    "BT_CHANGE_SCHEDULE": "日程変更",
+    "CONFIRM_MESSAGE_CANCEL2": "面会リクエストを中止しますか？",
+    "TITLE_REQUESTED": "面会の詳細(未対応)",
+    "TITLE_FIXED": "面会の詳細(確定)",
+    "TITLE_DONE": "面会の詳細(終了)",
+    "TITLE_CANCELED": "面会の詳細(リクエスト中)"
+  },
+  "ME0036": {
+    "TITLE": "テーマの詳細",
+    "MESSAGE": "メッセージ",
+    "VISIT_REQUEST": "面会リクエスト",
+    "TO_BLOCK": "ブロックする",
+    "CANCEL_BLOCK": "ブロック解除する",
+    "COMPANY_NAME": "会社",
+    "OWN_PR": "自己PR",
+    "SOS_PHONE": "緊急連絡先",
+    "OFFICE_PHONE": "営業所電話番号",
+    "OFFICE_NAME": "病院",
+    "DEPARTMENT": "部署・所属",
+    "ADDRESS": "営業所住所",
+    "INDUSTRY_TYPE": "業種",
+    "GENDER_TYPE": "性別",
+    "PHARMACY_GRADUATION": "薬学部卒業",
+    "EXPERIENCES": "経験年数",
+    "HANDLE_FIELDS": "担当領域",
+    "HANDLE_OFFICES": "担当病院",
+    "PHARMACY_ADDRESS": "お薬の連絡先",
+    "HANDLE_DRUGS": "担当薬",
+    "PLACE_BORN_IN": "出身地",
+    "HOBBY": "趣味",
+    "PHARMACY_GRADUATION_YES": "あり",
+    "PHARMACY_GRADUATION_NO": "なし",
+    "JOB": "職業",
+    "BRIEF_HISTORY": "略歴",
+    "QUALIFICATION":"学会／資格",
+    "POSITION":"役職／役割"
+  },
+  "ME0028": {
+    "TITLE":"テーマの詳細",
+    "PREVIOUS":"前へ",
+    "NEXT":"次へ",
+    "TEST_MESSAGE": "テストメッセージ",
+    "REQUEST_FOR_VISITATION": "面会に関する要望",
+    "OWN_PR": "病院の面会ルール",
+    "REQUEST":"要望",
+    "DETAILS": "詳細",
+    "ATTACHMENT": "添付ファイル",
+    "DATE_AND_TIME": "日時",
+    "STATUS": "ステータス",
+    "NUMBER_OF_APPLICATIONS":"応募数",
+    "APPLY_STATUS":"応募",
+    "BT_VISITATION_APPLICATION": "面会申請",
+    "BT_DATA_DELIVERY_VISIT": "資料お届け訪問",
+    "BT_APPLY_REQUEST_MEETING": "この日時で応募",
+    "SEE_THE_SCHEDULE_AFTER_THIS":"これ以降の予定を見る",
+    "NOTIFY_USER_TEMPORARY_REGISTRATION_1":"このユーザは仮登録中です",
+    "NOTIFY_USER_TEMPORARY_REGISTRATION_2":"本登録が完了するまでレスポンスがない場合がございます",
+    "NOTIFY_USER_MEDIATOR":"このユーザは仮登録中です 本登録が完了するまでレスポンスがない場合がございます",
+    "NUMBER_VISIT":"名が応募中",
+    "STATUS_NEW":"募集中",
+    "STATUS_FIXED":"応募済み",
+    "STATUS_CANCEL":"終了",
+    "TEXT_PROVISIONAL":"(仮登録)",
+    "TEXT_HASMEDIATOR":"(仲介者あり)"
+  },
+
+  "GR0013": {
+    "TITLE": "あなた宛の未読一覧",
+    "SEEN_ALL": "全て既読にする",
+    "INSIDE_GROUP": "院内グループ",
+    "OUTSIDE_GROUP": "院外グループ",
+    "FAVORITE_ARTICLE": "お気に入り記事に追加",
+    "PLACE_HOLDER_COMMENT": "コメントする（Shift＋Enterキーで送信）",
+    "PLACE_HOLDER_POST": "みんなで共有したい情報を投稿する（Shift＋Enterキーで送信）",
+    "FILE_TITLE": "ファイルを追加",
+    "FILE_COMMENT": "ファイル",
+    "TO_USER": "宛先",
+    "CLOSE_EDIT": "キャンセル",
+    "SEND_UPDATE": "編集を終了",
+    "EXPIRE_DATE": "回答期限",
+    "UN_ANSWER": "未回答者を見る",
+    "CONFIRMED": "確認しました！を取り消す",
+    "CONFIRM_NEED": "確認しました！",
+    "READ": "既読",
+    "REPLY": "返信する",
+    "CONFIRM_DIFF": "他",
+    "MYSELF_CONFIRMED": "が「確認しました！」と言っています。",
+    "EDIT_COMMENT": "コメントを編集",
+    "DELETE_COMMENT": "コメントを削除",
+    "FAVORITE_COMMENT": "お気に入りコメントに追加",
+    "NEW_FILE_COMMENT": "コメントにファイルを添付",
+    "NEW_COMMENT": "コメントする",
+    "EDIT_GROUP": "グループの編集",
+    "FILE_ATTACH": "添付ファイル一覧",
+    "CSV_DOWNLOAD": "CSVをダウンロード",
+    "NOTIFICATION_OFF": "通知音をOFFにする",
+    "NOTIFICATION_ON": "通知音をONにする",
+    "MAIL_OFF": "通知メールを受信しない",
+    "MAIL_ON": "通知メールを受信します",
+    "OUT_GROUP": "退出する",
+    "CLOSE_MODAL": "とじる",
+    "ASK_SURVEY": "アンケート",
+    "POST_NEW": "送信",
+    "TITLE_NG_KEYWORD_CHECKBOX": "コメントでの副作用の報告は禁止しております",
+    "CONTENT_NG_KEYWORD_CHECKBOX": "副作用情報を報告する場合は、直接お電話、メール等で行ってください。",
+    "NG_KEYWORD_CHECKBOX_LBL": "副作用情報が含まれていないことを確認の上、送信します",
+    "SEEN_LBL": "既読",
+    "EDIT_ARTICLE_TOOLTIP": "記事を編集",
+    "DELETE_ARTICLE_TOOLTIP": "記事を削除",
+    "EDIT_COMMENT_TOOLTIP": "コメントを編集",
+    "DELETE_COMMENT_TOOLTIP": " コメントを削除",
+    "FAVORITE_TOOLTIP": "お気に入り記事に追加",
+    "ADD_FILES_TOOLTIP": "コメントにファイルを添付",
+    "TIME_AGO": {
+      "SECONDS": " 秒前・編集済み",
+      "MINUTES": " 分前・編集済み",
+      "HOURS": " 時間前・編集済み",
+      "DAYS": " 日前・編集済み",
+      "MONTHS": " 月前・編集済み",
+      "YEARS": " 年前・編集済み"
+    },
+    "REMOVED_MEMBER_MSG": "グループから脱退しました"
+  },
+  "DAY": {
+    "SUN": "Sun",
+    "MON": "Mon",
+    "TUE": "Tue",
+    "WED": "Wed",
+    "THU": "Thu",
+    "FRI": "Fri",
+    "SAT": "Sat"
+  },
+  "CM0000": {
+    "AGREST": "利用規約の内容をご理解いただいた上、「利用規約の同意」にチェックをいれてください",
+    "CHECK": "利用規約を確認の上、同意する",
+    "BTN": "同意する"
+  },
+  "CM0001": {
+    "TOP": {
+      "TITLE": "Dr.JOYからのお知らせ",
+      "THEAD1": "日時",
+      "THEAD2": "タイトル",
+      "THEAD3": "本文"
+    },
+    "DETAIL": {
+      "TITLE": "Dr.JOYからのお知らせ 詳細"
+    }
+  },
+  "CM0002": {
+    "INFO": {
+      "TITLE1": "病院名",
+      "TITLE2": "お名前",
+      "TITLE3": "返信先アドレス",
+      "TITLE4": "お問い合わせ内容",
+      "REQUIRED": "※"
+    },
+    "ERRORS": {
+      "CONTENTS": "お問い合わせ内容を入力してください。"
+    },
+    "TOP": {
+      "TITLE": "お問い合わせ",
+      "LEAD": "直接ご連絡いただく場合は以下へお願いします",
+      "CARD1" : {
+        "HEAD": "お電話でのお問い合わせ",
+        "BODY": "03-6427-4977"
+      },
+      "CARD2" : {
+        "HEAD": "メールでのお問い合わせ",
+        "BODY": "support@drjoy.jp"
+      },
+      "CARD3" : {
+        "HEAD": "サポート受付時間",
+        "BODY": "平日9:00～17:00\n （土日祝を除く）"
+      }
+    },
+    "DETAIL": {
+      "TITLE": "お問い合わせ（確認）",
+      "LEAD": "以下の内容で送信しますか？"
+    }
+  },
+  "CM0005": {
+    "BTN": {
+      "NEW": "新規作成",
+      "ALL_REMOVE": "選択をすべて解除"
+    },
+    "ERRORS" :{
+      "INDUSTRY": "「業種」は必ず１つ以上選択してください。",
+      "TOOFFICES": "会社を選択してください。",
+      "TITLE": "タイトルを入力してください。",
+      "BODY": "内容を入力してください。"
+    },
+    "MSG": {
+      "CLOSE_EDIT": {
+        "TITLE": "このページから移動しますか？",
+        "TEXT": "編集の途中のため保存されていない内容は削除されます。"
+      },
+      "DELETE_ARTICLE": {
+        "TITLE": "投稿した記事を削除しますか？",
+        "TEXT": "一度削除した記事を復元することはできません。\n取引先の受信ボックスからも削除されます。"
+      }
+    },
+    "LABEL": {
+      "ALL": "すべて"
+    },
+    "INFO": {
+      "TITLE1": "署名",
+      "TITLE2": "投稿者",
+      "TITLE3": "業種",
+      "TITLE4": "会社",
+      "TITLE5": "タイトル",
+      "TITLE6": "内容",
+      "TITLE7": "添付ファイル"
+    },
+    "CM0005-1": {
+      "TITLE": "取引先へのお知らせ",
+      "THEAD1": "日時",
+      "THEAD2": "投稿者",
+      "THEAD3": "署名",
+      "THEAD4": "タイトル"
+    },
+    "CM0005-2": {
+      "TOP": {
+        "TITLE": "取引先へのお知らせ 新規作成",
+        "SECTION1": {
+          "TITLE": "業種"
+        },
+        "SECTION2": {
+          "TITLE": "会社名",
+          "HELP": "署名について",
+          "PLACEHOLDER1": "会社名を選択",
+          "PLACEHOLDER2": "署名（役職+氏名など）30文字以内",
+          "PLACEHOLDER3": "タイトル30文字以内",
+          "PLACEHOLDER4": "内容を入力",
+          "NORESULT": "一致する会社がありません",
+          "OFFICE_COUNTER_SUFFIX": "件",
+          "FILE_UPLOAD": "ファイルを選択",
+          "NOT_FILE": "ファイルが選択されていません"
+        }
+      },
+      "CONFIRM": {
+        "TITLE": "取引先への一斉連絡",
+        "LEAD": "以下の内容で送信しますか？"
+      }
+    },
+    "CM0005-3": {
+      "TITLE": "取引先へのお知らせ 詳細"
+    }
+  },
+  "CM0006": {
+    "TITLE": "お気に入り記事",
+    "MSG": {
+      "DELETE" : {
+        "TITLE": "お気に入り記事から\n削除してよろしいですか？",
+        "TEXT": "元の投稿は削除されません。"
+      }
+    },
+    "INSIDE_MESSAGE": "院内メッセージ",
+    "INSIDE_GROUP": "院内グループ",
+    "OUTSIDE_MESSAGE": "院外メッセージ",
+    "OUTSIDE_GROUP": "院外グループ",
+    "GROUP_COMMENT": "{{group_name}}のコメント",
+    "MORE_READ": "もっと見る",
+    "OFFICIAL_GROUP": "院内グループ",
+    "CUSTOMER_MESSAGE": "院外メッセージ",
+    "ORIGINAL_ARTICLE" : "元の記事"
+  },
+  "CM0007": {
+    "TOP": {
+      "TITLE": "Dr.JOYからのお知らせ",
+      "THEAD1": "日時",
+      "THEAD2": "タイトル",
+      "THEAD3": "本文"
+    },
+    "DETAIL": {
+      "TITLE": "Dr.JOYからのお知らせ 詳細"
+    }
+  },
+  "CM0008": {
+    "TOP": {
+      "TITLE": "医療機関からのお知らせ",
+      "THEAD1": "日時",
+      "THEAD2": "医療機関名",
+      "THEAD3": "署名",
+      "THEAD4": "タイトル"
+    },
+    "DETAIL": {
+      "TITLE": "医療機関からのお知らせ 詳細",
+      "INFO": {
+        "TITLE1": "病院名",
+        "TITLE2": "署名",
+        "TITLE3": "タイトル",
+        "TITLE4": "内容",
+        "TITLE5": "添付ファイル"
+      }
+    }
+  },
+  "CM0012": {
+    "TITLE": "経営指標",
+    "ALREADY": "既読",
+    "ARTICLE_LIST": "記事一覧",
+    "KPI_SETTING": "経営指標数値入力/設定",
+    "DATE_TEXT": "{{date}}のデータ",
+    "DAY": "日",
+    "ALL_HOSPITAL": "全病棟",
+    "PEOPLE": "人",
+    "MATTER": "件",
+    "NO_DATA": "データ無し",
+    "MSG": {
+      "ERROR": "エラー"
+    }
+  },
+  "CM0013": {
+    "TITLE": "検索結果",
+    "NO_RESULT_FOUND": "条件に該当する検索結果はありません",
+    "GROUP": "グループ",
+    "MESSAGE": "メッセージ",
+    "MOBILE": "携帯",
+    "CATEGORY": {
+      "ALL": "全て",
+      "STAFF": "スタッフ",
+      "OUTSIDE_MESSAGE": "院外メッセージ",
+      "INSIDE_MESSAGE": "院内メッセージ",
+      "INSIDE_GROUP": "院内グループ",
+      "OUTSIDE_GROUP": "院外グループ"
+    }
+  },
+  "CM0014": {
+    "BTN": {
+      "SAVE": "保存",
+      "THIS_MONTH": "今月",
+      "SHOW": "表示中",
+      "HIDDEN": "非表示"
+    },
+    "MSG": {
+      "CHANGED_HOSPITAL_WARDS": "病棟の追加/削除が行われると、経営指標が初期化されます。\nよろしいですか？"
+    },
+    "TITLE": "経営指標数値入力",
+    "BED_USE_RATE": "病床利用率",
+    "HOSPITAL_STAY": "平均在院日数",
+    "RELIEF_CLASSIFICATION": "救護区分",
+    "NURSING_NEED": "看護必要度",
+    "OUTPATIENT_NUMBER": "外来患者数",
+    "OTHER": "その他",
+    "SETTING": "設定",
+    "TEXT": "クリックして入力してください",
+    "ENTRY_HOSPITAL_WARDS": "病棟名登録",
+    "HOSPITAL_WARDS": "病棟名",
+    "ADD": "追加",
+    "FREE_TEXT": "フリーテキスト欄",
+    "FREE_TEXT_LEAD": "※経営目標／医療安全目標などの共有にご活用ください。全スタッフの経営指標ページに表示されます。",
+    "THRESHOLD": "閾値設定",
+    "AVG_STAY": "平均在院日数",
+    "DISPLAY_ITEMS": "表示項目",
+    "PLACEHOLDER_HOSPITAL_WARDS": "4文字以内で入力",
+    "PLACEHOLDER_FREE_TEXT": "テキストを入力（1000文字以内）"
+  },
+  "CM0016": {
+    "TITLE": "記事一覧",
+    "READ": "既読"
+  },
+  "CM0017DR": {
+    "TITLE": {
+      "INSIDE_GROUP": "院内グループ",
+      "OUTSIDE_GROUP": "院外グループ",
+      "INSIDE_CHAT": "院内メッセージ",
+      "OUTSIDE_CHAT": "院外メッセージ"
+    }
+  },
+  "CM0017PR": {
+    "TITLE": {
+      "OUTSIDE_CHAT": "社外メッセージ"
+    }
+  },
+  "CMPOPUP": {
+    "TITLE": "Dr.JOYからのお知らせが届いています",
+    "TITLE_OFFICE": "病院から重要なお知らせが届いています",
+    "UNSEEN": "他",
+    "SUFFIX": "件"
+  },
+  "HELP": {
+    "BTN": {
+      "MORE": "もっと詳しい説明はこちらから"
+    },
+    "HE0001": {
+      "TITLE": "管理権限とは？",
+      "LEAD": "管理権限とは、Dr.JOYのアカウント管理に関する権限をいいます。所属の追加・編集・削除を行ったり、またDr.JOYへスタッフを招待、削除したり、登録済のスタッフの詳細を編集したりできる権限です。",
+      "SECTION1": {
+        "DL": {
+          "DT1": "全体管理者",
+          "DD1": "全体管理者は院内全スタッフについて管理権限を持ちます。",
+          "DT2": "所属管理者",
+          "DD2": "所属管理者は自身の所属及びその配下のスタッフについて管理権限を持ちます。"
+        }
+      }
+    },
+    "HE0002": {
+      "TITLE": "機能権限とは？",
+      "LEAD": "機能権限とは、Dr.JOYの各機能に関する権限をいいます。面会機能や仲介者機能などDr.JOYを利用する上での様々な機能の権限を細かく設定できます。",
+      "SECTION1": {
+        "DL": {
+          "DT1": "面会管理者",
+          "DD1": "面会機能を使用、設定を行うことができ、関連するデータを閲覧・ダウンロードすることができます。",
+          "DT2": "仲介者",
+          "DD2": "担当医師として設定した医師の代わりに面会管理ができます。",
+          "DT3": "面会スタッフ",
+          "DD3": "面会機能や説明会機能を使用することができます。",
+          "DT4": "カスタム",
+          "DD4": "必要な権限だけをカスタマイズして付与することができます。"
+        }
+      }
+    },
+    "HE0003": {
+      "TITLE": "面会",
+      "SECTION1": {
+        "TITLE": "面会リクエストとは？",
+        "TEXT": "相手がアポイントを申請する時、面会リクエストが送られてきます。\nご自身から面会リクエストを送ることも出来ます。"
+      },
+      "SECTION2": {
+        "TITLE": "面会リクエストが届いたら…",
+        "TEXT": "届いた面会リクエストの詳細を確認しましょう。\n「承認する」、「断る」、「他の日時で調整する」が選べます。"
+      },
+      "SECTION3": {
+        "TITLE": "面会確定！でも、後から都合がわるくなってしまったら…",
+        "TEXT": "詳細を開き、「中止」ボタンを押します。面会相手には中止の連絡が届きます。"
+      },
+      "SECTION4": {
+        "TITLE": "中止・お断りしたけど…再調整したい！",
+        "TEXT": "詳細を開き、「他の日時で調整する」ボタンを押します。\n相手には他の日時で面会リクエストが届きます。"
+      }
+    },
+    "HE0004": {
+      "TITLE": "訪問登録について",
+      "SECTION1": {
+        "TITLE": "訪問登録とは？",
+        "TEXT": "相手の方が面会システムを使っていない場合でも、ご訪問の予定や過去のご訪問を登録することができます。"
+      },
+      "SECTION2": {
+        "TITLE": "通常の面会"
+      },
+      "SECTION3": {
+        "TITLE": "訪問登録"
+      },
+      "SECTION4": {
+        "TITLE": "登録した内容は？",
+        "OL": {
+          "LI1" : "自分と仲介者のカレンダーに表示されます。",
+          "LI2" : "管理者のみが見れる「面会状況（日別）」に表示されます。"
+        }
+      }
+    },
+    "HE0006": {
+      "TITLE": "面会時間帯設定とは？",
+      "LEAD": "病院が設定している時間の中で、自分のスケジュールに合わせて面会時間を縮めたり面会日を限定したりできます。"
+    },
+    "HE0007": {
+      "TITLE": "面会報告について",
+      "SECTION1": {
+        "TITLE": "面会報告とは？",
+        "TEXT": "多くの病院で面会記録の管理にお使いいただく機能です。実際に行われた面会の内容や案内した製品、資料を記入します。送信した面会報告は、面会者と病院の管理者のみ閲覧できます。"
+      },
+      "SECTION2": {
+        "TITLE": "面会が終わったら…",
+        "TEXT": "面会が終わったら面会報告を病院へ送りましょう。面会の履歴管理や備忘録としてもご活用いただけます。"
+      },
+      "SECTION3": {
+        "TITLE": "報告内容を修正したい…！",
+        "TEXT": "面会報告は再編集・再送信することができます。「編集」ボタンから開いて編集し「面会報告を送信」を押して下さい。"
+      },
+      "SECTION4": {
+        "TITLE": "書き忘れて7日経過してしまった…！",
+        "TEXT": "未作成で7日経過した報告があると、面会報告メニューに緑色の吹き出しマークがつきます。"
+      }
+    },
+    "HE0008": {
+      "TITLE": "グループとは？",
+      "SECTION1": {
+        "TITLE": "院内・院外グループとは…",
+        "TEXT": "院内・院外のユーザーを自由に選択し編成するグループです。"
+      },
+      "SECTION2": {
+        "TITLE": "所属グループとは…",
+        "TEXT": "指定した所属に属しているユーザーのみで編成されるグループです。\n所属にメンバーが加わると、グループに自動的にメンバーとして追加され、所属を抜けると所属グループからも自動的にはずされます。"
+      }
+    },
+    "HE0009": {
+      "TITLE": "署名について",
+      "LEAD": "署名欄を利用すると、秘書や医事課等の方からでも院長や部長名義で取引先へお知らせを送ることができます。",
+      "SECTION1": {
+        "TITLE": "署名欄に入力した場合"
+      },
+      "SECTION2": {
+        "TITLE": "署名欄を空欄にした場合"
+      }
+    },
+    "HE0010": {
+      "TITLE": "経営指標とは？",
+      "LEAD": "病院の経営指標情報を分かりやすく伝えることができる機能です。全スタッフの経営指標ページに表示されます。",
+      "SECTION1": {
+        "TEXT": "数値入力をすると自動でグラフを生成。日々の変化をビジュアル的に分かりやすく共有することができます。"
+      },
+      "SECTION2": {
+        "TEXT": "経営目標や医療安全目標などの共有にご活用いただけるフリーテキスト欄です。"
+      },
+      "SECTION3": {
+        "TEXT": "全体管理者及び所属管理者の権限があるユーザーのみ、経営指標の数値を入力することができます。"
+      }
+    },
+    "HE0011": {
+      "TITLE": "スタッフとの共有設定について",
+      "SECTION1": {
+        "TEXT": "「スタッフとマイカレンダーを共有」をONにすると、Dr.JOYカレンダーに登録した自分の予定が他のスタッフに公開されます。\n※ただし、他のスタッフが「お気に入りスタッフ」にあなたを追加しない限り共有されることはありません。"
+      },
+      "SECTION2": {
+        "TEXT": "共有レベルではあなたのカレンダーをどこまで公開するか、また、あなたのカレンダーを編集できるように許可するかが設定できます。"
+      },
+      "SECTION3": {
+        "TEXT": "あなたのカレンダーを閲覧しているスタッフがいる場合は一覧で確認できます。また、閲覧を解除することもできます（解除しても再度設定できます）"
+      },
+      "SECTION4": {
+        "TEXT": "あなたが閲覧中のスタッフの共有レベルは名前の横に表示されています。"
+      },
+      "SECTION5": {
+        "TITLE": "仲介設定をしている場合",
+        "TEXT": "仲介している先生の面会枠と面会は、自動で共有されます。特に共有の設定は必要ありません。\n面会枠・面会以外の予定を共有したい場合は、まず先生側の共有設定を「ON」にしてから、「あなたが閲覧中のスタッフ」から「スタッフを追加」で先生を追加してください。"
+      },
+      "SECTION6": {
+        "TEXT": "確定した面会の予定のみを知りたい場合、「自分の予定」から仲介している先生の面会枠を非表示にできます（面会の予定は非表示にできません）"
+      }
+    },
+    "HE0012": {
+      "TITLE": "Google/Outlookカレンダーとの同期について",
+      "SECTION1": {
+        "TITLE": "登録した予定の同期"
+      },
+      "SECTION2": {
+        "TITLE": "編集した予定の同期",
+        "CAUTION": "※Dr.JOY上で登録された以下の予定をGoogle/Outlookカレンダーで編集した場合、Dr.JOYカレンダーには反映されません。\n（面会・面会枠・訪問）"
+      }
+    },
+    "HE0013": {
+      "TITLE": "サイボウズ Garoonカレンダーとの同期について",
+      "LEAD": "Garoonカレンダーと同期した場合は、Garoonカレンダーの予定をDr.JOYカレンダーに表示させることができます。\nDr.JOYカレンダーで登録・編集した予定は、Garoonカレンダーには反映されません。",
+      "SECTION1": {
+        "TITLE": "登録した予定の同期"
+      },
+      "SECTION2": {
+        "TITLE": "編集した予定の同期"
+      }
+    },
+    "HE0014": {
+      "TITLE": "面会枠設定とは",
+      "LEAD": "対象者、場所、時間を設定した枠を用意します。\n複数の提示の中から１件ピックアップして面会を設定することができます。",
+      "CAUTION": "「繰り返し」にチェックを入れると、同じ条件で繰り返し設定することも可能です。"
+    },
+    "HE0015": {
+      "TITLE": "Google/Outlookカレンダーとの同期について",
+      "SECTION1": {
+        "TITLE": "登録した予定の同期"
+      },
+      "SECTION2": {
+        "TITLE": "編集した予定の同期",
+        "CAUTION": "※Pr.JOY上で登録された以下の予定をGoogle/Outlookカレンダーで編集した場合、Pr.JOYカレンダーには反映されません。\n（面会・面会枠・訪問）"
+      }
+    },
+    "HE0016": {
+      "TITLE": "サイボウズ Garoonカレンダーとの同期について",
+      "LEAD": "Garoonカレンダーと同期した場合は、Garoonカレンダーの予定をPr.JOYカレンダーに表示させることができます。\nPr.JOYカレンダーで登録・編集した予定は、Garoonカレンダーには反映されません。",
+      "SECTION1": {
+        "TITLE": "登録した予定の同期"
+      },
+      "SECTION2": {
+        "TITLE": "編集した予定の同期"
+      }
+    }
+  },
+  "COL_SUB": {
+    "MAIL_CORP": {
+      "ADDRESS": "support@drjoy.jp",
+      "SUBJECT": "【Dr.JOY個人登録】法人登録依頼",
+      "BODY": "の法人版登録を希望します。"
+    }
+  },
+  "ME0001": {
+    "TITLE": "面会",
+    "BTN_SETTING": "面会設定",
+    "DELAY_TIME": "分遅れます",
+    "SELECT_DOCTOR": "医師を選択",
+    "SEARCH_ZERO_RECORD": "該当するデータがありません",
+    "PRINT_PAGE_TITLE": "面会トップ"
+  },
+  "ME0058": {
+    "TITLE": "Entry-exit card",
+    "BTN_INFOR": "FAQ",
+    "ENTRY_BOX": "Hospitals that can use entrance card",
+    "ENTRY_PY": "Introduction Hospital Medical Corporation ○ ○ ○ ○ ○ ○ ○ Hospital",
+    "ENTRY_NOTICE": "※ If you are in charge of other hospitals, please note that there is no need to apply.",
+    "INFOR_CARD": "It is an entrance / exit card that you can use at a hospital that has introduced Dr. JOY entrance / exit system. If there is an announcement from the above hospital, please purchase the one you need.",
+    "INFOR_MD": "The card registration fee will be required for the first 5,000 yen (tax excluded), and after the second year an update fee of 5,000 yen will be required. (Entry and exit card will be a common card, you can use at the above target hospital with one)",
+    "INFOR_PROCESS": "Entry / exit card will be mailed within 10 business days after application.",
+    "TITLE_ENTRY": "About face picture printed on card",
+    "INFOR_STEP": "Currently, the profile picture displayed will be reflected on the IC card.",
+    "INFOR_PROHI": "* If the photos are not reflected well, there is a possibility that the security of the terminal at the time of registration is affected.",
+    "INFOR_BIT": "Please register your photos again from the setting screen with your smartphone, tablet terminal etc.",
+    "INFOR_CASE": "Please pay attention to the following points when choosing the photo to use for the profile.",
+    "TITLE_CONTRACT": "Entry-exit card application form",
+    "TITLE_SUB": "Invoice / Receipt",
+    "INFOR_PAYMENT": "※ It will be the address of invoice and receipt.",
+    "SUBTITLE": "Card mailing address",
+    "LABEL": "Postal code",
+    "INFOR_ENTRANCE": "【Entrance Card Terms of Service】",
+    "INFOR_AGREEMENT": "Below, by agreeing to this agreement you will be issuing and using cards for a fee.",
+    "INFOR_SERVICE": "The agreement to this agreement is based on the consent of Pr.JOY terms of service and the provisions of the Pr.JOY terms of service apply to items not stated in this contract. When the user is deleted based on Pr.JOY terms of use, the use of the card will be suspended.",
+    "INFOR_ARTICLE": "Article 1 (Use registration and period)",
+    "BUTTON_CONFIRM": "Confirm the terms of use, agree",
+    "TITLE_WARNING": "Entry / exit cards are charged. Would you like to purchase it?",
+    "TITLE_SUCCESS": "Purchase procedure is complete",
+    "BUTTON_CANCEL": "CANCEL",
+    "RULES1": "【入退館カード利用規約】",
+    "RULES2": "以下、本規約に同意することで有償でのカード発行・利用を行うことになります。",
+    "RULES3": "本規約への同意はPr.JOY利用規約の同意を前提としており、本規約に記載されていない事項についてはPr.JOY利用規約の規定が適用されます。Pr.JOY利用規約に基づき利用者の削除が行われた場合、カード利用は停止となります。",
+    "RULES4": "第１条（利用登録と期間）",
+    "RULES5": "１．カード利用登録を希望する者は、入退館カード利用規約（以下、「本規約」という。）に同意することにより、Dr.JOY株式会社（以下、「当社」という。）が提供する病院向けの入退館管理システムにより供給される入退館管理サービスにおいて正式なカード利用登録の申し込みを行ったものとみなします。",
+    "RULES6": "２．使用期間は以下の通りとします。",
+    "RULES7": "   ・カード利用登録申し込み時を使用開始時期とします。",
+    "RULES8": "   ・カード利用登録申し込み時又は第2条第4項に基づくカード利用再開の申請時若しくはカード再発行の申請時から1年を有効期限とし、当社へカード利用停止申請を行うまでは、使用開始時期から利用期間が1年毎に自動更新されるものとします。尚、使用料の滞納や不適切なカード利用が行われた場合、使用期間中であっても当社の判断で、カード利用停止を通知の上、カード利用停止します。",
+    "RULES9": "   ・医療機関の入退館管理システムの利用停止を理由とした該当医療機関でのカード利用停止についてはあらかじめ承諾するものとします。",
+    "RULES10": "３．カード利用登録者は入退館カード（以下「本カード」という。）及び使用権を第三者に譲渡、質入れ、再許諾及び貸与その他の処分をしてはならないものとします。又、本カードは本人のみ利用出来るものとします。",
+    "RULES11": "４．カード利用登録者は、登録時に本カードの利用を想定していた医療機関とは別の医療機関が入退館システムを導入した時、該当医療機関の了解のもと本カードを共通カードとして利用し、入退館ができるものとします。",
+    "RULES12": "第２条（入退館カードの発行・利用停止・破棄）",
+    "RULES13": "１．カード利用登録を希望する者は、本規約に同意の上で本カードの発行の登録申請をするものとします。カード登録申請後10営業日以内に当社よりカード利用申請者に本カードが郵送されます。",
+    "RULES14": "２．カード登録申請以降、カード到着までの間はアカウント情報にて、カード利用者と同様に病院の入退館ができます。",
+    "RULES15": "３．本カードは、破損、紛失、破棄、情報変更時（会社名、氏名等）には、再発行の申請をしなければならないものとします。",
+    "RULES16": "４．カード利用登録者は、担当変更、退職その他の理由で本カードを全医療機関で利用しなくなった場合は、当社に対して、カード利用停止申請を行なわなければなりません。これにより次年度以降のカード更新料は不要となります。将来別の医療機関でカード利用を行う場合、カード利用再開の申請を行うことが出来ます。本カードをなくした場合は、再発行の申請を行わなければなりません。",
+    "RULES17": "第３条（請求・支払い）",
+    "RULES18": "１．カード利用登録者は、カード登録申請をした場合、当該申請日の属する月の翌月末までに本カードの使用料として5,000円(税別、郵送料別)を支払わなければなりません。",
+    "RULES19": "２．カード利用登録者は、カード利用再開申請をした場合、当該申請日の属する月の翌月末までに更新手数料として5,000円（税別）を支払わなければなりません。",
+    "RULES20": "３．カード利用登録者は、カード再発行申請をした場合、当該申請日の属する月の翌月末までに再発行申請料として5,000円(税別、郵送料別)を支払わなければなりません。",
+    "RULES21": "４．カード利用登録者は、本カードの２年目以降の継続利用のために更新日が属する月の月末までに毎年5,000円(税別)の更新手数料を支払わなければなりません。利用再開申請や再発行申請をした場合、その申請日から1年後を更新日とします。又、当社は、年度途中でのカード利用再開申請、再発行申請等の追加使用料が発生した場合であっても、当該更新手数料の払戻しはいたしません。",
+    "RULES22": "５．支払いは各申請時の請求書に従い、当社が指定する銀行口座に送金する方法で支払わなければなりません。振込手数料その他支払いに必要な費用はカード利用登録者の負担とします。",
+    "RULES23": "６．使用期間中に、カード使用停止があった場合、理由の如何に関わらず支払済みの本カードの使用料、更新手数料及び再発行申請料の払戻しはいたしません。但し、担当医療機関変更で、カード使用停止が必要な場合、カード登録申請後１ヶ月以内にカード使用停止申請を行えば、当社へのカード返却を確認後、カード登録申請キャンセルとして支払額を限度に払い戻しをいたします。",
+    "RULES24": "７．本カードは、共通カードなので複数病院での利用においても追加使用料等の支払いは必要ありません。",
+    "RULES25": "第４条（免責）",
+    "RULES26": "当社は、本サービスについて、特定の使用目的への適合性、使用結果の完全性、有用性、適格性、信頼性、安全性、即時性及び第三者の権利の非侵害性その他の事項について何ら保証はいたしません。",
+    "RULES27": "第５条（瑕疵担保責任）",
+    "RULES28": "本カードの初回利用においてのみ本カードの不具合により入退館処理ができない場合、本カードの取替請求ができるものとします。当社に不具合の発生した本カードを送り返していただくことで、新規カードを再発行いたします。その際の追加料金は発生いたしません。",
+    "RULES_LAST": "以　上",
+    "ME0058_ERROR": {
+      "PAYMENT_NAME_REQUIRED": "Please enter the payment name",
+      "ZIPCODE_REQUIRED": "Please enter postal code",
+      "ADDRESS_REQUIRED": "Please enter your address",
+      "ADDRESS2_REQUIRED": "Please enter your address",
+      "NAME_REQUIRED": "Please input your name",
+      "MIN_LENGHT": "短い入力も",
+      "MAX_LENGHT": "ロングエントランス",
+      "ZIPCODE_MINLENGTH": "Please enter the postal postal code separately for 3 digits and 4 digits"
+       }
+  },
+  "ME0007": {
+    "MENU": {
+      "NEW": "面会の詳細(未対応)",
+      "REQUESTING": "面会の詳細(リクエスト中)",
+      "FIXED": "面会の詳細(確定)",
+      "DONE": "面会の詳細(終了)",
+      "CANCELED": "面会の詳細(中止)",
+      "ITEM_4": "面会詳細（募集中）",
+      "ITEM_0": "説明会の詳細(未対応)"
+    },
+    "CONFIRM_REJECT": {
+      "TITLE": "面会を断ります",
+      "MSG": "この内容で送信してよろしいですか？"
+    },
+    "CONFIRM_CANCEL": {
+      "TITLE": "面会を中止します",
+      "MSG": "この内容で送信してよろしいですか？"
+    },
+    "CONFIRM_ACCEPT": {
+      "TITLE": "面会を承認します",
+      "MSG": "この内容で送信してよろしいですか？"
+    },
+    "ACCEPT_SUCCESS": {
+      "TITLE": "面会を承認しました\n取引先との細かいやりとりをするため、連絡ルーム画面に移動しますか？"
+    },
+    "ERROR": {
+      "ERROR_HAS_EVENT": "※該当の時間帯には他の予定が登録されています",
+      "ERROR_HAS_REQUEST": "※該当の時間帯で他の担当者にリクエストを打診中です",
+      "ERROR_HAS_REQUEST_FIX": "※該当の時間帯には確定した面会が登録されています。"
+    }
+  },
+  "ME5001": {
+    "TITLE": "FAQ",
+    "BUTTON": {
+      "SUBMIT": "ENTRANCE CARD TERMS OF SERVICE"
+    },
+    "ENTRANCE_CARD": {
+      "TITLE": "ABOUT ENTRANCE CARD",
+      "ISSUE": {
+        "TITLE": "Card Issue",
+        "QUESTION1": "Do I have to buy certainly?",
+        "ANSWER1": "Those who received 「Information on introducing entrance / exit system」 from the hospital please purchase.",
+        "QUESTION2": "I want to cancel issuance",
+        "ANSWER2": "Issuance cancellation is possible if it is within one month from registration. We will refund you if you have already transferred. If you have already shipped the Entrance Card, please return it to Dr. Joy Ltd."
+      },
+      "DELIVERY": {
+        "TITLE": "CARD DELIVERY",
+        "QUESTION1": "When will I receive the card?",
+        "ANSWER1": "We are planning to deliver within 10 business days from registration. If you do not receive it after 2 weeks, please contact Dr. JOY Corporation.",
+        "QUESTION2": "Where will the card arrive?",
+        "ANSWER2": "There is an address input column on the card application page. Please fill out the desired shipping address.",
+        "QUESTION3": "Please tell me how to deliver the card",
+        "ANSWER3": "We will deliver it with letter pack light. It is delivered to the mailbox."
+      },
+      "TRANSFERS": {
+        "TITLE": "TRANSFERS OF CARD",
+        "QUESTION1": "Can I transfer the cards",
+        "ANSWER1": "Because it is a card for each individual, it can not be transferred."
+      }
+    },
+    "ENTRY": {
+      "TITLE": "ABOUT ENTRY METHOD",
+      "ENTRANCE": {
+        "TITLE": "I can not enter",
+        "QUESTION1": "「It is not supported cards」was displayed",
+        "ANSWER1": "It is displayed when other IC card is accidentally touched.",
+        "QUESTION2": "「It is a card you can not use」was displayed",
+        "ANSWER2": "This message is displayed while the card function is stopped or when the use of the card is canceled. When resuming the use of the card, please contact us from 「Entry / Exit card management」 screen.",
+        "QUESTION3": "「We can not enter because we do not have registration at this hospital. Please accept information on entrance card and please register hospital.」",
+        "ANSWER3": "It will be displayed if there is no registration in the hospital you are visiting. Please receive「Information on introducing the entrance hall system」 from the hospital and register the hospital according to the procedure written there."
+      }
+    }
+  },
+  "ME5002": {
+    "TITLE": "Entry exit card",
+    "BUTTON": {
+      "FAQ": "FAQ",
+      "CHANGE": "CHANGE",
+      "INVOICE": "INVOICE",
+      "DISPLAY": "DISPLAY",
+      "CARD_ISSUE": "CARD ISSUE AND STOP USING"
+    },
+    "LABEL": {
+      "EFFECTIVE_DATE": "Effective date",
+      "OFFICE_USER": "Invoice / Receipt address",
+      "MAILING": "Card mailing address",
+      "BILLED": "Billed amount",
+      "RECEIPT_LIMIT_DATE": "Receipt limit date"
+    },
+    "CARD_ADDR": {
+      "ZIP_CODE": "Zip code",
+      "ADDRESS": "Address",
+      "ADDRESS2": "Address 2",
+      "NAME": "Name",
+      "NOTICE": "※We will deliver it with letter pack light"
+    },
+    "TRANFER_ACC": {
+      "BANK_NAME": {
+        "TITLE": "Bank Name",
+        "INFO": "Japan Net Bank (0033)"
+      },
+      "BRANCH_NAME": {
+        "TITLE": "Branch Name",
+        "INFO": "Capricorn branch (811)"
+      },
+      "TYPE": {
+        "TITLE": "Type",
+        "INFO": "Usually"
+      },
+      "ACC_NUM": {
+        "TITLE": "Account Number",
+        "INFO": "23012"
+      },
+      "NAME": {
+        "TITLE": "NAME",
+        "INFO": "DrJoy"
+      },
+      "TRANFER_PERSON_NAME": {
+        "TITLE": "Transfer Person Name",
+        "INFO": "Please enter the 「last 4 digits of the billing number」 and 「your name (half size)」.",
+        "EXAMPLE": "Example: 0123 Suzuki Taro"
+      }
+    },
+    "HISTORY_LIST": {
+      "USAGE": "Usage period",
+      "AMOUNT": "Billing amount",
+      "PAYMENT": "Payment day",
+      "RECEIPT": "Receipt"
+    },
+    "ENTRY_EXIT_CARD": {
+      "TITLE": "Entry-exit Card",
+      "NOTICE": {
+        "ROW1": "Once you proceed with your restart procedure, you can re-enter Pr.JOY's entrance card.",
+        "ROW2": "・The number of hospital visits has increased",
+        "ROW3": "・Please re-enter the entrance / exit system introduction hospital, please use the entrance card in case such as above.",
+        "ROW4": "If the card is on hand, the restart fee is 5,000 yen (tax excluded).",
+        "ROW5": "Because it is a nationwide common card, you can use it anywhere in the hospital where Pr.JOY entrance / exit system has been installed.",
+        "ROW6": "※If there is no card, please contact us so we will process your reissue.",
+        "ROW7": "Resume using entrance card and re-issue application here",
+        "ROW8": "The receipt can be displayed within 3 months after receipt of money"
+      }
+    },
+    "INVOICE_CAUTION": {
+      "TITLE": "Regarding Inquiries About Transfer",
+      "EMAIL": {
+        "LINK": "mailto:support_ic@drjoy.jp?subject=《入退館カード》請求番号が記載できない &body=--------------------------------------------%0d%0a 会社名（※必須）：%0d%0a 氏名（※）：%0d%0a 振込日（※）：%0d%0a 振込名義（※）：%0d%0a 請求番号（※）：%0d%0a%0d%0a 経理ご担当者様の氏名：%0d%0a 経理ご担当者様の電話番号：%0d%0a--------------------------------------------",
+        "START": "In the accounting system, if you can not fill in, sorry to trouble you, but in advance",
+        "END": "Please contact us with the following items."
+      },
+      "ENTRY_EXIT_CARD": {
+        "TITLE": "《Entry-exit card》 can not write claim number",
+        "COMPANY_NAME": "Company name（※Required）：",
+        "NAME": "Name（※）：",
+        "TRANFER_DATE": "Transfer date（※）：",
+        "TRANER_NAME": "Transfer name（※）：",
+        "INVOICE_NUM": "Invoice number（※）：",
+        "ACC_NAME": "Accountant's full name：",
+        "ACC_PHONE": "Accountant's phone number：",
+        "NOTE1": "If transfer information is ambiguous, we may contact you for confirmation from us.",
+        "NOTE2": "Also, when transferring multiple cards at once, please describe the purchaser name and billing number for all of them."
+      }
+    },
+    "NOTICE": {
+      "INVOICE_INFO": {
+        "NOTE_1": "※Please transfer by the due date.",
+        "NOTE_2": "※Sorry for your inconvenience but please bear the transfer fee by the customer.",
+        "NOTE_3": "※After confirming payment, you can check the receipt on this screen."
+      },
+      "HISTORY": "※The receipt can be displayed within 3 months after receipt of money"
+    },
+    "NOTICE_POSTAGE": "The postage",
+    "CURRENCY_UNIT": "yen",
+    "INVOICE": {
+      "TITLE": "Invoice",
+      "RECEIPT_DATE": "Receipt date",
+      "PAYMENT_NO": "Payment no",
+      "NOTICE": "I will claim as follows.",
+      "BILLED": "Billed amount",
+      "BILLED_NOTICE": "（Consumption tax included）",
+      "RECEIPT_LIMIT_DATE": "Receipt limit date",
+      "REPORT": "Report",
+      "EXPENSE": "Expense",
+      "PRICE": "Entry-exit card usage fee",
+      "TAX_EXCLUDED": " （Tax excluded）",
+      "POSTAGE": "Postage",
+      "TOTAL": "Total",
+      "TRANFER_ACC": {
+        "BANK_NAME": {
+          "TITLE": "Bank Name",
+          "INFO": "Japan Net Bank（0033）"
+        },
+        "BRANCH_NAME": {
+          "TITLE": "Branch Name",
+          "INFO": "Capricorn perspective（811）"
+        },
+        "TYPE": {
+          "TITLE": "Type",
+          "INFO": "Usually"
+        },
+        "ACC_NUM": {
+          "TITLE": "Account number",
+          "INFO": "23012"
+        },
+        "NAME": {
+          "TITLE": "Name",
+          "INFO": "DrJoy"
+        },
+        "TRANFER_PERSON_NAME": {
+          "TITLE": "Transfer person name",
+          "INFO": "Please enter 「Last 4 digits of billing number」 and 「Name of principal」 （Example: 0123 Suzuki Taro）"
+        }
+      },
+      "NOTICE": {
+        "BOX_PRICE": "I will claim as follows.",
+        "ROW1": "※When transferring, please enter 「Company name and first name of person」 or 「Last 4 digits of charge number」.",
+        "ROW2": "If you can not fill in, please contact support (03-6427-4977) sorry to trouble you, but sorry to trouble you.",
+        "ROW3": "When transfer information is ambiguous, we may contact you for confirmation from us.",
+        "ROW4": "Please transfer by the payment deadline. Sorry for your inconvenience but please bear the transfer fee by the customer."
+      }
+    },
+    "RECEIPT": {
+      "TITLE": "Receipt",
+      "NOTICE": "However, as mentioned above, we received the above exactly as entrance into and out of the entrance / exit card.",
+      "REPORT": "Breakdown（Delivery note）",
+      "BILLED": "Receipt amount"
+    }
+  },
+  "PHARMACY": {
+    "PH0007": {
+      "SAVED_SUCCESS": "プロトコルを保存しました",
+      "TITLE": "疑義照会プロトコル",
+      "VALIDATE": {
+        "PROTOCOL_ITEM_0_REQUIRED": "処⽅変更に係る原則を入力してください",
+        "PROTOCOL_ITEM_0_LENGTH": "処⽅変更に係る原則は3000文字以内で入力してください",
+        "PROTOCOL_ITEM_1_REQUIRED": "処⽅変更・調剤後の連絡を入力してください",
+        "PROTOCOL_ITEM_1_LENGTH": "処⽅変更・調剤後の連絡は3000文字以内で入力してください",
+        "PROTOCOL_ITEM_2_REQUIRED": "疑義照会の不要例を入力してください",
+        "PROTOCOL_ITEM_2_LENGTH": "疑義照会の不要例は3000文字以内で入力してください",
+        "PROTOCOL_ITEM_3_REQUIRED": "残薬調整に関する疑義照会不要例を入力してください",
+        "PROTOCOL_ITEM_3_LENGTH": "残薬調整に関する疑義照会不要例は3000文字以内で入力してください",
+        "OTHER_INFO_REQUIRED": "その他を入力してください",
+        "OTHER_INFO_LENGTH": "その他は3000文字以内で入力してください",
+        "CONTACT_INFO_REQUIRED": "各種問い合わせ窓⼝を入力してください",
+        "CONTACT_INFO_LENGTH": "各種問い合わせ窓⼝は3000文字以内で入力してください",
+        "PROTOCOL_USAGE_START_DATE_REQUIRED": "運⽤開始⽇を入力してください",
+        "PROTOCOL_USAGE_START_DATE_LENGTH": "運⽤開始⽇は3000文字以内で入力してください",
+        "REVISION_HISTORY_REQUIRED": "改訂履歴を入力してください",
+        "REVISION_HISTORY_LENGTH": "改訂履歴は3000文字以内で入力してください"
+      }
+    },
+    "PH0008": {
+      "TITLE": "薬薬連携集計",
+      "TRACING_REPORT": "トレーシングレポート",
+      "CHANGE_REPORT": "処方変更報告",
+      "OFFICE_NAME": "事業所名",
+      "PATIENT_CONSENT_COUNT": "得ている",
+      "PATIENT_NOT_CONSENT_COUNT": "得ていない",
+      "SUM": "合計",
+      "REASON_FOR_CHANGE": "変更理由",
+      "PROTOCOL": "プロトコル活用",
+      "RESIDUE_ADJUSTMENT": "残薬調整",
+      "CHANGE_COMPONENT": "同一成分銘柄変更",
+      "CHANGE_OF_DOSAGE": "剤形変更",
+      "STANDARD_CHANGE": "規格変更",
+      "ONE_PACKAGING": "一包化調剤",
+      "PRESCRIPTION_DAY": "処方日素敵正化",
+      "CHANGE_GENERA_DRUG": "後発医薬品変更",
+      "OTHER": "その他",
+      "PRESENT": "有り",
+      "NONE": "無し",
+      "THIS_MONTH": "今月",
+      "INQUIRY": "患者様の同意",
+      "TRACING_REPORT_SUMMARY": "事業所名",
+      "PATIENT_CONSENT_YES": "患者様の同意得ている",
+      "PATIENT_CONSENT_NO": "患者様の同意得ていない"
+    },
+    "PH0026": {
+      "TEMPLATE": "新規作成",
+      "TITLE": "テンプレート",
+      "PLACEHOLDER_TEMPLACE_NAME": "テンプレート名を入力してください",
+      "PLACEHOLDER_TEMPLACE_CONTENT": "テンプレートの内容を入力してください",
+      "MSG_DELETE": "テンプレートを削除しますか？",
+      "BACK_PAGE1": "このページから移動しますか？",
+      "BACK_PAGE3": "他のテンプレートを選択しますか？",
+      "BACK_PAGE2": "編集の途中のため保存されていない内容は削除されます",
+      "VALIDATE": {
+        "TEMPLACE_NAME_REQUIRED": "テンプレート名を入力してください。",
+        "TEMPLACE_NAME_LENGTH": "テンプレート名64文字以内で入力してください。",
+        "TEMPLACE_CONTENT_REQUIRED": "テンプレート本文を入力してください。",
+        "TEMPLACE_CONTENT_LENGTH": "テンプレート本文3000文字以内で入力してください。"
+      }
+    },
+    "PH0018": {
+      "TITLE": "薬薬連携集計",
+      "TRACING_REPORT": "トレーシングレポート",
+      "CHANGE_REPORT": "処方変更報告",
+      "OFFICE_NAME": "事業所名",
+      "PATIENT_CONSENT_COUNT": "得ている",
+      "PATIENT_NOT_CONSENT_COUNT": "得ていない",
+      "SUM": "合計",
+      "REASON_FOR_CHANGE": "変更理由",
+      "PROTOCOL": "プロトコル活用",
+      "RESIDUE_ADJUSTMENT": "残薬調整",
+      "CHANGE_COMPONENT": "同一成分銘柄変更",
+      "CHANGE_OF_DOSAGE": "剤形変更",
+      "STANDARD_CHANGE": "規格変更",
+      "ONE_PACKAGING": "一包化調剤",
+      "PRESCRIPTION_DAY": "処方日素敵正化",
+      "CHANGE_GENERA_DRUG": "後発医薬品変更",
+      "OTHER": "その他",
+      "PRESENT": "有り",
+      "NONE": "無し",
+      "THIS_MONTH": "今月",
+      "INQUIRY": "患者様の同意",
+      "TRACING_REPORT_SUMMARY": "トレーシングレポート集計_",
+      "PRESCRIPTION_CHANGE_REPORT": "処方変更報告集計_",
+      "PROTOCOL_AVAILABLE": "プロトコル活用有り",
+      "NO_PROTOCOL": "プロトコル活用無し",
+      "PATIENT_CONSENT_YES": "患者様の同意得ている",
+      "PATIENT_CONSENT_NO": "患者様の同意得ていない"
+    }
+  },
+  "PH0015": {
+    "OFFICE_NAME" : "事業所名",
+    "PHARMACY_NAME": "薬剤師名",
+    "PHONE_NUMBER": "連絡先",
+    "PATIENT_NAME" : "患者氏名",
+    "PATIENT_CODE" : "患者ID",
+    "UPDATED" : "処方箋発行日",
+    "OFFICE_USER_ID":"処方医",
+    "DEPARTMENT_NAME": "診療科",
+    "DOCTOR": "医師",
+    "PRESCRIBING_PHYSICIAN": "処方医",
+    "PRESCRIPTION_UPDATE_REASON": "",
+    "VALIDATE": {
+      "PROTOCOL": "完全な情報を入力してください",
+      "PHONE_NUMBER": "携帯番号(仕事用)を入力してください",
+      "UPDATED": "完全な情報を入力してください",
+      "PRESCRIPTION_UPDATE_REASON": "完全な情報を入力してください",
+      "LIST_DRUG": "完全な情報を入力してください",
+      "PHONE_FIXLENGTH": "11半角数字で入力して下さい",
+      "DRUG_OLD": "完全な情報を入力してください",
+      "DRUG_NEW": "完全な情報を入力してください"
+    }
+  },
+  "RE0034": {
+    "BUTTON": "Confirmation",
+    "REG_BUTTON": "Registration",
+    "TOP_NOTIFICATION": "Please register two ID cards below for confirmation",
+    "NOTE1": "1st piece: Doctor's license, staff ID, driver's license, passport, My number card etc. (Person who can confirm it)",
+    "NOTE2": "2nd sheet: employee ID card, business card, documents issued by a public institution (things that understand the medical institution at work)",
+    "PAGE_TITLE": "Edit user information",
+    "PASSWORD": {
+      "TITLE": "Password",
+      "CONFIRM_TITLE": "Password (For confirmation)",
+      "PLACEHOLDER" : "Enter from 6 to 16 single-byte alphanumeric characters and _ (underscore)",
+      "CONFIRM_PLACEHOLDER": "Enter from 6 to 16 single-byte alphanumeric characters and _ (underscore)"
+    },
+    "NAME": {
+      "TITLE": "Name",
+      "LAST_NAME": "Last name",
+      "FISRT_NAME": "First name"
+    },
+    "KANA_NAME": {
+      "TITLE": "Name (Kana)",
+      "LASTNAME_KANA": "Last name Kana",
+      "FIRSTNAME_KANA": "First name Kana"
+    },
+    "GENDER": "Gender",
+    "JOB": "Profession",
+    "BIRTHDAY": "Birthday",
+    "DEPARTMENT": "First medical department (doctor only)",
+    "DEPARTMENT2": "First Department of Medicine",
+    "LoginID": " Login ID (email address)",
+    "IDENTIFICATION": {
+      "CARD1": {
+        "TITLE": "Identification card 1 (front)",
+        "DATE": "Update date",
+        "FILE_NAME": "File name",
+        "EX_IMG": "【Example of business card image】",
+        "EX": "Sample",
+        "NG": "NG",
+        "BACK_TITLE": "Identification card 1 (back)"
+      },
+      "CARD2": {
+        "TITLE": "Identification card 2 (front)",
+        "DATE": "Update date",
+        "FILE_NAME": "File name",
+        "EX_IMG": "【Example of business card image】",
+        "EX": "Sample",
+        "NG": "NG",
+        "BACK_TITLE": "Identification card 2 (back)"
+      }
+    },
+    "ST4": "It was not accepted because there was a problem with the application content. Please register again.",
+    "ST2": "The identification card is under review.",
+    "RE0034_ERROR": {
+      "DATE_BIRTH_REQUIRED": "Please enter your date of birth",
+      "SPECIALIZE_DEPARTMENT_REQUIRED": "Please select a region",
+      "SPECIALIZE_DEPARTMENT": "Please select medical department",
+      "CHECK_RESGISTER": "Please understand the terms of use and check 'Agree to terms of service'",
+      "PASSWORD_FORMAT_ERROR": "Password must be 6 or more characters, 16 letters or less, half size alphanumeric characters and _ (underscore)",
+      "PASSWORD_REQUIRED": "Please enter your password",
+      "PASSWORD_MATCH": "Verification passwords do not match",
+      "EMAIL_TEXT": " E-mail address format is invalid",
+      "MAX_LENGHT_EMAIL": "E-mail address can not exceed 64 characters",
+      "CONFIRM_EMAIL_REQUIRED": "Please enter your e-mail address (for confirmation)",
+      "NEW_EMAIL_REQUIRED": "Please enter your e-mail address",
+      "EMAIL_REQUIRED": "E-mail address is not entered yet",
+      "EMAIL_CONFIRM_MISMATCH": "Confirmation email address does not match",
+      "REGEX": "Please enter a valid name",
+      "LOGINID_MATCH": "It will duplicate the registered login ID · mail address",
+      "LOGINID_REQUIRED": "Please enter login ID · mail address"
+    }
+  },
+  "RE0036": {
+    "SETTING_HEAD": "Setting the disclosure range",
+    "CHECKBOX_1": "Including visiting persons other than the hospital in charge",
+    "CHECKBOX_2": "Only visiting authority person in charge hospital"
+  }
+}

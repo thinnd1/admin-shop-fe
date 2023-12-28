@@ -1,0 +1,27 @@
+{
+  "id": "1",
+  "title": "タイトル",
+  "body": "つれづれなるまゝに、日暮らし、硯にむかひて、心にうつりゆくよしなし事を、そこはかとなく書きつくれば、あやしうこそものぐるほしけれ。\n（Wikipediaより）\n\nつれづれなるまゝに、日暮らし、硯にむかひて、心にうつりゆくよしなし事を、そこはかとなく書きつくれば、あやしうこそものぐるほしけれ。\n（Wikipediaより）\n\nつれづれなるまゝに、日暮らし、硯にむかひて、心にうつりゆくよしなし事を、そこはかとなく書",
+  "creatorLastName": "鈴木",
+  "creatorFirstName": " 優子",
+  "signature": "薬剤部長　高橋 直人",
+  "date": "2017-12-21T17:21:22+09:00",
+  "attachmentFileIds": [
+    "file1"
+  ],
+  "toIndustryIds": [
+    "industry001",
+    "industry002",
+    "industry003",
+    "industry004",
+    "industry005",
+    "industry006",
+    "industry007",
+    "industry008"
+  ],
+  "toOfficeIds": [
+    "office001",
+    "office002"
+  ],
+  "isToAll": true
+}

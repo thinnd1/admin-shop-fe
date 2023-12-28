@@ -1,0 +1,90 @@
+// import common setting
+@import './../../../assets/styles/import';
+.attached-files {
+  min-height: 401px;
+}
+.content-wrapper {
+  max-height: 401px;
+}
+
+virtual-scroll, [virtualScroll]{
+  height: 401px;
+  -ms-overflow-y: scroll;
+  overflow-y: auto;
+  will-change: transform;
+}
+
+.attached-files-table{
+  table-layout: fixed;
+  border-bottom: 1px solid $table-border-color;
+}
+
+.attached-files-tbody{
+  >tr{
+    >td{
+      &:nth-child(1){
+        width: 99%;
+        text-align: left;
+      }
+      &:nth-child(2){
+        width: 122px;
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+.attached-files-names{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.attached-files-menu{
+  font-size: 0;
+}
+
+.attached-files-dl{
+  >dt{
+    font-weight: normal;
+    &:after{
+      content:':';
+      display: inline-block;
+    }
+  }
+}
+.attached-files-hidden{
+  visibility: hidden;
+}
+
+.attached-files-preview-icon{
+  font-size: _rem(96px);
+}
+.fa-file-xls-o:before {
+  content: "";
+}
+.fa-file-compress-o:before {
+  content: "";
+}
+.fa-file-doc-o:before {
+  content: ""; }
+
+.loader-wrap .loader-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: none;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+}
+.attached-files-detail {
+  overflow-y: auto;
+  .img-fluid {
+    max-height: 245px;
+  }
+}
+.attached-files .loader-wrap .loader {
+  position: absolute !important;
+  top: 50%;
+}

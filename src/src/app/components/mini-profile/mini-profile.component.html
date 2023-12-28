@@ -1,0 +1,47 @@
+<div *ngIf="!_profileOptions.iconSet" class="mini-profile mini-profile-{{_profileOptions.iconSize}}">
+  <div class="mini-profile-avatar">
+    <app-face-icon [faceImgId]="faceImgId" [iconSize]="_profileOptions.iconSize" [userInfo]="userInfo" [tooltipOptions]="{isShow: tooltipOptions.isShow, isShowOfficeName: tooltipOptions.isShowOfficeName}"
+                   (updateImageUrl)="updateInfoImageUrl()"></app-face-icon>
+  </div>
+  <div class="mini-profile-userinfo pl-3">
+    <p class="mini-profile-userinfo-sub mb-0" [ngClass]="{'mini-profile-userinfo-name-kana': _profileOptions.nameKana}">
+      <span class="mini-profile-userinfo-content-top" [ngClass]="contentTopClass" *ngIf="showContentTop">{{_profileOptions.isContent.top.content}}</span>
+      <span class="mini-profile-userinfo-name-kana" *ngIf="_profileOptions.nameKana">{{lastNameKana}} {{firstNameKana}}</span>
+    </p>
+    <ng-template #popContent>{{popOverContent}}</ng-template>
+    <p class="mini-profile-userinfo-main mb-0" [ngbPopover]="popContent" popoverTitle="{{popOverTitle}}" triggers="{{popOverTrigger}}" placement="{{popOverPlacement}}" container="{{popOverContainer}}">
+      <a href="#" *ngIf="_profileOptions.isLink" (click)="_profileLinkClick($event)">
+        <span class="mini-profile-userinfo-name font-weight-bold">{{lastName}} {{firstName}}</span>
+      </a>
+      <!--<span class="mini-profile-userinfo-name font-weight-bold" *ngIf="!_profileOptions.isLink" [ngClass]="{'text-danger' : userInfo?.invalid}">{{lastName}} {{firstName}}</span>-->
+      <span class="mini-profile-userinfo-name font-weight-bold text-gray" *ngIf="!_profileOptions.isLink && userInfo?.invalid">{{'MSG.GR.DEFAULT_NAME_DELETED_ACCOUNT' | translate}}</span>
+      <span class="mini-profile-userinfo-name font-weight-bold" *ngIf="!_profileOptions.isLink && !userInfo?.invalid">{{lastName}} {{firstName}}</span>
+      <span class="mini-profile-userinfo-name-honorific" *ngIf="_profileOptions.nameHonorific">{{'HONORIFIC' | translate}}</span>
+      <span class="mini-profile-userinfo-content-right" [ngClass]="contentRightClass" *ngIf="showContentRight">({{_profileOptions.isContent.right.content}})</span>
+    </p>
+    <p class="mini-profile-userinfo-sub mb-0">
+      <span class="mini-profile-userinfo-office-name" *ngIf="_profileOptions.officeName && !userInfo?.invalid">{{officeName}}</span>
+      <span class="mini-profile-userinfo-department-name" *ngIf="_profileOptions.departmentName && !userInfo?.invalid">{{departmentName}}</span>
+      <span class="mini-profile-userinfo-purpose-meeting" *ngIf="_profileOptions.purposeMeeting">{{purposeMeeting}}</span>
+      <span class="mini-profile-userinfo-job-name" *ngIf="_profileOptions.jobName && !userInfo?.invalid">{{jobName}}</span>
+      <span class="mini-profile-userinfo-content-bottom" [ngClass]="contentBottomClass" *ngIf="showContentBottom">{{_profileOptions.isContent.bottom.content}}</span>
+    </p>
+  </div>
+</div>
+
+<div *ngIf="_profileOptions.iconSet" class="mini-profile mini-profile-94">
+  <div class="mini-profile-avatar">
+    <app-face-icon-set [faceIconSetOptions]="{iconSize: 94, isCurrentUser: true}"></app-face-icon-set>
+  </div>
+  <div class="mini-profile-userinfo pl-3">
+    <p class="mini-profile-userinfo-main mb-0">
+      <span class="mini-profile-userinfo-name font-weight-bold">{{userSession.lastName}} {{userSession.firstName}}</span>
+    </p>
+    <p class="mini-profile-userinfo-sub my-0">
+      <span class="mini-profile-userinfo-department-name" *ngIf="product === 'drjoy' && deptName">{{deptName}}</span>
+      <span class="mini-profile-userinfo-office-name" *ngIf="product === 'prjoy' && userSession.officeName">{{userSession.officeName}}</span>
+    </p>
+  </div>
+</div>
+
+

@@ -1,0 +1,77 @@
+@import '../../../../assets/styles/_import';
+.select-content {
+  .select-col1,
+  .select-col3 {
+    width: 49%;
+  }
+  .select-col2 {
+    width: 3.5rem;
+    .button-switcher {
+      display: table;
+      height: 100%;
+      .button-switcher-inner {
+        display: table-cell;
+        height: 100%;
+        font-size: 0;
+      }
+    }
+  }
+  .select-container {
+    background-color: #FFF;
+    border: 1px solid #CCC;
+    @include border-radius(0.3rem);
+    .select-search {
+      border-bottom:1px solid #D7D7D7;
+    }
+    .select-container-drag {
+      .select-box {
+        background-color: #eee;
+        .select-user-txt {
+          &:first-of-type  {
+            width: 60px;
+            border-right: 2px solid #fff;
+          }
+        }
+      }
+    }
+  }
+}
+.select-user {
+  height: 336px;
+  overflow-y: scroll;
+  li {
+    cursor: pointer;
+    .select-user-name {
+      width: calc(100% - 40px);
+    }
+    &:hover {
+      background-color: #FCF8E3;
+    }
+  }
+}
+.selected {
+  background-color: #FCF8E3;
+}
+.select-user .li-no-hover:hover, .select-user .li-no-hover:active {
+  cursor: not-allowed;
+  background-color: #FFFFFF;
+}
+// Medium devices (tablets, 画面サイズ991px以下)
+// @media (max-width: 991px) { ... }
+@include media-breakpoint-down(md) {
+  .select-content {
+    flex-wrap: wrap;
+    .select-col1,
+    .select-col3,
+    .select-col2,
+    .button-switcher {
+      width: 100%;
+    }
+    .fa-arrow-left:before {
+      content: "\F062";
+    }
+    .fa-arrow-right:before {
+      content: "\F063";
+    }
+  }
+}

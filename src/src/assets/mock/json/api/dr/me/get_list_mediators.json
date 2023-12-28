@@ -1,0 +1,288 @@
+{
+  "mediatorsList": [
+    {
+      "avatar": "image.png",
+      "firstName": "Tran",
+      "firstNameKana": "AAA",
+      "lastName": "Nhat",
+      "lastNameKana": "AAA",
+      "officeUserId": "1111"
+    },
+    {
+      "avatar": "image.png",
+      "firstName": "Nguyen",
+      "firstNameKana": "AAA",
+      "lastName": "Nam",
+      "lastNameKana": "AAA",
+      "officeUserId": "2222"
+    },
+    {
+      "avatar": "image.png",
+      "firstName": "hoang",
+      "firstNameKana": "AAA",
+      "lastName": "Quang",
+      "lastNameKana": "AAA",
+      "officeUserId": "3333"
+    },
+    {
+      "avatar": "image.png",
+      "firstName": "Dong",
+      "firstNameKana": "AAA",
+      "lastName": "Tuyen",
+      "lastNameKana": "AAA",
+      "officeUserId": "4444"
+    },
+    {
+      "avatar": "image.png",
+      "firstName": "Nguyen",
+      "firstNameKana": "AAA",
+      "lastName": "Nam",
+      "lastNameKana": "AAA",
+      "officeUserId": "5555"
+    }
+  ],
+  "usersList": [
+    {
+      "userId": "user0001",
+      "avatar": "image.png",
+      "department": {
+        "children": [
+          {}
+        ],
+        "displayName": "Ominext",
+        "id": "1",
+        "name": "ominext",
+        "path": "/ominext"
+      },
+      "firstName": "nhat",
+      "firstNameKana": "string",
+      "image": "string",
+      "lastName": "member 1",
+      "lastNameKana": "string",
+      "mediatorsList": [
+        "string"
+      ],
+      "officeUserId": "string"
+    },
+    {
+      "userId": "user0002",
+      "avatar": "image.png",
+      "department": {
+        "children": [
+          {}
+        ],
+        "displayName": "Ominext",
+        "id": "1",
+        "name": "ominext",
+        "path": "/ominext"
+      },
+      "firstName": "nam",
+      "firstNameKana": "string",
+      "image": "string",
+      "lastName": "member 2",
+      "lastNameKana": "string",
+      "mediatorsList": [
+        "string"
+      ],
+      "officeUserId": "string"
+    },
+    {
+      "userId": "user0003",
+      "avatar": "image.png",
+      "department": {
+        "children": [
+          {}
+        ],
+        "displayName": "Ominext",
+        "id": "1",
+        "name": "ominext",
+        "path": "/ominext"
+      },
+      "firstName": "tuyen",
+      "firstNameKana": "string",
+      "image": "string",
+      "lastName": "member 3",
+      "lastNameKana": "string",
+      "mediatorsList": [
+        "string"
+      ],
+      "officeUserId": "string"
+    },
+    {
+      "userId": "user0004",
+      "avatar": "image.png",
+      "department": {
+        "children": [
+          {}
+        ],
+        "displayName": "Ominext",
+        "id": "2",
+        "name": "ominext",
+        "path": "/ominext"
+      },
+      "firstName": "quang",
+      "firstNameKana": "string",
+      "image": "string",
+      "lastName": "member 4",
+      "lastNameKana": "string",
+      "mediatorsList": [
+        "string"
+      ],
+      "officeUserId": "string"
+    },
+    {
+      "userId": "user0005",
+      "avatar": "image.png",
+      "department": {
+        "children": [
+          {}
+        ],
+        "displayName": "Ominext",
+        "id": "3",
+        "name": "ominext",
+        "path": "/ominext"
+      },
+      "firstName": "hoang",
+      "firstNameKana": "string",
+      "image": "string",
+      "lastName": "member 5",
+      "lastNameKana": "string",
+      "mediatorsList": [
+        "string"
+      ],
+      "officeUserId": "string"
+    },
+    {
+      "userId": "user0006",
+      "avatar": "image.png",
+      "department": {
+        "children": [
+          {}
+        ],
+        "displayName": "Ominext",
+        "id": "1",
+        "name": "ominext",
+        "path": "/ominext"
+      },
+      "firstName": "hoang",
+      "firstNameKana": "string",
+      "image": "string",
+      "lastName": "member 6",
+      "lastNameKana": "string",
+      "mediatorsList": [
+        "string"
+      ],
+      "officeUserId": "string"
+    },
+    {
+      "userId": "user0007",
+      "avatar": "image.png",
+      "department": {
+        "children": [
+          {}
+        ],
+        "displayName": "Ominext",
+        "id": "2",
+        "name": "ominext",
+        "path": "/ominext"
+      },
+      "firstName": "hoang",
+      "firstNameKana": "string",
+      "image": "string",
+      "lastName": "member 7",
+      "lastNameKana": "string",
+      "mediatorsList": [
+        "string"
+      ],
+      "officeUserId": "string"
+    },
+    {
+      "userId": "user0008",
+      "avatar": "image.png",
+      "department": {
+        "children": [
+          {}
+        ],
+        "displayName": "Ominext",
+        "id": "2",
+        "name": "ominext",
+        "path": "/ominext"
+      },
+      "firstName": "hoang",
+      "firstNameKana": "string",
+      "image": "string",
+      "lastName": "member 8",
+      "lastNameKana": "string",
+      "mediatorsList": [
+        "string"
+      ],
+      "officeUserId": "string"
+    },
+    {
+      "userId": "user0009",
+      "avatar": "image.png",
+      "department": {
+        "children": [
+          {}
+        ],
+        "displayName": "Ominext",
+        "id": "1",
+        "name": "ominext",
+        "path": "/ominext"
+      },
+      "firstName": "hoang",
+      "firstNameKana": "string",
+      "image": "string",
+      "lastName": "member 9",
+      "lastNameKana": "string",
+      "mediatorsList": [
+        "string"
+      ],
+      "officeUserId": "string"
+    },
+    {
+      "userId": "user0010",
+      "avatar": "image.png",
+      "department": {
+        "children": [
+          {}
+        ],
+        "displayName": "Ominext",
+        "id": "1",
+        "name": "ominext",
+        "path": "/ominext"
+      },
+      "firstName": "hoang",
+      "firstNameKana": "string",
+      "image": "string",
+      "lastName": "member 10",
+      "lastNameKana": "string",
+      "mediatorsList": [
+        "string"
+      ],
+      "officeUserId": "string"
+    },
+    {
+      "userId": "user0011",
+      "avatar": "image.png",
+      "department": {
+        "children": [
+          {}
+        ],
+        "displayName": "Ominext",
+        "id": "1",
+        "name": "ominext",
+        "path": "/ominext"
+      },
+      "firstName": "hoang",
+      "firstNameKana": "string",
+      "image": "string",
+      "lastName": "member 11",
+      "lastNameKana": "string",
+      "mediatorsList": [
+        "string"
+      ],
+      "officeUserId": "string"
+    }
+  ]
+}

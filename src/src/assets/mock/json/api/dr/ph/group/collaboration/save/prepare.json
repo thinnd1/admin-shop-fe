@@ -1,0 +1,250 @@
+{
+  "memberMedicals": [
+    {
+      "officeUserId": "5a8eaedaf97a88000616045b",
+      "officeId": "5a823d090308e30005928b44",
+      "officeName": "Medical_dev",
+      "firstName": "10",
+      "lastName": "anhht",
+      "firstNameKana": "せい",
+      "lastNameKana": "せい",
+      "imageUrl": "/img/staff/face/5a823d090308e30005928b44/original_5a8eaedaf97a88000616045b",
+      "deleteFlag": false
+    },
+    {
+      "officeUserId": "5a8cea500308e30005928bc0",
+      "officeId": "5a823d090308e30005928b44",
+      "officeName": "Medical_dev",
+      "firstName": "minh15",
+      "lastName": "nguyen15",
+      "firstNameKana": "みんじゅうご",
+      "lastNameKana": "ぐえんじゅうご",
+      "imageUrl": "",
+      "deleteFlag": false
+    }
+  ],
+  "memberDrugStores": [
+    {
+      "officeId": "5acdd8ad1447ed0007bf1952",
+      "drugStoreUserId": "5acdd8ad1447ed0007bf1954",
+      "drugStoreId": "5acdd8ad1447ed0007bf1952",
+      "drugStoreName": "Hiệu thuốc to nhất Hà nội",
+      "firstName": "hieu",
+      "lastName": "thuoc",
+      "firstNameKana": "せい",
+      "lastNameKana": "せい",
+      "accepted": false,
+      "imageUrl": "/img/staff/face/5acdd8ad1447ed0007bf1952/original_5acdd8ad1447ed0007bf1954",
+      "deleteFlag": false
+    },
+    {
+      "officeId": "5ac6e8a228869e000896340f",
+      "drugStoreUserId": "5ac6e8a228869e0008963412",
+      "drugStoreId": "5ac6e8a228869e000896340f",
+      "drugStoreName": "毒々病院",
+      "firstName": "管理者",
+      "lastName": "Dr.JOY",
+      "firstNameKana": "かんりしゃ",
+      "lastNameKana": "どくたーじょい",
+      "accepted": false,
+      "imageUrl": "",
+      "deleteFlag": true
+    }
+  ],
+  "staffs": {
+    "departments": [
+      {
+        "id": "5a823d090308e30005928b43",
+        "displayName": "3階層目",
+        "children": [
+          {
+            "id": "5a98abb7c03fce0005568d81",
+            "displayName": "department1.1"
+          }
+        ]
+      },
+      {
+        "id": "5a98aba1c03fce0005568d80",
+        "displayName": "department2",
+        "children": [
+          {
+            "id": "5a992bcbc03fce0005569047",
+            "displayName": "department2.1",
+            "children": [
+              {
+                "id": "5a992bcbc03fce0005569046",
+                "displayName": "department2.1.1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "5a992bcbc03fce0005569048",
+        "displayName": "department3"
+      }
+    ],
+    "departmentUsers": [
+      {
+        "officeUserId": "5a823da40308e30005928b47",
+        "deptId": "5a823d090308e30005928b43",
+        "firstName": "姓",
+        "lastName": "姓",
+        "firstNameKana": "せい",
+        "lastNameKana": "せい",
+        "accountStatus": 2,
+        "imageUrl": "https://firebasestorage.googleapis.com/v0/b/dr-joy-test.appspot.com/o/img%2Fstaff%2Fface%2F5a823d090308e30005928b44%2Foriginal_5a823da40308e30005928b47?alt=media&token=cd41c078-0ed9-44a1-82d3-bcf0f90877dc"
+      },
+      {
+        "officeUserId": "5a8cea500308e30005928bc0",
+        "deptId": "",
+        "firstName": "minh15",
+        "lastName": "nguyen15",
+        "firstNameKana": "みんじゅうご",
+        "lastNameKana": "ぐえんじゅうご",
+        "accountStatus": 2,
+        "imageUrl": ""
+      },
+      {
+        "officeUserId": "5a8eaedaf97a88000616045b",
+        "deptId": "5a823d090308e30005928b43",
+        "firstName": "10",
+        "lastName": "anhht",
+        "firstNameKana": "せい",
+        "lastNameKana": "せい",
+        "accountStatus": 2,
+        "imageUrl": "/img/staff/face/5a823d090308e30005928b44/original_5a8eaedaf97a88000616045b"
+      },
+      {
+        "officeUserId": "5a8ebafbf97a880006160478",
+        "deptId": "5a823d090308e30005928b43",
+        "firstName": "11",
+        "lastName": "anhtdr",
+        "firstNameKana": "せい",
+        "lastNameKana": "せい",
+        "accountStatus": 2,
+        "imageUrl": "https://firebasestorage.googleapis.com/v0/b/ominext-rep-storage-dev.appspot.com/o/img%2Fstaff%2Fface%2F5a823d090308e30005928b44%2Foriginal_5a8ebafbf97a880006160478?alt=media&token=84c3be45-dfa8-4d70-ba97-954c24bf9f40"
+      },
+      {
+        "officeUserId": "5a8fdc31f97a880006160578",
+        "deptId": "5a823d090308e30005928b43",
+        "firstName": "13 DS",
+        "lastName": "anhhtdr",
+        "firstNameKana": "せい",
+        "lastNameKana": "せい",
+        "accountStatus": 2,
+        "imageUrl": ""
+      },
+      {
+        "officeUserId": "5a938c1b1d549600056ee5a0",
+        "deptId": "5a823d090308e30005928b43",
+        "firstName": "8",
+        "lastName": "dr",
+        "firstNameKana": "とろ",
+        "lastNameKana": "わかばやし",
+        "accountStatus": 2,
+        "imageUrl": ""
+      },
+      {
+        "officeUserId": "5a9603b88ab2b80005250397",
+        "deptId": "5a823d090308e30005928b43",
+        "firstName": "dai trai",
+        "lastName": "yen",
+        "firstNameKana": "せい",
+        "lastNameKana": "せい",
+        "accountStatus": 2,
+        "imageUrl": ""
+      },
+      {
+        "officeUserId": "5a960bda8ab2b800052503a3",
+        "deptId": "5a823d090308e30005928b43",
+        "firstName": "mediator",
+        "lastName": "Yen",
+        "firstNameKana": "めい",
+        "lastNameKana": "せい",
+        "accountStatus": 2,
+        "imageUrl": "https://firebasestorage.googleapis.com/v0/b/ominext-rep-storage-dev.appspot.com/o/img%2Fstaff%2Fface%2F5a823d090308e30005928b44%2Foriginal_5a960bda8ab2b800052503a3?alt=media&token=e636505b-f91a-41d8-b0aa-fbd0c342a94f"
+      },
+      {
+        "officeUserId": "5a98fba7c03fce0005568fd9",
+        "deptId": "5a823d090308e30005928b43",
+        "firstName": "manager",
+        "lastName": "not",
+        "firstNameKana": "せい",
+        "lastNameKana": "せい",
+        "accountStatus": 2,
+        "imageUrl": ""
+      },
+      {
+        "officeUserId": "5a99090ac03fce0005568ffd",
+        "deptId": "5a823d090308e30005928b43",
+        "firstName": "omi",
+        "lastName": "yen",
+        "firstNameKana": "めい",
+        "lastNameKana": "せい",
+        "accountStatus": 2,
+        "imageUrl": ""
+      },
+      {
+        "officeUserId": "5a9e2c68aca166000829993e",
+        "deptId": "5a823d090308e30005928b43",
+        "firstName": "phar",
+        "lastName": "thang",
+        "firstNameKana": "めい",
+        "lastNameKana": "せい",
+        "accountStatus": 2,
+        "imageUrl": ""
+      },
+      {
+        "officeUserId": "5a9e6a303bc1eb00078581c0",
+        "deptId": "5a823d090308e30005928b43",
+        "firstName": "dr20",
+        "lastName": "anhht",
+        "firstNameKana": "せい",
+        "lastNameKana": "せい",
+        "accountStatus": 2,
+        "imageUrl": ""
+      },
+      {
+        "officeUserId": "5a9e6aa93bc1eb00078581c4",
+        "deptId": "5a823d090308e30005928b43",
+        "firstName": "21",
+        "lastName": "anhhtdr",
+        "firstNameKana": "せい",
+        "lastNameKana": "せい",
+        "accountStatus": 2,
+        "imageUrl": ""
+      },
+      {
+        "officeUserId": "5a9fb38fcae27000080ca74a",
+        "deptId": "5a98abb7c03fce0005568d81",
+        "firstName": "doctor",
+        "lastName": "yen",
+        "firstNameKana": "めい",
+        "lastNameKana": "せい",
+        "accountStatus": 2,
+        "imageUrl": ""
+      },
+      {
+        "officeUserId": "5ac5ea8c35fc9c0006e58945",
+        "deptId": "5a98aba1c03fce0005568d80",
+        "firstName": "太郎",
+        "lastName": "相模",
+        "firstNameKana": "たろう",
+        "lastNameKana": "さがみ",
+        "accountStatus": 2,
+        "imageUrl": ""
+      },
+      {
+        "officeUserId": "5ad87183f7aa9000086f8a0a",
+        "deptId": "5a98aba1c03fce0005568d80",
+        "firstName": "vien",
+        "lastName": "benh ",
+        "firstNameKana": "めい",
+        "lastNameKana": "めい",
+        "accountStatus": 2,
+        "imageUrl": "/img/staff/face/5a823d090308e30005928b44/original_5ad87183f7aa9000086f8a0a"
+      }
+    ]
+  }
+}

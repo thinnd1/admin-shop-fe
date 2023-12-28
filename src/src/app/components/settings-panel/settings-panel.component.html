@@ -1,0 +1,4 @@
+<ng-container [ngSwitch]="settingType">
+  <app-settings-panel-dr *ngSwitchCase="'drjoy'"></app-settings-panel-dr>
+  <app-settings-panel-pr *ngSwitchCase="'prjoy'"></app-settings-panel-pr>
+</ng-container>

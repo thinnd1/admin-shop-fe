@@ -1,0 +1,154 @@
+<!--<div class="groupboard-contribution" [ngClass]="{'no-action':isUpload}">-->
+<div class="groupboard-contribution">
+  <!-- groupboard-contribution-destination -->
+  <div class="groupboard-contribution-destination" *ngIf="modelStorage.toUser.length > 0 && (isReply ||!isReply && (isCreateArticle || isEdit))">
+    <ul class="list-unstyled d-flex flex-wrap mb-0">
+      <li class="groupboard-contribution-destination-badge-wrap mb-2">
+        <span class="badge badge-success badge-groupboard-contribution-destination d-flex align-items-center justify-content-center">TO</span>
+      </li>
+      <li class="d-flex align-items-center groupboard-contribution-destination-list-wrap">
+        <ul class="list-unstyled d-flex flex-wrap mb-0">
+          <ng-container *ngFor="let member of listMemberValid | filterInfo: modelStorage.toUser">
+            <li class="groupboard-contribution-destination-list mb-2">
+              <app-face-icon [userInfo]="member" [iconSize]="40" [tooltipOptions]="{isShow: true, isShowOfficeName: isGroupOutside}"></app-face-icon>
+              <span class="groupboard-contribution-destination-list-remove" (click)="removeMember(member)"><i class="fa fa-times-circle fa-lg rounded-circle" aria-hidden="true"></i></span>
+            </li>
+          </ng-container>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!-- /groupboard-contribution-destination -->
+
+  <!-- 記事投稿・記事編集・コメント編集 -->
+  <div class="container w-100 mb-2 container-groupboard-contribution" *ngIf="!isReply && (isCreateArticle || isEdit)">
+    <div class="row">
+      <div class="col p-0">
+        <textarea class="form-control groupboard-contribution-textarea textarea-post" rows="4" placeholder="{{groupboardContributionTextareaPlaceholder}}"
+                  [(ngModel)]="modelStorage.contents" (keydown)="changeFields($event)" appAutoSize (ngModelChange)="changeArticleContent($event)" appAutofocus [conditionFocus]="(isEdit && !isSending)"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="flex-wrap mx-2 groupboard-contribution-upload-image-files w-100">
+        <div *ngIf="modelStorage.attachments.length > 0">
+          <ng-container *ngFor="let item of _listAttachments">
+            <div class="groupboard-contribution-upload-image-files-wrap m-2 d-flex align-items-center justify-content-center" *ngIf="checkImageFile(item)">
+              <span class="groupboard-contribution-upload-image-file-remove" (click)="removeOldFile(item)"><i class="fa fa-times fa-lg" aria-hidden="true"></i></span>
+              <img [src]="item.url" title="{{item.name}}" class="maxw-100 maxh-100 groupboard-contribution-upload-image-file">
+            </div>
+          </ng-container>
+        </div>
+        <ng-container *ngFor="let item of uploadedList;let i = index">
+          <div class="groupboard-contribution-upload-image-files-wrap m-2 d-flex align-items-center justify-content-center" *ngIf="item['isImage']">
+            <span class="groupboard-contribution-upload-image-file-remove" (click)="removeFile(item, i)"><i class="fa fa-times fa-lg" aria-hidden="true"></i></span>
+            <img thumbnail [image]="item._thumb ? item._thumb : item" title="{{item.name}}" class="maxw-100 maxh-100 groupboard-contribution-upload-image-file">
+          </div>
+        </ng-container>
+      </div>
+      <div class="groupboard-contribution-upload-files">
+        <ul class="groupboard-contribution-upload-files-list-wrap list-unstyled mb-0 mx-2">
+          <ng-container *ngFor="let item of _listAttachments">
+            <li class="groupboard-contribution-upload-files-list fs14 mb-2" *ngIf="!checkImageFile(item)">
+              <i class="fa fa-paperclip fa-lg mr-1" aria-hidden="true"></i>
+              <span class="groupboard-contribution-upload-files-list-name mr-1">{{item.name}}</span>
+              <span class="groupboard-contribution-upload-files-list-size mr-1">{{item.size | formatSizeUnits}}</span>
+              <span class="groupboard-contribution-upload-files-list-remove" (click)="removeOldFile(item)"><i class="fa fa-times fa-lg" aria-hidden="true"></i></span>
+            </li>
+          </ng-container>
+          <ng-container *ngFor="let item of uploadedList;let i = index">
+            <li class="groupboard-contribution-upload-files-list fs14 mb-2" *ngIf="!item['isImage']">
+              <i class="fa fa-paperclip fa-lg mr-1" aria-hidden="true"></i>
+              <span class="groupboard-contribution-upload-files-list-name mr-1">{{item.name}}</span>
+              <span class="groupboard-contribution-upload-files-list-size mr-1">{{item.size | formatSizeUnits}}</span>
+              <span class="groupboard-contribution-upload-files-list-remove" (click)="removeFile(item, i)"><i class="fa fa-times fa-lg" aria-hidden="true"></i></span>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+      <!--<div class="progress mb-2 mx-2 w-100" *ngIf="uploader.progress > 0">-->
+        <!--<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" [ngStyle]="{'width':uploader.progress + '%'}">{{uploader.progress}}%</div>-->
+      <!--</div>-->
+    </div>
+    <div class="row">
+      <div class="groupboard-contribution-btn-wrap col-2 col-sm-4 col-lg-3 p-0 font-weight-bold btn-secondary" role="button">
+        <label class="custom-control custom-file fill m-0 p-2 d-flex align-items-center justify-content-center">
+          <i class="fa fa-paperclip fa-lg mr-1" aria-hidden="true"></i><span class="hidden-xs-down">{{'GROUPBOARD_CONTRIBUTION.ADD_FILES' | translate}}</span>
+          <input type="file" class="custom-file-input" multiple (change)="onFileSelected($event)">
+        </label>
+      </div>
+      <div class="groupboard-contribution-btn-wrap col-3 col-sm-3 col-lg-3 p-0">
+        <app-destination-popover [destinationPopoverData]="listMemberValid" (destinationPopoverSelected)="destinationPopoverSelected($event)" [isResetToUserList]="isResetToUserList"
+                                 [isGroupOutside]="isGroupOutside"></app-destination-popover>
+      </div>
+      <div  *ngIf="groupInfo && isCreateArticle" class="groupboard-contribution-btn-wrap col-4 col-sm-3 col-lg-3 p-2 font-weight-bold d-flex align-items-center justify-content-center btn-secondary" role="button" (click)="clickQuestionnaire($event)">
+        <span>{{'GROUPBOARD_CONTRIBUTION.QUESTIONNAIRE' | translate}}</span>
+      </div>
+      <div class="groupboard-contribution-btn-wrap col-4 col-sm-3 col-lg-3 p-2 font-weight-bold d-flex align-items-center justify-content-center btn-secondary" role="button" (click)="clickCancel($event)" *ngIf="isEdit">
+        <span>{{'GROUPBOARD_CONTRIBUTION.CANCEL' | translate}}</span>
+      </div>
+      <div class="groupboard-contribution-btn-wrap col-3 col-sm-2 col-lg-3 p-2 font-weight-bold d-flex align-items-center justify-content-center btn-primary" role="button" [ngClass]="(!modelStorage.contents) ? 'disabled' : ''" (click)="checkSubmit($event)">
+        <span>{{submitText}}</span>
+      </div>
+    </div>
+  </div>
+  <!-- /container-groupboard-contribution -->
+
+  <!-- コメント投稿 -->
+  <div class="container w-100 mb-2" *ngIf="isReply">
+    <div class="row">
+      <div class="container container-groupboard-contribution-reply col mb-2">
+
+        <div class="row">
+          <div class="col p-0">
+            <textarea class="form-control groupboard-contribution-textarea textarea-cmt" id="create-cmt-{{articleId}}" rows="1" placeholder="{{groupboardContributionTextareaPlaceholder}}"
+                      [(ngModel)]="modelStorage.contents" (keydown)="changeFields($event)" appAutoSize></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="flex-wrap mx-2 groupboard-contribution-upload-image-files w-100">
+            <ng-container *ngFor="let item of uploadedList;let i = index">
+              <div class="groupboard-contribution-upload-image-files-wrap m-2 d-flex align-items-center justify-content-center" *ngIf="item['isImage']">
+                <span class="groupboard-contribution-upload-image-file-remove" (click)="removeFile(item, i)"><i class="fa fa-times fa-lg" aria-hidden="true"></i></span>
+                <img src="" thumbnail [image]="item._thumb ? item._thumb : item" title="{{item.name}}" class="maxw-100 maxh-100 groupboard-contribution-upload-image-file">
+              </div>
+            </ng-container>
+          </div>
+          <div class="groupboard-contribution-upload-files">
+            <ul class="groupboard-contribution-upload-files-list-wrap list-unstyled mb-0 mx-2">
+              <ng-container *ngFor="let item of uploadedList;let i = index">
+                <li class="groupboard-contribution-upload-files-list fs14 mb-2" *ngIf="!item['isImage']">
+                  <i class="fa fa-paperclip fa-lg mr-1" aria-hidden="true"></i>
+                  <span class="groupboard-contribution-upload-files-list-name mr-1">{{item.name}}</span>
+                  <span class="groupboard-contribution-upload-files-list-size mr-1">{{item.size | formatSizeUnits}}</span>
+                  <span class="groupboard-contribution-upload-files-list-remove" (click)="removeFile(item, i)"><i class="fa fa-times fa-lg" aria-hidden="true"></i></span>
+                </li>
+              </ng-container>
+            </ul>
+          </div>
+          <!--<div class="progress mb-2 mx-2 w-100" *ngIf="uploader.progress > 0 && uploader.progress < 100">-->
+            <!--<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" [ngStyle]="{'width':uploader.progress + '%'}">{{uploader.progress}}%</div>-->
+          <!--</div>-->
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col p-0 d-flex justify-content-en">
+        <div class="groupboard-contribution-reply-btn-wrap mr-auto p-0 font-weight-bold" role="button">
+          <label data-toggle="tooltip" data-placement="top" title="{{'GR0013.ADD_FILES_TOOLTIP' | translate}}" (click)="removeTooptip($event)"
+                 class="custom-control custom-file fill m-0 p-2 d-flex align-items-center justify-content-center">
+            <i class="fa fa-paperclip fa-lg mr-1" aria-hidden="true"></i>
+            <input type="file" class="custom-file-input" multiple (change)="onFileSelected($event)">
+          </label>
+        </div>
+        <div class="groupboard-contribution-reply-btn-wrap pl-2 pr-0 d-flex align-items-center justify-content-center">
+          <app-destination-popover [destinationPopoverData]="listMemberValid" (destinationPopoverSelected)="destinationPopoverSelected($event)" [isResetToUserList]="isResetToUserList"
+                                   [isGroupOutside]="isGroupOutside"></app-destination-popover>
+        </div>
+        <div class="groupboard-contribution-reply-btn-wrap pl-2 pr-0 d-flex align-items-center justify-content-center">
+          <button type="button" class="btn btn-primary font-weight-bold" [ngClass]="(!modelStorage.contents) ? 'disabled' : ''" (click)="checkSubmit($event)"><span>{{submitText}}</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

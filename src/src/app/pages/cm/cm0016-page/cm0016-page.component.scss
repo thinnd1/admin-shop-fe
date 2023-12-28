@@ -1,0 +1,39 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+
+.table-curation {
+  table-layout: fixed;
+  .table-curation-th {
+    width: 10rem;
+    text-align: center;
+  }
+  .curation-link {
+    @include ellipsis();
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .table-curation {
+    .table-curation-th,
+    .table-curation-td {
+      width: 100%;
+      display: block;
+      padding: 0;
+    }
+    .table-curation-th {
+      text-align: initial;
+    }
+    .table-curation-td {
+      padding-bottom: 0.75rem;
+    }
+    .table-curation-date,
+    .table-curation-read {
+      display: inline-block;
+    }
+  }
+}
+
+.preline-text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

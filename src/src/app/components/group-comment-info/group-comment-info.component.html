@@ -1,0 +1,79 @@
+<div class="d-flex pt-3 pb-1">
+  <div class="avatar mr-3">
+    <a href="#" (click)="getDetailUser($event, contributorInfo)">
+      <app-face-icon [userInfo]="contributorInfo" [iconSize]="55" [tooltipOptions]="{isShow: true, isShowOfficeName: isGroupOutside}"></app-face-icon>
+    </a>
+  </div>
+  <div class="support w-100" id="{{focusedComment ? ('focus-' + this.comment.id) : null}}">
+    <div class="row">
+      <div class="col-md-7 col-lg-7">
+        <h4>
+          <a href="#" (click)="getDetailUser($event, contributorInfo)" *ngIf="!contributorInfo?.invalid">{{contributorInfo?.fullName}}
+            <span *ngIf="!isGroupOutside && contributorInfo?.deptName">（{{contributorInfo?.deptName}}）</span>
+            <span *ngIf="isGroupOutside && contributorInfo?.officeName">（{{contributorInfo?.officeName}}）</span>
+          </a>
+          <span class="text-gray" *ngIf="contributorInfo?.invalid">{{contributorInfo?.fullName}}</span>
+        </h4>
+        <span class="support-gray">
+            <app-time-ago [editDate]="comment.editDate" [isEdit]="comment.isEdit"></app-time-ago>
+          </span>
+      </div>
+      <div class="col-md-5 col-lg-5 text-right">
+        <span class="d-block"> {{comment.createdAt | timePipe: 'YYYY年MM月DD日(date)'}} {{comment.createdAt | timePipe: 'HH:mm'}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="row" *ngIf="comment.toUser.length > 0 && !comment.isEdit">
+          <div class="col-lg-6" *ngFor="let toUser of toUserList| slice:0:6; let i = index; let last = last">
+            <div class="d-flex align-items-center mt-2" *ngIf="!last || comment.toUser.length === 1|| last && comment.toUser.length <= 6">
+              <div class="btn btn-sm btn-green fs16 cursor-default">TO</div>
+              <div class="support-avatar mx-1">
+                <a href="#" (click)="getDetailUser($event, toUser)">
+                  <app-face-icon [userInfo]="toUser" [iconSize]="30" [tooltipOptions]="{isShow: true, isShowOfficeName: isGroupOutside}"></app-face-icon>
+                </a></div>
+              <div class="support-name fs13">
+                <a href="#" (click)="getDetailUser($event, toUser)" *ngIf="!toUser?.invalid">{{toUser?.fullName}} さん</a>
+                <span class="text-gray" *ngIf="toUser?.invalid">{{toUser?.fullName}}</span>
+              </div>
+            </div>
+            <div class="d-flex align-items-center mt-2" *ngIf="i === 5 && comment.toUser.length > 6">
+              <app-staff-popover [userIds]="comment.toUser" [startIndex]="5" [listUserInfo]="toUserList" [isGroupOutside]="isGroupOutside" [isSortKana]="true"
+                                 [staffPopoverOptions]="{text: '他' + (comment.toUser.length - 5) + '人'}" (clickStaffPopoverLink)="toUserCommentPopover($event)"></app-staff-popover>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 text-right" *ngIf="!comment.isEdit">
+        <div class="mt-2 tool-comment">
+          <a class="align-middle" href="#" *ngIf="userSession.officeUserId === comment.contributorId" (click)="editComment($event)"><i class="fa fa-pencil-square-o support-gray fs25" data-toggle="tooltip" data-placement="top" title="{{'GR0013.EDIT_COMMENT_TOOLTIP' | translate}}"></i></a>
+          <a class="align-middle mx-1" href="#" *ngIf="userSession.officeUserId === comment.contributorId" (click)="deleteComment($event)"><i data-toggle="tooltip" data-placement="top" title="{{'GR0013.DELETE_COMMENT_TOOLTIP' | translate}}" class="fa fa-trash support-gray fs25"></i></a>
+          <a class="align-middle" href="#" (click)="onclickFavoriteComment($event)"><i [ngClass]="{'favorited': commentIsFavorited}" data-toggle="tooltip" data-placement="top" title="{{'GR0013.FAVORITE_TOOLTIP' | translate}}"
+               class="fa fa-star support-gray fs25 star-safari"></i></a>
+        </div>
+      </div>
+    </div>
+    <!-- // edit comment -->
+    <app-groupboard-contribution [isEdit]="comment.isEdit" [groupInfo]="groupInfo" [articleId]="article.id" [model]="comment"
+                                 [commentId]="comment.id" [listAttachments]="listAttachments" [userSession]="userSession" [listMember]="listMemberInfo"></app-groupboard-contribution>
+    <!-- // end edit comment -->
+    <!-- // content comment -->
+    <div class="support-txt mt-3">
+      <div class="support-content-txt" *ngIf="!comment.isEdit">
+        <p class="mb-2 break-line" id="{{(isUnseenComment || isUnseenToComment) ? comment.id : null}}" appLinky [textHyperlink]="comment.contents"></p>
+      </div>
+      <app-file-display [groupId]="groupInfo.id" [article]="article" [comment]="comment" [userSession]="userSession" (attachedFilesEvent)="getAttachedFiles($event)"></app-file-display>
+    </div>
+    <!--// end content comment -->
+    <div class="support-tool mt-3">
+      <a href="#" class="support-gray01 mr-2" (click)="onClickConfirmComment($event)">
+        <i class="fa fa-check-circle-o pr-2 fs24" [ngClass]="{'text-warning': comment.confirmed.indexOf(userSession.officeUserId) > -1}" aria-hidden="true"></i>
+        {{'MSG.CONFIRMED' | translate}}！<span *ngIf="comment.confirmed.length > 0"> x </span></a>
+      <a href="#" class="support-gray01 mr-2" *ngIf="comment.confirmed.length > 0">
+        <app-staff-popover [userIds]="cmtConfirmedIds" [listUserInfo]="confirmedList" [isGroupOutside]="isGroupOutside" [isSortKana]="false"
+                           [staffPopoverOptions]="{text: ' (' + comment.confirmed.length + '人)', fontWeight: 'normal', color: '#212121'}" (clickStaffPopoverLink)="confirmedPopover($event)"></app-staff-popover>
+      </a>
+      <a href="#" class="support-gray01" (click)="toUserListCmt($event)"><i class="fa fa-mail-reply pr-2"></i>{{'GR0013.REPLY' | translate}}</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  color: #464a4c;
+  background-color: #fff;
+  border-color: #555 #555 #fff;
+}
+.nav-tabs {
+  border-bottom: 1px solid #555;
+}
+.nav-tabs {
+  .nav-link {
+    border-bottom: 1px solid #555555;
+  }
+}
+
+//@media (max-width: 767px)
+@include media-breakpoint-down(sm) {
+	.meeting-detail {
+		.meeting-detail-user {
+			&.meeting-cater {
+				.row {
+					.col-md-6 {
+						&.meeting-user-cater {
+							border-top:0.12rem solid #969696;
+							border-left:none;
+						}
+					}
+				}
+
+			}
+		}
+	}
+}
+#meeting-page-content {
+  display: flex;
+}
+@media print {
+  #meeting-page-content, .meeting-detail-stt.row, .meeting-detail-stt .stt-left, .meeting-detail-stt .stt-right {
+    display: block !important;
+  }
+
+  #list-select-options, #page-title, #select-user {
+    display: none;
+  }
+
+  #detail-meeting {
+    margin-top: -5mm;
+  }
+
+  div.meeting-detail-user
+  {
+    page-break-inside: avoid;
+  }
+
+  .meeting-detail-stt {
+    background-color: #D9EDF7 !important;
+    -webkit-print-color-adjust: exact !important; /*Chrome, Safari */
+    color-adjust: exact !important; /*Firefox*/
+  }
+}

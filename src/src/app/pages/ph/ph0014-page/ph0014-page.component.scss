@@ -1,0 +1,82 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+.table-user-info {
+  td, th {
+    width:25%;
+  }
+  .select-user-box {
+    width: 20pt;
+    height: 20pt;
+    background-color: #d7d7d7;
+  }
+}
+.show-right{
+  float:right;
+  margin-right: 20px;
+}
+.custom-file {
+  height:1rem;
+}
+.user-lst {
+  li {
+    border:1px solid #ccc;
+    .select-user-name {
+      width:calc(100% - 40px);
+    }
+  }
+}
+
+.table-layout-trarp {
+  table-layout: fixed;
+}
+
+@media (max-width: 767px and not print)  {
+  .table-user-info {
+    tr {
+      td, th {
+        display:block;
+        width:100%;
+      }
+    }
+  }
+}
+
+//print
+@media print {
+  html, body {
+    width: 210mm;
+    height: 297mm;
+  }
+  body {
+    margin: 0px;
+    font-size: 12pt;
+  }
+  .no-print {
+    display: none;
+  }
+  .hidden-lg-up{
+    display: none;
+  }
+}
+
+@media (max-width: 1199px) {
+  .bottom-tooltip {
+    position: static;
+  }
+}
+
+
+
+
+@media (max-width: 1199px) {
+  .bottom-tooltip {
+    position: static;
+  }
+}
+div.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+

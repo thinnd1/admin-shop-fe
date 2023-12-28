@@ -1,0 +1,145 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents ME0033-->
+
+              <div class="col">
+                <div class="row">
+                  <div class="col">
+
+                    <div class="page-head">
+                      <app-page-head [title]="'ME0033.TITLE' | translate"></app-page-head>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12 col-sm-12 col-md-6 col-xl-6">
+                        <dl class="meeting-dl m-0">
+
+                          <!-- リクエスト先 -->
+                          <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'MSG.ME.LBL_RECEIVER_REQUEST' | translate }}</dt>
+                          <dd class="pl-3 py-1 pr-1 mb-4">
+                            <div class="d-flex">
+                              <app-mini-profile [userInfo]="receiver" [profileOptions]="{officeName: true, iconSize: 76}"></app-mini-profile>
+                            </div>
+                          </dd>
+
+                          <!-- 目的 -->
+                          <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'MSG.ME.MEETING_REQUEST.PURPOSE' | translate }}</dt>
+                          <dd class="pl-3 py-1 pr-1 mb-4">
+                            <select class="form-control font-weight-bold"
+                                    (ngModelChange)="purposeOnChange($event)"
+                                    [(ngModel)]="formCreateMeeting.purposeId" name="purpose">
+                              <option value="">{{'MSG.ME.MEETING_REQUEST.PURPOSE_SELECT' | translate}}</option>
+                              <optgroup *ngFor="let aGroupPurpose of groupPurposes; let i = index"
+                                        [label]="aGroupPurpose.groupName">
+                                <option *ngFor="let purpose of aGroupPurpose.purposes" [value]="purpose.purposeCode">
+                                  {{purpose.purposeName}}
+                                </option>
+                              </optgroup>
+                            </select>
+                          </dd>
+
+                          <!-- 薬剤 -->
+                          <ng-container *ngIf="checkProductType()&&(checkProductType() !== 'OTHER')">
+                            <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'MSG.ME.MEETING_REQUEST.PRODUCT_NAME' | translate }}</dt>
+                            <dd class="pl-3 py-1 pr-1 mb-4">
+                              <ng-container *ngIf="(checkProductType() === 'DRUG')">
+                                <app-infinitive-select [source]="listDrug"
+                                                       [(ngModel)]="selectedDrug"
+                                                       [ngModelOptions]="{standalone: true}"
+                                                       [infiniteScrollOptions]="infiniteScrollOptions"
+                                                       (scrollDown)="scrollDown($event)"
+                                                       (keywordChanged)="textChanged($event, obj)">
+                                </app-infinitive-select>
+                              </ng-container>
+                              <ng-container *ngIf="(checkProductType() === 'PRODUCT')">
+                                <input type="text" class="form-control fs16 mt-2"
+                                       placeholder="{{'ME0033.PRODUCT_NAME_INPUT_PLACEHOLDER' | translate }}"
+                                       [(ngModel)]="formCreateMeeting.productName" name="productName">
+                              </ng-container>
+                            </dd>
+                          </ng-container>
+
+                          <!-- 日程 -->
+                          <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'MSG.ME.MEETING_REQUEST.LIST_TIME' | translate }}</dt>
+                          <dd class="pl-3 py-1 pr-1 mb-4">{{frameInfo?.meetingDurationJa}}</dd>
+
+                          <!-- 場所 -->
+                          <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'MSG.ME.MEETING_REQUEST.PLACE' | translate }}</dt>
+                          <dd class="pl-3 py-1 pr-1 mb-4">{{frameInfo.place === '' ? 'ー' : frameInfo.place}}</dd>
+
+                          <!--訪問人数-->
+                          <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'MSG.ME.MEETING_REQUEST.NUMBER_VISIT' | translate }}</dt>
+                          <dd class="pl-3 py-1 pr-1 mb-4">
+                            <select class="form-control"
+                                    [(ngModel)]="formCreateMeeting.numberVisitors" name="numberVisitors">
+                              <option value="0">{{'ME0033.PARTICIPATOR_NUMBER_PLACEHOLDER' | translate}}
+                              </option>
+                              <option *ngFor="let n of maxNumberVisit; let i = index" [value]="i + 1">{{i + 1 + '人'}}
+                              </option>
+                            </select>
+                          </dd>
+
+                        </dl>
+                      </div>
+                    </div>
+
+                    <!--先方へのメッセージ-->
+                    <div class="row">
+                      <div class="col">
+                        <dl class="meeting-dl m-0">
+                          <dt class="fs18 font-weight-normal pl-2 py-1 pr-1 mb-2">{{'ME0033.MEETING_MESSAGE' | translate }}</dt>
+                          <dd class="pl-3 py-1 pr-1 mb-4">
+                            <textarea class="form-control" cols="2" rows="5"
+                                      [(ngModel)]="formCreateMeeting.note" name="note"
+                                      placeholder="{{'ME0033.MEETING_MESSAGE_PLACEHOLDER' | translate }}"></textarea>
+                          </dd>
+                        </dl>
+                      </div>
+                    </div>
+
+                    <!-- ボタンコンテンツ -->
+                    <div class="applicant pt-4 my-4">
+                      <div class="d-flex justify-content-center">
+                        <div class="d-flex justify-content-center form-inline">
+                          <button class="btn btn-primary m-1" type="button" (click)="validateFormMeeting()">{{'MSG.ME.MEETING_REQUEST.REQUEST_BTN' | translate }}</button>
+                          <button class="btn btn-secondary m-1" type="button" (click)="redirectBack()">{{'MSG.CANCEL' | translate}}</button>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

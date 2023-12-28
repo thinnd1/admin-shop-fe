@@ -1,0 +1,64 @@
+{
+  "loginId": "info12345@",
+  "mailAddress": "info32@drjoy.jp",
+  "additionalMailAddress": ["info3@drjoy.jp"],
+  "firstName": "string",
+  "lastName": "string",
+  "firstNameKana": "せい",
+  "lastNameKana": "せい",
+  "gender": "0",
+  "birthDate": "2017-07-08",
+  "mailAddressPublishingType": "",
+  "password": "",
+  "specializedDepartment": [
+    {
+      "fieldId": "f3",
+      "typeId": "t3"
+    },
+    {
+      "fieldId": "f2",
+      "typeId": "t8"
+    }
+  ],
+  "placeBornIn": "string",
+  "hobby": "string",
+  "imageUrl": "",
+  "briefHistory": "string",
+  "qualification": "string",
+  "position": "string",
+  "phsNo": "8863",
+  "mobileNo": "0841639396236",
+  "mobileNoPublishingType": "0",
+  "jobType": "J0001",
+  "department": {
+    "id": "1",
+    "name": "Departmen 1",
+    "displayName": "Room 1",
+    "children": [
+      {
+        "id": "12",
+        "name": "Departmen 12",
+        "displayName": "Room 1",
+        "children": []
+      }
+    ]
+  },
+  "graduationDate": "2015",
+  "otherAuthority": {
+    "op_1": true,
+    "op_2": true,
+    "op_3": true,
+    "op_4": true,
+    "op_5": true,
+    "op_6": true,
+    "op_7": true,
+    "op_8": true,
+    "op_9": true
+  },
+  "staffAuthority": {
+    "sp_1": true,
+    "sp_2": true,
+    "sp_3": false,
+    "sp_4": true
+  }
+}

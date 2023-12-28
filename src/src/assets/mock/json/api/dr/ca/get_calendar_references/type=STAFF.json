@@ -1,0 +1,102 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "calendarId": "1",
+      "calendarType": 0,
+      "color": 11506560,
+      "visible": true,
+      "userId": "string",
+      "lastName": "string",
+      "firstName": "string",
+      "shareStatus": 2,
+      "groupId": "string",
+      "groupName": "string",
+      "externalCalendarName": "string"
+    },
+    {
+      "id": "2",
+      "calendarId": "2",
+      "calendarType": 4,
+      "color": 16741687,
+      "visible": false,
+      "userId": "string",
+      "lastName": "string",
+      "firstName": "string",
+      "shareStatus": 2,
+      "groupId": "string",
+      "groupName": "string",
+      "externalCalendarName": "string"
+    },
+    {
+      "id": "3",
+      "calendarId": "3",
+      "calendarType": 5,
+      "color": 8114504,
+      "visible": true,
+      "userId": "string",
+      "lastName": "string",
+      "firstName": "string",
+      "shareStatus": 2,
+      "groupId": "string",
+      "groupName": "string",
+      "externalCalendarName": "string"
+    },
+    {
+      "id": "4",
+      "calendarId": "4",
+      "calendarType": 6,
+      "color": 14529806,
+      "visible": false,
+      "userId": "string",
+      "lastName": "string",
+      "firstName": "string",
+      "shareStatus": 2,
+      "groupId": "string",
+      "groupName": "string",
+      "externalCalendarName": "string"
+    },
+    {
+      "id": "5",
+      "calendarId": "5",
+      "calendarType": 8,
+      "color": 13211578,
+      "visible": true,
+      "userId": "string",
+      "lastName": "string",
+      "firstName": "string",
+      "shareStatus": 2,
+      "groupId": "string",
+      "groupName": "string",
+      "externalCalendarName": "string"
+    },
+    {
+      "id": "6",
+      "calendarId": "6",
+      "calendarType": 9,
+      "color": 9669585,
+      "visible": false,
+      "userId": "string",
+      "lastName": "string",
+      "firstName": "string",
+      "shareStatus": 2,
+      "groupId": "string",
+      "groupName": "string",
+      "externalCalendarName": "string"
+    },
+    {
+      "id": "7",
+      "calendarId": "7",
+      "calendarType": 10,
+      "color": 15699598,
+      "visible": true,
+      "userId": "string",
+      "lastName": "string",
+      "firstName": "string",
+      "shareStatus": 2,
+      "groupId": "string",
+      "groupName": "string",
+      "externalCalendarName": "string"
+    }
+  ]
+}

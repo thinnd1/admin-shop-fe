@@ -1,0 +1,191 @@
+{
+  "group": {
+    "id": "123",
+    "name": "groupWeb",
+    "type": "OFFICIAL",
+    "users": [
+      {
+        "userId": "user0001",
+        "authority": "MEMBER",
+        "inviteFlg": true
+      },
+      {
+        "userId": "user0002",
+        "authority": "MEMBER",
+        "inviteFlg": false
+      },
+      {
+        "userId": "user0003",
+        "authority": "ADMIN",
+        "inviteFlg": false
+      }
+    ]
+  },
+  "departments": [
+    {
+      "id": "1", "name": "Root1", "displayName": "Root1",
+      "children": [{
+        "id": "2", "name": "Root11-Sub1", "displayName": "Root1-Sub1",
+        "children": [{
+          "id": "3", "name": "Root1-Sub2", "displayName": "Root1-Sub2",
+          "children": [{
+            "id": "4", "name": "Root1-Sub3", "displayName": "Root1-Sub3",
+            "children": [{
+              "id": "5", "name": "Root1-Sub4", "displayName": "Root1-Sub4",
+              "children": [{
+                "id": "6", "name": "Root1-Sub5", "displayName": "Root1-Sub5"
+              }]
+            }]
+          }]
+        },
+          { "id": "7", "name": "Root12-Sub1", "displayName": "Root92-Sub1" }
+        ]
+      }]
+    },
+    { "id": "8", "name": "Root2", "displayName": "Root2" },
+    {
+      "id": "9", "name": "Root3", "displayName": "Root3",
+      "children": [{
+        "id": "10", "name": "Root3-Sub1", "displayName": "Root3-Sub1",
+        "children": [{
+          "id": "11", "name": "Root9-Sub3-1", "displayName": "Root9-Sub3-1",
+          "children": [{
+            "id": "12", "name": "Root9-Sub4-1", "displayName": "Root9-Sub4-1"
+          }]
+        }]
+      }]
+    },
+    {
+      "id": "13", "name": "Root1", "displayName": "Root1",
+      "children": [{
+        "id": "14", "name": "Root1-Sub1", "displayName": "Root1-Sub1",
+        "children": [{
+          "id": "15", "name": "Root1-Sub2", "displayName": "Root1-Sub2",
+          "children": [{
+            "id": "16", "name": "Root1-Sub3", "displayName": "Root1-Sub3",
+            "children": [{
+              "id": "17", "name": "Root1-Sub4", "displayName": "Root1-Sub4"
+            }]
+          }]
+        }]
+      },
+        {
+          "id": "18", "name": "Root1-Sub1-1", "displayName": "Root1-Sub1-1",
+          "children": [{
+            "id": "19", "name": "Root9-Sub2-1", "displayName": "Root9-Sub2-1",
+            "children": [{
+              "id": "20", "name": "Root9-Sub3-1", "displayName": "Root9-Sub3-1",
+              "children": [{
+                "id": "21", "name": "Root9-Sub4-1", "displayName": "Root9-Sub4-1"
+              }]
+            }]
+          }]
+        }
+      ]
+    }
+  ],
+  "offices": [
+    {
+      "id": "34",
+      "name": "123456abc"
+    },
+    {
+      "id": "36",
+      "name": "123456def"
+    },
+    {
+      "id": "37",
+      "name": "123456ghi"
+    }
+  ],
+  "prepareOutsideOfficeUsers": [
+    {
+      "userId": "user0001",
+      "officeId": "34",
+      "officeName": "aaaaaaaaaaaaaaaaaaaaaaaa",
+      "deptId": "10",
+      "lastName": "ab0001",
+      "firstName": "trhds",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd"
+    },
+    {
+      "userId": "user0002",
+      "officeId": "35",
+      "deptId": "10",
+      "lastName": "ab0002",
+      "firstName": "trhds",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd",
+      "officeName": ""
+    },
+    {
+      "userId": "user0003",
+      "officeId": "36",
+      "deptId": "11",
+      "lastName": "ab0003",
+      "firstName": "trhds",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd",
+      "officeName": "bbbbbbbbbbbbbbbbbbbbbbbb"
+    },
+    {
+      "userId": "user0004",
+      "officeId": "37",
+      "deptId": "11",
+      "lastName": "ab0004",
+      "firstName": "trhds",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd",
+      "officeName": ""
+    },
+    {
+      "userId": "user0005",
+      "officeId": "37",
+      "deptId": "12",
+      "lastName": "ab0005",
+      "firstName": "trhds",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd",
+      "officeName": "cccccccccccccccccccccccc"
+    },
+    {
+      "userId": "user0006",
+      "officeId": "37",
+      "deptId": "12",
+      "lastName": "ab0006",
+      "firstName": "trhds",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd",
+      "officeName": ""
+    },
+    {
+      "userId": "user0007",
+      "officeId": "37",
+      "deptId": "15",
+      "lastName": "ab0007",
+      "firstName": "trhds",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd",
+      "officeName": "dddddddddddddddddddddddd"
+    }
+  ],
+  "linkedUsers": [
+    {
+      "userId": "user0001",
+      "officeID": "38",
+      "lastName": "abcde",
+      "firstName": "trhds",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd"
+    },
+    {
+      "userId": "user0001",
+      "officeID": "39",
+      "lastName": "abcde",
+      "firstName": "trhds",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd"
+    }
+  ]
+}

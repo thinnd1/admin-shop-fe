@@ -1,0 +1,93 @@
+import {FirBase} from '../gr/firebase/fir.base';
+import * as firebase from 'firebase';
+import DataSnapshot = firebase.database.DataSnapshot;
+
+export class FirSidemenuData extends FirBase {
+
+  // Variables
+  // --------------------------------------------------------------------------
+  // 昇順 TODO: これは必要か？
+  order: number;
+  // 表示・非表示フラグ
+  visible: boolean;
+  // 開閉状態フラグ
+  expanded: boolean;
+  // 総未読数
+  unseenCount: number;
+  // 総TO宛先未読数
+  toUnseenCount: number;
+
+  // Constructor
+  // --------------------------------------------------------------------------
+  constructor(data: any) {
+    super();
+    this.order = data.order;
+    this.visible = data.visible;
+    this.expanded = data.expanded;
+    this.toUnseenCount = data.toUnseenCount;
+    this.unseenCount = data.unseenCount;
+  }
+
+  // Methods
+  // --------------------------------------------------------------------------
+  // @Override
+  updateData(key: string, val: any) {
+  }
+}
+
+export class FirSidemenuGroup extends FirBase {
+
+  // Variables
+  // --------------------------------------------------------------------------
+  // アクティブフラグ
+  isActive: boolean;
+  // ID
+  id: string;
+  // グループ名
+  title: string;
+  // TO宛未読数
+  toUnseen: number;
+  // 未読数
+  unseen: number;
+  // NEWマーク表示フラグ
+  isNew: boolean;
+  // 仲介者の有無
+  hasMediator: boolean;
+
+  // Constructor
+  // --------------------------------------------------------------------------
+  constructor(data: any) {
+    super();
+    this.isActive = data.isActive;
+    this.id = data.id;
+    this.title = data.title;
+    this.toUnseen = data.toUnseen;
+    this.unseen = data.unseen;
+    this.isNew = data.isNew;
+    this.hasMediator = data.hasMediator;
+  }
+
+  // Methods
+  // --------------------------------------------------------------------------
+  updateData(key: string, val: any) {
+  }
+}
+
+export class FirSidemenu extends FirSidemenuData {
+
+  // Variables
+  // --------------------------------------------------------------------------
+  groups: FirSidemenuGroup[] = [];
+
+  // Constructor
+  // --------------------------------------------------------------------------
+  constructor(snapshot: DataSnapshot) {
+    super(snapshot.val());
+    snapshot.child('groups').forEach(child => {
+      const model = new FirSidemenuGroup(child.val());
+      model.id = child.key;
+      this.groups.push(model);
+      return false;
+    });
+  }
+}

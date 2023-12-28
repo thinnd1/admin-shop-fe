@@ -1,0 +1,207 @@
+// import common setting
+@import './../../../assets/styles/import';
+
+.profile {
+  margin: 0 $base-layout-padding $base-layout-padding 0;
+  color: #777;
+  &-avatar {
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 15px;
+    &-img {
+      background: $white;
+    }
+  }
+  &-userinfo {
+    display: table-cell;
+    vertical-align: middle;
+    &-username {
+      font-size: _rem(18px);
+    }
+    &-sub {
+      display: inline-block;
+      font-size: _rem(12px);
+    }
+  }
+}
+
+.search-side-menu {
+  margin: 0 $base-layout-padding $base-layout-padding 0;
+}
+
+.nav-side-menu {
+  margin-bottom: $base-layout-padding;
+  .nav-item {
+    width: 100%;
+    border-bottom: 1px solid #E1E0DF;
+    position: relative;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  > .nav-item {
+    border-bottom: 1px solid #7F7F7F;
+  }
+  .nav-item + .nav-item {
+    margin-left: 0;
+  }
+  .nav-link {
+    border-radius: 0;
+    color: #777;
+    padding: .5em;
+    .nav-link-label {
+      .fa {
+        margin-right: _rem(8px);
+      }
+    }
+    &:not(.nav-dropdown-toggle):hover {
+      background: #FCF8E3;
+    }
+    &-active {
+      color: $prjoy-symbol-color;
+    }
+    &[aria-expanded='false']:after {
+      content: '\F078';
+      font-family: FontAwesome;
+      position: absolute;
+      right: 12px;
+    }
+    &[aria-expanded='true']:after {
+      content: '\F077';
+      font-family: FontAwesome;
+      position: absolute;
+      right: 12px;
+    }
+  }
+  .nav-table {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+    .nav-link-label {
+      display: table-cell;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      max-width: 0;
+    }
+  }
+  .badge-new-wrap {
+    display: table-cell;
+    width: 38px;
+    position: relative;
+    .badge-new {
+      background-color: #D11D29;
+      color: $white;
+      position: absolute;
+      font-weight: normal;
+      top: 3px;
+    }
+  }
+  .balloon {
+    display: table-cell;
+    width: 36px;
+    position: relative;
+    &-orange,
+    &-green {
+      text-align: center;
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 30px;
+      height: 20px;
+      font-size: _rem(14px);
+      vertical-align: middle;
+      color: $white;
+      background-color: $gray;
+      &:after {
+        content: " ";
+        border-left: 6px solid $gray;
+        border-bottom: 6px solid transparent;
+        position: absolute;
+        left: 50%;
+        bottom: -6px;
+      }
+    }
+    &-green {
+      background-color: $green;
+      &:after {
+        border-left-color: $green;
+      }
+    }
+    &-orange {
+      background-color: $orange;
+      &:after {
+        border-left-color: $orange;
+      }
+    }
+  }
+  .nav-link-add {
+    position: absolute;
+    top: 0;
+    right: 40px;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    color: #555;
+    text-decoration: none;
+    &:before {
+      content: "\f196";
+      font-size: 1.33333em;
+      line-height: 0.75em;
+      vertical-align: middle;
+      text-decoration: none;
+      font-family: FontAwesome;
+    }
+    &:hover {
+      color: $prjoy-symbol-color;
+      &:before {
+        content: "\f0fe";
+      }
+    }
+  }
+  .badge-unread {
+    background-color: $orange;
+    position: absolute;
+    font-weight: normal;
+    top: 11px;
+    right: 64px;
+  }
+  .nav-sub {
+    border-top: 1px solid #E1E0DF;
+    .nav-link {
+      padding-left: 2.2rem;
+      &.nav-mediator {
+        .nav-mediator-icon {
+          border: 1px solid #D7D7D7;
+          @include border-radius(5px);
+          color: #D7D7D7;
+          position: absolute;
+          left: .8rem;
+          top: 50%;
+          @include transform(translateY(-50%));
+          width: 1.2rem;
+          height: 1.2rem;
+          font-size: .8rem;
+        }
+      }
+      &.nav-more {
+        padding-left: 1.1rem;
+        .fa {
+          margin-right: 0;
+          color: #D7D7D7;
+        }
+      }
+      &.nav-permission {
+        padding-left: 1.2rem;
+        .fa {
+          margin-right: 0;
+          color: #D7D7D7;
+        }
+      }
+    }
+  }
+  .fa {
+    color: #555;
+  }
+}

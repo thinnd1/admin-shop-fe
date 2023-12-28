@@ -1,0 +1,36 @@
+<a href="javascript:void(0);" class="page-head-backlink" (click)="showBackButton && goBack($event)"><i class="fa fa-chevron-left fa-lg print-white" [hidden]="!showBackButton" aria-hidden="true"></i></a>
+
+<div class="page-head-title" [ngClass]="{'page-head-title-spacing':optionsCount}">
+  <h1 class="page-head-title-text" [style.cursor]="typePopup?'pointer':''" (click)="onClickRoomName()">{{title}} <i class="fa fa-bell-slash fa-fw mr-1" aria-hidden="true" *ngIf="showNotificationIcon"></i></h1>
+</div>
+
+<div class="page-head-popover-wrap" (clickOutside)="p.close()" *ngIf="optionsCount && showSetting">
+  <ng-template #popContent>
+    <div class="page-head-popover py-2">
+      <ul class="list-unstyled mb-0">
+        <li class="page-head-popover-list" *ngIf="pageHeadOptions.already.isShow" [ngClass]="{'disabled': pageHeadOptions.already.isDisabled}">
+          <a href="javascript:void(0);" (click)="already($event)" class="page-head-popover-list-link d-block py-1 text-nowrap">
+            <i class="fa fa-check-square-o fa-fw mr-1" aria-hidden="true"></i>{{'PAGE_HEAD.ALREADY' | translate}}</a></li>
+        <li class="page-head-popover-list" *ngIf="pageHeadOptions.roomEdit?.isShow"><a href="javascript:void(0);" (click)="editRoom($event)" class="page-head-popover-list-link d-block py-1 text-nowrap"><i class="fa fa-pencil-square-o fa-fw mr-1" aria-hidden="true"></i>{{'PAGE_HEAD.ROOM_EDIT' | translate}}</a></li>
+        <li class="page-head-popover-list" *ngIf="pageHeadOptions.attachedFiles.isShow"><a href="javascript:void(0);" (click)="attachedFiles($event)" class="page-head-popover-list-link d-block py-1 text-nowrap"><i class="fa fa-paperclip fa-fw mr-1" aria-hidden="true"></i>{{'PAGE_HEAD.ATTACHED_FILES' | translate}}</a></li>
+        <li class="page-head-popover-list" *ngIf="pageHeadOptions.listMembers?.isShow"><a href="javascript:void(0);" (click)="onClickRoomName()" class="page-head-popover-list-link d-block py-1 text-nowrap"><i class="fa fa-users fa-fw mr-1" aria-hidden="true"></i>{{'PAGE_HEAD.LIST_MEMBERS' | translate}}</a></li>
+        <li class="page-head-popover-list" *ngIf="pageHeadOptions.groupEdit.isShow"><a href="javascript:void(0);" (click)="groupEdit($event)" class="page-head-popover-list-link d-block py-1 text-nowrap"><i class="fa fa-pencil-square-o fa-fw mr-1" aria-hidden="true"></i>{{'PAGE_HEAD.GROUP_EDIT' | translate}}</a></li>
+        <li class="page-head-popover-list" *ngIf="pageHeadOptions.csvDownload.isShow"><a href="javascript:void(0);" (click)="csvDownload($event)" class="page-head-popover-list-link d-block py-1 text-nowrap"><i class="fa fa-download fa-fw mr-1" aria-hidden="true"></i>{{'PAGE_HEAD.CSV_DOWNLOAD' | translate}}</a></li>
+        <li class="page-head-popover-list" *ngIf="pageHeadOptions.notificationSound.isShow && !pageHeadOptions.notificationSound.status"><a href="javascript:void(0);" (click)="notificationSound($event,true)" class="page-head-popover-list-link d-block py-1 text-nowrap"><i class="fa fa-bell fa-fw mr-1" aria-hidden="true"></i>{{'PAGE_HEAD.NOTIFICATION_SOUND_ON' | translate}}</a></li>
+        <li class="page-head-popover-list" *ngIf="pageHeadOptions.notificationSound.isShow && pageHeadOptions.notificationSound.status"><a href="javascript:void(0);" (click)="notificationSound($event,false)" class="page-head-popover-list-link d-block py-1 text-nowrap"><i class="fa fa-bell-slash fa-fw mr-1" aria-hidden="true"></i>{{'PAGE_HEAD.NOTIFICATION_SOUND_OFF' | translate}}</a></li>
+        <li class="page-head-popover-list" *ngIf="pageHeadOptions.notificationMail.isShow && pageHeadOptions.notificationMail.status"><a href="javascript:void(0);" (click)="notificationMail($event,true)" class="page-head-popover-list-link d-block py-1 text-nowrap"><i class="fa fa-envelope-o fa-fw mr-1" aria-hidden="true"></i>{{'PAGE_HEAD.NOTIFICATION_MAIL_ON' | translate}}</a></li>
+        <li class="page-head-popover-list" *ngIf="pageHeadOptions.notificationMail?.isShow && !pageHeadOptions.notificationMail?.status"><a href="javascript:void(0);" (click)="notificationMail($event,false)" class="page-head-popover-list-link d-block py-1 text-nowrap"><i class="fa fa-envelope-o fa-fw mr-1" aria-hidden="true"></i>{{'PAGE_HEAD.NOTIFICATION_MAIL_OFF' | translate}}</a></li>
+        <li class="page-head-popover-list" *ngIf="pageHeadOptions.logout.isShow"><a href="javascript:void(0);" (click)="logout($event)" class="page-head-popover-list-link d-block py-1 text-nowrap"><i class="fa fa-sign-out fa-fw mr-1" aria-hidden="true"></i>{{'PAGE_HEAD.LOGOUT' | translate}}</a></li>
+        <li class="page-head-popover-list" *ngIf="pageHeadOptions.leaveRoom?.isShow"><a href="javascript:void(0);" (click)="leaveRoom($event)" class="page-head-popover-list-link d-block py-1 text-nowrap"><i class="fa fa-sign-out fa-fw mr-1" aria-hidden="true"></i>{{'PAGE_HEAD.LEAVE_ROOM' | translate}}</a></li>
+      </ul>
+    </div>
+  </ng-template>
+  <button type="button" class="btn btn-link btn-cog" [ngbPopover]="popContent" #p="ngbPopover" placement="bottom-right">
+    <span data-toggle="tooltip" (mouseover)="displayTooltip($event)" data-placement="bottom" title="{{'MSG.GR0011.GROUP_SETTINGS_BTN_TOOLTIP' | translate}}" *ngIf="!isChatPage">
+      <i class="fa fa-cog fa-lg" aria-hidden="true"></i> 
+    </span>
+    <span data-toggle="tooltip" (mouseover)="displayTooltip($event)" data-placement="bottom" title="{{'MSG.CH.CHAT_SETTINGS_BTN_TOOLTIP' | translate}}" *ngIf="isChatPage">
+      <i class="fa fa-cog fa-lg" aria-hidden="true"></i>
+    </span>
+  </button>
+</div>

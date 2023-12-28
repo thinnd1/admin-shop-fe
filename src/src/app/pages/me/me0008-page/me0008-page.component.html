@@ -1,0 +1,99 @@
+<div class="page-wrap" *ngIf="this.acticeChatRoomScreen">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header [type]="'drjoy-visitor'"></app-header>
+  </nav>
+  <main class="visitor-content-wrap">
+    <div class="container">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <div class="col">
+                <div class="mt-2">
+                  <p class="text-center mb-3" *ngIf="modelGetRoomSetting.status === this.status[1].EXPIRED">{{
+                    'ME0008.MESSAGE_EXPIRED1' | translate }}<br>{{ 'ME0008.MESSAGE_EXPIRED2' | translate }}</p>
+                  <p class="text-center mb-3" *ngIf="modelGetRoomSetting.status === this.status[2].DONE">{{
+                    'ME0008.MESSAGE_DONE1' | translate }}<br>{{ 'ME0008.MESSAGE_DONE2' | translate }}</p>
+                  <div class="d-flex justify-content-center">
+                    <button type="button" class="fs18 px-3 btn btn-primary mb-3 mt-4" (click)="routeLogin()">ログイン画面へ
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="page-wrap" *ngIf="this.acticeChatRoomScreen === false">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header [type]="'drjoy-visitor'"></app-header>
+  </nav>
+  <main class="mt-5" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <div class="col">
+                <div id="chat-room">
+                  <div class="row">
+                    <div class="col-sx-12 col-md-4">
+                      <form class="fs16" name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate >
+                          <label class="mb-3 text-warning">Dr.JOYにログインして操作をする場合はこちら</label>
+                        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                          <input type="text" class="form-control mb-3" placeholder="メールアドレスを入力してください" name="username" id="username" [(ngModel)]="model.username" #username="ngModel" required>
+                          <div *ngIf="f.submitted && !username.valid" class="help-block">{{ 'VALIDATION_REQUIRED' | translate:{value:'USERNAME'|translate} }}</div>
+                        </div>
+                        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                          <input type="password" class="form-control mb-3" placeholder="パスワードを入力してください" name="password" id="password" [(ngModel)]="model.password" #password="ngModel" required>
+                          <div *ngIf="f.submitted && !password.valid" class="help-block">{{ 'VALIDATION_REQUIRED' | translate:{value:'PASSWORD'|translate} }}</div>
+                        </div>
+                        <label class="custom-control custom-checkbox mb-4">
+                          <input type="checkbox" class="custom-control-input mb-3">
+                          <span class="custom-control-indicator"></span>
+                          <span class="custom-control-description">ログイン状態を保存(1ヶ月間)</span>
+                        </label>
+                        <div class="d-flex justify-content-center">
+                          <button [disabled]="loading" class="fs18 px-3 btn btn-lg btn-primary mb-3">ログイン</button>
+                        </div>
+                        <a href="#" class="text-primary mb-2 float-left w-100">パスワードを忘れてしまった方</a>
+                        <a href="#" class="text-primary mb-2 float-left w-100">公式ホームページ</a>
+                      </form>
+                    </div>
+                    <div class="col-sx-12 col-md-8">
+                      <form action="#">
+                        <div class="title mb-4">
+                          <h1>大谷 百花（ABC製薬）, 江藤 智子</h1>
+                        </div>
+                        <div class="content fs16"
+                             *ngFor="let messageListSetting of this.modelMessageListSetting.messageList">
+                          <div class="title clearfix">
+                            <span class="float-left font-weight-bold">江藤 智子</span>
+                            <span class="float-right text-muted">{{ messageListSetting.time | timePipe: 'MM月DD日(date)'}} {{ messageListSetting.time| timePipe: 'HH:mm'}}</span>
+                          </div>
+                          <p class="title-content">{{ messageListSetting.message }}</p>
+                          <hr class="title-align">
+                        </div>
+
+                        <p class="mb-2" *ngIf="notMessage">{{ 'ME0008.MESSAGE_VALID1' | translate }}<br>{{
+                          'ME0008.MESSAGE_VALID2' | translate }}</p>
+                        <textarea class="form-control" rows="6" [(ngModel)]="messageContent" name="messageContent"></textarea>
+                        <div class="d-flex justify-content-center">
+                          <button type="button" class="fs18 px-3 btn btn-primary mb-3 mt-4" (click)="sendMessage()">送信（1回のみ）</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

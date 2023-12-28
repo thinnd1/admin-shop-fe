@@ -1,0 +1,211 @@
+{
+  "departments": [
+    {
+      "id": "1", "name": "Root1",
+      "children": [{
+        "id": "2", "name": "Root2",
+        "children": [{
+          "id": "3", "name": "Root3",
+          "children": [{
+            "id": "4", "name": "Root4",
+            "children": [{
+              "id": "5", "name": "Root5",
+              "children": [{
+                "id": "6", "name": "Root6"
+              }]
+            }]
+          }]
+        },
+          { "id": "7", "name": "Root7" }
+        ]
+      }]
+    },
+    { "id": "8", "name": "Root8" },
+    {
+      "id": "9", "name": "Root9",
+      "children": [{
+        "id": "10", "name": "Root10",
+        "children": [{
+          "id": "11", "name": "Root11",
+          "children": [{
+            "id": "12", "name": "Root12"
+          }]
+        }]
+      }]
+    },
+    {
+      "id": "13", "name": "Root13",
+      "children": [{
+        "id": "14", "name": "Root14",
+        "children": [{
+          "id": "15", "name": "Root15",
+          "children": [{
+            "id": "16", "name": "Root16",
+            "children": [{
+              "id": "17", "name": "Root17"
+            }]
+          }]
+        }]
+      },
+        {
+          "id": "18", "name": "Root18",
+          "children": [{
+            "id": "19", "name": "Root19",
+            "children": [{
+              "id": "20", "name": "Root20",
+              "children": [{
+                "id": "21", "name": "Root21"
+              }]
+            }]
+          }]
+        }
+      ]
+    }
+  ],
+  "offices": [
+    {
+      "id": "35",
+      "name": "123456abc"
+    },
+    {
+      "id": "36",
+      "name": "123456def"
+    },
+    {
+      "id": "37",
+      "name": "123456ghi"
+    }
+  ],
+  "officeUsers": [
+    {
+      "userId": "user0001",
+      "officeId": "34",
+      "deptId": "10",
+      "lastName": "ab345",
+      "firstName": "trh01",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd",
+      "officeName": "asdhfsdghfjsdgfkjsdjfg"
+    },
+    {
+      "userId": "user0002",
+      "officeId": "35",
+      "deptId": "10",
+      "lastName": "dfg",
+      "firstName": "hds02",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd",
+      "officeName": ""
+    },
+    {
+      "userId": "user0003",
+      "officeId": "36",
+      "deptId": "11",
+      "lastName": "123df",
+      "firstName": "df4003",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd",
+      "officeName": "sdhsjdeh32837428hs"
+    },
+    {
+      "userId": "user0004",
+      "officeId": "37",
+      "deptId": "11",
+      "lastName": "56f004",
+      "firstName": "dsf6",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd",
+      "officeName": ""
+    },
+    {
+      "userId": "user0005",
+      "officeId": "34",
+      "deptId": "15",
+      "lastName": "五十嵐",
+      "firstName": "桃子005",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd",
+      "officeName": "sdbfj23647364sdfjskdf"
+    },
+    {
+      "userId": "user0006",
+      "officeId": "34",
+      "deptId": "15",
+      "lastName": "五十嵐",
+      "firstName": "桃子006",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd",
+      "officeName": ""
+    },
+    {
+      "userId": "user0007",
+      "officeId": "35",
+      "deptId": "20",
+      "lastName": "長谷川007",
+      "firstName": "朋子",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd",
+      "officeName": "3476sdfsjdbf34"
+    },
+    {
+      "userId": "user0008",
+      "officeId": "36",
+      "deptId": "20",
+      "lastName": "宇喜多008",
+      "firstName": "さくら",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd",
+      "officeName": ""
+    },
+    {
+      "userId": "user0009",
+      "officeId": "37",
+      "deptId": "16",
+      "lastName": "井上009",
+      "firstName": "真由子",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd",
+      "officeName": "14435445dsfd54f5d4f"
+    },
+    {
+      "userId": "user0010",
+      "officeId": "37",
+      "deptId": "16",
+      "lastName": "田中010",
+      "firstName": "友美",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd",
+      "officeName": ""
+    },
+    {
+      "userId": "user0011",
+      "officeId": "37",
+      "deptId": "21",
+      "lastName": "渡辺011",
+      "firstName": "悠人",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd",
+      "officeName": "3231a45d4asda5sd45as"
+    }
+  ],
+  "linkedUsers": [
+    {
+      "userId": "user0020",
+      "officeID": "38",
+      "lastName": "abcde",
+      "firstName": "trhds",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd",
+      "officeName": "国保直営総合病院..."
+    },
+    {
+      "userId": "user0021",
+      "officeID": "39",
+      "lastName": "abcde",
+      "firstName": "trhds",
+      "firstNameKana": "sjdhfj",
+      "lastNameKana": "sdfgd",
+      "officeName": "国保直営総合病院..."
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+.shift-request {
+	.readMore {
+		color:#3d7fb7;
+		cursor: pointer;
+	}
+	.add-wrap {
+		display: flex;
+		margin: 0 -0.25rem;
+	  > div {
+			padding:0 0.25rem;
+		}
+		.input-date {
+			width: 8rem;
+			min-width: 8rem;
+		}
+		.select-type {
+			width:10rem;
+			min-width:10rem;
+		}
+		.select-day {
+			width:5rem;
+			min-width: 5rem;
+		}
+		.close-add {
+			color: #3D7EB6;
+	    line-height: 28px;
+	    cursor: pointer;
+		}
+		.add-text {
+			width:55%;
+			position: relative;
+			.count-text {
+				position: absolute;
+			}
+		}
+		.add-ttl {
+			min-width: 3.5rem;
+		}
+		.add-check {
+			min-width: 9rem;
+		}
+	}
+	.noti-re-register {
+		background-color: #d9edf7;
+		border:1px solid #c8e5f3;
+		color: #3a7a9b; 
+	}
+	.shift-remove,
+	.under-check {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+}
+
+@include media-breakpoint-down(md) {
+	.shift-request {
+		.add-wrap {
+			display: block;
+			> div {
+				width: 100% !important;
+				margin: 0.5rem;
+			}
+		}
+	}
+}

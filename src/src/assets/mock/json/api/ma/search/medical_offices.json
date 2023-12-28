@@ -1,0 +1,6 @@
+[
+  {"officeId": "1","officeName": "Hospital 1","otherHandling": false },
+  {"officeId": "2","officeName": "Hospital 2","otherHandling": false },
+  {"officeId": "3","officeName": "Hospital 3","otherHandling": true },
+  {"officeId": "4","officeName": "Hospital 4","otherHandling": true }
+]

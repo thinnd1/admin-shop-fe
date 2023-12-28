@@ -1,0 +1,112 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents GR0011-->
+
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="groupInfo.name" [groupId]="groupInfo.id" [pageHeadOptions]="{
+                    already: {
+                      isShow : true,
+                      isDisabled: disabledAllSeen
+                    },
+                    attachedFiles: {
+                      isShow : true
+                    },
+                    groupEdit: {
+                      isShow : isAdmin && !isGroupOfficial
+                    },
+                    csvDownload: {
+                      isShow : true
+                    },
+                    notificationSound: {
+                      isShow : true,
+                      status: notificationSoundFlag
+                    },
+                    notificationMail: {
+                      isShow : true,
+                      status: notificationMailFlag
+                    },
+                    logout: {
+                      isShow : !isGroupOfficial && !groupInfo.deptGroupFlag
+                    }
+                  }"
+                                 (clickAlready)="allSeen($event)"
+                                 (clickAttachedFiles)="attachedFilesPopup($event)"
+                                 (clickGroupEdit)="redirectEditGroup($event)"
+                                 (clickCsvDownload)="csvDownload($event)"
+                                 (clickNotificationSound)="notificationSound($event)"
+                                 (clickNotificationMail)="notificationMail($event)"
+                                 (clickLogout)="leaveGroup($event)"
+                  ></app-page-head>
+                </div>
+
+                <!--S: member-list-->
+                <app-member-list [groupInfo]="groupInfo" [iconSize]="55" [listMemberInfo]="listMemberInfo" [isAdmin]="isAdmin"></app-member-list>
+                <!--E: member-list-->
+
+                <!-- S: article-new -->
+                <app-groupboard-contribution [groupInfo]="groupInfo" [userSession]="userSession" [listMember]="listMemberInfo"></app-groupboard-contribution>
+                <!-- E: article-new -->
+
+                <div class="hows-support">
+                  <figure class="thumb-default mt-3 text-center" *ngIf="listArticles.length < 1">
+                    <img src="/assets/img/group_nowrite_illust.png" alt="" *ngIf="this._displayHasntIllust"></figure>
+                  <!-- // Support 01 -->
+                  <div *ngIf="listArticles.length > 0">
+                    <div class="infinite-scroll" [ngStyle]="{'height':infiniteScrollHeight}">
+                      <div class="infinite-scroll-content" infinite-scroll [infiniteScrollDistance]="0" [infiniteScrollThrottle]="600" [scrollWindow]="!infiniteScrollOptions.height" (scrolled)="onScrollDown()">
+
+                        <div class="support-group pb-2 mb-4">
+                          <ng-template ngFor let-article [ngForOf]="listArticles" [ngForTrackBy]="articleTrackByFn">
+                            <app-group-article-information [groupInfo]="groupInfo" [userSession]="userSession" [article]="article"
+                                                           [listMemberInfo]="listMemberInfo" [listFavorites]="listFavorites" [comments]="article.listComments"
+                                                           [_inputOptions] = "{
+                                                           unseenToArticle: unseenTo?.article,
+                                                           unseenToComment: unseenTo?.comment
+                                                         }"
+                            ></app-group-article-information>
+                          </ng-template>
+                        </div>
+                      </div>
+                      <div class="infinite-scroll-loader text-center" [hidden]="isLoading">
+                        <i class="fa fa-spinner fa-pulse fa-fw infinite-scroll-loader-icon"></i>
+                        <span class="infinite-scroll-loader-text fs14">{{'INFINITE_SCROLL.LOADING' | translate}}...</span>
+                      </div>
+                    </div>
+                    <!-- // End Support 01 -->
+                  </div>
+                </div>
+              </div>
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+        <!--// scroll-->
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

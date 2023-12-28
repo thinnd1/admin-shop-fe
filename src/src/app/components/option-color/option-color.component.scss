@@ -1,0 +1,103 @@
+@import './../../../assets/styles/import';
+/*****/
+
+.popover {
+  position: relative;
+  width:204px;
+.popover-content{
+  overflow: hidden;
+.popover-box{
+  width: 26px;
+  float: left;
+  margin: 3px 1px;
+  padding: 2px;
+  border: 1px #fff solid;
+  cursor: pointer;
+}
+.active{
+  border: 1px #ccc solid;
+@include border-radius(0.1rem);
+}
+}
+}
+.popover.popover-bottom::after, .popover.bs-tether-element-attached-top::after {
+  border-bottom-color: #fff;
+}
+.box-bg{
+  width: 20px;
+  height: 20px;
+@include border-radius(0.1rem);
+}
+.box-bg-1{
+  background:#d576e5;
+}
+.box-bg-2{
+  background:#ff76bb;
+}
+.box-bg-3{
+  background:#db4678;
+}
+.box-bg-4{
+  background:#ef4b4b;
+}
+.box-bg-5{
+  background:#ff7537;
+}
+.box-bg-6{
+  background:#ffa412;
+}
+.box-bg-7{
+  background:#14af65;
+}
+.box-bg-8{
+  background:#7bd148;
+}
+.box-bg-9{
+  background:#42ce88;
+}
+.box-bg-10{
+  background:#2bc1a4;
+}
+.box-bg-11{
+  background:#4CC5E5;
+}
+.box-bg-12{
+  background:#3C96EF;
+}
+.box-bg-13{
+  background:#938BD1;
+}
+.box-bg-14{
+  background:#EF8E8E;
+}
+.box-bg-15{
+  background:#DDB50E;
+}
+.box-bg-16{
+  background:#AFA168;
+}
+.box-bg-17{
+  background:#AF9380;
+}
+.box-bg-18{
+  background:#B77777;
+}
+.box-bg-19{
+  background:#BA8590;
+}
+.box-bg-20{
+  background:#C997BA;
+}
+.box-bg-21{
+  background:#8793AA;
+}
+.box-bg-22{
+  background:#809E8C
+}
+.box-bg-23{
+  background:#A0A0A0;
+}
+.box-bg-24{
+  background:#BCBCBC;
+}
+/****/

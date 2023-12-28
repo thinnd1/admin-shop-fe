@@ -1,0 +1,110 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+.border-red{
+	border: 1px solid #D21D29!important;
+}
+.d-inline-block{
+	font-size: 13px;
+}
+.add-mail{
+	padding: 50px 0px;
+}
+.re0010-main{
+	margin: auto;
+	max-width: 1000px;
+	text-align: center;
+	-ms-flex-preferred-size:inherit;
+}
+.user-edit {
+	.table-user-edit {
+		tr {
+			th {
+				min-width: 8.5rem;
+				white-space: nowrap;
+				width: 1rem;
+			}
+			td {
+				vertical-align: middle;
+				.close-field {
+			    color: #3D7EB6;
+			    line-height: 32px;
+          cursor: pointer;
+				}
+				.align-right {
+					width: auto;
+				}
+				.era-middle {
+			    padding: 10px 10px 0px 10px;
+			    color: #333;
+				}
+			}
+		}
+	}
+}
+.date-select-wrap {
+  select.form-control {
+    width: auto;
+  }
+  .phsNo {
+  	width: 11rem;
+  }
+}
+.tel-input-wrap {
+  .form-control-tel {
+    width: 4.3rem;
+  }
+  :first-child .form-control-tel {
+    width: 3.8rem;
+  }
+}
+.graduate-input-wrap {
+  .input-group {
+  	width: 15rem;
+  }
+}
+.tittle {
+	text-align: center;
+	border-bottom: 1px solid #CCC;
+	margin-bottom: 50px;
+}
+
+//@media (max-width: 991px)
+@include media-breakpoint-down(md) {
+	.user-edit {
+		.table-user-edit {
+  		tr {
+  			th {
+  				white-space: inherit;
+	  		}
+  		}
+	  }
+	}
+}
+
+//@media (max-width: 767px)
+@include media-breakpoint-down(sm) {
+	.user-edit {
+		.table-user-edit {
+  		tr {
+  			th, td {
+	  			width: 100%;
+	  			display: block;
+	  		}
+  		}
+	  }
+	}
+}
+
+
+//@media (max-width: 575px)
+@include media-breakpoint-down(xs) {
+  .graduate-input-wrap {
+    .input-group {
+      width: 100%;
+    }
+    .graduate-string-length {
+      width: 100%;
+      padding: 10px 10px 0;
+    }
+  }
+}

@@ -1,0 +1,184 @@
+<div class="drjoy-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents ME0051-->
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head title="{{'ME0058.TITLE' | translate}}"></app-page-head>
+                </div>
+                <div id="entry-exit">
+                  <p class="text-right mb-5"><button class="btn btn-info" routerLink="/me/me5001">{{'ME0058.BTN_INFOR' | translate}}</button></p>
+                  <div class="entry-box-txt font-weight-bold py-md-4 px-md-5 mb-md-5 mb-4 p-2">
+                    {{'ME0058.ENTRY_BOX' | translate}} <br>{{'ME0058.ENTRY_PY' | translate}}<br>{{'ME0058.ENTRY_NOTICE' | translate}}
+                  </div>
+                  <div class="entry-exit-info clearfix mb-5">
+                    <div class="photo float-left mb-2 mb-md-0">
+                      <img [src]="'/assets/img/me0058/card-demo.jpg'" alt="">
+                    </div>
+                    <div class="entry-info-txt float-left">
+                      <p>{{'ME0058.INFOR_CARD' | translate}}</p>
+                      <p>{{'ME0058.INFOR_MD' | translate}}</p>
+                      <p>{{'ME0058.INFOR_PROCESS' | translate}}</p>
+                    </div>
+                  </div>
+                  <div class="entry-step text-left">
+                    <img [src]="'/assets/img/me0058/process.png'" alt="">
+                  </div>
+                  <h2 class="mt-3">{{'ME0058.TITLE_ENTRY' | translate}}</h2>
+                  <p>{{'ME0058.INFOR_STEP' | translate}}</p>
+                  <p>{{'ME0058.INFOR_PROHI' | translate}}</p>
+                  <p>{{'ME0058.INFOR_BIT' | translate}}<a (click)="routerToRe()" class="link-to-re">{{'ME0058.INFOR_BIT1' | translate}}</a>{{'ME0058.INFOR_BIT2' | translate}}</p>
+                  <div class="mw-80 clearfix"><img [src]="'/assets/img/me0058/prohibit.png'"></div>
+                  <div class="mw-700 ml-0 ml-sm-5 clearfix"><img [src]="'/assets/img/me0058/prohibit-example.png'"></div>
+                  <div class="mw-80 clearfix"><img [src]="'/assets/img/me0058/IC_OK.png'"></div>
+                  <div class="mw-700 mb-3 ml-0 ml-sm-5 clearfix"><img [src]="'/assets/img/me0058/IC_OK-example.png'"></div>
+                  <p>{{'ME0058.INFOR_CASE' | translate}}</p>
+                  <div class="mw-500 clearfix mb-5 ml-0 ml-sm-5"><img [src]="'/assets/img/me0058/case-prohibit.png'"></div>
+                  <h2 class="mt-3">{{'ME0058.TITLE_CONTRACT' | translate}}</h2>
+                  <form [formGroup]="createContractor" (ngSubmit)="addCardContrac()">
+                    <div class="entry-form px-3 py-2 mb-5">
+                      <h4 class="sub-ttl sub-first">{{'ME0058.TITLE_SUB' | translate}}</h4>
+                      <div class="form-group row mb-3 mb-md-5 pl-0 pl-md-4">
+                        <div class="col-md-2 col-12"></div>
+                        <div  class="col-md-9 col-11"><span *ngIf="formErrors.paymentName" class="col-form-label text-danger fs12">{{ formErrors.paymentName}}</span></div>
+                        <label for="example-text-input d-flex align-items-center" class="col-md-2 col-12 col-form-label">{{'ME0058.LABEL_SUB' | translate}}</label>
+                        <div class="col-md-9 col-11" [ngClass]="{'has-danger': formErrors.paymentName}">
+                          <input class="form-control"  type="text" value="" id="example-text-input" placeholder="{{'ME0058.PLACEHODER_PAYMENT_NAME' | translate}}" formControlName="paymentName">
+                          <p class="fs14 mb-0">{{'ME0058.INFOR_PAYMENT' | translate}}</p>
+                        </div>
+                        <div class="col-md-1 col-1 pt-1">{{'ME0058.LABEL_PAYMENT_NAME' | translate}}</div>
+                      </div>
+                      <h4 class="sub-ttl">{{'ME0058.SUBTITLE' | translate}}</h4>
+                      <div class="form-group row pl-0 pl-md-4">
+                        <div class="col-md-2 col-12 col-form-label"></div>
+                        <div class="col-md-9 col-12">
+                          <span *ngIf="formErrors.zipCode1 || formErrors.zipCode2 || (formErrors.zipCode2 && formErrors.zipCode1) " class="col-form-label text-danger fs12">
+                            {{ formErrors.zipCode1 || formErrors.zipCode2}}
+                          </span>
+                        </div>
+                        <label for="example-text-input" class="col-md-2 col-12 col-form-label">{{'ME0058.LABEL' | translate}}</label>
+                        <div class="col-md-9 col-12">
+                          <div class="tel-input-wrap form-inline">
+                            <div  [ngClass]="{'has-danger': formErrors.zipCode1}">
+                              <input class="form-control form-control-tel" type="text" formControlName="zipCode1" maxlength="3" id="zipCode1" placeholder="000" (keyup)="checkLength($event, 'zipCode1', 3)">
+                            </div>
+                            <span class="px-2">-</span>
+                            <div  [ngClass]="{'has-danger': formErrors.zipCode2}">
+                              <input class="form-control form-control-tel" type="text" formControlName="zipCode2" maxlength="4" placeholder="0000" id="zipCode2" (keyup)="checkLength($event, 'zipCode2', 4)">
+                            </div><br/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group row pl-0 pl-md-4" [ngClass]="{'has-danger': formErrors.address}">
+                        <div class="col-md-2 col-12 col-form-label"></div>
+                        <div class="col-md-9 col-12"><span *ngIf="formErrors.address" class="col-form-label text-danger fs12">{{ formErrors.address}}</span></div>
+                        <label for="example-text-input1" class="col-md-2 col-12 col-form-label">{{'ME0058.LABEL_ADDRESS1' | translate}}</label>
+                        <div class="col-md-9 col-12">
+                          <input class="form-control" type="text" value="" id="example-text-input1" placeholder="{{'ME0058.PLACEHODER_ADDRESS1' | translate}}" formControlName="address">
+                        </div>
+                      </div>
+                      <div class="form-group row pl-0 pl-md-4" [ngClass]="{'has-danger': formErrors.address2}">
+                        <div class="col-md-2 col-12 col-form-label"></div>
+                        <div class="col-md-9 col-12 "><span *ngIf="formErrors.address2" class="col-form-label text-danger fs12">{{ formErrors.address2}}</span></div>
+                        <label for="example-text-input2" class="col-md-2 col-12 col-form-label">{{'ME0058.LABEL_ADDRESS2' | translate}}</label>
+                        <div class="col-md-9 col-12 ">
+                          <input class="form-control" type="text" value="" id="example-text-input2" placeholder="{{'ME0058.PLACEHODER_ADDRESS2' | translate}}" formControlName="address2">
+                        </div>
+
+                      </div>
+                      <div class="form-group row pl-0 pl-md-4" [ngClass]="{'has-danger': formErrors.name}">
+                        <div class="col-2 col-form-label"></div>
+                        <div class="col-md-9 col-11"><span *ngIf="formErrors.name" class="col-form-label text-danger fs12">{{ formErrors.name}}</span></div>
+                        <label for="example-text-input3" class="col-2 col-form-label">{{'ME0058.LABEL_NAME' | translate}}</label>
+                        <div class="col-md-9 col-11">
+                          <input class="form-control" type="text" value="" id="example-text-input3" placeholder="{{'ME0058.PLACEHODER_NAME' | translate}}" formControlName="name">
+                        </div>
+                        <div class="col-md-1 col-1 pt-1">{{'ME0058.LABEL_PAYMENT_NAME' | translate}}</div>
+                      </div>
+                    </div>
+                    <div class="check-confirm px-3 pt-3">
+                      <div class="check-confirm-txt p-3">
+                        <p>{{'ME0058.RULES1' | translate}}</p>
+                        <span>{{'ME0058.RULES2' | translate}}</span>
+                        <p>{{'ME0058.RULES3' | translate}}</p>
+                        <span>{{'ME0058.RULES4' | translate}}</span><br/>
+                        <span>{{'ME0058.RULES5' | translate}}</span><br/>
+                        <span>{{'ME0058.RULES6' | translate}}</span><br/>
+                        <span>&nbsp; &nbsp; &nbsp; &nbsp;{{'ME0058.RULES7' | translate}}</span><br/>
+                        <span>&nbsp; &nbsp; &nbsp; &nbsp;{{'ME0058.RULES8' | translate}}</span><br/>
+                        <span>{{'ME0058.RULES9' | translate}}</span><br/>
+                        <span>{{'ME0058.RULES10' | translate}}</span><br/>
+                        <span>{{'ME0058.RULES11' | translate}}</span><br/><br/>
+                        <span>{{'ME0058.RULES12' | translate}}</span><br/>
+                        <span>{{'ME0058.RULES13' | translate}}</span><br/>
+                        <span>{{'ME0058.RULES14' | translate}}</span><br/>
+                        <span>{{'ME0058.RULES15' | translate}}</span><br/>
+                        <span>{{'ME0058.RULES16' | translate}}</span><br/><br/>
+                        <span>{{'ME0058.RULES17' | translate}}</span><br/>
+                        <span>{{'ME0058.RULES18' | translate}}</span><br/>
+                        <span>{{'ME0058.RULES19' | translate}}</span><br/>
+                        <span>{{'ME0058.RULES20' | translate}}</span><br/>
+                        <span>{{'ME0058.RULES21' | translate}}</span><br/>
+                        <span>{{'ME0058.RULES22' | translate}}</span><br/>
+                        <span>{{'ME0058.RULES23' | translate}}</span><br/>
+                        <span>{{'ME0058.RULES24' | translate}}</span><br/><br/>
+                        <span>{{'ME0058.RULES25' | translate}}</span><br/>
+                        <span>{{'ME0058.RULES26' | translate}}</span><br/>
+                        <span>{{'ME0058.RULES35' | translate}}</span><br/><br/>
+                        <span>{{'ME0058.RULES27' | translate}}</span><br/>
+                        <span>{{'ME0058.RULES28' | translate}}</span><br/><br/>
+                        <span>{{'ME0058.RULES29' | translate}}</span><br/>
+                        <span>{{'ME0058.RULES30' | translate}}</span><br/><br/>
+                        <span>{{'ME0058.RULES31' | translate}}</span><br/>
+                        <span>{{'ME0058.RULES32' | translate}}</span><br/>
+                        <span>{{'ME0058.RULES33' | translate}}</span><br/>
+                        <span>{{'ME0058.RULES34' | translate}}</span><br/>
+                        <p class="mb-0 text-center">{{'ME0058.RULES_LAST' | translate}}</p>
+                      </div>
+                      <div class="form-check text-center py-2" >
+                        <label *ngIf="checkContractorError" class="text-danger fs12 form-check-label col-12 text-danger-check"  [ngClass]="{'has-danger': checkContractorError}">{{'ME0058.ME0058_ERROR.CHECK_ACCEPT' | translate}}</label>
+                        <div class="col-12">
+                          <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" [checked]="checkContractor" (click)="isCheckContractor(checkContractor)">
+                            <span class="custom-control-indicator" [ngClass]="{'has-danger': checkContractorError}"></span>
+                            <span class="custom-control-description">{{'ME0058.BUTTON_CONFIRM' | translate}}</span>
+                          </label>
+                        </div>
+                      </div>
+                      <!-- //check-confirm -->
+                    </div>
+                    <div class="d-flex justify-content-center my-5">
+                      <button class="btn btn-primary" type="submit">{{'ME0058.SUBMIT' | translate}}</button>
+                    </div>
+                  </form>
+                  <!-- //entry-exit -->
+                </div>
+              </div>
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

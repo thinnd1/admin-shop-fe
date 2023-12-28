@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "firstName": "Tran",
+      "image": "string",
+      "lastName": "Nhat",
+      "officeId": "01234567890",
+      "officeName": "Ominext",
+      "userId": "1"
+    },
+    {
+      "firstName": "Hoang",
+      "image": "string",
+      "lastName": "Nam",
+      "officeId": "12",
+      "officeName": "FPT",
+      "userId": "2"
+    },
+    {
+      "firstName": "Bui",
+      "image": "string",
+      "lastName": "Hai",
+      "officeId": "23",
+      "officeName": "SmartOSC",
+      "userId": "3"
+    },
+    {
+      "firstName": "Nguyen",
+      "image": "string",
+      "lastName": "Nam",
+      "officeId": "55",
+      "officeName": "Framgia",
+      "userId": "4"
+    },
+    {
+      "firstName": "Doan",
+      "image": "string",
+      "lastName": "Hung",
+      "officeId": "3213",
+      "officeName": "VNG",
+      "userId": "5"
+    }
+  ]
+}

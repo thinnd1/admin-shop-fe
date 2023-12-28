@@ -1,0 +1,98 @@
+<div class="support-bg mt-1 p-3 mb-5">
+  <div class="d-flex p-2 pt-3 pb-1 support-bod-bottom print-avoid-break support-bg " [ngClass]="{'no-border-print': last}"  *ngFor="let comment of listComments;let last = last;">
+    <div class="avatar mr-3">
+      <div *ngFor="let user of listUserInfo | filterInfo: comment.officeUserId">
+        <a href="#" (click)="getDetailUser($event, user)">
+          <app-face-icon [tooltipOptions]="{
+                         isShow: true,
+                         isShowOfficeName: true
+                         }" [userInfo]="user" [iconSize]="55"></app-face-icon>
+        </a>
+      </div>
+    </div>
+    <div class="support w-100">
+      <div class="row fs15">
+        <div class="col-md-7 col-lg-7 text-muted col-xs-5">
+          <h4>
+            <a href="#" (click)="getDetailUser($event, user)" *ngFor="let user of listUserInfo | filterInfo: comment.officeUserId">
+              {{user.fullName}} （{{user.officeName}}）
+            </a>
+          </h4>
+        </div>
+        <div class="col-md-5 col-lg-5 text-right col-xs-5">
+          <span class="d-block"> {{getCreatedAt(comment.created, 'YYYY年MM月DD日(date)')}} {{getCreatedAt(comment.created, 'HH:mm')}}</span>
+        </div>
+      </div>
+      <!-- // content comment -->
+      <div class="support-txt mt-3 fs15 ">
+        <div class="support-content-txt">
+          <p class="mb-2 break-line" appLinky [textHyperlink]="comment.content"></p>
+        </div>
+        <app-report-file-display [path]="attachmentPath" [comment]="comment"></app-report-file-display>
+      </div>
+      <!--// end content comment -->
+    </div>
+  </div>
+  <div class="d-flex p-2 pt-3 pb-1 support-bg no-print">
+    <div class="avatar mr-3">
+      <div *ngFor="let user of listUserInfo | filterInfo: userSession?.officeUserId">
+        <app-face-icon  [tooltipOptions]="{
+                         isShow: true,
+                         isShowOfficeName: true
+                         }" [userInfo]="user" [iconSize]="55"
+        ></app-face-icon>
+      </div>
+    </div>
+    <!--create comment-->
+    <div class="clearfix w-100">
+      <div class="container w-100 mb-2 form-control-textarea-border">
+        <app-attachment-text-box-contents [contents]="{attachments: listAttachments, contents: textContents}"
+                                          [isEdit]="false" (fileRemove)="removeFile($event)"
+                                          [progress]="progress"
+                                          [options]="textboxOptions"
+                                          (onConfirm)="clickConfirm($event)"
+                                          (inputChange)="inputChange($event)"></app-attachment-text-box-contents>
+      </div>
+      <div class="container w-100 mb-2 ">
+        <div class="row">
+          <div class="col p-0 d-flex justify-content-en">
+            <div class="p-0 font-weight-bold" role="button">
+              <label data-toggle="tooltip" data-placement="top" data-trigger="hover" [ngbTooltip]="'GR0013.ADD_FILES_TOOLTIP' | translate" tabindex="0"
+                     class="custom-control custom-file fill m-0 p-2 d-flex align-items-center justify-content-center">
+                <i class="fa fa-paperclip fa-lg mr-1 icon-orange" aria-hidden="true"></i>
+                <app-attachment-text-box-file-upload #fileUpload
+                  [(ngModel)]="listAttachments"></app-attachment-text-box-file-upload>
+              </label>
+              </div>
+            <div
+              class="groupboard-contribution w-83 p-0">
+              <div class="float-right float-sm-left d-flex align-items-center px-2 h-100 w-60">
+                <div class="dropdown w-100 dropup" tabindex="0">
+                  <div class="form-control dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                    <div class="select-dropdown">{{'PHARMACY.COMMON.TEMPLATE' | translate}}</div>
+                  </div>
+                  <div tabindex="1" class="dropdown-menu w-100 dropdown-scroll" aria-labelledby="dropdownMenuLink ">
+                    <button class="drop-list"  data-toggle="modal"
+                            data-backdrop="static" data-keyboard="false" data-target="#modal-getTemplate">{{'PHARMACY.COMMON.TEMPLATE1' | translate}}</button>
+                    <div class="dropdown-divider" *ngIf="listTemplate.length > 0"></div>
+                    <a class="dropdown-item wrap-text" *ngFor="let item of listTemplate" (click)="onSelectTemplate(item)">{{item.templateName}}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pl-2 pr-0 d-flex align-items-center justify-content-center" >
+              <button type="button" class="btn btn-primary" (click)="clickConfirm($event)"
+                      [ngClass]="(textContents === '') ? 'disabled' : ''">
+                <span>コメントする</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end create comment-->
+  </div>
+  <!--modal template-->
+  <app-modal-template (updateTemplate)="updateTemplate($event)"></app-modal-template>
+</div>

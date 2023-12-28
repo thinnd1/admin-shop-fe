@@ -1,0 +1,102 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents GR0005-->
+
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'MENU.ITEM.GR0005' | translate"></app-page-head>
+                </div>
+                <form [formGroup]="editInfoForm" (ngSubmit)="putEditDepartmentGroupForm()">
+                  <div class="row mt-4 avatar-wrapper">
+                    <div class="col-lg-2 avatar-select">
+                      <app-group-icon-set [groupIconSetOptions]="{admin: 1, groupId: groupId, iconSize:94}" (iconImageChanged)="groupIconSetChanged($event)" [imageUrl]="groupAvatar"></app-group-icon-set>
+                    </div>
+                    <div class="col-lg-9">
+                      <div class="form-group" [ngClass]="{'has-danger': formErrors.name}">
+                        <label>{{'COMMON_LABEL.LBL_GROUP_NAME' | translate}}<span class="text-danger">※</span></label>
+                        <span class="d-block col-form-label text-danger" *ngIf="formErrors.name">{{formErrors.name | translate}}</span>
+                        <input type="text" class="form-control" placeholder="{{'COMMON_LABEL.INPUT_GROUP_NAME_PLACEHOLDER' | translate}}" formControlName="name">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group mt-3">
+                    <label>{{'COMMON_LABEL.LBL_DEPARTMENT' | translate}}</label>
+                    <div class="focus-dis focus-dis-active">
+                      <input class="form-control" type="text" readonly="readonly" formControlName="deptId">
+                    </div>
+                  </div>
+                  <div class="select-content-w mt-4">
+                    <div class="select-content">
+                      <div class="select-col3">
+                        <p class="m-0">{{'COMMON_LABEL.LBL_SELECTED_MEMBER' | translate}}</p>
+                        <div class="select-container select-member">
+                          <div class="select-search p-2">
+                            <div class="search">
+                                <input class="search-input" type="text" placeholder="{{'MEMBER_SELECT.MEMBER_SEARCH' | translate}}" (keyup)="0" #keyWord>
+                                <button type="button" class="search-btn">
+                                  <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                          </div><!-- //select-search-->
+                          <div class="select-container-drag pb-1">
+                            <div class="d-flex select-box mx-1 mt-1 mb-1">
+                              <div class="select-user-txt pt-2 p-1">{{'MEMBER_SELECT.ADMIN' | translate}}</div>
+                              <div class="select-user-txt pt-2 p-1">{{'COMMON_LABEL.FULL_NAME' | translate}}</div>
+                            </div>
+                            <ul class="select-user m-0 p-0">
+                              <li class="d-flex align-items-center pl-4 py-2"
+                                  *ngFor="let mem of listMember | searchFilter: {fullName: keyWord.value, fullNameKana: keyWord.value}">
+                                <div class="checkbox mt-2">
+                                  <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input" [checked]="mem.authority === 'ADMIN'" (change)="editSelectedDepartmentAdmin(mem)">
+                                    <span class="custom-control-indicator"></span>
+                                  </label>
+                                </div>
+                                <div class="select-user-img"> <app-face-icon [iconSize]="40" [userInfo]="mem"></app-face-icon></div>
+                                <div class="select-user-name fs18 pl-2">{{mem.fullName}}</div>
+                              </li>
+                            </ul>
+                          </div><!-- //select-container-drag -->
+                        </div><!-- //select-dr-pr -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-center my-4">
+                    <button class="btn btn-primary mr-2" type="submit">{{'COMMON_BTN.SAVE' | translate}}</button>
+                    <button class="btn btn-danger" type="button" (click)="deleteDepartmentGroup(groupId)">{{'COMMON_BTN.DELETE' | translate}}</button>
+                  </div>
+                </form>
+
+              </div>
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-xl-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

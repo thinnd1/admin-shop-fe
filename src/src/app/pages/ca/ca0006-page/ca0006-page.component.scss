@@ -1,0 +1,284 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+/** ------ @mixin -----------------**/
+@mixin display-flex() {
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Chrome */
+  display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+@mixin align-items() {
+  -moz-box-align: center;
+  align-items: center;
+}
+/*****/
+//CA0009-css
+.check-box {
+  .btn-primary-fist {
+    background: #99b4cc;
+    color: #fff;
+  }
+  .btn-primary-active {
+    background: #00447f;
+  }
+  .btn {
+    &:first-of-type {
+      border-radius: 0.25rem 0 0 0.25rem;
+    }
+    &:last-child {
+      border-radius: 0 0.25rem 0.25rem 0;
+    }
+  }
+}
+
+.app-option-color {
+  display: none;
+  position: absolute;
+}
+
+.popover {
+  position: relative;
+  max-width: 204px;
+  .popover-content {
+    overflow: hidden;
+    .popover-box {
+      width: 26px;
+      float: left;
+      margin: 3px 1px;
+      padding: 2px;
+      border: 1px #fff solid;
+      cursor: pointer;
+    }
+    .active {
+      border: 1px #ccc solid;
+      @include border-radius(0.1rem);
+    }
+  }
+}
+
+.popover.popover-bottom:after,
+.popover.bs-tether-element-attached-top:after {
+  border-bottom-color: #fff;
+}
+
+.box-bg {
+  width: 20px;
+  height: 20px;
+  @include border-radius(0.1rem);
+}
+
+.box-bg-01 {
+  background: #d576e5;
+}
+
+.box-bg-02 {
+  background: #ff76bb;
+}
+
+.box-bg-03 {
+  background: #db4678;
+}
+
+.box-bg-04 {
+  background: #ef4b4b;
+}
+
+.box-bg-05 {
+  background: #ff7537;
+}
+
+.box-bg-06 {
+  background: #ffa412;
+}
+
+.box-bg-07 {
+  background: #14af65;
+}
+
+.box-bg-08 {
+  background: #7bd148;
+}
+
+.box-bg-09 {
+  background: #42ce88;
+}
+
+.box-bg-10 {
+  background: #2bc1a4;
+}
+
+.box-bg-11 {
+  background: #4CC5E5;
+}
+
+.box-bg-12 {
+  background: #3C96EF;
+}
+
+.box-bg-13 {
+  background: #938BD1;
+}
+
+.box-bg-14 {
+  background: #EF8E8E;
+}
+
+.box-bg-15 {
+  background: #DDB50E;
+}
+
+.box-bg-16 {
+  background: #AFA168;
+}
+
+.box-bg-17 {
+  background: #AF9380;
+}
+
+.box-bg-18 {
+  background: #B77777;
+}
+
+.box-bg-19 {
+  background: #BA8590;
+}
+
+.box-bg-20 {
+  background: #C997BA;
+}
+
+.box-bg-21 {
+  background: #8793AA;
+}
+
+.box-bg-22 {
+  background: #809E8C
+}
+
+.box-bg-23 {
+  background: #A0A0A0;
+}
+
+.box-bg-24 {
+  background: #BCBCBC;
+}
+
+/****/
+
+.row-mg {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  align-items: center;
+}
+
+.setting {
+ .setting-radio {
+  .setting-title {
+    width: 9rem;
+  }
+  .label-col {
+   min-width: 7rem;
+   }
+  }
+}
+
+.setting-bg,
+.your-calendar-user,
+.panel-bg {
+  @include display-flex;
+  @include align-items;
+  span {
+    margin-right: 10px;
+  }
+  span.setting-txt-title {
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.your-calendar {
+  .your-calendar-user {
+    img {
+      margin-right: 20px;
+    }
+  }
+  .your-calendar-input {
+    margin-bottom: 5px;
+    padding: 0;
+  }
+}
+.panel-group-release {
+  .panel-group-fl {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    @include border-radius(0.2rem);
+    .panel-head {
+      background: #f7f7f7;
+      @include border-radius(0.2rem);
+      @include display-flex;
+      padding: 12px;
+      box-shadow: 0px 1px 0px #ebebeb;
+      .panel-head-txt {
+        max-width: 90%;
+        margin-right: 10px;
+        h2 {
+          margin: 0;
+          word-wrap: break-word;
+        }
+      }
+      .panel-btn {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        height: 32px;
+      }
+    }
+  }
+  .panel-body {
+    padding: 20px;
+    .panel-button {
+      text-align: right;
+    }
+  }
+}
+
+.setting-button,
+.your-calendar-btn,
+.panel-button {
+  button:first-child {
+    margin-right: 0.5rem;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .setting-button,
+  .your-calendar-btn,
+  .panel-button {
+    text-align: left;
+    button {
+      margin: 10px 0 0;
+    }
+  }
+  .panel-group-release {
+    .panel-group-fl {
+      .panel-head {
+        .panel-head-txt {
+          max-width: 80%;
+        }
+      }
+    }
+  }
+  .nav-tabs {
+    font-size: 1.5vw;
+  }
+}
+@include media-breakpoint-down(sm) {
+  .nav-tabs {
+    font-size: 1rem;
+  }
+ }
+.your-calendar-user .box-bg, .name-referenced-user{
+  margin-left: 15px;
+}

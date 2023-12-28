@@ -1,0 +1,46 @@
+// import common setting
+@import './../../../assets/styles/import';
+
+$face-icon-size: 30, 40, 55, 76, 94;
+@each $size in $face-icon-size {
+  .face-icon-set-#{$size} {
+    width: #{$size}px;
+    height: #{$size}px;
+    .face-icon-set-inner{
+      width: #{$size}px;
+      height: #{$size}px;
+    }
+  }
+}
+
+.face-icon-set{
+  position: relative;
+  cursor: pointer;
+}
+
+.face-icon-set-img{
+  width: 100%;
+  height: 100%;
+}
+
+.face-icon-set-cover,
+.face-icon-set-select{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.face-icon-set-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 25%;
+  height: 25%;
+  &:hover {
+    opacity: .6;
+  }
+}
+
+.face-icon-set-cover{
+  display: none;
+}

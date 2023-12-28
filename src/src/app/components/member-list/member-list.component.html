@@ -1,0 +1,19 @@
+<div class="member-list">
+  <ul class="list-unstyled">
+    <li class="list-inline-item align-middle">
+      <app-group-icon-set [groupIconSetOptions]="{admin: isAdmin, groupId: groupInfo?.id, iconSize: iconSize}" (iconImageChanged)="groupIconSetChanged($event)" [imageUrl]="_groupAvatar"></app-group-icon-set>
+    </li>
+    <!--<ng-template ngFor let-officeUserId [ngForOf]="officeUserIds">-->
+      <li class="list-inline-item align-middle" *ngFor="let user of listMemberInfo">
+        <a href="#" (click)="getDetailUser($event, user)">
+          <app-face-icon [userInfo]="user" [iconSize]="iconSize" [tooltipOptions]="{isShow: true, isShowOfficeName: isGroupOutside}"></app-face-icon>
+        </a>
+      </li>
+    <!--</ng-template>-->
+    <li class="list-inline-item align-middle show-all-member">
+      <button type="button" class="btn btn-link btn-sm" (click)="openAllList()">
+        <i class="fa fa-caret-down fs26 text-warning" aria-hidden="true"></i>
+      </button>
+    </li>
+  </ul>
+</div>

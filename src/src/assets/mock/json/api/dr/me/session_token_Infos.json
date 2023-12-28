@@ -1,0 +1,71 @@
+{
+  "meetingInfo": {
+    "meetingRequest": {
+      "comment": "◯◯病院◯◯科 ◯◯先生 平素よりお世話になっております。ハイフール製品の大谷です。先日はお忙しいところ時間を取って頂きありがとうございます。お話があった、◯◯◯◯◯◯◯◯の件につきまして、詳しくご説明させていただきたく思います。 当日は資料をお持ちしまして、◯◯◯◯◯◯◯◯の専門の◯◯と二名で伺う予定です。何卒よろしくお願い致します。お話があった、◯◯◯◯◯◯◯◯の件につきまして、詳しくご説明させていただきたく思います。当日は資料をお持ちしまして、◯◯◯◯◯◯◯◯の専門の◯◯と二名で伺う予定です。何卒よろしくお願い致します。 ハーフール製品 大谷",
+      "drugList": [
+        {
+          "id": "string",
+          "name": "ALクレミール"
+        },
+        {
+          "id": "string",
+          "name": "インスリングラルギンBS"
+        },
+        {
+          "id": "string",
+          "name": "dl−メチルエフェドリン塩酸塩"
+        },
+        {
+          "id": "string",
+          "name": "ラタノプロストPF"
+        },
+        {
+          "id": "string",
+          "name": "ネオラミン・マルチV"
+        }
+      ],
+      "optionTime": [
+        {
+          "start": "2017-10-06T13:15:00",
+          "end": "2017-10-06T14:45:00"
+        },
+        {
+          "start": "2017-10-07T07:15:00",
+          "end": "2017-10-07T07:55:00"
+        },
+        {
+          "start": "2017-10-08T09:20:00",
+          "end": "2017-10-08T09:45:00"
+        }
+      ],
+      "place": "place◯◯病院◯◯科 ◯◯先生 平素よりお世話になっております",
+      "purpose": "string",
+      "purposeName": "PMDAからの注意喚起（イエロー/ブルーレター）",
+      "requestId": "string",
+      "status": "string",
+      "user": {
+        "avatar": "string",
+        "department": {
+          "children": [
+            {}
+          ],
+          "displayName": "string",
+          "id": "string",
+          "name": "string",
+          "path": "string"
+        },
+        "firstName": "大輝",
+        "firstNameKana": "string",
+        "image": "string",
+        "lastName": "伊藤",
+        "lastNameKana": "string",
+        "mediatorsList": [
+          "string"
+        ],
+        "officeUserId": "string"
+      },
+      "visitorNumber": "2"
+    },
+    "status": 0
+  }
+}

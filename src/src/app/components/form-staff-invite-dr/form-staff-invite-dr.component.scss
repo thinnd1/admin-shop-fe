@@ -1,0 +1,40 @@
+// import common setting
+@import './../../../assets/styles/import';
+
+td {
+  position: relative;
+  vertical-align: inherit;
+  .table-item {
+    .table-item-close {
+      color: #3d7eb6;
+      cursor: pointer;
+    }
+  }
+  &.last {
+    width: 50px;
+  }
+}
+.row-staff-invite {
+  height: 81px;
+}
+//@media (max-width: 767px)
+@include media-breakpoint-down(sm) {
+  .row-staff-invite {
+    height: auto;
+    display: block;
+    th {
+      display: block;
+      background: #EEE;
+      width: 100% !important;
+    }
+    td {
+      display: block;
+      padding-bottom: 1rem;
+      width: 100% !important;
+      background: #FBFBFB;
+    }
+  }
+}
+_:lang(x)::-ms-backdrop, .row-staff-invite { height: 81px; } /* IE11 */
+_:-ms-lang(x)::backdrop, .row-staff-invite { height: 81px; } /* Edge */
+input _:lang(x)::-ms-backdrop, input.form-control {height: 32px; } /* IE11 */

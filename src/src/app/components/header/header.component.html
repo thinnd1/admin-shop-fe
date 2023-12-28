@@ -1,0 +1,11 @@
+<div class="header-wrap" [ngClass]="'header-wrap-' + headerType">
+  <ng-container [ngSwitch]="headerType">
+    <app-header-drjoy *ngSwitchCase="'drjoy'"></app-header-drjoy>
+    <app-header-prjoy *ngSwitchCase="'prjoy'"></app-header-prjoy>
+    <app-header-drjoy-visitor *ngSwitchCase="'drjoy-visitor'"></app-header-drjoy-visitor>
+    <app-header-prjoy-visitor *ngSwitchCase="'prjoy-visitor'"></app-header-prjoy-visitor>
+    <app-header-drjoy-provisional *ngSwitchCase="'drjoy-provisional'"></app-header-drjoy-provisional>
+    <app-header-prjoy-provisional *ngSwitchCase="'prjoy-provisional'"></app-header-prjoy-provisional>
+    <app-header-drjoy *ngSwitchDefault></app-header-drjoy>
+  </ng-container>
+</div>

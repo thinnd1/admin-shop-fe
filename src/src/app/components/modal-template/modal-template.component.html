@@ -1,0 +1,44 @@
+<!-- modal -->
+<div class="modal" id="modal-getTemplate" tabindex="-1" role="dialog" [ngStyle]="{'z-index': zIndex }" >
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header d-block mb-4">
+        <button type="button" class="close" (click)=" closeTemplate($event)" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h1 class="modal-title ">{{'PHARMACY.PH0026.TITLE' | translate}}</h1>
+      </div>
+      <div class="modal-container px-3">
+        <div>
+          <form (ngSubmit)="createTemplate()">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-5 col-12">
+                  <l-select2 [ngModelOptions]="{standalone: true}"
+                             [data]="template"
+                             (ngModelChange)="onTemplateChange($event)"
+                             [(ngModel)]="templateId"
+                             [options]="options"
+                  >
+                  </l-select2>
+                </div>
+              </div>
+            </div>
+            <div class="form-group" [ngClass]="{'has-danger': formErrors.templateName}">
+              <span *ngIf="formErrors.templateName" class="col-form-label fs12 text-danger">{{formErrors.templateName}}</span>
+              <input type="text" [(ngModel)]="formCreateTemplate.templateName" name="templateName" class="form-control" (change)="changeTemplate()" placeholder="{{'PHARMACY.PH0026.PLACEHOLDER_TEMPLACE_NAME'|translate}}">
+            </div>
+            <div class="form-group" [ngClass]="{'has-danger': formErrors.templateContent}">
+              <span *ngIf="formErrors.templateContent" class="col-form-label fs12 text-danger">{{formErrors.templateContent}}</span>
+              <textarea class="form-control form-area p-2" rows="4" [(ngModel)]="formCreateTemplate.templateContent" (change)="changeTemplate()" name="templateContent" placeholder="{{'PHARMACY.PH0026.PLACEHOLDER_TEMPLACE_CONTENT'|translate}}"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button"aria-label="Close" class="btn btn-secondary" (click)=" closeTemplate($event)" >{{'MSG.CANCEL' | translate}}</button>
+          <button class="btn btn-primary" type="button" (click)="createTemplate()">{{'BTN.SAVE'|translate}}</button>
+          <button *ngIf="formCreateTemplate.id != ''" class="btn btn-danger" type="button" (click)="deleteTemplate(formCreateTemplate.id)">{{'BTN.DELETE'|translate}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end modal -->

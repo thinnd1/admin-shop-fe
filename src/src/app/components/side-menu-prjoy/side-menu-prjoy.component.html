@@ -1,0 +1,95 @@
+<div class="profile clearfix">
+  <app-mini-profile [profileOptions]="{iconSet: true}"></app-mini-profile>
+</div>
+
+<ul class="nav flex-column nav-side-menu nav-prjoy-side-menu">
+  <!--カレンダー-->
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['/ca/ca0014']" routerLinkActive="nav-link-active">
+      <span class="nav-link-label">
+        <i class="fa fa-calendar" aria-hidden="true"></i>{{'SIDE_MENU.CALENDAR' | translate }}
+      </span>
+    </a>
+  </li>
+
+  <!--面会-->
+  <li class="nav-item" *ngIf="sideMenu['meeting']">
+    <a class="nav-link nav-table" [routerLink]="['/me/me0030']" routerLinkActive="nav-link-active">
+      <span class="nav-link-label">
+        <i class="fa fa-building" aria-hidden="true"></i>{{'SIDE_MENU.MEETING' | translate }}
+      </span>
+      <span class="balloon" *ngIf="sideMenu['meeting']?.unseenCount">
+        <span class="balloon-orange" *ngIf="sideMenu['meeting']?.unseenCount > 99">+99</span>
+        <span class="balloon-orange" *ngIf="sideMenu['meeting']?.unseenCount <= 99">{{sideMenu['meeting']?.unseenCount}}</span>
+      </span>
+    </a>
+    <ul class="nav-sub list-unstyled" id="meeting-list">
+      <li class="nav-item">
+        <a class="nav-link nav-table" [routerLink]="['/me/me0032']" routerLinkActive="nav-link-active">
+          <span class="nav-link-label">
+            <span class="nav-link-label-text">{{'SIDE_MENU.SEARCH_MEDICAL' | translate }}</span>
+          </span>
+        </a>
+      </li>
+
+      <!--TODO: 面会報告は1次開発から漏れた為、後日対応-->
+      <!--<li class="nav-item">-->
+        <!--<a class="nav-link nav-table" [routerLink]="['/me/me0038']" routerLinkActive="nav-link-active">-->
+          <!--<span class="nav-link-label">-->
+            <!--<span class="nav-link-label-text">{{'SIDE_MENU.MEETING_REPORT' | translate }}</span>-->
+          <!--</span>-->
+          <!--<span class="balloon" *ngIf="sideMenu['meeting']?.unseenCount">-->
+            <!--<span class="balloon-orange" *ngIf="sideMenu['meeting']?.unseenCount > 99">+99</span>-->
+            <!--<span class="balloon-orange" *ngIf="sideMenu['meeting']?.unseenCount <= 99">{{sideMenu['meeting']?.unseenCount}}</span>-->
+          <!--</span>-->
+          <!--<span class="balloon" *ngIf="sideMenu['meeting'].toUnseen">-->
+            <!--<span class="balloon-green" *ngIf="sideMenu['meeting']?.toUnseen > 99">+99</span>-->
+            <!--<span class="balloon-green" *ngIf="sideMenu['meeting']?.toUnseen <= 99">{{sideMenu['meeting']?.toUnseen}}</span>-->
+          <!--</span>-->
+        <!--</a>-->
+      <!--</li>-->
+
+      <li class="nav-item">
+        <a class="nav-link nav-table" [routerLink]="['/cm/cm0008']" routerLinkActive="nav-link-active">
+          <span class="nav-link-label">
+            <span class="nav-link-label-text">{{'SIDE_MENU.HOSPITAL_INFO' | translate }}</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <!--社外メッセージ-->
+  <li class="nav-item last-child" *ngIf="sideMenu['outsideChat']">
+    <a class="nav-link nav-dropdown-toggle" data-toggle="collapse" href="#outside-chat-list" aria-controls="outside-chat-list" [ngClass]="{'collapsed':sideMenu['outsideChat'].expanded}" [attr.aria-expanded]="(!sideMenu['outsideChat'].data?.length) ? '': (sideMenu['outsideChat'].expanded) ? true : false" (click)="clickSideMenuToggle($event,'outsideChat')">
+      <span class="nav-link-label">
+        <i class="fa fa-envelope" aria-hidden="true"></i>{{'SIDE_MENU.OUTSIDE_CHAT.PRJOY' | translate }}
+      </span>
+      <span class="badge badge-unread" *ngIf="sideMenu['outsideChat']?.unseenCount">{{'SIDE_MENU.UNREAD' | translate }}</span>
+    </a>
+    <ul class="nav-sub collapse list-unstyled" id="outside-chat-list" *ngIf="sideMenu['outsideChat'].data?.length" [ngClass]="{'show':sideMenu['outsideChat'].expanded}">
+      <li class="nav-item" *ngFor="let data of sideMenu['outsideChat'].data | slice:0:10;">
+        <a class="nav-link nav-table" [ngClass]="{'nav-mediator':data.hasMediator}" [routerLink]="['/ch/ch0007/' + data.id]" routerLinkActive="nav-link-active">
+          <span class="nav-link-label">
+            <span class="nav-mediator-icon d-block text-center" *ngIf="data.hasMediator">{{'SIDE_MENU.MEDIATOR' | translate }}</span>
+            <span class="nav-link-label-text" *ngIf="data.title">{{data.title}}</span>
+            <span class="nav-link-label-text" *ngIf="!data.title">&nbsp;</span>
+          </span>
+          <span class="balloon" *ngIf="data?.unseenCount">
+            <span class="balloon-orange" *ngIf="data?.unseenCount > 99">+99</span>
+            <span class="balloon-orange" *ngIf="data?.unseenCount <= 99">{{data?.unseenCount}}</span>
+          </span>
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="sideMenu['outsideChat'].data?.length >= 10">
+        <a class="nav-link nav-table nav-more" [routerLink]="['/cm/cm0017pr/outsideChat']" routerLinkActive="nav-link-active">
+          <span class="nav-link-label">
+            <i class="fa fa-list nav-more-icon" aria-hidden="true"></i>
+            <span class="nav-link-label-text">{{'SIDE_MENU.CHAT_LIST' | translate }}</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>

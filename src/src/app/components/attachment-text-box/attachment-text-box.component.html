@@ -1,0 +1,59 @@
+<div class="groupboard-contribution">
+
+  <!-- 記事投稿・記事編集・コメント編集 -->
+  <div class="container w-100 container-groupboard-contribution"  [ngClass]="{'border-red': require}">
+    <app-attachment-text-box-contents [contents]="{attachments: listAttachments, contents: textContents}"
+                                      [isEdit]="isEdit" (fileRemove)="removeFile($event)"
+                                      (onConfirm)="clickConfirm($event)" [options]="options"
+                                      (inputChange)="inputChange($event)"></app-attachment-text-box-contents>
+    <div class="row" *ngIf="!isEdit">
+      <div class="groupboard-contribution-btn-wrap w-15 p-0 font-weight-bold btn-secondary" tabindex="0"
+           role="button">
+        <label class="custom-control custom-file fill m-0 p-2 d-flex align-items-center justify-content-center">
+          <i class="fa fa-paperclip fa-lg mr-1" aria-hidden="true"></i><span class="hidden-xs-down">添付</span>
+          <app-attachment-text-box-file-upload [(ngModel)]="listAttachments" ></app-attachment-text-box-file-upload>
+        </label>
+      </div>
+      <div
+        class="groupboard-contribution-btn-wrap w-65 p-0">
+        <div class="float-right float-sm-left d-flex align-items-center px-2 h-100 w-60">
+          <div class="dropdown w-100 dropup" tabindex="0">
+            <div class="form-control dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown"
+                 aria-haspopup="true" aria-expanded="false">
+              <div class="select-dropdown">{{'PHARMACY.COMMON.TEMPLATE' | translate}}</div>
+            </div>
+            <div tabindex="1" class="dropdown-menu w-100 dropdown-scroll" aria-labelledby="dropdownMenuLink ">
+              <button class="drop-list"  data-toggle="modal"
+                 data-backdrop="static" data-keyboard="false" data-target="#modal-getTemplate">{{'PHARMACY.COMMON.TEMPLATE1' | translate}}</button>
+              <div class="dropdown-divider" *ngIf="listTemplate.length > 0"></div>
+              <a class="dropdown-item wrap-text" *ngFor="let item of listTemplate" (click)="onSelectTemplate(item)">{{item.templateName}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div tabindex="0"
+           class="w-20 p-2 font-weight-bold d-flex align-items-center justify-content-center btn btn-primary btn-upload-img"
+        role="button" (click)="clickConfirm($event)">
+        <span>{{submitText}}</span>
+      </div>
+    </div>
+    <div class="row" *ngIf="isEdit">
+      <div class="groupboard-contribution-btn-wrap w-60 p-0 font-weight-bold"
+           role="button">
+      </div>
+      <div tabindex="0"
+        class="groupboard-contribution-btn-wrap w-20 p-2 font-weight-bold d-flex align-items-center justify-content-center btn-secondary"
+        role="button"
+        (click)="clickCancel($event)">
+        <span>{{'GROUPBOARD_CONTRIBUTION.CANCEL' | translate}}</span>
+      </div>
+      <div tabindex="0"
+        class="groupboard-contribution-btn-wrap w-20 p-2 font-weight-bold d-flex align-items-center justify-content-center btn-primary"
+        role="button" (click)="clickSubmit($event)">
+        <span>{{'PH0015.SEND' | translate}}</span>
+      </div>
+    </div>
+  </div>
+<app-modal-template (updateTemplate)="updateTemplate($event)"></app-modal-template>
+
+</div>

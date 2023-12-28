@@ -1,0 +1,110 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents CM0001-->
+              <div class="col">
+                <div [hidden]="!(currentPage === pageStatus.Top)">
+                  <div class="page-head">
+                    <app-page-head [title]="'CM0001.TOP.TITLE' | translate"></app-page-head>
+                  </div>
+                  <div class="mb-3">
+                    <div class="row">
+                      <div class="col-sm-12 col-lg-6">
+                        <div class="search">
+                          <form #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)">
+                              <input class="search-input" type="text" placeholder="{{'COMMON_LABEL.LBL_SEARCH' | translate}}" name="keyword" #keyword="ngModel" ngModel autocomplete="off">
+                            <button type="submit" class="search-btn">
+                              <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <ng-container *ngIf="dataList && dataList.length">
+                    <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="10" (scrolled)="onScroll($event)">
+                      <div class="row">
+                        <div class="col">
+                          <table #tableData class="table table-data table-striped table-bordered table-hover">
+                            <thead class="thead-inverse hidden-sm-down">
+                              <tr>
+                                <th class="align-middle">{{ 'CM0001.TOP.THEAD1' | translate }}</th>
+                                <th class="align-middle">{{ 'CM0001.TOP.THEAD2' | translate }}</th>
+                                <th class="align-middle">{{ 'CM0001.TOP.THEAD3' | translate }}</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <ng-container *ngFor="let data of dataList">
+                                <tr (click)="gotoDetail(data)" [ngClass]="{unread : !data.read}">
+                                  <td>{{ dateConvert(data.date) }}</td>
+                                  <td>{{ data.title }}</td>
+                                  <td class="data-ellipsis">{{ data.body }}</td>
+                                </tr>
+                              </ng-container>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="infinite-scroll-loader text-center mb-3" [hidden]="isLoading">
+                      <i class="fa fa-spinner fa-pulse fa-fw infinite-scroll-loader-icon"></i>
+                      <span class="infinite-scroll-loader-text fs14">{{'INFINITE_SCROLL.LOADING' | translate}}...</span>
+                    </div>
+                  </ng-container>
+                  <ng-container *ngIf="!isAllLoading() && (!dataList || !dataList.length)">
+                    <p class="text-center fs18">{{ 'NO_DATA_MESSAGE' | translate }}</p>
+                  </ng-container>
+                </div>
+
+                <div *ngIf="currentPage === pageStatus.Detail">
+                  <div class="page-head">
+                    <app-page-head [title]="'CM0001.DETAIL.TITLE' | translate" [backEvent]="true" (clickBackEvent)="gotoBack()"></app-page-head>
+                  </div>
+                  <div class="mb-2 clearfix">
+                    <div class="float-left">
+                      <h2>{{ detailData.title }}</h2>
+                    </div>
+                    <div class="float-right">
+                      <div class="datetime fs12 text-right">{{ dateConvert(detailData.date) }}</div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="row">
+                      <div class="col">
+                        <p class="preline-text">{{ detailData.body }}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

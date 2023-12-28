@@ -1,0 +1,21 @@
+{
+  "hospital": [
+    {"officeId": "1","officeName": "Aichi Cancer Center Hospital","otherHandling": false },
+    {"officeId": "2","officeName": "Aichi Saiseikai Hospital","otherHandling": false },
+    {"officeId": "3","officeName": "Chubu Rosai Hospital","otherHandling": false },
+    {"officeId": "4","officeName": "Holy Spirit Hospital","otherHandling": false },
+    {
+      "officeId": "5",
+      "officeName": "Japan Community Health ",
+      "otherHandling": false
+    }
+  ],
+  "hospitalOther": [
+    {"officeId": "6","officeName": "Japanese Red Cross l","otherHandling": true },
+    {"officeId": "7","officeName": "Japanese Red ","otherHandling": true },
+    {"officeId": "8","officeName": "Meijo Hospital","otherHandling": true },
+    {"officeId": "9","officeName": "Meitetsu Hospital","otherHandling": true },
+    {"officeId": "10","officeName": "Nagoya City East","otherHandling": true },
+    {"officeId": "11","officeName": "Nagoya City ","otherHandling": true }
+  ]
+}

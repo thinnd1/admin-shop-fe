@@ -1,0 +1,7 @@
+<div class="face-icon-set" [ngClass]="faceIconClassOptions()">
+  <div class="face-icon-set-inner rounded-circle avatar-img-bordered" (click)="showDetailPopup($event)">
+    <app-face-icon class="face-icon-set-img face-icon-set-select" [force]="true" [userInfo]="userInfo" [currentUser]="faceIconSetOptions.isCurrentUser"  [iconSize]="faceIconSetOptions.iconSize"></app-face-icon>
+    <img class="face-icon-set-img face-icon-set-cover" [ngStyle]="{'display': faceIconDisplay }" [src]="'/assets/img/face-icon-over-' + lang + '.png'" alt="">
+  </div>
+  <img class="face-icon-set-btn" src="/assets/img/camera-icon.png" (mouseenter)="onMouseEnter($event)" (mouseleave)="onMouseLeave($event)" (click)="onMouseClick($event)" alt="">
+</div>

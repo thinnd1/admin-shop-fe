@@ -1,0 +1,52 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+
+              <div class="col">
+
+                <div class="page-head">
+                  <app-page-head [title]="infoPrepare.name"></app-page-head>
+                </div>
+                <div id="east-ward-building" class="fs18 text-center" *ngIf="infoPrepare.inviter">
+                  <div class="mb-5">
+                    <p>{{infoPrepare.inviter.officeName}}{{'GR0008.TEXT_1' | translate}}{{infoPrepare.inviter?.lastName}}{{infoPrepare.inviter?.firstName}}{{'GR0008.TEXT_2' | translate}} <br> {{'GR0008.TEXT_3' | translate}}「{{infoPrepare.name}}」{{'GR0008.TEXT_4' | translate}}</p>
+                  </div>
+                  <div class="text-center mb-4">
+                    <button type="button" class="btn btn-primary mr-2" (click)="agreeJoinGroup()">{{'GR0008.AGREE' | translate}}</button>
+                    <button type="button" class="btn btn-secondary" (click)="disagreeJoinGroup()">{{'GR0008.DISAGREE' | translate}}</button>
+                  </div>
+                  <!--<div class="has-expired" *ngIf="flagExpire">-->
+                    <!--{{'GR0008.EXPIRE_INVITE' | translate}}-->
+                  <!--</div>-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

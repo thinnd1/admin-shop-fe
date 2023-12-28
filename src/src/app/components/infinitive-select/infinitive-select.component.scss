@@ -1,0 +1,112 @@
+// import common setting
+@import './../../../assets/styles/import';
+.infinite-select {
+  position: relative;
+  .infinite-select-drop-down {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    border-radius:0 ;
+    border: solid 1px #CCC;
+    z-index: 99;
+    @include border-radius(0);
+    background-color: #FFF;
+    .d-flex {
+      cursor: pointer;
+    }
+    .infinite-scroll-content {
+      .infinite-scroll-item {
+        padding: 5px auto 5px 10px;
+        &:hover {
+          background-color: #67d3f3;
+        }
+      }
+    }
+  }
+}
+.search input{
+  padding-right: 3rem;
+}
+
+.infinite-scroll {
+  position: relative;
+  &-content {
+    overflow-y: auto;
+    height: 100%;
+  }
+  &-disable{
+    background: rgba($black,.2);
+  }
+  &-loader {
+    position: absolute;
+    width: 100%;
+    z-index: $zindex-fixed + 1;
+    bottom: 0;
+    left: 0;
+    height: 30px;
+    &-icon {
+      color: #777;
+    }
+    &-text {
+
+    }
+  }
+}
+.v-reset-input {
+  right: 0px;
+  top: 0px;
+  font-size: 1rem;
+  padding: 0.4rem 0.6rem;
+  display: none;
+  position: absolute;
+  cursor: default;
+}
+.v-reset-input.reset-input-active {
+  display: block;
+}
+
+.form-control[readonly] {
+  background-color: #fff;
+}
+
+.select-container {
+  border-radius:0.25rem;
+  border:1px solid #ddd;
+  .select-cont {
+    padding: 0.2rem;
+    margin-bottom:0;
+    min-height:25px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    cursor: text;
+    li {
+      float:left;
+      list-style: none;
+      .select-choice-input {
+        margin-top:2px;
+        border:none;
+        &:focus{
+          border:none;
+          outline:none;
+        }
+      }
+      &.select-choice {
+        background-color: #eee;
+        border-radius: 4px;
+        margin-right:5px;
+        margin-top:5px;
+        padding: 0 5px;
+        border:1px solid rgba(0, 0, 0, 0.15);
+        .select-choice-remove {
+          display: inline-block;
+          cursor: pointer;
+          font-weight: bold;
+          margin-right: 2px;
+          color: #004580;
+        }
+
+      }
+    }
+  }
+}

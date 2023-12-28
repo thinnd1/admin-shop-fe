@@ -1,0 +1,70 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+
+.form-setting {
+  .form-title {
+    background-color: #eee;
+    padding:0.7rem 1rem;
+    @include border-radius(3px);
+  }
+  .date-time-wrap {
+    .form-control-date {
+      width: 8rem;
+    }
+    .form-control-time {
+      width: 6rem;
+      padding: 2px;
+    }
+  }
+  .group-radio {
+    .group-radio-select {
+      .form-control {
+        width: 10rem;
+      }
+    }
+  }
+  .end-date-wrap {
+    .form-inline {
+      .endDate-time {
+        width: 5rem;
+      }
+      .endDate-day {
+        width: 8rem;
+      }
+    }
+  }
+}
+_:-ms-lang(x), .pt-IE-2 {
+  padding-top:0.5rem !important;
+}
+@include media-breakpoint-down(lg) {
+  .form-setting {
+    .date-time-wrap {
+      .form-wrap {
+        width: 48%;
+      }
+      span {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+@include media-breakpoint-down(xs) {
+  .form-setting {
+    .end-date-wrap {
+      .form-inline {
+        width: 100%;
+        .wrap-input {
+          width: 60%;
+        }
+        .endDate-time {
+          width: 100%;
+        }
+        .endDate-day {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

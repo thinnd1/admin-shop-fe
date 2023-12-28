@@ -1,0 +1,183 @@
+<div class="page-wrap">
+  <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse navbar-global">
+    <app-header></app-header>
+  </nav>
+
+  <nav class="side-menu">
+    <app-side-menu></app-side-menu>
+  </nav>
+
+  <main class="content-wrap" data-effect="push">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-main">
+          <div class="col-main-inner">
+            <div class="row">
+              <!--contents-->
+              <!--contents ME0003-->
+              <div class="col">
+                <div class="page-head">
+                  <app-page-head [title]="'ME0003.TITLE' | translate"></app-page-head>
+                </div>
+                <div class="form-visit mb-5 row">
+                  <div class="col-12">
+                    <form [formGroup]="modelGroupForm" (ngSubmit)="addVisitHistory()">
+                      <!--form-group-userId-->
+                      <div class="form-group mb-4" *ngIf="!userSession.personalFlag">
+                        <label class="col-form-label py-0">{{'ME0003.VISIT_MEETING' | translate}}<span
+                          class="text-danger">※</span></label>
+                        <div *ngIf="checkValidateSelect" ><span
+                          class="col-form-label mb-0 py-0 text-danger">{{'ME0003.VALIDATE.REQUIRED' | translate}}</span>
+                        </div>
+                        <div class="col-form-content mb-1">
+                          <div [ngClass]="{'has-danger': checkValidateSelect}">
+                            <l-select2 [ngModelOptions]="{standalone: true}" [(ngModel)]="selectedVisitMeeting"
+                                       (ngModelChange)="selectVisitMeeting($event)"
+                                       [data]="data" [options]="options"></l-select2>
+                          </div>
+                        </div>
+                        <p class="mb-0">{{'ME0003.VISIT_MEETING_NOTI' | translate}}</p>
+                      </div>
+                      <!--form-group-datetime-->
+                      <div class="form-group mb-4">
+                        <label class="col-form-label py-0">{{'ME0003.VISIT_DATETIME' | translate}}<span
+                          class="text-danger">※</span></label>
+                        <div *ngIf="(formErrors.dateStartVisit || formErrors.timeStartVisit || formErrors.dateEndVisit || formErrors.timeEndVisit)"
+                          >
+                          <span class="col-form-label mb-0 py-0 text-danger">{{(formErrors.dateStartVisit || formErrors.timeStartVisit || formErrors.dateEndVisit || formErrors.timeEndVisit)}}</span>
+                        </div>
+                        <div class="date-time-wrap form-inline">
+                          <div class="{{ (formErrors.dateStartVisit) ? 'has-danger' : ''}} mb-2 mr-sm-2 form-control-date">
+                            <app-date-input [hasDanger]='formErrors.dateStartVisit'
+                              [date]="modelGroupForm?.value.dateStartVisit" [showIcon]="false" (dateChanged)="changeDateStartVisit($event)"
+                              [dateInputOptions]="{id: '', name: 'dateStartVisit', placeholder: '', outsideDays:false, weekendsDisable:false}">
+                            </app-date-input>
+                          </div>
+                          <div class="{{ (formErrors.timeStartVisit) ? 'has-danger' : ''}} mb-2">
+                            <select class="form-control form-control-time" formControlName="timeStartVisit">
+                              <option value="" style="display:none;" disabled></option>
+                              <option *ngFor="let item of timePicker" [value]="item">{{item}}</option>
+                            </select>
+                          </div>
+                          <span class="mb-2 px-2">〜</span>
+                          <div class="mb-2 mr-sm-2 form-control-date {{ (formErrors.dateEndVisit) ? 'has-danger' : ''}}">
+                            <app-date-input [hasDanger]='formErrors.dateEndVisit'
+                                                 [date]="modelGroupForm?.value.dateEndVisit" [showIcon]="false" (dateChanged)="changedateEndVisit($event)"
+                                                 [dateInputOptions]="{id: '', name: 'dateStartVisit', placeholder: '', outsideDays:false, weekendsDisable:false}">
+                            </app-date-input>
+                          </div>
+                          <div class="{{ (formErrors.timeEndVisit) ? 'has-danger' : ''}} mb-2">
+                            <select class="form-control form-control-time" formControlName="timeEndVisit">
+                              <option value="" style="display:none;" disabled></option>
+                              <option *ngFor="let item of timePicker" [value]="item">{{item}}</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <!--form-group-name-visit-->
+                      <div class="form-group mb-4">
+                        <label class="col-form-label py-0">{{'ME0003.VISITOR_NAME' | translate}}<span class="text-danger">※</span></label>
+                        <div  *ngIf="formErrors.visitor"><span
+                          class="col-form-label mb-0 py-0 text-danger">{{formErrors.visitor}}</span></div>
+                        <div class="col-form-content">
+                          <div [ngClass]="{'has-danger': formErrors.visitor}">
+                            <input class="form-control" type="text" name="visitorName"
+                                   placeholder="{{'ME0003.VALIDATE.LENGTH30' | translate}}" formControlName="visitor"
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <!--form-group-company-name-->
+                      <div class="form-group mb-4">
+                        <label class="col-form-label py-0">{{'ME0003.COMPANY_NAME' | translate}}<span class="text-danger">※</span></label>
+                        <div *ngIf="formErrors.visitorOffice"><span
+                          class="col-form-label mb-0 py-0 text-danger">{{formErrors.visitorOffice}}</span></div>
+                        <div class="col-form-content">
+                          <div [ngClass]="{'has-danger': formErrors.visitorOffice}">
+                            <input class="form-control" type="text" name="visitorOffice"
+                                   placeholder="{{'ME0003.VALIDATE.LENGTH30' | translate}}"
+                                   formControlName="visitorOffice"
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <!--form-group-visit-number-->
+                      <div class="form-group mb-4">
+                        <label class="col-form-label py-0">{{'ME0003.VISITOR_NUMBER' | translate}}<span
+                          class="text-danger">※</span></label>
+                        <div [ngClass]="{'has-danger': formErrors.visitorNumber}">
+                          <span class="col-form-label mb-0 py-0 text-danger">{{formErrors.visitorNumber}}</span>
+                        </div>
+                        <div class="col-form-content">
+                          <div [ngClass]="{'has-danger': formErrors.visitorNumber}">
+                            <select class="form-control" formControlName="visitorNumber">
+                              <option *ngIf="!modelGroupForm?.value.visitorNumber" [value]="null" selected></option>
+                              <option *ngFor="let visitNumber of visitNumbers" [value]="visitNumber">{{visitNumber}}
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <!--form-group-purpose-->
+                      <div class="form-group mb-4">
+                        <label class="col-form-label py-0">{{'ME0003.VISITOR_PURPOSE' | translate}}<span
+                          class="text-danger">※</span></label>
+                        <div [ngClass]="{'has-danger': formErrors.purpose}"><span
+                          class="col-form-label mb-0 py-0 text-danger">{{formErrors.purpose}}</span></div>
+                        <div class="col-form-content">
+                          <div [ngClass]="{'has-danger': formErrors.purpose}">
+                            <input class="form-control" type="text" name="purpose"
+                                   placeholder="{{'ME0003.VALIDATE.LENGTH50' | translate}}" formControlName="purpose"
+                                   >
+                          </div>
+                        </div>
+                      </div>
+                      <!--form-group-place-->
+                      <div class="form-group mb-4">
+                        <label class="col-form-label py-0">{{'ME0003.VISITOR_PLACE' | translate}}<span
+                          class="text-danger">※</span></label>
+                        <div [ngClass]="{'has-danger': formErrors.place}"><span
+                          class="col-form-label mb-0 py-0 text-danger">{{formErrors.place}}</span></div>
+                        <div class="col-form-content">
+                          <div [ngClass]="{'has-danger': formErrors.place}">
+                            <input class="form-control" type="text" name="place"
+                                   placeholder="{{'ME0003.VALIDATE.LENGTH30' | translate}}" formControlName="place"
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <!--form-group-note-->
+                      <div class="form-group mb-4" >
+                        <label class="col-form-label py-0">{{'ME0003.VISITOR_NOTE' | translate}}</label>
+                        <div><span class="col-form-label mb-0 py-0 text-danger">{{formErrors.note}}</span></div>
+                        <div class="col-form-content" [ngClass]="{'has-danger': formErrors.note}">
+                          <textarea class="form-msg form-control" rows="2" cols="2"
+                                                                formControlName="note"></textarea></div>
+                      </div>
+                      <!--form-group-save-->
+                      <div class="d-flex justify-content-center">
+                        <button class="btn btn-primary" type="submit">{{'BTN.SAVE' | translate}}</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- //contents -->
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-sub">
+          <app-col-sub></app-col-sub>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="info-panel collapse" id="info-panel">
+    <app-info-panel></app-info-panel>
+  </aside>
+
+  <aside class="settings-panel collapse" id="settings-panel">
+    <app-settings-panel></app-settings-panel>
+  </aside>
+</div>

@@ -1,0 +1,103 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  color: #464a4c;
+  background-color: #fff;
+  border-color: #555 #555 #fff;
+}
+.nav-tabs {
+  border-bottom: 1px solid #555;
+}
+.nav-tabs {
+  .nav-link {
+    border-bottom: 1px solid #555555;
+  }
+}
+
+.border {
+  border: 1px solid #D7D7D7;
+}
+
+.free-text {
+  background: #D9EDF7;
+  white-space: pre-line;
+}
+
+.question-circle {
+  color: $orange;
+}
+
+.title > span {
+  padding-right: .5rem;
+}
+
+.no-data {
+  background: rgba(0,0,0,.5);
+  > div {
+    > span {
+      top: 50%;
+      left: 50%;
+      color: $white;
+      @include transform(translateY(-50%) translateX(-50%));
+    }
+  }
+}
+
+
+.table-curation-wrap {
+  height: 200px;
+  border: 2px solid #67D3F3;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.table-curation {
+  table-layout: fixed;
+  .table-curation-th {
+    width: 10rem;
+    text-align: center;
+  }
+  .curation-link {
+    @include ellipsis();
+  }
+}
+
+.bg-saturday {
+  background: #D9EDF7;
+}
+
+.bg-sunday {
+  background: #F2DEDE;
+}
+
+@include media-breakpoint-down(sm) {
+  .title > span {
+    display: block;
+    padding: 0;
+  }
+  .table-curation {
+    .table-curation-th,
+    .table-curation-td {
+      width: 100%;
+      display: block;
+      padding: 0;
+    }
+    .table-curation-th {
+      text-align: initial;
+    }
+    .table-curation-td {
+      padding-bottom: 0.75rem;
+    }
+    .table-curation-date,
+    .table-curation-read {
+      display: inline-block;
+    }
+  }
+}
+
+.preline-text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

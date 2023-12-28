@@ -1,0 +1,68 @@
+// import common setting
+@import '../../../../assets/styles/_import';
+
+.form-content-wrap {
+  border: 1px solid $gray-lighter;
+  .lock-icon-wrap {
+    position: relative;
+    .lock-icon {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: $gray-lighter;
+      color: $white;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      top: -74px;
+      .fa {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+      }
+    }
+  }
+}
+.col-height {
+  min-height: 90vh;
+  position: relative;
+  padding-bottom:120px;
+  .row-footer {
+    position: absolute;
+    bottom:10px;
+    width: 100%;
+  }
+}
+.date-select-wrap {
+  select.form-control {
+    width: auto;
+  }
+}
+.support-content-wrap {
+  background: $gray-lighter;
+}
+
+.licence-list-wrap {
+  .licence-list-img {
+    max-height: 40px;
+  }
+}
+
+//@media (max-width: 575px)
+@include media-breakpoint-down(xs) {
+  .licence-list-wrap {
+    display: block !important;
+    text-align: center;
+  }
+  .col-height {
+    min-height: 90vh;
+    position: inherit;
+    padding-bottom:40px;
+    .row-footer {
+      position: inherit;
+      bottom:inherit;
+      width: 100%;
+    }
+  }
+}

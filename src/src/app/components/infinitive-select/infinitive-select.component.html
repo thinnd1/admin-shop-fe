@@ -1,0 +1,50 @@
+<div class="infinite-select" (clickOutside)="hideDropdown($event)">
+  <div class="d-flex form-group mb-0" *ngIf="!infiniteScrollOptions.multiple" [ngClass]="{search:infiniteScrollOptions.showSearchButton }">
+    <input type="text" class="form-control w-100" [readonly]="isResetInput"
+           placeholder="{{ infiniteScrollOptions.placeHolder | translate }}"
+           [(ngModel)]="keyword"
+           (keydown)="backSpaceHandle($event)"
+           (input)="inputChange($event.target.value)"
+           (focus)="inputFocus($event)"
+    >
+    <button type="button" class="search-btn" (click)="clickSearchButton()" *ngIf="infiniteScrollOptions.showSearchButton" >
+      <i class="fa fa-search" aria-hidden="true"></i>
+    </button>
+    <span class="v-reset-input" [ngClass]="{'reset-input-active': isResetInput}"
+          (click)="clearTextBox($event)">✖</span>
+  </div>
+  <div class="select-container" *ngIf="infiniteScrollOptions.multiple" (click)="inputField.focus()">
+    <ul class="select-cont clearfix">
+      <li class="select-choice" *ngFor="let obj of selectedOption;let i = index">
+        <span class="select-choice-remove" (click)="onRemoveItem(i)">×</span>{{obj.name}}
+      </li>
+      <li class="p-1"><input #inputField class="select-choice-input px-0" type="text" id="input-field"
+                             placeholder="{{ ((!selectedOption || selectedOption.length <= 0)&& infiniteScrollOptions.placeHolder | translate) || ''}}"
+                             [(ngModel)]="keyword" [ngStyle]="{'width': adjustableWidthInput}"
+                             (ngModelChange)="adjustInputWidth()"
+                             (input)="inputChange($event.target.value)"
+                             (keydown)="backSpaceHandle($event)"
+                             (focus)="inputFocus($event)"></li>
+    </ul>
+  </div>
+  <div class="infinite-select-drop-down" *ngIf="isOpen" [ngStyle]="{'height': adjustableHeight +'px'}">
+    <div class="populate placeholder px-2 py-1" *ngIf="!showNotify && infinitiveList.length === 0 && !isLoading" (click)="hideDropdown($event)">
+      {{'INFINITE_SCROLL.NO_RESULT' | translate}}
+    </div>
+    <div class="populate placeholder px-2 py-1" *ngIf="showNotify && !isLoading">
+      {{'INFINITE_SCROLL.MAX_SELECT' | translate : '{ value:'+infiniteScrollOptions.maximumSelect+' }' }}
+    </div>
+    <div *ngIf="infinitiveList.length > 0 && !showNotify" class="infinite-scroll-content" infinite-scroll
+         [infiniteScrollDistance]="2" [infiniteScrollThrottle]="infiniteScrollOptions.size" [scrollWindow]="false"
+         (scrolled)="onScrollDown()">
+      <ng-container *ngFor="let item of infinitiveList;let i = index">
+        <div class="infinite-scroll-item px-2 py-1" [ngStyle]="optionStyle" (click)="onSelect(item)" [ngClass]="{'infinite-scroll-disable': item.disable}"> {{item.name}}
+        </div>
+      </ng-container>
+    </div>
+    <div class="infinite-scroll-loader text-center" [hidden]="!isLoading || showNotify">
+      <i class="fa fa-spinner fa-pulse fa-fw infinite-scroll-loader-icon"></i>
+      <span class="infinite-scroll-loader-text fs14 ">{{'INFINITE_SCROLL.LOADING' | translate}}...</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+{
+
+  "requestInfo":null,
+  "frameMeetingInfo":{
+    "frameId":"5a44c934546a582dec649244",
+    "frameStatus":0,
+    "startTime":"2017-12-28T12:00:00+0000",
+    "endTime":"2017-12-28T13:00:00+0000",
+    "frameBasic":{
+      "day":""
+    },
+    "place":"OmiJapan University",
+    "drInfo":{
+      "officeId":"5a1bc821c911ac1a1066a36f",
+      "userId":"5a1bd38cc911ac1a1066a39e",
+      "firstName":"ad",
+      "lastName":"admin",
+      "specializedDepartment":null
+    },
+    "candidates":[
+      {
+        "requestId":"5a45f02c241e602384ef0375",
+        "requestStatus":3,
+        "mrInfo":{
+          "officeId":"5a1bc865c911ac1a1066a376",
+          "userId":"5a1bd26cc911ac1a1066a391",
+          "firstName":"PC1",
+          "lastName":"Hoan",
+          "companyName":"pharmacy1"
+        },
+        "place":"OmiJapan University",
+        "comment":null,
+        "purposeId":"5a012b7ace10833208d78ca9",
+        "purposeName":"その他の情報提供",
+        "drugList":[
+        ],
+        "productName":"",
+        "numVisitors":"5"
+      },
+      {
+        "requestId":"5a45f02c241e602384ef0375",
+        "requestStatus":3,
+        "mrInfo":{
+          "officeId":"5a1bc865c911ac1a1066a376",
+          "userId":"5a1bd26cc911ac1a1066a391",
+          "firstName":"qqq",
+          "lastName":"qqqq",
+          "companyName":"pharmacy1"
+        },
+        "place":"OmiJapan University",
+        "comment":null,
+        "purposeId":"5a012b7ace10833208d78ca9",
+        "purposeName":"その他の情報提供",
+        "drugList":[
+        ],
+        "productName":"",
+        "numVisitors":"5"
+      }
+    ]
+  }
+}

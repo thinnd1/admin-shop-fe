@@ -1,0 +1,17 @@
+// import common setting
+@import './../../../assets/styles/import';
+
+.form-control-date {
+  background-color: transparent;
+  cursor: pointer;
+  &:focus {
+    border-color: $input-border-color !important;
+  }
+}
+.form-control[readonly]{
+  background-color: transparent;
+}
+.form-control:disabled{
+  background-color: #eceeef !important;
+  opacity: 1;
+}
