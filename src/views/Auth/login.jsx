@@ -6,7 +6,7 @@ let Login = function () {
   const [email, SetEmail] = useState("");
   const [password, SetPassword] = useState("");
 
-  async function HandleLogin(e) {
+  async function handleLogin(e) {
     e.preventDefault();
     const FormatData = {
       email: email,
