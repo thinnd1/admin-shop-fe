@@ -156,7 +156,7 @@ function ProductAdmin() {
                     </select>
                   </div>
                 </div>
-                <label className="block" htmlFor="categories_selection">product description</label>
+                <label className="block" htmlFor="categories_selection">Product description</label>
                 <div className="categories space-x-4">
                   <textarea
                     id="product_description"

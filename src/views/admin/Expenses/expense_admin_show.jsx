@@ -4,7 +4,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Navbar_admin from "../Dashboard/partials/Navbar_admin";
 import DelteConfirmatonPop from "../component/pop/delete_confirmation";
-import ShopAdminDelete from "./shop_admin_delete";
 
 const userData = async function (link, SetData) {
   useEffect(() => {
@@ -16,7 +15,7 @@ const userData = async function (link, SetData) {
 function ShopAdminShow() {
   const [ShopList, SetShopList] = useState([]);
   const [DelteConfirmatonPopVisible, SetDelteConfirmatonPopVisible] = useState(false);
-  const shopsList = userData('http://localhost:8000/api/shops', SetShopList);
+  const shopsList = userData('http://localhost:8000/api/get-shop-expense', SetShopList);
   const [shopId, SetshopId] = useState([]);
 
   const HandleDeleteClick = (shopidData) => {
@@ -64,13 +63,13 @@ function ShopAdminShow() {
                 Name Company
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-dark uppercase tracking-wider">
-                Email
+                Expenses Pakage
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-dark uppercase tracking-wider">
-                Phone
+                Created at
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-dark uppercase tracking-wider">
-                Address
+                End date
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-dark uppercase tracking-wider">
                 update
@@ -84,10 +83,10 @@ function ShopAdminShow() {
             {ShopList.map((shop, index) => (
               <tr key={shop.id}>
                 <td className="px-6 py-4 whitespace-nowrap">{index + 1}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{shop.name}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{shop.email}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{shop.phone}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{shop.address}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{shop.shop_name}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{shop.expenses_pakage}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{shop.created_at}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{shop.created_at}</td>
 
                 <td className="px-6 py-4 whitespace-nowrap">
                   <Link className="border_btn rounded flex items-center justify-center p-2"

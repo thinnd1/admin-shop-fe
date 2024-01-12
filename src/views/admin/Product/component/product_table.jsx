@@ -3,6 +3,7 @@ import ReactPaginate from 'react-paginate';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import moment from 'moment';
 
 const productData = async function (link, SetData) {
   useEffect(() => {
@@ -23,7 +24,7 @@ function ProductTable() {
   const productsElements = productData('http://localhost:8000/api/product', Setproductelement);
 
   // products pagination
-  const ProductPerPage = 4;
+  const ProductPerPage = 10;
   const pageCount = Math.ceil(productelement.length / ProductPerPage);
   const offset = pageNumber * ProductPerPage;
   const currentPageData = productelement.slice(offset, ProductPerPage + offset);
@@ -32,6 +33,7 @@ function ProductTable() {
   const HandlePageNumber = ({ selected }) => {
     SetPageNumber(selected);
   }
+  // const formattedDate = moment(product.created_at).format('MMMM Do YYYY');
 
   return (
     <>
@@ -73,15 +75,15 @@ function ProductTable() {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {currentPageData.map((product) => (
+            {currentPageData.map((product, index) => (
               <tr key={product.id}>
-                <td className="px-6 py-4 whitespace-nowrap">{product.id}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{index + 1}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{product.name}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{product.price_unit}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{product.image}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{product.quantity}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{product.brand_name}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{product.created_at}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{moment(product.created_at).format('MMMM Do YYYY')}</td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <Link className="border_btn rounded flex items-center justify-center p-2" style={{ backgroundColor: '#ffa5008a' }}
                     to='http://localhost:5000/admin/product/update'>update</Link>
