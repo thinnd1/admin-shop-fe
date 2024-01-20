@@ -41,6 +41,12 @@ const ShopAdminCreate = React.lazy(() => import("./views/admin/Shop/shop_admin_c
 const ShopAdminUpdate = React.lazy(() => import("./views/admin/Shop/shop_admin_update"));
 const ShopAdminDelete = React.lazy(() => import("./views/admin/Shop/shop_admin_delete"));
 
+const ExpensesAdminShow = React.lazy(() => import("./views/admin/Expenses/expense_admin_show"));
+
+const Information = React.lazy(() => import("./views/admin/Information/information"));
+const ShopInformation = React.lazy(() => import("./views/Shop/Information/information"));
+const LoginUser = React.lazy(() => import("./views/Shop/login_shop"));
+
 const Shop = React.lazy(() => import("./views/Shop/shop"));
 
 const CategorieProdAdminCreate = React.lazy(() => import("./views/admin/Category/Categories_admin_create"));
@@ -111,6 +117,8 @@ const Routing = function () {
         <Route path="/shop/product/show" element={<ProductAdminShow />} />
         <Route path="/shop/product/update" element={<ProductAdminUpdate />} />
         <Route path="/shop/order/show" element={<OrderShow />} />
+        <Route path="/shop/information" element={<ShopInformation />} />
+        <Route path="/shop/login" element={<LoginUser />} />
 
         <Route path="/profile" element={<Auth_layout />}>
           <Route index element={<Profile />} />
@@ -149,6 +157,9 @@ const Routing = function () {
           <Route path="/admin/shop/add" element={<ShopAdminCreate />} />
           <Route path="/admin/shop/update/:id" element={<ShopAdminUpdate />} />
           <Route path="/admin/shop/delete/:id" element={<ShopAdminDelete />} />
+          <Route path="/admin/expenses/show" element={<ExpensesAdminShow />} />
+
+          <Route path="/admin/information" element={<Information />} />
 
         </Route>
 
