@@ -15,7 +15,8 @@ const userData = async function (link, SetData) {
 function UserAdminShow() {
   const [UserList, SetUserList] = useState([]);
   const [DelteConfirmatonPopVisible, SetDelteConfirmatonPopVisible] = useState(false);
-  const usersList = userData('http://localhost:8000/api/order', SetUserList);
+  const shop_id = localStorage.getItem('shop_id');
+  const usersList = userData('http://localhost:8000/api/orders/' + shop_id, SetUserList);
   const [userId, SetuserId] = useState([]);
 
   const HandleDeleteClick = (useridData) => {

@@ -14,7 +14,7 @@ let LoginAdmin = function () {
       'email': email,
       'password': password
     }
-    const link_api = 'http://127.0.0.1:8000/api/login-shop';
+    const link_api = 'http://127.0.0.1:8000/api/admin/login';
     try {
       await axios.post(link_api, DataFormat).then(response => {
         console.log(response.data.status);
