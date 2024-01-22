@@ -29,15 +29,15 @@ function ShopAdminShow() {
 
   const HandleConfirmSub = () => {
     if (userData !== null || userData.length > 0) {
-      location.href = `http://localhost:5000/admin/shop/delete/${shopId}`;
+      location.href = `http://localhost:5000/admin/expenses/delete/${shopId}`;
     }
     else {
-      location.href = `http://localhost:5000/admin/shop/show?error=Invalid_id`;
+      location.href = `http://localhost:5000/admin/expenses/show?error=Invalid_id`;
     }
   }
 
   async function HandleUpdateShopAdmin(ShopID) {
-    location.href = `http://localhost:5000/admin/shop/update/${ShopID}`;
+    location.href = `http://localhost:5000/admin/expenses/update/${ShopID}`;
   }
   return (
     <>
@@ -50,8 +50,8 @@ function ShopAdminShow() {
             onConfirm={HandleConfirmSub} />)
         }
         <div className='flex justify-between p-4'>
-          <h1 className="text-2xl font-bold mb-4">Shop List</h1>
-          <Link className='border_btn text-s text-white font-semi-bold rounded p-2 flex items-center' style={{ backgroundColor: '#5969ed' }} to="http://localhost:5000/admin/shop/add">Add new shop</Link>
+          <h1 className="text-2xl font-bold mb-4">Expenses List</h1>
+          <Link className='border_btn text-s text-white font-semi-bold rounded p-2 flex items-center' style={{ backgroundColor: '#5969ed' }} to="http://localhost:5000/admin/expenses/add">Add new shop</Link>
         </div>
         <table className="min-w-full w-full divide-y divide-gray-200">
           <thead>

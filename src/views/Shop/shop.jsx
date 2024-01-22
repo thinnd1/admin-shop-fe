@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import Navbar_admin from "./Dashboard/partials/Navbar_shop";
 import Sidebar_admin from "./Dashboard/partials/Sidebar_shop";
 import Dashboard_admin from "./Dashboard/Dashboard_shop";
@@ -6,6 +6,15 @@ import Footer_admin from "./Dashboard/partials/Footer_shop";
 import '../../javascript/Sidebar';
 
 const Admin = function () {
+  useEffect(() => {
+    // Check if the variable exists in local storage
+    const shop_id = localStorage.getItem('shop_id');
+
+    if (!shop_id) {
+      // The variable exists in local storage
+      window.location.replace('/shop/login');
+    }
+  }, []);
 
   return (
     <>

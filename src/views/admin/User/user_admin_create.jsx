@@ -21,7 +21,7 @@ function UserAdminCreate() {
       'confirm_password': repassword
     }
     try {
-      await axios.post('http://localhost:8000/api/admin/user/create', FormData).then(response => {
+      await axios.post('http://localhost:8000/api/users', FormData).then(response => {
         console.log(response.data);
         if (response.data['status'] == 'ok') {
           SetSuccessMessage(response.data['message']);

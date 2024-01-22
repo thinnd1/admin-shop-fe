@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Navbar_admin from "./Dashboard/partials/Navbar_admin";
+import Navbar_shop from "./Dashboard/partials/Navbar_shop";
 
 
 let LoginAdmin = function () {
@@ -14,13 +14,13 @@ let LoginAdmin = function () {
       'email': email,
       'password': password
     }
-    const link_api = 'http://127.0.0.1:8000/api/admin/login';
+    const link_api = 'http://127.0.0.1:8000/api/login-shop';
     try {
       await axios.post(link_api, DataFormat).then(response => {
         console.log(response.data.status);
         if (response.data.status == 'ok') {
-          localStorage.setItem('admin_id', 1);
-          window.location.replace('/admin');
+          localStorage.setItem('shop_id', response.data.data);
+          window.location.replace('/shop');
         }
       })
     } catch (error) {
@@ -31,7 +31,7 @@ let LoginAdmin = function () {
   return (
     <>
       <div>
-        <Navbar_admin />
+        <Navbar_shop />
       </div>
 
       <div className="min-h-screen flex items-center justify-center">

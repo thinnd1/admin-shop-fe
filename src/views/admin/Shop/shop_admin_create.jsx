@@ -8,6 +8,7 @@ function ShopAdminCreate() {
   const [email, SetEmail] = useState("");
   const [phone, SetPhone] = useState("");
   const [address, SetAddress] = useState("");
+  const [password, SetPassword] = useState("");
   const [SuccessMessage, SetSuccessMessage] = useState("");
   const [ErrorMessage, SetErrorMessage] = useState("");
 
@@ -18,6 +19,7 @@ function ShopAdminCreate() {
       'name': name,
       'email': email,
       'phone': phone,
+      'password': password,
       'address': address
     }
     try {
@@ -70,6 +72,17 @@ function ShopAdminCreate() {
                     placeholder="Enter Email"
                     className="w-full border border-gray-300 rounded px-2 py-1"
                     onChange={(e) => SetEmail(e.target.value)}
+                  />
+                </div>
+                <div className="password">
+                  <label htmlFor="password" className="block">Password:</label>
+                  <input
+                    type="text"
+                    id="password"
+                    name="password"
+                    placeholder="Enter password"
+                    className="w-full border border-gray-300 rounded px-2 py-1"
+                    onChange={(e) => SetPassword(e.target.value)}
                   />
                 </div>
                 <div className="phone">

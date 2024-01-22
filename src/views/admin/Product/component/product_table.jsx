@@ -21,6 +21,7 @@ const UpdateProduct = async function () {
 function ProductTable() {
   const [productelement, Setproductelement] = useState([]);
   const [pageNumber, SetPageNumber] = useState(0);
+  const shop_id = localStorage.getItem('shop_id');
   const productsElements = productData('http://localhost:8000/api/product', Setproductelement);
 
   // products pagination
@@ -29,6 +30,7 @@ function ProductTable() {
   const offset = pageNumber * ProductPerPage;
   const currentPageData = productelement.slice(offset, ProductPerPage + offset);
   console.log(currentPageData);
+  const filteredProducts = currentPageData.filter(product => product.shop_id == shop_id);
 
   const HandlePageNumber = ({ selected }) => {
     SetPageNumber(selected);
@@ -75,7 +77,7 @@ function ProductTable() {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {currentPageData.map((product, index) => (
+            {filteredProducts.map((product, index) => (
               <tr key={product.id}>
                 <td className="px-6 py-4 whitespace-nowrap">{index + 1}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{product.name}</td>
