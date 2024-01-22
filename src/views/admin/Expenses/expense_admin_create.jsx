@@ -28,8 +28,8 @@ function ProductAdmin() {
     const link_api = 'http://localhost:8000/api/shop-expense';
 
     const formData = new FormData();
-    formData.append('shop_id', shopId);
-    formData.append('expenses_id', expensesId);
+    formData.append('shop_id', productCategory);
+    formData.append('expenses_id', brandId);
 
     try {
       await axios.post(link_api, formData).then(response => {

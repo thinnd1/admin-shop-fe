@@ -52,7 +52,7 @@ function ProductAdmin() {
     formData.append('product_description', descriptionProduct);
     try {
       await axios.post(link_api, formData).then(response => {
-        console.log(response.data);
+        console.log("===============", response);
         if (response.data['status'] == 'ok') {
           window.location.href = '/shop/product/show';
         }
@@ -61,7 +61,11 @@ function ProductAdmin() {
         }
       })
     } catch (error) {
-      // console.error(error);
+      console.log("error = ", error.response.status)
+      if (error.response.status == 400) {
+        alert("Đăng quá số lần cho phép trong ngày !!");
+        window.location.href = '/shop/product/show';
+      }
     }
   }
 
