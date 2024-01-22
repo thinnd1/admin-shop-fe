@@ -48,6 +48,7 @@ function ProductAdmin() {
     formData.append('product_quantity', productQte);
     formData.append('product_category', productCategory);
     formData.append('brand_id', brandId);
+    formData.append('shop_id', localStorage.getItem('shop_id'));
     formData.append('product_description', descriptionProduct);
     try {
       await axios.post(link_api, formData).then(response => {
