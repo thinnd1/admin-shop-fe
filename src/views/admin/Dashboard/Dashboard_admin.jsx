@@ -1,6 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+
 
 function Dashboard_admin() {
+
+  const [totalSystem, setTotalSystem] = useState(null);
+  const [totalPrice, setTotalPrice] = useState(null);
+  const [newProductAdmin, setNewProductAdmin] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response1 = await fetch('http://127.0.0.1:8000/api/get-total-system');
+        const data1 = await response1.json();
+        console.log(" data 1", data1);
+        setTotalSystem(data1.data);
+
+        const response2 = await fetch('http://localhost:8000/api/get-total-price');
+        const data2 = await response2.json();
+        setTotalPrice(data2.order);
+
+        const response3 = await fetch('http://localhost:8000/api/get-new-product-admin');
+        const data3 = await response3.json();
+
+        setNewProductAdmin(data3.data.length);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+  }, []); // The empty dependency array ensures the effect runs only once on component mount
+
+
   return (
     <>
       <div className="px-4 pt-6">
@@ -9,7 +39,7 @@ function Dashboard_admin() {
           <div className="p-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
             <div className="flex items-center justify-between mb-4">
               <div className="flex-shrink-0">
-                <span className="text-xl font-bold leading-none text-gray-900 sm:text-2xl dark:text-white">$45,385</span>
+                <span className="text-xl font-bold leading-none text-gray-900 sm:text-2xl dark:text-white">${totalSystem}</span>
                 <h3 className="text-base font-light text-gray-500 dark:text-gray-400">Sales this week</h3>
               </div>
               <div className="flex items-center justify-end flex-1 text-base font-medium text-green-500 dark:text-green-400">
@@ -346,7 +376,7 @@ function Dashboard_admin() {
           <div className="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">
             <div className="w-full">
               <h3 className="text-base font-normal text-gray-500 dark:text-gray-400">New products</h3>
-              <span className="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white">2,340</span>
+              <span className="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white">{newProductAdmin}</span>
               <p className="flex items-center text-base font-normal text-gray-500 dark:text-gray-400">
                 <span className="flex items-center mr-1.5 text-sm text-green-500 dark:text-green-400">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -361,8 +391,8 @@ function Dashboard_admin() {
           </div>
           <div className="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">
             <div className="w-full">
-              <h3 className="text-base font-normal text-gray-500 dark:text-gray-400">Users</h3>
-              <span className="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white">2,340</span>
+              <h3 className="text-base font-normal text-gray-500 dark:text-gray-400">Total Shop Order</h3>
+              <span className="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white">{totalPrice}</span>
               <p className="flex items-center text-base font-normal text-gray-500 dark:text-gray-400">
                 <span className="flex items-center mr-1.5 text-sm text-green-500 dark:text-green-400">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -412,7 +442,7 @@ function Dashboard_admin() {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 export default Dashboard_admin;
